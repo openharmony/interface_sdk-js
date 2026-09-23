@@ -28,7 +28,6 @@
  * @since 8 dynamic
  */
 declare enum RefreshStatus {
-
   /**
    * The component is not pulled down. This is the default value.
    *
@@ -38,7 +37,7 @@ declare enum RefreshStatus {
    * @atomicservice [since 11]
    * @since 8 dynamic
    */
-  Inactive,
+  Inactive = 0,
 
   /**
    * The component is being pulled down, but the pull-down distance is shorter than the refresh threshold.
@@ -52,7 +51,7 @@ declare enum RefreshStatus {
    * @atomicservice [since 11]
    * @since 8 dynamic
    */
-  Drag,
+  Drag = 1,
 
   /**
    * The component is being pulled down, and the pull-down distance exceeds the refresh threshold.
@@ -66,7 +65,7 @@ declare enum RefreshStatus {
    * @atomicservice [since 11]
    * @since 8 dynamic
    */
-  OverDrag,
+  OverDrag = 2,
 
   /**
    * The pull-down ends, and the component rebounds to the minimum length required to trigger the refresh and enters the
@@ -78,7 +77,7 @@ declare enum RefreshStatus {
    * @atomicservice [since 11]
    * @since 8 dynamic
    */
-  Refresh,
+  Refresh = 3,
 
   /**
    * The refresh is complete, and the component returns to the initial state (at the top).
@@ -89,36 +88,36 @@ declare enum RefreshStatus {
    * @atomicservice [since 11]
    * @since 8 dynamic
    */
-  Done,
+  Done = 4
 }
 
 /**
  * Defines the options of the **Refresh** component.
  *
- * > **Supplementary Notes**
+ * > **NOTE**
  * >
- * > - If neither **builder** nor **refreshingContent** is set, the pull-down displacement effect is implemented by
- * > adjusting the [translate]{@link CommonMethod#translate(value: TranslateOptions)} attribute of the child component.
- * > During the pull-down process, the
+ * > - When neither **builder** nor **refreshingContent** is set, the pull-down displacement effect is implemented by
+ * > updating the [translate]{@link CommonMethod#translate(value: TranslateOptions)} attribute of the child component.
+ * > During the pull-down displacement, the
  * > [onAreaChange]{@link CommonMethod#onAreaChange(event: (oldValue: Area, newValue: Area) => void)} event of the child
  * > component is not triggered, and any changes made to the
  * > [translate]{@link CommonMethod#translate(value: TranslateOptions)} attribute of the child component do not take
  * > effect.
  * >
- * > - When **builder** or **refreshingContent** is set, the pull-down displacement effect is implemented by adjusting
- * > the position of the child component relative to the **Refresh** component. During the pull-down process, the
+ * > - When **builder** or **refreshingContent** is set, the pull-down displacement effect is implemented by updating
+ * > the position of the child component relative to the **Refresh** component. During the pull-down displacement, the
  * > [onAreaChange]{@link CommonMethod#onAreaChange(event: (oldValue: Area, newValue: Area) => void)} event of the child
  * > component can be triggered. However, if the [position]{@link CommonMethod#position} attribute is set for the child
  * > component, the position of the child component relative to the **Refresh** component is fixed, preventing the child
  * > component from moving down with the pull gesture.
  * >
- * > - If the width and height of a custom component set by **builder** are not specified, its dimensions will adapt to
- * > the child components. If the width is specified but the height is not, the height of the component is automatically
- * > adjusted according to the pull-down distance. If a custom component set by **refreshingContent** does not have a
- * > specified height, its height will also adapt to the pull-down distance. In such cases, as the pull-down distance
- * > increases, the height of the custom component will increase accordingly. When the custom component's height is set
- * > to a fixed value or reaches its maximum height limit, further increases in the pull-down distance will cause the
- * > spacing between the custom component and the top boundary of the **Refresh** component to widen.
+ * > - When the custom component set through the **builder** parameter has no width or height specified, its size adapts
+ * > to the child component. When the width is specified but the height is not, its height adapts to the pull-down
+ * > distance. If the custom component set through the **refreshingContent** parameter has no height specified, its
+ * > height also adapts to the pull-down distance. When the height of the custom component adapts to the pull-down
+ * > distance, the height of the component increases as the pull-down distance increases. When the height of the custom
+ * > component is set to a fixed value or adapts to the maximum height, the spacing between the custom component and the
+ * > top boundary of the **Refresh** component increases as the pull-down distance increases.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -127,7 +126,6 @@ declare enum RefreshStatus {
  * @since 8 dynamic
  */
 interface RefreshOptions {
-
   /**
    * Whether the component is being refreshed. The value **true** means that the component is being refreshed,
    * and **false** means the opposite.
@@ -203,7 +201,8 @@ interface RefreshOptions {
    * area, which may result in the height of the custom component changing to 0 along with the refreshing area. To
    * maintain the intended layout, configure a minimum height constraint for a custom component, which ensures that the
    * component's height does not fall below a certain threshold. For details about how to apply this constraint, see
-   * [Example 3](docroot://reference/apis-arkui/arkui-ts/ts-container-refresh.md#example-3-customizing-the-refreshing-area-content-with-builder).
+   * [Example 3](docroot://reference/apis-arkui/arkui-ts/ts-container-refresh.md#example-3-customizing-the-
+   * refreshing-area-content-with-builder).
    * Since API version 12, use **refreshingContent** instead of **builder** for customizing the content of the
    * refreshing area, to avoid animation interruptions caused by the destruction and re-creation of the custom component
    * during the refreshing process.
@@ -226,7 +225,8 @@ interface RefreshOptions {
    * area, which may result in the height of the custom component changing to 0 along with the refreshing area. To
    * maintain the intended layout, configure a minimum height constraint for a custom component, which ensures that the
    * component's height does not fall below a certain threshold. For details about how to apply this constraint, see
-   * [Example 4](docroot://reference/apis-arkui/arkui-ts/ts-container-refresh.md#example-4-customizing-the-refreshing-area-content-with-refreshingcontent).
+   * [Example 4](docroot://reference/apis-arkui/arkui-ts/ts-container-refresh.md#example-4-customizing-the-
+   * refreshing-area-content-with-refreshingcontent).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -238,27 +238,30 @@ interface RefreshOptions {
 }
 
 /**
- * The **Refresh** component is a container that provides the pull-to-refresh feature.
+ * **Refresh** is a container component that provides the pull-to-refresh interaction. It is suitable for scenarios
+ * where users need to trigger data updates, such as list data refresh and page content update.
  *
  * > **NOTE**
  * >
  * > - This component is supported since API version 8. Updates will be marked with a superscript to indicate their
  * > earliest API version.
  * >
- * > - Since API version 12, this component provides linkage with a vertically scrolling [Swiper]{@link swiper} and
- * > [Web](docroot://reference/apis-arkui/arkui-js/js-components-basic-web.md) components. When the
- * > [loop]{@link SwiperAttribute#loop} attribute of [Swiper]{@link swiper} is set to **true**, the **Refresh**
- * > component cannot provide linkage with [Swiper]{@link swiper}.
+ * > - Since API version 12, this component supports linkage with vertically scrolling [Swiper]{@link ./swiper} and
+ * > [Web](docroot://reference/apis-arkui/arkui-js/js-components-basic-web.md). When the
+ * > [loop]{@link SwiperAttribute#loop} attribute of [Swiper]{@link ./swiper} is set to **true**, **Refresh** cannot
+ * > link with [Swiper]{@link ./swiper}.
  * >
- * > - When the **Refresh** component is nested with a [List]{@link list} component whose content size is smaller than
- * > the component itself, and there are other components in between, gestures may be intercepted by the intermediate
- * > components, preventing the pull-to-refresh effect. In such cases, set the [alwaysEnabled]{@link EdgeEffectOptions}
- * > parameter to **true** to allow [List]{@link list} to respond to gestures and drive the **Refresh** component
- * > through nested scrolling for the pull-to-refresh effect. For details, see
- * > [Example 9: Implementing Pull-to-Refresh in the Non-Full-Screen Scenario](docroot://reference/apis-arkui/arkui-ts/ts-container-refresh.md#example-9-implementing-pull-to-refresh-in-the-non-full-screen-scenario).
+ * > - When the **Refresh** component is nested with a [List]{@link ./list} component whose content size is smaller
+ * > than the component itself, and there are other components in between, gestures may be intercepted by the
+ * > intermediate components, preventing the pull-to-refresh effect. In such cases, set the
+ * > [alwaysEnabled]{@link EdgeEffectOptions} parameter to **true** to allow [List]{@link ./list} to respond to gestures
+ * > and drive the **Refresh** component through nested scrolling for the pull-to-refresh effect. For details, see
+ * > [Example 9: Implementing Pull-to-Refresh in the Non-Full-Screen Scenario]
+ * > (docroot://reference/apis-arkui/arkui-ts/ts-container-refresh.md#example-9-implementing-pull-to-refresh-in-the-
+ * > non-full-screen-scenario).
  * >
- * > - The component has been bound with gestures to implement functions such as follow-up scrolling. If you need to add
- * > custom gestures, refer to [Gesture Blocking Enhancement]{@link common}.
+ * > - The component has built-in gestures for functions such as drag-follow scrolling. To add custom gesture
+ * > operations, refer to [Gesture Blocking Enhancement]{@link ./common}.
  * >
  * > - Pull-to-refresh cannot be triggered by mouse click-and-drag operations.
  *
@@ -286,9 +289,9 @@ interface RefreshInterface {
 }
 
 /**
- * In addition to the [universal attributes]{@link common}, the following attributes are supported.
+ * In addition to the [universal attributes]{@link ./common}, the following attributes are supported.
  *
- * In addition to the [universal events]{@link common}, the following events are supported.
+ * In addition to the [universal events]{@link ./common}, the following events are supported.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -298,7 +301,6 @@ interface RefreshInterface {
  * @noninterop
  */
 declare class RefreshAttribute extends CommonMethod<RefreshAttribute> {
-
   /**
    * Called when the refresh status changes.
    *
@@ -313,7 +315,10 @@ declare class RefreshAttribute extends CommonMethod<RefreshAttribute> {
   onStateChange(callback: (state: RefreshStatus) => void): RefreshAttribute;
 
   /**
-   * Called when the component starts refreshing.
+   * Triggered when the component enters the refresh state. It is equivalent to the case where **state** is **Refresh**
+   * in the **onStateChange** callback. If you only need to listen for the start of refresh, use **onRefreshing** for
+   * simplicity. If you need to track all refresh state changes (**Inactive**, **Drag**, **OverDrag**, **Refresh**,
+   * **Done**), use **onStateChange**.
    *
    * @param { function } callback - Callback triggered when the component enters the refresh state.
    * @returns { RefreshAttribute }
@@ -329,9 +334,9 @@ declare class RefreshAttribute extends CommonMethod<RefreshAttribute> {
    * Sets the minimum pull-down offset required to trigger a refresh. If the distance pulled down is less than the value
    * specified by this attribute, releasing the gesture does not trigger a refresh.
    *
-   * @param { number } value - Pull-down offset, in vp.<br>Default value: 96 vp when [promptText]{@link RefreshOptions}
-   *     is set and 64 vp when [promptText]{@link RefreshOptions} is not set.<br>If the value specified is 0 or less
-   *     than 0, the default value is used.
+   * @param { number } value - Pull-down offset, in vp.<br/>Value range: (0, +∞).<br/>Default value: 64 vp when the
+   *     [promptText]{@link RefreshOptions} parameter is not set, and 96 vp when the [promptText]{@link RefreshOptions}
+   *     parameter is set. <br/>If the value is **0** or a negative number, the default value is used.
    * @returns { RefreshAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -348,8 +353,10 @@ declare class RefreshAttribute extends CommonMethod<RefreshAttribute> {
    * If this API and [promptText]{@link RefreshOptions} are not set, the default offset is 64 vp. If
    * [promptText]{@link RefreshOptions} is set, the default offset is 96 vp.
    *
-   * @param { number | Resource } value - Pull-down offset.<br>Unit: vp<br>Value range: (0, +∞). If the value is 0 or a
-   *     negative number, the default value will be used.
+   * @param { number | Resource } value - Pull-down offset.<br/>Unit: vp<br/>Value range: (0, +∞).<br/>Default value: 64
+   *     vp when the [promptText]{@link RefreshOptions} parameter is not set, and 96vp when the
+   *     [promptText]{@link RefreshOptions} parameter is set.<br/>If the value is **0** or a negative number, the
+   *     default value is used.
    * @returns { RefreshAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -365,7 +372,8 @@ declare class RefreshAttribute extends CommonMethod<RefreshAttribute> {
    *
    * @param { boolean } value - Whether to initiate a refresh when the pull-down distance exceeds the value of
    *     [refreshOffset]{@link RefreshAttribute#refreshOffset(value: number)}. The value **true** means to initiate a
-   *     refresh, and **false** means the opposite.<br>Default value: **true**
+   *     refresh, and **false** means the opposite.
+   *     <br>Default value: **true**
    * @returns { RefreshAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -398,7 +406,8 @@ declare class RefreshAttribute extends CommonMethod<RefreshAttribute> {
    * > This API can be called within [attributeModifier]{@link CommonMethod#attributeModifier} since API version 20.
    *
    * @param { Callback<number> } callback - Callback used to listen for the pull-down distance changes. It is triggered
-   *     when the pull-down distance changes and returns the current pull-down distance.<br>Unit: vp
+   *     when the pull-down distance changes and returns the current pull-down distance.
+   *     <br>Unit: vp
    * @returns { RefreshAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -429,11 +438,11 @@ declare class RefreshAttribute extends CommonMethod<RefreshAttribute> {
   /**
    * Sets the maximum pull-down distance.
    *
-   * @param { Optional<number> } distance - Maximum pull-down distance. The minimum value for the maximum pull-down
-   *     distance is 0. Values less than 0 are treated as **0**. If this value is less than the refresh offset (
-   *     **refreshOffset**), the refresh action will not be triggered when the pull-down gesture is released.<br>If set
-   *     to **undefined** or **null**, this parameter is considered not set.<br>Default value: **undefined**.<br>Unit:
-   *     vp
+   * @param { Optional<number> } distance - Maximum pull-down distance.<br/>Value range:
+   *     [0, +∞). A value less than 0 is treated as 0. When this value is less than the pull-down offset
+   *     **refreshOffset** for refresh, releasing the pull-down gesture on **Refresh** does not trigger
+   *     refresh.<br/>**undefined** and **null** are treated as if this attribute is not set.<br/>Default value:
+   *     **undefined**<br/>Unit: vp
    * @returns { RefreshAttribute } The attribute of the Refresh.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -448,14 +457,15 @@ declare class RefreshAttribute extends CommonMethod<RefreshAttribute> {
    *
    * If this API is not set, the maximum pull-down distance is **undefined**.
    *
-   * @param { number | Resource | undefined } distance - Maximum pull-down distance.<br>Default value: **undefined**.<br
-   *     >Unit: vp<br>Value range:
-   *     [0, +∞). If the value is less than 0, **0** is used.
-   *     If this value is less than the
-   *     [refreshOffset](docroot://reference/apis-arkui/arkui-ts/ts-container-refresh.md#refreshoffset12),
-   *     the refresh action will not be triggered when the pull-down gesture is released.
-   *     <br>If this parameter is set to **undefined** or **null**,
-   *     it is considered that this attribute is not set, meaning there is no limit on the maximum pull-down distance.
+   * @param { number | Resource | undefined } distance - Maximum pull-down distance.
+   *     <br>Default value: **undefined**.
+   *     <br>Unit: vp
+   *     <br>Value range:
+   *     [0, +∞). If the value is less than 0, **0** is used. If this value is less than the
+   *     [refreshOffset]{@link RefreshAttribute#refreshOffset(value: number)}, the refresh action will not be
+   *     triggered when the pull-down gesture is released.
+   *     <br>If this parameter is set to **undefined** or **null**, it is considered that this attribute is not set,
+   *     meaning there is no limit on the maximum pull-down distance.
    * @returns { RefreshAttribute } The attribute of the Refresh.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -467,27 +477,30 @@ declare class RefreshAttribute extends CommonMethod<RefreshAttribute> {
 }
 
 /**
- * The **Refresh** component is a container that provides the pull-to-refresh feature.
+ * **Refresh** is a container component that provides the pull-to-refresh interaction. It is suitable for scenarios
+ * where users need to trigger data updates, such as list data refresh and page content update.
  *
  * > **NOTE**
  * >
  * > - This component is supported since API version 8. Updates will be marked with a superscript to indicate their
  * > earliest API version.
  * >
- * > - Since API version 12, this component provides linkage with a vertically scrolling [Swiper]{@link swiper} and
- * > [Web](docroot://reference/apis-arkui/arkui-js/js-components-basic-web.md) components. When the
- * > [loop]{@link SwiperAttribute#loop} attribute of [Swiper]{@link swiper} is set to **true**, the **Refresh**
- * > component cannot provide linkage with [Swiper]{@link swiper}.
+ * > - Since API version 12, this component supports linkage with vertically scrolling [Swiper]{@link ./swiper} and
+ * > [Web](docroot://reference/apis-arkui/arkui-js/js-components-basic-web.md). When the
+ * > [loop]{@link SwiperAttribute#loop} attribute of [Swiper]{@link ./swiper} is set to **true**, **Refresh** cannot
+ * > link with [Swiper]{@link ./swiper}.
  * >
- * > - When the **Refresh** component is nested with a [List]{@link list} component whose content size is smaller than
- * > the component itself, and there are other components in between, gestures may be intercepted by the intermediate
- * > components, preventing the pull-to-refresh effect. In such cases, set the [alwaysEnabled]{@link EdgeEffectOptions}
- * > parameter to **true** to allow [List]{@link list} to respond to gestures and drive the **Refresh** component
- * > through nested scrolling for the pull-to-refresh effect. For details, see
- * > [Example 9: Implementing Pull-to-Refresh in the Non-Full-Screen Scenario](docroot://reference/apis-arkui/arkui-ts/ts-container-refresh.md#example-9-implementing-pull-to-refresh-in-the-non-full-screen-scenario).
+ * > - When the **Refresh** component is nested with a [List]{@link ./list} component whose content size is smaller
+ * > than the component itself, and there are other components in between, gestures may be intercepted by the
+ * > intermediate components, preventing the pull-to-refresh effect. In such cases, set the
+ * > [alwaysEnabled]{@link EdgeEffectOptions} parameter to **true** to allow [List]{@link ./list} to respond to gestures
+ * > and drive the **Refresh** component through nested scrolling for the pull-to-refresh effect. For details, see
+ * > [Example 9: Implementing Pull-to-Refresh in the Non-Full-Screen Scenario]
+ * > (docroot://reference/apis-arkui/arkui-ts/ts-container-refresh.md#example-9-implementing-pull-to-refresh-in-the-
+ * > non-full-screen-scenario).
  * >
- * > - The component has been bound with gestures to implement functions such as follow-up scrolling. If you need to add
- * > custom gestures, refer to [Gesture Blocking Enhancement]{@link common}.
+ * > - The component has built-in gestures for functions such as drag-follow scrolling. To add custom gesture
+ * > operations, refer to [Gesture Blocking Enhancement]{@link ./common}.
  * >
  * > - Pull-to-refresh cannot be triggered by mouse click-and-drag operations.
  *
