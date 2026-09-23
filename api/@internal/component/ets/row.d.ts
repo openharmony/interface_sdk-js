@@ -20,11 +20,11 @@
 
 /**
  * Sets the spacing between child components of the **Row** component.
- * 
+ *
  * > **NOTE**
  * >
- * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18. 
- * > While starting version information is preserved for historical anonymous objects, there may be cases where the 
+ * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18.
+ * > While starting version information is preserved for historical anonymous objects, there may be cases where the
  * > outer element's @since version number is higher than inner element's. This does not affect interface usability.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -37,18 +37,18 @@
 declare interface RowOptions {
   /**
    * Spacing between child components in the horizontal layout.
-   * 
-   * Since API version 9, this attribute does not take effect when **space** is a negative number or **justifyContent** 
+   *
+   * Since API version 9, this attribute does not take effect when **space** is a negative number or **justifyContent**
    * is set to **FlexAlign.SpaceBetween**, **FlexAlign.SpaceAround**, or **FlexAlign.SpaceEvenly**.
-   * 
+   *
    * Default value: **0**
-   * 
+   *
    * Unit: vp
-   * 
+   *
    * Invalid value: the default value is used.
-   * 
+   *
    * **NOTE**
-   * 
+   *
    * The value of **space** is a number greater than or equal to 0, or a string that can be converted to a number.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -61,7 +61,7 @@ declare interface RowOptions {
 }
 
 /**
- * Sets the spacing between child components of the **Row** component. The spacing type **SpaceType** can be of the 
+ * Sets the spacing between child components of the **Row** component. The spacing type **SpaceType** can be of the
  * number, string, or Resource type.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -74,21 +74,21 @@ declare interface RowOptions {
 interface RowOptionsV2 {
   /**
    * Spacing between child components in the horizontal layout.
-   * 
+   *
    * Value range: greater than or equal to 0.
-   * 
-   * Since API version 9, this parameter does not take effect when **justifyContent** is set to 
+   *
+   * Since API version 9, this parameter does not take effect when **justifyContent** is set to
    * **FlexAlign.SpaceBetween**, **FlexAlign.SpaceAround**, or **FlexAlign.SpaceEvenly**.
-   * 
+   *
    * Default value: **0**
-   * 
+   *
    * Unit: vp
-   * 
+   *
    * Invalid value: the default value is used.
-   * 
+   *
    * **NOTE**
-   * 
-   * The value of **space** is a number greater than or equal to 0, a string that can be converted to a non-negative 
+   *
+   * The value of **space** is a number greater than or equal to 0, a string that can be converted to a non-negative
    * number, or a Resource type data that can be converted to a number. A negative number is treated as an invalid value
    * and the default value 0 is used.
    *
@@ -103,13 +103,13 @@ interface RowOptionsV2 {
 }
 
 /**
- * Defines a container that lays out child components horizontally. It supports setting the spacing between child 
- * components and the alignment mode, and is suitable for scenarios where multiple child components need to be arranged 
+ * Defines a container that lays out child components horizontally. It supports setting the spacing between child
+ * components and the alignment mode, and is suitable for scenarios where multiple child components need to be arranged
  * horizontally, such as toolbars, tab bars, and button groups.
- * 
+ *
  * > **NOTE**
  * >
- * > If no width or height is set for the **Row** component, it adapts to the size of child components in the main axis 
+ * > If no width or height is set for the **Row** component, it adapts to the size of child components in the main axis
  * > or cross axis direction.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -125,9 +125,9 @@ interface RowInterface {
    * 
    * > **NOTE**
    * >
-   * > When using multi-component nesting in complex UIs, if layout components are nested too deeply or too many 
-   * > components are nested, additional overhead will be incurred. It is recommended to optimize performance by 
-   * > removing redundant nodes, using layout boundaries to reduce layout calculations, and properly adopting rendering 
+   * > When using multi-component nesting in complex UIs, if layout components are nested too deeply or too many
+   * > components are nested, additional overhead will be incurred. It is recommended to optimize performance by
+   * > removing redundant nodes, using layout boundaries to reduce layout calculations, and properly adopting rendering
    * > control syntax and layout component methods.
    *
    * @param { object } value [since 7 - 17]
@@ -150,12 +150,12 @@ interface RowInterface {
 
   /**
    * Creates a horizontal linear layout container. You can set the spacing between child components.
-   * 
+   *
    * > **NOTE**
    * >
-   * > When using multi-component nesting in complex UIs, if layout components are nested too deeply or too many 
-   * > components are nested, additional overhead will be incurred. It is recommended to optimize performance by 
-   * > removing redundant nodes, using layout boundaries to reduce layout calculations, and properly adopting rendering 
+   * > When using multi-component nesting in complex UIs, if layout components are nested too deeply or too many
+   * > components are nested, additional overhead will be incurred. It is recommended to optimize performance by
+   * > removing redundant nodes, using layout boundaries to reduce layout calculations, and properly adopting rendering
    * > control syntax and layout component methods.
    *
    * @param { ?(RowOptions | RowOptionsV2) } options - Configuration object of the horizontal layout, used to set the
@@ -177,7 +177,7 @@ interface RowInterface {
 
 /**
  * In addition to the [universal attributes]{@link CommonMethod}, the following attributes are supported.
- * 
+ *
  * The [universal events]{@link CommonMethod} are supported.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -189,8 +189,8 @@ interface RowInterface {
  */
 declare class RowAttribute extends CommonMethod<RowAttribute> {
   /**
-   * Sets the alignment format of child components in the vertical direction. After this attribute is set, child 
-   * components are aligned in the specified manner in the vertical direction. By default, child components are 
+   * Sets the alignment format of child components in the vertical direction. After this attribute is set, child
+   * components are aligned in the specified manner in the vertical direction. By default, child components are
    * vertically centered.
    *
    * @param { VerticalAlign } value - Alignment format of child components in the vertical direction.
@@ -205,8 +205,8 @@ declare class RowAttribute extends CommonMethod<RowAttribute> {
   alignItems(value: VerticalAlign): RowAttribute;
 
   /**
-   * Sets the alignment format of child components in the horizontal direction. After this attribute is set, child 
-   * components are aligned in the specified manner in the horizontal direction. By default, child components are 
+   * Sets the alignment format of child components in the horizontal direction. After this attribute is set, child
+   * components are aligned in the specified manner in the horizontal direction. By default, child components are
    * aligned at the start.
    *
    * > **NOTE**
@@ -248,9 +248,9 @@ declare class RowAttribute extends CommonMethod<RowAttribute> {
    */
   pointLight(value: PointLightStyle): RowAttribute;
   /**
-   * Sets whether to reverse the arrangement order of child components in the horizontal direction. When set to 
-   * **true**, child components are arranged from right to left; when set to **false**, child components are arranged 
-   * from left to right. This is applicable to scenarios where the display order of child components needs to be 
+   * Sets whether to reverse the arrangement order of child components in the horizontal direction. When set to
+   * **true**, child components are arranged from right to left; when set to **false**, child components are arranged
+   * from left to right. This is applicable to scenarios where the display order of child components needs to be
    * dynamically adjusted, such as internationalization layout adaptation.
    *
    * > **NOTE**
@@ -281,17 +281,17 @@ declare class RowAttribute extends CommonMethod<RowAttribute> {
 }
 
 /**
- * Defines a container that lays out child components horizontally. It supports setting the spacing between child 
- * components and the alignment mode, and is suitable for scenarios where multiple child components need to be arranged 
+ * Defines a container that lays out child components horizontally. It supports setting the spacing between child
+ * components and the alignment mode, and is suitable for scenarios where multiple child components need to be arranged
  * horizontally, such as toolbars, tab bars, and button groups.
- * 
+ *
  * > **NOTE**
  * >
- * > If no width or height is set for the **Row** component, it adapts to the size of child components in the main axis 
+ * > If no width or height is set for the **Row** component, it adapts to the size of child components in the main axis
  * > or cross axis direction.
- * 
- * ###### Child Components
- * 
+ *
+ * ## Child Components
+ *
  * Supported
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full

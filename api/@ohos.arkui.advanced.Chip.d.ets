@@ -58,10 +58,10 @@ export declare enum ChipSize {
 }
 
 /**
- * Defines the selected state types that can be specified for **Chip**. This API is used to control how the 
- * accessibility service conveys the component's selected state to users. Different selected state types provide 
+ * Defines the selected state types that can be specified for **Chip**. This API is used to control how the
+ * accessibility service conveys the component's selected state to users. Different selected state types provide
  * different semantics and user experiences.
- * 
+ *
  * | Name| Value| Description|
  * | ---- | -- | ---- |
  * | CLICKED | 0 | Click type. The chip acts as a regular clickable component, without reporting any selected state to accessibility services. Use this type when the chip triggers an action but does not maintain a selected state.|
@@ -117,7 +117,7 @@ export declare enum AccessibilitySelectedType {
 
 /**
  * Defines the common icon options of the chip.
- * 
+ *
  * > **NOTE**
  * >
  * > **fillColor** and **activatedFillColor** take effect only when the icon format is SVG.
@@ -147,9 +147,9 @@ export interface IconCommonOptions {
    * 
    * Default value:
    * 
-   * - When **ChipOptions.size** is **ChipSize.SMALL**, the default value is 
+   * - When **ChipOptions.size** is **ChipSize.SMALL**, the default value is
    * **{width: $r('sys.float.chip_small_icon_size'), height: $r('sys.float.chip_small_icon_size')}**
-   * - When **ChipOptions.size** is **ChipSize.NORMAL**, the default value is 
+   * - When **ChipOptions.size** is **ChipSize.NORMAL**, the default value is
    * **{width: $r('sys.float.chip_normal_icon_size'), height: $r('sys.float.chip_normal_icon_size')}**
    * 
    * Unit: vp
@@ -210,7 +210,7 @@ export interface IconCommonOptions {
 export interface SuffixIconOptions extends IconCommonOptions {
 
   /**
-   * Callback for the suffix icon tap event, with no parameters and no return value. It is triggered when the user taps 
+   * Callback for the suffix icon tap event, with no parameters and no return value. It is triggered when the user taps
    * the suffix icon.
    * 
    * When the value is **undefined**, no suffix icon event is set.
@@ -224,9 +224,9 @@ export interface SuffixIconOptions extends IconCommonOptions {
   action?: () => void;
 
   /**
-   * Accessibility text attribute for the suffix icon. When the suffix icon does not contain a text attribute, the 
-   * screen reader does not announce it upon selection, and the user cannot clearly know whether the suffix icon is 
-   * currently selected. Developers can set accessibility text for such icons, which is announced by the screen reader 
+   * Accessibility text attribute for the suffix icon. When the suffix icon does not contain a text attribute, the
+   * screen reader does not announce it upon selection, and the user cannot clearly know whether the suffix icon is
+   * currently selected. Developers can set accessibility text for such icons, which is announced by the screen reader
    * upon selection.
    * 
    * Default value: **''**
@@ -242,11 +242,11 @@ export interface SuffixIconOptions extends IconCommonOptions {
   accessibilityText?: ResourceStr;
 
   /**
-   * Accessibility description for the suffix icon. This description is used to explain the suffix icon to users in 
-   * detail. Developers should provide a relatively detailed text description to help users understand the operation to 
-   * be performed and its possible consequences, especially when these consequences cannot be directly learned from the 
-   * suffix icon's attributes and accessibility text alone. If the suffix icon has both a text attribute and an 
-   * accessibility description attribute, when the suffix icon is selected, the system first announces the text 
+   * Accessibility description for the suffix icon. This description is used to explain the suffix icon to users in
+   * detail. Developers should provide a relatively detailed text description to help users understand the operation to
+   * be performed and its possible consequences, especially when these consequences cannot be directly learned from the
+   * suffix icon's attributes and accessibility text alone. If the suffix icon has both a text attribute and an
+   * accessibility description attribute, when the suffix icon is selected, the system first announces the text
    * attribute of the suffix icon, and then announces the content of the accessibility description attribute.
    * 
    * Default value: **''**
@@ -262,7 +262,7 @@ export interface SuffixIconOptions extends IconCommonOptions {
   accessibilityDescription?: ResourceStr;
 
   /**
-   * Accessibility level for the suffix icon. Controls whether the suffix icon can be recognized by accessibility 
+   * Accessibility level for the suffix icon. Controls whether the suffix icon can be recognized by accessibility
    * services.
    * 
    * Supported values:
@@ -273,7 +273,7 @@ export interface SuffixIconOptions extends IconCommonOptions {
    * 
    * **"no"**: The component cannot be recognized by accessibility services.
    * 
-   * **"no-hide-descendants"**: The component and all its child components cannot be recognized by accessibility 
+   * **"no-hide-descendants"**: The component and all its child components cannot be recognized by accessibility
    * services.
    * 
    * Default value: **"auto"**.
@@ -395,18 +395,18 @@ export interface AccessibilityOptions {
  */
 export interface CloseOptions extends AccessibilityOptions {
   /**
-   * Size of the default close icon of the **Chip** component. Percentage is not supported. If a percentage is passed, 
+   * Size of the default close icon of the **Chip** component. Percentage is not supported. If a percentage is passed,
    * the default value is used.
    * 
    * Default value:
    * 
-   * When **size** is **ChipSize.SMALL**, `$r('sys.float.chip_small_font_size')` 
+   * When **size** is **ChipSize.SMALL**, `$r('sys.float.chip_small_font_size')`
    * 
-   * Other cases: `$r('sys.float.chip_normal_font_size')` 
+   * Other cases: `$r('sys.float.chip_normal_font_size')`
    * 
    * Unit: fp
-   * 
-   * If a negative number is passed, the default value is used. If the value is **undefined**, the default value is 
+   *
+   * If a negative number is passed, the default value is used. If the value is **undefined**, the default value is
    * used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -507,7 +507,7 @@ export interface ChipSuffixSymbolGlyphOptions {
   /**
    * Callback for the suffix icon tap event, with no parameters and no return value. This callback is triggered when the
    * user taps the suffix icon.
-   * 
+   *
    * When the value is **undefined**, no suffix icon event is set.
    * 
    * Default value: **undefined**
@@ -641,14 +641,14 @@ export interface LocalizedLabelMarginOptions {
 
 /**
  * Defines text configuration options.
- * 
+ *
  * > **NOTE**
  * >
- * > Starting from API version 26.0.0, when **backgroundSystemMaterial** is set to an auto-invert system material, 
+ * > Starting from API version 26.0.0, when **backgroundSystemMaterial** is set to an auto-invert system material,
  * > **fontColor** uses a special system resource that supports color inversion, and the text color automatically adapts
  * > to the inverted color of the material background. When **activatedBackgroundSystemMaterial** is set to an auto-
- * > invert system material, **activatedFontColor** uses a special system resource that supports color inversion, and 
- * > the text color of the chip in the activated state automatically adapts to the inverted color of the material 
+ * > invert system material, **activatedFontColor** uses a special system resource that supports color inversion, and
+ * > the text color of the chip in the activated state automatically adapts to the inverted color of the material
  * > background.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -673,13 +673,13 @@ export interface LabelOptions {
 
   /**
    * Font size. Percentage is not supported. If a percentage is passed, the default value is used.
-   * 
+   *
    * If a negative value is passed, the default value is used.
    * 
    * Default value: **$r('sys.float.ohos_id_text_size_button2')**
    * 
    * Unit: fp
-   * 
+   *
    * When the value is **undefined**, the default value is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -786,32 +786,32 @@ export interface LabelOptions {
  * > **NOTE**
  * >
  * > 1. When **suffixSymbol** is provided with an argument, **suffixIcon** and **allowClose** will not take effect. If 
- * > **suffixSymbol** is not provided, but **suffixIcon** is, **allowClose** will not take effect. If neither 
+ * > **suffixSymbol** is not provided, but **suffixIcon** is, **allowClose** will not take effect. If neither
  * > **suffixSymbol** nor **suffixIcon** is provided, **allowClose** determines whether to display the close icon.
  * >
  * > 2. When **backgroundColor** and **activatedBackgroundColor** are set to **undefined**, the default background color
  * > is displayed. When they are set to invalid values, the background color is transparent.
  * >
- * > 3. When an icon is set for **prefixSymbol** or **suffixSymbol**, if the chip is in the inactive state, the icon 
+ * > 3. When an icon is set for **prefixSymbol** or **suffixSymbol**, if the chip is in the inactive state, the icon
  * > color **fontColor** is `[$r('sys.color.ohos_id_color_secondary')]`; if the chip is in the activated state, the icon
- * > color **fontColor** is `[$r('sys.color.ohos_id_color_text_primary_contrary')]`. In addition, when **size** is 
- * > **ChipSize.SMALL**, the default font size of the icon is `$r('sys.float.chip_small_icon_size')`; when **size** is 
+ * > color **fontColor** is `[$r('sys.color.ohos_id_color_text_primary_contrary')]`. In addition, when **size** is
+ * > **ChipSize.SMALL**, the default font size of the icon is `$r('sys.float.chip_small_icon_size')`; when **size** is
  * > **ChipSize.NORMAL** or a custom size, the default font size of the icon is `$r('sys.float.chip_normal_icon_size')`.
  * >
- * > 4. When icons are set for **prefixIcon** and **suffixIcon**, the default value of **fillColor** is 
- * > `$r('sys.color.chip_usually_icon_color')`. The color parsing of **fillColor** is consistent with that of the 
+ * > 4. When icons are set for **prefixIcon** and **suffixIcon**, the default value of **fillColor** is
+ * > `$r('sys.color.chip_usually_icon_color')`. The color parsing of **fillColor** is consistent with that of the
  * > **Image** component.
  * >
- * > 5. When icons are set for **prefixIcon** and **suffixIcon**, the default value of **activatedFillColor** is 
- * > `$r('sys.color.chip_active_icon_color')`. The color parsing of **activatedFillColor** is consistent with that of 
+ * > 5. When icons are set for **prefixIcon** and **suffixIcon**, the default value of **activatedFillColor** is
+ * > `$r('sys.color.chip_active_icon_color')`. The color parsing of **activatedFillColor** is consistent with that of
  * > the **Image** component.
  * >
- * > 6. Starting from API version 26.0.0, when **backgroundSystemMaterial** is configured as an auto-invert material, 
- * > the fill color of **prefixIcon** and **suffixIcon**, as well as the text color of **prefixSymbol** and 
- * > **suffixSymbol** in the inactive state, will use system resources that support color inversion. These colors will 
- * > automatically match the inversion effect based on the background material. When 
- * > **activatedBackgroundSystemMaterial** is configured as an auto-invert material, the activated fill color of 
- * > **prefixIcon** and **suffixIcon**, as well as the text color of **prefixSymbol** and **suffixSymbol** in the 
+ * > 6. Starting from API version 26.0.0, when **backgroundSystemMaterial** is configured as an auto-invert material,
+ * > the fill color of **prefixIcon** and **suffixIcon**, as well as the text color of **prefixSymbol** and
+ * > **suffixSymbol** in the inactive state, will use system resources that support color inversion. These colors will
+ * > automatically match the inversion effect based on the background material. When
+ * > **activatedBackgroundSystemMaterial** is configured as an auto-invert material, the activated fill color of
+ * > **prefixIcon** and **suffixIcon**, as well as the text color of **prefixSymbol** and **suffixSymbol** in the
  * > activated state, will also use system resources that support color inversion, achieving automatic adaptation to the
  * > background material inversion.
  *
@@ -841,7 +841,7 @@ export interface ChipOptions {
   prefixIcon?: PrefixIconOptions;
 
   /**
-   * Prefix icon attribute, of the symbol type. Commonly used in scenarios requiring system standard icons or dynamic 
+   * Prefix icon attribute, of the symbol type. Commonly used in scenarios requiring system standard icons or dynamic
    * icon effects.
    * 
    * Default value: No prefix icon is displayed
@@ -887,7 +887,7 @@ export interface ChipOptions {
   suffixIcon?: SuffixIconOptions;
 
   /**
-   * Suffix icon attribute, of the symbol type. Commonly used in scenarios requiring system standard icons or dynamic 
+   * Suffix icon attribute, of the symbol type. Commonly used in scenarios requiring system standard icons or dynamic
    * icon effects.
    * 
    * Default value: No suffix icon is displayed
@@ -927,9 +927,9 @@ export interface ChipOptions {
    * **true**: The close icon is displayed; **false**: The close icon is not displayed.
    * 
    * If the value is **undefined**, the default value is used.
-   * 
-   * **Note:** When **suffixSymbol** has a value passed in, **allowClose** does not take effect. When **suffixSymbol** 
-   * has no value passed in but **suffixIcon** does, **allowClose** does not take effect. When neither **suffixSymbol** 
+   *
+   * **Note:** When **suffixSymbol** has a value passed in, **allowClose** does not take effect. When **suffixSymbol**
+   * has no value passed in but **suffixIcon** does, **allowClose** does not take effect. When neither **suffixSymbol**
    * nor **suffixIcon** has a value passed in, **allowClose** determines whether the close icon is displayed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -941,8 +941,8 @@ export interface ChipOptions {
   allowClose?: boolean;
 
   /**
-   * Functional attributes of the default close icon, including accessibility reading and font size attributes. This 
-   * takes effect only when the default close icon is displayed, that is, when **allowClose** is **true** and neither 
+   * Functional attributes of the default close icon, including accessibility reading and font size attributes. This
+   * takes effect only when the default close icon is displayed, that is, when **allowClose** is **true** and neither
    * **suffixSymbol** nor **suffixIcon** has a value passed in.
    * 
    * If the value is **undefined**, the default value is used.
@@ -983,7 +983,7 @@ export interface ChipOptions {
    * **true**: The Chip is in the activated state; **false**: The Chip is in the non-activated state.
    * 
    * If the value is **undefined**, the default value is used.
-   * 
+   *
    * **Usage scenario**: Commonly used in tag selection scenarios to indicate the currently selected item.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -999,7 +999,7 @@ export interface ChipOptions {
    * 
    * Default value: **$r('sys.color.ohos_id_color_button_normal')**
    * 
-   * If the value is **undefined**, the default value is used. If an invalid value is assigned, the background color is 
+   * If the value is **undefined**, the default value is used. If an invalid value is assigned, the background color is
    * transparent.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1015,7 +1015,7 @@ export interface ChipOptions {
    * 
    * Default value: **$r('sys.color.ohos_id_color_emphasize')**
    * 
-   * If the value is **undefined**, the default value is used. If an invalid value is assigned, the background color is 
+   * If the value is **undefined**, the default value is used. If an invalid value is assigned, the background color is
    * transparent.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1027,13 +1027,13 @@ export interface ChipOptions {
   activatedBackgroundColor?: ResourceColor;
 
   /**
-   * Corner radius of the Chip background. Percentage is not supported. If a percentage is passed in, the default value 
+   * Corner radius of the Chip background. Percentage is not supported. If a percentage is passed in, the default value
    * is used.
-   * 
+   *
    * Value range: [0, +∞)
    * 
    * Default value: **$r('sys.float.ohos_id_corner_radius_button')**
-   * 
+   *
    * Unit: vp
    * 
    * If the value is **undefined**, the default value is used.
@@ -1051,12 +1051,12 @@ export interface ChipOptions {
    * 
    * Default value: **ChipSize.NORMAL**
    * 
-   * **Usage scenario**: **ChipSize.NORMAL** is suitable for common scenarios; **ChipSize.SMALL** is suitable for 
-   * compact layout scenarios, such as tag lists and filter bars; custom **SizeOptions** is suitable for scenarios 
+   * **Usage scenario**: **ChipSize.NORMAL** is suitable for common scenarios; **ChipSize.SMALL** is suitable for
+   * compact layout scenarios, such as tag lists and filter bars; custom **SizeOptions** is suitable for scenarios
    * requiring specific sizes.
    * 
    * The **SizeOptions** type does not support percentage settings. Abnormal values are processed as the default value.
-   * 
+   *
    * **Note:** [Aging adaptation](docroot://ui/arkui-support-for-aging-adaptation.md) does not take effect when **size**
    * specifies specific width and height, except when **size** is set to **{ height: 0, width: 0 }**.
    *
@@ -1069,12 +1069,12 @@ export interface ChipOptions {
   size?: ChipSize | SizeOptions;
 
   /**
-   * Default close icon tap event callback. It has no parameters or return value. This callback is triggered when the 
+   * Default close icon tap event callback. It has no parameters or return value. This callback is triggered when the
    * user taps the default close icon.
    * 
    * If the value is **undefined**, the close icon tap event is not triggered.
-   * 
-   * **Note:** This takes effect only when the close icon is displayed, that is, when neither **suffixSymbol** nor 
+   *
+   * **Note:** This takes effect only when the close icon is displayed, that is, when neither **suffixSymbol** nor
    * **suffixIcon** has a value passed in and **allowClose** is **true**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1105,8 +1105,8 @@ export interface ChipOptions {
     * Default value: **Direction.Auto**
     * 
     * If the value is **undefined**, the default value is used.
-    * 
-    * **Usage scenario**: Commonly used in internationalization scenarios to adapt to right-to-left (RTL) reading 
+    *
+    * **Usage scenario**: Commonly used in internationalization scenarios to adapt to right-to-left (RTL) reading
     * habits, such as Arabic, achieving a mirrored interface effect.
     *
     * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1118,11 +1118,11 @@ export interface ChipOptions {
    direction?: Direction;
 
   /**
-   * Accessibility description of the Chip component. This is used to explain the current component to users in detail. 
-   * Developers should provide detailed text descriptions to help users understand the operations to be performed and 
-   * their results, especially when these results cannot be directly learned from the component attributes and 
+   * Accessibility description of the Chip component. This is used to explain the current component to users in detail.
+   * Developers should provide detailed text descriptions to help users understand the operations to be performed and
+   * their results, especially when these results cannot be directly learned from the component attributes and
    * accessibility text alone. If a component has both a text attribute and an accessibility description attribute, when
-   * the component is selected, the system first reads out the text attribute of the component, followed by the content 
+   * the component is selected, the system first reads out the text attribute of the component, followed by the content
    * of the accessibility description attribute.
    * 
    * Default value: empty string
@@ -1138,7 +1138,7 @@ export interface ChipOptions {
   accessibilityDescription?: ResourceStr;
 
   /**
-   * Accessibility level of the Chip component. This parameter controls whether the Chip component can be recognized by 
+   * Accessibility level of the Chip component. This parameter controls whether the Chip component can be recognized by
    * accessibility services.
    * 
    * Supported values:
@@ -1149,7 +1149,7 @@ export interface ChipOptions {
    * 
    * **"no"**: The component cannot be recognized by accessibility services.
    * 
-   * **"no-hide-descendants"**: The component and all its child components cannot be recognized by accessibility 
+   * **"no-hide-descendants"**: The component and all its child components cannot be recognized by accessibility
    * services.
    * 
    * Default value: **"auto"**
@@ -1185,16 +1185,16 @@ export interface ChipOptions {
 
   /**
    * Maximum font scale factor for the text and icons of the **Chip** component.
-   * 
+   *
    * Value range: [1, +∞)
-   * 
+   *
    * If the set value is less than 1, the value 1 is used. Abnormal values do not take effect by default.
-   * 
+   *
    * Default value: **1**
-   * 
+   *
    * If the value is **undefined**, the default value is used.
-   * 
-   * **Usage scenario**: Suitable for accessibility scenarios where the upper limit of font scaling needs to be 
+   *
+   * **Usage scenario**: Suitable for accessibility scenarios where the upper limit of font scaling needs to be
    * restricted, preventing layout overflow caused by excessively large fonts.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1207,17 +1207,17 @@ export interface ChipOptions {
 
   /**
    * Minimum font scale factor for the text and icons of the **Chip** component.
-   * 
+   *
    * **Value range:** [0, 1]
-   * 
-   * If the set value is less than 0, the value 0 is used. If the set value is greater than 1, the value 1 is used. 
+   *
+   * If the set value is less than 0, the value 0 is used. If the set value is greater than 1, the value 1 is used.
    * Abnormal values do not take effect by default.
-   * 
+   *
    * Default value: **1**
-   * 
+   *
    * If the value is **undefined**, the default value is used.
-   * 
-   * **Usage scenario**: Suitable for scenarios where the lower limit of font scaling needs to be restricted, ensuring 
+   *
+   * **Usage scenario**: Suitable for scenarios where the lower limit of font scaling needs to be restricted, ensuring
    * text readability.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1233,13 +1233,13 @@ export interface ChipOptions {
    * 
    * Default values:
    * 
-   * - When **size** is **ChipSize.SMALL** and **activated** is **true**, the default value is: 
+   * - When **size** is **ChipSize.SMALL** and **activated** is **true**, the default value is:
    * `{ start: LengthMetrics.resource('sys.float.chip_activated_small_text_padding'), end: LengthMetrics.resource('sys.float.chip_activated_small_text_padding'), top: LengthMetrics.vp(4), bottom: LengthMetrics.vp(4)}`
-   * - When **size** is **ChipSize.SMALL** and **activated** is **false**, the default value is: 
+   * - When **size** is **ChipSize.SMALL** and **activated** is **false**, the default value is:
    * `{ start: LengthMetrics.resource('sys.float.chip_small_text_padding'), end: LengthMetrics.resource('sys.float.chip_small_text_padding'), top: LengthMetrics.vp(4), bottom: LengthMetrics.vp(4)}`
-   * - When **size** is not **ChipSize.SMALL** and **activated** is **true**, the default value is: 
+   * - When **size** is not **ChipSize.SMALL** and **activated** is **true**, the default value is:
    * `{ start: LengthMetrics.resource('sys.float.chip_activated_normal_text_padding'), end: LengthMetrics.resource('sys.float.chip_activated_normal_text_padding'), top: LengthMetrics.vp(4), bottom: LengthMetrics.vp(4)}`
-   * - When **size** is not **ChipSize.SMALL** and **activated** is **false**, the default value is: 
+   * - When **size** is not **ChipSize.SMALL** and **activated** is **false**, the default value is:
    * `{ start: LengthMetrics.resource('sys.float.chip_normal_text_padding'), end: LengthMetrics.resource('sys.float.chip_normal_text_padding'), top: LengthMetrics.vp(4), bottom: LengthMetrics.vp(4)}`
    * 
    * If the value is **undefined**, the default value is used.
@@ -1256,15 +1256,15 @@ export interface ChipOptions {
    * Uniform font size for the text and icons of the **Chip** component. Percentage is not supported. If a percentage is
    * passed in, the default value is used.
    * 
-   * The priority of this **fontSize** is lower than the **fontSize** attributes in **prefixSymbol**, **label**, 
+   * The priority of this **fontSize** is lower than the **fontSize** attributes in **prefixSymbol**, **label**,
    * **suffixSymbol**, and **closeOptions**.
    * 
    * Default values:
    * 
-   * - When **size** is **ChipSize.SMALL**, text: `$r('sys.float.chip_small_font_size')`; icon: 
+   * - When **size** is **ChipSize.SMALL**, text: `$r('sys.float.chip_small_font_size')`; icon:
    * `$r('sys.float.chip_small_icon_size')`
    * - In other cases, text: `$r('sys.float.chip_normal_font_size')`; icon: `$r('sys.float.chip_normal_icon_size')`
-   * 
+   *
    * Unit: fp
    * 
    * If the value is **undefined**, the default value is used.
@@ -1280,16 +1280,16 @@ export interface ChipOptions {
   /**
    * System material style of the component. It is suitable for scenarios such as immersive background effects and semi-
    * transparent frosted glass effects. Different materials have different effects and can affect visual attributes such
-   * as [backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)}, 
+   * as [backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)},
    * [border]{@link CommonMethod#border}, and [shadow]{@link CommonMethod#shadow(value: ShadowOptions | ShadowStyle)} of
    * the component.
-   * 
+   *
    * Default value: **undefined**
-   * 
+   *
    * If the value is **undefined**, no material style is applied.
-   * 
-   * **Note:** When **backgroundSystemMaterial** is set, **backgroundColor** should be set to **Color.Transparent**, 
-   * otherwise it will conflict with the system material. When **backgroundSystemMaterial** is **undefined**, the 
+   *
+   * **Note:** When **backgroundSystemMaterial** is set, **backgroundColor** should be set to **Color.Transparent**,
+   * otherwise it will conflict with the system material. When **backgroundSystemMaterial** is **undefined**, the
    * **backgroundColor** attribute takes effect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1302,18 +1302,18 @@ export interface ChipOptions {
 
   
   /**
-   * System material style of the component in the activated state. It is suitable for interactive scenarios where the 
-   * material effect needs to be maintained or switched in the activated state, such as tag selection and state 
-   * switching. Different materials have different effects and can affect visual attributes such as 
-   * [backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)}, [border]{@link CommonMethod#border}, 
+   * System material style of the component in the activated state. It is suitable for interactive scenarios where the
+   * material effect needs to be maintained or switched in the activated state, such as tag selection and state
+   * switching. Different materials have different effects and can affect visual attributes such as
+   * [backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)}, [border]{@link CommonMethod#border},
    * and [shadow]{@link CommonMethod#shadow(value: ShadowOptions | ShadowStyle)} of the component.
-   * 
+   *
    * Default value: **undefined**
-   * 
+   *
    * If the value is **undefined**, no material style is applied.
-   * 
-   * **Note:** When **activatedBackgroundSystemMaterial** is set, **activatedBackgroundColor** should be set to 
-   * **Color.Transparent**, otherwise it will conflict with the system material. When 
+   *
+   * **Note:** When **activatedBackgroundSystemMaterial** is set, **activatedBackgroundColor** should be set to
+   * **Color.Transparent**, otherwise it will conflict with the system material. When
    * **activatedBackgroundSystemMaterial** is **undefined**, the **activatedBackgroundColor** attribute takes effect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full

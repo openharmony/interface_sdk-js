@@ -19,7 +19,7 @@
  */
 
 /**
- * Describes the supported data types for the **space** parameter in the constructors of the **Column** component. The 
+ * Describes the supported data types for the **space** parameter in the constructors of the **Column** component. The
  * type is a union of the following types.
  *
  * @unionmember { string } The value type is string, and the value must be a string that can be converted to a non-
@@ -57,22 +57,22 @@ declare type SpaceType = string | number | Resource;
 interface ColumnOptions {
   /**
    * Vertical spacing between child components in the column layout.
-   * 
-   * If **space** is a negative number or [justifyContent]{@link ColumnAttribute#justifyContent} is set to 
-   * **FlexAlign.SpaceBetween**, **FlexAlign.SpaceAround**, or **FlexAlign.SpaceEvenly**, **space** does not take 
+   *
+   * If **space** is a negative number or [justifyContent]{@link ColumnAttribute#justifyContent} is set to
+   * **FlexAlign.SpaceBetween**, **FlexAlign.SpaceAround**, or **FlexAlign.SpaceEvenly**, **space** does not take
    * effect.
-   * 
+   *
    * Value range: [0, +∞)
-   * 
+   *
    * Default value: **0**
-   * 
+   *
    * Invalid value: handled as the default value.
-   * 
+   *
    * Unit: vp
-   * 
+   *
    * **NOTE**
-   * 
-   * The value of **space** is a number greater than or equal to 0, or a string that can be converted to a non-negative 
+   *
+   * The value of **space** is a number greater than or equal to 0, or a string that can be converted to a non-negative
    * number.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -85,7 +85,7 @@ interface ColumnOptions {
 }
 
 /**
- * Sets the spacing between child components of the **Column** component. The spacing type **SpaceType** can be number, 
+ * Sets the spacing between child components of the **Column** component. The spacing type **SpaceType** can be number,
  * string, or Resource.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -98,22 +98,22 @@ interface ColumnOptions {
 interface ColumnOptionsV2 {
   /**
    * Vertical spacing between elements in the column layout.
-   * 
-   * If **space** is a negative number or [justifyContent]{@link ColumnAttribute#justifyContent} is set to 
-   * **FlexAlign.SpaceBetween**, **FlexAlign.SpaceAround**, or **FlexAlign.SpaceEvenly**, **space** does not take 
+   *
+   * If **space** is a negative number or [justifyContent]{@link ColumnAttribute#justifyContent} is set to
+   * **FlexAlign.SpaceBetween**, **FlexAlign.SpaceAround**, or **FlexAlign.SpaceEvenly**, **space** does not take
    * effect.
-   * 
+   *
    * Value range: [0, +∞)
-   * 
+   *
    * Default value: **0**
-   * 
+   *
    * Unit: vp
-   * 
+   *
    * Invalid value: The default value is used.
-   * 
+   *
    * **NOTE**
-   * 
-   * The value of **space** is a number greater than or equal to 0, a string that can be converted to a non-negative 
+   *
+   * The value of **space** is a number greater than or equal to 0, a string that can be converted to a non-negative
    * number, or a Resource type that can be converted to a number.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -127,14 +127,14 @@ interface ColumnOptionsV2 {
 }
 
 /**
- * A container that lays out child components along the vertical direction. It is suitable for scenarios where multiple 
+ * A container that lays out child components along the vertical direction. It is suitable for scenarios where multiple
  * child components need to be arranged sequentially in the vertical direction, such as list items, form items, and card
- * content. It supports setting attributes such as child component spacing and alignment, enabling quick implementation 
+ * content. It supports setting attributes such as child component spacing and alignment, enabling quick implementation
  * of vertical linear layout.
- * 
+ *
  * > **NOTE**
  * >
- * > If no height or width is set for the **Column** component, it adapts to the size of child components in the main 
+ * > If no height or width is set for the **Column** component, it adapts to the size of child components in the main
  * > axis (vertical direction) or cross axis (horizontal direction).
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -150,9 +150,9 @@ interface ColumnInterface {
    * 
    * > **NOTE**
    * >
-   * > When using multi-component nesting in complex UIs, if layout components are nested too deeply or too many 
-   * > components are nested, additional overhead will be incurred. It is recommended to optimize performance by 
-   * > removing redundant nodes, using layout boundaries to reduce layout calculations, and properly adopting rendering 
+   * > When using multi-component nesting in complex UIs, if layout components are nested too deeply or too many
+   * > components are nested, additional overhead will be incurred. It is recommended to optimize performance by
+   * > removing redundant nodes, using layout boundaries to reduce layout calculations, and properly adopting rendering
    * > control syntax and layout component methods.
    *
    * @param { object } value [since 7 - 17]
@@ -171,12 +171,12 @@ interface ColumnInterface {
   (options?: ColumnOptions): ColumnAttribute;
   /**
    * Creates a vertical linear layout container. You can set the spacing between child components.
-   * 
+   *
    * > **NOTE**
    * >
-   * > When using multi-component nesting in complex UIs, if layout components are nested too deeply or too many 
-   * > components are nested, additional overhead will be incurred. It is recommended to optimize performance by 
-   * > removing redundant nodes, using layout boundaries to reduce layout calculations, and properly adopting rendering 
+   * > When using multi-component nesting in complex UIs, if layout components are nested too deeply or too many
+   * > components are nested, additional overhead will be incurred. It is recommended to optimize performance by
+   * > removing redundant nodes, using layout boundaries to reduce layout calculations, and properly adopting rendering
    * > control syntax and layout component methods.
    *
    * @param { ColumnOptions | ColumnOptionsV2 } [options] - Spacing configuration options of the **Column** component.
@@ -286,18 +286,18 @@ declare class ColumnAttribute extends CommonMethod<ColumnAttribute> {
 }
 
 /**
- * A container that lays out child components along the vertical direction. It is suitable for scenarios where multiple 
+ * A container that lays out child components along the vertical direction. It is suitable for scenarios where multiple
  * child components need to be arranged sequentially in the vertical direction, such as list items, form items, and card
- * content. It supports setting attributes such as child component spacing and alignment, enabling quick implementation 
+ * content. It supports setting attributes such as child component spacing and alignment, enabling quick implementation
  * of vertical linear layout.
- * 
+ *
  * > **NOTE**
  * >
- * > If no height or width is set for the **Column** component, it adapts to the size of child components in the main 
+ * > If no height or width is set for the **Column** component, it adapts to the size of child components in the main
  * > axis (vertical direction) or cross axis (horizontal direction).
- * 
- * ###### Child Components
- * 
+ *
+ * ## Child Components
+ *
  * Supported
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full

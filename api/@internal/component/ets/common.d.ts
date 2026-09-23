@@ -19634,7 +19634,7 @@ declare class CommonMethod<T> {
    * > - When a component extends into a non-safe area, events in the non-safe area, such as click events, may be
    * > intercepted by the system and preferentially responded to by system components such as the status bar.
    * >
-   
+
  * > - It is not recommended to set the **expandSafeArea** attribute on components in a scrollable
  * > container. If it is
    * > set, the **expandSafeArea** attribute must be set on all direct nodes from the current node to the scrollable
@@ -20654,7 +20654,7 @@ declare class CommonMethod<T> {
    * Sets the border.
    * > **NOTE**
    * >
-   * > When neither **color** nor **radius** is specified, set borderColor and borderRadius after 
+   * > When neither **color** nor **radius** is specified, set borderColor and borderRadius after
    * > border to ensure they take effect.
    *
    * @param { BorderOptions } value - Unified border style setting API.<br>The default border width is **0**, that is,
@@ -26106,15 +26106,15 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    *
    * @param { number | string | Resource } value - Opacity of the fill area. <br>
    *     **NOTE**
-   * 
+   *
    *     The value range of the number format is [0.0, 1.0]. If the given value is less than 0.0, the value is
    *     0.0; if the given value is greater than 1.0, the value is 1.0. Other abnormal values are processed as 1.0.
    *     The string format supports the string form of the number format value, and the value range is the same
    *     as that of the number format.
-   *     
+   *
    *     The Resource format supports strings in system resources or app resources, and the value range is the
    *     same as that of the number format.
-   *     
+   *
    *     The abnormal value NaN is processed as 0.0, and undefined, null, and Infinity are processed as 1.0.
    *     Default value: 1.0
    * @returns { T }
@@ -26174,7 +26174,7 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @param { Array<any> } value - Array that defines the dashed pattern of the Rect stroke. The array elements
    *     alternately represent the segment length and gap length. <br>
    *     Default value: [] (empty array) <br>
-   *     Default unit: vp <br> 
+   *     Default unit: vp <br>
    *     The abnormal values undefined and null are processed as the default value. <br>
    *     **NOTE**
    *     Empty array: solid line <br>

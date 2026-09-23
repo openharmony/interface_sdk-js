@@ -20,10 +20,10 @@
 
 /**
  * The **Divider** component is used to separate content blocks and content elements.
- * 
+ *
  * > **NOTE**
  * >
- * > If the divider appears with inconsistent thickness or becomes invisible, follow the instructions in 
+ * > If the divider appears with inconsistent thickness or becomes invisible, follow the instructions in
  * > [FAQs](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-pixelRoundForComponent.md#faqs).
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -49,7 +49,7 @@ interface DividerInterface {
 
 /**
  * In addition to the [universal attributes]{@link CommonMethod}, the following attributes are supported.
- * 
+ *
  * The [universal events]{@link CommonMethod} are supported.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -61,7 +61,7 @@ interface DividerInterface {
  */
 declare class DividerAttribute extends CommonMethod<DividerAttribute> {
   /**
-   * Sets the direction of the divider. This attribute can be dynamically set using 
+   * Sets the direction of the divider. This attribute can be dynamically set using
    * [attributeModifier]{@link CommonMethod#attributeModifier}.
    *
    * @param { boolean } value - Whether the divider is vertical or horizontal.
@@ -79,7 +79,7 @@ declare class DividerAttribute extends CommonMethod<DividerAttribute> {
   vertical(value: boolean): DividerAttribute;
 
   /**
-   * Sets the color of the divider. This attribute can be dynamically set using 
+   * Sets the color of the divider. This attribute can be dynamically set using
    * [attributeModifier]{@link CommonMethod#attributeModifier}.
    *
    * @param { ResourceColor } value - Color of the divider.
@@ -96,19 +96,19 @@ declare class DividerAttribute extends CommonMethod<DividerAttribute> {
   color(value: ResourceColor): DividerAttribute;
 
   /**
-   * Sets the stroke width of the divider. This attribute can be dynamically set using 
+   * Sets the stroke width of the divider. This attribute can be dynamically set using
    * [attributeModifier]{@link CommonMethod#attributeModifier}.
-   * 
+   *
    * > **NOTE**
    * >
    * > - The width of the divider cannot be in percentage.
    * >
-   * > - When a horizontal divider is used, **strokeWidth** controls the height, and its priority is lower than that of 
-   * > the universal attribute [height]{@link CommonMethod#height(value: Length)}. When a vertical divider is used, 
-   * > **strokeWidth** controls the width, and its priority is lower than that of the universal attribute 
+   * > - When a horizontal divider is used, **strokeWidth** controls the height, and its priority is lower than that of
+   * > the universal attribute [height]{@link CommonMethod#height(value: Length)}. When a vertical divider is used,
+   * > **strokeWidth** controls the width, and its priority is lower than that of the universal attribute
    * > [width]{@link CommonMethod#width(value: Length)}.
    * >
-   * > - If the size exceeds the value set by the universal attribute, the divider is clipped based on the universal 
+   * > - If the size exceeds the value set by the universal attribute, the divider is clipped based on the universal
    * > attribute.
    * >
    * > - If the divider is not displayed due to 1-pixel rounding on the device hardware, 2 pixels are recommended.
@@ -125,7 +125,7 @@ declare class DividerAttribute extends CommonMethod<DividerAttribute> {
   strokeWidth(value: number | string): DividerAttribute;
 
   /**
-   * Sets the line cap style of the divider. This attribute can be dynamically set using 
+   * Sets the line cap style of the divider. This attribute can be dynamically set using
    * [attributeModifier]{@link CommonMethod#attributeModifier}.
    *
    * @param { LineCapStyle } value - Line cap style of the divider.
@@ -143,14 +143,14 @@ declare class DividerAttribute extends CommonMethod<DividerAttribute> {
 
 /**
  * The **Divider** component is used to separate content blocks and content elements.
- * 
+ *
  * > **NOTE**
  * >
- * > If the divider appears with inconsistent thickness or becomes invisible, follow the instructions in 
+ * > If the divider appears with inconsistent thickness or becomes invisible, follow the instructions in
  * > [FAQs](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-pixelRoundForComponent.md#faqs).
- * 
- * ###### Child Components
- * 
+ *
+ * ## Child Components
+ *
  * Not supported
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full

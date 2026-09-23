@@ -20,7 +20,7 @@
 
 /**
  * Enumerates video seek modes.
- * 
+ *
  * | Name | Value | Description |
  * | ---------------- |--| ---------------------------- |
  * | PreviousKeyframe |0| Seeks to the nearest keyframe before the current playback position. |
@@ -215,9 +215,9 @@ declare enum PlaybackSpeed {
 interface FullscreenInfo {
   /**
    * Whether the current video enters full-screen playback.
-   * 
+   *
    * The value **true** indicates that the video enters full-screen playback, and **false** indicates the opposite.
-   * 
+   *
    * Default value: **false**
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -247,9 +247,9 @@ interface FullscreenInfo {
 interface PreparedInfo {
   /**
    * Duration of the current video.
-   * 
+   *
    * Unit: s
-   * 
+   *
    * Value range: [0,+∞)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -267,7 +267,7 @@ interface PreparedInfo {
  * > **NOTE**
  * >
  * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18. 
- * > While the initial version information of historical anonymous objects is preserved, there may be cases where the 
+ * > While the initial version information of historical anonymous objects is preserved, there may be cases where the
  * > outer element's @since version number is higher than inner element's. This does not affect interface usability.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -322,7 +322,7 @@ declare interface PosterOptions {
 
   /**
    * Transition effect when the preview image content of the current video changes. This field does not take effect when
-   * **showFirstFrame** is set to true (that is, first-frame display is enabled) or when no valid **previewUri** is 
+   * **showFirstFrame** is set to true (that is, first-frame display is enabled) or when no valid **previewUri** is
    * configured in the [VideoOptions object]{@link VideoOptions}.
    * 
    * Default value: **ContentTransitionEffect.IDENTITY**
@@ -352,7 +352,7 @@ declare interface VideoOptions {
   /**
    * Data source of the video, which supports local videos and network videos.
    * 
-   * The Resource format can access resource files across packages or modules and is commonly used to access local 
+   * The Resource format can access resource files across packages or modules and is commonly used to access local
    * videos.
    * 
    * - Only resources in the rawfile directory are supported, that is, video files referenced through $rawfile.
@@ -361,9 +361,9 @@ declare interface VideoOptions {
    * 
    * - Network video URLs are supported. For details about the formats supported by network video URLs, see
    * [Formats Supported by Streaming Media](docroot://media/media/streaming-media-playback-development-guide.md#formats-supported-by-streaming-media).
-   * - Strings with the file:// path prefix are supported, that is, the app sandbox URI (see 
-   * [uriOrPath]{@link @ohos.file.fileuri:fileUri.FileUri#constructor}): **file://<bundleName>/<sandboxPath>**. It is 
-   * used to read resources in the app sandbox path. Ensure that the files in the directory package path have read 
+   * - Strings with the file:// path prefix are supported, that is, the app sandbox URI (see
+   * [uriOrPath]{@link @ohos.file.fileuri:fileUri.FileUri#constructor}): **file://<bundleName>/<sandboxPath>**. It is
+   * used to read resources in the app sandbox path. Ensure that the files in the directory package path have read
    * permission.
    * 
    * Default value: empty string
@@ -371,7 +371,7 @@ declare interface VideoOptions {
    * Abnormal value: processed as the default value.
    * 
    * **NOTE**
-   * 
+   *
    * The supported video formats are mp4, mkv, and TS.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -387,17 +387,17 @@ declare interface VideoOptions {
    * 
    * **NOTE**
    * 
-   * The number format supports only the following values: 0.75, 1.0, 1.25, 1.75, and 2.0. Since API version 22, the 
-   * values 0.5, 1.5, 3, 0.25, and 0.125 are also supported. Since API version 26.0.0, the supported value range is 
+   * The number format supports only the following values: 0.75, 1.0, 1.25, 1.75, and 2.0. Since API version 22, the
+   * values 0.5, 1.5, 3, 0.25, and 0.125 are also supported. Since API version 26.0.0, the supported value range is
    * [0.125, 8].
    * 
-   * The string format supports the string forms of the number values: "0.75", "1.0", "1.25", "1.75", and "2.0". Since 
+   * The string format supports the string forms of the number values: "0.75", "1.0", "1.25", "1.75", and "2.0". Since
    * API version 22, the values "0.5", "1.5", "3", "0.25", and "0.125" are also supported.
    * 
    * Other values, such as "abc" or "1.5+1.5", are processed as abnormal values.
    * 
    * Default value: **1.0 | PlaybackSpeed.Speed_Forward_1_00_X**
-   * 
+   *
    * Abnormal value: processed as the default value.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -416,9 +416,9 @@ declare interface VideoOptions {
    * - Network image URLs are supported.
    * - Relative paths are supported for referencing local images, for example, **previewUri: "common/test.jpg"**. When a
    * relative path is used to reference a local image, cross-package or cross-module calls are not supported.
-   * - Strings with the file:// path prefix are supported, that is, the app sandbox URI (see 
-   * [uriOrPath]{@link @ohos.file.fileuri:fileUri.FileUri#constructor}): **file://<bundleName>/<sandboxPath>**. It is 
-   * used to read resources in the app sandbox path. Ensure that the files in the directory package path have read 
+   * - Strings with the file:// path prefix are supported, that is, the app sandbox URI (see
+   * [uriOrPath]{@link @ohos.file.fileuri:fileUri.FileUri#constructor}): **file://<bundleName>/<sandboxPath>**. It is
+   * used to read resources in the app sandbox path. Ensure that the files in the directory package path have read
    * permission.
    * 
    * The Resource format can access resource files across packages or modules.
@@ -439,9 +439,9 @@ declare interface VideoOptions {
   previewUri?: string | PixelMap | Resource;
 
   /**
-   * Video controller, which can control the playback state of the video. When **controllerAsync** is set, the 
+   * Video controller, which can control the playback state of the video. When **controllerAsync** is set, the
    * **controller** parameter does not take effect.
-   * 
+   *
    * Default value: no video controller is set.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -453,9 +453,9 @@ declare interface VideoOptions {
   controller?: VideoController;
   
   /**
-   * Asynchronous video controller, which can control the playback state of the video and obtain the return result 
+   * Asynchronous video controller, which can control the playback state of the video and obtain the return result
    * through a promise. When **controllerAsync** is set, **controller** is ignored.
-   * 
+   *
    * Default value: empty
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -467,9 +467,9 @@ declare interface VideoOptions {
   controllerAsync?: VideoControllerAsync;
 
   /**
-   * Image AI analysis options, which can configure the analysis type or bind an analysis controller. After 
-   * configuration, the image AI analysis function is enabled, and the analysis process can be controlled through the 
-   * analysis controller. Pass this parameter when the AI analysis function is required. If it is not passed, the AI 
+   * Image AI analysis options, which can configure the analysis type or bind an analysis controller. After
+   * configuration, the image AI analysis function is enabled, and the analysis process can be controlled through the
+   * analysis controller. Pass this parameter when the AI analysis function is required. If it is not passed, the AI
    * analysis function is disabled by default.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -480,8 +480,8 @@ declare interface VideoOptions {
   imageAIOptions?: ImageAIOptions;
 
   /**
-   * First-frame display options for video playback, which can control whether the video supports first-frame display. 
-   * Pass this parameter when the first-frame display function needs to be enabled. If it is not passed, first-frame 
+   * First-frame display options for video playback, which can control whether the video supports first-frame display.
+   * Pass this parameter when the first-frame display function needs to be enabled. If it is not passed, first-frame
    * display is disabled by default.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -502,9 +502,9 @@ declare interface VideoOptions {
  */
 /**
  * A **VideoController** object can control one or more **Video** components.
- * 
+ *
  * ###### Objects to Import
- * 
+ *
  * ```ts
  * let controller: VideoController = new VideoController();
  * ```
@@ -565,7 +565,7 @@ declare class VideoController {
    * 
    * > **NOTE**
    * >
-   * > To start playback from a specific time point in the video, disable autoplay, and seek to the target position 
+   * > To start playback from a specific time point in the video, disable autoplay, and seek to the target position
    * > before playing after the video is prepared.
    *
    * @param { number } value - Video playback progress position.
@@ -616,10 +616,10 @@ declare class VideoController {
 
   /**
    * Sets the video playback position with the specified seek mode.
-   * 
+   *
    * > **NOTE**
    * >
-   * > To start playback from a specific time point in the video, disable autoplay, and seek to the target position 
+   * > To start playback from a specific time point in the video, disable autoplay, and seek to the target position
    * > before playing after the video is prepared.
    *
    * @param { number } value - Video playback position.
@@ -638,7 +638,7 @@ declare class VideoController {
   setCurrentTime(value: number, seekMode: SeekMode);
 
   /**
-   * Resets the video player. The current frame is displayed, and playback starts from the beginning when it is played 
+   * Resets the video player. The current frame is displayed, and playback starts from the beginning when it is played
    * again.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -651,20 +651,20 @@ declare class VideoController {
 }
 
 /**
- * **VideoControllerAsync** is the asynchronous version of **VideoController**. It can obtain the results of some 
- * playback control commands through a promise. It does not support controlling multiple **Video** components at the 
+ * **VideoControllerAsync** is the asynchronous version of **VideoController**. It can obtain the results of some
+ * playback control commands through a promise. It does not support controlling multiple **Video** components at the
  * same time.
- * 
+ *
  * > **NOTE**
  * >
- * > **VideoControllerAsync** provides the execution results of commands. Compared with **VideoController**, playback 
- * > control commands such as [start]{@link VideoController#start}, [pause]{@link VideoController#pause}, 
+ * > **VideoControllerAsync** provides the execution results of commands. Compared with **VideoController**, playback
+ * > control commands such as [start]{@link VideoController#start}, [pause]{@link VideoController#pause},
  * > [stop]{@link VideoController#stop}, and [reset]{@link VideoControllerAsync#reset} are executed asynchronously. They
- * > return immediately after the request without blocking the current thread, and the execution results can be 
+ * > return immediately after the request without blocking the current thread, and the execution results can be
  * > processed through the **then** and **catch** methods of the promise.
- * 
+ *
  * ###### Objects to Import
- * 
+ *
  * ```ts
  * let controllerAsync: VideoControllerAsync = new VideoControllerAsync();
  * ```
@@ -688,7 +688,7 @@ declare class VideoControllerAsync {
   constructor();
   /**
    * Starts video playback. This API uses a promise to return the result.
-   * 
+   *
    * Calling **start()** before the video is prepared (before the [onPrepared]{@link VideoAttribute#onPrepared} callback
    * is received) will fail.
    *
@@ -701,9 +701,9 @@ declare class VideoControllerAsync {
    */
   start(): Promise<void>;
   /**
-   * Pauses video playback. The current frame is displayed, and playback resumes from the current position when it is 
+   * Pauses video playback. The current frame is displayed, and playback resumes from the current position when it is
    * played again. This API uses a promise to return the result.
-   * 
+   *
    * This method can be called only in the playing state. Calling **pause()** in other states will fail.
    *
    * @returns { Promise<void> } Promise that returns no value.
@@ -715,7 +715,7 @@ declare class VideoControllerAsync {
    */
   pause(): Promise<void>;
   /**
-   * Stops video playback. The current frame is displayed, and playback starts from the beginning when it is played 
+   * Stops video playback. The current frame is displayed, and playback starts from the beginning when it is played
    * again. This API uses a promise to return the result.
    *
    * @returns { Promise<void> } Promise that returns no value.
@@ -728,11 +728,11 @@ declare class VideoControllerAsync {
   stop(): Promise<void>;
   /**
    * Requests full-screen playback. If this API is not called, full-screen playback is not requested by default.
-   * 
+   *
    * > **NOTE**
    * >
-   * > The full-screen function built into the **Video** component only sets the video content to full screen and 
-   * > displays the default controller. It cannot display a custom title or controller. To implement other functions, 
+   * > The full-screen function built into the **Video** component only sets the video content to full screen and
+   * > displays the default controller. It cannot display a custom title or controller. To implement other functions,
    * > you need to implement the full-screen function by yourself.
    *
    * @param { boolean } value - Whether to play in full screen (fill the app window).
@@ -756,10 +756,10 @@ declare class VideoControllerAsync {
   exitFullscreen();
   /**
    * Sets the playback position of the video, with an optional seek mode.
-   * 
+   *
    * > **NOTE**
    * >
-   * > To start playback from a specific time point in the video, disable autoplay, and seek to the target position 
+   * > To start playback from a specific time point in the video, disable autoplay, and seek to the target position
    * > before playing after the video is prepared.
    *
    * @param { double } value - Video playback progress position.
@@ -778,7 +778,7 @@ declare class VideoControllerAsync {
    */
   setCurrentTime(value: double, seekMode?: SeekMode);
   /**
-   * Resets the video player. The current frame is displayed, and playback starts from the beginning when it is played 
+   * Resets the video player. The current frame is displayed, and playback starts from the beginning when it is played
    * again. This API uses a promise to return the result.
    *
    * @returns { Promise<void> } Promise that returns no value.
@@ -794,17 +794,17 @@ declare class VideoControllerAsync {
 /**
  * The **Video** component is used to play a video and control its playback state. It supports playback, pause, progress
  * control, playback speed, full-screen switching, and other functions.
- * 
+ *
  * > **NOTE**
  * >
  * >
- * > The **Video** component provides only simple video playback and cannot support complex video playback control 
- * > scenarios. For complex development scenarios, you are advised to use the 
- * > [AVPlayer]{@link @ohos.multimedia.media:media.AVPlayer} playback control API and the 
+ * > The **Video** component provides only simple video playback and cannot support complex video playback control
+ * > scenarios. For complex development scenarios, you are advised to use the
+ * > [AVPlayer]{@link @ohos.multimedia.media:media.AVPlayer} playback control API and the
  * > [XComponent]{@link ./xcomponent} component.
  * > <br>
  * >
- * > When the **Video** component uses [expandSafeArea]{@link CommonMethod#expandSafeArea} to expand the safe area, the 
+ * > When the **Video** component uses [expandSafeArea]{@link CommonMethod#expandSafeArea} to expand the safe area, the
  * > video display content area of the component cannot be expanded.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -829,7 +829,7 @@ interface VideoInterface {
 
 /**
  * In addition to the [universal attributes]{@link CommonMethod}, the following attributes are supported.
- * 
+ *
  * In addition to the [universal events]{@link CommonMethod}, the following events are supported.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -840,7 +840,7 @@ interface VideoInterface {
  */
 declare class VideoAttribute extends CommonMethod<VideoAttribute> {
   /**
-   * Sets whether to mute the video. This attribute can be dynamically set using 
+   * Sets whether to mute the video. This attribute can be dynamically set using
    * [attributeModifier]{@link CommonMethod#attributeModifier}.
    *
     * > **NOTE**
@@ -861,7 +861,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
   muted(value: boolean): VideoAttribute;
 
   /**
-   * Sets whether to enable autoplay. This attribute can be dynamically set using 
+   * Sets whether to enable autoplay. This attribute can be dynamically set using
    * [attributeModifier]{@link CommonMethod#attributeModifier}.
    *
    * @param { boolean } value - Whether to enable autoplay.
@@ -877,7 +877,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
   autoPlay(value: boolean): VideoAttribute;
 
   /**
-   * Sets whether to display the video playback control bar. This attribute can be dynamically set using 
+   * Sets whether to display the video playback control bar. This attribute can be dynamically set using
    * [attributeModifier]{@link CommonMethod#attributeModifier}.
    *
     * > **NOTE**
@@ -902,7 +902,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
   controls(value: boolean): VideoAttribute;
 
   /**
-   * Sets whether to loop the video. This attribute can be dynamically set using 
+   * Sets whether to loop the video. This attribute can be dynamically set using
    * [attributeModifier]{@link CommonMethod#attributeModifier}.
    *
    * @param { boolean } value - Whether to loop a single video.
@@ -918,7 +918,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
   loop(value: boolean): VideoAttribute;
 
   /**
-   * Sets the fill mode for the video content. This attribute can be dynamically set using 
+   * Sets the fill mode for the video content. This attribute can be dynamically set using
    * [attributeModifier]{@link CommonMethod#attributeModifier}.
    *
    * @param { ImageFit } value - Video fill mode.
@@ -937,7 +937,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
   objectFit(value: ImageFit): VideoAttribute;
 
   /**
-   * Triggered when playback starts. This attribute supports dynamic setting through 
+   * Triggered when playback starts. This attribute supports dynamic setting through
    * [attributeModifier]{@link CommonMethod#attributeModifier}.
    *
    * @param { function } event - Callback triggered when video playback starts. [since 7 - 17]
@@ -952,7 +952,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
   onStart(event: VoidCallback): VideoAttribute;
 
   /**
-   * Triggered when video playback is paused. Dynamic property modification using 
+   * Triggered when video playback is paused. Dynamic property modification using
    * [attributeModifier]{@link CommonMethod#attributeModifier} is supported.
    *
    * @param { function } event - Callback invoked when video playback is paused. [since 7 - 17]
@@ -967,7 +967,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
   onPause(event: VoidCallback): VideoAttribute;
 
   /**
-   * Triggered when video playback is finished. Dynamic property modification using 
+   * Triggered when video playback is finished. Dynamic property modification using
    * [attributeModifier]{@link CommonMethod#attributeModifier} is supported.
    *
    * @param { function } event - Callback invoked when video playback is finished. [since 7 - 17]
@@ -982,7 +982,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
   onFinish(event: VoidCallback): VideoAttribute;
 
   /**
-   * Triggered when video playback is switched between full-screen mode and non-full-screen mode. Dynamic property 
+   * Triggered when video playback is switched between full-screen mode and non-full-screen mode. Dynamic property
    * modification using [attributeModifier]{@link CommonMethod#attributeModifier} is supported.
    *
    * @param { function } callback - Callback invoked when switching between full-screen playback and non-full-screen
@@ -999,7 +999,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
   onFullscreenChange(callback: Callback<FullscreenInfo>): VideoAttribute;
 
   /**
-   * Triggered when video preparation is complete. Dynamic property modification using 
+   * Triggered when video preparation is complete. Dynamic property modification using
    * [attributeModifier]{@link CommonMethod#attributeModifier} is supported.
    *
    * @param { function } callback - Callback invoked when video preparation is complete. [since 7 - 17]
@@ -1014,7 +1014,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
   onPrepared(callback: Callback<PreparedInfo>): VideoAttribute;
 
   /**
-   * Triggered to report the time information while seeking is in progress (the progress bar is being dragged). Dynamic 
+   * Triggered to report the time information while seeking is in progress (the progress bar is being dragged). Dynamic
    * property modification using [attributeModifier]{@link CommonMethod#attributeModifier} is supported.
    *
    * @param { function } callback - Callback invoked when the progress bar is operated. [since 7 - 17]
@@ -1029,7 +1029,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
   onSeeking(callback: Callback<PlaybackInfo>): VideoAttribute;
 
   /**
-   * Triggered to report the time information while seeking is completed. Dynamic property modification using 
+   * Triggered to report the time information while seeking is completed. Dynamic property modification using
    * [attributeModifier]{@link CommonMethod#attributeModifier} is supported.
    *
    * @param { function } callback - Callback invoked when the operation progress bar is completed. [since 7 - 17]
@@ -1045,7 +1045,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
   onSeeked(callback: Callback<PlaybackInfo>): VideoAttribute;
 
   /**
-   * Triggered when playback progress changes. Dynamic property modification using 
+   * Triggered when playback progress changes. Dynamic property modification using
    * [attributeModifier]{@link CommonMethod#attributeModifier} is supported.
    *
    * @param { function } callback - Callback invoked when the playback progress changes. [since 7 - 17]
@@ -1060,9 +1060,9 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
   onUpdate(callback: Callback<PlaybackInfo>): VideoAttribute;
 
   /**
-   * Triggered when video playback fails. Dynamic property modification using 
+   * Triggered when video playback fails. Dynamic property modification using
    * [attributeModifier]{@link CommonMethod#attributeModifier} is supported.
-   * 
+   *
    * > **NOTE**
    * >
    * > This API can be called within [attributeModifier]{@link CommonMethod#attributeModifier} since API version 20.
@@ -1087,7 +1087,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
   onError(event: VoidCallback | import('../api/@ohos.base').ErrorCallback): VideoAttribute;
 
   /**
-   * Triggered when the video playback is stopped (after **stop()** is called). Dynamic property modification using 
+   * Triggered when the video playback is stopped (after **stop()** is called). Dynamic property modification using
    * [attributeModifier]{@link CommonMethod#attributeModifier} is supported.
    *
    * @param { Callback<void> } event - Callback invoked when video playback stops.
@@ -1101,16 +1101,16 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
   onStop(event: Callback<void>): VideoAttribute;
 
   /**
-   * Sets whether to enable the AI image analyzer, which supports subject recognition, text recognition, and object 
+   * Sets whether to enable the AI image analyzer, which supports subject recognition, text recognition, and object
    * lookup. This attribute can be dynamically set using [attributeModifier]{@link CommonMethod#attributeModifier}.
-   * 
-   * After this feature is enabled, the video automatically enters an analysis state to process the current frame when 
+   *
+   * After this feature is enabled, the video automatically enters an analysis state to process the current frame when
    * playback is paused, and exits the analysis state when playback is resumed.
-   * 
-   * This attribute cannot be used together with the [overlay]{@link CommonMethod#overlay} attribute. If both are set, 
-   * the [CustomBuilder](docroot://reference/apis-arkui/arkui-ts/ts-types.md#custombuilder8) attribute in 
+   *
+   * This attribute cannot be used together with the [overlay]{@link CommonMethod#overlay} attribute. If both are set,
+   * the [CustomBuilder](docroot://reference/apis-arkui/arkui-ts/ts-types.md#custombuilder8) attribute in
    * [overlay]{@link CommonMethod#overlay} becomes invalid.
-   * 
+   *
     * > **NOTE**
     * >
     * > This API can be called within [attributeModifier]{@link CommonMethod#attributeModifier} since API version 20.
@@ -1137,9 +1137,9 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
   enableAnalyzer(enable: boolean): VideoAttribute;
  
   /**
-   * Sets the AI image analysis types, including subject recognition, text recognition, and object lookup. This 
+   * Sets the AI image analysis types, including subject recognition, text recognition, and object lookup. This
    * attribute can be dynamically set using [attributeModifier]{@link CommonMethod#attributeModifier}.
-   * 
+   *
    * > **NOTE**
    * >
    * > This API can be called within [attributeModifier]{@link CommonMethod#attributeModifier} since API version 20.
@@ -1169,11 +1169,11 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
   surfaceBackgroundColor(color: ColorMetrics): VideoAttribute;
 
   /**
-   * Sets whether the component responds to keyboard shortcuts when it has focus. This attribute can be dynamically set 
+   * Sets whether the component responds to keyboard shortcuts when it has focus. This attribute can be dynamically set
    * using [attributeModifier]{@link CommonMethod#attributeModifier}.
-   * 
+   *
    * Currently, the component can respond to the following keys when it is in focus: spacebar for playing or pausing the
-   * video, up or down arrow key for adjusting the video volume, and left or right arrow key for fast forwarding or 
+   * video, up or down arrow key for adjusting the video volume, and left or right arrow key for fast forwarding or
    * rewinding the video.
    *
     * > **NOTE**
@@ -1197,26 +1197,26 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
 /**
  * The **Video** component is used to play a video and control its playback state. It supports playback, pause, progress
  * control, playback speed, full-screen switching, and other functions.
- * 
+ *
  * > **NOTE**
  * >
  * >
- * > The **Video** component provides only simple video playback and cannot support complex video playback control 
- * > scenarios. For complex development scenarios, you are advised to use the 
- * > [AVPlayer]{@link @ohos.multimedia.media:media.AVPlayer} playback control API and the 
+ * > The **Video** component provides only simple video playback and cannot support complex video playback control
+ * > scenarios. For complex development scenarios, you are advised to use the
+ * > [AVPlayer]{@link @ohos.multimedia.media:media.AVPlayer} playback control API and the
  * > [XComponent]{@link ./xcomponent} component.
  * > <br>
  * >
- * > When the **Video** component uses [expandSafeArea]{@link CommonMethod#expandSafeArea} to expand the safe area, the 
+ * > When the **Video** component uses [expandSafeArea]{@link CommonMethod#expandSafeArea} to expand the safe area, the
  * > video display content area of the component cannot be expanded.
- * 
+ *
  * ###### Required Permissions
- * 
- * To use online videos, you must apply for the ohos.permission.INTERNET permission. For details about how to apply for 
+ *
+ * To use online videos, you must apply for the ohos.permission.INTERNET permission. For details about how to apply for
  * a permission, see [Declaring Permissions](docroot://security/AccessToken/declare-permissions.md).
- * 
- * ###### Child Components
- * 
+ *
+ * ## Child Components
+ *
  * Not supported
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full

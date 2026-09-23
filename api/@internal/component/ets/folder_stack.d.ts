@@ -29,9 +29,9 @@
 declare type WindowStatusType = import('../api/@ohos.window').default.WindowStatusType;
 
 /**
- * Configuration object for the **FolderStack** hover status, which describes the information about child components 
+ * Configuration object for the **FolderStack** hover status, which describes the information about child components
  * that need to be moved to the upper screen in hover status.
- * 
+ *
  * > **NOTE**
  * >
  * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18. 
@@ -49,8 +49,8 @@ interface FolderStackOptions {
    * Array of IDs of child components that will be moved to the upper half-screen in hover status.
    * 
    * Default value: **[]**
-   * 
-   * When hover is triggered, the child components in the **upperItems** array automatically avoid the foldable screen 
+   *
+   * When hover is triggered, the child components in the **upperItems** array automatically avoid the foldable screen
    * crease area and move to the upper half-screen, while other components are stacked in the lower half-screen area.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -64,21 +64,21 @@ interface FolderStackOptions {
 
 /**
  * **FolderStack** extends the [Stack]{@link ./stack} container, adding the <!--RP1-->foldable screen hover<!--RP1End-->
- * capability. By setting child component IDs in the **upperItems** array of the 
- * [FolderStackOptions]{@link FolderStackOptions} configuration, the corresponding child components automatically avoid 
+ * capability. By setting child component IDs in the **upperItems** array of the
+ * [FolderStackOptions]{@link FolderStackOptions} configuration, the corresponding child components automatically avoid
  * the fold crease area and move to the upper screen. **FolderStack** is designed for the hover status scenario of dual-
- * fold devices, such as video playback and video conferencing apps, where the video image automatically moves to the 
- * upper screen while the control panel remains on the lower screen. This component addresses the adaptation challenges 
- * of dual-fold devices, delivering benefits such as improved user experience and simplified layout adaptation for 
+ * fold devices, such as video playback and video conferencing apps, where the video image automatically moves to the
+ * upper screen while the control panel remains on the lower screen. This component addresses the adaptation challenges
+ * of dual-fold devices, delivering benefits such as improved user experience and simplified layout adaptation for
  * developers.
- * 
+ *
  * > **NOTE**
  * >
- * > - The hover capability of this component is designed for <!--RP2-->dual-fold<!--RP2End--> devices and takes effect 
+ * > - The hover capability of this component is designed for <!--RP2-->dual-fold<!--RP2End--> devices and takes effect
  * > only on dual-fold devices. You can use [FoldStatus]{@link FoldStatus} to determine the fold status of the device.
  * >
- * > - When the parent component of this component is an 
- * > [if/else: conditional rendering](docroot://ui/rendering-control/arkts-rendering-control-ifelse.md) node, the 
+ * > - When the parent component of this component is an
+ * > [if/else: conditional rendering](docroot://ui/rendering-control/arkts-rendering-control-ifelse.md) node, the
  * > foldable screen hover capability becomes invalid.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -90,8 +90,8 @@ interface FolderStackOptions {
  */
 interface FolderStackInterface {
   /**
-   * A foldable screen hover layout container that extends [Stack]{@link ./stack}. It implements the foldable screen 
-   * hover capability through the **upperItems** configuration. When the device is in hover status, the specified child 
+   * A foldable screen hover layout container that extends [Stack]{@link ./stack}. It implements the foldable screen
+   * hover capability through the **upperItems** configuration. When the device is in hover status, the specified child
    * components automatically move to the upper screen, while other components are stacked on the lower screen.
    *
    * @param { object } value - id of children need to be show in upperItem [since 11 - 17]
@@ -181,9 +181,9 @@ declare type OnHoverStatusChangeCallback = (param: HoverEventParam) => void;
 declare class FolderStackAttribute extends CommonMethod<FolderStackAttribute> {
   /**
    * Sets the alignment of child components in the container. After this attribute is set, child components are arranged
-   * in the container according to the specified alignment. When both this attribute and 
+   * in the container according to the specified alignment. When both this attribute and
    * [align]{@link CommonMethod#align(value: Alignment)} are set, whichever is set last takes effect.
-   * 
+   *
    * > **NOTE**
    * >
    * > This API can be called within [attributeModifier]{@link CommonMethod#attributeModifier} since API version 12.
@@ -202,12 +202,12 @@ declare class FolderStackAttribute extends CommonMethod<FolderStackAttribute> {
   alignContent(value: Alignment): FolderStackAttribute;
 
   /**
-   * Triggered when the fold status of the current device changes <!--RP3-->(This callback takes effect only in 
+   * Triggered when the fold status of the current device changes <!--RP3-->(This callback takes effect only in
    * landscape mode.)<!--RP3End-->.
-   * 
-   * Typical usage: Adjust the app layout based on the fold status, for example, displaying a two-column layout in the 
+   *
+   * Typical usage: Adjust the app layout based on the fold status, for example, displaying a two-column layout in the
    * expanded state and adjusting the content distribution between the upper and lower screens in the half-fold status.
-   * 
+   *
    * > **NOTE**
    * >
    * > This API can be called within [attributeModifier]{@link CommonMethod#attributeModifier} since API version 20.
@@ -226,10 +226,10 @@ declare class FolderStackAttribute extends CommonMethod<FolderStackAttribute> {
 
   /**
    * Triggered when the hover status of the current device changes.
-   * 
-   * Typical usage: Adjust the app layout and interaction logic based on the hover status, for example, optimizing the 
+   *
+   * Typical usage: Adjust the app layout and interaction logic based on the hover status, for example, optimizing the
    * content display on the upper and lower screens in hover mode.
-   * 
+   *
    * > **NOTE**
    * >
    * > This API can be called within [attributeModifier]{@link CommonMethod#attributeModifier} since API version 20.
@@ -246,9 +246,9 @@ declare class FolderStackAttribute extends CommonMethod<FolderStackAttribute> {
   onHoverStatusChange(handler: OnHoverStatusChangeCallback): FolderStackAttribute;
 
   /**
-   * Sets whether to use the default animation effect. After this attribute is set, the default hover animation effect 
+   * Sets whether to use the default animation effect. After this attribute is set, the default hover animation effect
    * of **FolderStack** is enabled or disabled.
-   * 
+   *
    * > **NOTE**
    * >
    * > This API can be called within [attributeModifier]{@link CommonMethod#attributeModifier} since API version 12.
@@ -268,12 +268,12 @@ declare class FolderStackAttribute extends CommonMethod<FolderStackAttribute> {
 
   /**
    * Sets whether to enable auto-rotation for the **FolderStack** component in half-fold status. When the system auto-
-   * rotate switch is turned off, this attribute controls whether **FolderStack** performs auto-rotation in half-fold 
+   * rotate switch is turned off, this attribute controls whether **FolderStack** performs auto-rotation in half-fold
    * status.
-   * 
+   *
    * Typical usage: When the user has turned off the auto-rotate function in system settings, the app layout orientation
    * can still be automatically adjusted based on the fold status when the foldable device is in half-fold status.
-   * 
+   *
    * > **NOTE**
    * >
    * > This API can be called within [attributeModifier]{@link CommonMethod#attributeModifier} since API version 12.
@@ -346,25 +346,25 @@ declare interface HoverEventParam {
 }
 /**
  * **FolderStack** extends the [Stack]{@link ./stack} container, adding the <!--RP1-->foldable screen hover<!--RP1End-->
- * capability. By setting child component IDs in the **upperItems** array of the 
- * [FolderStackOptions]{@link FolderStackOptions} configuration, the corresponding child components automatically avoid 
+ * capability. By setting child component IDs in the **upperItems** array of the
+ * [FolderStackOptions]{@link FolderStackOptions} configuration, the corresponding child components automatically avoid
  * the fold crease area and move to the upper screen. **FolderStack** is designed for the hover status scenario of dual-
- * fold devices, such as video playback and video conferencing apps, where the video image automatically moves to the 
- * upper screen while the control panel remains on the lower screen. This component addresses the adaptation challenges 
- * of dual-fold devices, delivering benefits such as improved user experience and simplified layout adaptation for 
+ * fold devices, such as video playback and video conferencing apps, where the video image automatically moves to the
+ * upper screen while the control panel remains on the lower screen. This component addresses the adaptation challenges
+ * of dual-fold devices, delivering benefits such as improved user experience and simplified layout adaptation for
  * developers.
- * 
+ *
  * > **NOTE**
  * >
- * > - The hover capability of this component is designed for <!--RP2-->dual-fold<!--RP2End--> devices and takes effect 
+ * > - The hover capability of this component is designed for <!--RP2-->dual-fold<!--RP2End--> devices and takes effect
  * > only on dual-fold devices. You can use [FoldStatus]{@link FoldStatus} to determine the fold status of the device.
  * >
- * > - When the parent component of this component is an 
- * > [if/else: conditional rendering](docroot://ui/rendering-control/arkts-rendering-control-ifelse.md) node, the 
+ * > - When the parent component of this component is an
+ * > [if/else: conditional rendering](docroot://ui/rendering-control/arkts-rendering-control-ifelse.md) node, the
  * > foldable screen hover capability becomes invalid.
- * 
- * ###### Child Components
- * 
+ *
+ * ## Child Components
+ *
  * Multiple child components are supported.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full

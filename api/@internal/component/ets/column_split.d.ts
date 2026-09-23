@@ -20,8 +20,8 @@
 
 /**
  * The **ColumnSplit** component lays out child components vertically and inserts a horizontal divider between every two
- * child components. It is suitable for scenarios that require a vertical multi-area layout with dynamic area resizing, 
- * such as dashboard UIs and adjustable top-bottom split layouts. Through draggable dividers, users can flexibly adjust 
+ * child components. It is suitable for scenarios that require a vertical multi-area layout with dynamic area resizing,
+ * such as dashboard UIs and adjustable top-bottom split layouts. Through draggable dividers, users can flexibly adjust
  * the height of each area, enhancing UI interactivity and user experience.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -45,14 +45,14 @@ interface ColumnSplitInterface {
 
 /**
  * Sets the distance between the child component and the upper and lower dividers.
- * 
+ *
  * > **NOTE**
  * >
- * > Similar to [RowSplit]{@link ./row_split}, the dividers of **ColumnSplit** adjust the height of adjacent child 
- * > components. However, this adjustment is only applied to the extent that the resulting height stays within the 
+ * > Similar to [RowSplit]{@link ./row_split}, the dividers of **ColumnSplit** adjust the height of adjacent child
+ * > components. However, this adjustment is only applied to the extent that the resulting height stays within the
  * > height limits of the child components.
  * >
- * > Universal attributes such as [clip]{@link CommonMethod#clip(value: boolean)} and 
+ * > Universal attributes such as [clip]{@link CommonMethod#clip(value: boolean)} and
  * > [margin]{@link CommonMethod#margin} are supported. If **clip** is not set, the default value **true** is used.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -63,14 +63,14 @@ interface ColumnSplitInterface {
  */
 interface ColumnSplitDividerStyle {
   /**
-   * Distance between the child component and the divider above it. This spacing can be adjusted (for example, to 
+   * Distance between the child component and the divider above it. This spacing can be adjusted (for example, to
    * prevent content from overlapping with the divider or to improve layout aesthetics).
-   * 
+   *
    * Default value: **0vp**
-   * 
+   *
    * Value range: negative values are not supported.
-   * 
-   * Illegal value: treated as the default value, in which case the attribute value obtained by the 
+   *
+   * Illegal value: treated as the default value, in which case the attribute value obtained by the
    * [getInspectorByKey()](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-component-id.md#getinspectorbykey9)
    * API is **undefined**.
    *
@@ -84,14 +84,14 @@ interface ColumnSplitDividerStyle {
   startMargin?: Dimension;
 
   /**
-   * Distance between the child component and the divider below it. This spacing can be adjusted (for example, to 
+   * Distance between the child component and the divider below it. This spacing can be adjusted (for example, to
    * prevent content from overlapping with the divider or to improve layout aesthetics).
-   * 
+   *
    * Default value: **0vp**
-   * 
+   *
    * Value range: negative values are not supported.
-   * 
-   * Illegal value: treated as the default value, in which case the attribute value obtained by the 
+   *
+   * Illegal value: treated as the default value, in which case the attribute value obtained by the
    * [getInspectorByKey()](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-component-id.md#getinspectorbykey9)
    * API is **undefined**.
    *
@@ -111,7 +111,7 @@ interface ColumnSplitDividerStyle {
  * > **NOTE**
  * >
  * > The default value of [shape clipping]{@link CommonMethod#clip(value: boolean)} of the **ColumnSplit** component is **true**.
- * 
+ *
  * The [universal events]{@link ./common} are supported.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -122,15 +122,15 @@ interface ColumnSplitDividerStyle {
  */
 declare class ColumnSplitAttribute extends CommonMethod<ColumnSplitAttribute> {
   /**
-   * Sets whether the divider can be dragged. When set to **true**, the user can drag the divider to adjust the height 
-   * of adjacent child components. When set to **false**, the divider cannot be dragged and the child component height 
+   * Sets whether the divider can be dragged. When set to **true**, the user can drag the divider to adjust the height
+   * of adjacent child components. When set to **false**, the divider cannot be dragged and the child component height
    * is fixed.
-   * 
+   *
    * > **NOTE**
    * >
-   * > After initialization, when dynamic modification of the [margin]{@link CommonMethod#margin}, 
+   * > After initialization, when dynamic modification of the [margin]{@link CommonMethod#margin},
    * > [border]{@link CommonMethod#border}, or [padding]{@link CommonMethod#padding} universal attributes causes a child
-   * > component size to exceed the spacing between adjacent dividers, dragging the divider to change the child 
+   * > component size to exceed the spacing between adjacent dividers, dragging the divider to change the child
    * > component height is not supported.
    *
    * @param { boolean } value - Whether the divider can be dragged. The value **true** means that the divider can be
@@ -139,7 +139,7 @@ declare class ColumnSplitAttribute extends CommonMethod<ColumnSplitAttribute> {
    *     dividers, divider drag is not supported. After initialization, when dynamic modification of **margin**,
    *     **border**, or **padding** universal attributes causes the size of a child component to be greater than the
    *     spacing between adjacent dividers, divider drag to change the height of the child component is not supported.
-   *     <br>Default value: **false** 
+   *     <br>Default value: **false**
    *     <br>Illegal value: The default value is used.
    * @returns { ColumnSplitAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -196,22 +196,22 @@ declare const ColumnSplitInstance: ColumnSplitAttribute;
 
 /**
  * The **ColumnSplit** component lays out child components vertically and inserts a horizontal divider between every two
- * child components. It is suitable for scenarios that require a vertical multi-area layout with dynamic area resizing, 
- * such as dashboard UIs and adjustable top-bottom split layouts. Through draggable dividers, users can flexibly adjust 
+ * child components. It is suitable for scenarios that require a vertical multi-area layout with dynamic area resizing,
+ * such as dashboard UIs and adjustable top-bottom split layouts. Through draggable dividers, users can flexibly adjust
  * the height of each area, enhancing UI interactivity and user experience.
- * 
- * ###### Child Components
- * 
+ *
+ * ## Child Components
+ *
  * Supported
- * 
- * **ColumnSplit** limits the height of child components through dividers. During initialization, the divider positions 
- * are calculated based on the heights of the child components. After initialization, dynamically modifying the height 
- * of child components does not take effect, and the divider positions remain unchanged. After **resizeable** is set to 
+ *
+ * **ColumnSplit** limits the height of child components through dividers. During initialization, the divider positions
+ * are calculated based on the heights of the child components. After initialization, dynamically modifying the height
+ * of child components does not take effect, and the divider positions remain unchanged. After **resizeable** is set to
  * **true**, the height of child components can be changed by dragging adjacent dividers.
- * 
- * After initialization, when dynamic modification of the [margin]{@link CommonMethod#margin}, 
- * [border]{@link CommonMethod#border}, or [padding]{@link CommonMethod#padding} universal attributes causes a child 
- * component size to exceed the spacing between adjacent dividers, dragging the divider to change the child component 
+ *
+ * After initialization, when dynamic modification of the [margin]{@link CommonMethod#margin},
+ * [border]{@link CommonMethod#border}, or [padding]{@link CommonMethod#padding} universal attributes causes a child
+ * component size to exceed the spacing between adjacent dividers, dragging the divider to change the child component
  * height is not supported.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
