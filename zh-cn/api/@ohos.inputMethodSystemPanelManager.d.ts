@@ -156,7 +156,7 @@ declare namespace inputMethodSystemPanelManager {
    * 订阅输入法应用发送私有数据命令的事件。
    *
    * @param { Callback<Record<string, CommandDataType>> } callback - 当输入法应用发送私有数据命令时触发的回调。
-   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @systemapi
    * @stagemodelonly
@@ -168,7 +168,7 @@ declare namespace inputMethodSystemPanelManager {
    * 取消订阅输入法应用发送私有数据命令的事件。
    *
    * @param { Callback<Record<string, CommandDataType>> } [callback] - 当输入法应用发送私有数据命令时触发的回调。
-   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @systemapi
    * @stagemodelonly
@@ -180,7 +180,7 @@ declare namespace inputMethodSystemPanelManager {
    * 订阅系统面板状态改变事件。
    *
    * @param { Callback<SystemPanelStatus> } callback - 当系统面板状态改变时触发的回调。
-   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @systemapi
    * @stagemodelonly
@@ -192,7 +192,7 @@ declare namespace inputMethodSystemPanelManager {
    * 取消订阅系统面板状态改变事件。
    *
    * @param { Callback<SystemPanelStatus> } [callback] - 当系统面板状态改变时触发的回调。
-   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @systemapi
    * @stagemodelonly
@@ -205,7 +205,7 @@ declare namespace inputMethodSystemPanelManager {
    *
    * @param { Record<string, CommandDataType> } commandData - 将要发送的命令数据。最大大小32KB。
    * @returns { Promise<void> } 返回的Promise。
-   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 12800026 - input method system panel error. Possible causes:
    *     1. the system panel not connected. 2. ipc failed due to the large amount of data transferred or other reasons.
    *     3. the caller is not system panel.
@@ -221,8 +221,8 @@ declare namespace inputMethodSystemPanelManager {
    *
    * @permission ohos.permission.CONNECT_IME_ABILITY
    * @returns { Promise<void> } 返回的Promise。
-   * @throws { BusinessError } 201 - permissions check fails.
-   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 12800008 - input method manager service error. Possible causes:
    *     a system error, such as null pointer, IPC exception.
    * @throws { BusinessError } 12800026 - input method system panel error. Possible causes:

@@ -189,8 +189,8 @@ declare class InputMethodExtensionContext extends ExtensionContext {
    * @param { Want } want - 用于指定目标应用的Want类型信息。
    * @param { number } accountId - 目标系统账户的ID。
    * @param { AsyncCallback<void> } callback - 回调函数。当拉起目标应用成功时，err为undefined，否则为错误对象。
-   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
@@ -224,8 +224,8 @@ declare class InputMethodExtensionContext extends ExtensionContext {
    * @param { Want } want - 用于指定目标应用的Want类型信息。
    * @param { number } accountId - 目标系统账户的ID。
    * @returns { Promise<void> } Promise对象，无返回结果。
-   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
@@ -291,8 +291,8 @@ declare class InputMethodExtensionContext extends ExtensionContext {
    * @param { Want } want - 用于指定目标ServiceExtensionAbility的Want类型信息。
    * @param { number } accountId - 目标系统账户的ID。
    * @returns { number } 连接的数字标识，用于后续断开连接时传入。
-   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
