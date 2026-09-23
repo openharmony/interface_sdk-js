@@ -24,7 +24,7 @@ import lang from '../arkts/@arkts.lang';
 import photoAccessHelper from './@ohos.file.photoAccessHelper';
 
 /**
- * The module provides APIs for album management, including creating an album and accessing and modifying media data in 
+ * The module provides APIs for album management, including creating an album and accessing and modifying media data in
  * an album, based on a [Sendable](docroot://arkts-utils/arkts-sendable.md) object.
  *
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -37,9 +37,9 @@ declare namespace sendablePhotoAccessHelper {
    *
    * @param { Context } context - Context of the ability instance.
    * @returns { PhotoAccessHelper } PhotoAccessHelper instance obtained.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 
+   *     <br>2. Incorrect parameter types;
    *     <br>3. Parameter verification failed.
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @StageModelOnly
@@ -55,8 +55,9 @@ declare namespace sendablePhotoAccessHelper {
    * @param { Context } context - Context of the ability instance.
    * @param { number } userId - ID of the user.
    * @returns { PhotoAccessHelper } PhotoAccessHelper instance obtained.
-   * @throws { BusinessError } 201 - Permission denied
-   * @throws { BusinessError } 202 - Called by non-system application
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 13900020 - Invalid argument
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
@@ -130,7 +131,7 @@ declare namespace sendablePhotoAccessHelper {
      * @atomicservice
      * @since 14 dynamiconly
      */
-    BURST = 4,
+    BURST = 4
   }
 
   /**
@@ -313,14 +314,14 @@ declare namespace sendablePhotoAccessHelper {
     /**
      * Obtains a **PhotoAsset** member parameter.
      *
-     * @param { string } member - Name of the member parameter to obtain. 
+     * @param { string } member - Name of the member parameter to obtain.
      *     <br>Except **'uri'**, **'media_type'**, **'subtype'**, and **'display_name'**, you must pass in
      *     [PhotoKeys]{@link @ohos.file.photoAccessHelper:photoAccessHelper.PhotoKeys} in **fetchColumns**. For example,
      *     to obtain the title, pass in **fetchColumns: ['title']**.
      * @returns { photoAccessHelper.MemberType } **PhotoAsset** member parameter obtained.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 
+     *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12 dynamiconly
@@ -336,12 +337,12 @@ declare namespace sendablePhotoAccessHelper {
      *     [PhotoKeys]{@link @ohos.file.photoAccessHelper:photoAccessHelper.PhotoKeys}.TITLE can be changed. The title
      *     must meet the following requirements:
      *     <br>- It must not contain a file name extension.
-     *     <br>- The string length ranges from 1 to 255. (The asset file name is in the format of title + file name 
+     *     <br>- The string length ranges from 1 to 255. (The asset file name is in the format of title + file name
      *     extension.)
      *     <br>- It must not contain any invalid characters, which are:\ / : * ? " ' ` < > | { } [ ]
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 
+     *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12 dynamiconly
@@ -353,12 +354,14 @@ declare namespace sendablePhotoAccessHelper {
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 201 - Permission denied
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     *     required to call the API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 
+     *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
-     * @throws { BusinessError } 14000011 - Internal system error
+     * @throws { BusinessError } 14000011 - MediaLibrary inner fail. Possible causes:
+     *     <br>1. Server returned an invalid argument error.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 12 dynamiconly
@@ -370,10 +373,11 @@ declare namespace sendablePhotoAccessHelper {
      * @permission ohos.permission.READ_IMAGEVIDEO
      * @param { image.Size } [size] - Size of the thumbnail.
      * @returns { Promise<image.PixelMap> } Promise used to return the PixelMap of the thumbnail.
-     * @throws { BusinessError } 201 - Permission denied
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     *     required to call the API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 
+     *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -386,11 +390,12 @@ declare namespace sendablePhotoAccessHelper {
      * @permission ohos.permission.READ_IMAGEVIDEO
      * @param { AnalysisType } analysisType - Smart analysis type.
      * @returns { Promise<string> } Promise used to return the analysis result obtained.
-     * @throws { BusinessError } 201 - Permission denied
-     * @throws { BusinessError } 202 - Called by non-system application
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     *     required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 
+     *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -403,8 +408,9 @@ declare namespace sendablePhotoAccessHelper {
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
      * @returns { Promise<number> } Promise used to return the FD obtained.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     *     required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
@@ -416,8 +422,10 @@ declare namespace sendablePhotoAccessHelper {
      *
      * @returns { photoAccessHelper.PhotoAsset } [PhotoAsset]{@link @ohos.file.photoAccessHelper:photoAccessHelper} of
      *     the non-Sendable type.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 14000011 - Internal system error
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     *     required to call the API.
+     * @throws { BusinessError } 14000011 - MediaLibrary inner fail. Possible causes:
+     *     <br>1. The PhotoAsset is not a valid PhotoAsset object.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12 dynamiconly
      */
@@ -461,8 +469,8 @@ declare namespace sendablePhotoAccessHelper {
     getFirstObject(): Promise<T>;
     /**
      * Obtains the next asset in the result set. This API uses a promise to return the result.
-     * 
-     * Before using this API, you must use [isAfterLast()]{@link sendablePhotoAccessHelper.FetchResult.isAfterLast} to 
+     *
+     * Before using this API, you must use [isAfterLast()]{@link sendablePhotoAccessHelper.FetchResult.isAfterLast} to
      * check whether the current position is the end of the result set.
      *
      * @returns { Promise<T> } Promise used to return the next object in the result set.
@@ -485,9 +493,9 @@ declare namespace sendablePhotoAccessHelper {
      *
      * @param { number } index - Index of the asset to obtain. The value starts from **0**.
      * @returns { Promise<T> } Promise used to return the asset obtained.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 
+     *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -504,7 +512,7 @@ declare namespace sendablePhotoAccessHelper {
      */
     getAllObjects(): Promise<Array<T>>;
     /**
-     * Closes this FetchResult instance to invalidate it. After this instance is closed, the APIs in this instance 
+     * Closes this FetchResult instance to invalidate it. After this instance is closed, the APIs in this instance
      * cannot be invoked.
      *
      * @throws { BusinessError } 14000011 - Internal system error
@@ -536,7 +544,7 @@ declare namespace sendablePhotoAccessHelper {
      */
     SYSTEM = 1024,
     /**
-     * Smart analysis album. 
+     * Smart analysis album.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
@@ -572,39 +580,39 @@ declare namespace sendablePhotoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12 dynamiconly
      */
-    VIDEO,
+    VIDEO = 1026,
     /**
-     * Hidden album. 
+     * Hidden album.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 12 dynamiconly
      */
-    HIDDEN,
+    HIDDEN = 1027,
     /**
-     * Trash. 
+     * Trash.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 12 dynamiconly
      */
-    TRASH,
+    TRASH = 1028,
     /**
-     * Album for screenshots and screen recording files. 
+     * Album for screenshots and screen recording files.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 12 dynamiconly
      */
-    SCREENSHOT,
+    SCREENSHOT = 1029,
     /**
-     * Album for photos and videos taken by the camera. 
+     * Album for photos and videos taken by the camera.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 12 dynamiconly
      */
-    CAMERA,
+    CAMERA = 1030,
     /**
      * Photo album.
      *
@@ -613,7 +621,7 @@ declare namespace sendablePhotoAccessHelper {
      */
     IMAGE = 1031,
     /**
-     * Source album. 
+     * Source album.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
@@ -621,7 +629,7 @@ declare namespace sendablePhotoAccessHelper {
      */
     SOURCE_GENERIC = 2049,
     /**
-     * Classified album. 
+     * Classified album.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
@@ -629,7 +637,7 @@ declare namespace sendablePhotoAccessHelper {
      */
     CLASSIFY = 4097,
     /**
-     * Geographic location album. 
+     * Geographic location album.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
@@ -637,39 +645,39 @@ declare namespace sendablePhotoAccessHelper {
      */
     GEOGRAPHY_LOCATION = 4099,
     /**
-     * City album. 
+     * City album.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 12 dynamiconly
      */
-    GEOGRAPHY_CITY,
+    GEOGRAPHY_CITY = 4100,
     /**
-     * Shooting mode album. 
+     * Shooting mode album.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 12 dynamiconly
      */
-    SHOOTING_MODE,
+    SHOOTING_MODE = 4101,
     /**
-     * Portrait album. 
+     * Portrait album.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 12 dynamiconly
      */
-    PORTRAIT,
+    PORTRAIT = 4102,
     /**
-     * Group photo album. 
+     * Group photo album.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 12 dynamiconly
      */
-    GROUP_PHOTO,
+    GROUP_PHOTO = 4103,
     /**
-     * Highlights album. 
+     * Highlights album.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
@@ -677,13 +685,13 @@ declare namespace sendablePhotoAccessHelper {
      */
     HIGHLIGHT = 4104,
     /**
-     * Highlights suggestion album. 
+     * Highlights suggestion album.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 12 dynamiconly
      */
-    HIGHLIGHT_SUGGESTIONS,
+    HIGHLIGHT_SUGGESTIONS = 4105,
     /**
      * Any album.
      *
@@ -699,7 +707,7 @@ declare namespace sendablePhotoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @since 12 dynamiconly
    */
-  interface AbsAlbum extends lang.ISendable {
+  interface AbsAlbum  extends lang.ISendable {
     /**
      * Album type
      *
@@ -748,12 +756,18 @@ declare namespace sendablePhotoAccessHelper {
      * @permission ohos.permission.READ_IMAGEVIDEO
      * @param { FetchOptions } options - Retrieval options.
      * @returns { Promise<FetchResult<PhotoAsset>> } Promise used to return the media assets obtained.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     *     required to call the API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 
+     *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
-     * @throws { BusinessError } 14000011 - Internal system error
+     * @throws { BusinessError } 14000011 - MediaLibrary inner fail. Possible causes:
+     *     <br>1. Failed to parse FetchOptions, please check if the parameter is valid;
+     *     <br>2. System internal error, failed to create boolean value, possible causes:
+     *     1. Memory insufficient; 2. IPC timeout. Please retry;
+     *     <br>3. System internal error, possible causes:
+     *     1. Database exception; 2. File system exception; 3. IPC timeout. Please retry and check logs.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12 dynamiconly
      */
@@ -764,11 +778,12 @@ declare namespace sendablePhotoAccessHelper {
      * @permission ohos.permission.ACCESS_MEDIALIB_THUMB_DB
      * @param { FetchOptions } options - Fetch options.
      * @returns { Array<SharedPhotoAsset> } Returns the shared photo assets
-     * @throws { BusinessError } 201 - Permission denied
-     * @throws { BusinessError } 202 - Called by non-system application
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     *     required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 
+     *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -804,7 +819,8 @@ declare namespace sendablePhotoAccessHelper {
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     *     required to call the API.
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12 dynamiconly
@@ -814,21 +830,25 @@ declare namespace sendablePhotoAccessHelper {
      * Converts this Sendable album to a non-Sendable album.
      *
      * @returns { photoAccessHelper.Album } Album of the non-Sendable type.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 14000011 - Internal system error
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     *     required to call the API.
+     * @throws { BusinessError } 14000011 - MediaLibrary inner fail. Possible causes:
+     *     <br>1. The current album object is invalid, the Album is not a valid instance obtained from
+     *     photoAccessHelper.getAlbums() or createAlbum().
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12 dynamiconly
      */
     convertToPhotoAlbum(): photoAccessHelper.Album;
     /**
-     * Obtains the face identifier on the cover of a portrait album or group photo album. This API uses a promise to 
+     * Obtains the face identifier on the cover of a portrait album or group photo album. This API uses a promise to
      * return the result.
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
      * @returns { Promise<string> } Promise used to return **tag_id** of the portrait album, **group_tag** of the group
      *     photo album, or an empty string if no face identifier is found.
-     * @throws { BusinessError } 201 - Permission denied
-     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     *     required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
@@ -1149,12 +1169,17 @@ declare namespace sendablePhotoAccessHelper {
      * @permission ohos.permission.READ_IMAGEVIDEO
      * @param { FetchOptions } options - Retrieval options.
      * @returns { Promise<FetchResult<PhotoAsset>> } Promise used to return the media assets obtained.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     *     required to call the API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 
+     *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
-     * @throws { BusinessError } 14000011 - Internal system error
+     * @throws { BusinessError } 14000011 - MediaLibrary inner fail. Possible causes:
+     *     <br>1. Failed to parse FetchOptions, please check if the parameter is valid;
+     *     <br>2. System internal error, failed to create boolean value, possible causes:
+     *     1. Memory insufficient; 2. IPC timeout. Please retry;
+     *     <br>3. System internal error, query or IPC returned null, please retry.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12 dynamiconly
      */
@@ -1168,37 +1193,43 @@ declare namespace sendablePhotoAccessHelper {
      *     contains 36 bytes.
      * @param { photoAccessHelper.FetchOptions } options - Retrieval options.
      * @returns { Promise<FetchResult<PhotoAsset>> } Promise used to return the result.
-     * @throws { BusinessError } 201 - Permission denied
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     *     required to call the API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 
+     *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
-     * @throws { BusinessError } 14000011 - Internal system error
+     * @throws { BusinessError } 14000011 - MediaLibrary inner fail. Possible causes:
+     *     <br>1. Failed to parse FetchOptions, please check if the parameter is valid;
+     *     <br>2. System internal error, failed to create boolean value, possible causes:
+     *     1. Memory insufficient; 2. IPC timeout. Please retry;
+     *     <br>3. System internal error, query or IPC returned null, please retry.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12 dynamiconly
      */
     getBurstAssets(burstKey: string, options: photoAccessHelper.FetchOptions): Promise<FetchResult<PhotoAsset>>;
     /**
      * Creates an asset with the specified file name. This API uses a promise to return the result.
-     * 
+     *
      * The file name must meet the following requirements:
-     * 
+     *
      * - A valid file name must include a base name and a supported image or video extension.
      * - The total length of the file name must be between 1 and 255 characters.
      * - The base name must not contain any invalid characters.
-     * 
+     *
      * Starting from API version 18, the following characters are considered invalid: \ / : * ? " < > |
-     * 
+     *
      * For API versions 10 to 17, the following characters are considered invalid: . .. \ / : * ? " ' ` < > | { } [ ]
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
      * @param { string } displayName - File name of the asset to create.
      * @returns { Promise<PhotoAsset> } Promise used to return the created asset.
-     * @throws { BusinessError } 201 - Permission denied
-     * @throws { BusinessError } 202 - Called by non-system application.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     *     required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 
+     *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 13900020 - Invalid argument.
      * @throws { BusinessError } 14000001 - Invalid display name.
@@ -1210,26 +1241,27 @@ declare namespace sendablePhotoAccessHelper {
     createAsset(displayName: string): Promise<PhotoAsset>;
     /**
      * Creates an asset with the specified file name and options. This API uses a promise to return the result.
-     * 
+     *
      * The file name must meet the following requirements:
-     * 
+     *
      * - A valid file name must include a base name and a supported image or video extension.
      * - The total length of the file name must be between 1 and 255 characters.
      * - The base name must not contain any invalid characters.
-     * 
+     *
      * Starting from API version 18, the following characters are considered invalid: \ / : * ? " < > |
-     * 
+     *
      * For API versions 10 to 17, the following characters are considered invalid: . .. \ / : * ? " ' ` < > | { } [ ]
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
      * @param { string } displayName - File name of the asset to create.
      * @param { PhotoCreateOptions } options - Options for creating the asset.
      * @returns { Promise<PhotoAsset> } Promise used to return the created asset.
-     * @throws { BusinessError } 201 - Permission denied
-     * @throws { BusinessError } 202 - Called by non-system application.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     *     required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 
+     *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 13900020 - Invalid argument.
      * @throws { BusinessError } 14000001 - Invalid display name.
@@ -1240,11 +1272,11 @@ declare namespace sendablePhotoAccessHelper {
      */
     createAsset(displayName: string, options: photoAccessHelper.PhotoCreateOptions): Promise<PhotoAsset>;
     /**
-     * Creates an image or video asset with the specified file type, file name extension, and options. This API uses a 
+     * Creates an image or video asset with the specified file type, file name extension, and options. This API uses a
      * promise to return the result.
-     * 
-     * If you do not have the **ohos.permission.WRITE_IMAGEVIDEO** permission, you can create a media asset by using a 
-     * security component. For details, see 
+     *
+     * If you do not have the **ohos.permission.WRITE_IMAGEVIDEO** permission, you can create a media asset by using a
+     * security component. For details, see
      * [Saving Media Assets](docroot://media/medialibrary/photoAccessHelper-savebutton.md).
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
@@ -1253,16 +1285,19 @@ declare namespace sendablePhotoAccessHelper {
      *     .
      * @param { CreateOptions } [options] - Options for creating the media asset, for example, **{title: 'testPhoto'}**.
      *     <br>The file name must not contain any invalid characters.
-     *     <br>Starting from API version 18, the following characters are considered invalid: \ / : * ? " < > | 
-     *     <br>For API versions 10 to 17, the following characters  are considered 
+     *     <br>Starting from API version 18, the following characters are considered invalid: \ / : * ? " < > |
+     *     <br>For API versions 10 to 17, the following characters  are considered
      *     invalid: . .. \ / : * ? " ' ` < > | { } [ ]
      * @returns { Promise<string> } Promise used to return the URI of the created media asset.
-     * @throws { BusinessError } 201 - Permission denied
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     *     required to call the API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 
+     *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
-     * @throws { BusinessError } 14000011 - Internal system error
+     * @throws { BusinessError } 14000011 - MediaLibrary inner fail. Possible causes:
+     *     <br>1. System internal error, possible causes:
+     *     1. Database exception; 2. File system exception; 3. IPC timeout. Please retry and check logs.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 12 dynamiconly
@@ -1270,16 +1305,17 @@ declare namespace sendablePhotoAccessHelper {
     createAsset(photoType: PhotoType, extension: string, options?: photoAccessHelper.CreateOptions): Promise<string>;
     /**
      * Obtains albums based on the specified options. This API uses a promise to return the result.
-     * 
+     *
      * Before the operation, ensure that the albums to obtain exist.
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
      * @param { FetchOptions } [options] - Retrieval options.
      * @returns { Promise<FetchResult<Album>> } Promise used to return the result.
-     * @throws { BusinessError } 201 - Permission denied
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     *     required to call the API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 
+     *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -1288,7 +1324,7 @@ declare namespace sendablePhotoAccessHelper {
     getAlbums(options: photoAccessHelper.FetchOptions): Promise<FetchResult<Album>>;
     /**
      * Obtains albums based on the specified options and album type. This API uses a promise to return the result.
-     * 
+     *
      * Before the operation, ensure that the albums to obtain exist.
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
@@ -1297,22 +1333,25 @@ declare namespace sendablePhotoAccessHelper {
      * @param { FetchOptions } [options] - Retrieval options. If this parameter is not specified, the albums are
      *     obtained based on the album type by default.
      * @returns { Promise<FetchResult<Album>> } Promise used to return the result.
-     * @throws { BusinessError } 201 - Permission denied
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     *     required to call the API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 
+     *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
-     * @throws { BusinessError } 14000011 - Internal system error
+     * @throws { BusinessError } 14000011 - MediaLibrary inner fail. Possible causes:
+     *     <br>1. System internal error, failed to create boolean value, possible causes:
+     *     1. Memory insufficient; 2. IPC timeout. Please retry;
+     *     <br>2. System internal error, album query returned null, possible causes:
+     *     1. Database exception; 2. IPC timeout. Please retry;
+     *     <br>3. System internal error, possible causes:
+     *     1. Database exception; 2. File system exception; 3. IPC timeout. Please retry and check logs.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12 dynamiconly
      */
-    getAlbums(
-      type: AlbumType,
-      subtype: AlbumSubtype,
-      options?: photoAccessHelper.FetchOptions
-    ): Promise<FetchResult<Album>>;
+    getAlbums(type: AlbumType, subtype: AlbumSubtype, options?: photoAccessHelper.FetchOptions): Promise<FetchResult<Album>>;
     /**
-     * Obtains hidden albums based on the specified display mode and retrieval options. This API uses a promise to 
+     * Obtains hidden albums based on the specified display mode and retrieval options. This API uses a promise to
      * return the result.
      *
      * @permission ohos.permission.READ_IMAGEVIDEO and ohos.permission.MANAGE_PRIVATE_PHOTOS
@@ -1320,21 +1359,19 @@ declare namespace sendablePhotoAccessHelper {
      * @param { FetchOptions } [options] - Options for retrieving the albums. If this parameter is not specified, the
      *     albums are retrieved based on the display mode.
      * @returns { Promise<FetchResult<Album>> } Promise used to return the result.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Called by non-system application
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     *     required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 
+     *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 12 dynamiconly
      */
-    getHiddenAlbums(
-      mode: photoAccessHelper.HiddenPhotosDisplayMode,
-      options?: photoAccessHelper.FetchOptions
-    ): Promise<FetchResult<Album>>;
+    getHiddenAlbums(mode: photoAccessHelper.HiddenPhotosDisplayMode, options?: photoAccessHelper.FetchOptions): Promise<FetchResult<Album>>;
     /**
      * Releases the **PhotoAccessHelper** instance. Call this method when the APIs of the **PhotoAccessHelper** instance
      * are no longer used. This API uses a promise to return the result.
@@ -1351,11 +1388,12 @@ declare namespace sendablePhotoAccessHelper {
      * @permission ohos.permission.ACCESS_MEDIALIB_THUMB_DB
      * @param { FetchOptions } options - Fetch options.
      * @returns { Array<SharedPhotoAsset> } Returns the shared photo assets
-     * @throws { BusinessError } 201 - Permission denied
-     * @throws { BusinessError } 202 - Called by non-system application
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     *     required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
-     *     <br>2. Incorrect parameter types; 
+     *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -1372,15 +1410,15 @@ declare namespace sendablePhotoAccessHelper {
      *     <br>Each element in the array must contain the following asset column information: **file_id**, **data**,
      *     **display_name**, **media_type**, and **subtype**.
      * @returns { Promise<PhotoAsset[]> } Promise used to return the PhotoAsset object array (which may be empty).
-     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes:
      *     <br>1. Invalid value type in ValuesBucket;
      *     <br>2. Missing required column in ValuesBucket;
      *     <br>3. Array size exceeds 500.
      * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
-     *     <br>Possible causes: 
-     *     <br>1. Database corrupted; 
-     *     <br>2. The file system is abnormal; 
+     *     <br>Possible causes:
+     *     <br>1. Database corrupted;
+     *     <br>2. The file system is abnormal;
      *     <br>3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
@@ -1388,6 +1426,30 @@ declare namespace sendablePhotoAccessHelper {
      * @since 24 dynamiconly
      */
     getPhotoAssets(assetsData: photoAccessHelper.ValuesBucket[]): Promise<PhotoAsset[]>;
+
+    /**
+     * Query shared photo albums.
+     *
+     * @permission ohos.permission.MANAGE_SHARE_PHOTO
+     * @param { photoAccessHelper.FetchOptions } [options] - Retrieval options.
+     * @returns { Promise<FetchResult<Album>> } Promise used to return fetch result of album.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     *     required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes:
+     *     <br>1. The column field does not support querying.
+     *     <br>2. Filter conditions do not match expectations.
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     *     <br>Possible causes:
+     *     <br>1. Database corrupted;
+     *     <br>2. The file system is abnormal;
+     *     <br>3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.1 dynamiconly
+     */
+    getShareAlbums(options?: photoAccessHelper.FetchOptions): Promise<FetchResult<Album>>;
   }
 }
 
