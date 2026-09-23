@@ -28,7 +28,6 @@
  * @since 8 dynamic
  */
 declare enum ScrollBarDirection {
-
   /**
    * Vertical scrollbar.
    *
@@ -38,7 +37,7 @@ declare enum ScrollBarDirection {
    * @atomicservice [since 11]
    * @since 8 dynamic
    */
-  Vertical,
+  Vertical = 0,
 
   /**
    * Horizontal scrollbar.
@@ -49,7 +48,7 @@ declare enum ScrollBarDirection {
    * @atomicservice [since 11]
    * @since 8 dynamic
    */
-  Horizontal,
+  Horizontal = 1
 }
 
 /**
@@ -57,18 +56,20 @@ declare enum ScrollBarDirection {
  *
  * > **NOTE**
  * >
- * > - The **ScrollBar** component defines the behavior style of the scrollable area, and its child nodes define the
- * > behavior style of the scrollbar.
+ * > - The ScrollBar component is used to display and control the scroll position of the bound scrollable component.
+ * > When child components are set, the child component serves as a custom scrollbar slider and moves with the scroll
+ * > position of the scrollable component.
  * >
- * > - This component is bound to a scrollable component through **scroller**, and can be used to scroll the scrollable
- * > component only when their directions are the same. The **ScrollBar** component can be bound to only one scrollable
- * > component, and vice versa.
+ * > - The scrollbar component is bound to the scrollable component through a Scroller, and they can be linked only when
+ * > their directions are the same. A scrollable component can be bound to multiple ScrollBar components, while a
+ * > ScrollBar component can be bound to only one scrollable component.
  * >
- * > - Since API version 12, the **ScrollBar** component displays a default scrollbar style when without child nodes.
+ * > - Since API version 12, the ScrollBar component supports displaying a scrollbar in the default style when it has no
+ * > child nodes.
  * >
- * > - The visibility of the **ScrollBar** component is set through **BarState**. The component automatically adjusts
- * > **opacity** based on the **BarState** setting to control its visibility. Therefore, setting the
- * > [opacity]{@link CommonMethod#opacity(opacity: Optional<number | Resource>)} attribute for the **ScrollBar**
+ * > - The visibility of the ScrollBar component is set through BarState. The component automatically adjusts opacity
+ * > based on the BarState setting to control visibility. Therefore, the
+ * > [opacity]{@link CommonMethod#opacity(opacity: Optional<number | Resource>)} attribute set for the ScrollBar
  * > component does not take effect.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -78,7 +79,6 @@ declare enum ScrollBarDirection {
  * @since 8 dynamic
  */
 declare interface ScrollBarOptions {
-
   /**
    * Scroller, which can be bound to scrollable components for scrolling control.
    *
@@ -114,14 +114,12 @@ declare interface ScrollBarOptions {
 }
 
 /**
- * The **ScrollBar** component is designed to be used together with scrollable components such as
+ * The **ScrollBar** component is used together with scrollable components, such as
  * [ArcList]{@link @ohos.arkui.ArcList}, [List]{@link ./list}, [Grid]{@link ./grid}, [Scroll]{@link ./scroll}, and
- * [WaterFlow]{@link ./water_flow}.
+ * [WaterFlow]{@link ./water_flow}, to provide visual scrolling indication and control capabilities, and supports custom
+ * scrollbar styles.
  *
  * > **NOTE**
- * >
- * > - This component is supported since API version 8. Updates will be marked with a superscript to indicate their
- * > earliest API version.
  * >
  * > - If the size of the main axis direction is not set for **ScrollBar**, the **maxSize** value in the
  * > [layout constraints]{@link ../../../arkui/FrameNode:LayoutConstraint} of the parent component is used. If the
@@ -138,7 +136,6 @@ declare interface ScrollBarOptions {
  * @noninterop
  */
 interface ScrollBarInterface {
-
   /**
    * Creates a scroll bar.
    *
@@ -164,28 +161,14 @@ interface ScrollBarInterface {
  * @noninterop
  */
 declare class ScrollBarAttribute extends CommonMethod<ScrollBarAttribute> {
-
   /**
-   * Sets whether nested scrolling is enabled.
+   * Sets whether the scrollbar supports nested scrolling. It is used in scenarios such as multi-layer scroll containers
+   * and nested lists where the inner scrollable component needs to be dragged through the scrollbar and linked with the
+   * parent scrolling. It takes effect only when the ScrollBar is bound to a scrollable component through a Scroller.
    *
-   * > **NOTE**
-   * >
-   * > When nested scrolling is enabled, the scroll offset is first passed to the inner scrollable component, which
-   * > then passes it to the outer parent scrollable component based on the set nested scrolling priority.
-   * >
-   * > Nested scrolling is not supported when the **WaterFlow** component is in
-   * > [WaterFlowLayoutMode.SLIDING_WINDOW](docroot://reference/apis-arkui/arkui-ts/ts-container-waterflow.md#waterflowlayoutmode12)
-   * > layout mode.
-   * >
-   * > When the nested scrolling mode is set to
-   * > [PARALLEL](docroot://reference/apis-arkui/arkui-ts/ts-appendix-enums.md#nestedscrollmode10), both the parent
-   * > and child components scroll simultaneously. You need to manage the scroll order in the
-   * > [onScrollFrameBegin](docroot://reference/apis-arkui/arkui-ts/ts-container-scroll.md#onscrollframebegin9) event
-   * > according to the desired logic.
-   *
-   * @param { Optional<boolean> } enabled - Whether nested scrolling is enabled. The value **true** means that nested
-   *     scrolling is enabled, and **false** means the opposite.
-   *     <br>Default value: **false**
+   * @param { Optional<boolean> } enabled - Whether to perform nested scrolling. Set this parameter to **true** to pass
+   *     scroll events between multiple layers of scroll containers; set it to **false** when nested scrolling is not
+   *     required.<br/>Default value: **false**
    * @returns { ScrollBarAttribute } The attribute of the scroll bar
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -196,11 +179,11 @@ declare class ScrollBarAttribute extends CommonMethod<ScrollBarAttribute> {
   enableNestedScroll(enabled: Optional<boolean>): ScrollBarAttribute;
 
   /**
-   * Sets the color of the scrollbar slider. This parameter is valid only when the scrollbar does not contain child
+   * Sets the color of the scrollbar. This parameter takes effect only when the scrollbar does not contain child
    * components.
    *
-   * @param { Optional<ColorMetrics> } color - Scrollbar color.
-   *     <br>Default value: **ColorMetrics.numeric(0x66182431)**
+   * @param { Optional<ColorMetrics> } color - Color of the scrollbar. This parameter takes effect only when the
+   *     scrollbar does not contain any child component.<br/>Default value: ColorMetrics.numeric(0x66182431)
    * @returns { ScrollBarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -212,9 +195,10 @@ declare class ScrollBarAttribute extends CommonMethod<ScrollBarAttribute> {
 }
 
 /**
- * The **ScrollBar** component is designed to be used together with scrollable components such as
+ * The **ScrollBar** component is used together with scrollable components, such as
  * [ArcList]{@link @ohos.arkui.ArcList}, [List]{@link ./list}, [Grid]{@link ./grid}, [Scroll]{@link ./scroll}, and
- * [WaterFlow]{@link ./water_flow}.
+ * [WaterFlow]{@link ./water_flow}, to provide visual scrolling indication and control capabilities, and supports custom
+ * scrollbar styles.
  *
  * > **NOTE**
  * >
@@ -327,9 +311,10 @@ declare class ScrollBarAttribute extends CommonMethod<ScrollBarAttribute> {
  *
  * ###### Example 3: Enabling Nested Scrolling
  *
- * This example demonstrates how to enable nested scrolling for a **ScrollBar** component using the
- * [enableNestedScroll]{@link ScrollBarAttribute#enableNestedScroll} attribute. This feature is available from API
- * version 20.
+ * Since API version 14, the ScrollBar component supports nested scrolling through the
+ * [enableNestedScroll]{@link ScrollBarAttribute#enableNestedScroll} attribute. This example also uses the
+ * [scrollBarColor]{@link ScrollBarAttribute#scrollBarColor} attribute, supported since API version 20, to set the
+ * scrollbar color.
  *
  * ```ts
  * import { ColorMetrics } from '@kit.ArkUI'
