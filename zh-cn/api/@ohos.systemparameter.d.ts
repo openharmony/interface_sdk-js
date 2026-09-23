@@ -59,11 +59,6 @@ declare namespace systemParameter {
    * @returns { string } 系统参数值。
    *     <br> 若key存在,返回设定的值。
    *     <br> 若key不存在且def有效，返回def；若未指定def或def无效(如undefined)，返回空字符串。
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-   *     2.incorrect parameter types; 3.parameter verification failed.
-   * @throws { BusinessError } 14700102 - Invalid system parameter value.
-   * @throws { BusinessError } 14700103 - The operation on the system permission is denied.
-   * @throws { BusinessError } 14700104 - System internal error such as out memory or deadlock.
    * @syscap SystemCapability.Startup.SystemInfo
    * @systemapi Hide this for inner system use.
    * @since 6 dynamiconly
@@ -77,11 +72,6 @@ declare namespace systemParameter {
    *
    * @param { string } key - 待查询的系统参数key。
    * @param { AsyncCallback<string> } callback - 回调函数，用于异步返回系统参数值。当获取成功时，err为undefined，data为系统参数值；当获取失败时，err为错误对象，data为undefined。
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-   *     2.incorrect parameter types; 3.parameter verification failed.
-   * @throws { BusinessError } 14700102 - Invalid system parameter value.
-   * @throws { BusinessError } 14700103 - The operation on the system permission is denied.
-   * @throws { BusinessError } 14700104 - System internal error such as out memory or deadlock.
    * @syscap SystemCapability.Startup.SystemInfo
    * @systemapi Hide this for inner system use.
    * @since 6 dynamiconly
@@ -96,11 +86,6 @@ declare namespace systemParameter {
    * @param { string } key - 待查询的系统参数key。
    * @param { string } def - def为所要获取的系统参数的默认值。调用时必须传入此参数，但参数值可以传任意字符串类型的值。仅当系统参数不存在时，def参数值生效。
    * @param { AsyncCallback<string> } callback - 回调函数，用于异步返回系统参数值。当获取成功时，err为undefined，data为系统参数值；当获取失败时，err为错误对象，data为undefined。
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-   *     2.incorrect parameter types; 3.parameter verification failed.
-   * @throws { BusinessError } 14700102 - Invalid system parameter value.
-   * @throws { BusinessError } 14700103 - The operation on the system permission is denied.
-   * @throws { BusinessError } 14700104 - System internal error such as out memory or deadlock.
    * @syscap SystemCapability.Startup.SystemInfo
    * @systemapi Hide this for inner system use.
    * @since 6 dynamiconly
@@ -115,11 +100,6 @@ declare namespace systemParameter {
    * @param { string } key - 待查询的系统参数key。
    * @param { string } def - def为所要获取的系统参数的默认值。 <br> def为可选参数，仅当系统参数不存在时生效。 <br> def可以传undefined或任意字符串类型的值。
    * @returns { Promise<string> } Promise实例，用于异步获取结果。
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-   *     2.incorrect parameter types; 3.parameter verification failed.
-   * @throws { BusinessError } 14700102 - Invalid system parameter value.
-   * @throws { BusinessError } 14700103 - The operation on the system permission is denied.
-   * @throws { BusinessError } 14700104 - System internal error such as out memory or deadlock.
    * @syscap SystemCapability.Startup.SystemInfo
    * @systemapi Hide this for inner system use.
    * @since 6 dynamiconly
@@ -141,11 +121,6 @@ declare namespace systemParameter {
    * 
    * @param { string } key - 待设置的系统参数key。
    * @param { string } value - 待设置的系统参数值。长度限制请参考[系统参数](docroot://../device-dev/subsystems/subsys-boot-init-sysparam.md)。
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-   *     2.incorrect parameter types; 3.parameter verification failed.
-   * @throws { BusinessError } 14700102 - Invalid system parameter value.
-   * @throws { BusinessError } 14700103 - The operation on the system permission is denied.
-   * @throws { BusinessError } 14700104 - System internal error such as out memory or deadlock.
    * @syscap SystemCapability.Startup.SystemInfo
    * @systemapi Hide this for inner system use.
    * @since 6 dynamiconly
@@ -160,11 +135,6 @@ declare namespace systemParameter {
    * @param { string } key - 待设置的系统参数key。
    * @param { string } value - 待设置的系统参数值。长度限制请参考[系统参数](docroot://../device-dev/subsystems/subsys-boot-init-sysparam.md)。
    * @param { AsyncCallback<void> } callback - 回调函数，用于异步返回设置结果。当设置成功时，err为undefined；当设置失败时，err为错误对象。
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-   *     2.incorrect parameter types; 3.parameter verification failed.
-   * @throws { BusinessError } 14700102 - Invalid system parameter value.
-   * @throws { BusinessError } 14700103 - The operation on the system permission is denied.
-   * @throws { BusinessError } 14700104 - System internal error such as out memory or deadlock.
    * @syscap SystemCapability.Startup.SystemInfo
    * @systemapi Hide this for inner system use.
    * @since 6 dynamiconly
@@ -179,11 +149,6 @@ declare namespace systemParameter {
    * @param { string } key - 待设置的系统参数key。
    * @param { string } value - 待设置的系统参数值。长度限制请参考[系统参数](docroot://../device-dev/subsystems/subsys-boot-init-sysparam.md)。
    * @returns { Promise<void> } Promise实例，用于异步获取结果。
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-   *     2.incorrect parameter types; 3.parameter verification failed.
-   * @throws { BusinessError } 14700102 - Invalid system parameter value.
-   * @throws { BusinessError } 14700103 - The operation on the system permission is denied.
-   * @throws { BusinessError } 14700104 - System internal error such as out memory or deadlock.
    * @syscap SystemCapability.Startup.SystemInfo
    * @systemapi Hide this for inner system use.
    * @since 6 dynamiconly
