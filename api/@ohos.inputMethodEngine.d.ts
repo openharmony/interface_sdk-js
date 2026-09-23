@@ -309,7 +309,7 @@ declare namespace inputMethodEngine {
   const OPTION_NONE: int;
 
   /**
-   * Characters are allowed.
+   * Characters are auto-capitalized.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamic
@@ -318,7 +318,7 @@ declare namespace inputMethodEngine {
   const OPTION_AUTO_CAP_CHARACTERS: int;
 
   /**
-   * Sentences are allowed.
+   * Sentences are auto-capitalized.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamic
