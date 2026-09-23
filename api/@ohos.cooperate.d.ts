@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Screen Hopping
  * @kit DistributedServiceKit
  */
 
@@ -24,6 +24,10 @@ import { Callback } from './@ohos.base';
 /**
  * The **cooperate** module implements screen hopping for two or more networked devices to share the keyboard and mouse
  *     for collaborative operations.
+ *
+ * > **NOTE**
+ * >
+ * > - The APIs provided by this module are system APIs.
  *
  * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
  * @systemapi Hide this for inner system use.
@@ -467,7 +471,7 @@ declare namespace cooperate {
    * Starts screen hopping. This API uses a promise to return the result.
    *
    * @param { string } targetNetworkId - Descriptor of the target device for screen hopping.
-   * @param { number }inputDeviceId - Identifier of the input device for screen hopping.
+   * @param { number } inputDeviceId - Identifier of the input device for screen hopping.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -514,7 +518,7 @@ declare namespace cooperate {
    *
    * @permission ohos.permission.COOPERATE_MANAGER
    * @param { string } targetNetworkId - Descriptor of the target device for screen hopping.
-   * @param { int }inputDeviceId - Identifier of the input device for screen hopping.
+   * @param { int } inputDeviceId - Identifier of the input device for screen hopping.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -706,8 +710,8 @@ declare namespace cooperate {
    * Disables listening for screen hopping status change events.
    *
    * @param { 'cooperate' } type - Event type. The value is **cooperate**.
-   * @param { Callback<void> } callback - Callback to be unregistered. If this parameter is not specified, all callbacks
-   *     registered by the current application will be unregistered.
+   * @param { Callback<void> } [callback] - Callback to be unregistered. If this parameter is not specified, all
+   *     callbacks registered by the current application will be unregistered.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified.
@@ -870,8 +874,8 @@ declare namespace cooperate {
    * @permission ohos.permission.COOPERATE_MANAGER
    * @param { string } targetNetworkId - Descriptor of the target device for screen hopping.
    * @param { int } inputDeviceId - ID of the input device that initiates screen hopping.
-   * @param { CooperateOptions } cooperateOptions - Screen hopping options, such as the exit position. If this parameter
-   *     is not set, this API works in the same way as
+   * @param { CooperateOptions } [cooperateOptions] - Screen hopping options, such as the exit position.
+   *     If this parameter is not set, this API works in the same way as
    *     [activateCooperate]{@link activateCooperate(targetNetworkId: string, inputDeviceId: int)}.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied.

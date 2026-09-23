@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 拖拽
  * @kit ArkUI
  */
 
@@ -108,8 +108,8 @@ declare namespace dragInteraction {
    *
    * @param { 'drag' } type - 监听类型，固定取值为 'drag'。
    * @param { Callback<DragState> } callback - 回调函数，异步返回拖拽状态消息。
-   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2.Incorrect parameter types.3.Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
    *     [since 12]
    * @syscap SystemCapability.Msdp.DeviceStatus.Drag
@@ -133,10 +133,9 @@ declare namespace dragInteraction {
    * 取消监听拖拽状态。
    *
    * @param { 'drag' } type - 监听类型，固定取值为 'drag'。
-   * @param { Callback<DragState> }callback - Callback to be unregistered. If this parameter is not specified, all
-   *     callbacks registered by the current application will be unregistered.
-   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2.Incorrect parameter types.3.Parameter verification failed.
+   * @param { Callback<DragState> } [callback] - 需要取消注册的回调函数，若无此参数，则取消当前应用注册的所有回调函数。
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
    *     [since 12]
    * @syscap SystemCapability.Msdp.DeviceStatus.Drag
@@ -187,8 +186,8 @@ declare namespace dragInteraction {
    * @param { boolean } enabled - 设置开关状态。<br>false：关闭，true：开启。
    * @param { string } bundleName - 设置指定应用包名。长度取值范围（0, 128]。
    * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2.Incorrect parameter types.3.Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Msdp.DeviceStatus.Drag
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
