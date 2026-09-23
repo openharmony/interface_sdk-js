@@ -22,7 +22,11 @@ import { Content } from './Content';
 import { FrameNode } from './FrameNode';
 
 /**
- * **NodeContent** is the ArkUI-provided manager for [ContentSlot]{@link ../@internal/component/ets/content_slot}.
+ * **NodeContent** is a manager for [ContentSlot]{@link ../@internal/component/ets/content_slot} provided by ArkUI. It
+ * manages the FrameNode node content mounted on **ContentSlot**, and supports dynamic addition and removal of
+ * FrameNodes. It is applicable to scenarios where FrameNode node content needs to be dynamically managed through
+ * **ContentSlot**, for example, dynamically adding or removing custom FrameNodes such as text and images based on user
+ * interactions.
  *
  * > **NOTE**
  * >
@@ -47,9 +51,12 @@ export class NodeContent extends Content {
   constructor();
 
   /**
-   * Adds a FrameNode to this **NodeContent** object.
+   * Adds a FrameNode to **NodeContent**. After being added, the FrameNode is rendered and displayed through the
+   * associated **ContentSlot**. This is applicable to scenarios where the content nodes displayed in **ContentSlot**
+   * need to be dynamically managed, for example, dynamically adding custom FrameNodes such as text and images based on
+   * user interactions.
    *
-   * @param { FrameNode } node - FrameNode to add.
+   * @param { FrameNode } node - FrameNode to add, which must be a valid FrameNode that can be added.
    * @throws { BusinessError } 100025 - The parameter is invalid. Details about the invalid parameter and the reason
    *     are included in the error message.
    *     For example: "The parameter 'node' is invalid: it cannot be adopted." [since 22]
@@ -62,9 +69,12 @@ export class NodeContent extends Content {
   addFrameNode(node: FrameNode): void;
 
   /**
-   * Removes a FrameNode from this **NodeContent** object.
+   * Removes a FrameNode from **NodeContent**. After being removed, the FrameNode is no longer displayed through
+   * **ContentSlot**. This is applicable to scenarios where added content nodes need to be dynamically removed, for
+   * example, removing specified custom FrameNodes such as text and images after user interactions.
    *
-   * @param { FrameNode } node - FrameNode to remove.
+   * @param { FrameNode } node - FrameNode to remove. The node must have been added to the current **NodeContent**;
+   *     otherwise, the removal is invalid.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform

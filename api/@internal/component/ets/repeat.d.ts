@@ -14,12 +14,12 @@
  */
 
 /**
- * @file Defines Repeat component.
+ * @file
  * @kit ArkUI
  */
 
 /**
- * Defines a type for memory optimization strategy.
+ * Enumerates the memory optimization strategies of **Repeat**.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -29,7 +29,7 @@
  */
 declare enum RepeatMemOptStrategy {
   /**
-   * No memory optimization.
+   * No memory optimization strategy.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -39,7 +39,22 @@ declare enum RepeatMemOptStrategy {
    */
   DEFAULT = 0,
   /**
-   * Repeat handles the memory optimization.
+   * Automatic memory optimization strategy. When the memory usage of **Repeat** child nodes needs to be reduced, it is
+   * recommended to use this strategy to lower memory usage.
+   *
+   * When the application goes to the background, when the component where **Repeat** resides is invisible (the
+   * [visibility]{@link CommonMethod#visibility} attribute is set to a value other than [Visible]{@link Visibility}, or
+   * the component area is 0, regardless of occlusion), or when the device memory is low (the
+   * [MemoryLevel]{@link @ohos.app.ability.AbilityConstant:AbilityConstant.MemoryLevel} reaches **MEMORY_LEVEL_LOW** or
+   * **MEMORY_LEVEL_CRITICAL**), all nodes in the
+   * [cache pool](docroot://ui/rendering-control/arkts-new-rendering-control-repeat.md#node-update-and-reuse-mechanism)
+   * are released.
+   *
+   * When the application returns to the foreground and the component where **Repeat** resides is displayed again, the
+   * nodes in the cache pool are restored.
+   *
+   * When nodes are released and restored, the
+   * [custom component lifecycle](docroot://ui/state-management/arkts-page-custom-components-lifecycle.md) is triggered.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -87,7 +102,7 @@ interface RepeatItem<T> {
 
 /**
  * Configures the expected total number of data items to be loaded in lazy loading mode, the reuse capability, and the
- * precise data lazy loading capability.
+ * precise data lazy loading capability. Since API version 26.0.0, the memory optimization strategy can be configured.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -97,30 +112,34 @@ interface RepeatItem<T> {
  */
 interface VirtualScrollOptions {
   /**
-   * Expected total number of data items to be loaded, which may not be equal to the data source length (length of the
-   * array passed to **Repeat**).
+   * Total number of expected data items to load, which can be different from the data source length (the length of the
+   * array actually passed to Repeat).
    *
-   * Value range: natural numbers
+   * Value range: natural number.
    *
-   * If **totalCount** is not specified or exceeds the value range, **totalCount** takes the value of the data source
-   * length, and the list scrolls normally.
+   * At most one of totalCount and onTotalCount() can be set. If neither is set, the default value is used: the data
+   * source length. If both are set, totalCount is ignored.
    *
-   * If **totalCount** is set to **0**, no data is loaded.
+   * If totalCount is omitted or out of the value range, totalCount takes the value of the data source length, and the
+   * list scrolls normally.
    *
-   * If the value of **totalCount** is in the range (0, Data source length], only data in the range
-   * [0, **totalCount** – 1] is rendered on the GUI.
+   * If totalCount = 0, no data is loaded.
    *
-   * If the value of **totalCount** is greater than the data source length, the **Repeat** component renders data in the
-   * range [0, **totalCount** – 1], and the scrollbar style of the container component changes according to the value of
-   * **totalCount**. During the scrolling of the container component, the application must ensure that subsequent data
-   * is requested before the list is about to reach the end of the data source. You need to handle error scenarios (such
-   * as network delays) for data requests until all data sources are loaded; otherwise, scrolling exceptions may occur
-   * during list scrolling. You are advised to use [onLazyLoading]{@link VirtualScrollOptions.onLazyLoading} to
-   * implement lazy loading.
+   * If 0 < totalCount <= data source length, only the data in the range [0, totalCount - 1] is rendered in the UI.
    *
-   * In addition to the **totalCount** attribute, you can also use the
-   * [onTotalCount]{@link VirtualScrollOptions.onTotalCount} method to set a custom method to calculate the expected
-   * total number of data items to be loaded.
+   * If totalCount > data source length, **Repeat** renders the data in the range [0, totalCount - 1], and the scrollbar
+   * style of the container component changes based on the totalCount value. During scrolling of the container
+   * component, the application must ensure that subsequent data is requested when the list is about to scroll to the
+   * end of the data source. The developer needs to protect against error scenarios of data requests (such as network
+   * latency) until the data source is fully loaded; otherwise, abnormal scrolling effects may occur during list
+   * scrolling. It is recommended to use [onLazyLoading]{@link VirtualScrollOptions.onLazyLoading} to implement data
+   * lazy loading.
+   *
+   * In addition to the totalCount attribute, the developer can also set a custom method through
+   * [onTotalCount]{@link VirtualScrollOptions.onTotalCount} to calculate the expected total number of data items to
+   * load.
+   *
+   * **Atomic service API:** Since API version 12, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -131,13 +150,18 @@ interface VirtualScrollOptions {
   totalCount?: number;
 
   /**
-   * Whether to enable the reuse feature.
+   * Whether to enable the reuse capability. When the child component of **Repeat** is a custom component decorated by
+   * [@ReusableV2](docroot://ui/state-management/arkts-new-reusableV2.md), the reuse capability of **Repeat** itself
+   * takes precedence over that of @ReusableV2. If the developer wants to use the reuse capability of @ReusableV2, it is
+   * recommended to disable the reuse capability of **Repeat** itself.
    *
-   * **true**: Enable the reuse feature.
+   * **true**: enables reuse.
    *
-   * **false**: Disable the reuse feature.
+   * **false**: disables reuse.
    *
-   * Default value: **true**.
+   * Default value: **true**
+   *
+   * **Atomic service API:** Since API version 18, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -161,12 +185,13 @@ interface VirtualScrollOptions {
    * not allowed, and elements except the specified index cannot be written. Otherwise, the system throws an exception.
    * - After the **onLazyLoading** method is executed, if no data exists in the specified index, the components
    * corresponding to the current index and subsequent indexes cannot be loaded.
-   * - The precise lazy loading capability is optional. If **onLazyLoading** is not specified and the return value of
-   * **totalCount** or **onTotalCount** is greater than the data source length, **Repeat** does not render the list
-   * scrolling to the bottom.
-   * - Avoid using the **onLazyLoading** method to execute time-consuming operations. If data loading takes a long time,
-   * you are advised to create a placeholder for the data in the **onLazyLoading** method and then create an
-   * asynchronous task to load the data.
+   * - The precise lazy loading capability is an optional configuration item. If **onLazyLoading** is not specified and
+   * the return value of **totalCount** or **onTotalCount** is greater than the data source length, **Repeat** does not
+   * render the missing subsequent data when the list scrolls to the end of the data source.
+   * - Avoid blocking time-consuming operations (such as synchronous network requests and complex computations) in the
+   * **onLazyLoading** method. If data loading may take a long time and affect scrolling smoothness, you are advised to
+   * first create a placeholder for the data in the **onLazyLoading** method, and then create an asynchronous task to
+   * load the data.
    *
    * @param { number } index - Index of the data item to be loaded.
    *     <br>Value range: natural numbers
@@ -184,9 +209,9 @@ interface VirtualScrollOptions {
    *
    * Both the return values of [totalCount]{@link VirtualScrollOptions} and **onTotalCount()** indicate the expected
    * total number of data items to be loaded. You can directly set the **totalCount** attribute to specify the expected
-   * total number of data items to be loaded, or use **onTotalCount()** to set a custom method to calculate the expected
-   * total number of data items to be loaded. Use either **totalCount** or **onTotalCount**. If neither is set, the
-   * default value is used. If both are set, **totalCount** is ignored.
+   * total number of data items to be loaded, or use **onTotalCount()** to define a custom method for calculating the
+   * expected total number of data items to be loaded. At most one of **totalCount** and **onTotalCount()** can be set.
+   * If neither is set, the default value is used: the data source length. If both are set, **totalCount** is ignored.
    *
    * The data loading rules for different return values of **onTotalCount()** are the same as those for **totalCount**.
    * The details are as follows:
@@ -195,12 +220,13 @@ interface VirtualScrollOptions {
    * - If the return value of **onTotalCount()** is in the range (0, Data source length], only data in the index range
    * [0, Return value – 1] is loaded.
    * - If the return value of **onTotalCount()** is greater than the data source length, the **Repeat** component
-   * expects to load data in the index range [0, Return value – 1]. The scrollbar style of the container component
-   * changes according to the value of **totalCount**. During the scrolling of the container component, the application
-   * must ensure that subsequent data is requested before the list is about to reach the end of the data source. You
-   * need to handle error scenarios (such as network delays) for data requests until all data sources are loaded;
-   * otherwise, scrolling exceptions may occur during list scrolling. You are advised to use
-   * [onLazyLoading]{@link VirtualScrollOptions.onLazyLoading} to implement lazy loading.
+   * expects to load data in the index range [0, Return value of onTotalCount() – 1]. The scrollbar style of the
+   * container component changes based on the return value of **onTotalCount()**. During the scrolling process of the
+   * container component, the application must ensure that subsequent data is requested when the list is about to scroll
+   * to the end of the data source. The developer needs to protect against error scenarios of data requests (such as
+   * network latency) until the data source is fully loaded. Otherwise, abnormal scrolling effects may occur during list
+   * scrolling. It is recommended to use [onLazyLoading]{@link VirtualScrollOptions.onLazyLoading} to implement data
+   * lazy loading.
    * - If the return value of **onTotalCount()** is not a natural number, the data source length will be used as the
    * return value.
    *
@@ -215,7 +241,12 @@ interface VirtualScrollOptions {
   onTotalCount?(): number;
 
   /**
-   * Memory optimization strategy for Repeat VirtualScroll.
+   * Memory optimization strategy of **Repeat**. This parameter is set when **Repeat** is created and does not support
+   * dynamic modification.
+   *
+   * Default value: [DEFAULT]{@link RepeatMemOptStrategy}
+   *
+   * **Atomic service API:** Since API version 26.0.0, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -229,23 +260,26 @@ interface VirtualScrollOptions {
 /**
  * When **cachedCount** is set to the maximum number of nodes in the display area of the container component for the
  * current template, **Repeat** achieves maximum reuse efficiency. If there are no nodes of the current template in the
- * container component's display area, the cache list is not released, which increases application memory usage. You are
- * advised to set **cachedCount** to the number of nodes within the container component's display area and adjust the
- * value according to the actual situation. Yet, setting **cachedCount** to less than 2 is not recommended, as this may
- * lead to the frequent node creation during rapid scrolling and result in performance degradation.
+ * display area of the container component, the cache pool is not released, and the application memory increases. The
+ * developer needs to adjust it based on the application's requirements for memory usage and component reuse efficiency.
+ * It is recommended to set **cachedCount** to the number of nodes in the display area of the container component. Note
+ * that it is not recommended to set **cachedCount** to a value less than 2, because this causes frequent creation of
+ * new nodes in fast scrolling scenarios, resulting in performance degradation.
  *
  * > **NOTE**
  * >
- * > The **.cachedCount()** attribute of the scrollable container component and the **cachedCount** parameter of the
- * > **.template()** method of **Repeat** are used to balance performance and memory, but their meanings are different.
+ * > The `.cachedCount()` attribute of the scrollable container component and the `cachedCount` parameter of the
+ * > `.template()` method of **Repeat** are both used to balance performance and memory, but they have different
+ * > meanings.
  * >
- * > - **.cachedCount()** of the scrollable container component: size of the preloading area outside the display area of
- * > the container component. The child component nodes in this area are located in the component tree. The scrollable
- * > container component renders nodes in these preloading areas, improving the list scrolling performance.
+ * > - `.cachedCount()` of the scrollable container component: indicates the size of the preloading area outside the
+ * > display area of the container component. The child component nodes in this area are located on the component tree.
+ * > The scrollable container component additionally renders the nodes in this preloading area to improve list scrolling
+ * > performance.
  * >
- * > - cachedCount in .template(): size of the cache pool for each template in the **Repeat** component. When rendering
- * > a new child component, **Repeat** checks whether there are available nodes in the cache pool for the corresponding
- * > template. If yes, the nodes are reused. If no, new nodes are created.
+ * > - `cachedCount` in `.template()`: indicates the cache pool size of each template of Repeat. When rendering a new
+ * > child component, **Repeat** first checks whether there are available nodes in the cache pool of the corresponding
+ * > template. If yes, it reuses them; otherwise, it creates new nodes.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -256,10 +290,12 @@ interface VirtualScrollOptions {
 interface TemplateOptions {
   /**
    * Maximum number of child component nodes that can be cached in the cache pool of the current template. The value
-   * range is [0, +∞). The default value is the sum of the number of nodes in the display area of the container
-   * component and the number of nodes in the preloading area. When this sum increases (during the scrolling, when only
-   * part of the height of child components is within the display area), the value of **cachedCount** also increases
-   * accordingly. Note that the value of **cachedCount** does not decrease.
+   * range is
+   * [0, +∞), and the default value is the sum of the number of nodes in the display area and the preloaded area of the
+   * container component. When the sum of the number of nodes in the display area and the preloaded nodes of the
+   * container component increases (during the scrolling process, only child components of partial height are in
+   * the display area), **cachedCount** increases accordingly. Note that the **cachedCount** value does not decrease.
+   * When a value outside the value range, such as a negative number, is passed in, the default value is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -273,9 +309,13 @@ interface TemplateOptions {
 /**
  * Function that returns typed string to render one template.
  *
- * @param { T } item - Each data item in the **arr** array. **T** indicates the data type passed in.
+ * @param { T } item - Each data item in arr. T is the data type passed in by the developer.
+ *     <br>When omitted, this parameter is ignored by default. Do not use this parameter in the closure function
+ *     implementation; otherwise, a compile error occurs.
  * @param {number} index - Index corresponding to the current data item.
- * @returns { string } template type.
+ *     <br>When omitted, this parameter is ignored by default. Do not use this parameter in the closure function
+ *     implementation; otherwise, a compile error occurs.
+ * @returns { string } Template type generated by the current data item.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -287,7 +327,9 @@ declare type TemplateTypedFunc<T> = (item: T, index: number) => string;
 /**
  * Defines builder function to render one template type.
  *
- * @param { RepeatItem<T> } repeatItem - State variable that combines **item** and **index**.
+ * @param { RepeatItem<T> } repeatItem - State variable that combines item and index.
+ *     <br>When this parameter is omitted, it is ignored by default. Do not use this parameter in the closure function
+ *     implementation; otherwise, a compile error occurs.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -445,4 +487,4 @@ declare type RepeatInterface = <T>(arr: RepeatArray<T>) => RepeatAttribute<T>;
  * @since 12 dynamic
  * @noninterop
  */
-declare const Repeat: RepeatInterface;
+declare const Repeat: RepeatInterface;

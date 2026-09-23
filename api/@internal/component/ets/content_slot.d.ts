@@ -43,8 +43,7 @@ declare class ContentSlotAttribute {
 }
 
 /**
- * The **ContentSlot** component is a component designed to render and manage components created on the native layer
- * using C APIs.
+ * Renders components created using C-API on the native side and manages these components through the Content manager.
  *
  * With support for hybrid development, the **ContentSlot** component is recommended when the container is an ArkTS
  * component and the child component is created on the native side.
@@ -58,11 +57,12 @@ declare class ContentSlotAttribute {
  */
 interface ContentSlotInterface {
   /**
-   * Called when content is added to a placeholder component
+   * Creates a **ContentSlot** placeholder component for rendering components created on the native side in the Content
+   * manager.
    *
-   * @param { Content } content - Manager of the **ContentSlot** component. Through the APIs provided by the native
-   *     side, it can register and trigger the attach and detach event callbacks for **ContentSlot**, as well as manage
-   *     the child components of **ContentSlot**.
+   * @param { Content } content - Manager of **ContentSlot**. Through the APIs provided by the native side, it can
+   *     register and trigger the callback for **ContentSlot** attach/detach events (i.e., when a component node is
+   *     added to or removed from the component rendering tree) and manage child components of **ContentSlot**.
    * @returns { ContentSlotAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -74,8 +74,7 @@ interface ContentSlotInterface {
 }
 
 /**
- * The **ContentSlot** component is a component designed to render and manage components created on the native layer
- * using C APIs.
+ * Renders components created using C-API on the native side and manages these components through the Content manager.
  *
  * With support for hybrid development, the **ContentSlot** component is recommended when the container is an ArkTS
  * component and the child component is created on the native side.

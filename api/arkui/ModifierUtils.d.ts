@@ -19,7 +19,11 @@
  */
 
 /**
- * ModifierUtils provides utility methods for modifier and attribute operations.
+ * **ModifierUtils** is a utility class for
+ * [AttributeModifier](docroot://ui/arkts-user-defined-extension-attributeModifier.md), used to provide methods for
+ * attribute operations. For example, it can determine whether a given instance is of a specified component type. This
+ * is applicable to scenarios where different component types need to be distinguished and differentiated attribute
+ * settings need to be applied within a unified **AttributeModifier**.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -28,11 +32,18 @@
  */
 export declare class ModifierUtils {
   /**
-   * Checks if the given instance is of the specified component type.
+   * Checks whether a given instance is of a specified component type. For example, when implementing unified attribute
+   * modification logic for multiple component types in a custom **AttributeModifier**, this method can be used to
+   * determine the component type of the current instance, so that different attribute settings can be applied to
+   * different components.
    *
-   * @param { T } instance - The instance to check.
-   * @param { string } componentName - The name of the component type to check against.
-   * @returns { boolean } Returns true if the instance is of the specified component type. Otherwise, returns false.
+   * @param { T } instance - Instance to check. T is the component attribute type that inherits from
+   *     [universal attributes]{@link ../@internal/component/ets/common} (CommonMethod).
+   * @param { string } componentName - Name of the component type to check. The value is the component class name (such
+   *     as 'Text' or 'Button') and must exactly match the component class name (case-sensitive). Returns **false** if
+   *     an invalid or nonexistent component class name is passed in.
+   * @returns { boolean } Returns **true** if the instance is of the specified component type; returns **false**
+   *     otherwise.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

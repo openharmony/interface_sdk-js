@@ -24,8 +24,8 @@ import { Size } from './Graphics';
 
 /**
  * The **NodeController** module provides APIs for managing custom nodes, such as creating, showing, and updating custom
- * nodes, and APIs for mounting custom nodes to a [NodeContainer]{@link ../@internal/component/ets/node_container}
- * component.
+ * nodes, and APIs for mounting custom nodes to a [NodeContainer]{@link ../@internal/component/ets/node_container}. It
+ * is suitable for scenarios where custom nodes need to be dynamically created, updated, and reused on a page.
  *
  * > **NOTE**
  * >
@@ -40,28 +40,29 @@ import { Size } from './Graphics';
 export abstract class NodeController {
   /**
    * Called when the [NodeContainer]{@link ../@internal/component/ets/node_container} component bound to this
-   * **NodeController** instance is created. This callback returns a node, which will be mounted to the
-   * **NodeContainer**.
+   * **NodeController** is created. This callback returns a node, which will be mounted to the
+   * [NodeContainer]{@link ../@internal/component/ets/node_container}.
    *
-   * This callback can also be invoked through the **rebuild()** method of **NodeController**.
+   * Alternatively, the callback can be triggered through the **rebuild()** API of **NodeController**.
    *
    * > **NOTE**
    * >
    * > [NodeContainer]{@link ../@internal/component/ets/node_container} does not support cross-instance reuse. If
    * > [NodeContainer]{@link ../@internal/component/ets/node_container} is reused across instances and
-   * > [NodeController]{@link NodeController} of [NodeContainer]{@link ../@internal/component/ets/node_container}
-   * > triggers the [makeNode]{@link NodeController#makeNode} callback method, the
-   * > [UIContext]{@link @ohos.arkui.UIContext} object in the input parameter may be undefined. In this case, you need
-   * > to check whether the [UIContext]{@link @ohos.arkui.UIContext} object in the input parameter is undefined, which
-   * > prevents the [invalid UIContext](docroot://ui/arkts-wrong-uicontext-debug.md#identifying-uicontext-errors) when
-   * > the input parameter is used.
+   * > [NodeController]{@link NodeController} passed to [NodeContainer]{@link ../@internal/component/ets/node_container}
+   * > triggers the [makeNode]{@link NodeController#makeNode} callback, the [UIContext]{@link @ohos.arkui.UIContext}
+   * > object in the input parameter may be **undefined**. In this case, you need to check whether the object is
+   * > **undefined** to prevent
+   * > [invalid UIContext](docroot://ui/arkts-wrong-uicontext-debug.md#identifying-uicontext-errors) when the input
+   * > parameter is used.
    *
-   * @param { UIContext } uiContext - UI context of the bound
-   *     [NodeContainer]{@link ../@internal/component/ets/node_container} component.
-   * @returns { FrameNode | null } **FrameNode** object, which will be mounted to the placeholder node of the
-   *     [NodeContainer]{@link ../@internal/component/ets/node_container} component. If a null object is returned, the
-   *     child nodes of the corresponding [NodeContainer]{@link ../@internal/component/ets/node_container} component are
-   *     removed.
+   * @param { UIContext } uiContext - UI context bound to
+   *     [NodeContainer]{@link ../@internal/component/ets/node_container} when this API is called back. When
+   *     [NodeContainer]{@link ../@internal/component/ets/node_container} is reused across instances, this parameter may
+   *     be undefined, and you need to determine this yourselves.
+   * @returns { FrameNode | null } **FrameNode** object. The returned node will be mounted to the placeholder node of
+   *     [NodeContainer]{@link ../@internal/component/ets/node_container}. If **null** is returned, the child nodes of
+   *     the corresponding [NodeContainer]{@link ../@internal/component/ets/node_container} will be cleared.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -71,10 +72,10 @@ export abstract class NodeController {
   abstract makeNode(uiContext: UIContext): FrameNode | null;
 
   /**
-   * Called when the [NodeContainer]{@link ../@internal/component/ets/node_container} component bound to this
-   * **NodeController** instance is resized.
+   * Called when [NodeContainer]{@link ../@internal/component/ets/node_container} bound to **NodeController** is laid
+   * out.
    *
-   * @param { Size } size - Width and height of the component, in vp.
+   * @param { Size } size - Width and height of the component layout size, in vp.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -84,8 +85,9 @@ export abstract class NodeController {
   aboutToResize?(size: Size): void;
 
   /**
-   * Called after the [NodeContainer]{@link ../@internal/component/ets/node_container} component bound to this
-   * **NodeController** instance is attached and about to appear.
+   * Called when the [NodeContainer]{@link ../@internal/component/ets/node_container} bound to this **NodeController**
+   * instance is attached to the main node tree. This callback is asynchronous, and its actual execution time is later
+   * than the attachment.
    *
    * > **NOTE**
    * >
@@ -100,8 +102,8 @@ export abstract class NodeController {
   aboutToAppear?(): void;
 
   /**
-   * Called when the [NodeContainer]{@link ../@internal/component/ets/node_container} component bound to this
-   * **NodeController** instance is destroyed.
+   * Called when the [NodeContainer]{@link ../@internal/component/ets/node_container} bound to this **NodeController**
+   * instance is detached from the main node tree. This callback is synchronous.
    *
    * > **NOTE**
    * >
@@ -116,18 +118,20 @@ export abstract class NodeController {
   aboutToDisappear?(): void;
 
   /**
-   * Instructs the [NodeContainer]{@link ../@internal/component/ets/node_container} component bound to this
-   * **NodeController** instance to call the [makeNode]{@link NodeController#makeNode} API again to change child nodes.
+   * Notifies the [NodeContainer]{@link ../@internal/component/ets/node_container} component to call the
+   * [makeNode]{@link NodeController#makeNode} API again to change the child node. For example, when the content data
+   * displayed by **NodeContainer** changes and the displayed child node needs to be updated, this API can be called to
+   * trigger a rebuild.
    *
    * > **NOTE**
    * >
-   * > Since the **rebuild** API is actively called by the application and is tied to the UI, you need to ensure that
-   * > the UI context is valid at the time of the call, that is, it must be consistent with the UI context of the bound
-   * > NodeContainer.
+   * > Since the **rebuild** API is proactively called by the application and the operation is UI-related, you must
+   * > ensure that the UI context is valid when calling this API, that is, the UI context must be consistent with that
+   * > of the bound **NodeContainer**.
    * >
    * > In cases where the [UI context is unclear](docroot://ui/arkts-global-interface.md#ambiguous-ui-context), for
    * > example, during event callbacks, you can use the
-   * > [runScopedTask]{@link @ohos.arkui.UIContext:UIContext.runScopedTask} method of
+   * > [runScopedTask]{@link @ohos.arkui.UIContext:UIContext.runScopedTask} API of
    * > [UIContext]{@link @ohos.arkui.UIContext} to explicitly define the UI context at the time of the call.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -139,10 +143,11 @@ export abstract class NodeController {
   rebuild(): void;
 
   /**
-   * Called when the [NodeContainer]{@link ../@internal/component/ets/node_container} component bound to this
-   * **NodeController** instance receives a touch event.
+   * Called when [NodeContainer]{@link ../@internal/component/ets/node_container} bound to **NodeController** receives a
+   * touch event.
    *
-   * @param { TouchEvent } event - Touch event.
+   * @param { TouchEvent } event - Touch event, which contains information such as the coordinates of the touch point
+   *     and the touch action type. For details, see **TouchEvent**.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -152,8 +157,11 @@ export abstract class NodeController {
   onTouchEvent?(event: TouchEvent): void;
 
   /**
-   * Called when the [NodeContainer]{@link ../@internal/component/ets/node_container} component bound to this
-   * **NodeController** instance is attached to the main node tree.
+   * Called when the [NodeContainer]{@link ../@internal/component/ets/node_container} bound to this **NodeController**
+   * instance is attached to the main node tree. It is triggered at the same time as
+   * [aboutToAppear]{@link NodeController#aboutToAppear} (both when the **NodeContainer** is attached to the main node
+   * tree). The difference is that **onAttach** is a synchronous callback while **aboutToAppear** is an asynchronous
+   * callback, so **onAttach** is executed before **aboutToAppear**.
    *
    * > **NOTE**
    * >
@@ -168,8 +176,11 @@ export abstract class NodeController {
   onAttach?(): void;
 
   /**
-   * Called when the [NodeContainer]{@link ../@internal/component/ets/node_container} component bound to this
-   * **NodeController** instance is detached from the main node tree.
+   * Called when the [NodeContainer]{@link ../@internal/component/ets/node_container} bound to this **NodeController**
+   * instance is detached from the main node tree. It is triggered at the same time as
+   * [aboutToDisappear]{@link NodeController#aboutToDisappear} (both when the **NodeContainer** is detached from the
+   * main node tree). Both are synchronous callbacks. During the detachment process, the framework triggers **onDetach**
+   * first and then **aboutToDisappear**, so **onDetach** is executed before **aboutToDisappear**.
    *
    * > **NOTE**
    * >
@@ -184,11 +195,13 @@ export abstract class NodeController {
   onDetach?(): void;
 
   /**
-   * Called when this **NodeController** instance is about to be bound to a
-   * [NodeContainer]{@link ../@internal/component/ets/node_container} component.
+   * Called when **NodeController** is about to be bound to
+   * [NodeContainer]{@link ../@internal/component/ets/node_container}. This callback is triggered before
+   * [onBind]{@link NodeController#onBind}. Both are optional callbacks, and the corresponding logic can be executed
+   * before or after binding as needed.
    *
-   * @param { number } containerId - ID of the [NodeContainer]{@link ../@internal/component/ets/node_container}
-   *     component to which the **NodeController** instance is about to be bound.
+   * @param { number } containerId - Identifier of [NodeContainer]{@link ../@internal/component/ets/node_container} that
+   *     is about to be bound with **NodeController** when this API is called back.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -198,11 +211,13 @@ export abstract class NodeController {
   onWillBind?(containerId: number): void;
 
   /**
-   * Called when this **NodeController** instance is about to be unbound from a
-   * [NodeContainer]{@link ../@internal/component/ets/node_container} component.
+   * Called when **NodeController** is about to be unbound from
+   * [NodeContainer]{@link ../@internal/component/ets/node_container}. This callback is triggered before
+   * [onUnbind]{@link NodeController#onUnbind}. Both are optional callbacks, and the corresponding logic can be executed
+   * before or after unbinding as needed.
    *
-   * @param { number } containerId - ID of the [NodeContainer]{@link ../@internal/component/ets/node_container}
-   *     component from which the **NodeController** instance is about to be unbound.
+   * @param { number } containerId - Identifier of  [NodeContainer]{@link ../@internal/component/ets/node_container}
+   *     that is about to be unbound from **NodeController** when this API is called back.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -212,11 +227,12 @@ export abstract class NodeController {
   onWillUnbind?(containerId: number): void;
 
   /**
-   * Called after this **NodeController** instance is bound to a
-   * [NodeContainer]{@link ../@internal/component/ets/node_container} component.
+   * Called after **NodeController** is bound to [NodeContainer]{@link ../@internal/component/ets/node_container}. This
+   * callback is triggered after [onWillBind]{@link NodeController#onWillBind}. Both are optional callbacks, and the
+   * corresponding logic can be executed before or after binding as needed.
    *
-   * @param { number } containerId - ID of the [NodeContainer]{@link ../@internal/component/ets/node_container}
-   *     component to which the **NodeController** instance is bound.
+   * @param { number } containerId - Identifier of [NodeContainer]{@link ../@internal/component/ets/node_container} that
+   *     has been bound to **NodeController** when this API is called back.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -226,11 +242,12 @@ export abstract class NodeController {
   onBind?(containerId: number): void;
 
   /**
-   * Called after this **NodeController** instance is unbound from a
-   * [NodeContainer]{@link ../@internal/component/ets/node_container} component.
+   * Called after **NodeController** is unbound from [NodeContainer]{@link ../@internal/component/ets/node_container}.
+   * This callback is triggered after [onWillUnbind]{@link NodeController#onWillUnbind}. Both are optional callbacks,
+   * and the corresponding logic can be executed before or after unbinding as needed.
    *
-   * @param { number } containerId - ID of the [NodeContainer]{@link ../@internal/component/ets/node_container}
-   *     component from which the **NodeController** instance is unbound.
+   * @param { number } containerId - Identifier of [NodeContainer]{@link ../@internal/component/ets/node_container} that
+   *     has been unbound from **NodeController** when this API is called back.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform

@@ -5756,7 +5756,11 @@ declare type TransitionEffects = {
 }
 
 /**
- * Defined the draw modifier of node. Provides draw callbacks for the associated Node.
+ * DrawModifier可设置遮罩层（drawOverlay<sup>23+</sup>）、前景（drawForeground<sup>20+</sup>）、内容前景（drawFront）、内容（drawContent）和内容背景（drawBehind）的绘制方法，还提供主动触发重绘的方法[invalidate]{@link DrawModifier#invalidate}。每个DrawModifier实例只能设置到一个组件上，禁止重复设置。
+ * > **说明：**
+ * >
+ * > 绘制顺序从下到上依次为：内容背景（drawBehind）→ 内容（drawContent）→ 内容前景（drawFront）→ 前景（drawForeground）→ 遮罩层（drawOverlay）。
+ * > 每个层级独立绘制，各层级方法可选实现。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -5765,11 +5769,12 @@ declare type TransitionEffects = {
  * @since 12 dynamic
  */
 declare class DrawModifier {
-
   /**
-   * drawBehind Method. Executed before drawing associated Node.
+   * 自定义绘制内容背景的接口，若重载该方法则可进行内容背景的自定义绘制。背景位于组件内容层之下，适用于需要在组件底层添加装饰性背景元素的场景。
+   * 该接口的[DrawContext]{@link ../api/arkui/Graphics#DrawContext}中的Canvas是用于记录指令的临时Canvas，并非节点的真实Canvas。
+   * 使用请参见[调整自定义绘制Canvas的变换矩阵](docroot://ui/arkts-user-defined-extension-drawModifier.md#调整自定义绘制canvas的变换矩阵)。
    *
-   * @param { DrawContext } drawContext - The drawContext used to draw.
+   * @param { DrawContext } drawContext - 图形绘制上下文，提供canvas（画布对象）和size（绘制区域尺寸）等属性，用于在自定义绘制方法中执行具体的绘制操作。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -5779,10 +5784,11 @@ declare class DrawModifier {
   drawBehind?(drawContext: DrawContext): void;
 
   /**
-   * drawContent Method. Executed when associated Node is drawing, the default drawContent method will be replaced
-   * if this method is set.
+   * 自定义绘制内容的接口，若重载该方法则可进行内容的自定义绘制，会替换组件原本的内容绘制函数。适用于需要完全自定义组件内容绘制、不使用组件原本内容绘制逻辑的场景。
+   * 该接口的[DrawContext]{@link ../api/arkui/Graphics#DrawContext}中的Canvas是用于记录指令的临时Canvas，并非节点的真实Canvas。
+   * 使用请参见[调整自定义绘制Canvas的变换矩阵](docroot://ui/arkts-user-defined-extension-drawModifier.md#调整自定义绘制canvas的变换矩阵)。
    *
-   * @param { DrawContext } drawContext - The drawContext used to draw.
+   * @param { DrawContext } drawContext - 图形绘制上下文，提供canvas（画布对象）和size（绘制区域尺寸）等属性，用于在自定义绘制方法中执行具体的绘制操作。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -5792,9 +5798,10 @@ declare class DrawModifier {
   drawContent?(drawContext: DrawContext): void;
 
   /**
-   * drawFront Method. Executed after drawing associated Node.
+   * 自定义绘制内容前景的接口，若重载该方法则可进行内容前景的自定义绘制。内容前景位于内容和前景之间，适用于需要在组件内容之上、组件前景之下添加绘制内容的场景。
+   * 该接口的[DrawContext]{@link ../api/arkui/Graphics#DrawContext}中的Canvas是用于记录指令的临时Canvas，并非节点的真实Canvas。使用请参见[调整自定义绘制Canvas的变换矩阵](docroot://ui/arkts-user-defined-extension-drawModifier.md#调整自定义绘制canvas的变换矩阵)。
    *
-   * @param { DrawContext } drawContext - The drawContext used to draw.
+   * @param { DrawContext } drawContext - 图形绘制上下文，提供canvas（画布对象）和size（绘制区域尺寸）等属性，用于在自定义绘制方法中执行具体的绘制操作。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -5804,9 +5811,11 @@ declare class DrawModifier {
   drawFront?(drawContext: DrawContext): void;
 
   /**
-   * 前景绘制，在关联节点和其子节点绘制后执行
+   * 自定义绘制前景的接口，若重载该方法则可进行前景的自定义绘制。与[drawFront]{@link DrawModifier#drawFront}（内容前景）相比，
+   * drawForeground位于更高层级，绘制在内容前景之上、遮罩层之下。drawFront适用于绘制组件内容自身的前景效果，drawForeground适用于需要在内容前景之上添加额外前景效果的场景。
+   * 该接口的[DrawContext]{@link ../api/arkui/Graphics#DrawContext}中的Canvas是用于记录指令的临时Canvas，并非节点的真实Canvas。使用请参见[调整自定义绘制Canvas的变换矩阵](docroot://ui/arkts-user-defined-extension-drawModifier.md#调整自定义绘制canvas的变换矩阵)。
    *
-   * @param { DrawContext } drawContext - 用来绘制的drawContext
+   * @param { DrawContext } drawContext - 图形绘制上下文，提供canvas（画布对象）和size（绘制区域尺寸）等属性，用于在自定义绘制方法中执行具体的绘制操作。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -5816,12 +5825,14 @@ declare class DrawModifier {
   drawForeground(drawContext: DrawContext): void;
 
   /**
-   * 在关联的Node及其所有子节点绘制完成后，在悬浮层中绘制内容。
+   * 自定义绘制遮罩层的接口，若重载该方法则可进行遮罩层的自定义绘制。遮罩层是最上层的绘制层级，适用于需要在组件最上层添加遮罩效果（如高亮、蒙版等）的场景。
+   * 该接口的[DrawContext]{@link ../api/arkui/Graphics#DrawContext}中的Canvas是用于记录指令的临时Canvas，并非节点的真实Canvas。使用请参见[调整自定义绘制Canvas的变换矩阵](docroot://ui/arkts-user-defined-extension-drawModifier.md#调整自定义绘制canvas的变换矩阵)。
    *
    * 自定义绘制包含五个层级：内容背景层、内容层、内容前景层、前景层和悬浮层。
-   *  - 前景层和悬浮层在子节点之后绘制。
-   *  - 悬浮层与前景层的区别在于：悬浮层可以在组件的边界范围外进行绘制。
-   * @param { DrawContext } drawContext - 用于绘制的drawContext
+   * - 前景层和悬浮层在子节点之后绘制。
+   * - 悬浮层与前景层的区别在于：悬浮层可以在组件的边界范围外进行绘制。
+   *
+   * @param { DrawContext } drawContext - 图形绘制上下文，提供canvas（画布对象）和size（绘制区域尺寸）等属性，用于在自定义绘制方法中执行具体的绘制操作。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -5831,7 +5842,7 @@ declare class DrawModifier {
   drawOverlay(drawContext: DrawContext): void;
 
   /**
-   * Invalidate the component, which will cause a re-render of the component.
+   * 主动触发重绘的接口，开发者无需也无法重载，调用会触发所绑定组件的重绘。当自定义绘制所依赖的属性（如尺寸、颜色、位置等）发生变化时（例如在动画过程中动态更新绘制参数），需要调用该方法使最新的绘制效果生效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -18731,135 +18742,225 @@ declare interface MenuElement {
 }
 
 /**
- * Defines the attribute modifier.
+ * 开发者需要自定义class实现AttributeModifier接口。
+ *
+ * > **说明：**
+ * >
+ * > 在以下回调函数中，当对instance对象的同一个属性重复设置相同的值或对象时，不会触发该属性的更新。
+ * 
+ * ###### Attribute类型支持范围
+ *
+ * | 名称 | 说明 |
+ * | ----------------- | --------------- |
+ * | AlphabetIndexerAttribute | AlphabetIndexer的[属性]{@link AlphabetIndexerAttribute}。 |
+ * | BadgeAttribute | Badge的[属性]{@link BadgeAttribute}。 |
+ * | BlankAttribute | Blank的[属性]{@link BlankAttribute}。 |
+ * | ButtonAttribute | Button的[属性]{@link ButtonAttribute}。 |
+ * | CalendarPickerAttribute | CalendarPicker的[属性]{@link CalendarPickerAttribute}。 |
+ * | CanvasAttribute | Canvas的[属性]{@link CanvasAttribute}。 |
+ * | CheckboxAttribute | Checkbox的[属性]{@link CheckboxAttribute}。 |
+ * | CheckboxGroupAttribute | CheckboxGroup的[属性]{@link CheckboxGroupAttribute}。 |
+ * | CircleAttribute | Circle的[属性]{@link CircleAttribute}。 |
+ * | ColumnAttribute | Column的[属性]{@link ColumnAttribute}。 |
+ * | ColumnSplitAttribute | ColumnSplit的[属性]{@link ColumnSplitAttribute}。 |
+ * | CommonAttribute | Common的[属性]{@link CommonAttribute}。 |
+ * | CounterAttribute | Counter的[属性]{@link CounterAttribute}。 |
+ * | DataPanelAttribute | DataPanel的[属性]{@link DataPanelAttribute}。 |
+ * | DatePickerAttribute | DatePicker的[属性]{@link DatePickerAttribute}。 |
+ * | DividerAttribute | Divider的[属性]{@link DividerAttribute}。 |
+ * | EllipseAttribute | Ellipse的[属性]{@link EllipseAttribute}。 |
+ * | FlexAttribute | Flex的[属性]{@link FlexAttribute}。 |
+ * | FlowItemAttribute | FlowItem的[属性]{@link FlowItemAttribute}。 |
+ * | FormLinkAttribute | FormLink的[属性]{@link FormLinkAttribute}。 |
+ * | GaugeAttribute | Gauge的[属性]{@link GaugeAttribute}。 |
+ * | GridAttribute | Grid的[属性]{@link GridAttribute}。 |
+ * | GridColAttribute | GridCol的[属性]{@link GridColAttribute}。 |
+ * | GridItemAttribute | GridItem的[属性]{@link GridItemAttribute}。 |
+ * | GridRowAttribute | GridRow的[属性]{@link GridRowAttribute}。 |
+ * | HyperlinkAttribute | Hyperlink的[属性]{@link HyperlinkAttribute}。 |
+ * | IndicatorComponentAttribute | IndicatorComponent的[属性]{@link IndicatorComponentAttribute}。 |
+ * | ImageAttribute | Image的[属性]{@link ImageAttribute}。 |
+ * | ImageAnimatorAttribute | ImageAnimator的[属性]{@link ImageAnimatorAttribute}。 |
+ * | ImageSpanAttribute | ImageSpan的[属性]{@link ImageSpanAttribute}。 |
+ * | ContainerSpanAttribute | ContainerSpan的[属性]{@link ContainerSpanAttribute}。 |
+ * | LineAttribute | Line的[属性]{@link LineAttribute}。 |
+ * | ListAttribute | List的[属性]{@link ListAttribute}。 |
+ * | ListItemAttribute | ListItem的[属性]{@link ListItemAttribute}。 |
+ * | ListItemGroupAttribute | ListItemGroup的[属性]{@link ListItemGroupAttribute}。 |
+ * | LoadingProgressAttribute | LoadingProgress的[属性]{@link LoadingProgressAttribute}。 |
+ * | MarqueeAttribute | Marquee的[属性]{@link MarqueeAttribute}。 |
+ * | MenuAttribute | Menu的[属性]{@link MenuAttribute}。 |
+ * | MenuItemAttribute | MenuItem的[属性]{@link MenuItemAttribute}。 |
+ * | MenuItemGroupAttribute | [MenuItemGroup]{@link ./menu_item_group}的属性。 |
+ * | NavDestinationAttribute | NavDestination的[属性]{@link NavDestinationAttribute}。 |
+ * | NavigationAttribute | Navigation的[属性]{@link NavigationAttribute}。 |
+ * | NavigatorAttribute | Navigator的[属性]{@link NavigatorAttribute}。 |
+ * | NavRouterAttribute | NavRouter的[属性]{@link NavRouterAttribute}。 |
+ * | PanelAttribute | Panel的[属性]{@link PanelAttribute}。 |
+ * | PathAttribute | Path的[属性]{@link PathAttribute}。 |
+ * | PatternLockAttribute | PatternLock的[属性]{@link PatternLockAttribute}。 |
+ * | PolygonAttribute | Polygon的[属性]{@link PolygonAttribute}。 |
+ * | PolylineAttribute | Polyline的[属性]{@link PolylineAttribute}。 |
+ * | ProgressAttribute | Progress的[属性]{@link ProgressAttribute}。 |
+ * | QRCodeAttribute | QRCode的[属性]{@link QRCodeAttribute}。 |
+ * | RadioAttribute | Radio的[属性]{@link RadioAttribute}。 |
+ * | RatingAttribute | Rating的[属性]{@link RatingAttribute}。 |
+ * | RectAttribute | Rect的[属性]{@link RectAttribute}。 |
+ * | RefreshAttribute | Refresh的[属性]{@link RefreshAttribute}。 |
+ * | RelativeContainerAttribute | RelativeContainer的[属性]{@link RelativeContainerAttribute}。 |
+ * | RichEditorAttribute | RichEditor的[属性]{@link RichEditorAttribute}。 |
+ * | RichTextAttribute | RichText的[属性]{@link RichTextAttribute}。 |
+ * | RowAttribute | Row的[属性]{@link RowAttribute}。 |
+ * | RowSplitAttribute | RowSplit的[属性]{@link RowSplitAttribute}。 |
+ * | ScrollAttribute | Scroll的[属性]{@link ScrollAttribute}。 |
+ * | ScrollBarAttribute | ScrollBar的[属性]{@link ScrollBarAttribute}。 |
+ * | SearchAttribute | Search的[属性]{@link SearchAttribute}。 |
+ * | SelectAttribute | Select的[属性]{@link SelectAttribute}。 |
+ * | ShapeAttribute | Shape的[属性]{@link ShapeAttribute}。 |
+ * | SideBarContainerAttribute | SideBarContainer的[属性]{@link SideBarContainerAttribute}。 |
+ * | SliderAttribute | Slider的[属性]{@link SliderAttribute}。 |
+ * | SpanAttribute | Span的[属性]{@link SpanAttribute}。 |
+ * | SymbolSpanAttribute | SymbolSpan的[属性]{@link SymbolSpanAttribute}。 |
+ * | StackAttribute | Stack的[属性]{@link StackAttribute}。 |
+ * | StepperAttribute | Stepper的[属性]{@link StepperAttribute}。 |
+ * | StepperItemAttribute | StepperItem的[属性]{@link StepperItemAttribute}。 |
+ * | SwiperAttribute | Swiper的[属性]{@link SwiperAttribute}。 |
+ * | SymbolGlyphAttribute | SymbolGlyph的[属性]{@link SymbolGlyphAttribute}。 |
+ * | TabContentAttribute | TabContent的[属性]{@link TabContentAttribute}。 |
+ * | TabsAttribute | Tabs的[属性]{@link TabsAttribute}。 |
+ * | TextAttribute | Text的[属性]{@link TextAttribute}。 |
+ * | TextAreaAttribute | TextArea的[属性]{@link TextAreaAttribute}。 |
+ * | TextClockAttribute | TextClock的[属性]{@link TextClockAttribute}。 |
+ * | TextInputAttribute | TextInput的[属性]{@link TextInputAttribute}。 |
+ * | TextPickerAttribute | TextPicker的[属性]{@link TextPickerAttribute}。 |
+ * | TextTimerAttribute | TextTimer的[属性]{@link TextTimerAttribute}。 |
+ * | TimePickerAttribute | TimePicker的[属性]{@link TimePickerAttribute}。 |
+ * | ToggleAttribute | Toggle的[属性]{@link ToggleAttribute}。 |
+ * | VideoAttribute | Video的[属性]{@link VideoAttribute}。 |
+ * | WaterFlowAttribute | WaterFlow的[属性]{@link WaterFlowAttribute}。 |
+ * | XComponentAttribute | XComponent的[属性]{@link XComponentAttribute}。 |
+ * | ParticleAttribute | Particle的[属性]{@link ParticleAttribute}。 |
+ * | UIPickerComponentAttribute<sup>22+</sup> | UIPickerComponent的[属性]{@link UIPickerComponentAttribute}。 |
+ * | <!--DelRow-->EffectComponentAttribute | EffectComponent的[属性]{@link EffectComponentAttribute}。 |
+ * | <!--DelRow-->FormComponentAttribute | FormComponent的[属性]{@link FormComponentAttribute}。 |
+ * | <!--DelRow-->PluginComponentAttribute | PluginComponent的[属性]{@link PluginComponentAttribute}。 |
+ * | <!--DelRow-->RemoteWindowAttribute | RemoteWindow的[属性]{@link RemoteWindowAttribute}。 |
+ * | UIExtensionComponentAttribute | UIExtensionComponent的[属性]{@link UIExtensionComponentAttribute}。 |
+ * | ContainerReaderAttribute | ContainerReader的[属性]{@link ContainerReaderAttribute}。<br>**起始版本：** 26.0.0|
+ * 
+ * > **说明**
+ * > StepperAttribute从API version 11开始支持，从API version 22开始废弃。建议使用SwiperAttribute替代。
+ * > StepperItemAttribute从API version 11开始支持，从API version 22开始废弃。建议使用SwiperAttribute替代。
+ * > NavigatorAttribute从API version 11开始支持，从API version 20开始废弃。建议使用NavigationAttribute替代。
+ * > NavRouterAttribute从API version 11开始支持，从API version 20开始废弃。建议使用NavigationAttribute替代。
+ * > PanelAttribute从API version 11开始支持，从API version 20开始废弃。建议使用通用属性bindSheet替代。
+ * > **属性支持范围：**
+ * >
+ * > 1. 不支持入参或者返回值为[CustomBuilder]{@link CustomBuilder}的属性。
+ * > 2. 不支持入参为[modifier](docroot://ui/arkts-user-defined-modifier.md)类型的属性，具体为以下属性方法：[attributeModifier]{@link CommonMethod#attributeModifier}、[drawModifier]{@link CommonMethod#drawModifier}和[gestureModifier]{@link CommonMethod#gestureModifier}。
+ * > 3. 不支持[animation]{@link CommonMethod#animation}属性。
+ * > 4. 不支持[gesture](docroot://ui/arkts-gesture-events-binding.md)类型的属性。
+ * > 5. 不支持[stateStyles]{@link CommonMethod#stateStyles}属性。
+ * > 6. 不支持已废弃属性。
+ * >    <!--Del-->
+ * > 7. 不支持系统组件属性。<!--DelEnd-->
+ * > 不支持或者未实现的属性在使用时会抛出"Method not implemented."、"is not callable"、"Builder is not supported."等异常信息。具体Modifier支持范围可参考
+ * > [属性或事件对attributeModifier的支持情况](docroot://ui/arkts-user-defined-extension-attributeModifier.md#属性或事件对attributemodifier的支持情况)。
  *
  * @interface AttributeModifier<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * Defines the attribute modifier.
- *
- * @interface AttributeModifier<T>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare interface AttributeModifier<T> {
-
   /**
-   * Defines the normal update attribute function.
+   * 组件普通状态时的样式。
    *
-   * @param { T } instance
+   * @param { T } instance - 组件的属性类，用来标识进行属性设置的组件的类型，比如[Button]{@link ./button}组件的
+   *     [属性]{@link ButtonAttribute}（ButtonAttribute），
+   *     [Text]{@link ./text}组件的[属性]{@link TextAttribute}（TextAttribute）等。具体取值请参考
+   *     [Attribute类型支持范围]{@link AttributeModifier}。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Defines the normal update attribute function.
-   *
-   * @param { T } instance
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   applyNormalAttribute?(instance: T) : void;
 
   /**
-   * Defines the pressed update attribute function.
+   * 组件按压状态的样式。参考
+   * [示例2（组件绑定Modifier实现按压态效果）]{@link AttributeModifier#applyPressedAttribute}、[示例8（自定义组件绑定Modifier实现按压态效果）]{@link AttributeModifier#applyPressedAttribute}。
    *
-   * @param { T } instance
+   * @param { T } instance - 组件的属性类，用来标识进行属性设置的组件的类型，比如[Button]{@link ./button}组件的
+   *     [属性]{@link ButtonAttribute}（ButtonAttribute），
+   *     [Text]{@link ./text}组件的[属性]{@link TextAttribute}（TextAttribute）等。
+   *     具体取值请参考[Attribute类型支持范围]{@link AttributeModifier}。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Defines the pressed update attribute function.
-   *
-   * @param { T } instance
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   applyPressedAttribute?(instance: T) : void;
 
   /**
-   * Defines the focused update attribute function.
+   * 组件获焦状态的样式。
+   * 参考[示例5（组件绑定Modifier获焦样式）]{@link AttributeModifier#applyFocusedAttribute}。
    *
-   * @param { T } instance
+   * @param { T } instance - 组件的属性类，用来标识进行属性设置的组件的类型，比如[Button]{@link ./button}组件的
+   *     [属性]{@link ButtonAttribute}（ButtonAttribute），
+   *     [Text]{@link ./text}组件的[属性]{@link TextAttribute}（TextAttribute）等。
+   *     具体取值请参考[Attribute类型支持范围]{@link AttributeModifier}。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Defines the focused update attribute function.
-   *
-   * @param { T } instance
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   applyFocusedAttribute?(instance: T) : void;
 
   /**
-   * Defines the disabled update attribute function.
+   * 组件禁用状态的样式。参考[示例6（组件绑定Modifier禁用状态的样式）]{@link AttributeModifier#applyDisabledAttribute}。
    *
-   * @param { T } instance
+   * @param { T } instance - 组件的属性类，用来标识进行属性设置的组件的类型，比如[Button]{@link ./button}组件的
+   *     [属性]{@link ButtonAttribute}（ButtonAttribute），
+   *     [Text]{@link ./text}组件的[属性]{@link TextAttribute}（TextAttribute）等。
+   *     具体取值请参考[Attribute类型支持范围]{@link AttributeModifier}。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Defines the disabled update attribute function.
-   *
-   * @param { T } instance
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   applyDisabledAttribute?(instance: T) : void;
 
   /**
-   * Defines the selected update attribute function.
+   * 组件选中状态的样式。
    *
-   * @param { T } instance
+   * 开发者可根据需要自定义实现上述回调方法，通过传入的参数识别组件类型，对instance设置属性，支持使用if/else语法进行动态设置。参考[示例7（组件绑定Modifier选中状态样式）]{@link AttributeModifier#applySelectedAttribute}。
+   *
+   * @param { T } instance - 组件的属性类，用来标识进行属性设置的组件的类型，比如[Button]{@link ./button}组件的
+   *     [属性]{@link ButtonAttribute}（ButtonAttribute），
+   *     [Text]{@link ./text}组件的[属性]{@link TextAttribute}（TextAttribute）等。
+   *     具体取值请参考[Attribute类型支持范围]{@link AttributeModifier}。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Defines the selected update attribute function.
-   *
-   * @param { T } instance
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   applySelectedAttribute?(instance: T) : void;
 
   /**
-   * 定义悬停更新属性函数。
+   * 组件悬浮状态的样式。参考[示例9（组件绑定Modifier实现鼠标悬浮态效果）]{@link AttributeModifier#applyHoveredAttribute}。
    *
-   * @param { T } instance
+   * @param { T } instance - 组件的属性类，用来标识进行属性设置的组件的类型，比如[Button]{@link ./button}组件的
+   *     [属性]{@link ButtonAttribute}（ButtonAttribute），
+   *     [Text]{@link ./text}组件的[属性]{@link TextAttribute}（TextAttribute）等。
+   *     具体取值请参考[Attribute类型支持范围]{@link AttributeModifier}。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -19835,11 +19936,18 @@ declare class CommonMethod<T> {
   height(heightValue: Length | LayoutPolicy): T;
 
   /**
-   * Sets the drawModifier of the current component.
+   * 设置组件的自定义绘制修改器。
    *
-   * @param { DrawModifier | undefined } modifier - drawModifier used to draw, or undefined if it is not available.
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * > **说明**
+   * > 该接口不支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
+   *
+   * @param { DrawModifier | undefined } modifier - 自定义绘制修改器，其中定义了自定义绘制的逻辑。
+   *     <br>默认值：undefined，未设置自定义绘制修改器时，组件使用原有默认绘制行为，不进行自定义绘制。
+   *     <br>**说明：**
+   *     <br>每个自定义绘制修改器只对当前绑定组件的[FrameNode]{@link ../api/arkui/FrameNode#FrameNode}生效，对其子节点不生效。
+   *     每个DrawModifier实例只能设置到一个组件上，禁止重复设置。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -25103,25 +25211,20 @@ declare class CommonMethod<T> {
   obscured(reasons: Array<ObscuredReasons>): T;
 
   /**
-   * Reuse id is used for identify the reuse type for each custom node.
+   * 复用标识，用于划分自定义组件的复用组。该接口仅可在Stage模型下使用。
    *
-   * @param { string } id - The id for reusable custom node.
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * > **说明**
+   * >
+   * > - 根据组件的不同布局形态或类型设置对应的reuseId，以提升复用匹配的精确度。最佳实践请参考组件复用-[使用reuseId标记布局发生变化的组件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-component_reuse#使用reuseid标记布局发生变化的组件)。
+   * > - 该接口不支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
+   *
+   * @param { string } id - 复用标识，用于划分自定义组件的复用组。建议为不同布局或类型的组件设置不同的reuseId，以避免组件被错误复用，提升复用效率。仅在@Reusable装饰的自定义组件上生效。
+   * @returns { T } 返回当前组件。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Reuse id is used for identify the reuse type for each custom node.
-   *
-   * @param { string } id - The id for reusable custom node.
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   reuseId(id: string): T;
 
@@ -25177,26 +25280,16 @@ declare class CommonMethod<T> {
   renderFit(fitMode: Optional<RenderFit>): T;
 
   /**
-   * Sets the attribute modifier.
+   * 动态设置组件的属性方法。
    *
-   * @param { AttributeModifier<T> } modifier
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @param { AttributeModifier<T> } modifier - 在当前组件上，动态设置属性方法，支持使用if/else语法。
+   *     <br>modifier: 属性修改器，开发者需要自定义class实现AttributeModifier接口。
+   * @returns { T } Current component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Sets the attribute modifier.
-   *
-   * @param { AttributeModifier<T> } modifier
-   
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   attributeModifier(modifier: AttributeModifier<T>): T;
 
