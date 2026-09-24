@@ -56,6 +56,28 @@ declare namespace functionManager {
      * @since 26.0.0 dynamiconly
      */
     context?: Context;
+
+    /**
+     * Indicates the unique identifier assigned to a tool call by the agent.
+     * The value consists of letters, digits, '_' and '-', with a maximum length of 256.
+     *
+     * @syscap SystemCapability.Ability.AgentRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.1 dynamiconly
+     */
+    toolCallId?: string;
+
+    /**
+     * Indicates the session ID of the dialog manager (DM), which uniquely identifies the agent session.
+     * The value consists of letters, digits, '_' and '-', with a maximum length of 256.
+     *
+     * @syscap SystemCapability.Ability.AgentRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.1 dynamiconly
+     */
+    dmSessionId?: string;
   }
 
   /**

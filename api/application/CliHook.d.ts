@@ -127,6 +127,30 @@ export interface ExecResultWrap {
    * @since 26.0.1 dynamiconly
    */
   execResult: ExecResult;
+
+  /**
+   * Indicates the unique identifier of the tool call, echoed from {@link ExecOptions} or {@link ExecCmdOptions}.
+   * Present only when the caller passed it. The value consists of letters, digits,
+   * '_' and '-', with a maximum length of 256.
+   *
+   * @syscap SystemCapability.Ability.AgentRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.1 dynamiconly
+   */
+  toolCallId?: string;
+
+  /**
+   * Indicates the session ID of the dialog manager (DM), echoed from {@link ExecOptions} or {@link ExecCmdOptions}.
+   * Present only when the caller passed it. The value consists of letters, digits,
+   * '_' and '-', with a maximum length of 256.
+   *
+   * @syscap SystemCapability.Ability.AgentRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.1 dynamiconly
+   */
+  dmSessionId?: string;
 }
 
 /**

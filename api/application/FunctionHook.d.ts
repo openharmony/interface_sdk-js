@@ -87,6 +87,30 @@ export interface FunctionResultWrap {
    * @since 26.0.1 dynamiconly
    */
   result: InvokeResult;
+
+  /**
+   * Indicates the unique identifier of the function call, echoed from {@link InvokeOptions}.
+   * Present only when the caller passed it. The value consists of letters, digits,
+   * '_' and '-', with a maximum length of 256.
+   *
+   * @syscap SystemCapability.Ability.AgentRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.1 dynamiconly
+   */
+  toolCallId?: string;
+
+  /**
+   * Indicates the session ID of the dialog manager (DM), echoed from {@link InvokeOptions}.
+   * Present only when the caller passed it. The value consists of letters, digits,
+   * '_' and '-', with a maximum length of 256.
+   *
+   * @syscap SystemCapability.Ability.AgentRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.1 dynamiconly
+   */
+  dmSessionId?: string;
 }
 
 /**
