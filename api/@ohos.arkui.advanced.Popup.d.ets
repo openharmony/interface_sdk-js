@@ -368,7 +368,7 @@ export interface PopupOptions {
    * **NOTE**
    * 
    * 1. When using resource references, ensure that the parameter type matches the attribute method type.
-   * 2. **maxWidth** accepts numeric values (both floating-point and integer values), such as **$r('app.float.maxWidth')** and **$r('app.integer.maxWidth')**.
+   * 2. **maxWidth** is of the [Dimension]{@link Dimension} type, which supports numeric and percentage string types. Numeric types support float and integer, for example, `$r('app.float.maxWidth')` and `$r('app.integer.maxWidth')`; percentage strings, for example, '50%'.
    * 3. When the type is Resource, values default to px units if no unit is explicitly specified.
    * 
    * Default value: **400vp**
