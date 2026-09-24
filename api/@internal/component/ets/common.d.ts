@@ -18305,7 +18305,9 @@ declare interface ClickEffect {
 }
 
 /**
- * Defines the fadingEdge options.
+ * Implements an object used to configure the
+ * [fadingEdge]{@link ScrollableCommonMethod#fadingEdge(enabled: Optional<boolean>, options?: FadingEdgeOptions)}
+ * attribute.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -18328,7 +18330,8 @@ declare interface FadingEdgeOptions {
 }
 
 /**
- * Define nested scroll options
+ * Implements an object used to configure the
+ * [nestedScroll]{@link ScrollableCommonMethod#nestedScroll(value: NestedScrollOptions)} attribute.
  *
  * @interface NestedScrollOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -18336,7 +18339,8 @@ declare interface FadingEdgeOptions {
  * @since 10
  */
 /**
- * Define nested scroll options
+ * Implements an object used to configure the
+ * [nestedScroll]{@link ScrollableCommonMethod#nestedScroll(value: NestedScrollOptions)} attribute.
  *
  * @interface NestedScrollOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -18345,7 +18349,8 @@ declare interface FadingEdgeOptions {
  * @since 11 dynamic
  */
 /**
- * Define nested scroll options
+ * Implements an object used to configure the
+ * [nestedScroll]{@link ScrollableCommonMethod#nestedScroll(value: NestedScrollOptions)} attribute.
  *
  * @interface NestedScrollOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -28146,7 +28151,10 @@ declare abstract class TextContentControllerBase {
 }
 
 /**
- * Enum of scrollable containers' content clip mode.
+ * Enumerates the content clipping modes for the scrollable container.
+ *
+ * The figure below illustrates the clipping areas corresponding to each enumeration value after the component has been
+ * configured with margin and padding attributes.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -28156,7 +28164,7 @@ declare abstract class TextContentControllerBase {
  */
 declare enum ContentClipMode {
   /**
-   * Clip to content rect inside margin & padding.
+   * Clip to the content area, corresponding to the green area in the figure.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -28167,7 +28175,7 @@ declare enum ContentClipMode {
   CONTENT_ONLY = 0,
 
   /**
-   * Clip to scrollable's outer rect, including padding but inside margin.
+   * Clip to the component area, corresponding to the entire blue area in the figure.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -28178,7 +28186,7 @@ declare enum ContentClipMode {
   BOUNDARY = 1,
 
   /**
-   * Clip to the safeArea of scrollable container.
+   * Clip to the safe area configured for the component, corresponding to the entire yellow area in the figure.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -28214,10 +28222,11 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   /**
    * Sets the scrollbar state.
    *
-   * @param { BarState } barState - Scrollbar state.<br>Default value: <em>BarState.Auto</em> for the <em>List</em>, <em
-   *     >Grid</em>,
-   *     and <em>Scroll</em> components and <em>BarState.Off</em> for the <em>WaterFlow</em> component
-   * @returns { T }
+   * @param { BarState } barState - Scrollbar state. **BarState.Off** indicates that the scrollbar is not displayed;
+   *     **BarState.Auto** indicates that the scrollbar is displayed as needed; **BarState.On** indicates that the
+   *     scrollbar is always displayed.<br/>Default value: **BarState.Auto** for the **List**, **Grid**, and **Scroll**
+   *     components, and **BarState.Off** for the **WaterFlow** component.
+   * @returns { T } Current scrollable component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -28229,11 +28238,12 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   /**
    * Sets the scrollbar color.
    *
-   * @param { Color | number | string } color - Scrollbar color.<br>Default value: <em>'\#182431'</em> (40% opacity)
-   *     <br>A number value indicates a HEX color in RGB or ARGB format,
-   *     for example, <em>0xffffff</em>. A string value indicates a color in RGB or ARGB format, for example, <em>'#
-   *     ffffff'</em>.
-   * @returns { T }
+   * @param { Color | number | string } color - Scrollbar color.
+   *     <br>The default value on children's smartwatches is **'#ffffff'**, which indicates white (100% opacity). The
+   *     default value on other devices is **'#182431'**, which indicates dark blue-gray (40% opacity).
+   *     <br>A number value indicates a HEX color in RGB or ARGB format, for example, **0xffffff**. A string value
+   *     indicates a color in RGB or ARGB format, for example, **'#ffffff'**.
+   * @returns { T } Current scrollable component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -28243,13 +28253,16 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   scrollBarColor(color: Color | number | string): T;
 
   /**
-   * Sets the scrollbar color.
+   * Sets the scrollbar color. Compared with
+   * [scrollBarColor<sup>11+</sup>]{@link ScrollableCommonMethod#scrollBarColor(color: Color | number | string)},
+   * this API supports the Resource type for the **color** parameter.
    *
-   * @param { Color | number | string | Resource } color - Scrollbar color.<br>Default value: <em>'\#182431'</em> (40%
-   *     opacity)
-   *     <br>A number value indicates a HEX color in RGB or ARGB format, for example, <em>0xffffff</em>.
-   *     A string value indicates a color in RGB or ARGB format, for example, <em>'#ffffff'</em>.
-   * @returns { T }
+   * @param { Color | number | string | Resource } color - Scrollbar color.
+   *     <br>The default value on children's smartwatches is **'#ffffff'**, which indicates white (100% opacity). The
+   *     default value on other devices is **'#182431'**, which indicates dark blue-gray (40% opacity).
+   *     <br>A number value indicates a HEX color in RGB or ARGB format, for example, **0xffffff**. A string value
+   *     indicates a color in RGB or ARGB format, for example, **'#ffffff'**.
+   * @returns { T } Current scrollable component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -28259,13 +28272,14 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   scrollBarColor(color: Color | number | string | Resource): T;
 
   /**
-   * Sets the scrollbar width.
+   * Sets the width of the scrollbar. Percentage values are not supported. After the width is set, the scrollbar width
+   * in both the normal state and the pressed state is the set value. If the scrollbar width exceeds the visible size of
+   * the scrollable component along the main axis, the scrollbar width changes to the default value of 4 vp.
    *
-   * @param { number | string } value  - Scrollbar width.<br>Default value: <em>4</em>
-   *     <br>Unit: vp
-   *     <br>If this parameter is set to a value less than or equal to 0, the default value is used.
-   *     The value <em>0</em> means not to show the scrollbar.
-   * @returns { T }
+   * @param { number | string } value - Width of the scrollbar.<br/>Default value: **4**<br/>Unit: vp <br/>Value range:
+   *     [0, +∞). If the value is less than 0, the default value is used, and on a children's smartwatch, the default
+   *     value 5 vp is restored. If the value is 0, the scrollbar is not displayed.
+   * @returns { T } Current scrollable component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -28275,14 +28289,19 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   scrollBarWidth(value: number | string): T;
 
   /**
-   * Sets the scrollbar width.
+   * Sets the width of the scrollbar. Percentage values are not supported. After the width is set, the scrollbar width 
+   * in both the normal state and the pressed state is the set value. If the scrollbar width exceeds the visible size of
+   * the scrollable component along the main axis, the scrollbar width changes to the default value of 4 vp. Resource 
+   * type is supported.
+   * 
+   * If this API is not used, the scrollbar width is 4 vp.
    *
    * @param { number | string | Resource } value - Scrollbar width.
    *     <br>Unit: vp
-   *     <br>Default value: <em>4</em>
-   *     <br>If this parameter is set to a value less than 0, the default value is used.
-   *     The value <em>0</em> means not to show the scrollbar.
-   * @returns { T }
+   *     <br>The value range is
+   *     [0, +∞). If this parameter is set to a value less than 0, **4vp** is used, and **5vp** is used for children's
+   *     smartwatches. The value **0** means not to show the scrollbar.
+   * @returns { T } Current scrollable component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -28292,10 +28311,19 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   scrollBarWidth(value: number | string | Resource): T;
 
   /**
-   * Margin of the scrollbar.
+   * Sets the margin of the scrollbar. The margin is calculated based on the distance by which the scrollbar avoids the 
+   * rounded corner area of the scrollable component. If the scrollbar area is smaller than the minimum length of the 
+   * scrollbar, the scrollbar is not displayed. If this attribute is set, the automatic margin adjustment of 
+   * [autoAdjustScrollBarMargin]{@link ScrollableCommonMethod#autoAdjustScrollBarMargin(enable: boolean | undefined)}
+   * does not take effect. Ensure that the sum of 
+   * [scrollBarHeight]{@link ScrollableCommonMethod#scrollBarHeight(height: LengthMetrics | undefined)} and 
+   * the value of this attribute does not exceed the height of the scrollable component; otherwise, the scrollbar may 
+   * not be displayed properly.
    *
-   * @param { ScrollBarMargin } margin - Margin of the scrollbar.
-   * @returns { T }
+   * @param { ScrollBarMargin } margin - Start and end margins of the scrollbar.<br/>Default value for children's
+   *     smartwatches: **{start: LengthMetrics.vp(42), end: LengthMetrics.vp(0)}**<br/>Default value for other devices:
+   *     **{start: LengthMetrics.vp(0), end: LengthMetrics.vp(0)}**
+   * @returns { T } Current scrollable component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -28305,12 +28333,28 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   scrollBarMargin(margin: ScrollBarMargin): T;
 
   /**
-   * Set the scroll bar auto adjust the margin to avoid the padding, safeAreaPadding, and
-   * contentStartOffset/contentEndOffset of the component.
+   * Sets whether to automatically adjust the margin of the scrollbar. By default, the margin is not automatically 
+   * adjusted.
+   * 
+   * When the automatic margin adjustment feature is enabled, the scrolling direction of the scrollbar avoids the 
+   * [padding]{@link CommonMethod#padding}, [safeAreaPadding]{@link CommonMethod#safeAreaPadding} and 
+   * [contentStartOffset]{@link ScrollableCommonMethod#contentStartOffset(offset: number | Resource)}
+   * /[contentEndOffset]{@link ScrollableCommonMethod#contentEndOffset(offset: number | Resource)} 
+   * areas of the component. If the 
+   * [scrollBarMargin]{@link ScrollableCommonMethod#scrollBarMargin(margin: ScrollBarMargin)} 
+   * attribute is set, this feature does not take effect. If the sum of the horizontal 
+   * [padding]{@link CommonMethod#padding}, [safeAreaPadding]{@link CommonMethod#safeAreaPadding}, 
+   * [contentStartOffset]{@link ScrollableCommonMethod#contentStartOffset(offset: number | Resource)}
+   * and 
+   * [contentEndOffset]{@link ScrollableCommonMethod#contentEndOffset(offset: number | Resource)} 
+   * values is greater than the width of the component, or the sum of the vertical values is greater than the height of 
+   * the component, the scrollbar is not displayed.
    *
-   * @param { boolean | undefined } enable - Whether to enable automatic adjustment of scroll bar margin.
-   *     <br>Default value: false.
-   * @returns { T }
+   * @param { boolean | undefined } enable - Whether to automatically adjust the margin.
+   *     <br>**true**: yes.
+   *     <br>**false**: no.
+   *     <br>**undefined**: no.
+   * @returns { T } Current scrollable component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -28324,16 +28368,16 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    *
    * @param { EdgeEffect } edgeEffect - Effect used when the scroll boundary is reached. The spring and shadow effects
    *     are supported.
-   *     <br>Default value: <em>EdgeEffect.None</em> for the <em>Grid</em>, <em>Scroll</em>, and <em>WaterFlow</em>
-   *     components and <em>EdgeEffect.Spring</em> for the <em>List</em> component
-   * @param { EdgeEffectOptions } options - Whether to enable the scroll effect when the component content is smaller
-   *     than the component itself.
-   *     The value <em>{ alwaysEnabled: true }</em> means to enable the scroll effect, and <em>{ alwaysEnabled: false }<
-   *     /em> means the opposite.
-   *     <br>Default value:<br><em>{ alwaysEnabled: false }</em> for the <em>List</em>, <em>Grid</em>, and <em>WaterFlow
-   *     </em> components,
-   *     and <em>{ alwaysEnabled: true }</em> for the <em>Scroll</em> component
-   * @returns { T }
+   *     <br>Default value: **EdgeEffect.None** for the **Grid**, **Scroll**, and **WaterFlow** components and
+   *     **EdgeEffect.Spring** for the **List** component
+   * @param { EdgeEffectOptions } options - Whether to enable the sliding effect when the component content size is
+   *     smaller than the component itself. Since API version 18, the edge where the edge effect takes effect can be
+   *     set. Setting it to **{ alwaysEnabled: true }** enables the sliding effect, and **{ alwaysEnabled: false }**
+   *     disables it.<br/>Default value:<br/>For the **List**, **Grid**, and **WaterFlow** components, the default value
+   *     is **{ alwaysEnabled: false }**; for the **Scroll** component, the default value is
+   *     **{ alwaysEnabled: true }**. Since API version 18, the **effectEdge** field is added by default, with the value
+   *     **EffectEdge.START | EffectEdge.END**.
+   * @returns { T } Current scrollable component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -28343,11 +28387,51 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   edgeEffect(edgeEffect: EdgeEffect, options?: EdgeEffectOptions): T;
 
   /**
-   * Called when setting whether to enable fading Edge effect.
+   * Sets whether to enable the edge fading effect and the length of the fading edge.
+   * 
+   * > **NOTE**
+   * >
+   * > **fadingEdge** is implemented by setting the [overlay]{@link CommonMethod#overlay} attribute and the 
+   * > [blendMode]{@link CommonMethod#blendMode(value: BlendMode, type?: BlendApplyType)} attribute (with the parameter 
+   * > values **BlendMode.SRC_OVER** and **BlendApplyType.OFFSCREEN**). When **fadingEdge** takes effect, it overrides 
+   * > the **.overlay()** and **.blendMode()** attributes of the original component, and causes the APIs that require 
+   * > screen capture of the current component and its child components to fail to capture the correct image. The APIs 
+   * > that require screen capture include [blur]{@link CommonMethod#blur(value: number, options?: BlurOptions)}, 
+   * > [linearGradientBlur]{@link CommonMethod#linearGradientBlur(value: number, options: LinearGradientBlurOptions)}, 
+   * > [brightness]{@link CommonMethod#brightness(value: number)}, [visualEffect]{@link CommonMethod#visualEffect}, 
+   * > [grayscale]{@link CommonMethod#grayscale(value: number)}, [saturate]{@link CommonMethod#saturate(value: number)},
+   * > [contrast]{@link CommonMethod#contrast(value: number)}, 
+   * > [invert]{@link CommonMethod#invert(value: number | InvertOptions)}, 
+   * > [sepia]{@link CommonMethod#sepia(value: number)}, 
+   * > [hueRotate]{@link CommonMethod#hueRotate(value: number | string)}, 
+   * > [colorBlend]{@link CommonMethod#colorBlend(value: Color | string | Resource)}, 
+   * > [lightUpEffect]{@link CommonMethod#lightUpEffect(value: number)}, 
+   * > [pixelStretchEffect]{@link CommonMethod#pixelStretchEffect(options: PixelStretchEffectOptions)}, 
+   * > [blendMode]{@link CommonMethod#blendMode(value: BlendMode, type?: BlendApplyType)}, and 
+   * > [backgroundBrightness]{@link CommonMethod#backgroundBrightness(params: BackgroundBrightnessOptions)}.
+   * >
+   * > When **fadingEdge** takes effect, it is recommended not to set the [background]{@link CommonMethod#background} 
+   * > related attributes on the component on which the **fadingEdge** attribute is set, because doing so affects the 
+   * > fading display effect.
+   * >
+   * > When **fadingEdge** takes effect, it is recommended not to set the 
+   * > [systemMaterial]{@link CommonMethod#systemMaterial} related attributes on the component on which the 
+   * > **fadingEdge** attribute is set or on its child components, because doing so affects the display effect of the 
+   * > system material and causes the material effect to be inconsistent with the expected effect.
+   * >
+   * > When **fadingEdge** takes effect, the component on which the **fadingEdge** attribute is set is clipped to the 
+   * > boundary. Setting the [clip]{@link CommonMethod#clip(value: boolean)} attribute to **false** on this component 
+   * > does not take effect.
    *
-   * @param { Optional<boolean> } enabled - Whether to turn on the edge fade effect
-   * @param { FadingEdgeOptions } [options] - The options of fadingEdge.
-   * @returns { T }
+   * @param { Optional<boolean> } enabled - Whether to enable the edge fading effect. **true** to enable, **false**
+   *     otherwise.
+   *     <br>Default value: **false**.
+   * @param { FadingEdgeOptions } [options] - Object defining edge fading effect properties, such as the fading edge
+   *     length.
+   *     <br>If the value is less than 0, undefined, or not set, the default value is used. The default length is 32 vp.
+   *     <br>If the value exceeds half the height of the container, it is adjusted to exactly half the height of the
+   *     container.
+   * @returns { T } Current scrollable component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -28357,10 +28441,13 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   fadingEdge(enabled: Optional<boolean>, options?: FadingEdgeOptions): T;
 
   /**
-   * Sets the nested scrolling options.
+   * Sets the nested scrolling mode in the forward and backward directions to implement scrolling linkage with the
+   * parent component.
    *
-   * @param { NestedScrollOptions } value - options for nested scrolling.
-   * @returns { T }
+   * @param { NestedScrollOptions } value - Nested scrolling options.
+   *     <br>Default value:
+   *     **{ scrollForward: NestedScrollMode.SELF_ONLY, scrollBackward: NestedScrollMode.SELF_ONLY }**
+   * @returns { T } Current scrollable component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -28372,8 +28459,12 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   /**
    * Sets whether to support scroll gestures.
    *
-   * @param { boolean } value - Whether to support scroll gestures.<br>Default value: <em>true</em>
-   * @returns { T }
+   * @param { boolean } value - Whether to support finger or mouse wheel gestures. The value **true** means supported,
+   *     and **false** means not supported. However, this does not affect the scrolling APIs of the controller
+   *     [Scroller]{@link Scroller} or the
+   *     [backToTop]{@link ScrollableCommonMethod#backToTop(backToTop: boolean)} attribute.<
+   *     br/>Default value: **true**
+   * @returns { T } Current scrollable component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -28383,10 +28474,19 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   enableScrollInteraction(value: boolean): T;
 
   /**
-   * Sets the friction coefficient.
+   * Sets the friction coefficient. It takes effect when the scroll area is swiped manually, and affects only the
+   * inertial scrolling process. It indirectly affects the linkage effect between nested scrollable components during
+   * inertial scrolling (for example, the chain animation [chainAnimation]{@link ListAttribute#chainAnimation} of the
+   * List component). It applies to scenarios where the deceleration speed of inertial scrolling needs to be adjusted.
+   * If the value is set to less than or equal to 0, the default value is used.
    *
    * @param { number | Resource } value - Friction coefficient.
-   * @returns { T }
+   *     <br>Default value: **0.6** for non-wearable devices and **0.9** for wearable devices.
+   *     <br>Since API version 11, the default value for non-wearable devices is **0.7**.
+   *     <br>Since API version 12, the default value for non-wearable devices is **0.75**.
+   *     <br>Value range: (0, +∞). If this parameter is set to a value less than or equal to 0, the default value is
+   *     used.
+   * @returns { T } Current scrollable component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -28396,13 +28496,18 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   friction(value: number | Resource): T;
 
   /**
-   * Sets the offset from the start of the content to the boundary of the scrollable display area.
+   * Sets the offset from the start of the content area. When the component scrolls to the start position, the content
+   * area maintains a specified distance from the component's display boundary.
    *
-   * @param { number | Resource } offset - Offset from the start of the content to the boundary of
-   *     the scrollable display area.
-   *     <br>Default value: <em>0</em>
-   *     <br>Unit: vp
-   * @returns { T }
+   * If the combined value of contentStartOffset and contentEndOffset exceeds the scrollable content area length, both
+   * offsets are reset to 0.
+   *
+   * @param { number | Resource } offset - Offset of the start position of the content area.<br/><br
+   *     />the default value
+   *     is used.
+   *     <br>Unit: vp<br/><br/>If an invalid value such as a negative number or a non-numeric Resource is set. The value
+   *     must be greater than or equal to 0. Default value: **0**.
+   * @returns { T } Current scrollable component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -28412,13 +28517,17 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   contentStartOffset(offset: number | Resource): T;
 
   /**
-   * Sets the offset from the end of the content to the boundary of the scrollable display area.
+   * Sets the offset from the end of the content area. When the component scrolls to the end position, the content area 
+   * maintains a specified distance from the component's display boundary.
+   * 
+   * If the combined value of contentStartOffset and contentEndOffset exceeds the scrollable content area length, both 
+   * offsets are reset to 0.
    *
-   * @param { number | Resource } offset - Offset from the end of the content to the boundary of
-   *     the scrollable display area.
-   *     <br>Default value: <em>0</em>
-   *     <br>Unit: vp
-   * @returns { T }
+   * @param { number | Resource } offset - Offset of the end of the content area.<br/>Default value: **0**<br/>Unit: vp
+   *     <br/>Value range:
+   *     [0, +∞)<br/>If an invalid value such as a negative number or a non-numeric Resource is set, the default value
+   *     is used.
+   * @returns { T } Current scrollable component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -28428,11 +28537,15 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   contentEndOffset(offset: number | Resource): T;
 
   /**
-   * Enable left mouse button press-and-drag scrolling.
+   * Sets whether to support scrolling by dragging with the left mouse button pressed. If this API is not called,
+   * scrolling by dragging with the left mouse button pressed is not supported by default.
    *
-   * @param { boolean | undefined } enabled - Enable left mouse button press-and-drag scrolling.
-   *     <br>Default value: false.
-   * @returns { T }
+   * @param { boolean | undefined } enabled - Whether to support scrolling by dragging with the left mouse button
+   *     pressed.
+   *     <br>**true**: yes.
+   *     <br>**false**: no.
+   *     <br>**undefined**: no.
+   * @returns { T } Current scrollable component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -28444,9 +28557,11 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   /**
    * Triggered when the scrollable component scrolls.
    *
-   * @param { function } event - callback of scrollable,
-   *     scrollOffset is offset per frame scrolling, ScrollState is current scroll state.
-   * @returns { T }
+   * @param { function } event - Callback triggered when the scrollable component scrolls.
+   *     <br>**scrollOffset**: offset relative to the previous frame. The offset is positive when the scrollable
+   *     component is scrolled up and negative when it is scrolled down. Unit: vp
+   *     <br>**scrollState**: current scroll state.
+   * @returns { T } Current scrollable component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -28458,10 +28573,30 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   onScroll(event: (scrollOffset: number, scrollState: ScrollState) => void): T;
 
   /**
-   * Called when the scrollable will scroll.
+   * Triggered before the scrollable component scrolls. Comparison with 
+   * [onDidScroll]{@link ScrollableCommonMethod#onDidScroll(handler: OnScrollCallback)}: 
+   * **onWillScroll** is triggered before scrolling occurs and can specify the offset to be scrolled through its return 
+   * value, making it suitable for scenarios where scrolling needs to be intercepted or customized; **onDidScroll **is 
+   * triggered when scrolling occurs and returns the actual scroll offset and scrolling state of the current frame, 
+   * making it suitable for scenarios where only the scrolling process needs to be monitored. The two can be used 
+   * together.
+   * 
+   * Called to return the offset to be scrolled in the current frame, the current scroll state, and the source of the 
+   * scroll operation. The offset returned in the callback is the calculated offset to be scrolled, not the final actual
+   * scroll offset. You can specify the offset to be scrolled by the scrollable component through the return value of 
+   * this callback. The parameter type of the [onWillScroll]{@link ScrollAttribute#onWillScroll} API of the 
+   * [Scroll]{@link ./scroll} component is [ScrollOnWillScrollCallback]{@link ScrollOnWillScrollCallback}.
+   * 
+   * > **NOTE**
+   * >
+   * > - This API can be called within [attributeModifier]{@link CommonMethod#attributeModifier} since API version 14.
+   * >
+   * > - When [ScrollEdge]{@link Scroller#scrollEdge} and [ScrollToIndex]{@link Scroller#scrollToIndex} without 
+   * > animation are called, **onWillScroll** is not triggered.
    *
-   * @param { Optional<OnWillScrollCallback> } handler - callback of scrollable.
-   * @returns { T }
+   * @param { Optional<OnWillScrollCallback> } handler - Callback triggered when the scrollable component is about to
+   *     scroll.
+   * @returns { T } Current scrollable component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -28471,10 +28606,15 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   onWillScroll(handler: Optional<OnWillScrollCallback>): T;
 
   /**
-   * Triggered when the scrollable component scrolls.
+   * Triggered when the scrollable component scrolls. The return value is the offset amount by which the list has
+   * scrolled and the current scroll state.
+   *
+   * > **NOTE**
+   * >
+   * > This API can be called within [attributeModifier]{@link CommonMethod#attributeModifier} since API version 14.
    *
    * @param { OnScrollCallback } handler - Callback triggered when the scrollable component scrolls.
-   * @returns { T }
+   * @returns { T } Current scrollable component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -28485,10 +28625,10 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   onDidScroll(handler: OnScrollCallback): T;
 
   /**
-   * Called when the scrollable will start dragging.
+   * Triggered when the scrollable component starts to be dragged.
    *
-   * @param { VoidCallback } handler - callback of start dragging.
-   * @returns { T }
+   * @param { VoidCallback } handler - Callback invoked when the scrollable component starts to be dragged.
+   * @returns { T } Current scrollable component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -28499,10 +28639,10 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   onWillStartDragging(handler: VoidCallback): T;
 
   /**
-   * Called when the scrollable will end dragging.
+   * Triggered when the scrollable component is released. It is not triggered for scrolling via mouse wheel.
    *
-   * @param { OnWillStopDraggingCallback } handler - callback of end dragging.
-   * @returns { T }
+   * @param { OnWillStopDraggingCallback } handler - Callback invoked when the scrollable component is released.
+   * @returns { T } Current scrollable component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -28513,10 +28653,10 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   onWillStopDragging(handler: OnWillStopDraggingCallback): T;
 
   /**
-   * Called when the scrollable did end dragging.
+   * Called when the scrollable component stops being dragged.
    *
-   * @param { OnDidStopDraggingCallback } handler - callback of end dragging.
-   * @returns { T }
+   * @param { OnDidStopDraggingCallback } handler - Callback invoked when the scrollable component stops being dragged.
+   * @returns { T } Current scrollable component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -28527,10 +28667,19 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   onDidStopDragging(handler: OnDidStopDraggingCallback): T;
 
   /**
-   * Called when the scrollable will start fling.
+   * Triggered when the scrollable component is about to initiate an inertial animation.
+   * 
+   * > **NOTE**
+   * >
+   * > - If the inertial animation is triggered by the [fling]{@link Scroller#fling} method, **onWillStartFling** is not
+   * > triggered.
+   * >
+   * > - For details about the triggering scenarios of the inertial animation, see the description of 
+   * > [flingSpeedLimit]{@link ScrollableCommonMethod#flingSpeedLimit(speedLimit: number)}.
    *
-   * @param { VoidCallback } handler - callback of start fling.
-   * @returns { T }
+   * @param { VoidCallback } handler - Callback invoked when the scrollable component is about to initiate an inertial
+   *     animation.
+   * @returns { T } Current scrollable component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -28541,10 +28690,11 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   onWillStartFling(handler: VoidCallback): T;
 
   /**
-   * Called when the scrollable did end fling.
+   * Triggered when the inertial animation of the scrollable component ends. It is not triggered if the animation is 
+   * interrupted by a new swipe gesture.
    *
-   * @param { VoidCallback } handler - callback of end fling.
-   * @returns { T }
+   * @param { VoidCallback } handler - Callback invoked when the inertial animation of the scrollable component ends.
+   * @returns { T } Current scrollable component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -28557,8 +28707,12 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   /**
    * Triggered when the scrollable component reaches the start position.
    *
-   * @param { function } event - Callback function, triggered when the scrollable reaches the start position.
-   * @returns { T }
+   * This event is triggered once when the component is initialized and once when the component scrolls to the start
+   * position. If the edge effect is set to a spring effect, this event is triggered once when the swipe passes the
+   * start position, and triggered again when the swipe rebounds back to the start position.
+   *
+   * @param { function } event - Callback invoked when the scrollable component reaches the start position.
+   * @returns { T } Current scrollable component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -28570,8 +28724,12 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   /**
    * Triggered when the scrollable component reaches the end position.
    *
-   * @param { function } event - Callback function, triggered when the scrollable reaches the end position.
-   * @returns { T }
+   * Triggered once when the scrollable component is initialized and is already at the end position. When the edge
+   * effect is a spring effect, this event is triggered once when the component is swiped past the end position, and
+   * once again when it bounces back to the end position.
+   *
+   * @param { function } event - Callback invoked when the scrollable component reaches the end position.
+   * @returns { T } Current scrollable component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -28581,11 +28739,18 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   onReachEnd(event: () => void): T;
 
   /**
-   * Triggered when the scrollable component starts scrolling initiated by the user's finger dragging the component or 
-   * its scrollbar.
+   * Triggered when the scrollable component starts scrolling initiated by the user's finger dragging the component or
+   * its scrollbar. This event is also triggered when the animation contained in the scrolling triggered by
+   * [Scroller]{@link Scroller} starts.
    *
-   * @param { function } event - Callback function, triggered when the scrollable starts scrolling.
-   * @returns { T }
+   * Trigger conditions:
+   *
+   * 1. The scrollable component starts scrolling, supporting various input settings including keyboard and mouse
+   * operations.
+   * 2. Scrolling is initiated through scroller controller API calls with transition animation effects.
+   *
+   * @param { function } event - Callback invoked when scrolling starts.
+   * @returns { T } Current scrollable component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -28595,10 +28760,17 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   onScrollStart(event: () => void): T;
 
   /**
-   * Triggered when scrolling stops after the user's finger leaves the screen.
+   * Triggered when the scrollable component stops scrolling after the user's finger leaves the screen. This event is
+   * also triggered when the animation contained in the scrolling triggered by [Scroller]{@link Scroller} stops.
    *
-   * @param { function } event - Callback function, triggered when the scrollable stops scrolling.
-   * @returns { T }
+   * Trigger conditions:
+   *
+   * 1. The scrollable component stops scrolling, supporting various input settings including keyboard and mouse
+   * operations.
+   * 2. The animation stops after scroller controller API calls with transition effects.
+   *
+   * @param { function } event - Callback invoked when scrolling stops.
+   * @returns { T } Current scrollable component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -28608,15 +28780,28 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   onScrollStop(event: () => void): T;
 
   /**
-   * Sets the maximum initial velocity at the start of the fling animation that occurs after gesture-driven scrolling 
-   * ends.
+   * Sets the maximum initial speed for inertial animation after a fling gesture.
    *
-   * @param { number } speedLimit - Maximum initial velocity at the start of the fling animation.
-   *     <br>Default value: <em>9000</em>
+   * > **NOTE**
+   * >
+   * > - Inertial animation is the effect that the scrolling content continues to scroll and gradually decelerates and
+   * > stops after the finger quickly flings and leaves the screen. It is also called inertial scrolling.
+   * >
+   * > - Inertial animation is triggered when the finger quickly flings and leaves the screen, or when the
+   * > [fling]{@link Scroller#fling} method is called.
+   * >
+   * > - Inertial animation is not generated when the mouse wheel or keyboard arrow keys are used to scroll, or when the
+   * > [scrollTo]{@link Scroller#scrollTo} method is used to scroll to a specified position.
+   * >
+   * > - If the inertial animation is triggered by the [fling]{@link Scroller#fling} method, the **flingSpeedLimit**
+   * > setting does not take effect.
+   *
+   * @param { number } speedLimit - Maximum initial speed for inertial animation.
+   *     <br>Default value: **9000**
    *     <br>Unit: vp/s
    *     <br>Value range: (0, +∞). If this parameter is set to a value less than or equal to 0, the default value is
    *     used.
-   * @returns { T }
+   * @returns { T } Current scrollable component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -28628,8 +28813,21 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   /**
    * Sets the content clipping area for this scrollable component.
    *
-   * @param { ContentClipMode | RectShape } clip - A value from enum ContentClipMode or a customized clip rect.
-   * @returns { T }
+   * Since API version 26.0.0, child components within the content-layer clipping area can be displayed normally. In
+   * versions earlier than API version 26.0.0, when the content-layer clipping area of the [List]{@link ./list}
+   * component is larger than the component itself, child components that are completely outside the component area but
+   * within the clipping area are not displayed by default. To display them, set the **show** parameter of the
+   * **cachedCount** attribute of the component to **true**. However, because the preloaded child components set by the
+   * **cachedCount** attribute are executed only in idle time slots, flickering may occur due to untimely updates in
+   * scenarios such as component size changes and data updates.
+   *
+   * @param { ContentClipMode | RectShape } clip - Clipping applies only to the content of the scroll container, that
+   *     is, its child nodes, and the background is not affected. When a custom rectangular area is passed in through
+   *     **RectShape**, only the width, height, and [offset]{@link @ohos.arkui.shape:CommonShapeMethod#offset} relative
+   *     to the upper left corner of the component are supported, and rounded corners are not supported.
+   *     <br>Default value: the default value for **Grid** and **Scroll** is **ContentClipMode.BOUNDARY**, and the
+   *     default value for **List** and **WaterFlow** is **ContentClipMode.CONTENT_ONLY**.
+   * @returns { T } Current scrollable component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -28639,10 +28837,17 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   clipContent(clip: ContentClipMode | RectShape): T;
 
   /**
-   * Set the sensitivity of rotating crown.
+   * Sets the sensitivity of the digital crown's response to events.
+   * 
+   * A component must have focus to receive [crown events]{@link ./common}. Focus control can be managed using 
+   * [focusable]{@link CommonMethod#focusable}, [defaultFocus]{@link CommonMethod#defaultFocus}, and 
+   * [focusOnTouch]{@link CommonMethod#focusOnTouch}.
    *
-   * @param { Optional<CrownSensitivity> } sensitivity - The sensitivity of rotating crown, default value is { MEDIUM }.
-   * @returns { T } The component instance.
+   * @param { Optional<CrownSensitivity> } sensitivity - Crown response sensitivity. **CrownSensitivity.LOW** indicates
+   *     low sensitivity, with a slower scrolling response; **CrownSensitivity.MEDIUM** indicates medium sensitivity,
+   *     with a moderate scrolling response; **CrownSensitivity.HIGH** indicates high sensitivity, with a faster
+   *     scrolling response.<br/>Default value: **CrownSensitivity.MEDIUM**, with a moderate response speed.
+   * @returns { T } Current scrollable component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -28652,12 +28857,20 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   digitalCrownSensitivity(sensitivity: Optional<CrownSensitivity>): T;
 
   /**
-   * Sets whether to enable the back-to-top feature for a scrollable component when the status bar is touched.
+   * Sets whether to enable the back-to-top feature for the scrollable component when the status bar is touched.
    *
-   * @param { boolean } backToTop - Whether to enable the back-to-top feature for a scrollable component when the status
-   *     bar is touched.
-   *     <br>Default value: <em>false</em>
-   * @returns { T }
+   * When a status bar touch event is received, the scrollable component on the current page can scroll to the top with
+   * an animation. This behavior does not affect scrollable components in background applications, which will not scroll
+   * to the top. This attribute is independent of the
+   * [enableScrollInteraction]{@link ScrollableCommonMethod#enableScrollInteraction(value: boolean)}
+   * setting.
+   *
+   * @param { boolean } backToTop - Whether to enable the back-to-top feature for the scrollable component when the
+   *     status bar is touched. **true** to enable, **false** otherwise.
+   *     <br>Default value:
+   *     <br>Versions earlier than API version 18: **false**
+   *     <br>API version 18 and later: **false** for horizontal scrolling and **true** for vertical scrolling
+   * @returns { T } Current scrollable component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -28667,13 +28880,22 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   backToTop(backToTop: boolean): T;
 
   /**
-   * Sets the scrollbar track height.
+   * Sets the height of the scrollbar track.
    *
-   * @param { LengthMetrics | undefined } height - Scrollbar track height.
-   *     <br>The value must be greater than or equal to 0, If set to undefined or a value less than 0, the default value
-   *     is used. If set to 0, the scrollbar is not displayed.
-   *     <br> Default value: adaptive to the height of the scrollable component. 
-   * @returns { T }
+   * If this API is not called, the height of the scrollbar track adapts to the height of the scrollable component by
+   * default. The default height on a wearable is 37 vp.
+   *
+   * > **NOTE**
+   * >
+   * > Ensure that the sum of the values set for **scrollBarHeight** and
+   * > [scrollBarMargin]{@link ScrollableCommonMethod#scrollBarMargin(margin: ScrollBarMargin)}
+   * > does not exceed the height of the scrollable component. Otherwise, the scrollbar may fail to display properly.
+   *
+   * @param { LengthMetrics | undefined } height - Height of the scrollbar track.<br/>The value must be greater than or
+   *     equal to 0. If it is set to **undefined** or a value less than 0, the height adapts to the scrollable
+   *     component, and on a wearable it is restored to the default value 37 vp. If it is set to 0, the scrollbar is not
+   *     displayed.
+   * @returns { T } Current scrollable component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -28684,7 +28906,7 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
 }
 
 /**
- * The actual offset by which the scrollable scrolls.
+ * Implements a return value object of the [OnWillScrollCallback]{@link OnWillScrollCallback} callback.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -28706,13 +28928,17 @@ declare class ScrollResult {
 }
 
 /**
- * Called before scroll to allow developer to control real offset the Scrollable can scroll.
+ * Triggered when the scrollable component is about to scroll.
  *
- * @param { number } scrollOffset - offset this frame will scroll, which may or may not be reached.
- * @param { ScrollState } scrollState - current scroll state.
- * @param { ScrollSource } scrollSource - source of current scroll.
- * @returns { void | ScrollResult } the remain offset for the scrollable,
- *     same as scrollOffset when no ScrollResult is returned.
+ * @param { number } scrollOffset - Offset relative to the previous frame. The offset is positive when the scrollable
+ *     component is scrolled up and negative when it is scrolled down.
+ *     <br>Unit: vp
+ * @param { ScrollState } scrollState - Current scroll state.
+ * @param { ScrollSource } scrollSource - Source of the current scrolling operation.
+ * @returns { void | ScrollResult } Returns a **ScrollResult** object if the scrollable component scrolls by the
+ *     developer-specified offset relative to the previous frame; returns no **ScrollResult** object if the component
+ *     scrolls by the offset specified by **scrollOffset** in the callback.
+ *     <br>Value range: (-∞, +∞)
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -28723,10 +28949,12 @@ declare type OnWillScrollCallback =
 (scrollOffset: number, scrollState: ScrollState, scrollSource: ScrollSource) => void | ScrollResult;
 
 /**
- * On scroll callback using in scrollable onDidScroll.
+ * Triggered when the scrollable component scrolls.
  *
- * @param { number } scrollOffset - offset this frame did scroll.
- * @param { ScrollState } scrollState - current scroll state.
+ * @param { number } scrollOffset - Offset relative to the previous frame. The offset is positive when the scrollable
+ *     component is scrolled up and negative when it is scrolled down.
+ *     <br>Unit: vp
+ * @param { ScrollState } scrollState - Current scroll state.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -28737,11 +28965,12 @@ declare type OnWillScrollCallback =
 declare type OnScrollCallback = (scrollOffset: number, scrollState: ScrollState) => void;
 
 /**
- * Defines the callback type used in onItemDragStart.
+ * Called when a list or grid element starts to be dragged.
  *
- * @param { ItemDragInfo } event - Information about the dragged item.
- * @param { number } itemIndex - The index number of the dragged item.
- * @returns { CustomBuilder }
+ * @param { ItemDragInfo } event - Information about the drag point.
+ * @param { number } itemIndex - Index of the dragged element.
+ * @returns { CustomBuilder } Returns a **CustomBuilder** object for constructing the drag preview of the dragged
+ *     element. If **void** is returned, the drag operation cannot be performed.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
  * @crossplatform
@@ -28751,9 +28980,17 @@ declare type OnScrollCallback = (scrollOffset: number, scrollState: ScrollState)
 declare type OnItemDragStartCallback = (event: ItemDragInfo, itemIndex: number) => CustomBuilder;
 
 /**
- * Defines the callback type used in onGetPreviewBadge of EditModeOptions.
+ * Called to obtain the number of selected items when the animation for gathering selected items upon long press is
+ * about to start.
  *
- * @returns { boolean | number }
+ * @returns { boolean | number } Whether to display a badge showing the count of selected items on the menu preview
+ *     image after the animation for gathering selected items upon long press is played, or the specific number to
+ *     display.
+ *     <br>**true**: The number of selected items in a **Grid** or **List** component will be displayed as the badge.
+ *     **false**: The badge is not displayed.
+ *     <br>If a number is returned, it will be displayed as the badge by default. Value range: [0, 2<sup>31</sup>-1]. If
+ *     the value is out of the range, it is treated as **true**.
+ *     <br>If a floating-point number is returned, it is rounded down.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -28763,9 +29000,10 @@ declare type OnItemDragStartCallback = (event: ItemDragInfo, itemIndex: number) 
 declare type OnGetPreviewBadgeCallback = () => boolean | number;
 
 /**
- * On scroll callback using in scrollable onWillStopDragging.
+ * Defines the callback invoked when the scrollable component is released.
  *
- * @param { number } velocity - The veolicity of the scroll view at the moment the touch was released.
+ * @param { number } velocity - Scroll velocity. Positive for scrolling upward, negative for scrolling downward.
+ *     <br>Unit: vp/s.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -28776,9 +29014,10 @@ declare type OnGetPreviewBadgeCallback = () => boolean | number;
 declare type OnWillStopDraggingCallback = (velocity: number) => void;
 
 /**
- * On scroll callback using in scrollable onDidStopDragging.
+ * Defines the callback invoked when the scrollable component stops being dragged.
  *
- * @param { boolean } willFling - whether start fling animation.
+ * @param { boolean } willFling - Whether an inertial animation will follow. **true**: An inertial animation will
+ *     follow. **false**: No inertial animation will follow.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -28789,10 +29028,24 @@ declare type OnWillStopDraggingCallback = (velocity: number) => void;
 declare type OnDidStopDraggingCallback = (willFling: boolean) => void;
 
 /**
- * Defines the callback type used in OnVisibleIndexesChange.
+ * Defines the callback type invoked when the indexes of the child components displayed by the lazy loading layout
+ * containers [LazyColumnLayout](docroot://reference/apis-arkui/arkui-ts/ts-container-lazycolumnlayout.md),
+ * [LazyVGridLayout]{@link ./lazy_grid_layout}, and
+ * [LazyVWaterFlowLayout](docroot://reference/apis-arkui/arkui-ts/ts-container-lazyvwaterflowlayout.md) change.
  *
- * @param { int } start - the first index in visible content.
- * @param { int } end - the last index in visible content.
+ * > **NOTE**
+ * >
+ * > - When the lazy loading layout container has no child components, both **start** and **end** return -1.
+ * >
+ * > - When the lazy loading layout container has no child components in the visible area, both **start** and **end**
+ * > return -1.
+ *
+ * @param { int } start - Index of the start position of the visible area.<br/>Value range:
+ *     [0, total number of child nodes - 1]. The value **-1** is returned when there is no child node or all child nodes
+ *     are outside the visible area.
+ * @param { int } end - Index of the end position of the visible area.<br/>Value range:
+ *     [0, total number of child nodes - 1]. The value **-1** is returned when there is no child node or all child nodes
+ *     are outside the visible area.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -28802,10 +29055,10 @@ declare type OnDidStopDraggingCallback = (willFling: boolean) => void;
 declare type OnVisibleIndexesChangeCallback = (start: int, end: int) => void;
 
 /**
- * Defines the onMove callback.
+ * Defines the callback triggered when data is moved during drag-and-drop sorting.
  *
- * @param { number } from - Index number for moving elements.
- * @param { number } to - Target index number for moving elements.
+ * @param { number } from - Start index of the drag operation. The value range is [0, data source length - 1].
+ * @param { number } to - End index of the drag operation. The value range is [0, data source length - 1].
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -28815,7 +29068,7 @@ declare type OnVisibleIndexesChangeCallback = (start: int, end: int) => void;
 declare type OnMoveHandler = (from: number, to: number) => void;
 
 /**
- * Define item drag event handler.
+ * Defines callbacks for drag events on a data source, allowing you to respond to different drag operations.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -28825,7 +29078,8 @@ declare type OnMoveHandler = (from: number, to: number) => void;
  */
 declare interface ItemDragEventHandler {
   /**
-   * This callback is triggered when the item is long pressed.
+   * Callback triggered when long pressed. When not set, this callback is not triggered. The parameter **index** is the
+   * index of the current target when long pressed. The value range is [0, Data Source Length - 1].
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -28836,7 +29090,8 @@ declare interface ItemDragEventHandler {
   onLongPress?: Callback<number>;
 
   /**
-   * This callback is triggered when the item is dragged.
+   * Callback triggered when drag starts. When not set, this callback is not triggered. The parameter **index** is the
+   * index of the current target when drag starts. The value range is [0, Data Source Length - 1].
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -28847,7 +29102,9 @@ declare interface ItemDragEventHandler {
   onDragStart?: Callback<number>;
 
   /**
-   * This callback is triggered when an item is moved through other items.
+   * Callback triggered when passing through other components during page-following sliding. When not set, this callback
+   * is not triggered. The parameter **from** is the Start Index of the drag, and the parameter **to** is the Target
+   * Index currently passed through. The value range of both is [0, Data Source Length - 1].
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -28858,7 +29115,8 @@ declare interface ItemDragEventHandler {
   onMoveThrough?: OnMoveHandler;
 
   /**
-   * This callback is triggered when the item is dropped.
+   * Callback triggered when drag ends. When not set, this callback is not triggered. The parameter **index** is the
+   * index of the current target when drag ends. The value range is [0, Data Source Length - 1].
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -28880,13 +29138,17 @@ declare interface ItemDragEventHandler {
  */
 declare class DynamicNode<T> {
   /**
-   * Invoked when data is moved during drag and drop sorting.
-   * This callback is only applicable in a List component.
-   * where each ForEach iteration generates a ListItem component.
-   * It allows you to define custom drag actions and handle various drag events.
+   * Callback for data movement during drag sorting. It takes effect only when the parent container component is
+   * [List]{@link ./list} or [Grid]{@link ./grid} and each iteration of ForEach/LazyForEach/Repeat generates a ListItem
+   * or GridItem component. After being called, the drag sorting feature is enabled. After the drag is released, if the
+   * data position changes, the handler callback is triggered to report the start index and target index of the data
+   * movement. The data source must be modified in the callback, and it must be ensured that only the order of the data
+   * changes so that the placement animation can be executed properly.
    *
-   * @param { Optional<OnMoveHandler> } handler
-   * @returns { T }
+   * @param { Optional<OnMoveHandler> } handler - Callback for data movement during drag sorting. Triggered when the
+   *     data position changes due to dragging. In the callback, modify the data source based on the start index and
+   *     target index.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -28896,11 +29158,22 @@ declare class DynamicNode<T> {
   onMove(handler: Optional<OnMoveHandler>): T;
 
   /**
-   * Set the move action.
+   * Callback for data movement during drag sorting. It takes effect only when the parent container component is
+   * [List]{@link ./list} or [Grid]{@link ./grid} and each iteration of ForEach/LazyForEach/Repeat generates a ListItem
+   * or GridItem component. After being called, the drag sorting feature is enabled. After the drag is released, if the
+   * data position changes, the handler callback is triggered to report the start index and target index of the data
+   * movement. The data source must be modified in the callback, and it must be ensured that only the order of the data
+   * changes so that the placement animation can be executed properly. Compared with
+   * [onMove]{@link onMove}, this API adds the
+   * eventHandler parameter, which can listen to drag phase events such as long press, drag start, passing over other
+   * components, and drag end.
    *
-   * @param { Optional<OnMoveHandler> } handler
-   * @param { ItemDragEventHandler } eventHandler
-   * @returns { T }
+   * @param { Optional<OnMoveHandler> } handler - Callback for drag sorting data movement. Invoked when the data
+   *     position changes due to dragging. In the callback, modify the data source based on the start index and target
+   *     index.
+   * @param { ItemDragEventHandler } eventHandler - Set of drag event callbacks, used to listen for drag phase events
+   *     such as long press, drag start, passing over other components, and drag end.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -28919,7 +29192,8 @@ declare class DynamicNode<T> {
  * @since 11
  */
 /**
- * Define EdgeEffect Options.
+ * Implements an object used to configure the
+ * [edgeEffect]{@link ScrollableCommonMethod#edgeEffect(edgeEffect: EdgeEffect, options?: EdgeEffectOptions)} attribute.
  *
  * @interface EdgeEffectOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -28963,7 +29237,7 @@ declare interface EdgeEffectOptions {
 }
 
 /**
- * Enumerates the effective edge of the edge effect.
+ * Enumerates the edges where the edge effect is applied.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -28974,7 +29248,7 @@ declare interface EdgeEffectOptions {
 declare enum EffectEdge {
 
   /**
-   * Effective only for the starting edge.
+   * Start edge.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -28985,7 +29259,7 @@ declare enum EffectEdge {
   START = 1,
 
   /**
-   * Effective only for the end edge.
+   * End edge.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -28997,7 +29271,14 @@ declare enum EffectEdge {
 }
 
 /**
- * Indicates children main size.
+ * Provides the size information of the child components of the **List** or **ListItemGroup** component along the main 
+ * axis. This object only supports one-to-one binding to the **List** or **ListItemGroup** component.
+ * 
+ * > **NOTE**
+ * >
+ * > - The main axis size information must match the actual main axis size of the child components. When child 
+ * > components' main axis sizes change or components are added or removed, the **ChildrenMainSize** object methods must
+ * > be invoked to notify the **List** or **ListItemGroup** component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -29007,10 +29288,12 @@ declare enum EffectEdge {
  */
 declare class ChildrenMainSize {
   /**
-   * Creates an instance of ChildrenMainSize.
+   * A constructor used to create a **ChildrenMainSize** object.
    *
-   * @param { number } childDefaultSize - default main size, in vp. If the main axis is vertical, it indicates height.
-   *     If the main axis is horizontal, it indicates width.
+   * @param { number } childDefaultSize - Default size of the child component along the main axis.
+   *     <br>Unit: vp
+   *     <br>**NOTE**
+   *     <br>The value must be a finite non-negative number; otherwise, an exception will be thrown.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -29024,10 +29307,12 @@ declare class ChildrenMainSize {
   constructor(childDefaultSize: number);
 
   /**
-   * Set default size.
+   * Sets the default size of the child component along the main axis.
    *
-   * @param { number } value - default main size, in vp. If the main axis is vertical, it indicates height.
-   *     If the main axis is horizontal, it indicates width.
+   * @param { number } value - Default size of the child component along the main axis.
+   *     <br>Unit: vp
+   *     <br>**NOTE**
+   *     <br>The value must be a finite non-negative number; otherwise, an exception will be thrown.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -29054,11 +29339,34 @@ declare class ChildrenMainSize {
   get childDefaultSize(): number;
 
   /**
-   * Changes children main size by removing or replacing existing elements and/or adding new elements in place.
+   * Performs batch operations to add, delete, or modify the size information of child components along the main axis.
    *
-   * @param { number } start - Zero-based index at which to start changing the children main size.
-   * @param { number } [deleteCount] - Indicating the number of children main size to remove from start.
-   * @param { Array<number> } [childrenSize] - Add the new children main size, beginning from start.
+   * @param { number } start - Index starting from 0, which indicates the position at which to begin modifying the size
+   *     information of child components along the main axis.
+   *     <br>**NOTE**
+   *     <br>1. The value must be a finite non-negative number; otherwise, an exception will be thrown.
+   *     <br>2. Non-integer values are truncated to the nearest integer.
+   *     <br>3. Values exceeding the maximum index do not take effect.
+   *     <br>Value range: [0, +∞)
+   * @param { number } [deleteCount] - Number of size information entries to be deleted starting from the **start**
+   *     position.
+   *     <br>**NOTE**
+   *     <br>1.  The value must be a finite non-negative number; otherwise, it will be treated as **0**.
+   *     <br>2. Non-integer values are truncated to the nearest integer.
+   *     <br>3. The result of (start + deleteCount - 1) can exceed the maximum index, which will delete all size
+   *     information of child components starting from the **start** position.
+   *     <br>Default value: **+∞**
+   *     <br>Value range: [0, +∞)
+   * @param { Array<number> } [childrenSize] - Size information of all child components to be inserted, starting from
+   *     the **start** position.
+   *     <br>Unit for each value in the array: vp
+   *     <br>**NOTE**
+   *     <br>1. If the values in the array are finite non-negative number, they are considered specified sizes and will
+   *     not change with the default size.
+   *     <br>2. If the values in the array are not finite non-negative number, they will be treated as the default size
+   *     and will change with the default size.
+   *     <br>The default value is an empty array.
+   *     <br>Value range: [0, +∞)
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -29093,7 +29401,7 @@ declare class ChildrenMainSize {
 }
 
 /**
- * Define edit mode options.
+ * Sets attributes of the **List** or **Grid** component in edit mode.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -29913,7 +30221,7 @@ declare interface UICommonEvent {
 }
 
 /**
- * Defines a UIScrollableCommonEvent which is used to set event to target component.
+ * Configures scroll event callbacks.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -29923,10 +30231,12 @@ declare interface UICommonEvent {
  */
 declare interface UIScrollableCommonEvent extends UICommonEvent {
   /**
-   * Set or reset the callback which is triggered when the scrolling reaches the start position.
+   * Sets the callback for the 
+   * [onReachStart]{@link ScrollableCommonMethod#onReachStart(event: () => void)} event.
+   * 
+   * If the input parameter is **undefined**, the event callback is reset.
    *
-   * @param { Callback<void> | undefined } callback - callback function, triggered when the
-   *     scrolling reaches the start position.
+   * @param { Callback<void> | undefined } callback - Callback for the **onReachStart** event.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -29936,10 +30246,12 @@ declare interface UIScrollableCommonEvent extends UICommonEvent {
   setOnReachStart(callback: Callback<void> | undefined): void;
 
   /**
-   * Set or reset the callback which is triggered when the scrolling reaches the end position.
+   * Sets the callback for the 
+   * [onReachEnd]{@link ScrollableCommonMethod#onReachEnd(event: () => void)} event.
+   * 
+   * If the input parameter is **undefined**, the event callback is reset.
    *
-   * @param { Callback<void> | undefined } callback - callback function, triggered when the
-   *     scrolling reaches the end position.
+   * @param { Callback<void> | undefined } callback - Callback for the **onReachEnd** event.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -29949,9 +30261,12 @@ declare interface UIScrollableCommonEvent extends UICommonEvent {
   setOnReachEnd(callback: Callback<void> | undefined): void;
 
   /**
-   * Set or reset the callback which is triggered when the scrolling started.
+   * Sets the callback for the 
+   * [onScrollStart]{@link ScrollableCommonMethod#onScrollStart(event: () => void)} event.
+   * 
+   * If the input parameter is **undefined**, the event callback is reset.
    *
-   * @param { Callback<void> | undefined } callback - callback function, triggered when the scrolling started.
+   * @param { Callback<void> | undefined } callback - Callback for the **onScrollStart** event.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -29961,9 +30276,12 @@ declare interface UIScrollableCommonEvent extends UICommonEvent {
   setOnScrollStart(callback: Callback<void> | undefined): void;
 
   /**
-   * Set or reset the callback which is triggered when the scrolling stoped.
+   * Sets the callback for the 
+   * [onScrollStop]{@link ScrollableCommonMethod#onScrollStop(event: () => void)} event.
+   * 
+   * If the input parameter is **undefined**, the event callback is reset.
    *
-   * @param { Callback<void> | undefined } callback - callback function, triggered when the scrolling stoped.
+   * @param { Callback<void> | undefined } callback - Callback for the **onScrollStop** event.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -29973,10 +30291,11 @@ declare interface UIScrollableCommonEvent extends UICommonEvent {
   setOnScrollStop(callback: Callback<void> | undefined): void;
 
   /**
-   * Set or reset the callback which is triggered when scrolling begin each frame.
+   * Sets the callback for the [onScrollFrameBegin]{@link ScrollAttribute#onScrollFrameBegin} event.
+   * 
+   * If the input parameter is **undefined**, the event callback is reset.
    *
-   * @param { OnScrollFrameBeginCallback | undefined } callback - callback function, triggered when the
-   *     scrolling begin each frame.
+   * @param { OnScrollFrameBeginCallback | undefined } callback - Callback for the **onScrollFrameBegin** event.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
