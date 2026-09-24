@@ -89,6 +89,17 @@ declare namespace inputEventClient {
      * @since 23 static
      */
     isIntercepted: boolean;
+
+    /**
+     * Target display ID.
+     * The value must be an integer greater than or equal to 0.
+     *
+     * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
+     * @systemapi hide for inner use
+     * @stagemodelonly
+     * @since 26.0.1 dynamic&static
+     */
+    displayId? : int;
   }
 
   /**
@@ -203,6 +214,8 @@ declare namespace inputEventClient {
 
   /**
    * Injects key events (for both single keys and combination keys).
+   * Since API version 26.0.1, the caller can specify the display ID for injecting a key event.
+   * If the specified display ID does not exist, the operation will not take effect.
    *
    * @permission ohos.permission.INJECT_INPUT_EVENT [since 12]
    * @param { KeyEventData } keyEvent - Key event to inject.
@@ -219,7 +232,9 @@ declare namespace inputEventClient {
 
   /**
    * Injects keys (including single keys and combination keys).
-   *
+   * Since API version 26.0.1, the caller can specify the display ID for injecting a key event.
+   * If the specified display ID does not exist, the operation will not take effect.
+   * 
    * @permission ohos.permission.INJECT_INPUT_EVENT [since 12]
    * @param { { KeyEvent } } KeyEvent - Key event to inject.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -234,6 +249,8 @@ declare namespace inputEventClient {
 
   /**
    * Inject system keys.
+   * Since API version 26.0.1, the caller can specify the display ID for injecting a key event.
+   * If the specified display ID does not exist, the operation will not take effect.
    *
    * @permission ohos.permission.INJECT_INPUT_EVENT
    * @param { KeyEventInfo } keyEvent - the key event to be injected.
