@@ -3160,6 +3160,18 @@ declare namespace commonEventManager {
     COMMON_EVENT_SANDBOX_BUNDLE_ADDED = 'usual.event.SANDBOX_BUNDLE_ADDED',
 
     /**
+     * 表示应用的技能信息已经发生变更的公共事件.
+     *
+     * 要订阅此事件，您的应用必须具备ohos.permission.MANAGE_SKILL权限.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    COMMON_EVENT_SKILL_CHANGED = 'usual.event.SKILL_CHANGED',
+
+    /**
      * 表示设备上安装的沙箱应用被卸载的公共事件.
      *
      * @syscap SystemCapability.Notification.CommonEvent
