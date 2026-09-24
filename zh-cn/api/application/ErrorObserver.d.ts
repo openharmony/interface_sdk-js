@@ -49,6 +49,7 @@ export default class ErrorObserver {
      * 建议同时实现两个回调方法，用于获取完整的异常信息。
      *
      * @param { Error } errObject - 有关异常事件名字、消息和错误堆栈信息的对象。
+     * 当前仅支持默认的Error对象（包含name、message和stack），不支持自定义修改、继承或扩展。
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @crossplatform [since 19]
      * @atomicservice [since 11]
