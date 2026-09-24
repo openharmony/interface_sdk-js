@@ -83,8 +83,7 @@ declare namespace distributedKVStore {
      * [BaseContext](../apis-ability-kit/js-apis-inner-application-baseContext.md).
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     *     if swap the area, you should close all the KV store and use the new Context to create the KVManager [since 9 - 23]
-     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
+     *     if swap the area, you should close all the KV store and use the new Context to create the KVManager [since 9 - 9]
      *     if swap the area, you should close all the KV store and use the new BaseContext to create the KVManager [since 10]
      * @stagemodelonly [staticonly]
      * @crossplatform [since 24]
