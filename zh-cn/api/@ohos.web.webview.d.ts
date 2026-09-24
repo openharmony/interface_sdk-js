@@ -3008,7 +3008,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12 dynamic
      */
-    IMAGE = 0,
+    IMAGE,
 
     /**
      * CSS类型的资源。
@@ -3016,7 +3016,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12 dynamic
      */
-    CSS = 1,
+    CSS,
 
     /**
      * 通过<script src="" />标签加载的JavaScript资源。
@@ -3024,7 +3024,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12 dynamic
      */
-    CLASSIC_JS = 2,
+    CLASSIC_JS,
 
     /**
      * 通过<script src="" type="module" />标签加载的JavaScript资源。
@@ -3032,7 +3032,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12 dynamic
      */
-    MODULE_JS = 3
+    MODULE_JS
   }
 
   /**
