@@ -1255,13 +1255,14 @@ declare namespace uiEffect {
     /**
      * 用于玻璃表面环境反射的反射贴图。
      * 通过image模块创建为PixelMap实例。
+     * 不设置时，默认值为undefined，不应用反射效果。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @stagemodelonly
      * @since 26.0.1 dynamic&static
      */
-    reflectionMap: image.PixelMap;
+    reflectionMap?: image.PixelMap;
   }
 
   /**
