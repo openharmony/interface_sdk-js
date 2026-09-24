@@ -1407,13 +1407,14 @@ declare namespace uiEffect {
     /**
      * Reflection map used for environment reflections on the glass surface.
      * Created through the image module as a PixelMap instance.
+     * If not set, the default is undefined, and no reflection is applied.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @stagemodelonly
      * @since 26.0.1 dynamic&static
      */
-    reflectionMap: image.PixelMap;
+    reflectionMap?: image.PixelMap;
   }
 
   /**
