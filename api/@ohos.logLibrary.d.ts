@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Obtaining various system maintenance and test logs
  * @kit PerformanceAnalysisKit
  */
 
