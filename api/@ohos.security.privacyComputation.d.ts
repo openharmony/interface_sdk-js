@@ -39,7 +39,10 @@ declare namespace privacyComputation {
    * @param { PrivacyProtocol } privacyProtocol - The privacy protocol configuration, including data set size and
    *     protocol type.
    * @returns { Promise<Uint8Array> } Promise used to return the encryption result.
+   * @throws { BusinessError } 24000001 - The service is unavailable.
    * @throws { BusinessError } 24000006 - Insufficient memory.
+   * @throws { BusinessError } 24000009 - The cryptography operation failed.
+   * @throws { BusinessError } 24000017 - The capability is not supported.
    * @throws { BusinessError } 24000018 - Parameter verification failed.
    * @syscap SystemCapability.Security.Asset
    * @FaAndStageModel
@@ -58,7 +61,10 @@ declare namespace privacyComputation {
    * @param { PrivacyProtocol } privacyProtocol - The privacy protocol configuration, including data set size and
    *     protocol type.
    * @returns { Promise<PrivacySearchResult> } Promise used to return PrivacySearchResult.
+   * @throws { BusinessError } 24000001 - The service is unavailable.
    * @throws { BusinessError } 24000006 - Insufficient memory.
+   * @throws { BusinessError } 24000009 - The cryptography operation failed.
+   * @throws { BusinessError } 24000017 - The capability is not supported.
    * @throws { BusinessError } 24000018 - Parameter verification failed.
    * @syscap SystemCapability.Security.Asset
    * @FaAndStageModel
@@ -76,7 +82,10 @@ declare namespace privacyComputation {
    * @param { PrivacyProtocol } privacyProtocol - The privacy protocol configuration, including data set size and
    *     protocol type.
    * @returns { Promise<SearchResult> } Promise used to return the searchResult.
+   * @throws { BusinessError } 24000001 - The service is unavailable.
    * @throws { BusinessError } 24000006 - Insufficient memory.
+   * @throws { BusinessError } 24000009 - The cryptography operation failed.
+   * @throws { BusinessError } 24000017 - The capability is not supported.
    * @throws { BusinessError } 24000018 - Parameter verification failed.
    * @syscap SystemCapability.Security.Asset
    * @FaAndStageModel
@@ -95,6 +104,15 @@ declare namespace privacyComputation {
    */
   enum HashAlg {
     /**
+     * No hash algorithm.
+     *
+     * @syscap SystemCapability.Security.Asset
+     * @FaAndStageModel
+     * @atomicservice
+     * @since 26.0.1
+     */
+    NONE = 0,
+    /**
      * The SHA256 hash algorithm.
      *
      * @syscap SystemCapability.Security.Asset
@@ -102,7 +120,16 @@ declare namespace privacyComputation {
      * @atomicservice
      * @since 26.0.1
      */
-    SHA256 = 0,
+    SHA256 = 1,
+    /**
+     * The SHA384 hash algorithm.
+     *
+     * @syscap SystemCapability.Security.Asset
+     * @FaAndStageModel
+     * @atomicservice
+     * @since 26.0.1
+     */
+    SHA384 = 2,
     /**
      * The SHA512 hash algorithm.
      *
@@ -111,7 +138,7 @@ declare namespace privacyComputation {
      * @atomicservice
      * @since 26.0.1
      */
-    SHA512 = 1
+    SHA512 = 3
   }
 
   /**
@@ -315,7 +342,7 @@ declare namespace privacyComputation {
      * @atomicservice
      * @since 26.0.1
      */
-    resultCipherText: Array<Uint8Array>;
+    resultCipherText: Uint8Array[];
     /**
      * The array of value ciphertexts generated during the privacy search when using PIR protocol.
      * These ciphertexts contain the encrypted values associated with the matched elements.
