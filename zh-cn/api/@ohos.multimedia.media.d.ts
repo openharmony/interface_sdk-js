@@ -1112,7 +1112,7 @@ declare namespace media {
      * 获取音频专辑封面。使用callback异步回调。
      *
      * @param { AsyncCallback<image.PixelMap | undefined> } callback - 回调函数。当获取音频专辑封面成功，err为undefined，data为获取到的PixelMap实例，否则为错误对象。
-     * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Returned by callback.
      * @throws { BusinessError } 5400106 - Unsupported format. Returned by callback.
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
