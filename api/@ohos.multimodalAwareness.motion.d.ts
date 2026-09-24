@@ -65,8 +65,8 @@ declare namespace motion {
   }
 
   /**
-   * Defines the holding hand state information, which represents the result of a holding hand state change awareness event.
-   * After subscribing to the event, the current holding hand state information is returned.
+   * Defines the holding hand state information, which represents the result of a holding hand state change awareness
+   * event. After subscribing to the event, the current holding hand state information is returned.
    *
    * @syscap SystemCapability.MultimodalAwareness.Motion
    * @since 20 dynamic
@@ -428,11 +428,12 @@ declare namespace motion {
 
   /**
    * Subscribes to operating hand awareness events. The system collects user touch data through touchscreen sensors and
-   * combines gesture recognition algorithms to determine whether the current operating hand is the left hand or the right hand.
-   * This is suitable for scenarios such as gesture interaction and single-hand or dual-hand operation adaptation, optimizing
-   * the UI layout and interaction mode by identifying the user's operating hand state. It is recommended that you call off()
-   * to unsubscribe and release resources after use, to avoid unnecessary performance and power consumption overhead.
-   * Related method: off('operatingHandChanged'): unsubscribes from operating hand awareness events.
+   * combines gesture recognition algorithms to determine whether the current operating hand is the left hand or the
+   * right hand. This is suitable for scenarios such as gesture interaction and single-hand or dual-hand operation
+   * adaptation, optimizing the UI layout and interaction mode by identifying the user's operating hand state. It is
+   * recommended that you call off() to unsubscribe and release resources after use, to avoid unnecessary performance
+   * and power consumption overhead. Related method: off('operatingHandChanged'): unsubscribes from operating hand
+   * awareness events.
    * 
    * If the device does not support this function, error code 801 is returned.
    *
@@ -499,11 +500,11 @@ declare namespace motion {
 
   /**
    * Subscribes to the holding hand status change awareness event. The system uses sensor data combined with recognition
-   * algorithms to determine whether the current holding hand is the left hand or the right hand. This is suitable for scenarios
-   * where reading applications, video playback, and other applications need to adjust the UI layout or functions based on the
-   * user's holding hand status. It is recommended that you call off() to unsubscribe and release resources after use to avoid
-   * unnecessary performance and power consumption overhead. Related method: off('holdingHandChanged'): unsubscribes from the
-   * holding hand status change awareness event.
+   * algorithms to determine whether the current holding hand is the left hand or the right hand. This is suitable for
+   * scenarios where reading applications, video playback, and other applications need to adjust the UI layout or
+   * functions based on the user's holding hand status. It is recommended that you call off() to unsubscribe and
+   * release resources after use to avoid unnecessary performance and power consumption overhead.
+   * Related method: off('holdingHandChanged'): unsubscribes from the holding hand status change awareness event.
    *
    * @permission ohos.permission.DETECT_GESTURE
    * @param { 'holdingHandChanged' } type - Event type. The value **holdingHandChanged** indicates the holding hand
