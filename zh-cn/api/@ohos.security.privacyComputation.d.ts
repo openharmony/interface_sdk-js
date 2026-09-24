@@ -38,7 +38,10 @@ declare namespace privacyComputation {
    * @param { PrivacyProtocol } privacyProtocol - 隐私协议配置，包括数据集大小和
    *     协议类型。
    * @returns { Promise<Uint8Array> } Promise用于返回加密结果。
+   * @throws { BusinessError } 24000001 - The service is unavailable.
    * @throws { BusinessError } 24000006 - Insufficient memory.
+   * @throws { BusinessError } 24000009 - The cryptography operation failed.
+   * @throws { BusinessError } 24000017 - The capability is not supported.
    * @throws { BusinessError } 24000018 - Parameter verification failed.
    * @syscap SystemCapability.Security.Asset
    * @FaAndStageModel
@@ -56,7 +59,10 @@ declare namespace privacyComputation {
    * @param { PrivacyProtocol } privacyProtocol - 隐私协议配置，包括数据集大小和
    *     协议类型。
    * @returns { Promise<PrivacySearchResult> } 用于返回隐私搜索结果的Promise。
+   * @throws { BusinessError } 24000001 - The service is unavailable.
    * @throws { BusinessError } 24000006 - Insufficient memory.
+   * @throws { BusinessError } 24000009 - The cryptography operation failed.
+   * @throws { BusinessError } 24000017 - The capability is not supported.
    * @throws { BusinessError } 24000018 - Parameter verification failed.
    * @syscap SystemCapability.Security.Asset
    * @FaAndStageModel
@@ -73,7 +79,10 @@ declare namespace privacyComputation {
    * @param { PrivacyProtocol } privacyProtocol - 隐私协议配置，包括数据集大小和
    *     协议类型。
    * @returns { Promise<SearchResult> } Promise用于返回searchResult。
+   * @throws { BusinessError } 24000001 - The service is unavailable.
    * @throws { BusinessError } 24000006 - Insufficient memory.
+   * @throws { BusinessError } 24000009 - The cryptography operation failed.
+   * @throws { BusinessError } 24000017 - The capability is not supported.
    * @throws { BusinessError } 24000018 - Parameter verification failed.
    * @syscap SystemCapability.Security.Asset
    * @FaAndStageModel
@@ -92,6 +101,15 @@ declare namespace privacyComputation {
    */
   enum HashAlg {
     /**
+     * 没有哈希算法。
+     *
+     * @syscap SystemCapability.Security.Asset
+     * @FaAndStageModel
+     * @atomicservice
+     * @since 26.0.1
+     */
+    NONE = 0,
+    /**
      * SHA256哈希算法。
      *
      * @syscap SystemCapability.Security.Asset
@@ -99,7 +117,16 @@ declare namespace privacyComputation {
      * @atomicservice
      * @since 26.0.1
      */
-    SHA256 = 0,
+    SHA256 = 1,
+    /**
+     * SHA384哈希算法。
+     *
+     * @syscap SystemCapability.Security.Asset
+     * @FaAndStageModel
+     * @atomicservice
+     * @since 26.0.1
+     */
+    SHA384 = 2,
     /**
      * SHA512哈希算法。
      *
@@ -108,13 +135,13 @@ declare namespace privacyComputation {
      * @atomicservice
      * @since 26.0.1
      */
-    SHA512 = 1
+    SHA512 = 3
   }
 
   /**
    * 枚举隐私协议支持的数据集大小。数据集大小定义
    * 单个结果密文可以包含的比较次数。的总数
-   * 生成的结果密文由element.size/dataSetSize决定。选择一个
+   * 生成的结果密文由elements.size/dataSetSize决定。选择一个
    * 根据隐私搜索中元素的数量和可接受的
    * 每个结果密文的大小。
    *
@@ -143,7 +170,7 @@ declare namespace privacyComputation {
      */
     SIZE_256 = 1,
     /**
-     * 单个结果密文可以包含512个比较。
+     * 单个结果密文可以包含512次比较。
      *
      * @syscap SystemCapability.Security.Asset
      * @FaAndStageModel
@@ -312,7 +339,7 @@ declare namespace privacyComputation {
      * @atomicservice
      * @since 26.0.1
      */
-    resultCipherText: Array<Uint8Array>;
+    resultCipherText: Uint8Array[];
     /**
      * 使用PIR协议进行隐私搜索时生成的值密文数组。
      * 这些密文包含与匹配元素相关的加密值。
