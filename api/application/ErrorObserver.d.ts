@@ -43,6 +43,8 @@ export default class ErrorObserver {
 
   /**
    * Called when the application encounters an exception and reports it to the JavaScript layer.
+	 *      Currently, only the default Error object (containing name, message, and stack) is supported;
+	 *      custom modification, inheritance, or extension is not supported.
    *
    * @param { Error } errObject - Event name, message, and error stack of the exception.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
