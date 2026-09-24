@@ -35,7 +35,7 @@ declare namespace transfer {
      * @param { Any } input 需要转换的1.0对象。
      * @param { string } inputName 子系统注册的名称。
      * @returns { Object } 转换后的对象。
-     * @throws { BusinessError } 10200067 - 转换错误，不支持的输入名称！
+     * @throws { BusinessError } 10200067 - Transfer Error. The input name is not supported!
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -49,7 +49,7 @@ declare namespace transfer {
      * @param { Object } input 需要转换的1.2对象。
      * @param { string } inputName 子系统注册的名称。
      * @returns { Any } 转换后的对象。
-     * @throws { BusinessError } 10200067 - 转换错误，不支持的输入名称！
+     * @throws { BusinessError } 10200067 - Transfer Error. The input name is not supported!
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice

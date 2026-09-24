@@ -67,7 +67,7 @@ declare namespace util {
    *
    * @param { boolean } [entropyCache] - 是否使用缓存生成UUID。默认值：true。
    * @returns { string } 返回表示此UUID的字符串。
-   * @throws { BusinessError } 401 - 参数错误。可能的原因：1.参数类型不正确。
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @since 23 static
    */
@@ -1295,7 +1295,7 @@ declare namespace util {
    *
    * @returns { string } Return a stack trace of main thread.
    * @syscap SystemCapability.Utils.Lang
-   * @since 24 static
+   * @since 26.0.0 static
    */
   function getMainThreadStackTrace(): string;
 }
