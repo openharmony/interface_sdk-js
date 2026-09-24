@@ -3254,5 +3254,104 @@ export declare enum KeyCode {
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  KEYCODE_FINGERPRINT_SLIDE_DOWN = 3234
+  KEYCODE_FINGERPRINT_SLIDE_DOWN = 3234,
+
+  /**
+   * PTZ click
+   *
+   * **Model restriction:** This API can only be used in the stage model.
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @stagemodelonly
+   * @since 26.0.1 dynamic&static
+   */
+  KEYCODE_PTZ_CLICK = 3235,
+
+  /**
+   * PTZ focus left
+   *
+   * **Model restriction:** This API can only be used in the stage model.
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @stagemodelonly
+   * @since 26.0.1 dynamic&static
+   */
+  KEYCODE_PTZ_FOCUS_LEFT = 3236,
+
+  /**
+   * PTZ focus right
+   *
+   * **Model restriction:** This API can only be used in the stage model.
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @stagemodelonly
+   * @since 26.0.1 dynamic&static
+   */
+  KEYCODE_PTZ_FOCUS_RIGHT = 3237,
+
+  /**
+   * PTZ exposure left
+   *
+   * **Model restriction:** This API can only be used in the stage model.
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @stagemodelonly
+   * @since 26.0.1 dynamic&static
+   */
+  KEYCODE_PTZ_EXPOSURE_LEFT = 3238,
+
+  /**
+   * PTZ exposure right
+   *
+   * **Model restriction:** This API can only be used in the stage model.
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @stagemodelonly
+   * @since 26.0.1 dynamic&static
+   */
+  KEYCODE_PTZ_EXPOSURE_RIGHT = 3239,
+
+  /**
+   * PTZ shutter left
+   *
+   * **Model restriction:** This API can only be used in the stage model.
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @stagemodelonly
+   * @since 26.0.1 dynamic&static
+   */
+  KEYCODE_PTZ_SHUTTER_LEFT = 3240,
+
+  /**
+   * PTZ shutter right
+   *
+   * **Model restriction:** This API can only be used in the stage model.
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @stagemodelonly
+   * @since 26.0.1 dynamic&static
+   */
+  KEYCODE_PTZ_SHUTTER_RIGHT = 3241,
+
+  /**
+   * PTZ aperture left
+   *
+   * **Model restriction:** This API can only be used in the stage model.
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @stagemodelonly
+   * @since 26.0.1 dynamic&static
+   */
+  KEYCODE_PTZ_APERTURE_LEFT = 3242,
+
+  /**
+   * PTZ aperture right
+   *
+   * **Model restriction:** This API can only be used in the stage model.
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.Core
+   * @stagemodelonly
+   * @since 26.0.1 dynamic&static
+   */
+  KEYCODE_PTZ_APERTURE_RIGHT = 3243
 }
