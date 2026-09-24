@@ -42,8 +42,10 @@ declare namespace formBindingData {
    *     formImages': {'key1': fd1, 'key2': fd2}}.<br>**NOTE**<br>During 
    *     [widget update](docroot://form/arkts-ui-widget-interaction-overview.md), when the widget UI receives widget data 
    *     through @LocalStorageProp, the **FormBindingData** object is serialized, that is, the widget data is converted into 
-   *     the string type. Since API version 20, if the widget data is updated using shared memory, the total size of the 
-   *     updated data cannot exceed 10 MB, and the number of updated images cannot exceed 20. In API version 19 and earlier 
+   *     the string type. Since API version 26.0.1, if the widget data is updated using shared memory, the total size of the 
+   *     updated data cannot exceed 10 MB, and the number of updated images cannot exceed 30. From API version 20 to before 
+   *     API version 26.0.1, the total size of the updated data cannot exceed 10 MB, and the number of updated images cannot 
+   *     exceed 20. In API version 19 and earlier 
    *     versions, the maximum number of image files is 5, and the maximum memory size of each image is 2 MB. Exceeding this 
    *     2 MB limit for any image will result in abnormal display.
    * @returns { FormBindingData } **FormBindingData** object created based on the passed data.
