@@ -24,9 +24,9 @@ import type { Callback } from './@ohos.base';
 /**
  * This module provides metadata binding capability invocation, including encoded content transfer, event subscription,
  * and event unsubscription. Metadata binding allows system applications to obtain encoded content from third-party
- * applications, supports real-time event listening and callback mechanisms, and is suitable for scenarios where a system
- * application makes a request (such as a screenshot) and obtains application binding data, improving user experience
- * through cross-application data transfer.
+ * applications, supports real-time event listening and callback mechanisms, and is suitable for scenarios where a
+ * system application makes a request (such as a screenshot) and obtains application binding data, improving user
+ * experience through cross-application data transfer.
  *
  * @syscap SystemCapability.MultimodalAwareness.MetadataBinding
  * @atomicservice
@@ -85,10 +85,10 @@ declare namespace metadataBinding {
   function notifyMetadataBindingEvent(bundleName: string): Promise<string>;
 
   /**
-   * A third-party application passes the content to be encoded to the API service, which then passes the content to the system
-   * application or service that invokes the encoding API. This API is called by third-party applications for system applications
-   * to subscribe to and obtain data. The system application must first subscribe to the event through the on('operationSubmitMetadata')
-   * method before it can receive the encoded content.
+   * A third-party application passes the content to be encoded to the API service, which then passes the content to the
+   * system application or service that invokes the encoding API. This API is called by third-party applications for
+   * system applications to subscribe to and obtain data. The system application must first subscribe to the event
+   * through the on('operationSubmitMetadata') method before it can receive the encoded content.
    *
    * @param { string } metadata - Content to be encoded. The string length does not exceed 128 bytes.
    * @throws { BusinessError } 32100001 - Internal handling failed.
@@ -100,10 +100,11 @@ declare namespace metadataBinding {
   function submitMetadata(metadata: string): void;
 
   /**
-   * Subscribes to the event of a system application requesting to obtain encoded content. This event is triggered when a system
-   * application (such as a screenshot) requests to obtain the encoded content of an application. After the application registers
-   * a callback, it is notified through the callback when the event occurs. After subscribing to the event by calling on(), the
-   * application must call off() to unsubscribe and release the listening resources when the event no longer needs to be listened for.
+   * Subscribes to the event of a system application requesting to obtain encoded content. This event is triggered when
+   * a system application (such as a screenshot) requests to obtain the encoded content of an application. After the
+   * application registers a callback, it is notified through the callback when the event occurs. After subscribing to
+   * the event by calling on(), the application must call off() to unsubscribe and release the listening resources when
+   * the event no longer needs to be listened for.
    *
    * @param { 'operationSubmitMetadata' } type - Event type. This parameter has a fixed value of
    *     **operationSubmitMetadata**, indicating the system application's attempt to obtain the encoded metadata.
