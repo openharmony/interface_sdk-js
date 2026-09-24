@@ -278,6 +278,46 @@ export declare class TabBarSymbol {
   selected?: SymbolGlyphModifier;
 }
 /**
+ * Types for TabBar badge.
+ *
+ * @unionmember { int }
+ * @unionmember { ResourceStr }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.1 static
+ */
+export type TabBarBadgeType = int | ResourceStr;
+
+/**
+ * Represents a tab bar badge style object.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.1 static
+ */
+export declare interface TabBarBadgeStyle {
+
+  /**
+   * Badge value. If this parameter is not set or set to **undefined**, the badge is displayed as a dot without content.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.1 static
+   */
+  value?: TabBarBadgeType;
+
+  /**
+   * Maximum count of the badge. When the badge value exceeds this count, the badge displays the maximum count followed
+   * by a plus sign.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.1 static
+   */
+  maxCount?: int;
+}
+
+/**
  * Icon and text for TabBar.
  *
  * @typedef TabBarOptions
@@ -308,6 +348,16 @@ export declare interface TabBarOptions {
    * @since 20
    */
   text?: string | Resource;
+
+  /**
+   * Badge style of the tab. If this parameter is not set, no badge is displayed.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @since 26.0.1 static
+   */
+  badge?: TabBarBadgeStyle;
 }
 /**
  * Define SubTabBarStyle, the style is text and underline.
@@ -536,6 +586,17 @@ export declare class BottomTabBarStyle {
    * @since 20
    */
   iconStyle(style: TabBarIconStyle): BottomTabBarStyle;
+
+  /**
+   * Sets the badge style of the bottom tab. If this parameter is not set, no badge is displayed.
+   *
+   * @param { TabBarBadgeStyle } badgeStyle - Badge style of the bottom tab.
+   * @returns { BottomTabBarStyle } the style of the bottom tab bar.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.1 static
+   */
+  badge(badgeStyle:TabBarBadgeStyle): BottomTabBarStyle;
 }
 
 /**
