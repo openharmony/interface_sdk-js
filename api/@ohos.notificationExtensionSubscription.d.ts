@@ -278,6 +278,36 @@ declare namespace notificationExtensionSubscription {
     enabledBundles: BundleOption[], enabled: boolean): Promise<void>;
 
   /**
+   * Subscribes to notifications based on the priority strategy. This API uses a promise to return the result.
+   *
+   * @permission ohos.permission.NOTIFICATION_SYSTEM_SUBSCRIBER
+   * @param { int } [priorityStrategy] - Priority strategy for filtering the notifications. This parameter is obtained
+   *     by performing a bitwise OR operation on the enums of
+   *     PriorityStrategyStatus. After an application subscribes to a specific priority strategy, the system
+   *     returns only notifications matching the corresponding strategy when the application publishes
+   *     notifications. Subscribing to the default priority strategy **STATUS_SYSTEM_DEFAULT** means subscribing
+   *     simultaneously to the following strategies: **STATUS_SYSTEM_RULE**, **STATUS_INTELLIGENT**,
+   *     **STATUS_USER_DEFINED**, and **STATUS_APPLICATION_DEFINED**. When **priorityStrategy** is set to **0**,
+   *     no priority strategy is applied, and all notifications published by the application can be received.
+   *     <br>The value should be an integer. Default value: 0.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error. Possible cause: 1.IPC communication failed.
+   *     2.Memory operation error. 3.The user does not exist.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600022 - The application does not implement the
+   *     NotificationSubscriberExtensionAbility.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.2.0 dynamic&static
+   */
+  function subscribeNotification(priorityStrategy?: int): Promise<void>;
+
+  /**
    * Describes the type that enables notification extension subscription.
    *
    * @syscap SystemCapability.Notification.Notification

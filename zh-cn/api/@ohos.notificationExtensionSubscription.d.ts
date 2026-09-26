@@ -254,6 +254,32 @@ declare namespace notificationExtensionSubscription {
     enabledBundles: BundleOption[], enabled: boolean): Promise<void>;
 
   /**
+   * 根据优先通知过滤条件订阅通知。使用Promise异步回调。
+   *
+   * @permission ohos.permission.NOTIFICATION_SYSTEM_SUBSCRIBER
+   * @param { int } [priorityStrategy] - 优先通知过滤条件。与PriorityStrategyStatus的枚举进行按位或运算得到该参数。
+   *     订阅某条优先通知策略后，应用发布通知时，只返回符合对应策略的通知。
+   *     当订阅默认优先策略`STATUS_SYSTEM_DEFAULT`时,表示同时订阅优先规则`STATUS_SYSTEM_RULE`、智能识别`STATUS_INTELLIGENT`、用户自定义`STATUS_USER_DEFINED`和应用自定义`STATUS_APPLICATION_DEFINED`策略。
+   *     当`priorityStrategy`为0时，表示不过滤优先通知策略，可以收到应用发布的所有通知。
+   *     <br>取值限定为整数。默认值：0。
+   * @returns { Promise<void> } Promise对象，无返回结果。
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 1600001 - Internal error. Possible cause: 1.IPC communication failed.
+   *     2.Memory operation error. 3.The user does not exist.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600022 - The application does not implement the
+   *     NotificationSubscriberExtensionAbility.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.2.0 dynamic&static
+   */
+  function subscribeNotification(priorityStrategy?: int): Promise<void>;
+
+  /**
    * 表示通知扩展订阅的类型。
    *
    * @syscap SystemCapability.Notification.Notification

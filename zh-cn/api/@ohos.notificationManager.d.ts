@@ -3901,6 +3901,26 @@ declare namespace notificationManager {
   function snoozeNotification(hashCode: string, delayTime: long): Promise<void>;
 
   /**
+   * 根据通知的唯一标识hashCode获取当前未删除的通知信息。使用Promise异步回调。
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { string } hashCode - 通知的唯一标识。
+   * @returns { Promise<NotificationRequest> } 以Promise形式返回获取通知信息。
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 1600001 - Internal error. Possible cause: 1.IPC communication failed.
+   *     2.Memory operation error. 3.The user does not exist.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600007 - The notification does not exist.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.2.0 dynamic&static
+   */
+  function getActiveNotification(hashCode: string): Promise<NotificationRequest>;
+
+  /**
    * 描述通知相关开关的设置状态。
    *
    * @syscap SystemCapability.Notification.Notification
