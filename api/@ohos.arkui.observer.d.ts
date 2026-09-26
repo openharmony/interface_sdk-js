@@ -163,6 +163,28 @@ declare namespace uiObserver {
     ON_INACTIVE = 9,
 
     /**
+     * The outer custom component of the **NavDestination** component is about to appear.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.2.0 dynamic
+     */
+    ABOUT_TO_APPEAR = 10,
+ 
+    /**
+     * The outer custom component of the **NavDestination** component is about to disappear.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.2.0 dynamic
+     */
+    ABOUT_TO_DISAPPEAR = 11,
+
+    /**
      * The back button is pressed on the **NavDestination** component.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
