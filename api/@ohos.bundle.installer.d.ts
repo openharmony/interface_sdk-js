@@ -1271,6 +1271,10 @@ declare namespace installer {
      * - **ohos.bms.param.bundleEnableState**: If the value is **false**, the application is installed in disabled
      * state (enabled is false). If the value is **true** or this key is not present, the application is installed
      * in enabled state (enabled is true, default behavior) (supported since API version 26.0.1).
+     * - **ohos.bms.param.notarizationCredentialStatus**: If the value is "0", it indicates that the application
+     * possesses a notarized credential when calling the installation interface.
+     * If the value is "1" or the key is not passed in, it indicates that there is no authentication
+     * credential when the application calls the installation interface (supported since API version 26.0.1).
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
