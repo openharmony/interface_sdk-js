@@ -4323,6 +4323,26 @@ declare namespace notificationManager {
   function isNotificationSlotEnabledByBundles(bundles: Array<BundleOption>, type: SlotType): Promise<Map<BundleOption, boolean>>;
 
   /**
+   * Obtains an active notification based on **hashCode**. This API uses a promise to return the result.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { string } hashCode - Unique notification identifier.
+   * @returns { Promise<NotificationRequest> } Promise used to return the notification information.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 1600001 - Internal error. Possible cause: 1.IPC communication failed.
+   *     2.Memory operation error. 3.The user does not exist.
+   * @throws { BusinessError } 1600002 - Marshalling or unmarshalling error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @throws { BusinessError } 1600007 - The notification does not exist.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.2.0 dynamic&static
+   */
+  function getActiveNotification(hashCode: string): Promise<NotificationRequest>;
+
+  /**
    * Describes the switch state of notifications.
    *
    * @syscap SystemCapability.Notification.Notification
