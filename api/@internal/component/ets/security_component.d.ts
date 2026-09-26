@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -614,10 +614,10 @@ declare class SecurityComponentMethod<T> {
    * The security component text is laid out at [maxFontSize]{@link SecurityComponentMethod.maxFontSize}. If the text
    * can be completely displayed and no adaptive adjustment is needed, this API does not take effect. Otherwise,
    * adaptation proceeds according to the specified policy, as follows:
-   * <br>**TextHeightAdaptivePolicy.MAX_LINES_FIRST**: prioritizes the [maxLines]{@link
-   * SecurityComponentMethod.maxLines} attribute for adjusting the text height. If the layout size with **maxLines**
-   * exceeds the layout constraints, the security component attempts to reduce the font size within the range of
-   * [minFontSize]{@link SecurityComponentMethod.minFontSize} and
+   * <br>**TextHeightAdaptivePolicy.MAX_LINES_FIRST**: prioritizes the
+   * [maxLines]{@link SecurityComponentMethod.maxLines} attribute for adjusting the text height. If the layout size
+   * with **maxLines** exceeds the layout constraints, the security component attempts to reduce the font size within
+   * the range of [minFontSize]{@link SecurityComponentMethod.minFontSize} and
    * [maxFontSize]{@link SecurityComponentMethod.maxFontSize} to fit more text. If the text still cannot be fully
    * displayed, the security component adaptively adjusts its height to show all text.
    * <br>**TextHeightAdaptivePolicy.MIN_FONT_SIZE_FIRST**: prioritizes the

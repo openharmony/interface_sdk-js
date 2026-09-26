@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -93,7 +93,7 @@ declare interface PasteButtonOptions {
   /**
    * Text on the **PasteButton** component.
    * Default value: No text description is displayed.
-   * <br>If the icon is not transferred, the control is displayed in the default style.
+   * <br>If neither **text** nor **icon** is provided, the component uses the default style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

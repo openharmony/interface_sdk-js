@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -485,7 +485,7 @@ declare class SecurityComponentMethod<T> {
   /**
    * 设置文本最小显示字号。
    *
-   * - 配合[maxFontSize]{@link SecurityComponentMethod.maxFontSize}以及[maxLines]{@linkSecurityComponentMethod.maxLines}或布局
+   * - 配合[maxFontSize]{@link SecurityComponentMethod.maxFontSize}以及[maxLines]{@link SecurityComponentMethod.maxLines}或布局
    * 大小限制使用，可实现自适应字号，单独设置不生效。
    * - minFontSize应小于maxFontSize，若设置值大于maxFontSize，将按maxFontSize处理。
    * - minFontSize小于或等于0时，自适应字号不生效。
@@ -506,7 +506,7 @@ declare class SecurityComponentMethod<T> {
   /**
    * 设置文本最大显示字号。
    *
-   * - 配合[minFontSize]{@link SecurityComponentMethod.minFontSize}以及[maxLines]{@linkSecurityComponentMethod.maxLines}或布局
+   * - 配合[minFontSize]{@link SecurityComponentMethod.minFontSize}以及[maxLines]{@link SecurityComponentMethod.maxLines}或布局
    * 大小限制使用，可实现自适应字号，单独设置不生效。
    * - maxFontSize应大于minFontSize，若maxFontSize小于minFontSize，minFontSize将按maxFontSize处理。
    * - 当自适应字号生效时，设置的fontSize将不生效。
@@ -536,7 +536,7 @@ declare class SecurityComponentMethod<T> {
    *
    * 当设置为TextHeightAdaptivePolicy.MIN_FONT_SIZE_FIRST时，优先使用[minFontSize]{@link SecurityComponentMethod.minFontSize}属性来调整文本高度。如果使用minFontSize
    * 属性可以将文本布局在一行中，则尝试在minFontSize和[maxFontSize]{@link SecurityComponentMethod.maxFontSize}的范围内增大字体并使用最大可能的字体大小；
-   * 如果使用minFontSize属性无法将文本布局在一行中，则尝试使用[maxLines]{@linkSecurityComponentMethod.maxLines}属性进行布局，如果此时仍不能完整显示文本信息，
+   * 如果使用minFontSize属性无法将文本布局在一行中，则尝试使用[maxLines]{@link SecurityComponentMethod.maxLines}属性进行布局，如果此时仍不能完整显示文本信息，
    * 安全控件会自适应调整高度以使得文本完整显示。
    *
    * 当设置为TextHeightAdaptivePolicy.LAYOUT_CONSTRAINT_FIRST时，优先使用布局约束来调整文本高度。如果布局大小超过布局约束，则尝试在
@@ -562,7 +562,7 @@ declare class SecurityComponentMethod<T> {
    * @param { boolean } respond - 安全控件是否可交互的值。
    *     <br>默认值：true。
    *     <br>值为true表示组件可交互，响应点击等操作。<br>值为false表示组件不可交互，不响应点击等操作。
-   * @returns { T } Attribute of the security component.
+   * @returns { T } 安全控件的属性。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -584,9 +584,9 @@ declare class SecurityComponentMethod<T> {
   alignRules(alignRule: AlignRuleOption): T;
 
   /**
-   * 设置在相对容器中子组件的对齐规则，仅当父容器为[RelativeContainer]{@link
-   * ./relative_container}时生效。该方法水平方向上以start和end分别替代上述[alignRules]{@link
-   * SecurityComponentMethod.alignRules}的left和right，以便在RTL模式下能镜像显示，建议优先使用该方法。
+   * 设置在相对容器中子组件的对齐规则，仅当父容器为[RelativeContainer]{@link ./relative_container}时生效。
+   * 该方法水平方向上以start和end分别替代上述[alignRules]{@link SecurityComponentMethod.alignRules}的left和right，
+   * 以便在RTL模式下能镜像显示，建议优先使用该方法。
    *
    * @param { LocalizedAlignRuleOptions } alignRule - 对齐规则配置对象，使用start和end替代left和right以支持RTL布局镜像。包含top、bottom、start、end、center等
    *     锚点对齐配置，用于指定安全控件在[RelativeContainer]{@link ./relative_container}中的对齐位置和方式。
@@ -630,14 +630,14 @@ declare class SecurityComponentMethod<T> {
    * [heightAdaptivePolicy]{@link SecurityComponentMethod.heightAdaptivePolicy}使用。配合自适应字号相关属性使用时，安全控件文本未完全显示将导致点击不授权。
    * maxLines的设置会影响文本是否能完整显示，进而影响安全控件的授权行为。
    *
-   * @param { number } line - Maximum number of lines for the text.
+   * @param { number } line - 文本的最大行数。
    *     <br>number类型入参的取值范围： [1, +∞)。从API version 20开始，支持Resource类型。Resource类型仅支持'integer'，取值范围为[1, +∞)。
    *     **说明：**
    *     <br>设置的值小于1时，按默认值1000000处理。 [since 18 - 19]
    * @param { number | Resource } line - 文本的最大行数。
    *     <br>number类型入参的取值范围： [1, +∞)。从API version 20开始，支持Resource类型。Resource类型仅支持'integer'，取值范围为[1, +∞)。
    *     **说明：**
-   *     <br>设置的值小于1时，按默认值1000000处理。 [since 18 - 19]
+   *     <br>设置的值小于1时，按默认值1000000处理。 [since 20]
    * @returns { T } 安全控件的属性。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
