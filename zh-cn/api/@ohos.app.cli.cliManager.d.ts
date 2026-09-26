@@ -19,6 +19,7 @@
  */
 import { ToolInfo, ToolSummary } from './application/ToolInfo';
 import { ToolEventCallback } from './application/ToolEventCallback';
+import { CliHook, ExecToolParam, ExecCmdParam, ExecResultWrap } from './application/CliHook';
 
 
 /**
@@ -574,6 +575,51 @@ declare namespace cliManager {
    * @since 26.0.0 dynamiconly
    */
   function sendMessage(sessionId: string, message: string): Promise<void>;
+
+  /**
+   * 注册CLI Hook，用于拦截工具和命令的执行。
+   * 同一时间只能注册一个CLI Hook；若已存在已注册的Hook，再次注册将失败。本接口仅在开发者模式下可用。
+   * 如需更新已注册的Hook，请先调用unregisterCliHook取消注册，再重新注册。
+   * Hook对象必须实现CliHook中至少一个可选方法。
+   *
+   * @permission ohos.permission.REGISTER_AGENT_HOOK
+   * @param { CliHook } hook - 实现CliHook接口的Hook对象。该对象必须实现至少一个可选方法。
+   * @returns { Promise<void> } Promise对象，无返回值。
+   * @throws { BusinessError } 201 - Permission denied, interface caller does not have permission
+   *     "ohos.permission.REGISTER_AGENT_HOOK".
+   * @throws { BusinessError } 202 - Not system application. Interface caller is not a system app.
+   * @throws { BusinessError } 35600034 - The device is not in developer mode.
+   * @throws { BusinessError } 35600035 - A hook is already registered; unregister it first.
+   * @throws { BusinessError } 35600050 - System Error. 1. Connect to system service failed;
+   *     2.System service failed to communicate with dependency module.
+   * @syscap SystemCapability.Ability.AgentRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.1 dynamiconly
+   */
+  function registerCliHook(hook: CliHook): Promise<void>;
+
+  /**
+   * 取消注册之前注册的CLI Hook。
+   * Hook对象必须与传递给registerCliHook的对象相同。若未注册Hook，调用将失败并抛出错误。
+   *
+   * @permission ohos.permission.REGISTER_AGENT_HOOK
+   * @param { CliHook } hook - 待取消注册的Hook对象。
+   * @returns { Promise<void> } Promise对象，无返回值。
+   * @throws { BusinessError } 201 - Permission denied, interface caller does not have permission
+   *     "ohos.permission.REGISTER_AGENT_HOOK".
+   * @throws { BusinessError } 202 - Not system application. Interface caller is not a system app.
+   * @throws { BusinessError } 35600036 - No hook is registered; nothing to unregister.
+   * @throws { BusinessError } 35600050 - System Error. 1. Connect to system service failed;
+   *     2.System service failed to communicate with dependency module.
+   * @syscap SystemCapability.Ability.AgentRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.1 dynamiconly
+   */
+  function unregisterCliHook(hook: CliHook): Promise<void>;
 }
 
 export default cliManager;
+
+export type { CliHook, ExecToolParam, ExecCmdParam, ExecResultWrap };

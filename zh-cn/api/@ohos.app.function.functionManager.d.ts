@@ -19,6 +19,7 @@
  */
 import Context from './application/Context';
 import { FunctionInfo } from './application/FunctionInfo';
+import { FunctionHook, InvokeFunctionParam, FunctionResultWrap } from './application/FunctionHook';
 
 /**
  * Function是定义在应用包中的一个业务逻辑单元，可以接收大模型提供的结构化数据来完成应用定义的功能，例如查询实时天气信息、打开指定应用页面等。
@@ -142,6 +143,51 @@ declare namespace functionManager {
    */
   function invokeFunction(functionNamespace: string, functionName: string,
     args: Record<string, Object>, options?: InvokeOptions): Promise<InvokeResult>;
+
+  /**
+   * 注册Function Hook，用于拦截Function调用。
+   * 同一时间只能注册一个Function Hook；若已存在已注册的Hook，再次注册将失败。本接口仅在开发者模式下可用。
+   * 如需更新已注册的Hook，请先调用unregisterFunctionHook取消注册，再重新注册。
+   * Hook对象必须实现FunctionHook中至少一个可选方法。
+   *
+   * @permission ohos.permission.REGISTER_AGENT_HOOK
+   * @param { FunctionHook } hook - 实现FunctionHook接口的Hook对象。该对象必须实现至少一个可选方法。
+   * @returns { Promise<void> } Promise对象，无返回值。
+   * @throws { BusinessError } 201 - Permission denied, interface caller does not have permission
+   *     "ohos.permission.REGISTER_AGENT_HOOK".
+   * @throws { BusinessError } 202 - Not system application. Interface caller is not a system app.
+   * @throws { BusinessError } 35600034 - The device is not in developer mode.
+   * @throws { BusinessError } 35600035 - A hook is already registered; unregister it first.
+   * @throws { BusinessError } 35600050 - System Error. 1. Connect to system service failed;
+   *     2.System service failed to communicate with dependency module.
+   * @syscap SystemCapability.Ability.AgentRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.1 dynamiconly
+   */
+  function registerFunctionHook(hook: FunctionHook): Promise<void>;
+
+  /**
+   * 取消注册之前注册的Function Hook。
+   * Hook对象必须与传递给registerFunctionHook的对象相同。若未注册Hook，调用将失败并抛出错误。
+   *
+   * @permission ohos.permission.REGISTER_AGENT_HOOK
+   * @param { FunctionHook } hook - 待取消注册的Hook对象。
+   * @returns { Promise<void> } Promise对象，无返回值。
+   * @throws { BusinessError } 201 - Permission denied, interface caller does not have permission
+   *     "ohos.permission.REGISTER_AGENT_HOOK".
+   * @throws { BusinessError } 202 - Not system application. Interface caller is not a system app.
+   * @throws { BusinessError } 35600036 - No hook is registered; nothing to unregister.
+   * @throws { BusinessError } 35600050 - System Error. 1. Connect to system service failed;
+   *     2.System service failed to communicate with dependency module.
+   * @syscap SystemCapability.Ability.AgentRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.1 dynamiconly
+   */
+  function unregisterFunctionHook(hook: FunctionHook): Promise<void>;
 }
 
 export default functionManager;
+
+export type { FunctionHook, InvokeFunctionParam, FunctionResultWrap };
