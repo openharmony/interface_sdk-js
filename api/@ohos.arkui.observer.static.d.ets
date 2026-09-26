@@ -143,6 +143,24 @@ declare namespace uiObserver {
     ON_INACTIVE = 9,
 
     /**
+     * When the outer custom component of the NavDestination is about to appear.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.2.0 static
+     */
+    ABOUT_TO_APPEAR = 10,
+ 
+    /**
+     * When the outer custom component of the NavDestination is about to disappear.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.2.0 static
+     */
+    ABOUT_TO_DISAPPEAR = 11,
+
+    /**
      * When back press event happened in NavDestination.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full

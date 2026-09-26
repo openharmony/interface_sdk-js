@@ -168,6 +168,28 @@ declare namespace uiObserver {
     ON_INACTIVE = 9,
 
     /**
+     * NavDestination组件的外层自定义组件即将出现。
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.2.0 dynamic
+     */
+    ABOUT_TO_APPEAR = 10,
+ 
+    /**
+     * NavDestination组件的外层自定义组件即将消失。
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.2.0 dynamic
+     */
+    ABOUT_TO_DISAPPEAR = 11,
+
+    /**
      * NavDestination组件返回。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
