@@ -647,7 +647,7 @@ declare namespace inputMethodEngine {
     hideKeyboard(): Promise<void>;
 
     /**
-     * 退出当前输入类型，仅支持系统配置的默认输入法应用调用。使用callback异步回调。
+     * 退出当前输入类型，仅支持系统配置的默认输入法应用调用。从API版本26.0.1开始，支持提供系统级输入能力的输入法应用调用。使用callback异步回调。
      *
      * @param { AsyncCallback<void> } callback - 回调函数。当退出当前输入类型成功，err为undefined，否则为错误对象。
      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
@@ -660,7 +660,7 @@ declare namespace inputMethodEngine {
     exitCurrentInputType(callback: AsyncCallback<void>): void;
 
     /**
-     * 退出当前输入类型，仅支持系统配置的默认输入法应用调用。使用promise异步回调。
+     * 退出当前输入类型，仅支持系统配置的默认输入法应用调用。从API版本26.0.1开始，支持提供系统级输入能力的输入法应用调用。使用promise异步回调。
      *
      * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
