@@ -21,6 +21,7 @@
 import type { AsyncCallback } from './@ohos.base';
 import formBindingData from './@ohos.app.form.formBindingData';
 import type Want from './@ohos.app.ability.Want';
+import formInfo from './@ohos.app.form.formInfo';
 
 /**
  * FormAgent模块提供了卡片代理相关接口的能力，目前仅包括请求发布卡片。适用于系统应用需要将卡片发布到使用方（如桌面）的场景，能够帮助系统应用便捷地请求发布卡片，简化卡片发布流程。
@@ -50,9 +51,9 @@ declare namespace formAgent {
    * @throws { BusinessError } 16500050 - IPC connection error.
    * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
-   * @throws { BusinessError } 16501002 - The number of forms exceeds the upper limit. [since 26.0.1]
+   * @throws { BusinessError } 16501002 - The number of forms exceeds the maximum allowed. [since 26.0.1]
    * @throws { BusinessError } 16501008 - Waiting for the form addition to the desktop timed out. [since 12]
-   * @throws { BusinessError } 16501017 - There is no space to publish form. [since 26.0.1]
+   * @throws { BusinessError } 16501017 - There is no space to publish the form. [since 26.0.1]
    * @throws { BusinessError } 16501018 - This form does not support publishing. [since 26.0.1]
    * @syscap SystemCapability.Ability.Form
    * @systemapi
@@ -79,9 +80,9 @@ declare namespace formAgent {
    * @throws { BusinessError } 16500050 - IPC connection error.
    * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
-   * @throws { BusinessError } 16501002 - The number of forms exceeds the upper limit. [since 26.0.1]
+   * @throws { BusinessError } 16501002 - The number of forms exceeds the maximum allowed. [since 26.0.1]
    * @throws { BusinessError } 16501008 - Waiting for the form addition to the desktop timed out. [since 12]
-   * @throws { BusinessError } 16501017 - There is no space to publish form. [since 26.0.1]
+   * @throws { BusinessError } 16501017 - There is no space to publish the form. [since 26.0.1]
    * @throws { BusinessError } 16501018 - This form does not support publishing. [since 26.0.1]
    * @syscap SystemCapability.Ability.Form
    * @systemapi
@@ -111,5 +112,21 @@ declare namespace formAgent {
    * @since 26.0.0 dynamic&static
    */
   function updateFormCrossBundle(formId: string, formBindingData: formBindingData.FormBindingData): Promise<void>;
+
+  /**
+   * 获取可用的卡片使用方服务信息列表。使用Promise异步回调。
+   *
+   * @permission ohos.permission.AGENT_REQUIRE_FORM
+   * @returns { Promise<Array<formInfo.PeerFormHostServiceInfo>> } Promise对象，返回可用的卡片使用方服务信息列表。
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.1 dynamic&static
+   */
+  function getAvailableFormHostServices(): Promise<Array<formInfo.PeerFormHostServiceInfo>>;
 }
 export default formAgent;
