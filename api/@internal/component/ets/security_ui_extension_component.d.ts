@@ -58,9 +58,10 @@ declare enum SecurityDpiFollowStrategy {
  */
 declare interface SecurityUIExtensionOptions {
   /**
-   * Whether the **UIExtensionComponent** forwards the upper-level caller information when it is used for nesting.
-   * **true**: yes; **false**: no.
-   * The default value is **false**.
+   * Whether to forward the Caller information of the upper-level caller (that is, the identity information of the
+   * **Ability** that initiates the call) when **SecurityUIExtensionComponent** is nested, so as to support call chain
+   * passing in multi-level nesting scenarios.<br>**true**: forwards the Caller information of the upper level;
+   * **false**: does not forward the Caller information of the upper level.<br>Default value: **false**
    *
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -71,8 +72,8 @@ declare interface SecurityUIExtensionOptions {
   isTransferringCaller?: boolean;
 
   /**
-   * Placeholder to be displayed before the **SecurityUIExtensionComponent** establishes a connection with the
-   * **UIExtensionAbility**.
+   * Placeholder displayed before the connection between **SecurityUIExtensionComponent** and the
+   * **UIExtensionAbility** is established. No placeholder is displayed if this attribute is not set.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -83,9 +84,8 @@ declare interface SecurityUIExtensionOptions {
 
   /**
    * Resolution following strategy for **SecurityUIExtensionComponent**, used to control whether the embedded
-   * **UIExtensionAbility** content follows the host application's resolution or uses its own resolution.
-   * Default value: **FOLLOW_UI_EXTENSION_ABILITY_DPI**
-   * .
+   * **UIExtensionAbility** content follows the host application's resolution or uses its own resolution.<br>Default
+   * value: **FOLLOW_UI_EXTENSION_ABILITY_DPI**
    *
    * @default SecurityDpiFollowStrategy.FOLLOW_UI_EXTENSION_ABILITY_DPI
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -106,10 +106,9 @@ declare interface SecurityUIExtensionOptions {
  */
 declare interface TerminationInfo {
   /**
-   * Result code returned when the **UIExtensionAbility** exits. The value **0** indicates that the
-   * **UIExtensionAbility** exits normally, and a non-zero value indicates that the **UIExtensionAbility** exits
-   * abnormally. The meaning of the result code is defined by the **UIExtensionAbility** that is started.
-   * The value should be an integer.
+   * Result code returned when the launched **UIExtensionAbility** exits. The value **0** indicates normal exit, and a
+   * non-zero value indicates abnormal exit. The specific meaning of the result code is defined by the launched
+   * **UIExtensionAbility**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -119,7 +118,7 @@ declare interface TerminationInfo {
   code: int;
 
   /**
-   * Data returned when the **UIExtensionAbility** exits.
+   * Data returned when the launched **UIExtensionAbility** exits. This field is empty if no data is returned.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -130,8 +129,8 @@ declare interface TerminationInfo {
 }
 
 /**
- * Implements a **SecurityUIExtensionProxy** instance for the component host to send data to, subscribe to, or
- * unsubscribe from the started ability through the connection established between the two parties.
+ * Used to send data to the launched **Ability** and subscribe to and unsubscribe from event callbacks after a
+ * successful connection is established.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -140,10 +139,11 @@ declare interface TerminationInfo {
  */
 declare interface SecurityUIExtensionProxy {
   /**
-   * Asynchronously sends data to the ability started by the component host through the connection established between
-   * the two parties.
+   * Used to send data to the launched **Ability** after a successful connection is established, providing
+   * asynchronous sending capability. The data will be received and processed by the extension **Ability** through
+   * [setReceiveDataCallback]{@link @ohos.app.ability.UIExtensionContentSession:UIExtensionContentSession#setReceiveDataCallback(callback: (data: Record<string, Object>) => void)}.
    *
-   * @param { Record<string, Object> } data - Data to be asynchronously sent to the started **UIExtensionAbility**.
+   * @param { Record<string, Object> } data - Data asynchronously sent to the launched **Ability**.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -152,12 +152,13 @@ declare interface SecurityUIExtensionProxy {
   send(data: Record<string, Object>): void;
 
   /**
-   * Synchronously sends data to the ability started by the component host through the connection established between
-   * the two parties.
+   * Sends data to the launched **Ability** after a successful connection is established. The data will be processed by
+   * the launched **Ability** through **setReceiveDataForResultCallback** and the result will be returned.
    *
-   * @param { Record<string, Object> } data - Data to be synchronously sent to the started **UIExtensionAbility**.
-   * @returns { Record<string, Object> } Data returned by the extension ability.
-   * @throws { BusinessError } 100011 - No callback has been registered to response this request.
+   * @param { Record<string, Object> } data - Data synchronously sent to the launched **Ability**.
+   * @returns { Record<string, Object> } Response data returned by the launched **Ability** after processing the
+   *     synchronous send request.
+   * @throws { BusinessError } 100011 - No callback has been registered to respond to this request.
    * @throws { BusinessError } 100012 - Transferring data failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -167,12 +168,12 @@ declare interface SecurityUIExtensionProxy {
   sendSync(data: Record<string, Object>): Record<string, Object>;
 
   /**
-   * Subscribes to the callback triggered for asynchronous registration of the started ability. This API uses an
-   * asynchronous callback to return the result.
+   * After a successful connection is established, subscribes to the callback triggered when the launched **Ability**
+   * performs asynchronous registration. This API uses an asynchronous callback to return the result.
    *
-   * @param { 'asyncReceiverRegister' } type - The value is fixed to **asyncReceiverRegister**, indicating a
-   *     subscription to the callback triggered for asynchronous registration of the extended ability.
-   * @param { Callback<UIExtensionProxy> } callback - Callback triggered after the extension ability registers a
+   * @param { 'asyncReceiverRegister' } type - Fixed value **'asyncReceiverRegister'**, which indicates the callback
+   *     triggered when the launched **Ability** performs asynchronous registration.
+   * @param { Callback<UIExtensionProxy> } callback - Callback triggered after the launched **Ability** registers
    *     [setReceiveDataCallback]{@link @ohos.app.ability.UIExtensionContentSession:UIExtensionContentSession#setReceiveDataCallback(callback: (data: Record<string, Object>) => void)}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -182,12 +183,13 @@ declare interface SecurityUIExtensionProxy {
   on(type: 'asyncReceiverRegister', callback: Callback<UIExtensionProxy>): void;
 
   /**
-   * Subscribes to the callback triggered for synchronous registration of the started ability. This API uses an
-   * asynchronous callback to return the result.
+   * After a successful connection is established, subscribes to the callback triggered when the launched **Ability**
+   * performs synchronous registration. This API uses an asynchronous callback to return the result.
    *
-   * @param { 'syncReceiverRegister' } type - The value is fixed to **syncReceiverRegister**, indicating subscription to
-   *     the asynchronous registration of the extension ability.
-   * @param { Callback<UIExtensionProxy> } callback - Callback triggered after the extension ability registers a
+   * @param { 'syncReceiverRegister' } type - Fixed value **'syncReceiverRegister'**, which indicates the callback
+   *     triggered when the launched **Ability** performs synchronous registration.
+   * @param { Callback<UIExtensionProxy> } callback - Callback function. Callback triggered after the launched
+   *     **Ability** registers
    *     [setReceiveDataForResultCallback]{@link @ohos.app.ability.UIExtensionContentSession:UIExtensionContentSession#setReceiveDataForResultCallback(callback: (data: Record<string, Object>) => Record<string, Object>)}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -197,14 +199,14 @@ declare interface SecurityUIExtensionProxy {
   on(type: 'syncReceiverRegister', callback: Callback<UIExtensionProxy>): void;
 
   /**
-   * Unsubscribes from the callback triggered for the asynchronous registration of the started ability. This API uses an
-   * asynchronous callback to return the result.
+   * Unsubscribes from the callback triggered when the launched **Ability** performs asynchronous registration. This
+   * API uses an asynchronous callback to return the result.
    *
-   * @param { 'asyncReceiverRegister' } type - The value is fixed to **asyncReceiverRegister**, indicating
-   *     unsubscription from the callback triggered for asynchronous registration of the extended ability.
-   * @param { Callback<UIExtensionProxy> } [callback] - Callback function. If this parameter is left empty, it means
-   *     unsubscribing from all callbacks triggered after **UIExtensionAbility**'s asynchronous registration. If this
-   *     parameter is not empty, it means unsubscribing from callbacks corresponding to **type**.
+   * @param { 'asyncReceiverRegister' } type - Fixed value **'asyncReceiverRegister'**, used to unsubscribe from the
+   *     callback triggered when the launched **Ability** performs asynchronous registration.
+   * @param { Callback<UIExtensionProxy> } [callback] - Callback function. If this parameter is left empty, all
+   *     callbacks for asynchronous registration are unsubscribed. If it is not empty, the specified callback for
+   *     asynchronous registration is unsubscribed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -213,13 +215,14 @@ declare interface SecurityUIExtensionProxy {
   off(type: 'asyncReceiverRegister', callback?: Callback<UIExtensionProxy>): void;
 
   /**
-   * Unsubscribes from the callback triggered for the synchronous registration of the started ability. This API uses an
-   * asynchronous callback to return the result.
+   * Unsubscribes from the callback triggered when the launched **Ability** performs synchronous registration. This
+   * API uses an asynchronous callback to return the result.
    *
-   * @param { 'syncReceiverRegister' } type - The value is fixed to **syncReceiverRegister**, indicating unsubscription
-   *     to the asynchronous registration of the extension ability.
-   * @param { Callback<UIExtensionProxy> } [callback] - Callback to unsubscribe from. If this parameter is left empty,
-   *     it means unsubscribing from all callbacks triggered after **UIExtensionAbility**'s synchronous registration.
+   * @param { 'syncReceiverRegister' } type - Fixed value **'syncReceiverRegister'**, used to unsubscribe from the
+   *     callback triggered when the launched **Ability** performs synchronous registration.
+   * @param { Callback<UIExtensionProxy> } [callback] - Callback function. If it is empty, unsubscribes from all
+   *     synchronously registered callbacks. If it is not empty, unsubscribes from the specified synchronously
+   *     registered callback.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -248,9 +251,9 @@ interface SecurityUIExtensionComponentInterface {
    * [UIExtensionAbility]{@link @ohos.app.ability.UIExtensionAbility:UIExtensionAbility}.
    *
    * @param { import('../api/@ohos.app.ability.Want').default } want - Ability information to load. The
-   *     **UIExtensionAbilit**y to be started is determined by both **bundleName** and **abilityName**. In addition, the
-   *     **ability.want.params.uiExtensionType** field must be specified in **parameters** to indicate the type of the
-   *     **UIExtensionAbility**. Currently, only **sysPicker/photoPicker** is supported.
+   *     **UIExtensionAbility** to be started is determined by both **bundleName** and **abilityName**. In addition,
+   *     the **ability.want.params.uiExtensionType** field must be specified in **parameters** to indicate the type of
+   *     the **UIExtensionAbility**. Currently, only **sysPicker/photoPicker** is supported.
    * @param { SecurityUIExtensionOptions } [options] - Options used to construct **SecurityUIExtensionComponent**. If
    *     this parameter is left empty, the default value is used for each field.
    * @returns { SecurityUIExtensionComponentAttribute }
@@ -281,8 +284,9 @@ declare class SecurityUIExtensionComponentAttribute extends CommonMethod<Securit
    * the result. You can then use the returned [SecurityUIExtensionProxy]{@link SecurityUIExtensionProxy} to send data
    * to the started ability.
    *
-   * @param { import('../api/@ohos.base').Callback<SecurityUIExtensionProxy> } callback - Callback invoked to send data
-   *     to the remote ability.
+   * @param { import('../api/@ohos.base').Callback<SecurityUIExtensionProxy> } callback - Callback whose input parameter
+   *     is **SecurityUIExtensionProxy**, which can be used to send data to the peer **Ability** and subscribe to
+   *     events.
    * @returns { SecurityUIExtensionComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -298,7 +302,8 @@ declare class SecurityUIExtensionComponentAttribute extends CommonMethod<Securit
    * callback to return the result.
    *
    * @param { import('../api/@ohos.base').Callback<{ [key: string]: Object }> } callback - Callback invoked to return
-   *     the data received from the remote ability.
+   *     the data received from the peer **Ability**. The data is a **Record<string, Object>** key-value pair, and the
+   *     specific fields are customized by the sender (the launched Ability) through the **sendData** method.
    * @returns { SecurityUIExtensionComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -310,8 +315,9 @@ declare class SecurityUIExtensionComponentAttribute extends CommonMethod<Securit
   ): SecurityUIExtensionComponentAttribute;
 
   /**
-   * Triggered when an exception occurs during the running of the started ability extension, excluding the scenario
-   * where the **UIExtensionAbility** is disconnected. This API uses an asynchronous callback to return the result.
+   * Callback triggered when an exception occurs during the running of the launched **UIExtensionAbility**. This does
+   * not include the scenario where the connection to the **UIExtensionAbility** is disconnected. This API uses an
+   * asynchronous callback to return the result.
    *
    * @param { import('../api/@ohos.base').ErrorCallback } callback - Callback used to receive exception information.
    * @returns { SecurityUIExtensionComponentAttribute }

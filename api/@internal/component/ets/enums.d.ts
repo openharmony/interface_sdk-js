@@ -5192,7 +5192,7 @@ declare enum TextSelectableMode {
 }
 
 /**
- * Type of accessibility hover event.
+ * Enumerates the accessibility hover action types.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly

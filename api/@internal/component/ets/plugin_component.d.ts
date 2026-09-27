@@ -19,7 +19,7 @@
  */
 
 /**
- * PluginComponentTemplate
+ * Defines the plugin component template information, which is used to bind to the component defined by the provider.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -27,7 +27,9 @@
  */
 interface PluginComponentTemplate {
   /**
-   * Component template name.
+   * Source of the component template. The value can be the absolute path of the template (not recommended), a relative
+   * path to the HAP package (in the "relative path&module name" format for multi-HAP scenarios), or the AbilityName
+   * in the FA model. For details, see [Attributes](#attributes).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -35,7 +37,9 @@ interface PluginComponentTemplate {
    */
   source: string;
   /**
-   * Bundle name of the provider ability.
+   * bundleName of the provider application. This field does not need to be filled in when the template is provided
+   * through an absolute path, but must be filled in when the template is provided through an application package. For
+   * details, see [Attributes](#attributes).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -69,7 +73,8 @@ declare interface PluginComponentOptions {
   template: PluginComponentTemplate;
 
   /**
-   * Data passed to the **PluginComponent** provider.
+   * Data passed to the plugin component provider for use. The type is not limited (objects, strings, and so on are
+   * supported). The specific data format is defined through negotiation between the user and the provider.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -115,7 +120,7 @@ declare interface PluginErrorData {
 /**
  * Callback invoked when an error occurs.
  *
- * @param { PluginErrorData } info - Plugin error data
+ * @param { PluginErrorData } info - Data provided when an error occurs.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -124,8 +129,11 @@ declare interface PluginErrorData {
 declare type PluginErrorCallback = (info: PluginErrorData) => void;
 
 /**
- * The **PluginComponent** allows an application to display external UI from another application. To implement update
- * through inter-process communication (IPC), see [@ohos.pluginComponent]{@link @ohos.pluginComponent}.
+ * Provides the embedded display capability for external application components, that is, the UI provided by an
+ * external application can be displayed within this application. It applies to scenarios where UI components need to
+ * be reused across applications, such as embedding pages or cards of other applications to implement UI collaboration
+ * and data interaction between applications. To implement updates through inter-process communication (IPC), see
+ * [@ohos.pluginComponent]{@link @ohos.pluginComponent}.
  *
  * > **NOTE**
  * >
@@ -150,7 +158,8 @@ interface PluginComponentInterface {
 }
 
 /**
- * The width and height of the component must be explicitly set to non-zero valid values.
+ * The component width and height must be explicitly set to valid non-zero values; otherwise, the component cannot be
+ * displayed properly.
  *
  * [Gesture events]{@link ./common} can be distributed to and processed inside the provider page.
  *
@@ -176,8 +185,9 @@ declare class PluginComponentAttribute extends CommonMethod<PluginComponentAttri
   /**
    * Triggered when an error occurs during component loading.
    *
-   * @param { function } callback - Callback invoked when an error occurs. [since 9 - 17]
-   * @param { PluginErrorCallback } callback - Callback invoked when an error occurs. [since 18]
+   * @param { function } callback - Callback invoked when an error occurs during component loading. [since 9 - 17]
+   * @param { PluginErrorCallback } callback - Callback invoked when an error occurs during component loading.
+   *     [since 18]
    * @returns { PluginComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -187,8 +197,11 @@ declare class PluginComponentAttribute extends CommonMethod<PluginComponentAttri
 }
 
 /**
- * The **PluginComponent** allows an application to display external UI from another application. To implement update
- * through inter-process communication (IPC), see [@ohos.pluginComponent]{@link @ohos.pluginComponent}.
+ * Provides the embedded display capability for external application components, that is, the UI provided by an
+ * external application can be displayed within this application. It applies to scenarios where UI components need to
+ * be reused across applications, such as embedding pages or cards of other applications to implement UI collaboration
+ * and data interaction between applications. To implement updates through inter-process communication (IPC), see
+ * [@ohos.pluginComponent]{@link @ohos.pluginComponent}.
  *
  *
  * ###### Child Components
