@@ -1359,14 +1359,23 @@ declare namespace formInfo {
      */
     INTERNAL_ERROR = 3,
     /**
-     * Indicates that the host does not support the form dimension.
+     * 表示卡片不支持发布。
      *
      * @syscap SystemCapability.Ability.Form
      * @systemapi
      * @stagemodelonly
      * @since 26.0.1 dynamic&static
      */
-    NOT_SUPPORT = 4
+    NOT_SUPPORT = 4,
+    /**
+     * 表示添加到使用方的卡片数量超过上限。
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.1 dynamic&static
+     */
+    HOST_FORM_LIMIT = 5
   }
 
   /**
@@ -2324,5 +2333,146 @@ declare namespace formInfo {
    * @since 26.0.0 dynamic&static
    */
   type DeleteFormsCallback = (formIds: Array<string>) => void;
+
+  /**
+     * 卡片使用方服务信息。
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.1 dynamic&static
+     */
+  interface FormHostServiceInfo {
+    /**
+     * 服务名称。
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.1 dynamic&static
+     */
+    serviceName: string;
+    /**
+     * 服务显示名称。
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.1 dynamic&static
+     */
+    serviceDisplayName: string;
+    /**
+     * 显示标识。
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.1 dynamic&static
+     */
+    displayId: string;
+    /**
+     * 自定义数据。
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.1 dynamic&static
+     */
+    customData?: Record<string, string>;
+  }
+
+  /**
+   * 远端卡片使用方服务信息。
+   *
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.1 dynamic&static
+   */
+  interface PeerFormHostServiceInfo {
+    /**
+     * 远端卡片使用方服务的服务名称。
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.1 dynamic&static
+     */
+    serviceName: string;
+    /**
+     * 远端卡片使用方服务的服务显示名称。
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.1 dynamic&static
+     */
+    serviceDisplayName: string;
+    /**
+     * 远端卡片使用方服务的显示标识。
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.1 dynamic&static
+     */
+    displayId: string;
+    /**
+     * 远端卡片使用方服务的自定义数据。
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.1 dynamic&static
+     */
+    customData?: Record<string, string>;
+    /**
+     * 远端卡片使用方服务的设备标识。
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.1 dynamic&static
+     */
+    deviceId: string;
+    /**
+     * 远端卡片使用方服务的网络标识。
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.1 dynamic&static
+     */
+    networkId: string;
+    /**
+     * 	远端卡片使用方服务的服务Id。
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.1 dynamic&static
+     */
+    serviceId: string;
+  }
+
+  /**
+   * 跨设备发布卡片的结果。
+   *
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.1 dynamic&static
+   */
+  interface PublishFormCrossDeviceResult {
+    /**
+     * 添加到远端卡片使用方服务的卡片标识。
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.1 dynamic&static
+     */
+    formId: string;
+  }
 }
 export default formInfo;
