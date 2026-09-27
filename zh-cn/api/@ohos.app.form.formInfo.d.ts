@@ -1117,7 +1117,7 @@ declare namespace formInfo {
      * @since 9 dynamiconly
      * @deprecated since 20
      */
-    Dimension_2_1,
+    Dimension_2_1 = 5,
 
     /**
      * 1 x 1 form。
