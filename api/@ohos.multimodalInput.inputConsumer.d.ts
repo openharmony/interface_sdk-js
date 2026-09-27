@@ -14,7 +14,7 @@
  */
 
 /**
- * @file Global Shortcut Keys
+ * @file Global Hotkeys
  * @kit InputKit
  */
 
@@ -27,8 +27,8 @@ import { KeyEvent } from './@ohos.multimodalInput.keyEvent';
  *
  * > **NOTE**
  * >
- * > - Global shortcut keys are combination keys defined by the system or application. System shortcut keys are defined
- * > by the system, and application shortcut keys are defined by applications.
+ * > - Global hotkeys are combination keys defined by the system or application. System hotkeys are defined
+ * > by the system, and application hotkeys are defined by applications.
  *
  * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
  * @since 14 dynamic
@@ -37,7 +37,7 @@ import { KeyEvent } from './@ohos.multimodalInput.keyEvent';
 declare namespace inputConsumer {
 
   /**
-   * KeyCommandTriggerType
+   * Enumerates the key command trigger types, which are used to specify the trigger timing of key combinations.
    *
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @systemapi Hide this for inner system use.
@@ -47,7 +47,8 @@ declare namespace inputConsumer {
   export enum KeyCommandTriggerType {
 
     /**
-     * Triggered when pressed.
+     * Triggered on the first press. The callback is triggered when the final key is pressed for the first time, and
+     * is not triggered on automatic repeated presses.
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi Hide this for inner system use.
@@ -57,7 +58,8 @@ declare namespace inputConsumer {
     PRESSED = 1,
 
     /**
-     * Triggered when pressed repeatedly.
+     * Triggered on repeated press. The callback is triggered each time the final key is pressed, including automatic
+     * repeated presses.
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi Hide this for inner system use.
@@ -67,7 +69,8 @@ declare namespace inputConsumer {
     REPEAT_PRESSED = 2,
 
     /**
-     * Continuous triggering, from pressing until all keys are released.
+     * The callback is triggered both when a key is pressed and when it is released, including automatically repeated
+     * key presses.
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi Hide this for inner system use.
@@ -78,7 +81,7 @@ declare namespace inputConsumer {
   }
 
   /**
-   * Represents combination key options.
+   * Represents key combination options.
    *
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @systemapi hide for inner use
@@ -88,10 +91,9 @@ declare namespace inputConsumer {
   interface KeyOptions {
 
     /**
-     * Preceding key set. The number of preceding keys ranges from 0 to 4. There is no requirement on the sequence of
-     * the keys.
+     * Set of preKeys, with the number ranging from 0 to 4. The order of preKeys is not required.
      *
-     * For example, in the combination keys **Ctrl+Alt+A**, **Ctrl+Alt** are called preceding keys.
+     * For example, in the key combination Ctrl+Alt+A, Ctrl+Alt are the preKeys.
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi hide for inner use
@@ -103,7 +105,7 @@ declare namespace inputConsumer {
     /**
      * Final key. This parameter is mandatory. A callback is triggered by the final key.
      *
-     * For example, in the combination keys **Ctrl+Alt+A**, **A** is called the final key.
+     * For example, in the combination keys **Ctrl+Alt+A**, **A** is the final key.
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi hide for inner use
@@ -125,13 +127,13 @@ declare namespace inputConsumer {
     isFinalKeyDown: boolean;
 
     /**
-     * Duration for holding down the key, in μs.
+     * Duration for which the final key is held down, in microseconds (μs).
      *
-     * If the value of this field is **0**, a callback is triggered immediately.
+     * When finalKeyDownDuration is 0, the callback function is triggered immediately.
      *
-     * If the value of this field is greater than **0** and **isFinalKeyDown** is **true**, a callback is triggered when
-     * the key keeps being pressed after the specified duration expires. If **isFinalKeyDown** is **false**, a callback
-     * is triggered when the key is released before the specified duration expires.
+     * When finalKeyDownDuration is greater than 0 and isFinalKeyDown is true, the callback function is triggered after
+     * the final key is held down for longer than the set duration; when isFinalKeyDown is false, the callback function
+     * is triggered when the time from pressing to releasing the final key is shorter than the set duration.
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi hide for inner use
@@ -152,9 +154,11 @@ declare namespace inputConsumer {
     isRepeat?: boolean;
 
     /**
-     * Trigger type, which indicates that the conditions for triggering the callback expected by the
-     * shortcut key are met. Once this value is set, isFinalKeyDown and isRepeat will be ignored. This property
-     * is only for use in APIs that take KeyCommandCallback as the callback function and must be specified.
+     * Trigger mode. The value can be PRESSED (1), REPEAT_PRESSED (2), or ALL_RELEASED (3). The command trigger mode
+     * is enabled. Once this value is set, isFinalKeyDown and isRepeat are ignored. This parameter is optional for the
+     * [inputConsumer.on('key')]{@link inputConsumer.on(type: 'key', keyOptions: KeyOptions, callback: Callback<KeyOptions>)}
+     * API and mandatory for the
+     * [inputConsumer.onKey]{@link inputConsumer.onKey(keyOptions: KeyOptions, callback:KeyCommandCallback)} API.
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi Hide this for inner system use.
@@ -165,7 +169,7 @@ declare namespace inputConsumer {
   }
 
   /**
-   * Defines shortcut key options.
+   * Defines hotkey options.
    *
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @since 14 dynamic
@@ -189,7 +193,7 @@ declare namespace inputConsumer {
      * Modified key, which can be any key except the modifier keys and Meta key. For details about the keys, see
      * [@ohos.multimodalInput.keyCode (Keycode)]{@link @ohos.multimodalInput.keyCode:KeyCode}.
      *
-     * For example, in **Ctrl+Shift+Esc**, **Esc** is the modifier key.
+     * For example, in **Ctrl+Shift+Esc**, **Esc** is the modified key.
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @since 14 dynamic
@@ -221,18 +225,18 @@ declare namespace inputConsumer {
      * Key value.
      *
      * **Note:** Since API version 26.0.0, the
-     * [KEYCODE_FINGERPRINT_SLIDE_UP]{@link @ohos.multimodalInput.keyCode:KeyCode} and
-     * [KEYCODE_FINGERPRINT_SLIDE_DOWN]{@link @ohos.multimodalInput.keyCode:KeyCode} keys are supported. The keys are
-     * not universal device keys. Before using them, check whether the current device supports the reporting of related
-     * key events. For details, see
-     * [Preferential Response of System Function Keys](docroot://device/input/keypressed-guidelines.md).
+     * [KEYCODE_FINGERPRINT_SLIDE_UP]{@link @ohos.multimodalInput.keyCode:KeyCode} key and
+     * [KEYCODE_FINGERPRINT_SLIDE_DOWN]{@link @ohos.multimodalInput.keyCode:KeyCode} key are newly supported. These
+     * are not universal key values across devices. Before using them, check whether the current device supports
+     * reporting the related key events. For details, see
+     * [Development Guide for Prioritized Response to System Function Keys](docroot://device/input/keypressed-guidelines.md).
      *
-     * Since API version 21, the [KEYCODE_MEDIA_PLAY_PAUSE]{@link @ohos.multimodalInput.keyCode:KeyCode},
-     * [KEYCODE_MEDIA_NEXT]{@link @ohos.multimodalInput.keyCode:KeyCode}, and
-     * [KEYCODE_MEDIA_PREVIOUS]{@link @ohos.multimodalInput.keyCode:KeyCode} keys are supported.
+     * Since API version 21, the [KEYCODE_MEDIA_PLAY_PAUSE]{@link @ohos.multimodalInput.keyCode:KeyCode} key,
+     * [KEYCODE_MEDIA_NEXT]{@link @ohos.multimodalInput.keyCode:KeyCode} key, and
+     * [KEYCODE_MEDIA_PREVIOUS]{@link @ohos.multimodalInput.keyCode:KeyCode} key are newly supported.
      *
-     * In API version 20 or earlier versions, only the [KEYCODE_VOLUME_UP]{@link @ohos.multimodalInput.keyCode:KeyCode}
-     * and [KEYCODE_VOLUME_DOWN]{@link @ohos.multimodalInput.keyCode:KeyCode} keys are supported.
+     * For API version 20 and earlier, only the [KEYCODE_VOLUME_UP]{@link @ohos.multimodalInput.keyCode:KeyCode} key
+     * and [KEYCODE_VOLUME_DOWN]{@link @ohos.multimodalInput.keyCode:KeyCode} key are supported.
      *
      * @type { int } [since 16 - 24]
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
@@ -269,7 +273,7 @@ declare namespace inputConsumer {
   }
 
   /**
-   * Enumerates shortcut key shield modes.
+   * Enumerates system hotkey shield modes.
    *
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @systemapi hide for inner use
@@ -279,7 +283,7 @@ declare namespace inputConsumer {
   enum ShieldMode {
 
     /**
-     * Factory mode, which means to shield all shortcut keys.
+     * Factory mode, which means to shield all system hotkeys.
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi hide for inner use
@@ -290,10 +294,11 @@ declare namespace inputConsumer {
   }
 
   /**
-   * Callback function when the shortcut key registered by the system application meets the conditions.
+   * Defines the key command callback function type, which is triggered when the hotkey registration conditions are
+   * met.
    *
-   * @param { KeyOptions } keyOptions - Options for registering shortcut keys when the system applies.
-   * @param { KeyEvent } keyEvent - Key event when a shortcut key is triggered.
+   * @param { KeyOptions } keyOptions - Key combination options when the callback is triggered.
+   * @param { KeyEvent } keyEvent - Key event object, which contains detailed key information.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
@@ -302,22 +307,23 @@ declare namespace inputConsumer {
   type KeyCommandCallback = (keyOptions: KeyOptions, keyEvent: KeyEvent) => void;
 
   /**
-   * Enables listening for system hotkey change events. This API uses an asynchronous callback to return the system
-   * hotkey data when a system hotkey event that meets the specified condition occurs.
+   * Subscribes to system hotkeys. This API uses an asynchronous callback to return the result.
    *
    * > **NOTE**
    * >
-   * > - You can subscribe to only the Down event of a key, or subscribe to both the Down and Up events of a key.
+   * > - Only the key down event, or both the key down and key up events, can be subscribed to.
    * >
-   * > - If you subscribe to only the Up event of a key, the Down event may be consumed by the focus window, and the Up
-   * > event may not be closed. In this case, check whether the design and implementation are proper.
+   * > - If only the key up event needs to be subscribed to, there is a risk that the down event is consumed by the
+   * > focused window, leaving the up event unpaired. The design and implementation should be reviewed to determine
+   * > whether this is reasonable.
    *
    * @param { 'key' } type - Event type. Currently, only **key** is supported.
-   * @param { KeyOptions } keyOptions - Combination key options.
-   * @param { Callback<KeyOptions> } callback - Callback used to return the combination key data when a combination key
-   *     event that meets the specified condition occurs.
+   * @param { KeyOptions } keyOptions - Key combination options. Since API version 26.0.0, the parameter
+   *     [KeyCommandTriggerType]{@link inputConsumer.KeyCommandTriggerType} is added to keyOptions. However, this API
+   *     can ignore it.
+   * @param { Callback<KeyOptions> } callback - Callback invoked to return the key combination data.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api. [since 12]
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @systemapi hide for inner use
@@ -340,11 +346,25 @@ declare namespace inputConsumer {
   function onKey(keyOptions: KeyOptions, callback: Callback<KeyOptions>): void;
 
   /**
-   * Subscribe system keys.
+   * Subscribes to key combinations (key command mode). You can specify different trigger modes through triggerType.
+   * When a key combination input event that meets the conditions occurs, this API uses an asynchronous callback to
+   * return the result.
    *
-   * @param { KeyOptions } keyOptions - the key events about input which is to be subscribed.
-   * @param { KeyCommandCallback } callback - callback function, receive reported data.
+   * Differences from the existing API
+   * [inputConsumer.on('key')]{@link inputConsumer.on(type: 'key', keyOptions: KeyOptions, callback: Callback<KeyOptions>)}:
+   * - The keyOptions of this API supports the triggerType parameter, which allows selecting modes such as triggering
+   * on key down, triggering on key repeat, or triggering on key repeat and key up.
+   * - The callback parameter of this API is of the KeyCommandCallback type, which receives both the KeyOptions and
+   * KeyEvent objects.
+   * - This API uses an event consumption mechanism, which can prevent key events from being passed backward through
+   * event consumption.
+   *
+   * @param { KeyOptions } keyOptions - Key combination options, which support the triggerType parameter.
+   * @param { KeyCommandCallback } callback - Callback function, which returns the key combination options and key
+   *     event data.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
@@ -353,14 +373,16 @@ declare namespace inputConsumer {
   function onKey(keyOptions: KeyOptions, callback:KeyCommandCallback): void;
 
   /**
-   * Disables listening for system hotkey change events. This API uses an asynchronous callback to return the result.
+   * Unsubscribes from system hotkeys. This API uses an asynchronous callback to return the result.
    *
    * @param { 'key' } type - Event type. Currently, only **key** is supported.
-   * @param { KeyOptions } keyOptions - Combination key options.
+   * @param { KeyOptions } keyOptions - Key combination options. Since API version 26.0.0, a new parameter
+   *     [KeyCommandTriggerType]{@link inputConsumer.KeyCommandTriggerType} is added to keyOptions, and this API does
+   *     not need to consider this parameter.
    * @param { Callback<KeyOptions> } [callback] - Callback to unregister. If this parameter is not specified, listening
    *     will be disabled for all callbacks registered by the current application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api. [since 12]
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @systemapi hide for inner use
@@ -383,11 +405,16 @@ declare namespace inputConsumer {
   function offKey(keyOptions: KeyOptions, callback?: Callback<KeyOptions>): void;
 
   /**
-   * Unsubscribe system keys.
+   * Unsubscribes from system hotkeys. This API uses an asynchronous callback to return the result.
    *
-   * @param { KeyOptions } keyOptions - the key events about input which is to be subscribed.
-   * @param { KeyCommandCallback } [callback] - Callback function that receives reported data.
+   * @param { KeyOptions } keyOptions - Key combination options, which must be consistent with the keyOptions passed
+   *     in during subscription.
+   * @param { KeyCommandCallback } [callback] - Callback function to be unsubscribed from. If this parameter is not
+   *     specified, all callback functions subscribed to by the current app for the key combination options are
+   *     unsubscribed from.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
@@ -401,12 +428,12 @@ declare namespace inputConsumer {
    * @permission ohos.permission.INPUT_CONTROL_DISPATCHING
    * @param { ShieldMode } shieldMode - System hotkey shield mode. Currently, only **FACTORY_MODE** is supported, which
    *     means to shield all system hotkeys.
-   * @param { boolean } isShield - Whether to enable shortcut key shielding. The value **true** means to enable shortcut
-   *     key shielding, and the value **false** indicates the opposite.
+   * @param { boolean } isShield - Whether to enable hotkey shielding. The value **true** means to enable hotkey
+   *     shielding, and the value **false** indicates the opposite.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @systemapi hide for inner use.
    * @since 11 dynamic
@@ -420,12 +447,12 @@ declare namespace inputConsumer {
    * @permission ohos.permission.INPUT_CONTROL_DISPATCHING
    * @param { ShieldMode } shieldMode - System hotkey shield mode. Currently, only **FACTORY_MODE** is supported, which
    *     means to shield all system hotkeys.
-   * @returns { boolean } Whether to enable shortcut key shielding. The value **true** means to enable shortcut key
-   *     shielding, and the value **false** indicates the opposite.
+   * @returns { boolean } Whether to enable hotkey shielding. The value **true** means to enable hotkey shielding, and
+   *     the value **false** indicates the opposite.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @systemapi hide for inner use.
    * @since 11 dynamic
@@ -434,9 +461,9 @@ declare namespace inputConsumer {
   function getShieldStatus(shieldMode: ShieldMode): boolean;
 
   /**
-   * Obtains all system shortcut keys. This API uses a promise to return the result.
+   * Obtains all system hotkeys. This API uses a promise to return the result.
    *
-   * @returns { Promise<Array<HotkeyOptions>> } Promise used to return the list of all system shortcut keys.
+   * @returns { Promise<Array<HotkeyOptions>> } Promise used to return the list of all system hotkeys.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @since 14 dynamic
@@ -445,7 +472,7 @@ declare namespace inputConsumer {
   function getAllSystemHotkeys(): Promise<Array<HotkeyOptions>>;
 
   /**
-   * Subscribes to application shortcut key change events. This API obtains combination key input events that meet the
+   * Subscribes to application hotkey change events. This API obtains combination key input events that meet the
    * specified conditions, and uses an asynchronous callback to return the result.
    *
    * @param { 'hotkeyChange' } type - Event type. This parameter has a fixed value of **hotkeyChange**.
@@ -453,7 +480,7 @@ declare namespace inputConsumer {
    * @param { Callback<HotkeyOptions> } callback - Callback used to return the combination key input events that meet
    *     the conditions.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 4200002 - The hotkey has been used by the system.
    * @throws { BusinessError } 4200003 - The hotkey has been subscribed to by another.
@@ -478,15 +505,14 @@ declare namespace inputConsumer {
   function onHotkeyChange(hotkeyOptions: HotkeyOptions, callback: Callback<HotkeyOptions>): void;
 
   /**
-   * Unsubscribes from application shortcut key change events. This API uses an asynchronous callback to return the
-   * result.
+   * Unsubscribes from application hotkey change events. This API uses an asynchronous callback to return the result.
    *
    * @param { 'hotkeyChange' } type - Event type. This parameter has a fixed value of **hotkeyChange**.
    * @param { HotkeyOptions } hotkeyOptions - Shortcut key options.
    * @param { Callback<HotkeyOptions> } [callback] - Callback to unregister. If this parameter is left unspecified,
-   *     listening will be disabled for all callbacks registered for the specified shortcut key options.
+   *     listening will be disabled for all callbacks registered for the specified hotkey options.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @since 14 dynamic
@@ -520,7 +546,7 @@ declare namespace inputConsumer {
    * @param { Callback<KeyEvent> } callback - Callback used to return key press events. Ensure that different callbacks
    *     are used for different key events. Otherwise, the subscription does not take effect.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @since 16 dynamic
@@ -551,7 +577,7 @@ declare namespace inputConsumer {
    * @param { Callback<KeyEvent> } [callback] - Callback to unregister. If this parameter is not specified, listening will
    *     be disabled for all registered callbacks.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @since 16 dynamic

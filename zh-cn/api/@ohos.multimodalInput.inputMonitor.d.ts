@@ -39,6 +39,10 @@ import type { KeyCode } from './@ohos.multimodalInput.keyCode';
 /**
  * 输入监听模块，提供了监听输入设备事件的能力。输入设备事件当前包括触屏输入事件、鼠标输入事件和触控板输入事件。
  *
+ * > **说明**：
+ * >
+ * > - 文档中“全局”表示整个触控屏或触控板。如监听全局触屏输入事件，表示触摸触控板任何位置时，整个触控板的触屏输入事件均被监听。
+ *
  * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
  * @systemapi hide for inner use
  * @since 7 dynamic
@@ -398,7 +402,7 @@ declare namespace inputMonitor {
    *
    * @permission ohos.permission.INPUT_MONITORING
    * @param { int } fingers - 旋转的手指数，目前支持监听手指数是2。
-   * @param { Callback<Rotate> }[receiver] - 需要取消监听的回调函数。若不填，则取消当前应用监听的所有回调函数。
+   * @param { Callback<Rotate> } [receiver] - 需要取消监听的回调函数。若不填，则取消当前应用监听的所有回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permit error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -724,7 +728,7 @@ declare namespace inputMonitor {
    *
    * @permission ohos.permission.INPUT_MONITORING
    * @param { 'touchscreenSwipe' } type - 输入设备事件类型，取值'touchscreenSwipe'。
-   * @param { number } fingers - 滑动手势的手指数，取值范围：[3,5]。
+   * @param { number } fingers - 滑动手势的手指数，取值范围：[3, 5]。
    * @param { Callback<TouchGestureEvent> } receiver - 回调函数，返回触摸屏滑动手势事件。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Caller is not a system application.
@@ -740,7 +744,7 @@ declare namespace inputMonitor {
    * 监听触摸屏滑动手势事件。
    *
    * @permission ohos.permission.INPUT_MONITORING
-   * @param { int } fingers - 滑动手势的手指数，取值范围：[3,5]。
+   * @param { int } fingers - 滑动手势的手指数，取值范围：[3, 5]。
    * @param { Callback<TouchGestureEvent> } receiver - 回调函数，返回触摸屏滑动手势事件。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Caller is not a system application.
@@ -757,7 +761,7 @@ declare namespace inputMonitor {
    *
    * @permission ohos.permission.INPUT_MONITORING
    * @param { 'touchscreenSwipe' } type - 输入设备事件类型，取值'touchscreenSwipe'。
-   * @param { number } fingers - 滑动手势的手指数，取值范围：[3,5]。
+   * @param { number } fingers - 滑动手势的手指数，取值范围：[3, 5]。
    * @param { Callback<TouchGestureEvent> } [receiver] - 需要取消监听的回调函数。若不填，则取消当前应用监听的所有回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Caller is not a system application.
@@ -773,7 +777,7 @@ declare namespace inputMonitor {
    * 取消监听触摸屏滑动手势事件。
    *
    * @permission ohos.permission.INPUT_MONITORING
-   * @param { int } fingers - 滑动手势的手指数，取值范围：[3,5]。
+   * @param { int } fingers - 滑动手势的手指数，取值范围：[3, 5]。
    * @param { Callback<TouchGestureEvent> } [receiver] - 需要取消监听的回调函数。若不填，则取消当前应用监听的所有回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Caller is not a system application.
@@ -790,7 +794,7 @@ declare namespace inputMonitor {
    *
    * @permission ohos.permission.INPUT_MONITORING
    * @param { 'touchscreenPinch' } type - 输入设备事件类型，取值'touchscreenPinch'。
-   * @param { number } fingers - 捏合手势的手指数，取值范围：[4,5]。
+   * @param { number } fingers - 捏合手势的手指数，取值范围：[4, 5]。
    * @param { Callback<TouchGestureEvent> } receiver - 回调函数，返回触摸屏捏合手势事件。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Caller is not a system application.
@@ -806,7 +810,7 @@ declare namespace inputMonitor {
    * 监听触摸屏捏合手势事件。
    *
    * @permission ohos.permission.INPUT_MONITORING
-   * @param { int } fingers - 捏合手势的手指数，取值范围：[4,5]。
+   * @param { int } fingers - 捏合手势的手指数，取值范围：[4, 5]。
    * @param { Callback<TouchGestureEvent> } receiver - 回调函数，返回触摸屏捏合手势事件。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Caller is not a system application.
@@ -823,7 +827,7 @@ declare namespace inputMonitor {
    *
    * @permission ohos.permission.INPUT_MONITORING
    * @param { 'touchscreenPinch' } type - 输入设备事件类型，取值'touchscreenPinch'。
-   * @param { number } fingers - 捏合手势的手指数，取值范围：[4,5]。
+   * @param { number } fingers - 捏合手势的手指数，取值范围：[4, 5]。
    * @param { Callback<TouchGestureEvent> } [receiver] - 需要取消监听的回调函数。若不填，则取消当前应用监听的所有回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Caller is not a system application.
@@ -839,7 +843,7 @@ declare namespace inputMonitor {
    * 取消监听触摸屏捏合手势事件。
    *
    * @permission ohos.permission.INPUT_MONITORING
-   * @param { int } fingers - 捏合手势的手指数，取值范围：[4,5]。
+   * @param { int } fingers - 捏合手势的手指数，取值范围：[4, 5]。
    * @param { Callback<TouchGestureEvent> } [receiver] - 需要取消监听的回调函数。若不填，则取消当前应用监听的所有回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Caller is not a system application.
@@ -856,7 +860,7 @@ declare namespace inputMonitor {
    *
    * @permission ohos.permission.INPUT_MONITORING
    * @param { 'keyPressed' } type - 按键事件类型，取唯一值'keyPressed'。
-   * @param { Array<KeyCode> }  keys - 键值，支持如下键值：KEYCODE_META_LEFT、KEYCODE_META_RIGHT、KEYCODE_POWER、KEYCODE_VOLUME_DOWN、
+   * @param { Array<KeyCode> } keys - 键值，支持如下键值：KEYCODE_META_LEFT、KEYCODE_META_RIGHT、KEYCODE_POWER、KEYCODE_VOLUME_DOWN、
    * KEYCODE_VOLUME_UP。
    * @param { Callback<KeyEvent> } receiver - 回调函数，返回按键输入事件。
    * @throws { BusinessError } 201 - Permission denied.
@@ -874,7 +878,7 @@ declare namespace inputMonitor {
    * 监听指定按键的按下抬起事件，支持监听META_LEFT键、META_RIGHT键、电源键、音量键。
    *
    * @permission ohos.permission.INPUT_MONITORING
-   * @param { Array<KeyCode> }  keys - 键值，支持如下键值：KEYCODE_META_LEFT、KEYCODE_META_RIGHT、KEYCODE_POWER、
+   * @param { Array<KeyCode> } keys - 键值，支持如下键值：KEYCODE_META_LEFT、KEYCODE_META_RIGHT、KEYCODE_POWER、
    * KEYCODE_VOLUME_DOWN、KEYCODE_VOLUME_UP。
    * @param { Callback<KeyEvent> } receiver - 回调函数，返回按键输入事件。
    * @throws { BusinessError } 201 - Permission denied.
@@ -924,7 +928,7 @@ declare namespace inputMonitor {
    *
    * @permission ohos.permission.INPUT_MONITORING
    * @param { int } count - 需要查询的触屏输入事件数量，取值范围为[0, 100]的整数。小于0时取值为0、大于100时取值为100。从API版本26.0.0开始，大于60时取值为60。如果实际触屏输入事件只有30个，
-   * 但该参数取值为50 ，则仅支持查询到30个触屏输入事件。
+   * 但该参数取值为50，则仅支持查询到30个触屏输入事件。
    * @returns { Promise<Array<TouchEvent>> } Promise对象，返回查询到的触屏输入事件。包含以下有效信息，其余均为无效信息：<br/>- actionTime：触屏输入事件发生的时间，表示系统
    * 启动运行至今逝去的微秒数，单位为微秒（μs）。<br/>- [SourceType]{@link @ohos.multimodalInput.touchEvent:SourceType}：触摸来源的设备类型。<br/>-
    * [isInject]{@link @ohos.multimodalInput.touchEvent:TouchEvent}：表示该触屏输入事件是否为注入事件。<br/>- pressure：压力值，取值范围是

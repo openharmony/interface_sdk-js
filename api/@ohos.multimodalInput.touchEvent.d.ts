@@ -73,8 +73,6 @@ export declare enum Action {
   /**
    * Drag started.
    *
-   * **Since**: 26.0.0
-   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
@@ -84,8 +82,6 @@ export declare enum Action {
   /**
    * Dragging.
    *
-   * **Since**: 26.0.0
-   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
@@ -94,8 +90,6 @@ export declare enum Action {
 
   /**
    * Drag ended.
-   *
-   * **Since**: 26.0.0
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @stagemodelonly
@@ -187,7 +181,7 @@ export declare enum ToolType {
 }
 
 /**
- * Enumerates touch sources. Currently, only the touchscreen and touchpad are supported.
+ * Device type of the touch input source. Currently the touchscreen, stylus, and touchpad are supported.
  *
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 9 dynamic
@@ -224,7 +218,7 @@ export declare enum SourceType {
 }
 
 /**
- * Enumerates coordinate correction modes.
+ * Coordinate correction mode. The default value is NONE.
  *
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @systemapi Hide this for inner system use.
@@ -434,7 +428,7 @@ export declare interface Touch {
   toolType: ToolType;
 
   /**
-   * Corrected value of the screenX coordinate in one-hand mode, in px.
+   * Correction value of the screenX coordinate in one-handed mode, in pixels. The default value is 0.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
@@ -444,7 +438,7 @@ export declare interface Touch {
   fixedDisplayX?: int;
 
   /**
-   * Corrected value of the screenY coordinate in one-hand mode, in px.
+   * Correction value of the screenY coordinate in one-handed mode, in pixels. The default value is 0.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
@@ -484,8 +478,9 @@ export declare interface Touch {
   globalY?: int;
 
   /**
-   * Touch point attribute ID. Currently, only single-finger touch is supported. The value **1** indicates left-hand
-   * touch, and the value **2** indicates right-hand touch.
+   * Attribute identifier of the touch point. Currently, only single-finger touch is supported: the value is 1 for a
+   * left-hand touch and 2 for a right-hand touch. By default, the system automatically identifies the value. By
+   * default, this attribute is not set.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
@@ -541,7 +536,7 @@ export declare interface TouchEvent extends InputEvent {
   sourceType: SourceType;
 
   /**
-   * Coordinate correction mode.
+   * Coordinate correction mode. The default value is FixedMode.NONE.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
@@ -551,7 +546,7 @@ export declare interface TouchEvent extends InputEvent {
   fixedMode?: FixedMode;
 
   /**
-   * Whether the touch event is an injection event. For details about injection events, see
+   * Whether the touch event is an injection event. The default value is false. For details about injection events, see
    * [@ohos.multimodalInput.inputEventClient]{@link @ohos.multimodalInput.inputEventClient:inputEventClient}.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core

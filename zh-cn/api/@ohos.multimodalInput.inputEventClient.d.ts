@@ -205,14 +205,14 @@ declare namespace inputEventClient {
   }
 
   /**
-   * 按键(包括单个按键和组合键)事件注入。
+   * 按键（包括单个按键和组合键）事件注入。
    * 自API版本26.0.1起，调用者可指定按键事件注入的displayId。若指定的displayId不存在，则操作不生效。
    *
    * @permission ohos.permission.INJECT_INPUT_EVENT [since 12]
    * @param { KeyEventData } keyEvent - 按键事件注入描述信息。
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 201 - Permission denied. [since 12]
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
    * @systemapi hide for inner use
@@ -222,13 +222,13 @@ declare namespace inputEventClient {
   function injectKeyEvent(keyEvent: KeyEventData): void;
 
   /**
-   * 按键(包括单个按键和组合键)注入。
+   * 按键（包括单个按键和组合键）注入。
    * 自API版本26.0.1起，调用者可指定按键事件注入的displayId。若指定的displayId不存在，则操作不生效。
    *
    * @permission ohos.permission.INJECT_INPUT_EVENT [since 12]
-   * @param { { KeyEvent } } - 按键注入描述信息。
+   * @param { { KeyEvent } } KeyEvent - 按键注入描述信息。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 201 - Permission denied. [since 12]
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api. [since 12]
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
@@ -246,7 +246,7 @@ declare namespace inputEventClient {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
    * @systemapi hide for inner use
    * @since 23 static
@@ -261,7 +261,7 @@ declare namespace inputEventClient {
    * 不支持设置为CANCEL。
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 201 - Permission denied. [since 12]
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
    * @systemapi hide for inner use
@@ -278,7 +278,7 @@ declare namespace inputEventClient {
    * CANCEL。
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 201 - Permission denied. [since 12]
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
    * @systemapi hide for inner use
@@ -295,7 +295,7 @@ declare namespace inputEventClient {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
    * @systemapi hide for inner use
    * @since 12 dynamic
@@ -550,9 +550,8 @@ declare namespace inputEventClient {
      * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 201 - Permission verification failed.
      *     The application does not have the permission required to call the API.
-     * @throws { BusinessError } 4300001 - Invalid input event sequence. Possible causes:
-     *     <br>
-     *     1. The touch point is touching the display; 2. The touch point ID is not within the valid range [0,9].
+     * @throws { BusinessError } 4300001 - Invalid input event sequence. Possible causes: 1. The touch point is
+     *     touching the display; 2. The touch point ID is not within the valid range [0, 9].
      * @throws { BusinessError } 4300002 - The display does not exist.
      * @throws { BusinessError } 3800001 - Input service exception.
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
@@ -569,9 +568,8 @@ declare namespace inputEventClient {
      * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 201 - Permission verification failed.
      *     The application does not have the permission required to call the API.
-     * @throws { BusinessError } 4300001 - Invalid input event sequence. Possible causes:
-     *     <br>
-     *     1. The touch point is not touching the display; 2. The touch point ID is not within the valid range [0,9].
+     * @throws { BusinessError } 4300001 - Invalid input event sequence. Possible causes: 1. The touch point is not
+     *     touching the display; 2. The touch point ID is not within the valid range [0, 9].
      * @throws { BusinessError } 3800001 - Input service exception.
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
      * @stagemodelonly
@@ -587,9 +585,8 @@ declare namespace inputEventClient {
      * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 201 - Permission verification failed.
      *     The application does not have the permission required to call the API.
-     * @throws { BusinessError } 4300001 - Invalid input event sequence. Possible causes:
-     *     <br>
-     *     1. The touch point is not touching the display; 2. The touch point ID is not within the valid range [0,9].
+     * @throws { BusinessError } 4300001 - Invalid input event sequence. Possible causes: 1. The touch point is not
+     *     touching the display; 2. The touch point ID is not within the valid range [0, 9].
      * @throws { BusinessError } 3800001 - Input service exception.
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
      * @stagemodelonly

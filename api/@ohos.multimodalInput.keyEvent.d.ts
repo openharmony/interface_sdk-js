@@ -150,7 +150,7 @@ export declare interface KeyEvent extends InputEvent {
   unicodeChar: int;
 
   /**
-   * List of pressed keys.
+   * List of keys that are currently in the pressed state.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice [since 12]

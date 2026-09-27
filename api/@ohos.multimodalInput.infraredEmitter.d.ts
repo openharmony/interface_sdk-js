@@ -63,7 +63,7 @@ declare namespace infraredEmitter {
   }
 
   /**
-   * Checks whether the device has an infrared transmitter. This API uses a promise to return the result.
+   * Checks whether the device has an infrared emitter. This API uses a promise to return the result.
    *
    * @permission ohos.permission.MANAGE_INPUT_INFRARED_EMITTER
    * @returns { Promise<boolean> } Promise used to return the result. **true** is returned if the device has an infrared
@@ -79,16 +79,15 @@ declare namespace infraredEmitter {
    * Generates IR signals at the specified frequency and level.
    *
    * @permission ohos.permission.MANAGE_INPUT_INFRARED_EMITTER
-   * @param { long } infraredFrequency - IR frequency, in Hz.
-   * @param { Array<long>} pattern - Infrared level signal, in microseconds (μs). The number of infrared level signals
-   *     ranges from 0 to 1024. The value of this parameter must be greater than 0. If this parameter is set to **0**,
-   *     the API does not take effect. <br/>For example, in the level signal array [100,200,300,400], **100** indicates
-   *     a high-level signal, **200** indicates a low-level signal, **300** is a high-level signal, and **400** is a low
-   *     -level signal.
+   * @param { long } infraredFrequency - Infrared frequency, in Hz.
+   * @param { Array<long>} pattern - Infrared level signals, in microseconds (μs). The number of level signals ranges
+   *     from 0 to 1024. When the value is 0, the API call does not take effect. The value of each level signal must
+   *     be greater than 0.<br/>For example, in the level signal array [100,200,300,400], 100 μs is a high level
+   *     signal, 200 μs is a low level signal, 300 μs is a high level signal, and 400 μs is a low level signal.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application. [since 12 - 14]
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
    * @systemapi hide for inner use [since 12 - 14]
    * @publicapi [since 15]
@@ -98,13 +97,13 @@ declare namespace infraredEmitter {
   function transmitInfrared(infraredFrequency: long, pattern: Array<long>): void;
 
   /**
-   * Queries the frequency range of IR signals supported by the device.
+   * Queries the frequency range of the infrared signals supported by the device. It is recommended that you first use
+   * [hasIrEmitter]{@link infraredEmitter.hasIrEmitter} to check whether the device supports an infrared emitter.
    *
    * @permission ohos.permission.MANAGE_INPUT_INFRARED_EMITTER
-   * @returns { Array<InfraredFrequency> } Frequency range of IR signals, including multiple groups of maximum and
-   *     minimum frequencies.
-   *     <br>Since API version 23, one group of maximum and minimum frequencies, both of which are **0** Hz, are
-   *     returned.
+   * @returns { Array<InfraredFrequency> } Frequency range of the infrared signal, containing multiple sets of maximum
+   *     and minimum frequencies.<br/>Since API version 23, when the device does not have an infrared emitter, a set
+   *     of maximum and minimum frequencies is returned, both 0 Hz.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application. [since 12 - 14]
    * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter

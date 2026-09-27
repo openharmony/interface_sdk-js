@@ -25,7 +25,8 @@ import { KeyCode} from './@ohos.multimodalInput.keyCode';
 import { TouchEvent } from './@ohos.multimodalInput.touchEvent';
 
 /**
- * The **inputEventClient** module provides the capability of injecting key, mouse/touchpad, and touchscreen events.
+ * The inputEventClient module provides the capability to inject input events, including key, mouse/touchpad, and
+ * touchscreen events.
  *
  * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
  * @systemapi hide for inner use [since 8 - 24]
@@ -221,7 +222,7 @@ declare namespace inputEventClient {
    * @param { KeyEventData } keyEvent - Key event to inject.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 201 - Permission denied. [since 12]
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
    * @systemapi hide for inner use
@@ -234,11 +235,11 @@ declare namespace inputEventClient {
    * Injects keys (including single keys and combination keys).
    * Since API version 26.0.1, the caller can specify the display ID for injecting a key event.
    * If the specified display ID does not exist, the operation will not take effect.
-   * 
+   *
    * @permission ohos.permission.INJECT_INPUT_EVENT [since 12]
    * @param { { KeyEvent } } KeyEvent - Key event to inject.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 201 - Permission denied. [since 12]
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api. [since 12]
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
@@ -248,7 +249,7 @@ declare namespace inputEventClient {
   function injectEvent({ KeyEvent: KeyEvent }): void;
 
   /**
-   * Inject system keys.
+   * Injects keys (including single keys and combination keys).
    * Since API version 26.0.1, the caller can specify the display ID for injecting a key event.
    * If the specified display ID does not exist, the operation will not take effect.
    *
@@ -257,7 +258,7 @@ declare namespace inputEventClient {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
    * @systemapi hide for inner use
    * @since 23 static
@@ -272,7 +273,7 @@ declare namespace inputEventClient {
    *     [Action]{@link @ohos.multimodalInput.mouseEvent:Action} in this parameter cannot be set to **CANCEL**.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 201 - Permission denied. [since 12]
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
    * @systemapi hide for inner use
@@ -289,7 +290,7 @@ declare namespace inputEventClient {
    *     this parameter cannot be set to **CANCEL**.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 201 - Permission denied. [since 12]
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
    * @systemapi hide for inner use
@@ -307,7 +308,7 @@ declare namespace inputEventClient {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
    * @systemapi hide for inner use
    * @since 12 dynamic
@@ -582,9 +583,8 @@ declare namespace inputEventClient {
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission verification failed.
      *     The application does not have the permission required to call the API.
-     * @throws { BusinessError } 4300001 - Invalid input event sequence. Possible causes:
-     *     <br>
-     *     1. The touch point is touching the display; 2. The touch point ID is not within the valid range [0,9].
+     * @throws { BusinessError } 4300001 - Invalid input event sequence. Possible causes: 1. The touch point is
+     *     touching the display; 2. The touch point ID is not within the valid range [0, 9].
      * @throws { BusinessError } 4300002 - The display does not exist.
      * @throws { BusinessError } 3800001 - Input service exception.
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
@@ -601,9 +601,8 @@ declare namespace inputEventClient {
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission verification failed.
      *     The application does not have the permission required to call the API.
-     * @throws { BusinessError } 4300001 - Invalid input event sequence. Possible causes:
-     *     <br>
-     *     1. The touch point is not touching the display; 2. The touch point ID is not within the valid range [0,9].
+     * @throws { BusinessError } 4300001 - Invalid input event sequence. Possible causes: 1. The touch point is not
+     *     touching the display; 2. The touch point ID is not within the valid range [0, 9].
      * @throws { BusinessError } 3800001 - Input service exception.
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
      * @stagemodelonly
@@ -619,9 +618,8 @@ declare namespace inputEventClient {
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission verification failed.
      *     The application does not have the permission required to call the API.
-     * @throws { BusinessError } 4300001 - Invalid input event sequence. Possible causes:
-     *     <br>
-     *     1. The touch point is not touching the display; 2. The touch point ID is not within the valid range [0,9].
+     * @throws { BusinessError } 4300001 - Invalid input event sequence. Possible causes: 1. The touch point is not
+     *     touching the display; 2. The touch point ID is not within the valid range [0, 9].
      * @throws { BusinessError } 3800001 - Input service exception.
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
      * @stagemodelonly

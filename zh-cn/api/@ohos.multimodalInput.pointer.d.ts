@@ -450,7 +450,7 @@ declare namespace pointer {
     MIDDLE_BTN_EAST_WEST = 44,
 
     /**
-     * 后台运行中动画光标(拓展1)
+     * 后台运行中动画光标（拓展1）
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 22 dynamic
@@ -459,7 +459,7 @@ declare namespace pointer {
     RUNNING_LEFT = 45,
 
     /**
-     * 后台运行中动画光标(拓展2)
+     * 后台运行中动画光标（拓展2）
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 22 dynamic
@@ -486,7 +486,7 @@ declare namespace pointer {
     SCREENRECORDER_CURSOR = 48,
 
     /**
-     * 悬浮光标。手写笔进入空鼠模式时使用该光标，无法直接设置 。<br>空鼠模式支持通过手写笔在空中转动来控制屏幕上虚拟光标的移动，并借助笔身按键实现上下翻页功能，用于演示PPT、隔空操作等场景。
+     * 悬浮光标。手写笔进入空鼠模式时使用该光标，无法直接设置。<br>空鼠模式支持通过手写笔在空中转动来控制屏幕上虚拟光标的移动，并借助笔身按键实现上下翻页功能，用于演示PPT、隔空操作等场景。
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 22 dynamic
@@ -495,7 +495,7 @@ declare namespace pointer {
     LASER_CURSOR = 49,
 
     /**
-     * 点击光标。手写笔进入空鼠模式时使用该光标，无法直接设置 。<br>空鼠模式支持通过手写笔在空中转动来控制屏幕上虚拟光标的移动，并借助笔身按键实现上下翻页功能，用于演示PPT、隔空操作等场景。
+     * 点击光标。手写笔进入空鼠模式时使用该光标，无法直接设置。<br>空鼠模式支持通过手写笔在空中转动来控制屏幕上虚拟光标的移动，并借助笔身按键实现上下翻页功能，用于演示PPT、隔空操作等场景。
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 22 dynamic
@@ -504,7 +504,7 @@ declare namespace pointer {
     LASER_CURSOR_DOT = 50,
 
     /**
-     * 激光笔光标。手写笔进入空鼠模式时使用该光标，无法直接设置 。<br>空鼠模式支持通过手写笔在空中转动来控制屏幕上虚拟光标的移动，并借助笔身按键实现上下翻页功能，用于演示PPT、隔空操作等场景。
+     * 激光笔光标。手写笔进入空鼠模式时使用该光标，无法直接设置。<br>空鼠模式支持通过手写笔在空中转动来控制屏幕上虚拟光标的移动，并借助笔身按键实现上下翻页功能，用于演示PPT、隔空操作等场景。
      *
      * @syscap SystemCapability.MultimodalInput.Input.Pointer
      * @since 22 dynamic
@@ -736,7 +736,7 @@ declare namespace pointer {
   /**
    * 使用同步方式获取当前鼠标移动速度。
    *
-   * @returns { int } 返回鼠标移动速度，范围[1, 20]。
+   * @returns { int } 返回鼠标移动速度，取值范围[1, 20]。
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1208,7 +1208,7 @@ declare namespace pointer {
   /**
    * 设置鼠标滚动行数，使用callback异步回调。
    *
-   * @param { int } rows - 鼠标滚动行数，范围[1, 100]，默认为3。
+   * @param { int } rows - 鼠标滚动行数，取值范围[1, 100]，默认为3。
    * @param { AsyncCallback<void> } callback - 回调函数。当设置鼠标滚动行数成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1223,7 +1223,7 @@ declare namespace pointer {
   /**
    * 设置鼠标滚动行数，使用Promise异步回调。
    *
-   * @param { int } rows - 鼠标滚动行数，范围[1, 100]，默认为3。
+   * @param { int } rows - 鼠标滚动行数，取值范围[1, 100]，默认为3。
    * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1355,7 +1355,7 @@ declare namespace pointer {
   /**
    * 获取触控板滚轴方向，使用callback异步回调。
    *
-   * @param { AsyncCallback<boolean> } callback - 回调函数。当获取触控板滚轴方向成功，err为undefined，state是true与手指滑动的方向一致；否则为错误对象。
+   * @param { AsyncCallback<boolean> } callback - 回调函数。当获取触控板滚轴方向成功，err为undefined，state为true表示与手指滑动的方向一致；否则为错误对象。
    * @throws { BusinessError } 202 - SystemAPI permission error. [since 10 - 26.0.0]
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1444,7 +1444,7 @@ declare namespace pointer {
   /**
    * 设置触控板光标移动速度，使用callback异步回调。
    *
-   * @param { int } speed - speed代表光标移动速度。speed取值范围[1,11]，默认6。
+   * @param { int } speed - speed代表光标移动速度。speed取值范围[1, 11]，默认6。
    * @param { AsyncCallback<void> } callback - 回调函数。当设置触控板光标移动速度成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1459,7 +1459,7 @@ declare namespace pointer {
   /**
    * 设置触控板光标移动速度，使用Promise异步回调。
    *
-   * @param { int } speed - speed代表光标移动速度。speed取值范围[1,11]，默认6。
+   * @param { int } speed - speed代表光标移动速度。speed取值范围[1, 11]，默认6。
    * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1488,7 +1488,7 @@ declare namespace pointer {
   /**
    * 获取触控板光标移动速度，使用Promise异步回调。
    *
-   * @returns { Promise<int> } Promise对象，返回触控板光标移动速度，speed取值范围[1,11]。
+   * @returns { Promise<int> } Promise对象，返回触控板光标移动速度，speed取值范围[1, 11]。
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.

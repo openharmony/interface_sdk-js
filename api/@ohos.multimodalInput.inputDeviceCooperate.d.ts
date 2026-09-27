@@ -105,7 +105,7 @@ declare namespace inputDeviceCooperate {
    * @param { AsyncCallback<void> } callback - Callback. If the operation is successful, **err** is **undefined**.
    *     Otherwise, **error** is an error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api. [since 12]
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use
@@ -121,7 +121,7 @@ declare namespace inputDeviceCooperate {
    * @param { boolean } enable - Whether to enable screen hopping.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api. [since 12]
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use
@@ -139,7 +139,7 @@ declare namespace inputDeviceCooperate {
    * @param { AsyncCallback<void> } callback - Callback. If the operation is successful, **err** is **undefined**.
    *     Otherwise, **error** is an error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 4400001 - Incorrect descriptor for the target device.
    * @throws { BusinessError } 4400002 - Screen hop failed.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api. [since 12]
@@ -158,7 +158,7 @@ declare namespace inputDeviceCooperate {
    * @param { number } srcInputDeviceId - ID of the target device for screen hopping.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 4400001 - Incorrect descriptor for the target device.
    * @throws { BusinessError } 4400002 - Screen hop failed.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api. [since 12]
@@ -176,7 +176,7 @@ declare namespace inputDeviceCooperate {
    * @param { AsyncCallback<void> } callback - Callback. If the operation is successful, **err** is **undefined**.
    *     Otherwise, **error** is an error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api. [since 12]
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use
@@ -207,7 +207,7 @@ declare namespace inputDeviceCooperate {
    *     successful, **err** is **undefined**, **data** is the state of the screen hopping switch (**true** if enabled
    *     and **false** if disabled). Otherwise, **error** is an error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api. [since 12]
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use
@@ -222,9 +222,9 @@ declare namespace inputDeviceCooperate {
    *
    * @param { string } deviceDescriptor - Descriptor of the target device for screen hopping.
    * @returns { Promise<{ state: boolean }> } Promise used to return the state of the screen hopping switch. **true** if
-   *     enabled and **false** if disabled. [since 12]
+   *     enabled and **false** if disabled.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api. [since 12]
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use
@@ -235,14 +235,15 @@ declare namespace inputDeviceCooperate {
   function getState(deviceDescriptor: string): Promise<{ state: boolean }>;
 
   /**
-   * Registers a listener for screen hopping state changes. This API uses an asynchronous callback to return the result.
+   * Registers a listener for screen hopping status changes. This API uses an asynchronous callback to return the
+   * result.
    *
-   * @param { 'cooperation' } type - Event type. The value is **cooperation**.
+   * @param { 'cooperation' } type - Registration type. The value is 'cooperation'.
    * @param { AsyncCallback<{ deviceDescriptor: string, eventMsg: EventMsg }> } callback - Callback used to return the
    *     result. If the operation is successful, **err** is **undefined**, **data** is the screen hopping event
-   *     information. Otherwise, **err** is undefined.
+   *     information. Otherwise, **err** is an error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api. [since 12]
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use
@@ -256,12 +257,12 @@ declare namespace inputDeviceCooperate {
    * Deregisters the listener for screen hopping status changes. This API uses an asynchronous callback to return the
    * result.
    *
-   * @param { 'cooperation' } type - Event type. The value is **cooperation**.
+   * @param { 'cooperation' } type - Registration type. The value is 'cooperation'.
    * @param { AsyncCallback<void> } [callback] - Callback used to return the result. If the operation is successful,
-   *     **err** is **undefined**. Otherwise, **err** is undefined. If this parameter is not specified, all callbacks
-   *     registered by the current application are unregistered.
+   *     **err** is **undefined**. Otherwise, **err** is an error object. If this parameter is not specified, all
+   *     callbacks registered by the current application are unregistered.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api. [since 12]
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use

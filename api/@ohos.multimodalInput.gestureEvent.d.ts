@@ -32,7 +32,7 @@ import { Touch } from './@ohos.multimodalInput.touchEvent';
 export declare interface Pinch {
 
   /**
-   * Gesture event type, for example, gesture start, gesture update, or gesture end.
+   * Gesture event type, including gesture cancel, gesture start, gesture update, and gesture end.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10 dynamic

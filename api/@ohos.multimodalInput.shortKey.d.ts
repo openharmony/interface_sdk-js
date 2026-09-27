@@ -42,13 +42,13 @@ declare namespace shortKey {
    * @param { string } businessKey - Unique service ID registered on the multimodal side. It corresponds to
    *     **businessId** in the **ability_launch_config.json** file. You need to query this parameter on your own before
    *     calling the API.
-   * @param { int } delay - Delay for starting an ability using shortcut keys, in milliseconds. This field is valid only
-   *     when shortcut keys are pressed.
+   * @param { int } delay - Duration after a shortcut key is pressed before the Ability is launched, in ms. This
+   *     parameter is supported only when a shortcut key is pressed.
    * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
    *     **err** is **undefined**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.ShortKey
    * @systemapi hide for inner use
    * @since 10 dynamic
@@ -67,7 +67,7 @@ declare namespace shortKey {
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.ShortKey
    * @systemapi hide for inner use
    * @since 10 dynamic
@@ -158,8 +158,8 @@ export declare interface FingerprintEvent {
   action: FingerprintAction;
 
   /**
-   * Offset relative to the short axis of the side fingerprint device (positive values indicate movement to the right,
-   * and negative values indicate movement to the left).
+   * Offset of the X axis for the fingerprint sensor relative to the side edge (a positive number indicates that a
+   * rightward offset, and a negative number indicates a leftward offset).
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
@@ -169,8 +169,8 @@ export declare interface FingerprintEvent {
   distanceX: double;
 
   /**
-   * Offset relative to the long axis of the side fingerprint device (positive values indicate upward movement, and
-   * negative values indicate downward movement).
+   * Offset of the Y axis for the fingerprint sensor relative to the side edge (a positive number indicates an upward
+   * offset, and a negative number indicates a downward offset).
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.

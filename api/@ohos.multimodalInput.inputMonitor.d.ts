@@ -74,7 +74,7 @@ declare namespace inputMonitor {
    * @param { TouchEventReceiver } receiver - Callback used to return touchscreen input events.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api. [since 12]
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
@@ -105,7 +105,7 @@ declare namespace inputMonitor {
    * @param { Callback<MouseEvent> } receiver - Callback used to return the mouse input event.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api. [since 12]
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
@@ -139,7 +139,7 @@ declare namespace inputMonitor {
    * @param { Callback<MouseEvent> } receiver - Callback used to return the mouse input event.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 202 - SystemAPI permit error. [since 12]
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
@@ -172,7 +172,7 @@ declare namespace inputMonitor {
    *     specified, listening will be disabled for all callbacks registered by the current application.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api. [since 12]
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
@@ -204,7 +204,7 @@ declare namespace inputMonitor {
    *     specified, listening will be disabled for all callbacks registered by the current application.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api. [since 12]
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
@@ -236,7 +236,7 @@ declare namespace inputMonitor {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permit error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 10 dynamic
@@ -268,7 +268,7 @@ declare namespace inputMonitor {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permit error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 10 dynamic
@@ -301,7 +301,7 @@ declare namespace inputMonitor {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permit error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 11 dynamic
@@ -336,7 +336,7 @@ declare namespace inputMonitor {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permit error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 11 dynamic
@@ -369,7 +369,7 @@ declare namespace inputMonitor {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permit error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 11 dynamic
@@ -404,7 +404,7 @@ declare namespace inputMonitor {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permit error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 11 dynamic
@@ -416,7 +416,7 @@ declare namespace inputMonitor {
    *
    * @permission ohos.permission.INPUT_MONITORING
    * @param { int } fingers - the number of fingers.
-   * @param { Callback<Rotate> }[receiver] - Callback used to receive the reported data.
+   * @param { Callback<Rotate> } [receiver] - Callback used to receive the reported data.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permit error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -436,7 +436,7 @@ declare namespace inputMonitor {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permit error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 10 dynamic
@@ -468,7 +468,7 @@ declare namespace inputMonitor {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permit error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 10 dynamic
@@ -499,7 +499,7 @@ declare namespace inputMonitor {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permit error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 10 dynamic
@@ -531,7 +531,7 @@ declare namespace inputMonitor {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permit error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 10 dynamic
@@ -562,7 +562,7 @@ declare namespace inputMonitor {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permit error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 11 dynamic
@@ -594,7 +594,7 @@ declare namespace inputMonitor {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permit error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 11 dynamic
@@ -627,7 +627,7 @@ declare namespace inputMonitor {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permit error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 12 dynamic
@@ -660,7 +660,7 @@ declare namespace inputMonitor {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permit error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 12 dynamic
@@ -686,11 +686,12 @@ declare namespace inputMonitor {
    * Listens for inward swipe events. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.INPUT_MONITORING
-   * @param { 'swipeInward' } type - Input event type. The value is fixed at **SwipeInward**.
+   * @param { 'swipeInward' } type - Input event type, with the unique value 'swipeInward'.
    * @param { Callback<SwipeInward> } receiver - Callback used to return the inward swipe event.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permit error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 12 dynamic
@@ -704,7 +705,8 @@ declare namespace inputMonitor {
    * @param { Callback<SwipeInward> } receiver - Callback used to receive the reported data.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permit error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 23 static
@@ -715,12 +717,13 @@ declare namespace inputMonitor {
    * Cancels listening for inward swipe events. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.INPUT_MONITORING
-   * @param { 'swipeInward' } type - Input event type. The value is fixed at **SwipeInward**.
+   * @param { 'swipeInward' } type - Input event type. The value is fixed at **swipeInward**.
    * @param { Callback<SwipeInward> } [receiver] - Callback for which listening is disabled. If this parameter is not
    *     specified, listening will be disabled for all callbacks registered by the current application.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permit error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 12 dynamic
@@ -734,7 +737,8 @@ declare namespace inputMonitor {
    * @param { Callback<SwipeInward> } [receiver] - Callback used to receive the reported data.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permit error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 23 static
@@ -746,14 +750,12 @@ declare namespace inputMonitor {
    *
    * @permission ohos.permission.INPUT_MONITORING
    * @param { 'touchscreenSwipe' } type - Event type. This field has a fixed value of **touchscreenSwipe**.
-   * @param { number } fingers - Number of fingers that trigger the swipe. The value range is [3, 5].
+   * @param { number } fingers - Number of fingers for the swipe gesture. Value range: [3, 5].
    * @param { Callback<TouchGestureEvent> } receiver - Callback used to return the touchscreen swipe event.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Caller is not a system application.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
-   *     3.Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 18 dynamic
@@ -768,10 +770,8 @@ declare namespace inputMonitor {
    * @param { Callback<TouchGestureEvent> } receiver - Callback used to receive reported data.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Caller is not a system application.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
-   *     3.Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 23 static
@@ -783,15 +783,13 @@ declare namespace inputMonitor {
    *
    * @permission ohos.permission.INPUT_MONITORING
    * @param { 'touchscreenSwipe' } type - Event type. This field has a fixed value of **touchscreenSwipe**.
-   * @param { number } fingers - Number of fingers that trigger the swipe. The value range is [3, 5].
+   * @param { number } fingers - Number of fingers for the swipe gesture. Value range: [3, 5].
    * @param { Callback<TouchGestureEvent> } [receiver] - Callback for which listening is disabled. If this parameter is
    *     not specified, listening will be disabled for all callbacks registered by the current application.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Caller is not a system application.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
-   *     3.Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 18 dynamic
@@ -806,10 +804,8 @@ declare namespace inputMonitor {
    * @param { Callback<TouchGestureEvent> } [receiver] - Callback used to receive reported data.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Caller is not a system application.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
-   *     3.Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 23 static
@@ -821,14 +817,12 @@ declare namespace inputMonitor {
    *
    * @permission ohos.permission.INPUT_MONITORING
    * @param { 'touchscreenPinch' } type - Event type. This field has a fixed value of **touchscreenPinch**.
-   * @param { number } fingers - Number of fingers that trigger the pinch. The value range is [4, 5].
+   * @param { number } fingers - Number of fingers for the pinch gesture. Value range: [4, 5].
    * @param { Callback<TouchGestureEvent> } receiver - Callback used to return the touchscreen pinch event.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Caller is not a system application.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
-   *     3.Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 18 dynamic
@@ -843,10 +837,8 @@ declare namespace inputMonitor {
    * @param { Callback<TouchGestureEvent> } receiver - Callback used to receive reported data.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Caller is not a system application.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
-   *     3.Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 23 static
@@ -858,15 +850,13 @@ declare namespace inputMonitor {
    *
    * @permission ohos.permission.INPUT_MONITORING
    * @param { 'touchscreenPinch' } type - Event type. This field has a fixed value of **touchscreenPinch**.
-   * @param { number } fingers - Number of fingers that trigger the pinch. The value range is [4, 5].
+   * @param { number } fingers - Number of fingers for the pinch gesture. Value range: [4, 5].
    * @param { Callback<TouchGestureEvent> } [receiver] - Callback for which listening is disabled. If this parameter is
    *     not specified, listening will be disabled for all callbacks registered by the current application.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Caller is not a system application.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
-   *     3.Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 18 dynamic
@@ -881,10 +871,8 @@ declare namespace inputMonitor {
    * @param { Callback<TouchGestureEvent> } [receiver] - Callback used to receive reported data.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Caller is not a system application.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
-   *     3.Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 23 static
@@ -897,13 +885,13 @@ declare namespace inputMonitor {
    *
    * @permission ohos.permission.INPUT_MONITORING
    * @param { 'keyPressed' } type - Event type. This parameter has a fixed value of **keyPressed**.
-   * @param { Array<KeyCode> }  keys - Key value. The following key values are supported: KEYCODE_META_LEFT,
+   * @param { Array<KeyCode> } keys - Key value. The following key values are supported: KEYCODE_META_LEFT,
    *     KEYCODE_META_RIGHT, KEYCODE_POWER, KEYCODE_VOLUME_DOWN, and KEYCODE_VOLUME_UP.
    * @param { Callback<KeyEvent> } receiver - Callback used to return the key input event.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 4100001 - Event listening not supported for the key.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
@@ -915,7 +903,7 @@ declare namespace inputMonitor {
    * Enables listening for release events of specified keys, such as the logo, power, and volume keys.
    *
    * @permission ohos.permission.INPUT_MONITORING
-   * @param { Array<KeyCode> }  keys - Key list.
+   * @param { Array<KeyCode> } keys - Key list.
    * @param { Callback<KeyEvent> } receiver - Callback used to receive the reported data.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -940,7 +928,7 @@ declare namespace inputMonitor {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 15 dynamic
@@ -967,12 +955,11 @@ declare namespace inputMonitor {
    * maximum of 60 events can be queried. This API uses a promise to return the result.
    *
    * @permission ohos.permission.INPUT_MONITORING
-   * @param { int } count - Number of touchscreen input events to query. The value range is an integer from 0 to 100. If
-   *     the value is less than 0, the value **0** is used. If the value is greater than 100, the value **100** is used.
-   *     Since API version 26.0.0, if the value is greater than 60, the value **60** is used. If there are only 30
-   *     actual touchscreen input events but this parameter is set to **50**, only 30 touchscreen input events can be
-   *     queried.
-   * @returns { Promise<Array<TouchEvent>> } Promise used to return the queried touchscreen input events. It contains
+   * @param { int } count - Number of touch input events to query, which is an integer in the value range [0, 100]. If
+   *     the value is less than 0, it is set to 0; if it is greater than 100, it is set to 100. Since API version
+   *     26.0.0, if the value is greater than 60, it is set to 60. If there are only 30 actual touch input events but
+   *     this parameter is set to 50, only 30 touch input events can be queried.
+   * @returns { Promise<Array<TouchEvent>> } Promise used to return the queried touch input events. It contains
    *     the following valid information; all other information is invalid:<br/>- **actionTime**: Time when the
    *     touchscreen input event occurred, in microseconds (μs) since system startup.<br/>-
    *     [SourceType]{@link @ohos.multimodalInput.touchEvent:SourceType}: Device type of the touch source.<br/>-

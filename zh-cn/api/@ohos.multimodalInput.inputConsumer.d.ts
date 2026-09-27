@@ -24,6 +24,10 @@ import { KeyEvent } from './@ohos.multimodalInput.keyEvent';
 /**
  * 全局快捷键订阅模块，用于处理组合按键的订阅，本模块也支持音量键拦截监听能力。
  *
+ * > **说明**：
+ * >
+ * > - 全局快捷键指由系统或应用定义的组合按键，系统快捷键指由系统定义的全局快捷键，应用快捷键指由应用定义的全局快捷键。
+ *
  * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
  * @since 14 dynamic
  * @since 23 static
@@ -193,7 +197,7 @@ declare namespace inputConsumer {
   interface KeyPressedConfig {
 
     /**
-     * 按键键值。<br/>**说明：** 从API version 26.0.0开始，新增支持[KEYCODE_FINGERPRINT_SLIDE_UP]{@link @ohos.multimodalInput.keyCode:KeyCode}键和
+     * 按键键值。<br/>**说明：** 从API版本26.0.0开始，新增支持[KEYCODE_FINGERPRINT_SLIDE_UP]{@link @ohos.multimodalInput.keyCode:KeyCode}键和
      * [KEYCODE_FINGERPRINT_SLIDE_DOWN]{@link @ohos.multimodalInput.keyCode:KeyCode}键，非设备通用键值，使用前请判断当前设备是否支持相关按键事件上报，请参考
      * [优先响应系统功能键开发指导](docroot://device/input/keypressed-guidelines.md)。<br/>
      * 从API version 21开始，新增支持[KEYCODE_MEDIA_PLAY_PAUSE]{@link @ohos.multimodalInput.keyCode:KeyCode}键、
@@ -274,7 +278,7 @@ declare namespace inputConsumer {
    * [KeyCommandTriggerType]{@link inputConsumer.KeyCommandTriggerType}，本接口无需关注此参数。
    * @param { Callback<KeyOptions> } callback - 回调函数，返回组合按键数据。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api. [since 12]
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @systemapi hide for inner use
@@ -324,7 +328,7 @@ declare namespace inputConsumer {
    * [KeyCommandTriggerType]{@link inputConsumer.KeyCommandTriggerType}，本接口无需关注此参数。
    * @param { Callback<KeyOptions> } [callback] - 需要取消订阅的回调函数。若不填，则取消当前应用组合键选项已订阅的所有回调函数。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api. [since 12]
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @systemapi hide for inner use
@@ -370,7 +374,7 @@ declare namespace inputConsumer {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @systemapi hide for inner use.
    * @since 11 dynamic
@@ -387,7 +391,7 @@ declare namespace inputConsumer {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @systemapi hide for inner use.
    * @since 11 dynamic
@@ -413,7 +417,7 @@ declare namespace inputConsumer {
    * @param { HotkeyOptions } hotkeyOptions - 快捷键选项。
    * @param { Callback<HotkeyOptions> } callback - 回调函数，返回满足条件的组合按键输入事件。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 4200002 - The hotkey has been used by the system.
    * @throws { BusinessError } 4200003 - The hotkey has been subscribed to by another.
@@ -444,7 +448,7 @@ declare namespace inputConsumer {
    * @param { HotkeyOptions } hotkeyOptions - 快捷键选项。
    * @param { Callback<HotkeyOptions> } [callback] - 需要取消订阅的回调函数。若缺省，则取消当前应用快捷键选项已订阅的所有回调函数。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @since 14 dynamic
@@ -474,7 +478,7 @@ declare namespace inputConsumer {
    * @param { KeyPressedConfig } options - 按键事件消费设置。
    * @param { Callback<KeyEvent> } callback - 回调函数，返回按键事件。订阅不同的按键事件需要使用不同的callback，否则订阅不生效。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @since 16 dynamic
@@ -501,7 +505,7 @@ declare namespace inputConsumer {
    * @param { 'keyPressed' } type - 事件类型，固定取值为'keyPressed'。
    * @param { Callback<KeyEvent> } [callback] - 需要取消订阅的回调函数。若缺省，则取消当前已订阅的所有回调函数。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @since 16 dynamic

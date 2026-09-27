@@ -34,7 +34,7 @@ declare namespace inputDeviceCooperate {
    * 键鼠穿越事件。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
-   * @systemapi hide for inner use.
+   * @systemapi hide for inner use
    * @since 9 dynamiconly
    * @deprecated since 23
    * @useinstead ohos.cooperate/cooperate.CooperateState
