@@ -8488,11 +8488,11 @@ declare namespace relationalStore {
      *
      * @param { Array<string> } tables - 需要全量赋值的分布式表名列表。不能为空。
      *     <br>最大长度为20且不能为空。
-     * @returns { Promise<void> } 不返回任何值的Promise。
-     * @throws { BusinessError } 202 - 权限被拒绝。非系统应用试图调用系统API。
-     * @throws { BusinessError } 14800001 - 无效参数。参数超出范围或表列表为空。
-     * @throws { BusinessError } 14800014 - RdbStore或ResultSet已经关闭。
-     * @throws { BusinessError } 14800043 - 数据库不支持该场景。
+     * @returns { Promise<void> } Promise对象，无返回结果。
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 14800001 - Invalid arguments. Parameter out of range or empty table list.
+     * @throws { BusinessError } 14800014 - The target instance is already closed.
+     * @throws { BusinessError } 14800043 - The database does not support this scenario.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @stagemodelonly
