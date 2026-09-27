@@ -87,6 +87,28 @@ export interface FunctionResultWrap {
    * @since 26.0.1 dynamiconly
    */
   result: InvokeResult;
+
+  /**
+   * 表示Function调用的唯一标识，从{@link InvokeOptions}回传。
+   * 仅当调用方传入该标识时存在。取值由字母、数字、'_'和'-'组成，最大长度为256。
+   *
+   * @syscap SystemCapability.Ability.AgentRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.1 dynamiconly
+   */
+  toolCallId?: string;
+
+  /**
+   * 表示对话管理（DM）会话标识，从{@link InvokeOptions}回传。
+   * 仅当调用方传入该标识时存在。取值由字母、数字、'_'和'-'组成，最大长度为256。
+   *
+   * @syscap SystemCapability.Ability.AgentRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.1 dynamiconly
+   */
+  dmSessionId?: string;
 }
 
 /**

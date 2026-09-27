@@ -78,6 +78,26 @@ declare namespace cliManager {
      * @since 26.0.0 dynamiconly
      */
     timeout?: long;
+
+    /**
+     * 工具调用的唯一标识，由Agent分配。取值由字母、数字、'_'和'-'组成，最大长度为256。
+     *
+     * @syscap SystemCapability.Ability.AgentRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.1 dynamiconly
+     */
+    toolCallId?: string;
+
+    /**
+     * 对话管理（DM）会话标识，唯一标识一次Agent会话。取值由字母、数字、'_'和'-'组成，最大长度为256。
+     *
+     * @syscap SystemCapability.Ability.AgentRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.1 dynamiconly
+     */
+    dmSessionId?: string;
   }
 
   /**
@@ -197,6 +217,26 @@ declare namespace cliManager {
      * @since 26.0.0 dynamiconly
      */
     callback?: ToolEventCallback;
+
+    /**
+     * 工具调用的唯一标识，由Agent分配。取值由字母、数字、'_'和'-'组成，最大长度为256。
+     *
+     * @syscap SystemCapability.Ability.AgentRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.1 dynamiconly
+     */
+    toolCallId?: string;
+
+    /**
+     * 对话管理（DM）会话标识，唯一标识一次Agent会话。取值由字母、数字、'_'和'-'组成，最大长度为256。
+     *
+     * @syscap SystemCapability.Ability.AgentRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.1 dynamiconly
+     */
+    dmSessionId?: string;
   }
 
   /**
