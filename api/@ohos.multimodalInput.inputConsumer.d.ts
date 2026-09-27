@@ -324,7 +324,8 @@ declare namespace inputConsumer {
    * @param { Callback<KeyOptions> } callback - Callback invoked to return the key combination data.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api. [since 12]
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   *     [since 12]
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @systemapi hide for inner use
    * @since 8 dynamic
@@ -336,7 +337,7 @@ declare namespace inputConsumer {
    *
    * @param { KeyOptions } keyOptions - the key events about input which is to be subscribed.
    * @param { Callback<KeyOptions> } callback - callback function, receive reported data.
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
@@ -362,7 +363,7 @@ declare namespace inputConsumer {
    * @param { KeyOptions } keyOptions - Key combination options, which support the triggerType parameter.
    * @param { KeyCommandCallback } callback - Callback function, which returns the key combination options and key
    *     event data.
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
@@ -383,7 +384,8 @@ declare namespace inputConsumer {
    *     will be disabled for all callbacks registered by the current application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api. [since 12]
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   *     [since 12]
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @systemapi hide for inner use
    * @since 8 dynamic
@@ -395,7 +397,7 @@ declare namespace inputConsumer {
    *
    * @param { KeyOptions } keyOptions - the key events about input which is to be subscribed.
    * @param { Callback<KeyOptions> } [callback] - callback function, receive reported data.
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
@@ -412,7 +414,7 @@ declare namespace inputConsumer {
    * @param { KeyCommandCallback } [callback] - Callback function to be unsubscribed from. If this parameter is not
    *     specified, all callback functions subscribed to by the current app for the key combination options are
    *     unsubscribed from.
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
@@ -430,8 +432,9 @@ declare namespace inputConsumer {
    *     means to shield all system hotkeys.
    * @param { boolean } isShield - Whether to enable hotkey shielding. The value **true** means to enable hotkey
    *     shielding, and the value **false** indicates the opposite.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
@@ -449,8 +452,9 @@ declare namespace inputConsumer {
    *     means to shield all system hotkeys.
    * @returns { boolean } Whether to enable hotkey shielding. The value **true** means to enable hotkey shielding, and
    *     the value **false** indicates the opposite.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
@@ -464,7 +468,8 @@ declare namespace inputConsumer {
    * Obtains all system hotkeys. This API uses a promise to return the result.
    *
    * @returns { Promise<Array<HotkeyOptions>> } Promise used to return the list of all system hotkeys.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support the
+   *     capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @since 14 dynamic
    * @since 23 static
@@ -481,7 +486,8 @@ declare namespace inputConsumer {
    *     the conditions.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support the
+   *     capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
    * @throws { BusinessError } 4200002 - The hotkey has been used by the system.
    * @throws { BusinessError } 4200003 - The hotkey has been subscribed to by another.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
@@ -496,7 +502,8 @@ declare namespace inputConsumer {
    * @param { Callback<HotkeyOptions> } callback - Callback used to return hotkey event.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support the
+   *     capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
    * @throws { BusinessError } 4200002 - The hotkey has been used by the system.
    * @throws { BusinessError } 4200003 - The hotkey has been subscribed to by another.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
@@ -513,7 +520,8 @@ declare namespace inputConsumer {
    *     listening will be disabled for all callbacks registered for the specified hotkey options.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support the
+   *     capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @since 14 dynamic
    */
@@ -526,7 +534,8 @@ declare namespace inputConsumer {
    * @param { Callback<HotkeyOptions> } [callback] - Callback used to return hotkey event.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support the
+   *     capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @since 23 static
    */
@@ -547,7 +556,8 @@ declare namespace inputConsumer {
    *     are used for different key events. Otherwise, the subscription does not take effect.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support the
+   *     capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @since 16 dynamic
    */
@@ -562,7 +572,8 @@ declare namespace inputConsumer {
    * @param { Callback<KeyEvent> } callback - Callback used to return key events.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support the
+   *     capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @since 23 static
    */
@@ -578,7 +589,8 @@ declare namespace inputConsumer {
    *     be disabled for all registered callbacks.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support the
+   *     capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @since 16 dynamic
    */
@@ -590,7 +602,8 @@ declare namespace inputConsumer {
    * @param { Callback<KeyEvent> } [callback] - Callback used to return hotkey events.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
    *     2. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support the
+   *     capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @since 23 static
    */

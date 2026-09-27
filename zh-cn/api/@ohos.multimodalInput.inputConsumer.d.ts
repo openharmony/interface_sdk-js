@@ -279,7 +279,8 @@ declare namespace inputConsumer {
    * @param { Callback<KeyOptions> } callback - 回调函数，返回组合按键数据。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api. [since 12]
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   *     [since 12]
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @systemapi hide for inner use
    * @since 8 dynamic
@@ -291,7 +292,7 @@ declare namespace inputConsumer {
    *
    * @param { KeyOptions } keyOptions - 组合键选项，支持triggerType参数。
    * @param { Callback<KeyOptions> } callback - 回调函数，返回组合按键数据
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
@@ -310,7 +311,7 @@ declare namespace inputConsumer {
    *
    * @param { KeyOptions } keyOptions - 组合键选项，支持triggerType参数。
    * @param { KeyCommandCallback } callback - 回调函数，返回组合键选项和按键事件数据。
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
@@ -329,7 +330,8 @@ declare namespace inputConsumer {
    * @param { Callback<KeyOptions> } [callback] - 需要取消订阅的回调函数。若不填，则取消当前应用组合键选项已订阅的所有回调函数。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api. [since 12]
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   *     [since 12]
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @systemapi hide for inner use
    * @since 8 dynamic
@@ -341,7 +343,7 @@ declare namespace inputConsumer {
    *
    * @param { KeyOptions } keyOptions - 组合键选项。
    * @param { Callback<KeyOptions> } [callback] - 需要取消订阅的回调函数。若不填，则取消当前应用组合键选项已订阅的所有回调函数。
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
@@ -355,7 +357,7 @@ declare namespace inputConsumer {
    *
    * @param { KeyOptions } keyOptions - 组合键选项，需与订阅时传入的keyOptions一致。
    * @param { KeyCommandCallback } [callback] - 需要取消订阅的回调函数。若不填，则取消当前应用组合键选项已订阅的所有回调函数。
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
@@ -371,8 +373,9 @@ declare namespace inputConsumer {
    * @permission ohos.permission.INPUT_CONTROL_DISPATCHING
    * @param { ShieldMode } shieldMode - 系统快捷键屏蔽类型，目前仅支持取值为'FACTORY_MODE'，表示屏蔽所有系统快捷键。
    * @param { boolean } isShield - 屏蔽类型生效状态，true代表屏蔽类型生效，false代表不生效。
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
@@ -388,8 +391,9 @@ declare namespace inputConsumer {
    * @permission ohos.permission.INPUT_CONTROL_DISPATCHING
    * @param { ShieldMode } shieldMode - 系统快捷键屏蔽类型，目前仅支持取值为'FACTORY_MODE'，表示屏蔽所有系统快捷键。
    * @returns { boolean } 屏蔽类型生效状态，true代表屏蔽类型生效，false代表不生效。
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
@@ -403,7 +407,8 @@ declare namespace inputConsumer {
    * 获取所有系统快捷键，使用Promise异步回调。
    *
    * @returns { Promise<Array<HotkeyOptions>> } Promise对象，返回所有系统快捷键的列表。
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support the
+   *     capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @since 14 dynamic
    * @since 23 static
@@ -418,7 +423,8 @@ declare namespace inputConsumer {
    * @param { Callback<HotkeyOptions> } callback - 回调函数，返回满足条件的组合按键输入事件。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support the
+   *     capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
    * @throws { BusinessError } 4200002 - The hotkey has been used by the system.
    * @throws { BusinessError } 4200003 - The hotkey has been subscribed to by another.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
@@ -433,7 +439,8 @@ declare namespace inputConsumer {
    * @param { Callback<HotkeyOptions> } callback - 回调函数，获取满足条件的组合按键输入事件。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support the
+   *     capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
    * @throws { BusinessError } 4200002 - The hotkey has been used by the system.
    * @throws { BusinessError } 4200003 - The hotkey has been subscribed to by another.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
@@ -449,7 +456,8 @@ declare namespace inputConsumer {
    * @param { Callback<HotkeyOptions> } [callback] - 需要取消订阅的回调函数。若缺省，则取消当前应用快捷键选项已订阅的所有回调函数。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support the
+   *     capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @since 14 dynamic
    */
@@ -462,7 +470,8 @@ declare namespace inputConsumer {
    * @param { Callback<HotkeyOptions> } [callback] - 需要取消订阅的回调函数。若缺省，则取消当前应用快捷键选项已订阅的所有回调函数。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support the
+   *     capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @since 23 static
    */
@@ -479,7 +488,8 @@ declare namespace inputConsumer {
    * @param { Callback<KeyEvent> } callback - 回调函数，返回按键事件。订阅不同的按键事件需要使用不同的callback，否则订阅不生效。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support the
+   *     capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @since 16 dynamic
    */
@@ -493,7 +503,8 @@ declare namespace inputConsumer {
    * @param { Callback<KeyEvent> } callback - 回调函数，返回按键事件。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support the
+   *     capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @since 23 static
    */
@@ -506,7 +517,8 @@ declare namespace inputConsumer {
    * @param { Callback<KeyEvent> } [callback] - 需要取消订阅的回调函数。若缺省，则取消当前已订阅的所有回调函数。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support the
+   *     capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @since 16 dynamic
    */
@@ -518,7 +530,8 @@ declare namespace inputConsumer {
    * @param { Callback<KeyEvent> } [callback] - 需要取消订阅的回调函数。若缺省，则取消当前已订阅的所有回调函数。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
    *     2. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support the
+   *     capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @since 23 static
    */

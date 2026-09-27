@@ -68,7 +68,8 @@ declare namespace infraredEmitter {
    * @permission ohos.permission.MANAGE_INPUT_INFRARED_EMITTER
    * @returns { Promise<boolean> } Promise used to return the result. **true** is returned if the device has an infrared
    *     emitter, and **false** is returned if the device does not have an infrared emitter.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 3800001 - Input service exception.
    * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
    * @since 23 dynamic&static
@@ -84,8 +85,10 @@ declare namespace infraredEmitter {
    *     from 0 to 1024. When the value is 0, the API call does not take effect. The value of each level signal must
    *     be greater than 0.<br/>For example, in the level signal array [100,200,300,400], 100 μs is a high level
    *     signal, 200 μs is a low level signal, 300 μs is a high level signal, and 400 μs is a low level signal.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not system application. [since 12 - 14]
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   *     [since 12 - 14]
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
@@ -104,8 +107,10 @@ declare namespace infraredEmitter {
    * @returns { Array<InfraredFrequency> } Frequency range of the infrared signal, containing multiple sets of maximum
    *     and minimum frequencies.<br/>Since API version 23, when the device does not have an infrared emitter, a set
    *     of maximum and minimum frequencies is returned, both 0 Hz.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not system application. [since 12 - 14]
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   *     [since 12 - 14]
    * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
    * @systemapi hide for inner use [since 12 - 14]
    * @publicapi [since 15]

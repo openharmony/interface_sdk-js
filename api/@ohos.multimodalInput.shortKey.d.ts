@@ -46,7 +46,7 @@ declare namespace shortKey {
    *     parameter is supported only when a shortcut key is pressed.
    * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
    *     **err** is **undefined**. Otherwise, **err** is an error object.
-   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.ShortKey
@@ -65,7 +65,7 @@ declare namespace shortKey {
    * @param { int } delay - Delay for starting an ability using shortcut keys, in milliseconds. This field is valid only
    *     when shortcut keys are pressed.
    * @returns { Promise<void> } Promise that returns no value.
-   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.ShortKey

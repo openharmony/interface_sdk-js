@@ -66,7 +66,8 @@ declare namespace infraredEmitter {
    *
    * @permission ohos.permission.MANAGE_INPUT_INFRARED_EMITTER
    * @returns { Promise<boolean> } Promise对象。返回true表示设备具有红外发射器；返回false表示设备不具有红外发射器。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 3800001 - Input service exception.
    * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
    * @since 23 dynamic&static
@@ -81,8 +82,10 @@ declare namespace infraredEmitter {
    * @param { long } infraredFrequency - 红外频率，单位：Hz。
    * @param { Array<long>} pattern - 红外电平信号，单位为微秒（μs）。电平信号的数量取值范围为[0, 1024]，取值为0时，接口调用不生效。电平信号的取值需大于0。<br/>比如
    * [100,200,300,400]该电平信号数组，其中100μs为高电平信号、200μs为低电平信号、300μs为高电平信号、400μs为低电平信号。
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not system application. [since 12 - 14]
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   *     [since 12 - 14]
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
@@ -98,8 +101,10 @@ declare namespace infraredEmitter {
    *
    * @permission ohos.permission.MANAGE_INPUT_INFRARED_EMITTER
    * @returns { Array<InfraredFrequency> } 红外信号的频率范围，包含多组最大和最小频率。<br/>从API version 23开始，当设备不具有红外发射器，返回一组最大和最小频率，且均为0Hz。
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not system application. [since 12 - 14]
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   *     [since 12 - 14]
    * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
    * @systemapi hide for inner use [since 12 - 14]
    * @publicapi [since 15]

@@ -649,7 +649,7 @@ declare namespace inputDevice {
    * @param { int } delay - Key repeat delay. Default value: 500 ms. Adjustment range: [300 ms, 1000 ms].
    * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
    *     **err** is **undefined**. Otherwise, **err** is an error object.
-   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
@@ -664,7 +664,7 @@ declare namespace inputDevice {
    *
    * @param { int } delay - Keyboard key repeat delay. Default value: 500 ms. Adjustment range: [300 ms, 1000 ms].
    * @returns { Promise<void> } Promise that returns no value.
-   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
@@ -679,7 +679,7 @@ declare namespace inputDevice {
    *
    * @param { AsyncCallback<int> } callback - Callback used to return the result. If the operation is successful,
    *     err is undefined and data is the key repeat delay (in ms); otherwise, err is an error object.
-   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
@@ -693,7 +693,7 @@ declare namespace inputDevice {
    * Obtains the keyboard repeat delay. This API uses a promise to return the result.
    *
    * @returns { Promise<int> } Promise used to return the key repeat delay, in ms.
-   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
@@ -709,7 +709,7 @@ declare namespace inputDevice {
    * @param { int } rate - Keyboard key repeat rate. Default value: 50 ms/event. Unit: ms/event. Value range: [36, 100].
    * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
    *     **err** is **undefined**. Otherwise, **err** is an error object.
-   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
@@ -725,7 +725,7 @@ declare namespace inputDevice {
    * @param { int } rate - Keyboard key repeat rate. Default value: 50 ms/event. Adjustment range: [36 ms/event,
    *     100 ms/event].
    * @returns { Promise<void> } Promise that returns no value.
-   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
@@ -740,7 +740,7 @@ declare namespace inputDevice {
    *
    * @param { AsyncCallback<int> } callback - Callback function. If the operation is successful, err is undefined
    *     and data is the keyboard repeat rate, in ms per event; otherwise, err is an error object.
-   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
@@ -754,7 +754,7 @@ declare namespace inputDevice {
    * Obtains the keyboard repeat rate. This API uses a promise to return the result.
    *
    * @returns { Promise<int> } Promise used to return the keyboard repeat rate, in ms per event.
-   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
@@ -787,10 +787,9 @@ declare namespace inputDevice {
    * @param { boolean } enabled - Switch status of the input device. The value **true** indicates that the input device
    *     is enabled, and the value **false** indicates the opposite.
    * @returns { Promise<void> } Promise that returns no value.
-   * @throws { BusinessError } 201 - Permission verification failed.
-   *     The application does not have the permission required to call the API
-   * @throws { BusinessError } 202 - Permission verification failed.
-   *     A non-system application calls a system API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 3900001 - The specified device does not exist.
@@ -845,7 +844,8 @@ declare namespace inputDevice {
    * @param { boolean } enabled - Status of the function key. The value **true** indicates that the function key is
    *     enabled, and the value **false** indicates the opposite.
    * @returns { Promise<void> } Promise that returns no value.
-   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 3900002 - There is currently no keyboard device connected.
@@ -866,9 +866,9 @@ declare namespace inputDevice {
    *     reconnects, this ID may change. The value must be an integer greater than or equal to 0.
    * @param { int } displayId - ID of the target display. The value must be an integer greater than or equal to 0.
    * @returns { Promise<void> } Promise that returns no value.
-   * @throws { BusinessError } 201 - Permission denied.
-   *     The application does not have the required permission.
-   * @throws { BusinessError } 202 - Permission denied. Called by non-system application.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 3800001 - Input service exception.
    * @throws { BusinessError } 3900001 - The specified input device does not exist.
    * @throws { BusinessError } 3900004 - The specified display does not exist.
