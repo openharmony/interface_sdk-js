@@ -494,7 +494,8 @@ declare namespace distributedDeviceManager {
     protocolType: int;
 
     /**
-     * Device type.
+     * Setup type.
+     * The value should be an integer.
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
@@ -638,9 +639,8 @@ declare namespace distributedDeviceManager {
 
     /**
      * Image specification name. Value:
-     *
-     * - **lg**: large image (size: 1016064 pixels)
-     * - **sm**: small image (size: 65536 pixels)
+     * - **lg**: large image (size: 1008×1008 pixels)
+     * - **sm**: small image (size: 256×256 pixels).
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
@@ -701,9 +701,8 @@ declare namespace distributedDeviceManager {
 
     /**
      * Image specification name. Value:
-     *
-     * - **lg**: large image (size: 1016064 pixels)
-     * - **sm**: small image (size: 65536 pixels)
+     * - **lg**: large image (size: 1008×1008 pixels)
+     * - **sm**: small image (size: 256×256 pixels).
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi

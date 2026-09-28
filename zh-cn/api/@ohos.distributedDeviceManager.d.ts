@@ -499,7 +499,8 @@ declare namespace distributedDeviceManager {
     protocolType: int;
 
     /**
-     * 设备类型。
+     * 设置类型。
+     * 取值限定为整数。
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
@@ -643,9 +644,8 @@ declare namespace distributedDeviceManager {
 
     /**
      * 图片规格名称。取值范围：
-     * 
-     * - lg：大图，尺寸为1016064px。
-     * - sm：小图，尺寸为65536px。
+     * - lg：大图（尺寸：1008×1008像素）
+     * - sm：小图（尺寸：256×256像素）。
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
@@ -706,9 +706,8 @@ declare namespace distributedDeviceManager {
 
     /**
      * 图片规格名称。取值范围：
-     * 
-     * - lg：大图，尺寸为1016064px。
-     * - sm：小图，尺寸为65536px。
+     * - lg：大图（尺寸：1008×1008像素）
+     * - sm：小图（尺寸：256×256像素）。
      *
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @systemapi
