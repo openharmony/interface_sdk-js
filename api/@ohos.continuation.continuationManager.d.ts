@@ -45,7 +45,7 @@ declare namespace continuationManager {
    * @param { number } token - Token obtained after the registration of the continuation management service.
    * @param { Callback<Array<ContinuationResult>> } callback - Callback invoked when a device is selected from the device
    *     list provided by the device selection module. This callback returns the device ID, type, and name.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
@@ -66,7 +66,7 @@ declare namespace continuationManager {
    * @permission ohos.permission.DISTRIBUTED_DATASYNC
    * @param { 'deviceSelected' } type - Event type. The value is fixed at **deviceSelected**.
    * @param { number } token - Token obtained after the registration of the continuation management service.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
@@ -89,7 +89,7 @@ declare namespace continuationManager {
    * @param { number } token - Token obtained after the registration of the continuation management service.
    * @param { Callback<Array<ContinuationResult>> } callback - Callback invoked when a device is unselected from the device
    *     list provided by the device selection module. This callback returns the device ID, type, and name.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
@@ -110,7 +110,7 @@ declare namespace continuationManager {
    * @permission ohos.permission.DISTRIBUTED_DATASYNC
    * @param { 'deviceUnselected' } type - Event type. The value is fixed at **deviceUnselected**.
    * @param { number } token - Token obtained after the registration of the continuation management service.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
@@ -343,7 +343,7 @@ declare namespace continuationManager {
    * @permission ohos.permission.DISTRIBUTED_DATASYNC
    * @param { AsyncCallback<number> } callback - Callback used to return the token generated after the continuation
    *     management service is connected.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
@@ -364,7 +364,7 @@ declare namespace continuationManager {
    * @param { ContinuationExtraParams } options - Extra parameters used to filter the list of available devices.
    * @param { AsyncCallback<number> } callback - Callback used to return the token generated after the continuation
    *     management service is connected.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
@@ -385,7 +385,7 @@ declare namespace continuationManager {
    *     parameter can be null.
    * @returns { Promise<number> } Promise used to return the token generated after the continuation management service is
    *     connected.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
    *     <br>2. Parameter verification failed;
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
@@ -405,7 +405,7 @@ declare namespace continuationManager {
    * @param { number } token - Token obtained after the registration of the continuation management service.
    * @param { AsyncCallback<void> } callback - Callback used to return the result. If the unregistration is successful,
    *     **err** is **undefined**; otherwise, **err** is an error object.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
@@ -424,7 +424,7 @@ declare namespace continuationManager {
    * @permission ohos.permission.DISTRIBUTED_DATASYNC
    * @param { number } token - Token obtained after the registration of the continuation management service.
    * @returns { Promise<void> } Promise used to return the result.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
@@ -447,7 +447,7 @@ declare namespace continuationManager {
    * @param { DeviceConnectState } status - Device connection state.
    * @param { AsyncCallback<void> } callback - Callback used to return the result. If the state is updated, **err** is
    *     **undefined**; otherwise, **err** is an error object.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
@@ -474,7 +474,7 @@ declare namespace continuationManager {
    * @param { string } deviceId - Device ID.
    * @param { DeviceConnectState } status - Device connection state.
    * @returns { Promise<void> } Promise used to return the result.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
@@ -495,7 +495,7 @@ declare namespace continuationManager {
    * @param { number } token - Token obtained after the registration of the continuation management service.
    * @param { AsyncCallback<void> } callback - Callback used to return the result. If the module is started, **err** is
    *     **undefined**; otherwise, **err** is an error object.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
@@ -517,7 +517,7 @@ declare namespace continuationManager {
    * @param { ContinuationExtraParams } options - Extra parameters used to filter the list of available devices.
    * @param { AsyncCallback<void> } callback - Callback used to return the result. If the module is started, **err** is
    *     **undefined**; otherwise, **err** is an error object.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
@@ -543,7 +543,7 @@ declare namespace continuationManager {
    * @param { ContinuationExtraParams } [options] - Extra parameters used to filter the list of available devices. This
    *     parameter can be null.
    * @returns { Promise<void> } Promise used to return the result.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
    *     <br>2. Parameter verification failed;
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
