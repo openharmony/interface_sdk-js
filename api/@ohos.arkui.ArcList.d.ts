@@ -118,23 +118,23 @@ export interface ArcListInterface {
 }
 
 /**
- * The **ArcListItem** component is used to display individual child components in an
- * [ArcList]{@link @ohos.arkui.ArcList} component and must be used in conjunction with **ArcList**.
+ * A child component used to display items in an arc list. It must be used in conjunction with
+ * [ArcList]{@link @ohos.arkui.ArcList}.
  *
  * > **NOTE**
- *
- * > - This component can be used only as a child of [ArcList]{@link @ohos.arkui.ArcList}.
  * >
- * > - When this component is used with
+ * > - The parent component of this component can only be [ArcList]{@link @ohos.arkui.ArcList}.
+ * >
+ * > - When **ArcListItem** is used with
  * > [LazyForEach](docroot://ui/rendering-control/arkts-rendering-control-lazyforeach.md), its child components are
- * > created when it is created. When this component is used with
+ * > created when **ArcListItem** is created. When it is used with
  * > [if/else](docroot://ui/rendering-control/arkts-rendering-control-ifelse.md) or
- * > [ForEach](docroot://ui/rendering-control/arkts-rendering-control-foreach.md), or when the parent component is
- * > [ArcList]{@link @ohos.arkui.ArcList}, its child components are created when it is laid out.
+ * > [ForEach](docroot://ui/rendering-control/arkts-rendering-control-foreach.md), or directly as a child component of
+ * > the [ArcList]{@link @ohos.arkui.ArcList} component, its child components are created when **ArcListItem** is laid
+ * > out.
  * >
- * > - This component can be used on phones, PCs, 2-in-1 devices, tablets, TVs, and wearables. In API version 22 and
- * > earlier versions, a compilation warning will be reported when this component is used on phones, PCs, 2-in-1 devices
- * > , tablets, and TVs, but the component can still run properly.
+ * > - This component can be used on Phone, PC/2in1, Tablet, TV, and Wearable devices. In API version 22 and earlier,
+ * > using it on Phone, PC/2in1, Tablet, and TV generates a compilation warning, but it can run normally.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
@@ -491,7 +491,7 @@ export declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
 }
 
 /**
- * In addition to the [universal attributes]{@link common}, the following attributes are
+ * In addition to the [universal attributes]{@link ./@internal/component/ets/common}, the following attributes are
  * supported.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
@@ -503,10 +503,12 @@ export declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
 export declare class ArcListItemAttribute extends CommonMethod<ArcListItemAttribute> {
 
   /**
-   * Sets whether to enable auto-scaling for the **ArcListItem** component.
+   * Sets whether to automatically scale the **ArcListItem**. When enabled, the **ArcListItem** automatically adjusts
+   * its display size based on its position in the arc list.
    *
-   * @param { Optional<boolean> } enable - Whether to enable auto-scaling.<br>**true**: Enable auto-scaling.<br>
-   *     **false**: Disable auto-scaling.<br>Default value: **true**.
+   * @param { Optional<boolean> } enable - Whether ArcListItem supports automatic scaling display. The value true means
+   *     supported, and false means not supported.
+   *     <br>Default value: true, automatic scaling display is supported.
    * @returns { ArcListItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -516,10 +518,11 @@ export declare class ArcListItemAttribute extends CommonMethod<ArcListItemAttrib
   autoScale(enable: Optional<boolean>): ArcListItemAttribute;
 
   /**
-   * Sets the swipe action item displayed when the **ArcListItem** component is swiped out from the screen edge.
+   * Sets the swipe action of the **ArcListItem**.
    *
-   * @param { Optional<SwipeActionOptions> } options - Swipe action item displayed when the **ArcListItem** component is
-   *     swiped out from the screen edge.
+   * @param { Optional<SwipeActionOptions> } options - Configuration options for the swipe-out operation of
+   *     **ArcListItem**. For details, see **SwipeActionOptions**. If this parameter is not set, no swipe-out operation
+   *     is configured.
    * @returns { ArcListItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -598,23 +601,23 @@ export declare const ArcListItemInstance: ArcListItemAttribute;
 export declare const ArcList: ArcListInterface;
 
 /**
- * The **ArcListItem** component is used to display individual child components in an
- * [ArcList]{@link @ohos.arkui.ArcList} component and must be used in conjunction with **ArcList**.
+ * A child component used to display items in an arc list. It must be used in conjunction with
+ * [ArcList]{@link @ohos.arkui.ArcList}.
  *
  * > **NOTE**
- *
- * > - This component can be used only as a child of [ArcList]{@link @ohos.arkui.ArcList}.
  * >
- * > - When this component is used with
+ * > - The parent component of this component can only be [ArcList]{@link @ohos.arkui.ArcList}.
+ * >
+ * > - When **ArcListItem** is used with
  * > [LazyForEach](docroot://ui/rendering-control/arkts-rendering-control-lazyforeach.md), its child components are
- * > created when it is created. When this component is used with
+ * > created when **ArcListItem** is created. When it is used with
  * > [if/else](docroot://ui/rendering-control/arkts-rendering-control-ifelse.md) or
- * > [ForEach](docroot://ui/rendering-control/arkts-rendering-control-foreach.md), or when the parent component is
- * > [ArcList]{@link @ohos.arkui.ArcList}, its child components are created when it is laid out.
+ * > [ForEach](docroot://ui/rendering-control/arkts-rendering-control-foreach.md), or directly as a child component of
+ * > the [ArcList]{@link @ohos.arkui.ArcList} component, its child components are created when **ArcListItem** is laid
+ * > out.
  * >
- * > - This component can be used on phones, PCs, 2-in-1 devices, tablets, TVs, and wearables. In API version 22 and
- * > earlier versions, a compilation warning will be reported when this component is used on phones, PCs, 2-in-1 devices
- * > , tablets, and TVs, but the component can still run properly.
+ * > - This component can be used on Phone, PC/2in1, Tablet, TV, and Wearable devices. In API version 22 and earlier,
+ * > using it on Phone, PC/2in1, Tablet, and TV generates a compilation warning, but it can run normally.
  *
  * ###### Child Components
  *

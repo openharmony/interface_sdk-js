@@ -222,71 +222,69 @@ declare interface ListItemGroupOptions {
 }
 
 /**
- * The **ListItemGroup** component is used to display list item groups. It must be used with the [List]{@link list}
- * component. Unless specified otherwise, it spans the entire width of the **List** component.
+ * This component is used to display list item groups. It supports custom group header and footer areas, card style,
+ * dividers, lazy loading, and preloading. It is suitable for scenarios where list items need to be logically grouped
+ * for display. By default, it spans the entire width of the [List]{@link ./list} component and must be used with the
+ * **List** component.
  *
  * Lazy loading of **ListItemGroup** loads the child components in the visible area as required. Compared with full
- * loading, lazy loading can improve the application startup speed and reduce the memory usage. The lazy loading
- * capabilities vary when the **ListItemGroup** component is used together with
- * [ForEach](docroot://ui/rendering-control/arkts-rendering-control-foreach.md),
- * [LazyForEach](docroot://ui/rendering-control/arkts-rendering-control-lazyforeach.md), or
- * [Repeat](docroot://ui/rendering-control/arkts-new-rendering-control-repeat.md).
+ * loading, lazy loading can improve the app startup speed and reduce the memory usage. When **ListItemGroup** is used
+ * together with [ForEach](docroot://ui/rendering-control/arkts-rendering-control-foreach.md),
+ * [LazyForEach](docroot://ui/rendering-control/arkts-rendering-control-lazyforeach.md), and
+ * [Repeat](docroot://ui/rendering-control/arkts-new-rendering-control-repeat.md), the lazy loading capabilities differ
+ * as follows:
  *
  * - When **ListItemGroup** is used together with **ForEach**, all child nodes are created at a time. The nodes within
  * the screen range are laid out and rendered when needed. When a user swipes, the nodes that are out of the screen
- * range are not removed from the tree, and the nodes that are within the screen range are laid out and rendered.
+ * range are not removed from the tree, and the nodes that enter the screen range are laid out and rendered.
  * - When **ListItemGroup** is used together with **LazyForEach**, all nodes within the screen range are created, laid
  * out, and rendered at a time. When a user swipes, the nodes that are out of the screen range are removed from the
- * tree, and the nodes that are within the screen range are created, laid out, and rendered.
+ * tree, and the nodes that enter the screen range are created, laid out, and rendered.
  * - When the **ListItemGroup** component is used together with **Repeat** with
  * [virtualScroll]{@link RepeatAttribute#virtualScroll}, the lazy loading behavior is the same as that of
  * **LazyForEach**. When the **ListItemGroup** component is used together with **Repeat** without **virtualScroll**, the
  * lazy loading behavior is the same as that of **ForEach**.
  *
- * Preloading in **ListItemGroup** refers to loading not only the visible child components within the display area but
- * also some invisible child components outside the display area during idle time. Preloading can reduce frame loss
- * during scrolling and improve smoothness. Preloading takes effect only when lazy loading is used. The preloading
- * capabilities vary when the **ListItemGroup** component is used together with
+ * Preloading in **ListItemGroup** refers to loading not only the child components within the display area but also some
+ * child components outside the display area in advance during idle time slots. Preloading can reduce frame drops during
+ * scrolling and improve smoothness. Preloading takes effect only when combined with lazy loading. When the
+ * **ListItemGroup** component is used together with
  * [ForEach](docroot://ui/rendering-control/arkts-rendering-control-foreach.md),
- * [LazyForEach](docroot://ui/rendering-control/arkts-rendering-control-lazyforeach.md), or
- * [Repeat](docroot://ui/rendering-control/arkts-new-rendering-control-repeat.md).
+ * [LazyForEach](docroot://ui/rendering-control/arkts-rendering-control-lazyforeach.md), and
+ * [Repeat](docroot://ui/rendering-control/arkts-new-rendering-control-repeat.md), the preloading capabilities differ:
  *
  * - When the **ListItemGroup** component is used together with **ForEach** and
  * [cachedCount]{@link ListAttribute#cachedCount(value: number)} is set, in addition to laying out child components
- * within the display area, child components within the range of **cachedCount** outside the display area are pre-laid
- * out during idle time based on the **cachedCount** attribute of the **List** component.
+ * within the display area, child components outside the display area within the range specified by the **cachedCount**
+ * attribute of the **List** component are pre-laid out during idle time slots.
  * - When the **ListItemGroup** component is used together with **LazyForEach** and
  * [cachedCount]{@link ListAttribute#cachedCount(value: number)} is set, in addition to creating and laying out child
- * components within the display area, child components within the range of **cachedCount** outside the display area are
- * created and pre-laid out during idle time based on the **cachedCount** attribute of the **List** component.
+ * components within the display area, child components outside the display area within the range specified by the
+ * **cachedCount** attribute of the **List** component are pre-created and pre-laid out during idle time slots.
  * - When the **ListItemGroup** component is used together with **Repeat** with
  * [virtualScroll]{@link RepeatAttribute#virtualScroll}, the preloading behavior is the same as that of **LazyForEach**.
  * When the **ListItemGroup** component is used together with **Repeat** without **virtualScroll**, the preloading
  * behavior is the same as that of **ForEach**.
  *
  * > **NOTE**
- *
- * > - This component can be used only as a child of [List]{@link list}.
  * >
- * > - The **ListItemGroup** component does not support the universal attribute
- * > [aspectRatio]{@link CommonMethod#aspectRatio}.
+ * > - The parent component of this component can only be [List]{@link ./list}.
  * >
- * > - If the parent **List** component of **ListItemGroup** has its [listDirection]{@link ListAttribute#listDirection}
- * > attribute set to **Axis.Vertical**, setting the
- * > [universal attribute height]{@link CommonMethod#height(value: Length)} has no effect. In this case, the height of
- * > the **ListItemGroup** component is fixed at the sum of the component's header height, footer height, and total
- * > height of the list items.
+ * > - The **ListItemGroup** component does not support the
+ * > [universal attribute aspectRatio]{@link CommonMethod#aspectRatio}.
  * >
- * > - If the parent **List** component of **ListItemGroup** has its **listDirection** attribute set to
- * > **Axis.Horizontal**, setting the [universal attribute width]{@link CommonMethod#width(value: Length)} has no
- * > effect. In this case, the width of the **ListItemGroup** component is fixed at the sum of the component's header
- * > width, footer width, and total width of the list items.
+ * > - When the [listDirection]{@link ListAttribute#listDirection} attribute of the parent **List** component is
+ * > **Axis.Vertical**, setting the [universal attribute height]{@link CommonMethod#height(value: Length)} does not take
+ * > effect. The height of the **ListItemGroup** is the sum of the header height, footer height, and the total height of
+ * > all **ListItem** components after layout.
  * >
- * > - The list items in the **ListItemGroup** component cannot be edited or dragged. This means that their
- * > [editable]{@link ListItemAttribute#editable} attribute does not take effect.
+ * > - When the **listDirection** attribute of the parent **List** component is **Axis.Horizontal**, setting the
+ * > [universal attribute width]{@link CommonMethod#width(value: Length)} does not take effect. The width of the
+ * > **ListItemGroup** is the sum of the header width, footer width, and the total width of all **ListItem** components
+ * > after layout.
  * >
- * > - The **ListItemGroup** ignores the **direction** attribute for setting the layout direction; instead, it adopts
- * > the layout direction of its parent **List** component.
+ * > - Setting the layout direction through the **direction** attribute of the **ListItemGroup** does not take effect.
+ * > The layout direction of the **ListItemGroup** component follows that of the parent **List** component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -298,9 +296,11 @@ declare interface ListItemGroupOptions {
 interface ListItemGroupInterface {
 
   /**
-   * Creates a **ListItemGroup** component.
+   * Creates a **ListItemGroup** component. The parent component of this component can only be **List**.
    *
-   * @param { ListItemGroupOptions } options - Parameters of the list item group.
+   * @param { ListItemGroupOptions } options - Parameters of the **ListItemGroup** component, used to configure the
+   *     header, footer, spacing, and style. If not passed, the default configuration is used (no header or footer,
+   *     spacing of 0, and no card style).
    * @returns { ListItemGroupAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -326,18 +326,20 @@ declare class ListItemGroupAttribute extends CommonMethod<ListItemGroupAttribute
   /**
    * Sets the style of the divider for the list items. By default, there is no divider.
    *
-   * strokeWidth, startMargin, and endMargin cannot be set in percentage.
+   * **strokeWidth**, **startMargin**, and **endMargin** cannot be set in percentage.
    *
-   * When a list item has polymorphic styles applied, the dividers above and below the pressed
-   * child component are not rendered.
+   * When a list item has [polymorphic styles]{@link ./common} applied, the dividers above and below the pressed child
+   * component are not rendered.
    *
    * @param { {
    *     strokeWidth: Length;
    *     color?: ResourceColor;
    *     startMargin?: Length;
    *     endMargin?: Length;
-   *     } | null } value [since 9 - 17]
-   * @param { ListDividerOptions | null } value [since 18]
+   *     } | null } value - Style of the divider for the list items.
+   *     <br> Default value: **null** [since 9 - 17]
+   * @param { ListDividerOptions | null } value - Style of the divider for the list items.
+   *     <br> Default value: **null** [since 18]
    * @returns { ListItemGroupAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -354,8 +356,10 @@ declare class ListItemGroupAttribute extends CommonMethod<ListItemGroupAttribute
    *
    * > **NOTE**
    * >
-   * > - The **childrenMainSize** attribute of the **List** component must be set at the same time for the attribute to
-   * > take effect.
+   * > - When the child components of a **List** component include **ListItemGroup**, the **childrenMainSize** attribute
+   * > must be set for both the **List** component and each **ListItemGroup** component. **ListItemGroup** provides the
+   * > size information of its child components along the main axis through this attribute, so that the
+   * > **childrenMainSize** attribute of the **List** component can take effect properly.
    *
    * @param { ChildrenMainSize } value - Size information of child components in the main axis direction.
    * @returns { ListItemGroupAttribute } the attribute of the ListItemGroup.
@@ -381,75 +385,73 @@ declare class ListItemGroupAttribute extends CommonMethod<ListItemGroupAttribute
 declare const ListItemGroupInstance: ListItemGroupAttribute;
 
 /**
- * The **ListItemGroup** component is used to display list item groups. It must be used with the [List]{@link list}
- * component. Unless specified otherwise, it spans the entire width of the **List** component.
+ * This component is used to display list item groups. It supports custom group header and footer areas, card style,
+ * dividers, lazy loading, and preloading. It is suitable for scenarios where list items need to be logically grouped
+ * for display. By default, it spans the entire width of the [List]{@link ./list} component and must be used with the
+ * **List** component.
  *
  * Lazy loading of **ListItemGroup** loads the child components in the visible area as required. Compared with full
- * loading, lazy loading can improve the application startup speed and reduce the memory usage. The lazy loading
- * capabilities vary when the **ListItemGroup** component is used together with
- * [ForEach](docroot://ui/rendering-control/arkts-rendering-control-foreach.md),
- * [LazyForEach](docroot://ui/rendering-control/arkts-rendering-control-lazyforeach.md), or
- * [Repeat](docroot://ui/rendering-control/arkts-new-rendering-control-repeat.md).
+ * loading, lazy loading can improve the app startup speed and reduce the memory usage. When **ListItemGroup** is used
+ * together with [ForEach](docroot://ui/rendering-control/arkts-rendering-control-foreach.md),
+ * [LazyForEach](docroot://ui/rendering-control/arkts-rendering-control-lazyforeach.md), and
+ * [Repeat](docroot://ui/rendering-control/arkts-new-rendering-control-repeat.md), the lazy loading capabilities differ
+ * as follows:
  *
  * - When **ListItemGroup** is used together with **ForEach**, all child nodes are created at a time. The nodes within
  * the screen range are laid out and rendered when needed. When a user swipes, the nodes that are out of the screen
- * range are not removed from the tree, and the nodes that are within the screen range are laid out and rendered.
+ * range are not removed from the tree, and the nodes that enter the screen range are laid out and rendered.
  * - When **ListItemGroup** is used together with **LazyForEach**, all nodes within the screen range are created, laid
  * out, and rendered at a time. When a user swipes, the nodes that are out of the screen range are removed from the
- * tree, and the nodes that are within the screen range are created, laid out, and rendered.
+ * tree, and the nodes that enter the screen range are created, laid out, and rendered.
  * - When the **ListItemGroup** component is used together with **Repeat** with
  * [virtualScroll]{@link RepeatAttribute#virtualScroll}, the lazy loading behavior is the same as that of
  * **LazyForEach**. When the **ListItemGroup** component is used together with **Repeat** without **virtualScroll**, the
  * lazy loading behavior is the same as that of **ForEach**.
  *
- * Preloading in **ListItemGroup** refers to loading not only the visible child components within the display area but
- * also some invisible child components outside the display area during idle time. Preloading can reduce frame loss
- * during scrolling and improve smoothness. Preloading takes effect only when lazy loading is used. The preloading
- * capabilities vary when the **ListItemGroup** component is used together with
+ * Preloading in **ListItemGroup** refers to loading not only the child components within the display area but also some
+ * child components outside the display area in advance during idle time slots. Preloading can reduce frame drops during
+ * scrolling and improve smoothness. Preloading takes effect only when combined with lazy loading. When the
+ * **ListItemGroup** component is used together with
  * [ForEach](docroot://ui/rendering-control/arkts-rendering-control-foreach.md),
- * [LazyForEach](docroot://ui/rendering-control/arkts-rendering-control-lazyforeach.md), or
- * [Repeat](docroot://ui/rendering-control/arkts-new-rendering-control-repeat.md).
+ * [LazyForEach](docroot://ui/rendering-control/arkts-rendering-control-lazyforeach.md), and
+ * [Repeat](docroot://ui/rendering-control/arkts-new-rendering-control-repeat.md), the preloading capabilities differ:
  *
  * - When the **ListItemGroup** component is used together with **ForEach** and
  * [cachedCount]{@link ListAttribute#cachedCount(value: number)} is set, in addition to laying out child components
- * within the display area, child components within the range of **cachedCount** outside the display area are pre-laid
- * out during idle time based on the **cachedCount** attribute of the **List** component.
+ * within the display area, child components outside the display area within the range specified by the **cachedCount**
+ * attribute of the **List** component are pre-laid out during idle time slots.
  * - When the **ListItemGroup** component is used together with **LazyForEach** and
  * [cachedCount]{@link ListAttribute#cachedCount(value: number)} is set, in addition to creating and laying out child
- * components within the display area, child components within the range of **cachedCount** outside the display area are
- * created and pre-laid out during idle time based on the **cachedCount** attribute of the **List** component.
+ * components within the display area, child components outside the display area within the range specified by the
+ * **cachedCount** attribute of the **List** component are pre-created and pre-laid out during idle time slots.
  * - When the **ListItemGroup** component is used together with **Repeat** with
  * [virtualScroll]{@link RepeatAttribute#virtualScroll}, the preloading behavior is the same as that of **LazyForEach**.
  * When the **ListItemGroup** component is used together with **Repeat** without **virtualScroll**, the preloading
  * behavior is the same as that of **ForEach**.
  *
  * > **NOTE**
- *
- * > - This component can be used only as a child of [List]{@link list}.
  * >
- * > - The **ListItemGroup** component does not support the universal attribute
- * > [aspectRatio]{@link CommonMethod#aspectRatio}.
+ * > - The parent component of this component can only be [List]{@link ./list}.
  * >
- * > - If the parent **List** component of **ListItemGroup** has its [listDirection]{@link ListAttribute#listDirection}
- * > attribute set to **Axis.Vertical**, setting the
- * > [universal attribute height]{@link CommonMethod#height(value: Length)} has no effect. In this case, the height of
- * > the **ListItemGroup** component is fixed at the sum of the component's header height, footer height, and total
- * > height of the list items.
+ * > - The **ListItemGroup** component does not support the
+ * > [universal attribute aspectRatio]{@link CommonMethod#aspectRatio}.
  * >
- * > - If the parent **List** component of **ListItemGroup** has its **listDirection** attribute set to
- * > **Axis.Horizontal**, setting the [universal attribute width]{@link CommonMethod#width(value: Length)} has no
- * > effect. In this case, the width of the **ListItemGroup** component is fixed at the sum of the component's header
- * > width, footer width, and total width of the list items.
+ * > - When the [listDirection]{@link ListAttribute#listDirection} attribute of the parent **List** component is
+ * > **Axis.Vertical**, setting the [universal attribute height]{@link CommonMethod#height(value: Length)} does not take
+ * > effect. The height of the **ListItemGroup** is the sum of the header height, footer height, and the total height of
+ * > all **ListItem** components after layout.
  * >
- * > - The list items in the **ListItemGroup** component cannot be edited or dragged. This means that their
- * > [editable]{@link ListItemAttribute#editable} attribute does not take effect.
+ * > - When the **listDirection** attribute of the parent **List** component is **Axis.Horizontal**, setting the
+ * > [universal attribute width]{@link CommonMethod#width(value: Length)} does not take effect. The width of the
+ * > **ListItemGroup** is the sum of the header width, footer width, and the total width of all **ListItem** components
+ * > after layout.
  * >
- * > - The **ListItemGroup** ignores the **direction** attribute for setting the layout direction; instead, it adopts
- * > the layout direction of its parent **List** component.
+ * > - Setting the layout direction through the **direction** attribute of the **ListItemGroup** does not take effect.
+ * > The layout direction of the **ListItemGroup** component follows that of the parent **List** component.
  *
  * ###### Child Components
  *
- * Contains the [ListItem]{@link list_item} child component. Child components can be dynamically generated using
+ * Contains the [ListItem]{@link ./list_item} child component. Child components can be dynamically generated using
  * rendering control types [if/else](docroot://ui/rendering-control/arkts-rendering-control-ifelse.md),
  * [ForEach](docroot://ui/rendering-control/arkts-rendering-control-foreach.md),
  * [LazyForEach](docroot://ui/rendering-control/arkts-rendering-control-lazyforeach.md), and
