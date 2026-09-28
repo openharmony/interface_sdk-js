@@ -344,8 +344,8 @@ declare namespace inputEventClient {
      * @permission ohos.permission.CONTROL_DEVICE
      * @param { KeyCode } keyCode - Key code of the key to be pressed.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
-     *     required to call the API.
+     * @throws { BusinessError } 201 - Permission verification failed.
+     *     The application does not have the permission required to call the API.
      * @throws { BusinessError } 4300001 - The key is already pressed and is not the most recently
      *     pressed key.
      * @throws { BusinessError } 3800001 - Input service exception.
@@ -361,8 +361,8 @@ declare namespace inputEventClient {
      * @permission ohos.permission.CONTROL_DEVICE
      * @param { KeyCode } keyCode - Key code of the key to be released.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
-     *     required to call the API.
+     * @throws { BusinessError } 201 - Permission verification failed.
+     *     The application does not have the permission required to call the API.
      * @throws { BusinessError } 4300001 - The key is not pressed.
      * @throws { BusinessError } 3800001 - Input service exception.
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
@@ -414,8 +414,8 @@ declare namespace inputEventClient {
      * @param { int } displayY - Y coordinate relative to the top edge of the display, in px. If the value exceeds the
      *     valid range of the display, the actual coordinate will be clamped to the valid range [0, display height - 1].
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
-     *     required to call the API.
+     * @throws { BusinessError } 201 - Permission verification failed.
+     *     The application does not have the permission required to call the API.
      * @throws { BusinessError } 4300002 - The display does not exist.
      * @throws { BusinessError } 3800001 - Input service exception.
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
@@ -430,8 +430,8 @@ declare namespace inputEventClient {
      * @permission ohos.permission.CONTROL_DEVICE
      * @param { Button } button - Mouse button to be pressed.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
-     *     required to call the API.
+     * @throws { BusinessError } 201 - Permission verification failed.
+     *     The application does not have the permission required to call the API.
      * @throws { BusinessError } 4300001 - The mouse button is already pressed.
      * @throws { BusinessError } 3800001 - Input service exception.
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
@@ -446,8 +446,8 @@ declare namespace inputEventClient {
      * @permission ohos.permission.CONTROL_DEVICE
      * @param { Button } button - Mouse button to be released.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
-     *     required to call the API.
+     * @throws { BusinessError } 201 - Permission verification failed.
+     *     The application does not have the permission required to call the API.
      * @throws { BusinessError } 4300001 - The mouse button is not pressed.
      * @throws { BusinessError } 3800001 - Input service exception.
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
@@ -463,8 +463,8 @@ declare namespace inputEventClient {
      * @param { Axis } axis - Axis type.
      * @param { int } value - Axis value.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
-     *     required to call the API.
+     * @throws { BusinessError } 201 - Permission verification failed.
+     *     The application does not have the permission required to call the API.
      * @throws { BusinessError } 4300001 - The axis event is in progress.
      * @throws { BusinessError } 3800001 - Input service exception.
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
@@ -480,8 +480,8 @@ declare namespace inputEventClient {
      * @param { Axis } axis - Axis type.
      * @param { int } value - Axis value.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
-     *     required to call the API.
+     * @throws { BusinessError } 201 - Permission verification failed.
+     *     The application does not have the permission required to call the API.
      * @throws { BusinessError } 4300001 - The axis event is not in progress.
      * @throws { BusinessError } 3800001 - Input service exception.
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
@@ -496,8 +496,8 @@ declare namespace inputEventClient {
      * @permission ohos.permission.CONTROL_DEVICE
      * @param { Axis } axis - Axis type.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
-     *     required to call the API.
+     * @throws { BusinessError } 201 - Permission verification failed.
+     *     The application does not have the permission required to call the API.
      * @throws { BusinessError } 4300001 - The axis event is not in progress.
      * @throws { BusinessError } 3800001 - Input service exception.
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator

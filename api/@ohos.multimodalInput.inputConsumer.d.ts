@@ -364,8 +364,6 @@ declare namespace inputConsumer {
    * @param { KeyCommandCallback } callback - Callback function, which returns the key combination options and key
    *     event data.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
@@ -415,8 +413,6 @@ declare namespace inputConsumer {
    *     specified, all callback functions subscribed to by the current app for the key combination options are
    *     unsubscribed from.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
