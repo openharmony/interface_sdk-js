@@ -258,8 +258,12 @@ declare namespace huksExternalCrypto {
    *     [HUKS_EXT_CRYPTO_TAG_ABILITY_INFO]{@link huksExternalCrypto.HuksExternalCryptoTagType}，以JSON列表的形式传入PIN码认证自定义弹窗
    *     UIExtensionAbility的名字以及包名。
    * @returns { Promise<void> } Promise对象，无返回结果。
-   * @throws { BusinessError } 201 - check permission failed.
-   * @throws { BusinessError } 801 - api is not supported.
+   * @throws { BusinessError } 201 - Permission verification failed: call the registerProvider API,
+   *     missing Permission: ohos.permission.CRYPTO_EXTENSION_REGISTER.
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability.
+   *     2. The chip does not support the capability.
+   *     3. A dependent service feature is not supported.
    * @throws { BusinessError } 12000002 - the ability name param is missing.
    * @throws { BusinessError } 12000005 - IPC communication failed.
    * @throws { BusinessError } 12000014 - memory is insufficient.
@@ -284,8 +288,12 @@ declare namespace huksExternalCrypto {
    *     [HUKS_EXT_CRYPTO_TAG_ABILITY_NAME]{@link huksExternalCrypto.HuksExternalCryptoTagType}，或者未传入params参数，则注销对应的
    *     providerName下的所有Provider。
    * @returns { Promise<void> } Promise对象，无返回结果。
-   * @throws { BusinessError } 201 - check permission failed.
-   * @throws { BusinessError } 801 - api is not supported.
+   * @throws { BusinessError } 201 - Permission verification failed: call the unregisterProvider API,
+   *     missing Permission: ohos.permission.CRYPTO_EXTENSION_REGISTER.
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability.
+   *     2. The chip does not support the capability.
+   *     3. A dependent service feature is not supported.
    * @throws { BusinessError } 12000005 - IPC communication failed.
    * @throws { BusinessError } 12000011 - the provider is not found.
    * @throws { BusinessError } 12000012 - Device environment or input parameter is abnormal.
@@ -309,7 +317,10 @@ declare namespace huksExternalCrypto {
    * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 202 - The caller is not a system application
    *     and is not allowed to use system applications.
-   * @throws { BusinessError } 801 - api is not supported.
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability.
+   *     2. The chip does not support the capability.
+   *     3. A dependent service feature is not supported.
    * @throws { BusinessError } 12000005 - IPC communication failed.
    * @throws { BusinessError } 12000006 - the UKey driver operation failed.
    * @throws { BusinessError } 12000011 - queried entity does not exist.
@@ -337,7 +348,10 @@ declare namespace huksExternalCrypto {
    *     [HUKS_EXT_CRYPTO_TAG_UID]{@link huksExternalCrypto.HuksExternalCryptoTagType}是非法参数。
    * @returns { Promise<HuksExternalPinAuthState> } Promise对象，返回认证结果。
    *     <br>HUKS_EXT_CRYPTO_PIN_NO_AUTH 表示未认证；HUKS_EXT_CRYPTO_PIN_AUTH_SUCCEEDED 表示认证成功；HUKS_EXT_CRYPTO_PIN_LOCKED 表示PIN被锁定。
-   * @throws { BusinessError } 801 - api is not supported.
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability.
+   *     2. The chip does not support the capability.
+   *     3. A dependent service feature is not supported.
    * @throws { BusinessError } 12000005 - IPC communication failed.
    * @throws { BusinessError } 12000006 - the UKey driver operation failed.
    * @throws { BusinessError } 12000011 - queried entity does not exist. This may happen
@@ -358,7 +372,10 @@ declare namespace huksExternalCrypto {
    *
    * @param { string } resourceId - 资源ID。
    * @returns { Promise<void> } Promise对象，无返回结果。
-   * @throws { BusinessError } 801 - API is not supported.
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability.
+   *     2. The chip does not support the capability.
+   *     3. A dependent service feature is not supported.
    * @throws { BusinessError } 12000005 - IPC communication failed.
    * @throws { BusinessError } 12000006 - Failed to call the UKey driver interface.
    *     Please check the UKey connection and driver status.
@@ -396,7 +413,10 @@ declare namespace huksExternalCrypto {
    *     [HUKS_EXT_CRYPTO_TAG_UID]{@link huksExternalCrypto.HuksExternalCryptoTagType}是非法参数。
    * @returns { Promise<Array<HuksExternalCryptoParam>> } Promise对象，返回调用接口的结果。当调用成功时，返回结果为HuksExternalCryptoParam类型的数组，包
    *     含要查询的属性。
-   * @throws { BusinessError } 801 - API is not supported.
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability.
+   *     2. The chip does not support the capability.
+   *     3. A dependent service feature is not supported.
    * @throws { BusinessError } 12000005 - IPC communication failed.
    * @throws { BusinessError } 12000006 - If the UKey driver operation failed. Possible causes:
    *     1. Error reported when the provider accesses the SKF interface of UKey.
@@ -430,7 +450,10 @@ declare namespace huksExternalCrypto {
    *     [Extension Ability]{@link @ohos.security.CryptoExtensionAbility}的输入参数。非系统应用传入
    *     [HUKS_EXT_CRYPTO_TAG_UID]{@link huksExternalCrypto.HuksExternalCryptoTagType}是非法参数。
    * @returns { Promise<void> } Promise对象，返回调用接口的结果。
-   * @throws { BusinessError } 801 - API is not supported.
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability.
+   *     2. The chip does not support the capability.
+   *     3. A dependent service feature is not supported.
    * @throws { BusinessError } 12000005 - IPC communication failed.
    * @throws { BusinessError } 12000006 - Failed to call the UKey driver interface.
    *     Please check the UKey connection and driver status.
@@ -461,7 +484,10 @@ declare namespace huksExternalCrypto {
    *     [HUKS_EXT_CRYPTO_TAG_BUNDLE_NAME]{@link huksExternalCrypto.HuksExternalCryptoTagType}、
    *     [HUKS_EXT_CRYPTO_TAG_RESOURCE_INFO]{@link huksExternalCrypto.HuksExternalCryptoTagType}。
    * @returns { Promise<string> } Promise对象，返回资源ID。
-   * @throws { BusinessError } 801 - API is not supported.
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability.
+   *     2. The chip does not support the capability.
+   *     3. A dependent service feature is not supported.
    * @throws { BusinessError } 12000002 - The ability name, bundle name parameter or resource information is missing.
    * @throws { BusinessError } 12000005 - IPC communication failed.
    * @throws { BusinessError } 12000011 - The provider is not found.
@@ -493,7 +519,10 @@ declare namespace huksExternalCrypto {
    * @param { HuksExternalCryptoParam[] } [params] - 需要传递给
    *     [Extension Ability]{@link @ohos.security.CryptoExtensionAbility}的输入参数。不传入时，不向Extension Ability传递额外参数。
    * @returns { Promise<void> } Promise对象，无返回结果。
-   * @throws { BusinessError } 801 - API is not supported.
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability.
+   *     2. The chip does not support the capability.
+   *     3. A dependent service feature is not supported.
    * @throws { BusinessError } 12000005 - IPC communication failed.
    * @throws { BusinessError } 12000006 - Failed to call the UKey driver interface.
    *     Please check the UKey connection and driver status.
@@ -531,7 +560,10 @@ declare namespace huksExternalCrypto {
    * @param { HuksExternalCryptoParam[] } [params] - 需要传递给
    *     [Extension Ability]{@link @ohos.security.CryptoExtensionAbility}的输入参数。不传入时，不向Extension Ability传递额外参数。
    * @returns { Promise<void> } Promise对象，无返回结果。
-   * @throws { BusinessError } 801 - API is not supported.
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability.
+   *     2. The chip does not support the capability.
+   *     3. A dependent service feature is not supported.
    * @throws { BusinessError } 12000005 - IPC communication failed.
    * @throws { BusinessError } 12000006 - Failed to call the UKey driver interface.
    *     Please check the UKey connection and driver status.

@@ -81,13 +81,16 @@ declare namespace huks {
    * @param { HuksOptions } options - 用于存放生成key所需TAG。其中密钥使用的算法、密钥用途、密钥长度为必选参数。
    *     指定[HuksKeySecurityLevel]{@link huks.HuksKeySecurityLevel}中定义的SE安全级别时，需要ohos.permission.ACCESS_SE_KEY权限。
    * @param { AsyncCallback<void> } callback - 回调函数。当生成密钥成功时，err为undefined，否则为错误对象。
-   * @throws { BusinessError } 201 - The application permissions are insufficient, possibly because
-   *     the ohos.permission.ACCESS_SE_KEY permission is missing. [since 26.0.0]
+   * @throws { BusinessError } 201 - Permission verification failed: call the generateKeyItem API, missing Permission:
+   *     ohos.permission.ACCESS_SE_KEY. [since 26.0.0]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    *     3. Parameter verification failed.
-   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability.
+   *     2. The chip does not support the capability.
+   *     3. A dependent service feature is not supported.
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
    * @throws { BusinessError } 12000003 - algorithm param is invalid
@@ -127,13 +130,16 @@ declare namespace huks {
    * @param { HuksOptions } options - 用于存放生成key所需TAG。其中密钥使用的算法、密钥用途、密钥长度为必选参数。
    *     指定[HuksKeySecurityLevel]{@link huks.HuksKeySecurityLevel}中定义的SE安全级别时，需要ohos.permission.ACCESS_SE_KEY权限。
    * @returns { Promise<void> } Promise对象，无返回结果。
-   * @throws { BusinessError } 201 - The application permissions are insufficient, possibly because
-   *     the ohos.permission.ACCESS_SE_KEY permission is missing. [since 26.0.0]
+   * @throws { BusinessError } 201 - Permission verification failed: call the generateKeyItem API, missing Permission:
+   *     ohos.permission.ACCESS_SE_KEY. [since 26.0.0]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    *     3. Parameter verification failed.
-   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability.
+   *     2. The chip does not support the capability.
+   *     3. A dependent service feature is not supported.
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
    * @throws { BusinessError } 12000003 - algorithm param is invalid
@@ -170,14 +176,18 @@ declare namespace huks {
    用于存放生成key所需的
    *     [属性标签](docroot://reference/apis-universal-keystore-kit/capi-native-huks-type-h.md#枚举)。其中密钥使用的算法、密钥用途、密钥长度为必选参数。
    * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
-   * @throws { BusinessError } 201 - the application permission is not sufficient, which may be caused by lack of
-   *     <br>cross-account permission, or the system has not been unlocked by user, or the user does not exist.
+   * @throws { BusinessError } 201 - Permission verification failed: call the generateKeyItemAsUser API, missing
+   *     Permission: ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS, or the system has not been unlocked by user, or
+   *     the user does not exist.
    * @throws { BusinessError } 202 - non-system applications are not allowed to use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    *     3. Parameter verification failed.
-   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability.
+   *     2. The chip does not support the capability.
+   *     3. A dependent service feature is not supported.
    * @throws { BusinessError } 12000001 - Feature is not supported. Possible causes:
    *     1. The algorithm mode is not supported.
    *     2. The group key is not supported.
@@ -245,13 +255,16 @@ declare namespace huks {
    * @param { HuksOptions } options - 用于删除密钥时指定密钥的属性，如使用[HuksAuthStorageLevel]{@link huks.HuksAuthStorageLevel}指定需删除密钥的安
    *     全级别，<br>可传空，当API version ≥ 12时，传空默认为CE，当API version ＜ 12时，传空默认为DE。
    * @param { AsyncCallback<void> } callback - 回调函数。当删除密钥成功时，err为undefined，否则为错误对象。
-   * @throws { BusinessError } 201 - The application permissions are insufficient, possibly because
-   *     the ohos.permission.ACCESS_SE_KEY permission is missing. [since 26.0.0]
+   * @throws { BusinessError } 201 - Permission verification failed: call the deleteKeyItem API, missing Permission:
+   *     ohos.permission.ACCESS_SE_KEY. [since 26.0.0]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    *     3. Parameter verification failed.
-   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability.
+   *     2. The chip does not support the capability.
+   *     3. A dependent service feature is not supported.
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000011 - queried entity does not exist
@@ -276,13 +289,16 @@ declare namespace huks {
    * @param { HuksOptions } options - 用于删除时指定密钥的属性TAG，如使用[HuksAuthStorageLevel]{@link huks.HuksAuthStorageLevel}指定需删除密钥的
    *     安全级别，<br>可传空，当API version ≥ 12时，传空默认为CE，当API version ＜ 12时，传空默认为DE。
    * @returns { Promise<void> } Promise对象，无返回结果。
-   * @throws { BusinessError } 201 - The application permissions are insufficient, possibly because
-   *     the ohos.permission.ACCESS_SE_KEY permission is missing. [since 26.0.0]
+   * @throws { BusinessError } 201 - Permission verification failed: call the deleteKeyItem API, missing Permission:
+   *     ohos.permission.ACCESS_SE_KEY. [since 26.0.0]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    *     3. Parameter verification failed.
-   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability.
+   *     2. The chip does not support the capability.
+   *     3. A dependent service feature is not supported.
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000011 - queried entity does not exist
@@ -305,14 +321,18 @@ declare namespace huks {
    *     [HuksAuthStorageLevel]{@link @ohos.security.huks:huks.HuksAuthStorageLevel}指定需删除密钥的安全级别，<br>可传空，当API version ≥
    *     12时，传空默认为CE，当API version ＜ 12时，传空默认为DE。
    * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
-   * @throws { BusinessError } 201 - the application permission is not sufficient, which may be caused by lack of
-   *     <br>cross-account permission, or the system has not been unlocked by user, or the user does not exist.
+   * @throws { BusinessError } 201 - Permission verification failed: call the deleteKeyItemAsUser API, missing
+   *     Permission: ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS, or the system has not been unlocked by user,or the
+   *     user does not exist.
    * @throws { BusinessError } 202 - non-system applications are not allowed to use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    *     3. Parameter verification failed.
-   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability.
+   *     2. The chip does not support the capability.
+   *     3. A dependent service feature is not supported.
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000011 - queried entity does not exist
@@ -377,7 +397,10 @@ declare namespace huks {
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    *     3. Parameter verification failed.
-   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability.
+   *     2. The chip does not support the capability.
+   *     3. A dependent service feature is not supported.
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
    * @throws { BusinessError } 12000003 - algorithm param is invalid
@@ -411,7 +434,10 @@ declare namespace huks {
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    *     3. Parameter verification failed.
-   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability.
+   *     2. The chip does not support the capability.
+   *     3. A dependent service feature is not supported.
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
    * @throws { BusinessError } 12000003 - algorithm param is invalid
@@ -439,14 +465,18 @@ declare namespace huks {
    * @param { string } keyAlias - 密钥别名。密钥别名的最大长度为128字节，建议不包含个人信息等敏感词汇。
    * @param { HuksOptions } huksOptions - 用于导入时所需TAG和需要导入的密钥。其中密钥使用的算法、密钥用途、密钥长度为必选参数。
    * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
-   * @throws { BusinessError } 201 - the application permission is not sufficient, which may be caused by lack of
-   *     <br>cross-account permission, or the system has not been unlocked by user, or the user does not exist.
+   * @throws { BusinessError } 201 - Permission verification failed: call the importKeyItemAsUser API,
+   *     missing Permission: ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS, or the system has not been unlocked
+   *     by user, or the user does not exist.
    * @throws { BusinessError } 202 - non-system applications are not allowed to use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    *     3. Parameter verification failed.
-   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability.
+   *     2. The chip does not support the capability.
+   *     3. A dependent service feature is not supported.
    * @throws { BusinessError } 12000001 - Feature is not supported. Possible causes:
    *     1. The algorithm mode is not supported.
    *     2. The group key is not supported.
@@ -481,13 +511,16 @@ declare namespace huks {
    *     purpose, and key length are mandatory.
    * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, no
    *     **err** value is returned; otherwise, an error code is returned.
-   * @throws { BusinessError } 201 - The application permissions are insufficient, possibly because
-   *     the ohos.permission.ACCESS_SE_KEY permission is missing. [since 26.0.0]
+   * @throws { BusinessError } 201 - Permission verification failed: call the importWrappedKeyItem API, missing
+   *     Permission: ohos.permission.ACCESS_SE_KEY. [since 26.0.0]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    *     3. Parameter verification failed.
-   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability.
+   *     2. The chip does not support the capability.
+   *     3. A dependent service feature is not supported.
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
    * @throws { BusinessError } 12000003 - algorithm param is invalid
@@ -529,14 +562,18 @@ declare namespace huks {
    * @param { HuksOptions } huksOptions - Options for importing the wrapped key. The algorithm, key purpose, and key
    *     length are mandatory.
    * @returns { Promise<void> } Promise that returns no value.
-   * @throws { BusinessError } 201 - the application permission is not sufficient, which may be caused by lack of
-   *     <br>cross-account permission, or the system has not been unlocked by user, or the user does not exist.
+   * @throws { BusinessError } 201 - Permission verification failed: call the importWrappedKeyItemAsUser API, missing
+   *     Permission: ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS, or the system has not been unlocked by user,
+   *     or the user does not exist.
    * @throws { BusinessError } 202 - non-system applications are not allowed to use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    *     3. Parameter verification failed.
-   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability.
+   *     2. The chip does not support the capability.
+   *     3. A dependent service feature is not supported.
    * @throws { BusinessError } 12000001 - Feature is not supported. Possible causes:
    *     1. The algorithm mode is not supported.
    *     2. The group key is not supported.
@@ -574,13 +611,16 @@ declare namespace huks {
    * @param { HuksOptions } options - Tags required for the import and the wrapped key to import. The algorithm, key
    *     purpose, and key length are mandatory.
    * @returns { Promise<void> } Promise that returns no value.
-   * @throws { BusinessError } 201 - The application permissions are insufficient, possibly because
-   *     the ohos.permission.ACCESS_SE_KEY permission is missing. [since 26.0.0]
+   * @throws { BusinessError } 201 -  Permission verification failed: call the importWrappedKeyItem API,
+   *     missing Permission: ohos.permission.ACCESS_SE_KEY. [since 26.0.0]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    *     3. Parameter verification failed.
-   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability.
+   *     2. The chip does not support the capability.
+   *     3. A dependent service feature is not supported.
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
    * @throws { BusinessError } 12000003 - algorithm param is invalid
@@ -655,13 +695,16 @@ declare namespace huks {
    *     全级别，<br>可传空，当API version ≥ 12时，传空默认为CE，当API version ＜ 12时，传空默认为DE。
    * @param { AsyncCallback<HuksReturnResult> } callback - 回调函数。当导出密钥成功时，err为undefined，data为获取到的HuksReturnResult；否则为错误对象
    *     。HuksReturnResult中的outData返回从HUKS中导出的公钥。
-   * @throws { BusinessError } 201 - The application permissions are insufficient, possibly because
-   *     the ohos.permission.ACCESS_SE_KEY permission is missing. [since 26.0.0]
+   * @throws { BusinessError } 201 - Permission verification failed: call the exportKeyItem API, missing
+   *     Permission: ohos.permission.ACCESS_SE_KEY. [since 26.0.0]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    *     3. Parameter verification failed.
-   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability.
+   *     2. The chip does not support the capability.
+   *     3. A dependent service feature is not supported.
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing [since 9 - 11]
    * @throws { BusinessError } 12000003 - algorithm param is invalid [since 9 - 11]
@@ -691,14 +734,18 @@ declare namespace huks {
    * @param { string } keyAlias - 密钥别名，应与所用密钥生成时使用的别名相同。
    * @param { HuksOptions } huksOptions - 空对象（此处传空即可）。
    * @returns { Promise<HuksReturnResult> } Promise对象。 当调用成功时，HuksReturnResult的outData成员非空，为从密钥中导出的公钥，否则为失败。
-   * @throws { BusinessError } 201 - the application permission is not sufficient, which may be caused by lack of
-   *     <br>cross-account permission, or the system has not been unlocked by user, or the user does not exist.
+   * @throws { BusinessError } 201 - Permission verification failed: call the exportKeyItemAsUser API,
+   *     missing Permission: ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS,
+   *     or the system has not been unlocked by user, or the user does not exist.
    * @throws { BusinessError } 202 - non-system applications are not allowed to use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    *     3. Parameter verification failed.
-   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability.
+   *     2. The chip does not support the capability.
+   *     3. A dependent service feature is not supported.
    * @throws { BusinessError } 12000001 - Feature is not supported. Possible causes:
    *     1. The algorithm mode is not supported.
    *     2. The group key is not supported.
@@ -727,13 +774,16 @@ declare namespace huks {
    * @param { string } keyAlias - 密钥别名，应与所用密钥生成时使用的别名相同。
    * @param { HuksOptions } options - 空对象（此处传空即可）。
    * @returns { Promise<HuksReturnResult> } Promise对象，返回调用接口的结果。当调用成功时，HuksReturnResult的outData成员为从密钥中导出的公钥。
-   * @throws { BusinessError } 201 - The application permissions are insufficient, possibly because
-   *     the ohos.permission.ACCESS_SE_KEY permission is missing. [since 26.0.0]
+   * @throws { BusinessError } 201 - Permission verification failed: call the exportKeyItem API, missing
+   *     Permission: ohos.permission.ACCESS_SE_KEY. [since 26.0.0]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    *     3. Parameter verification failed.
-   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability.
+   *     2. The chip does not support the capability.
+   *     3. A dependent service feature is not supported.
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing [since 9 - 11]
    * @throws { BusinessError } 12000003 - algorithm param is invalid [since 9 - 11]
@@ -804,13 +854,16 @@ declare namespace huks {
    * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the result. If the operation is
    *     successful, **err** is **undefined**, and **data** is the obtained **HuksReturnResult**. Otherwise, **err** is
    *     an error object. **properties** of **HuksReturnResult** are the parameters required for generating a key.
-   * @throws { BusinessError } 201 - The application permissions are insufficient, possibly because
-   *     the ohos.permission.ACCESS_SE_KEY permission is missing. [since 26.0.0]
+   * @throws { BusinessError } 201 - Permission verification failed: call the getKeyItemProperties API, missing
+   *     Permission: ohos.permission.ACCESS_SE_KEY. [since 26.0.0]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    *     3. Parameter verification failed.
-   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability.
+   *     2. The chip does not support the capability.
+   *     3. A dependent service feature is not supported.
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing [since 9 - 11]
    * @throws { BusinessError } 12000003 - algorithm param is invalid [since 9 - 11]
@@ -843,14 +896,18 @@ declare namespace huks {
    * @param { HuksOptions } huksOptions - Empty object (leave this parameter empty).
    * @returns { Promise<HuksReturnResult> } Promise used to return the result. If the operation is successful,
    *     **properties** in **HuksReturnResult** holds the parameters required for generating the key.
-   * @throws { BusinessError } 201 - the application permission is not sufficient, which may be caused by lack of
-   *     <br>cross-account permission, or the system has not been unlocked by user, or the user does not exist.
+   * @throws { BusinessError } 201 - Permission verification failed: call the getKeyItemPropertiesAsUser API,
+   *     missing Permission: ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS,
+   *     or the system has not been unlocked by user, or the user does not exist.
    * @throws { BusinessError } 202 - non-system applications are not allowed to use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    *     3. Parameter verification failed.
-   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability.
+   *     2. The chip does not support the capability.
+   *     3. A dependent service feature is not supported.
    * @throws { BusinessError } 12000001 - Feature is not supported. Possible causes:
    *     1. The algorithm mode is not supported.
    *     2. The group key is not supported.
@@ -883,13 +940,16 @@ declare namespace huks {
    * @param { string } keyAlias - 密钥别名，应与所用密钥生成时使用的别名相同。
    * @param { HuksOptions } options - 空对象（此处传空即可）。
    * @returns { Promise<HuksReturnResult> } Promise对象，返回调用接口的结果。当调用成功时，HuksReturnResult的properties成员为获取的密钥属性信息。
-   * @throws { BusinessError } 201 - The application permissions are insufficient, possibly because
-   *     the ohos.permission.ACCESS_SE_KEY permission is missing. [since 26.0.0]
+   * @throws { BusinessError } 201 - Permission verification failed: call the getKeyItemProperties API,
+   *     missing Permission: ohos.permission.ACCESS_SE_KEY. [since 26.0.0]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    *     3. Parameter verification failed.
-   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability.
+   *     2. The chip does not support the capability.
+   *     3. A dependent service feature is not supported.
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing [since 9 - 11]
    * @throws { BusinessError } 12000003 - algorithm param is invalid [since 9 - 11]
@@ -958,7 +1018,10 @@ declare namespace huks {
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    *     3. Parameter verification failed.
-   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability.
+   *     2. The chip does not support the capability.
+   *     3. A dependent service feature is not supported.
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
@@ -985,7 +1048,10 @@ declare namespace huks {
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    *     3. Parameter verification failed.
-   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability.
+   *     2. The chip does not support the capability.
+   *     3. A dependent service feature is not supported.
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
@@ -1011,7 +1077,10 @@ declare namespace huks {
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    *     3. Parameter verification failed.
-   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability.
+   *     2. The chip does not support the capability.
+   *     3. A dependent service feature is not supported.
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
@@ -1035,14 +1104,18 @@ declare namespace huks {
    *     [HuksAuthStorageLevel]{@link @ohos.security.huks:huks.HuksAuthStorageLevel}指定需查询密钥的安全级别，<br>可传空，当API version ≥
    *     12时，传空默认为CE，当API version ＜ 12时，传空默认为DE。
    * @returns { Promise<boolean> } Promise对象。若密钥存在，返回值为true，若密钥不存在，返回值为false。
-   * @throws { BusinessError } 201 - the application permission is not sufficient, which may be caused by lack of
-   *     <br>cross-account permission, or the system has not been unlocked by user, or the user does not exist.
+   * @throws { BusinessError } 201 - Permission verification failed: call the hasKeyItemAsUser API,
+   *     missing Permission: ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS,
+   *     or the system has not been unlocked by user, or the user does not exist.
    * @throws { BusinessError } 202 - non-system applications are not allowed to use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    *     3. Parameter verification failed.
-   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability.
+   *     2. The chip does not support the capability.
+   *     3. A dependent service feature is not supported.
    * @throws { BusinessError } 12000002 - algorithm param is missing
    * @throws { BusinessError } 12000003 - algorithm param is invalid
    * @throws { BusinessError } 12000004 - operating file failed
@@ -1072,7 +1145,10 @@ declare namespace huks {
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    *     3. Parameter verification failed.
-   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability.
+   *     2. The chip does not support the capability.
+   *     3. A dependent service feature is not supported.
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine
@@ -1139,13 +1215,16 @@ declare namespace huks {
    * @param { HuksOptions } options - initSession操作的参数集合。
    * @param { AsyncCallback<HuksSessionHandle> } callback - 回调函数。当密钥操作init成功时，err为undefined，data为获取到的HuksSessionHandle；否
    *     则为错误对象。HuksSessionHandle的handle返回initSession生成的handle。
-   * @throws { BusinessError } 201 - The application permissions are insufficient, possibly because
-   *     the ohos.permission.ACCESS_SE_KEY permission is missing. [since 26.0.0]
+   * @throws { BusinessError } 201 - Permission verification failed: call the initSession API,
+   *     missing Permission: ohos.permission.ACCESS_SE_KEY. [since 26.0.0]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    *     3. Parameter verification failed.
-   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability.
+   *     2. The chip does not support the capability.
+   *     3. A dependent service feature is not supported.
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
    * @throws { BusinessError } 12000003 - algorithm param is invalid
@@ -1184,13 +1263,16 @@ declare namespace huks {
    * @param { HuksOptions } options - initSession参数集合。
    * @returns { Promise<HuksSessionHandle> } Promise对象，返回HuksSessionHandle。HuksSessionHandle的handle返回initSession生成的
    *     handle。
-   * @throws { BusinessError } 201 - The application permissions are insufficient, possibly because
-   *     the ohos.permission.ACCESS_SE_KEY permission is missing. [since 26.0.0]
+   * @throws { BusinessError } 201 - Permission verification failed: call the initSession API,
+   *     missing Permission: ohos.permission.ACCESS_SE_KEY. [since 26.0.0]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    *     3. Parameter verification failed.
-   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability.
+   *     2. The chip does not support the capability.
+   *     3. A dependent service feature is not supported.
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
    * @throws { BusinessError } 12000003 - algorithm param is invalid
@@ -1223,14 +1305,18 @@ declare namespace huks {
    * @param { string } keyAlias - initSessionAsUser操作密钥的别名。
    * @param { HuksOptions } huksOptions - initSessionAsUser参数集合。
    * @returns { Promise<HuksSessionHandle> } Promise对象。将initSessionAsUser操作返回的handle添加到密钥管理系统的回调。
-   * @throws { BusinessError } 201 - the application permission is not sufficient, which may be caused by lack of
-   *     <br>cross-account permission, or the system has not been unlocked by user, or the user does not exist.
+   * @throws { BusinessError } 201 - Permission verification failed: call the initSessionAsUser API,
+   *     missing Permission: ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS,
+   *     or the system has not been unlocked by user, or the user does not exist.
    * @throws { BusinessError } 202 - non-system applications are not allowed to use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    *     3. Parameter verification failed.
-   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability.
+   *     2. The chip does not support the capability.
+   *     3. A dependent service feature is not supported.
    * @throws { BusinessError } 12000001 - Feature is not supported. Possible causes:
    *     1. The algorithm mode is not supported.
    *     2. The group key is not supported.
@@ -1308,7 +1394,10 @@ declare namespace huks {
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    *     3. Parameter verification failed.
-   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability.
+   *     2. The chip does not support the capability.
+   *     3. A dependent service feature is not supported.
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
    * @throws { BusinessError } 12000003 - algorithm param is invalid
@@ -1350,7 +1439,10 @@ declare namespace huks {
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    *     3. Parameter verification failed.
-   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability.
+   *     2. The chip does not support the capability.
+   *     3. A dependent service feature is not supported.
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
    * @throws { BusinessError } 12000003 - algorithm param is invalid
@@ -1392,7 +1484,10 @@ declare namespace huks {
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    *     3. Parameter verification failed.
-   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability.
+   *     2. The chip does not support the capability.
+   *     3. A dependent service feature is not supported.
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
    * @throws { BusinessError } 12000003 - algorithm param is invalid
@@ -1473,7 +1568,10 @@ declare namespace huks {
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    *     3. Parameter verification failed.
-   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability.
+   *     2. The chip does not support the capability.
+   *     3. A dependent service feature is not supported.
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
    * @throws { BusinessError } 12000003 - algorithm param is invalid
@@ -1517,7 +1615,10 @@ declare namespace huks {
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    *     3. Parameter verification failed.
-   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability.
+   *     2. The chip does not support the capability.
+   *     3. A dependent service feature is not supported.
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
    * @throws { BusinessError } 12000003 - algorithm param is invalid
@@ -1559,7 +1660,10 @@ declare namespace huks {
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    *     3. Parameter verification failed.
-   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability.
+   *     2. The chip does not support the capability.
+   *     3. A dependent service feature is not supported.
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing
    * @throws { BusinessError } 12000003 - algorithm param is invalid
@@ -1632,7 +1736,10 @@ declare namespace huks {
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    *     3. Parameter verification failed.
-   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability.
+   *     2. The chip does not support the capability.
+   *     3. A dependent service feature is not supported.
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine or UKey driver
@@ -1659,7 +1766,10 @@ declare namespace huks {
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    *     3. Parameter verification failed.
-   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability.
+   *     2. The chip does not support the capability.
+   *     3. A dependent service feature is not supported.
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000006 - error occurred in crypto engine or UKey driver
@@ -1689,12 +1799,16 @@ declare namespace huks {
    * @param { HuksOptions } options - 用于获取证书时指定所需参数与数据。
    * @param { AsyncCallback<HuksReturnResult> } callback - 回调函数。当获取密钥证书成功时，err为undefined，data为获取到的HuksReturnResult；否则为错误
    *     对象。
-   * @throws { BusinessError } 201 - check permission failed
+   * @throws { BusinessError } 201 - Permission verification failed: call the attestKeyItem API,
+   *     missing Permission: ohos.permission.ATTEST_KEY
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    *     3. Parameter verification failed.
-   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability.
+   *     2. The chip does not support the capability.
+   *     3. A dependent service feature is not supported.
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
@@ -1716,14 +1830,18 @@ declare namespace huks {
    * @param { string } keyAlias - 密钥别名，存放待获取证书密钥的别名。
    * @param { HuksOptions } huksOptions - 用于获取证书时指定所需参数与数据。
    * @returns { Promise<HuksReturnResult> } Promise对象。当调用成功时，HuksReturnResult的certChains成员非空，为获取到的证书链，否则为失败。
-   * @throws { BusinessError } 201 - the application permission is not sufficient, which may be caused by lack of
-   *     <br>cross-account permission, or the system has not been unlocked by user, or the user does not exist.
+   * @throws { BusinessError } 201 - Permission verification failed: call the attestKeyItemAsUser API,
+   *     missing Permission: ohos.permission.ATTEST_KEY,
+   *     or the system has not been unlocked by user, or the user does not exist.
    * @throws { BusinessError } 202 - non-system applications are not allowed to use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    *     3. Parameter verification failed.
-   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability.
+   *     2. The chip does not support the capability.
+   *     3. A dependent service feature is not supported.
    * @throws { BusinessError } 12000001 - Feature is not supported. Possible causes:
    *     1. The algorithm mode is not supported.
    *     2. The group key is not supported.
@@ -1755,12 +1873,16 @@ declare namespace huks {
    * @param { string } keyAlias - 密钥别名，存放待获取证书密钥的别名。
    * @param { HuksOptions } options - 用于获取证书时指定所需参数与数据。
    * @returns { Promise<HuksReturnResult> } Promise对象，返回调用接口的结果。当调用成功时，HuksReturnResult的certChains成员为获取到的证书链。
-   * @throws { BusinessError } 201 - check permission failed
+   * @throws { BusinessError } 201 - Permission verification failed: call the attestKeyItem API,
+   *     missing Permission: ohos.permission.ATTEST_KEY
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    *     3. Parameter verification failed.
-   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability.
+   *     2. The chip does not support the capability.
+   *     3. A dependent service feature is not supported.
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
@@ -1789,13 +1911,16 @@ declare namespace huks {
    * @param { HuksOptions } options - 用于获取证书时指定所需参数与数据。
    * @param { AsyncCallback<HuksReturnResult> } callback - 回调函数。当获取匿名化密钥证书成功时，err为undefined，data为获取到的HuksReturnResult；否则
    *     为错误对象。
-   * @throws { BusinessError } 201 - The application permissions are insufficient, possibly because
-   *     the ohos.permission.ACCESS_SE_KEY permission is missing. [since 26.0.0]
+   * @throws { BusinessError } 201 - Permission verification failed: call the anonAttestKeyItem API,
+   *     missing Permission: ohos.permission.ACCESS_SE_KEY. [since 26.0.0]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    *     3. Parameter verification failed.
-   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability.
+   *     2. The chip does not support the capability.
+   *     3. A dependent service feature is not supported.
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
@@ -1821,14 +1946,18 @@ declare namespace huks {
    * @param { string } keyAlias - 密钥别名，存放待获取证书密钥的别名。
    * @param { HuksOptions } huksOptions - 用于获取证书时指定所需参数与数据。
    * @returns { Promise<HuksReturnResult> } Promise对象。当调用成功时，HuksReturnResult的certChains成员非空，为获取到的证书链，否则为失败。
-   * @throws { BusinessError } 201 - the application permission is not sufficient, which may be caused by lack of
-   *     <br>cross-account permission, or the system has not been unlocked by user, or the user does not exist.
+   * @throws { BusinessError } 201 - Permission verification failed: call the anonAttestKeyItemAsUser API,
+   *     missing Permission: ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS,
+   *     or the system has not been unlocked by user, or the user does not exist.
    * @throws { BusinessError } 202 - non-system applications are not allowed to use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    *     3. Parameter verification failed.
-   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability.
+   *     2. The chip does not support the capability.
+   *     3. A dependent service feature is not supported.
    * @throws { BusinessError } 12000001 - Feature is not supported. Possible causes:
    *     1. The algorithm mode is not supported.
    *     2. The group key is not supported.
@@ -1864,11 +1993,14 @@ declare namespace huks {
    * @param { HuksParam[] } params - 表示密钥证明操作的选项。
    * @returns { Promise<HuksReturnResult> } Promise用于返回结果。如果操作成功。
    *     HuksReturnResult中的certChains包含获取到的证书链。
-   * @throws { BusinessError } 201 - The app does not have sufficient permissions. Possible causes: The
-   *     cross-account permission is not granted, the system is not unlocked by the user, or the user does not
-   *     exist.
+   * @throws { BusinessError } 201 - Permission verification failed: call the anonAttestKeyItemOfflineAsUser API,
+   *     missing Permission: ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS,
+   *     or the system is not unlocked by the user, or the user does not exist.
    * @throws { BusinessError } 202 - Non-system apps use system APIs.
-   * @throws { BusinessError } 801 - The API is not supported.
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability.
+   *     2. The chip does not support the capability.
+   *     3. A dependent service feature is not supported.
    * @throws { BusinessError } 12000001 - The function is not supported. Possible causes:
    *     1. The algorithm mode is not supported.
    *     2. The group key is not supported.
@@ -1909,13 +2041,16 @@ declare namespace huks {
    * @param { string } keyAlias - 密钥别名，存放待获取证书密钥的别名。
    * @param { HuksOptions } options - 用于获取证书时指定所需参数与数据。
    * @returns { Promise<HuksReturnResult> } Promise对象，返回调用接口的结果。当调用成功时，HuksReturnResult的certChains成员为获取到的证书链。
-   * @throws { BusinessError } 201 - The application permissions are insufficient, possibly because
-   *     the ohos.permission.ACCESS_SE_KEY permission is missing. [since 26.0.0]
+   * @throws { BusinessError } 201 - Permission verification failed: call the anonAttestKeyItem API,
+   *     missing Permission: ohos.permission.ACCESS_SE_KEY. [since 26.0.0]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    *     3. Parameter verification failed.
-   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability.
+   *     2. The chip does not support the capability.
+   *     3. A dependent service feature is not supported.
    * @throws { BusinessError } 12000001 - algorithm mode is not supported
    * @throws { BusinessError } 12000002 - algorithm param is missing [since 11 - 11]
    * @throws { BusinessError } 12000003 - algorithm param is invalid [since 11 - 11]
@@ -1953,7 +2088,10 @@ declare namespace huks {
    * @param { string } keyAlias - 密钥别名，存放待获取证书密钥的别名。
    * @param { HuksParam[] } params - 用于获取证书时指定所需参数与数据。
    * @returns { Promise<HuksReturnResult> } Promise对象，返回调用接口的结果。当调用成功时，HuksReturnResult的certChains成员为获取到的证书链。
-   * @throws { BusinessError } 801 - The API is not supported.
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability.
+   *     2. The chip does not support the capability.
+   *     3. A dependent service feature is not supported.
    * @throws { BusinessError } 12000001 - The algorithm mode is not supported.
    * @throws { BusinessError } 12000004 - The file operation failed.
    * @throws { BusinessError } 12000005 - The IPC communication failed.
@@ -2024,9 +2162,12 @@ declare namespace huks {
    * @param { string } keyAlias - 密钥别名，应与所用密钥生成时使用的别名相同。
    * @param { HuksOptions } params - 用于指定导出密钥时的加密类型。
    * @returns { Promise<HuksReturnResult> } Promise对象，返回调用接口的结果。当调用成功时，HuksReturnResult的outData成员为导出的密钥密文。
-   * @throws { BusinessError } 201 - The application permissions are insufficient, possibly because
-   *     the ohos.permission.ACCESS_SE_KEY permission is missing. [since 26.0.0]
-   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 201 - Permission verification failed: call the wrapKeyItem API,
+   *     missing Permission: ohos.permission.ACCESS_SE_KEY. [since 26.0.0]
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability.
+   *     2. The chip does not support the capability.
+   *     3. A dependent service feature is not supported.
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000011 - queried entity does not exist
@@ -2054,9 +2195,12 @@ declare namespace huks {
    * @param { HuksOptions } params - 用于指定导入密钥时的加密类型。
    * @param { Uint8Array } wrappedKey - 加密导出密钥的密文。
    * @returns { Promise<HuksReturnResult> } Promise对象，返回调用接口的结果。
-   * @throws { BusinessError } 201 - The application permissions are insufficient, possibly because
-   *     the ohos.permission.ACCESS_SE_KEY permission is missing. [since 26.0.0]
-   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 201 - Permission verification failed: call the unwrapKeyItem API,
+   *     missing Permission: ohos.permission.ACCESS_SE_KEY. [since 26.0.0]
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability.
+   *     2. The chip does not support the capability.
+   *     3. A dependent service feature is not supported.
    * @throws { BusinessError } 12000004 - operating file failed
    * @throws { BusinessError } 12000005 - IPC communication failed
    * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
@@ -2085,7 +2229,10 @@ declare namespace huks {
    *     如果使用HUKS进行密钥管理，则必须指定该参数。
    *     如果应用程序自己管理密钥，则忽略此参数
    * @returns { Promise<HuksReturnResult> } 函数返回的promise。
-   * @throws { BusinessError } 801 - API is not supported.
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability.
+   *     2. The chip does not support the capability.
+   *     3. A dependent service feature is not supported.
    * @throws { BusinessError } 12000001 - Algorithm mode is not supported
    * @throws { BusinessError } 12000002 - Algorithm parameters are missing, please check the algorithm parameters.
    * @throws { BusinessError } 12000003 - The algorithm parameters are invalid, please check the algorithm parameters.
@@ -2122,7 +2269,10 @@ declare namespace huks {
    *     如果使用HUKS进行密钥管理，则必须指定该参数。
    *     如果应用程序自己管理密钥，则忽略此参数。
    * @returns { Promise<HuksReturnResult> } 返回值
-   * @throws { BusinessError } 801 - API is not supported.
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability.
+   *     2. The chip does not support the capability.
+   *     3. A dependent service feature is not supported.
    * @throws { BusinessError } 12000001 - Algorithm mode is not supported
    * @throws { BusinessError } 12000002 - The algorithm parameter is missing. Check the algorithm parameter.
    * @throws { BusinessError } 12000003 - The algorithm parameter is invalid. Check the algorithm parameter.
