@@ -811,9 +811,13 @@ interface ParticleUpdaterOptions<TYPE, UPDATER extends ParticleUpdater> {
   /**
    * Property change configuration. The property change type has three categories:
    * 
-   * 1. When **type** is **ParticleUpdater.NONE**, it indicates no change, and **config** is of type [ParticlePropertyUpdaterConfigs]{@link ParticlePropertyUpdaterConfigs}[ParticleUpdater.NONE].
-   * 2. When type is **ParticleUpdater.RANDOM**, it indicates the change type is random, and **config** is of type [ParticlePropertyUpdaterConfigs]{@link ParticlePropertyUpdaterConfigs}[ParticleUpdater.RANDOM].
-   * 3. When **type** is **ParticleUpdater.CURVE**, it indicates the change type is curve, and **config** is of type [ParticlePropertyUpdaterConfigs]{@link ParticlePropertyUpdaterConfigs}[ParticleUpdater.CURVE]. **Atomic service API:** Since API version 11, this API is supported in atomic services.
+   * 1. When **type** is **ParticleUpdater.NONE**, it indicates no change, and **config** is of type
+   * [ParticlePropertyUpdaterConfigs]{@link ParticlePropertyUpdaterConfigs}[ParticleUpdater.NONE].
+   * 2. When type is **ParticleUpdater.RANDOM**, it indicates the change type is random, and **config** is of type
+   * [ParticlePropertyUpdaterConfigs]{@link ParticlePropertyUpdaterConfigs}[ParticleUpdater.RANDOM].
+   * 3. When **type** is **ParticleUpdater.CURVE**, it indicates the change type is curve, and **config** is of type
+   * [ParticlePropertyUpdaterConfigs]{@link ParticlePropertyUpdaterConfigs}[ParticleUpdater.CURVE].
+   * **Atomic service API:** Since API version 11, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

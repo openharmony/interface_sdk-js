@@ -828,7 +828,8 @@ declare namespace uiMaterial {
      *     material layer coloring.
      *     <br>For details about the default values, see the default values of the parameters in the
      *     **ImmersiveOptions** API, that is,
-     *     **{style:uiMaterial.ImmersiveStyle.REGULAR, materialColor:undefined, colorInvert:false, applyShadow:true, interactive:false, lightEffect:undefined}**.
+     *     **{style:uiMaterial.ImmersiveStyle.REGULAR, materialColor:undefined, colorInvert:false, applyShadow:true,
+     * interactive:false, lightEffect:undefined}**.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
