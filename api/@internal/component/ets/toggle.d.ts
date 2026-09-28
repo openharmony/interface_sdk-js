@@ -31,27 +31,27 @@
 declare enum ToggleType {
   /**
    * Checkbox type.
-   * 
+   *
    * **NOTE**
-   * 
+   *
    * Since API version 11, the default style of the **Checkbox** component is changed from rounded square to circle.
-   * 
+   *
    * The default value of the universal attribute [margin]{@link CommonMethod#margin} is as follows:
-   * 
+   *
    * {
-   * 
-   *  top: '14px',
-   * 
-   *  right: '14px',
-   * 
-   *  bottom: '14px',
-   * 
-   *  left: '14px'
-   * 
+   *
+   *  top: '14px',
+   *
+   *  right: '14px',
+   *
+   *  bottom: '14px',
+   *
+   *  left: '14px'
+   *
    * }.
-   * 
+   *
    * Default size:
-   * 
+   *
    * {width:'20vp', height:'20vp'}
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -65,25 +65,25 @@ declare enum ToggleType {
 
   /**
    * Switch type.
-   * 
+   *
    * **NOTE**
-   * 
+   *
    * The default value of the universal attribute [margin]{@link CommonMethod#margin} is as follows:
-   * 
+   *
    * {
-   * 
-   *  top: '6px',
-   * 
-   *  right: '14px',
-   * 
-   *  bottom: '6px',
-   * 
-   *  left: '14px'
-   * 
+   *
+   *  top: '6px',
+   *
+   *  right: '14px',
+   *
+   *  bottom: '6px',
+   *
+   *  left: '14px'
+   *
    * }.
-   * 
+   *
    * Default size:
-   * 
+   *
    * {width:'36vp', height:'20vp'}
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -96,7 +96,7 @@ declare enum ToggleType {
   Switch,
 
   /**
-   * Status button type. If child content contains text, the text is displayed on the button. The default height is 28 
+   * Status button type. If child content contains text, the text is displayed on the button. The default height is 28
    * vp, and there is no default width.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -121,13 +121,13 @@ declare enum ToggleType {
 declare interface SwitchStyle {
   /**
    * Radius of the circular slider when the component is of the **Switch** type. The unit is vp.
-   * 
+   *
    * **NOTE**
-   * 
+   *
    * Percentage values are not supported. The value specified is used only when it is greater than or equal to 0.
-   * 
+   *
    * If the value is not specified or the specified one is less than 0, the radius is set using the following formula:
-   * 
+   *
    * (Component height (in vp)/2) - (2 vp x Component height (in vp)/20 vp)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -140,10 +140,10 @@ declare interface SwitchStyle {
 
   /**
    * Background color of the component when it is of the **Switch** type and is disabled.
-   * 
-   * Default value: **0x337F7F7F** (applies to both dark and light modes). Since API version 20, when 
+   *
+   * Default value: **0x337F7F7F** (applies to both dark and light modes). Since API version 20, when
    * [optimizing color mode switching overhead](docroot://ui/ui-dark-light-color-adaptation.md#optimizing-color-mode-switching-overhead)
-   * is enabled, the default value is **0x19000000** (black with 10% opacity) in light mode and **0x19FFFFFF** (white 
+   * is enabled, the default value is **0x19000000** (black with 10% opacity) in light mode and **0x19FFFFFF** (white
    * with 10% opacity) in dark mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -156,7 +156,7 @@ declare interface SwitchStyle {
 
   /**
    * Color of the circular slider when the component is of the **Switch** type.
-   * 
+   *
    * Default value: **$r('sys.color.ohos_id_color_foreground_contrary')**
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -169,16 +169,16 @@ declare interface SwitchStyle {
 
   /**
    * Radius of the slider track border corners when the component is of the **Switch** type. The unit is vp.
-   * 
+   *
    * **NOTE**
-   * 
-   * This parameter cannot be set in percentage. If the value specified is less than 0, the radius is set using the 
-   * default value formula. If the value specified is greater than half of the component height, the latter is used. In 
+   *
+   * This parameter cannot be set in percentage. If the value specified is less than 0, the radius is set using the
+   * default value formula. If the value specified is greater than half of the component height, the latter is used. In
    * other cases, the value specified is used.
-   * 
-   * If the value is not specified or the specified one is less than 0, the radius is set using the default value 
+   *
+   * If the value is not specified or the specified one is less than 0, the radius is set using the default value
    * formula.
-   * 
+   *
    * Default value formula: Component height (in vp)/2
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -191,7 +191,7 @@ declare interface SwitchStyle {
 }
 
 /**
- * You need a custom class to implement the **ContentModifier** API. This API inherits from 
+ * You need a custom class to implement the **ContentModifier** API. This API inherits from
  * [CommonConfiguration]{@link CommonConfiguration}.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -204,9 +204,9 @@ declare interface ToggleConfiguration extends CommonConfiguration<ToggleConfigur
 
   /**
    * Whether the toggle is turned on.
-   * 
+   *
    * **true**: The toggle is turned on. **false**: The toggle is turned off.
-   * 
+   *
    * Default value: **false**
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -219,9 +219,9 @@ declare interface ToggleConfiguration extends CommonConfiguration<ToggleConfigur
 
   /**
    * Whether the toggle is enabled for state switching.
-   * 
+   *
    * **true**: The state can be changed. **false**: The state cannot be changed.
-   * 
+   *
    * Default value: **true**
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -234,7 +234,7 @@ declare interface ToggleConfiguration extends CommonConfiguration<ToggleConfigur
 
   /**
    * Callback invoked when the toggle's state changes.
-   * 
+   *
    * **true**: The toggle is turned on. **false**: The toggle is turned off.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -248,10 +248,10 @@ declare interface ToggleConfiguration extends CommonConfiguration<ToggleConfigur
 
 /**
  * Options of the toggle.
- * 
+ *
  * > **NOTE**
  * >
- * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18. 
+ * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18.
  * > While historical version information is preserved for anonymous objects, there may be cases where the outer element
  * > 's @since version number is larger than inner elements'. This does not affect interface usability.
  *
@@ -265,7 +265,7 @@ declare interface ToggleConfiguration extends CommonConfiguration<ToggleConfigur
 declare interface ToggleOptions {
   /**
    * Type of the toggle.
-   * 
+   *
    * Default value: **ToggleType.Switch**
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -279,14 +279,14 @@ declare interface ToggleOptions {
 
   /**
    * Whether the toggle is turned on.
-   * 
+   *
    * **true**: on. **false**: off.
-   * 
+   *
    * Default value: **false**
-   * 
+   *
    * This parameter supports two-way binding through [$$](docroot://ui/state-management/arkts-two-way-sync.md).
-   * 
-   * This property supports two-way binding through 
+   *
+   * This property supports two-way binding through
    * [!!](docroot://ui/state-management/arkts-new-binding.md#two-way-binding-between-built-in-component-parameters).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -296,12 +296,12 @@ declare interface ToggleOptions {
    * @atomicservice [since 11]
    * @since 8 dynamic
    */
-  isOn?: boolean
+  isOn?: boolean;
 }
 
 /**
  * The **Toggle** component provides a clickable element of the checkbox, button, or switch type.
- * 
+ *
  * > **NOTE**
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -314,6 +314,7 @@ declare interface ToggleOptions {
  */
 interface ToggleInterface {
   /**
+   * Creates the Toggle component.
    *
    * @param { object } options - Options of the toggle. [since 8 - 17]
    * @param { ToggleOptions } options - Options of the toggle. [since 18]
@@ -330,7 +331,7 @@ interface ToggleInterface {
 
 /**
  * In addition to the [universal attributes]{@link common}, the following attributes are supported.
- * 
+ *
  * In addition to the [universal events]{@link common}, the following events are supported.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -389,7 +390,7 @@ declare class ToggleAttribute extends CommonMethod<ToggleAttribute> {
   selectedColor(value: ResourceColor): ToggleAttribute;
 
   /**
-   * Sets the color of the circular slider when the component is of the **Switch** type. This attribute is valid only 
+   * Sets the color of the circular slider when the component is of the **Switch** type. This attribute is valid only
    * when **type** is set to **ToggleType.Switch**.
    *
    * @param { ResourceColor } color - Color of the circular slider when the component is of the **Switch** type.<br>
@@ -405,7 +406,7 @@ declare class ToggleAttribute extends CommonMethod<ToggleAttribute> {
   switchPointColor(color: ResourceColor): ToggleAttribute;
 
   /**
-   * Sets the style for the component of the **Switch** type. This attribute is valid only when **type** is set to 
+   * Sets the style for the component of the **Switch** type. This attribute is valid only when **type** is set to
    * **ToggleType.Switch**.
    *
    * @param { SwitchStyle } value - Style of the component of the **Switch** type.
@@ -421,11 +422,11 @@ declare class ToggleAttribute extends CommonMethod<ToggleAttribute> {
 
 /**
  * The **Toggle** component provides a clickable element of the checkbox, button, or switch type.
- * 
+ *
  * > **NOTE**
- * 
+ *
  * ###### Child Components
- * 
+ *
  * This component can contain child components only when **ToggleType** is set to **Button**.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full

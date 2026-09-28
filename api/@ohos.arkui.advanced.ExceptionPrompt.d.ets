@@ -19,282 +19,212 @@
  */
 
 /**
- * Control margin status of  ExceptionPrompt.
- * @enum { number }
+ * Defines the margin type.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
- /**
- * Control margin status of  ExceptionPrompt.
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 export declare enum MarginType {
   /**
-   * Default margin of MarginType，Margin 1: references ohos_id_card_margin_start, margin 2: references ohos_id_card_margin_end.
+   * Default margin:
+   *
+   * Margin 1: referenced from **ohos_id_card_margin_start**.
+   *
+   * Margin 2: referenced from **ohos_id_card_margin_end**.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-   /**
-   * Default margin of MarginType，Margin 1: references ohos_id_card_margin_start, margin 2: references ohos_id_card_margin_end.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   DEFAULT_MARGIN = 0,
 
   /**
-   * Margins can be adapted of MarginType，Margin 1: references ohos_id_max_padding_start, margin 2: references ohos_id_max_padding_end.
+   * Adaptable margin:
+   *
+   * Margin 1: referenced from **ohos_id_max_padding_start**.
+   *
+   * Margin 2: referenced from **ohos_id_max_padding_end**.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
-   /**
-   * Margins can be adapted of MarginType，Margin 1: references ohos_id_max_padding_start, margin 2: references ohos_id_max_padding_end.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
-   */
-  FIT_MARGIN = 1,
+  FIT_MARGIN = 1
 }
 
 /**
- * Configuration parameter of ExceptionPrompt.
- * @interface PromptOptions
+ * Defines the exception prompt options.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
- /**
- * Configuration parameter of ExceptionPrompt.
- * @interface PromptOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 export interface PromptOptions {
   /**
-   * Icon of PromptOptions.
-   * @type { ?ResourceStr }
+   * Icon style of the exception prompt.
+   *
+   * If this parameter is not set or is set to **undefined**, the icon is not displayed.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-   /**
-   * Icon of PromptOptions.
-   * @type { ?ResourceStr }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   icon?: ResourceStr;
 
   /**
-   * SymbolGlyphModifier of PromptOptions.
-   * @type { ?SymbolGlyphModifier }
+   * Symbol icon style of the exception prompt, which has higher priority than **icon**.
+   *
+   * If this parameter is not set or is set to **undefined**, the symbol icon is not displayed.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 22]
    * @atomicservice
    * @since 18 dynamic
-   */
-  /**
-   * SymbolGlyphModifier of PromptOptions.
-   * @type { ?SymbolGlyphModifier }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
    */
   symbolStyle?: SymbolGlyphModifier;
 
   /**
-   * Tip text of PromptOptions.
-   * @type { ?ResourceStr }
+   * Text content of the exception prompt.
+   *
+   * By default, the following text resources are provided:
+   *
+   * 1. **ohos_network_not_connected**: displayed when there is no Internet connection.
+   * 2. **ohos_network_connected_unstable**: displayed when the Internet connection is unstable.
+   * 3. **ohos_unstable_connect_server**: displayed when the server fails to be connected.
+   * 4. **ohos_custom_network_tips_left**: displayed when an Internet connection is available but the location fails to be obtained.
+   *
+   * If this parameter is not set or is set to **undefined**, the text content is not displayed.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-   /**
-   * Tip text of PromptOptions.
-   * @type { ?ResourceStr }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   tip?: ResourceStr;
 
   /**
-   * Margin Type  of ExceptionPrompt.
-   * @type { MarginType }
+   * Margin type of the exception prompt.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-   /**
-   * Margin Type  of ExceptionPrompt.
-   * @type { MarginType }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   marginType: MarginType;
 
   /**
-   * Right icon button text of PromptOptions.
-   * @type { ?ResourceStr }
+   * Text of the icon on the right of the exception prompt.
+   *
+   * If this parameter is not set or is set to **undefined**, the text is not displayed.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-   /**
-   * Right icon button text of PromptOptions.
-   * @type { ?ResourceStr }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   actionText?: ResourceStr;
 
   /**
-   * Distance from the top of PromptOptions.
-   * @type { Dimension }
+   * Top margin of the exception prompt.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
-   /**
-   * Distance from the top of PromptOptions.
-   * @type { Dimension }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
-   */
-  marginTop: Dimension
+  marginTop: Dimension;
 
   /**
-   * Control concealment of PromptOptions.
-   * @type { boolean }
+   * Whether the exception prompt is displayed.
+   *
+   * **true**: The exception prompt is displayed.
+   *
+   * **false**: The exception prompt is hidden.
+   *
+   * Default value: **false**.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
-   /**
-   * Control concealment of PromptOptions.
-   * @type { boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
-   */
-  isShown?: boolean
+  isShown?: boolean;
 }
 
 /**
- * Declare struct ExceptionPrompt higher-order component.
+ * The exception prompt component is used to show an error message when an error arises.
+ *
+ * > **NOTE**
+ * >
+ * > - This component can be used only in the stage model.
+ * >
+ * > - If the **ExceptionPrompt** component has [universal attributes]{@link ./@internal/component/ets/common} and
+ * > [universal events]{@link ./@internal/component/ets/common} configured, the compiler toolchain automatically
+ * > generates an additional \_\_Common\_\_ node and mounts the universal attributes and universal events on this node
+ * > rather than the **ExceptionPrompt** component itself. As a result, the configured universal attributes and
+ * > universal events may fail to take effect or behave as intended. For this reason, avoid using universal attributes
+ * > and events with the **ExceptionPrompt** component.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
- /**
- * Declare struct ExceptionPrompt higher-order component.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
+ * @noninterop
  */
 @Component
 export declare struct ExceptionPrompt {
 
   /**
-   * Configuration information of ExceptionPrompt.
-   * @type { PromptOptions }
+   * Exception prompt configuration.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
-   /**
-   * Configuration information of ExceptionPrompt.
-   * @type { PromptOptions }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
-   */
-  @Prop options: PromptOptions;
+  @Prop
+  options: PromptOptions;
 
   /**
-   * Callback when clicking the text on the left.
-   * @type { ?function }
+   * Callback invoked when the tip text on the left is clicked. No operation is performed if this parameter is not
+   * specified.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-   /**
-   * Callback when clicking the text on the left.
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   onTipClick?: () => void;
 
   /**
-   * Callback when click the icon button.
-   * @type { ?function }
+   * Callback invoked when the icon on the right is clicked. No operation is performed if this parameter is not
+   * specified.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-   /**
-   * Callback when click the icon button.
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   onActionTextClick?: () => void;
 
@@ -306,7 +236,7 @@ export declare struct ExceptionPrompt {
    * @crossplatform
    * @since 11
    */
-   /**
+  /**
    * The build function is a member function that must return an ArkTS component type (Element) to represent the component to be rendered as a user interface.
    * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full

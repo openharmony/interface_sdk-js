@@ -19,9 +19,8 @@
  */
 
 /**
- * Declare the action when the button of dialog is clicked.
+ * Defines the click event type for buttons in the dialog box action area.
  *
- * @typedef { function } AdvancedDialogV2ButtonAction
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -31,21 +30,31 @@
 export declare type AdvancedDialogV2ButtonAction = () => void;
 
 /**
- * Declare AdvancedDialogV2Button.
+ * Defines the button used in a dialog box to perform actions.
  *
- * @class AdvancedDialogV2Button
+ * > **NOTE**
+ * >
+ * > The priority of **buttonStyle** and **role** is higher than that of **fontColor** and **background**. If
+ * > **buttonStyle** and **role** are at the default values, the settings of **fontColor** and **background** take
+ * > effect.
+ * >
+ * > If **defaultFocus** is set for multiple buttons, the default focus is the first button in the display order that
+ * > has **defaultFocus** set.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
+ * @class AdvancedDialogV2Button
  */
 @ObservedV2
 export declare class AdvancedDialogV2Button {
   /**
-   * Sets the Display Content of a Button.
+   * Content of the button.
    *
-   * @type { ResourceStr }.
+   * Decorator: @Trace
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -55,9 +64,12 @@ export declare class AdvancedDialogV2Button {
   @Trace
   content: ResourceStr;
   /**
-   * Sets the Button Callback.
+   * Action triggered when the button is clicked.
    *
-   * @type { ?AdvancedDialogV2ButtonAction }.
+   * By default, there is no action.
+   *
+   * Decorator: @Trace
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -67,9 +79,12 @@ export declare class AdvancedDialogV2Button {
   @Trace
   action?: AdvancedDialogV2ButtonAction;
   /**
-   * Sets the background color of a button.
+   * Background of the button.
    *
-   * @type { ?ColorMetrics }.
+   * The setting follows **buttonStyle** by default.
+   *
+   * Decorator: @Trace
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -79,9 +94,12 @@ export declare class AdvancedDialogV2Button {
   @Trace
   background?: ColorMetrics;
   /**
-   * Sets the Button Text Color.
+   * Font color of the button.
    *
-   * @type { ?ColorMetrics }.
+   * The setting follows **buttonStyle** by default.
+   *
+   * Decorator: @Trace
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -91,11 +109,12 @@ export declare class AdvancedDialogV2Button {
   @Trace
   fontColor?: ColorMetrics;
   /**
-   * Describes the Button style.
+   * Style of the button.
    *
    * Default value: **ButtonStyleMode.NORMAL** for 2-in-1 devices and **ButtonStyleMode.TEXTUAL** for other devices
-   * 
-   * @type { ?ButtonStyleMode }
+   *
+   * Decorator: @Trace
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -105,9 +124,12 @@ export declare class AdvancedDialogV2Button {
   @Trace
   buttonStyle?: ButtonStyleMode;
   /**
-   * Describes the Button role.
+   * Role of the button.
    *
-   * @type { ?ButtonRole }
+   * Default value: **ButtonRole.NORMAL**
+   *
+   * Decorator: @Trace
+   *
    * @default ButtonRole.NORMAL
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -118,9 +140,16 @@ export declare class AdvancedDialogV2Button {
   @Trace
   role?: ButtonRole;
   /**
-   * Set the default focus of a button.
+   * Whether the button is the default focus.
    *
-   * @type { ?boolean }
+   * **true**: The button is the default focus.
+   *
+   * **false**: The button is not the default focus.
+   *
+   * Default value: **false**.
+   *
+   * Decorator: @Trace
+   *
    * @default { false }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -131,9 +160,16 @@ export declare class AdvancedDialogV2Button {
   @Trace
   defaultFocus?: boolean;
   /**
-   * Set the availability of the button.
+   * Whether the button is enabled.
    *
-   * @type { ?boolean }
+   * **true**: The button is enabled.
+   *
+   * **false**: The button is disabled.
+   *
+   * Default value: **true**.
+   *
+   * Decorator: @Trace
+   *
    * @default { true }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -144,9 +180,12 @@ export declare class AdvancedDialogV2Button {
   @Trace
   enabled?: boolean;
   /**
-   * Set the alignment mode for the button label.
+   * Alignment method of the button text.
    *
-   * @type { ?TextAlign }
+   * Default value: **TextAlign.Start**
+   *
+   * Decorator: @Trace
+   *
    * @default { TextAlign.Start }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -157,7 +196,7 @@ export declare class AdvancedDialogV2Button {
   @Trace
   textAlign?: TextAlign;
   /**
-   * The constructor used to create a AdvancedDialogV2Button object.
+   * A constructor used to create an **AdvancedDialogV2Button** instance.
    *
    * @param { AdvancedDialogV2ButtonOptions } options - button info.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -170,9 +209,8 @@ export declare class AdvancedDialogV2Button {
 }
 
 /**
- * Declare the options of AdvancedDialogV2Button
+ * Provides options used to initialize an **AdvancedDialogV2Button** object.
  *
- * @interface AdvancedDialogV2ButtonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -181,9 +219,8 @@ export declare class AdvancedDialogV2Button {
  */
 export declare interface AdvancedDialogV2ButtonOptions {
   /**
-   * Sets the Display Content of a Button.
+   * Content of the button.
    *
-   * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -192,9 +229,10 @@ export declare interface AdvancedDialogV2ButtonOptions {
    */
   content: ResourceStr;
   /**
-   * Sets the Button Callback.
+   * Action triggered when the button is clicked.
    *
-   * @type { ?AdvancedDialogV2ButtonAction }.
+   * By default, there is no event.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -203,9 +241,10 @@ export declare interface AdvancedDialogV2ButtonOptions {
    */
   action?: AdvancedDialogV2ButtonAction;
   /**
-   * Sets the background color of a button.
+   * Background of the button.
    *
-   * @type { ?ColorMetrics }.
+   * The setting follows **buttonStyle** by default.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -214,9 +253,10 @@ export declare interface AdvancedDialogV2ButtonOptions {
    */
   background?: ColorMetrics;
   /**
-   * Sets the Button Text Color.
+   * Font color of the button.
    *
-   * @type { ?ColorMetrics }.
+   * The setting follows **buttonStyle** by default.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -225,9 +265,10 @@ export declare interface AdvancedDialogV2ButtonOptions {
    */
   fontColor?: ColorMetrics;
   /**
-   * Describes the Button style.
+   * Style of the button.
    *
-   * @type { ?ButtonStyleMode }
+   * Default value: **ButtonStyleMode.NORMAL** for 2-in-1 devices and **ButtonStyleMode.TEXTUAL** for other devices
+   *
    * @default ButtonStyleMode.TEXTUAL
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -237,9 +278,10 @@ export declare interface AdvancedDialogV2ButtonOptions {
    */
   buttonStyle?: ButtonStyleMode;
   /**
-   * Describes the Button role.
+   * Role of the button.
    *
-   * @type { ?ButtonRole }
+   * Default value: **ButtonRole.NORMAL**
+   *
    * @default ButtonRole.NORMAL
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -249,9 +291,14 @@ export declare interface AdvancedDialogV2ButtonOptions {
    */
   role?: ButtonRole;
   /**
-   * Set the default focus of a button.
+   * Whether the button is the default focus.
    *
-   * @type { ?boolean }
+   * **true**: The button is the default focus.
+   *
+   * **false**: The button is not the default focus.
+   *
+   * Default value: **false**.
+   *
    * @default { false }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -261,9 +308,14 @@ export declare interface AdvancedDialogV2ButtonOptions {
    */
   defaultFocus?: boolean;
   /**
-   * Set the availability of the button.
+   * Whether the button is enabled.
    *
-   * @type { ?boolean }
+   * **true**: The button is enabled.
+   *
+   * **false**: The button is disabled.
+   *
+   * Default value: **true**.
+   *
    * @default { true }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -273,9 +325,10 @@ export declare interface AdvancedDialogV2ButtonOptions {
    */
   enabled?: boolean;
   /**
-   * Set the alignment mode for the button label.
+   * Alignment method of the button text.
    *
-   * @type { ?TextAlign }
+   * Default value: **TextAlign.Start**
+   *
    * @default { TextAlign.Start }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -287,9 +340,8 @@ export declare interface AdvancedDialogV2ButtonOptions {
 }
 
 /**
- * Declare the callback when the checkbox of dialog is changed.
+ * Defines the event triggered when the selected status of the check box changes.
  *
- * @typedef { function } AdvancedDialogV2OnCheckedChange
  * @param { boolean } checked - Checkbox status.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -300,7 +352,26 @@ export declare interface AdvancedDialogV2ButtonOptions {
 export declare type AdvancedDialogV2OnCheckedChange = (checked: boolean) => void;
 
 /**
- * Declare CustomDialog TipsDialogV2
+ * The dialog box is a modal window that commands attention while retaining the current context. It is frequently used
+ * to draw the user's attention to vital information or prompt the user to complete a specific task. As all modal
+ * windows, this component requires the user to interact before exiting.
+ *
+ * This component is implemented based on
+ * [state management V2](docroot://ui/state-management/arkts-state-management-overview.md#state-management-v2). Compared
+ * with [state management V1](docroot://ui/state-management/arkts-state-management-overview.md#state-management-v1), V2
+ * offers a higher level of observation and management over data objects beyond the component level. You can now more
+ * easily manage dialog box data and states with greater flexibility, leading to faster UI updates.
+ *
+ * > **NOTE**
+ * >
+ * > - This component can be used only in the stage model.
+ * >
+ * > - If the **DialogV2** component has [universal attributes]{@link ./@internal/component/ets/common} and
+ * > [universal events]{@link ./@internal/component/ets/common} configured, the compiler toolchain automatically
+ * > generates an additional \_\_Common\_\_ node and mounts the universal attributes and universal events on this node
+ * > rather than the **DialogV2** component itself. As a result, the configured universal attributes and universal
+ * > events may fail to take effect or behave as intended. For this reason, avoid using universal attributes and events
+ * > with the **DialogV2** component.
  *
  * @struct { TipsDialogV2 }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -312,9 +383,8 @@ export declare type AdvancedDialogV2OnCheckedChange = (checked: boolean) => void
 @ComponentV2
 export declare struct TipsDialogV2 {
   /**
-   * Sets the TipsDialogV2 imageRes.
+   * Image to be displayed.
    *
-   * @type { ResourceStr | PixelMap }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -325,11 +395,10 @@ export declare struct TipsDialogV2 {
   @Param
   imageRes: ResourceStr | PixelMap;
   /**
-   * Sets the TipsDialogV2 image size.
-   * 
-   * Default value: **64*64vp**
+   * Size of the image.
    *
-   * @type { ?SizeOptions }.
+   * Default value: **64*64vp**.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -339,11 +408,10 @@ export declare struct TipsDialogV2 {
   @Param
   imageSize?: SizeOptions;
   /**
-   * Sets the borderColor of TipsDialogV2 image.
-   * 
-   * Default value: **Color.Black**
+   * Stroke color of the image.
    *
-   * @type { ?ColorMetrics }.
+   * Default value: **Color.Black**.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -353,9 +421,10 @@ export declare struct TipsDialogV2 {
   @Param
   imageBorderColor?: ColorMetrics;
   /**
-   * Sets the borderWidth of TipsDialogV2 image.
+   * Stroke width of the image.
    *
-   * @type { ?LengthMetrics }.
+   * By default, there is no stroke effect.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -365,9 +434,14 @@ export declare struct TipsDialogV2 {
   @Param
   imageBorderWidth?: LengthMetrics;
   /**
-   * Sets the TipsDialogV2 title.
+   * Title of the dialog box.
    *
-   * @type { ?ResourceStr }.
+   * It is not displayed by default.
+   *
+   * **NOTE**
+   *
+   * If the title exceeds two lines, it will be truncated with an ellipsis (...).
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -377,9 +451,10 @@ export declare struct TipsDialogV2 {
   @Param
   title?: ResourceStr;
   /**
-   * Sets the TipsDialogV2 content.
+   * Content of the dialog box.
    *
-   * @type { ?ResourceStr }.
+   * It is not displayed by default.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -389,9 +464,10 @@ export declare struct TipsDialogV2 {
   @Param
   content?: ResourceStr;
   /**
-   * Sets the TipsDialogV2 checkbox tips.
+   * Content of the check box.
    *
-   * @type { ?ResourceStr }.
+   * It is not displayed by default.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -401,9 +477,12 @@ export declare struct TipsDialogV2 {
   @Param
   checkTips?: ResourceStr;
   /**
-   * Sets the TipsDialogV2 checkbox check state.
+   * Whether to select the check box.
    *
-   * @type { ?boolean }.
+   * **true**: The check box is selected. **false**: The check box is not selected.
+   *
+   * Default value: **false**.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -413,9 +492,10 @@ export declare struct TipsDialogV2 {
   @Param
   checked?: boolean;
   /**
-   * Sets the TipsDialogV2 primary button.
+   * Left button of the dialog box.
    *
-   * @type { ?AdvancedDialogV2Button }.
+   * It is not displayed by default.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -425,9 +505,10 @@ export declare struct TipsDialogV2 {
   @Param
   primaryButton?: AdvancedDialogV2Button;
   /**
-   * Sets the TipsDialogV2 secondary button.
+   * Right button of the dialog box.
    *
-   * @type { ?AdvancedDialogV2Button }.
+   * It is not displayed by default.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -437,8 +518,10 @@ export declare struct TipsDialogV2 {
   @Param
   secondaryButton?: AdvancedDialogV2Button;
   /**
-   * Sets the TipsDialogV2 CheckBox Callback.
-   * @type { ?AdvancedDialogV2OnCheckedChange }
+   * Event triggered when the selected status of the check box changes.
+   *
+   * By default, there is no event.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -450,7 +533,26 @@ export declare struct TipsDialogV2 {
 }
 
 /**
- * Declare CustomDialog SelectDialogV2
+ * The dialog box is a modal window that commands attention while retaining the current context. It is frequently used
+ * to draw the user's attention to vital information or prompt the user to complete a specific task. As all modal
+ * windows, this component requires the user to interact before exiting.
+ *
+ * This component is implemented based on
+ * [state management V2](docroot://ui/state-management/arkts-state-management-overview.md#state-management-v2). Compared
+ * with [state management V1](docroot://ui/state-management/arkts-state-management-overview.md#state-management-v1), V2
+ * offers a higher level of observation and management over data objects beyond the component level. You can now more
+ * easily manage dialog box data and states with greater flexibility, leading to faster UI updates.
+ *
+ * > **NOTE**
+ * >
+ * > - This component can be used only in the stage model.
+ * >
+ * > - If the **DialogV2** component has [universal attributes]{@link ./@internal/component/ets/common} and
+ * > [universal events]{@link ./@internal/component/ets/common} configured, the compiler toolchain automatically
+ * > generates an additional \_\_Common\_\_ node and mounts the universal attributes and universal events on this node
+ * > rather than the **DialogV2** component itself. As a result, the configured universal attributes and universal
+ * > events may fail to take effect or behave as intended. For this reason, avoid using universal attributes and events
+ * > with the **DialogV2** component.
  *
  * @struct { SelectDialogV2 }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -525,7 +627,26 @@ export declare struct SelectDialogV2 {
 }
 
 /**
- * Declare CustomDialog ConfirmDialogV2
+ * The dialog box is a modal window that commands attention while retaining the current context. It is frequently used
+ * to draw the user's attention to vital information or prompt the user to complete a specific task. As all modal
+ * windows, this component requires the user to interact before exiting.
+ *
+ * This component is implemented based on
+ * [state management V2](docroot://ui/state-management/arkts-state-management-overview.md#state-management-v2). Compared
+ * with [state management V1](docroot://ui/state-management/arkts-state-management-overview.md#state-management-v1), V2
+ * offers a higher level of observation and management over data objects beyond the component level. You can now more
+ * easily manage dialog box data and states with greater flexibility, leading to faster UI updates.
+ *
+ * > **NOTE**
+ * >
+ * > - This component can be used only in the stage model.
+ * >
+ * > - If the **DialogV2** component has [universal attributes]{@link ./@internal/component/ets/common} and
+ * > [universal events]{@link ./@internal/component/ets/common} configured, the compiler toolchain automatically
+ * > generates an additional \_\_Common\_\_ node and mounts the universal attributes and universal events on this node
+ * > rather than the **DialogV2** component itself. As a result, the configured universal attributes and universal
+ * > events may fail to take effect or behave as intended. For this reason, avoid using universal attributes and events
+ * > with the **DialogV2** component.
  *
  * @struct { ConfirmDialogV2 }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -624,7 +745,26 @@ export declare struct ConfirmDialogV2 {
 }
 
 /**
- * Declare CustomDialog AlertDialogV2.
+ * The dialog box is a modal window that commands attention while retaining the current context. It is frequently used
+ * to draw the user's attention to vital information or prompt the user to complete a specific task. As all modal
+ * windows, this component requires the user to interact before exiting.
+ *
+ * This component is implemented based on
+ * [state management V2](docroot://ui/state-management/arkts-state-management-overview.md#state-management-v2). Compared
+ * with [state management V1](docroot://ui/state-management/arkts-state-management-overview.md#state-management-v1), V2
+ * offers a higher level of observation and management over data objects beyond the component level. You can now more
+ * easily manage dialog box data and states with greater flexibility, leading to faster UI updates.
+ *
+ * > **NOTE**
+ * >
+ * > - This component can be used only in the stage model.
+ * >
+ * > - If the **DialogV2** component has [universal attributes]{@link ./@internal/component/ets/common} and
+ * > [universal events]{@link ./@internal/component/ets/common} configured, the compiler toolchain automatically
+ * > generates an additional \_\_Common\_\_ node and mounts the universal attributes and universal events on this node
+ * > rather than the **DialogV2** component itself. As a result, the configured universal attributes and universal
+ * > events may fail to take effect or behave as intended. For this reason, avoid using universal attributes and events
+ * > with the **DialogV2** component.
  *
  * @struct { AlertDialogV2 }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -699,7 +839,26 @@ export declare struct AlertDialogV2 {
 }
 
 /**
- * Declare CustomDialog LoadingDialogV2
+ * The dialog box is a modal window that commands attention while retaining the current context. It is frequently used
+ * to draw the user's attention to vital information or prompt the user to complete a specific task. As all modal
+ * windows, this component requires the user to interact before exiting.
+ *
+ * This component is implemented based on
+ * [state management V2](docroot://ui/state-management/arkts-state-management-overview.md#state-management-v2). Compared
+ * with [state management V1](docroot://ui/state-management/arkts-state-management-overview.md#state-management-v1), V2
+ * offers a higher level of observation and management over data objects beyond the component level. You can now more
+ * easily manage dialog box data and states with greater flexibility, leading to faster UI updates.
+ *
+ * > **NOTE**
+ * >
+ * > - This component can be used only in the stage model.
+ * >
+ * > - If the **DialogV2** component has [universal attributes]{@link ./@internal/component/ets/common} and
+ * > [universal events]{@link ./@internal/component/ets/common} configured, the compiler toolchain automatically
+ * > generates an additional \_\_Common\_\_ node and mounts the universal attributes and universal events on this node
+ * > rather than the **DialogV2** component itself. As a result, the configured universal attributes and universal
+ * > events may fail to take effect or behave as intended. For this reason, avoid using universal attributes and events
+ * > with the **DialogV2** component.
  *
  * @struct { LoadingDialogV2 }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -725,7 +884,26 @@ export declare struct LoadingDialogV2 {
 }
 
 /**
- * Declare custom content dialog
+ * The dialog box is a modal window that commands attention while retaining the current context. It is frequently used
+ * to draw the user's attention to vital information or prompt the user to complete a specific task. As all modal
+ * windows, this component requires the user to interact before exiting.
+ *
+ * This component is implemented based on
+ * [state management V2](docroot://ui/state-management/arkts-state-management-overview.md#state-management-v2). Compared
+ * with [state management V1](docroot://ui/state-management/arkts-state-management-overview.md#state-management-v1), V2
+ * offers a higher level of observation and management over data objects beyond the component level. You can now more
+ * easily manage dialog box data and states with greater flexibility, leading to faster UI updates.
+ *
+ * > **NOTE**
+ * >
+ * > - This component can be used only in the stage model.
+ * >
+ * > - If the **DialogV2** component has [universal attributes]{@link ./@internal/component/ets/common} and
+ * > [universal events]{@link ./@internal/component/ets/common} configured, the compiler toolchain automatically
+ * > generates an additional \_\_Common\_\_ node and mounts the universal attributes and universal events on this node
+ * > rather than the **DialogV2** component itself. As a result, the configured universal attributes and universal
+ * > events may fail to take effect or behave as intended. For this reason, avoid using universal attributes and events
+ * > with the **DialogV2** component.
  *
  * @struct { CustomContentDialogV2 }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -798,7 +976,26 @@ export declare struct CustomContentDialogV2 {
 }
 
 /**
- * Declare struct PopoverDialogV2
+ * The dialog box is a modal window that commands attention while retaining the current context. It is frequently used
+ * to draw the user's attention to vital information or prompt the user to complete a specific task. As all modal
+ * windows, this component requires the user to interact before exiting.
+ *
+ * This component is implemented based on
+ * [state management V2](docroot://ui/state-management/arkts-state-management-overview.md#state-management-v2). Compared
+ * with [state management V1](docroot://ui/state-management/arkts-state-management-overview.md#state-management-v1), V2
+ * offers a higher level of observation and management over data objects beyond the component level. You can now more
+ * easily manage dialog box data and states with greater flexibility, leading to faster UI updates.
+ *
+ * > **NOTE**
+ * >
+ * > - This component can be used only in the stage model.
+ * >
+ * > - If the **DialogV2** component has [universal attributes]{@link ./@internal/component/ets/common} and
+ * > [universal events]{@link ./@internal/component/ets/common} configured, the compiler toolchain automatically
+ * > generates an additional \_\_Common\_\_ node and mounts the universal attributes and universal events on this node
+ * > rather than the **DialogV2** component itself. As a result, the configured universal attributes and universal
+ * > events may fail to take effect or behave as intended. For this reason, avoid using universal attributes and events
+ * > with the **DialogV2** component.
  *
  * @struct { PopoverDialogV2 }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -811,7 +1008,7 @@ export declare struct CustomContentDialogV2 {
 export declare struct PopoverDialogV2 {
   /**
    * Sets the PopoverDialogV2 Visible Status.
-   * 
+   *
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -836,7 +1033,7 @@ export declare struct PopoverDialogV2 {
   $visible?: PopoverDialogV2OnVisibleChange;
   /**
    * Sets the PopoverDialogV2 options.
-   * 
+   *
    * @type { PopoverDialogV2Options }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -849,7 +1046,7 @@ export declare struct PopoverDialogV2 {
   popover: PopoverDialogV2Options;
   /**
    * Sets the targetBuilder content.
-   * 
+   *
    * @type { CustomBuilder }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -862,9 +1059,8 @@ export declare struct PopoverDialogV2 {
 }
 
 /**
- * Declare the callback when the visibility of PopoverDialogV2 is changed.
+ * Defines the event triggered when the visibility of the popover dialog box changes.
  *
- * @typedef { function } PopoverDialogV2OnVisibleChange
  * @param { boolean } visible - The visibility of PopoverDialogV2.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -875,15 +1071,18 @@ export declare struct PopoverDialogV2 {
 export declare type PopoverDialogV2OnVisibleChange = (visible: boolean) => void;
 
 /**
- * Defines PopoverDialogV2 Options
- * 
- * @interface PopoverDialogV2Options
- * @extends CustomPopupOptions
+ * Defines a set of options used to configure the popover dialog box, including its content and position.
+ *
+ * Inherits [CustomPopupOptions]{@link CustomPopupOptions}.
+ *
+ * > **NOTE**
+ * >
+ * > The default value of **radius** is **32vp**.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
  */
-export declare interface PopoverDialogV2Options extends CustomPopupOptions {
-}
+export declare interface PopoverDialogV2Options extends CustomPopupOptions {}

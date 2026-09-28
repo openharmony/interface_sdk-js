@@ -20,18 +20,17 @@
 
 /**
  * Provides text style settings.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
  * @atomicservice [since 12]
  * @since 11 dynamic
  */
-
-
 export interface PopupTextOptions {
   /**
    * Text content.
-   * @type { ResourceStr }.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -41,16 +40,15 @@ export interface PopupTextOptions {
   text: ResourceStr;
 
   /**
-   * Text font size.
-   * 
-   * Default value: **$r('sys.float.ohos_id_text_size_body2')**
-   * 
-   * The string value must be convertible to a number (for example, **'10'**) or include a length unit (for example, 
-   * **'10px'**); percentage-based strings are not supported.
-   * 
-   * Value range of number values: (0, +∞)
+   * Font size of the text.
    *
-   * @type { ?(number | string | Resource) }.
+   * Default value: `$r('sys.float.ohos_id_text_size_body2')`
+   *
+   * For the string type, the value can be a string that can be converted to a number (such as '10') or a string with a
+   * length unit (such as '10px'). Setting a percentage string is not supported.
+   *
+   * For the number type, the value range is (0, +∞). When the type is number, the unit is fp.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -61,10 +59,9 @@ export interface PopupTextOptions {
 
   /**
    * Text font color.
-   * 
+   *
    * Default value: **$r('sys.color.ohos_id_color_text_secondary')**
    *
-   * @type { ?ResourceColor }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -75,17 +72,16 @@ export interface PopupTextOptions {
 
   /**
    * Text font weight.
-   * 
-   * For the number type, the value ranges from 100 to 900, at an interval of 100. A larger value indicates a heavier 
+   *
+   * For the number type, the value ranges from 100 to 900, at an interval of 100. A larger value indicates a heavier
    * font weight. The default value is **400**.
-   * 
-   * For the string type, only strings of the number type are supported, for example, **"400"**, **"bold"**, 
-   * **"bolder"**, **"lighter"**, **"regular"**, and **"medium"**, which correspond to the enumerated values in 
+   *
+   * For the string type, only strings of the number type are supported, for example, **"400"**, **"bold"**,
+   * **"bolder"**, **"lighter"**, **"regular"**, and **"medium"**, which correspond to the enumerated values in
    * **FontWeight**.
-   * 
+   *
    * Default value: **FontWeight.Regular**
-   * 
-   * @type { ?(number | FontWeight | string) }.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -97,6 +93,7 @@ export interface PopupTextOptions {
 
 /**
  * Defines the button attributes and events.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -106,7 +103,7 @@ export interface PopupTextOptions {
 export interface PopupButtonOptions {
   /**
    * Text of the button.
-   * @type { ResourceStr }.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -117,10 +114,9 @@ export interface PopupButtonOptions {
 
   /**
    * Click callback of the button.
-   * 
+   *
    * By default, no operation is performed.
    *
-   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -131,15 +127,16 @@ export interface PopupButtonOptions {
 
   /**
    * Font size of the button text.
-   * 
-   * Default value: **$r('sys.float.ohos_id_text_size_button2')**
-   * 
-   * The string value must be convertible to a number (for example, **'10'**) or include a length unit (for example, 
-   * **'10px'**); percentage-based strings are not supported.
-   * 
-   * Invalid values are handled as default values.
    *
-   * @type { ?(number | string | Resource) }.
+   * Default value: **$r('sys.float.ohos_id_text_size_button2')**
+   *
+   * Optional values of the string type: a string that can be converted to a number (for example, '10') or a string with
+   * a length unit (for example, '10px'). Setting a percentage string is not supported.
+   *
+   * number: value range (0, +∞). When the type is number, the unit is fp.
+   *
+   * The default value is used when an abnormal value is set.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -150,10 +147,9 @@ export interface PopupButtonOptions {
 
   /**
    * Font color of the button text.
-   * 
+   *
    * Default value: **$r('sys.color.ohos_id_color_text_primary_activated')**
    *
-   * @type { ?ResourceColor }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -176,7 +172,6 @@ export interface PopupIconOptions {
   /**
    * Icon content.
    *
-   * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -186,11 +181,10 @@ export interface PopupIconOptions {
   image: ResourceStr;
 
   /**
-   * Icon width.
-   * 
-   * Default value: **32VP**
+   * Icon width. Unit: vp.
    *
-   * @type { ?Dimension }.
+   * Default value: **32vp**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -200,11 +194,10 @@ export interface PopupIconOptions {
   width?: Dimension;
 
   /**
-   * Icon height.
-   * 
-   * Default value: **32VP**
+   * Icon height. Unit: vp.
    *
-   * @type { ?Dimension }.
+   * Default value: **32vp**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -215,10 +208,9 @@ export interface PopupIconOptions {
 
   /**
    * Icon fill color. This property applies only to an SVG image.
-   * 
+   *
    * By default, the icon color is not changed.
    *
-   * @type { ?ResourceColor }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -228,11 +220,10 @@ export interface PopupIconOptions {
   fillColor?: ResourceColor;
 
   /**
-   * Rounded corner of the icon.
-   * 
-   * Default value: **$r('sys.float.ohos_id_corner_radius_default_s')**
+   * Icon corner radius. Unit: vp.
    *
-   * @type { ?(Length | BorderRadiuses) }.
+   * Default value: `$r('sys.float.ohos_id_corner_radius_default_s')`
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -253,15 +244,14 @@ export interface PopupIconOptions {
  */
 export interface PopupOptions {
   /**
-   * Icon of the popup.
-   * 
+   * Popup icon.
+   *
    * **NOTE**
-   * 
-   * The icon is not displayed when **width** and **height** are set to an invalid value or **0**.
-   * 
-   * By default, no icon is displayed.
-    *
-   * @type { ?PopupIconOptions }
+   *
+   * The icon is not displayed when width and height are set to abnormal values or 0.
+   *
+   * Hidden by default.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -271,11 +261,10 @@ export interface PopupOptions {
   icon?: PopupIconOptions;
 
   /**
-   * Title of the popup.
-   * 
-   * By default, no title is displayed.
-    *
-   * @type { ?PopupTextOptions }
+   * Popup title text.
+   *
+   * Hidden by default.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -285,15 +274,14 @@ export interface PopupOptions {
   title?: PopupTextOptions;
 
   /**
-   * Message of the popup.
-   * 
-   * **NOTE**
-   * 
-   * **fontWeight** is not available for messages.
-   * 
-   * By default, no message is displayed.
+   * Popup content text.
    *
-   * @type { PopupTextOptions }
+   * **NOTE**
+   *
+   * **fontWeight** setting is not supported for message.
+   *
+   * Hidden by default.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -303,15 +291,14 @@ export interface PopupOptions {
   message: PopupTextOptions;
 
   /**
-   * Whether to show the close button.
-   * 
-   * **true**: Show the close button. **false**: Do not show the close button.
-   * 
-   * **Resource**: Show the corresponding icon.
-   * 
+   * Popup close button.
+   *
+   * The value **true** indicates to show the close button, and **false** indicates to hide the close button.
+   *
+   * **Resource**: displays the corresponding icon.
+   *
    * Default value: **true**
    *
-   * @type { ?(boolean | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -321,11 +308,10 @@ export interface PopupOptions {
   showClose?: boolean | Resource;
 
   /**
-   * Callback for the popup close button.
-   * 
-   * By default, the callback for the close button is not set.
+   * Popup close button callback.
    *
-   * @type { ?() => void }
+   * No close button callback is set by default.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -335,11 +321,10 @@ export interface PopupOptions {
   onClose?: () => void;
 
   /**
-   * Buttons of the popup. A maximum of two buttons can be set.
-   * 
-   * By default, no buttons are displayed.
+   * Popup action buttons. A maximum of two buttons can be set.
    *
-   * @type { ?[PopupButtonOptions?, PopupButtonOptions?] }
+   * Hidden by default.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -349,31 +334,29 @@ export interface PopupOptions {
   buttons?: [PopupButtonOptions?, PopupButtonOptions?];
 
   /**
-   * Layout direction.
-   * 
+   * Layout direction of the Popup content. For available enum values, see [Direction]{@link Direction}.
+   *
    * Default value: **Direction.Auto**
    *
-   * @type { ?Direction }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
-   direction?: Direction;
+  direction?: Direction;
 
   /**
-   * Maximum width of the popup. This API allows the popup to display with a custom width.
-   * 
+   * Maximum width of the Popup. Custom width display is supported.
+   *
    * **NOTE**
-   * 
-   * 1. When using resource references, ensure that the parameter type matches the attribute method type.
+   *
+   * 1. When a referenced resource type is used, its parameter type must be consistent with the type of the **maxWidth** attribute itself.
    * 2. **maxWidth** is of the [Dimension]{@link Dimension} type, which supports numeric and percentage string types. Numeric types support float and integer, for example, `$r('app.float.maxWidth')` and `$r('app.integer.maxWidth')`; percentage strings, for example, '50%'.
-   * 3. When the type is Resource, values default to px units if no unit is explicitly specified.
-   * 
+   * 3. When the type is Resource, if no unit is set, the default unit is px.
+   *
    * Default value: **400vp**
    *
-   * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -384,8 +367,9 @@ export interface PopupOptions {
 }
 
 /**
+ * Build function of Popup.
  *
- * @param { PopupOptions } options - Parameters of the popup.
+ * @param { PopupOptions } options - Configuration parameters of the **Popup** component.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform

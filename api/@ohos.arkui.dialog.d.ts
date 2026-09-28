@@ -629,7 +629,8 @@ declare namespace dialog {
     systemMaterial?: SystemUiMaterial;
 
     /**
-     * Sets the distortion animation Mode of the dialog.
+     * Nonlinear animation mode of the dialog box under the system material.
+     * Default value: DistortionMode.DISTORTION_AUTO.
      *
      * @default DistortionMode.DISTORTION_AUTO
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -640,7 +641,9 @@ declare namespace dialog {
     distortionMode?: DistortionMode;
 
     /**
-     * Sets the edgeLight animation Mode of the dialog.
+     * Edge light animation mode of the dialog box under the system material.
+     * Default value: EdgeLightMode.EDGELIGHT_AUTO
+     * .
      *
      * @default EdgeLightMode.EDGELIGHT_AUTO
      * @syscap SystemCapability.ArkUI.ArkUI.Full
