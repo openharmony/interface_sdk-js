@@ -3832,7 +3832,7 @@ declare namespace avMusicTemplate {
    *
    * @syscap SystemCapability.Multimedia.AVSession.AVMusicTemplate
    * @stagemodelonly
-   * @since 26.2.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   interface SearchPlayKaraokeItem {  
     /**
@@ -3840,7 +3840,7 @@ declare namespace avMusicTemplate {
      *
      * @syscap SystemCapability.Multimedia.AVSession.AVMusicTemplate
      * @stagemodelonly
-     * @since 26.2.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     entityId: string;
  
@@ -3850,7 +3850,7 @@ declare namespace avMusicTemplate {
      *
      * @syscap SystemCapability.Multimedia.AVSession.AVMusicTemplate
      * @stagemodelonly
-     * @since 26.2.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     entityName?: string;
   }
@@ -3860,7 +3860,7 @@ declare namespace avMusicTemplate {
    *
    * @syscap SystemCapability.Multimedia.AVSession.AVMusicTemplate
    * @stagemodelonly
-   * @since 26.2.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   interface SearchPlayKaraokeInfo {  
  
@@ -3871,7 +3871,7 @@ declare namespace avMusicTemplate {
      *
      * @syscap SystemCapability.Multimedia.AVSession.AVMusicTemplate
      * @stagemodelonly
-     * @since 26.2.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     items?: SearchPlayKaraokeItem[];
  
@@ -3881,7 +3881,7 @@ declare namespace avMusicTemplate {
      *
      * @syscap SystemCapability.Multimedia.AVSession.AVMusicTemplate
      * @stagemodelonly
-     * @since 26.2.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     songName?: string;
  
@@ -3891,7 +3891,7 @@ declare namespace avMusicTemplate {
      *
      * @syscap SystemCapability.Multimedia.AVSession.AVMusicTemplate
      * @stagemodelonly
-     * @since 26.2.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     artist?: string;
  
@@ -3901,7 +3901,7 @@ declare namespace avMusicTemplate {
      *
      * @syscap SystemCapability.Multimedia.AVSession.AVMusicTemplate
      * @stagemodelonly
-     * @since 26.2.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     albumName?: string;
  
@@ -3911,7 +3911,7 @@ declare namespace avMusicTemplate {
      *
      * @syscap SystemCapability.Multimedia.AVSession.AVMusicTemplate
      * @stagemodelonly
-     * @since 26.2.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     billBoard?: string;
  
@@ -3921,7 +3921,7 @@ declare namespace avMusicTemplate {
      *
      * @syscap SystemCapability.Multimedia.AVSession.AVMusicTemplate
      * @stagemodelonly
-     * @since 26.2.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     scene?: string;
  
@@ -3931,7 +3931,7 @@ declare namespace avMusicTemplate {
      *
      * @syscap SystemCapability.Multimedia.AVSession.AVMusicTemplate
      * @stagemodelonly
-     * @since 26.2.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     genre?: string;
  
@@ -3941,7 +3941,7 @@ declare namespace avMusicTemplate {
      *
      * @syscap SystemCapability.Multimedia.AVSession.AVMusicTemplate
      * @stagemodelonly
-     * @since 26.2.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     instrument?: string;
  
@@ -3951,7 +3951,7 @@ declare namespace avMusicTemplate {
      *
      * @syscap SystemCapability.Multimedia.AVSession.AVMusicTemplate
      * @stagemodelonly
-     * @since 26.2.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     language?: string;
  
@@ -3961,7 +3961,7 @@ declare namespace avMusicTemplate {
      *
      * @syscap SystemCapability.Multimedia.AVSession.AVMusicTemplate
      * @stagemodelonly
-     * @since 26.2.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     decade?: string;
  
@@ -3971,7 +3971,7 @@ declare namespace avMusicTemplate {
      *
      * @syscap SystemCapability.Multimedia.AVSession.AVMusicTemplate
      * @stagemodelonly
-     * @since 26.2.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     mood?: string;
  
@@ -3981,7 +3981,7 @@ declare namespace avMusicTemplate {
      *
      * @syscap SystemCapability.Multimedia.AVSession.AVMusicTemplate
      * @stagemodelonly
-     * @since 26.2.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     gender?: string;
  
@@ -3991,7 +3991,7 @@ declare namespace avMusicTemplate {
      *
      * @syscap SystemCapability.Multimedia.AVSession.AVMusicTemplate
      * @stagemodelonly
-     * @since 26.2.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     queryKeyWord?: string;
  
@@ -4001,7 +4001,7 @@ declare namespace avMusicTemplate {
      *
      * @syscap SystemCapability.Multimedia.AVSession.AVMusicTemplate
      * @stagemodelonly
-     * @since 26.2.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     extra?: string;
   }
@@ -4041,7 +4041,7 @@ declare namespace avMusicTemplate {
      *
      * @syscap SystemCapability.Multimedia.AVSession.AVMusicTemplate
      * @stagemodelonly
-     * @since 26.2.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
      karaokeInfo?: SearchPlayKaraokeInfo;
   }
@@ -4541,7 +4541,7 @@ declare namespace avMusicTemplate {
      *
      * @syscap SystemCapability.Multimedia.AVSession.AVMusicTemplate
      * @stagemodelonly
-     * @since 26.2.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     PLAY_KARAOKE = 'playKaroke',
  
@@ -4550,7 +4550,7 @@ declare namespace avMusicTemplate {
      *
      * @syscap SystemCapability.Multimedia.AVSession.AVMusicTemplate
      * @stagemodelonly
-     * @since 26.2.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     PLAY_KARAOKE_LIST = 'playKarokeList'
   }
