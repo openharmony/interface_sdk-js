@@ -987,9 +987,12 @@ interface ParticlePropertyOptions<TYPE, UPDATER extends ParticleUpdater> {
   /**
    * Property change configuration. The property change type has three categories:
    * 
-   * 1. When **type** is **ParticleUpdater.NONE**, it indicates no change, and the **config** type is [ParticlePropertyUpdaterConfigs]{@link ParticlePropertyUpdaterConfigs}[ParticleUpdater.NONE].
-   * 2. When **type** is **ParticleUpdater.RANDOM**, it indicates that the change type is random change, and the **config** type is [ParticlePropertyUpdaterConfigs]{@link ParticlePropertyUpdaterConfigs}[ParticleUpdater.RANDOM].
-   * 3. When **type** is **ParticleUpdater.CURVE**, it indicates that the change type is curve change, and the **config** type is [ParticlePropertyUpdaterConfigs]{@link ParticlePropertyUpdaterConfigs}[ParticleUpdater.CURVE].
+   * 1. When **type** is **ParticleUpdater.NONE**, it indicates no change, and the **config** type is
+   * [ParticlePropertyUpdaterConfigs]{@link ParticlePropertyUpdaterConfigs}[ParticleUpdater.NONE].
+   * 2. When **type** is **ParticleUpdater.RANDOM**, it indicates that the change type is random change, and the **config** type is
+   * [ParticlePropertyUpdaterConfigs]{@link ParticlePropertyUpdaterConfigs}[ParticleUpdater.RANDOM].
+   * 3. When **type** is **ParticleUpdater.CURVE**, it indicates that the change type is curve change, and the **config** type is
+   * [ParticlePropertyUpdaterConfigs]{@link ParticlePropertyUpdaterConfigs}[ParticleUpdater.CURVE].
    * 
    * Default value: **type** defaults to **ParticleUpdater.NONE**.
    *
