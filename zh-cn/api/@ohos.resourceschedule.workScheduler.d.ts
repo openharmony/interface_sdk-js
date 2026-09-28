@@ -234,13 +234,15 @@ declare namespace workScheduler {
    * 申请延迟任务，成功后会把任务添加到执行队列，满足触发条件后由系统调度执行。
    *
    * @param { WorkInfo } work - 指定延迟任务具体信息，比如延迟任务ID、触发条件等。
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     2. Incorrect parameters types; 3. Parameter verification failed.
+   * @throws { BusinessError } 401 - [Sync] Parameter error. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified;
+   *     <br>2. Incorrect parameters types;
+   *     <br>3. Parameter verification failed.
    * @throws { BusinessError } 9700001 - Memory operation failed.
    * @throws { BusinessError } 9700002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    *     2. Failed to apply for memory.
    * @throws { BusinessError } 9700003 - System service operation failed.
-   * @throws { BusinessError } 9700004 - Check on workInfo failed.
+   * @throws { BusinessError } 9700004 - Input param failed.
    * @throws { BusinessError } 9700005 - Calling startWork failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
@@ -252,17 +254,19 @@ declare namespace workScheduler {
   /**
    * 停止当前执行的延迟任务，或移除周期性延迟任务，后续不再执行。
    *
-   * @param { WorkInfo } work  - 要停止或移除的延迟任务。
-   * @param { boolean } needCancel  - 是否需要移除任务。
+   * @param { WorkInfo } work - 要停止或移除的延迟任务。
+   * @param { boolean } needCancel - 是否需要移除任务。
    * 
    * true表示停止并移除，false表示只停止不移除。默认为false。如果任务后续不再需要，建议设置为true以释放系统资源；如果任务可能需要重新触发，建议设置为false。
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     2. Incorrect parameters types; 3. Parameter verification failed.
+   * @throws { BusinessError } 401 - [Sync] Parameter error. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified;
+   *     <br>2. Incorrect parameters types;
+   *     <br>3. Parameter verification failed.
    * @throws { BusinessError } 9700001 - Memory operation failed.
    * @throws { BusinessError } 9700002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    *     2. Failed to apply for memory.
    * @throws { BusinessError } 9700003 - System service operation failed.
-   * @throws { BusinessError } 9700004 - Check on workInfo failed.
+   * @throws { BusinessError } 9700004 - Input param failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
    * @since 9 dynamic
@@ -273,14 +277,16 @@ declare namespace workScheduler {
   /**
    * 通过workId获取延迟任务，使用Callback异步回调。
    *
-   * @param { int } workId  - 延迟任务ID。指定延迟任务的唯一标识符，用于查询指定延迟任务的状态信息。
-   * @param { AsyncCallback<WorkInfo> } callback  - 回调函数。如果workId有效，则返回从WorkSchedulerService获取的任务，否则抛出异常。
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: Parameter verification failed.
-   * @throws { BusinessError } 9700001 - Memory operation failed.
+   * @param { int } workId - 延迟任务ID。指定延迟任务的唯一标识符，用于查询指定延迟任务的状态信息。
+   * @param { AsyncCallback<WorkInfo> } callback - 回调函数。如果workId有效，则返回从WorkSchedulerService获取的任务，否则抛出异常。
+   * @throws { BusinessError } 401 - [Async] Parameter error. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified;
+   *     <br>2. Incorrect parameters types;
+   *     <br>3. Parameter verification failed.
    * @throws { BusinessError } 9700002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    *     2. Failed to apply for memory.
    * @throws { BusinessError } 9700003 - System service operation failed.
-   * @throws { BusinessError } 9700004 - Check on workInfo failed.
+   * @throws { BusinessError } 9700004 - Input param failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
    * @since 9 dynamic
@@ -291,14 +297,16 @@ declare namespace workScheduler {
   /**
    * 通过workId获取延迟任务，使用Promise异步回调。
    *
-   * @param { int } workId  - 延迟任务ID。指定延迟任务的唯一标识符，用于查询指定延迟任务的状态信息。
+   * @param { int } workId - 延迟任务ID。指定延迟任务的唯一标识符，用于查询指定延迟任务的状态信息。
    * @returns { Promise<WorkInfo> } Promise对象，如果workId有效，则返回从WorkSchedulerService获取的任务，否则抛出异常。
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: Parameter verification failed.
-   * @throws { BusinessError } 9700001 - Memory operation failed.
+   * @throws { BusinessError } 401 - [Async] Parameter error. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified;
+   *     <br>2. Incorrect parameters types;
+   *     <br>3. Parameter verification failed.
    * @throws { BusinessError } 9700002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    *     2. Failed to apply for memory.
    * @throws { BusinessError } 9700003 - System service operation failed.
-   * @throws { BusinessError } 9700004 - Check on workInfo failed.
+   * @throws { BusinessError } 9700004 - Input param failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
    * @since 9 dynamic
@@ -311,8 +319,10 @@ declare namespace workScheduler {
    *
    * @param { AsyncCallback<void> } callback - 回调函数，获取成功时，err为undefined，否则为错误对象。
    * @returns { Array<WorkInfo> } 延迟任务列表，如果已添加延迟任务到执行队列，则返回当前应用所有的延迟任务列表；否则返回空列表。
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     2. Incorrect parameters types.
+   * @throws { BusinessError } 401 - [Async] Parameter error. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified;
+   *     <br>2. Incorrect parameters types;
+   *     <br>3. Parameter verification failed.
    * @throws { BusinessError } 9700001 - Memory operation failed.
    * @throws { BusinessError } 9700002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    *     2. Failed to apply for memory.
@@ -329,8 +339,10 @@ declare namespace workScheduler {
    * 获取当前应用所有的延迟任务，使用Callback异步回调。
    *
    * @param { AsyncCallback<Array<WorkInfo>> } callback - 回调函数，获取成功时，error为undefined，res为当前应用所有的延迟任务列表；否则为错误对象。。
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     2. Incorrect parameters types.
+   * @throws { BusinessError } 401 - [Async] Parameter error. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified;
+   *     <br>2. Incorrect parameters types;
+   *     <br>3. Parameter verification failed.
    * @throws { BusinessError } 9700001 - Memory operation failed.
    * @throws { BusinessError } 9700002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    *     2. Failed to apply for memory.
@@ -346,8 +358,10 @@ declare namespace workScheduler {
    * 获取当前应用所有的延迟任务，使用Promise异步回调。
    *
    * @returns { Promise<Array<WorkInfo>> } Promise对象，返回当前应用所有的延迟任务。
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     2. Incorrect parameters types.
+   * @throws { BusinessError } 401 - [Async] Parameter error. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified;
+   *     <br>2. Incorrect parameters types;
+   *     <br>3. Parameter verification failed.
    * @throws { BusinessError } 9700001 - Memory operation failed.
    * @throws { BusinessError } 9700002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    *     2. Failed to apply for memory.
@@ -362,8 +376,10 @@ declare namespace workScheduler {
   /**
    * 停止和取消当前应用所有的延迟任务。适用于应用退出或卸载时清理所有延迟任务的场景。
    *
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     2. Incorrect parameters types.
+   * @throws { BusinessError } 401 - [Sync] Parameter error. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified;
+   *     <br>2. Incorrect parameters types;
+   *     <br>3. Parameter verification failed.
    * @throws { BusinessError } 9700001 - Memory operation failed.
    * @throws { BusinessError } 9700002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    *     2. Failed to apply for memory.
@@ -378,16 +394,19 @@ declare namespace workScheduler {
   /**
    * 检查延迟任务的最后一次执行是否超时，使用Callback异步回调。
    *
-   * @param { number } workId  - 延迟任务ID。指定延迟任务的唯一标识符，用于检查延迟任务的最后一次执行是否超时。
-   * @param { AsyncCallback<void> } callback  - 回调函数。当检查延迟任务的最后一次执行是否超时成功时，error为undefined，否则为错误对象。
+   * @param { number } workId - 延迟任务ID。指定延迟任务的唯一标识符，用于检查延迟任务的最后一次执行是否超时。
+   * @param { AsyncCallback<void> } callback - 回调函数。当检查延迟任务的最后一次执行是否超时成功时，error为undefined，否则为错误对象。
    * @returns { boolean } 检查延迟任务最后一次执行是否超时，如果workId有效，则返回从WorkSchedulerService获取的任务最后一次执行是否超时；否则，抛出异常。
    *     true，对应workId延迟任务最后一次执行超时，false，对应workId延迟任务最后一次执行未超时。
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: Parameter verification failed.
+   * @throws { BusinessError } 401 - [Async] Parameter error. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified;
+   *     <br>2. Incorrect parameters types;
+   *     <br>3. Parameter verification failed.
    * @throws { BusinessError } 9700001 - Memory operation failed.
    * @throws { BusinessError } 9700002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    *     2. Failed to apply for memory.
    * @throws { BusinessError } 9700003 - System service operation failed.
-   * @throws { BusinessError } 9700004 - Check on workInfo failed.
+   * @throws { BusinessError } 9700004 - Input param failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
    * @since 9 dynamiconly
@@ -401,12 +420,15 @@ declare namespace workScheduler {
    *
    * @param { int } workId - 延迟任务ID。指定延迟任务的唯一标识符，用于检查延迟任务的最后一次执行是否超时
    * @param { AsyncCallback<boolean> } callback - 回调函数。返回true表示指定任务的最后一次执行超时，false表示未超时。
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: Parameter verification failed.
+   * @throws { BusinessError } 401 - [Async] Parameter error. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified;
+   *     <br>2. Incorrect parameters types;
+   *     <br>3. Parameter verification failed.
    * @throws { BusinessError } 9700001 - Memory operation failed.
    * @throws { BusinessError } 9700002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    *     2. Failed to apply for memory.
    * @throws { BusinessError } 9700003 - System service operation failed.
-   * @throws { BusinessError } 9700004 - Check on workInfo failed.
+   * @throws { BusinessError } 9700004 - Input param failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
    * @since 10 dynamic
@@ -419,12 +441,15 @@ declare namespace workScheduler {
    *
    * @param { int } workId - 延迟任务ID。指定延迟任务的唯一标识符，用于检查延迟任务的最后一次执行是否超时。
    * @returns { Promise<boolean> } Promise对象。返回true表示指定任务的最后一次执行超时，false表示未超时。
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: Parameter verification failed.
+   * @throws { BusinessError } 401 - [Async] Parameter error. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified;
+   *     <br>2. Incorrect parameters types;
+   *     <br>3. Parameter verification failed.
    * @throws { BusinessError } 9700001 - Memory operation failed.
    * @throws { BusinessError } 9700002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    *     2. Failed to apply for memory.
    * @throws { BusinessError } 9700003 - System service operation failed.
-   * @throws { BusinessError } 9700004 - Check on workInfo failed.
+   * @throws { BusinessError } 9700004 - Input param failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
    * @since 9 dynamic
@@ -667,10 +692,10 @@ declare namespace workScheduler {
    *
    * @permission ohos.permission.SET_WORK_SCHEDULER_PROPERTY
    * @param { FrequencyInfo } info - 应用所在活跃分组的执行频率信息。
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 201 - 没有权限.
+   * @throws { BusinessError } 202 - 非系统应用.
    * @throws { BusinessError } 9700003 - System service operation failed.
-   * @throws { BusinessError } 9700006 - Failed to check the execution frequency parameters.
+   * @throws { BusinessError } 9700006 - 执行频率参数检查失败.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @systemapi
    * @stagemodelonly
@@ -682,11 +707,11 @@ declare namespace workScheduler {
    * 重置应用所在活跃分组的执行频率。
    *
    * @permission ohos.permission.SET_WORK_SCHEDULER_PROPERTY
-   * @param { int } uid - 由系统自动分配的UID。
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 9700003 - System service operation failed.
-   * @throws { BusinessError } 9700006 - Failed to check the execution frequency parameters.
+   * @param { int } uid - 应用uid。
+   * @throws { BusinessError } 201 - 没有权限.
+   * @throws { BusinessError } 202 - 非系统应用.
+   * @throws { BusinessError } 9700003 - 系统服务异常.
+   * @throws { BusinessError } 9700006 - 执行频率参数检查失败.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @systemapi
    * @stagemodelonly
