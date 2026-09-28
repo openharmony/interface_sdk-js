@@ -4592,6 +4592,21 @@ declare namespace webview {
         stopMicrophone(): void;
 
         /**
+         * 异步执行AI页面命令操作。
+         *
+         * @param { string } command - JSON格式的命令参数。
+         * @returns { Promise<string> } Promise对象。返回JSON格式的命令执行结果。
+         * @throws { BusinessError } 17100001 - Init error.
+         *                           The WebviewController must be associated with a Web component.
+         * @throws { BusinessError } 17100024 - Command format error.
+         *                           The command parameter does not conform to the JSON format requirements.
+         * @syscap SystemCapability.Web.Webview.Core
+         * @stagemodelonly
+         * @since 26.0.0 static
+         */
+        executeAIPageCommand(command: string): Promise<string>;
+
+        /**
          * 调用此接口设置当前网页的浏览器级缩放倍率。文字与图片同时缩放，页面重新布局（reflow）以适应Web组件宽度。
          * 该接口与{@link zoom}、{@link zoomIn}、{@link zoomOut}（仅视觉缩放，不触发重新布局）以及
          * {@link textZoomRatio}（仅缩放文字）相互独立。缩放倍率仅作用于当前Web组件实例，页面内跨文档跳转后保持不变。
