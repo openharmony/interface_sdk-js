@@ -14097,7 +14097,6 @@ declare namespace window {
      *     3. The subWindow has been created and cannot be created again.
      *     4. It is not allowed to create non-secure window when secure extension exists.
      *     5. The parent window and the subwindow are not created by the same process.
-     *     6. Subwindow level exceeds the maximum limit.
      * @throws { BusinessError } 1300005 - This window stage is abnormal. [since 9 - 9]
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
@@ -14119,7 +14118,6 @@ declare namespace window {
      *     3. The subWindow has been created and cannot be created again.
      *     4. It is not allowed to create non-secure window when secure extension exists.
      *     5. The parent window and the subwindow are not created by the same process.
-     *     6. Subwindow level exceeds the maximum limit.
      * @throws { BusinessError } 1300005 - This window stage is abnormal. [since 9 - 9]
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
@@ -14144,7 +14142,6 @@ declare namespace window {
      *     3. Internal task error.
      *     4. It is not allowed to create non-secure window when secure extension exists.
      *     5. The parent window and the subwindow are not created by the same process.
-     *     6. Subwindow level exceeds the maximum limit.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @StageModelOnly
