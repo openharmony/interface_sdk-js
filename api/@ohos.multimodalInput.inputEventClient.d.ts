@@ -377,10 +377,9 @@ declare namespace inputEventClient {
    *
    * @permission ohos.permission.CONTROL_DEVICE
    * @returns { Promise<KeyboardController> } Promise used to return the keyboard controller instance.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
-   *     required to call the API.
-   * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support the
-   *     capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 3800001 - Input service exception.
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
    * @stagemodelonly
@@ -512,10 +511,9 @@ declare namespace inputEventClient {
    *
    * @permission ohos.permission.CONTROL_DEVICE
    * @returns { Promise<MouseController> } Promise used to return the mouse controller instance.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
-   *     required to call the API.
-   * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support the
-   *     capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 3800001 - Input service exception.
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
    * @stagemodelonly
@@ -590,10 +588,11 @@ declare namespace inputEventClient {
      * @permission ohos.permission.CONTROL_DEVICE
      * @param { TouchPoint } touch - Information about the touch point that is in contact with the display.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
-     *     required to call the API.
-     * @throws { BusinessError } 4300001 - Invalid input event sequence. Possible causes: 1. The touch point is
-     *     touching the display; 2. The touch point ID is not within the valid range [0, 9].
+     * @throws { BusinessError } 201 - Permission verification failed.
+     *     The application does not have the permission required to call the API.
+     * @throws { BusinessError } 4300001 - Invalid input event sequence. Possible causes:
+     *     <br>
+     *     1. The touch point is touching the display; 2. The touch point ID is not within the valid range [0,9].
      * @throws { BusinessError } 4300002 - The display does not exist.
      * @throws { BusinessError } 3800001 - Input service exception.
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
@@ -608,10 +607,11 @@ declare namespace inputEventClient {
      * @permission ohos.permission.CONTROL_DEVICE
      * @param { TouchPoint } touch - Information about the touch point to be moved.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
-     *     required to call the API.
-     * @throws { BusinessError } 4300001 - Invalid input event sequence. Possible causes: 1. The touch point is not
-     *     touching the display; 2. The touch point ID is not within the valid range [0, 9].
+     * @throws { BusinessError } 201 - Permission verification failed.
+     *     The application does not have the permission required to call the API.
+     * @throws { BusinessError } 4300001 - Invalid input event sequence. Possible causes:
+     *     <br>
+     *     1. The touch point is not touching the display; 2. The touch point ID is not within the valid range [0,9].
      * @throws { BusinessError } 3800001 - Input service exception.
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
      * @stagemodelonly
@@ -625,10 +625,11 @@ declare namespace inputEventClient {
      * @permission ohos.permission.CONTROL_DEVICE
      * @param { TouchPoint } touch - Information about the touch point to be released.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
-     *     required to call the API.
-     * @throws { BusinessError } 4300001 - Invalid input event sequence. Possible causes: 1. The touch point is not
-     *     touching the display; 2. The touch point ID is not within the valid range [0, 9].
+     * @throws { BusinessError } 201 - Permission verification failed.
+     *     The application does not have the permission required to call the API.
+     * @throws { BusinessError } 4300001 - Invalid input event sequence. Possible causes:
+     *     <br>
+     *     1. The touch point is not touching the display; 2. The touch point ID is not within the valid range [0,9].
      * @throws { BusinessError } 3800001 - Input service exception.
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
      * @stagemodelonly
@@ -642,10 +643,9 @@ declare namespace inputEventClient {
    *
    * @permission ohos.permission.CONTROL_DEVICE
    * @returns { Promise<TouchController> } Promise used to return the touch controller instance.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
-   *     required to call the API.
-   * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support the
-   *     capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 3800001 - Input service exception.
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
    * @stagemodelonly
