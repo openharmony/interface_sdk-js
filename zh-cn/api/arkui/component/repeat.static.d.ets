@@ -339,7 +339,7 @@ export interface RepeatAttribute<T> extends DynamicNode {
    * @returns { this } RepeatAttribute实例
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.0.1 staticonly
    */
   setRepeatOptions<T>(arr: RepeatArray<T>): this;
 
@@ -348,7 +348,7 @@ export interface RepeatAttribute<T> extends DynamicNode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.0.1 staticonly
    */
   applyAttributesFinish(): void;
 }
@@ -373,7 +373,7 @@ export declare function Repeat<T>(arr: RepeatArray<T>): RepeatAttribute<T>;
  * @returns { RepeatAttribute<T> } Repeat属性实例。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.0.1 staticonly
  */
 @Builder
 export declare function Repeat<T>(

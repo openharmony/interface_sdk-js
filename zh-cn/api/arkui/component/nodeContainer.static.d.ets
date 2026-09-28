@@ -54,7 +54,7 @@ export declare interface NodeContainerAttribute extends CommonMethod {
    * @returns { this } NodeContainerAttribute实例。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.0.1 staticonly
    */
   setNodeContainerOptions(controller: NodeController): this;
 }
@@ -81,7 +81,7 @@ export declare function NodeContainer(
  * @returns { NodeContainerAttribute } NodeContainer属性实例。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.0.1 staticonly
  */
 @Builder
 export declare function NodeContainer(
