@@ -229,24 +229,42 @@ export @interface ComponentV2 {
 }
 
 /**
- * Defining Reusable Annotation that is used to decorate @Component.
+ * 声明一个可复用的自定义组件。需与@Component搭配使用，用于装饰自定义组件，以实现组件复用。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 @Retention({policy: "SOURCE"})
-export @interface Reusable {}
+export @interface Reusable {
+  /**
+   * 组件复用内存优化配置项。
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  memoryOptimizationStrategy: ReusableMemOptStrategy = ReusableMemOptStrategy.DEFAULT
+}
 
 /**
- * Defining ReusableV2 Annotation that is used to decorate @ComponentV2.
+ * 声明一个可复用的自定义组件。该装饰器必须与@ComponentV2搭配使用，用于装饰自定义组件，以实现组件复用。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 @Retention({policy: "SOURCE"})
-export @interface ReusableV2 {}
+export @interface ReusableV2 {
+  /**
+   * 组件复用内存优化配置项。
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  memoryOptimizationStrategy: ReusableMemOptStrategy = ReusableMemOptStrategy.DEFAULT
+}
 
 /**
  * Defining CustomLayout Annotation that is used to decorate @Component and @ComponentV2.

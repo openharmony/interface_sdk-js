@@ -614,6 +614,7 @@ export interface IDataSource<T> {
    *
    * @returns { int }
    获得数据总数，由数据源决定实际大小。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -625,6 +626,7 @@ export interface IDataSource<T> {
    * @param { int } index
    * @returns { T }
    获取索引值index对应的数据，由数据源决定具体类型。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -683,7 +685,7 @@ export interface LazyForEachAttribute extends DynamicNode {
    * @returns { this } LazyForEachAttribute实例
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.0.1 staticonly
    */
   setLazyForEachOptions<T>(dataSource: IDataSource<T>,
         itemGenerator: ItemGeneratorFunc<T>,
@@ -699,7 +701,7 @@ export interface LazyForEachAttribute extends DynamicNode {
    * @returns { this } LazyForEachAttribute实例
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.0.1 staticonly
    */
   setLazyForEachOptions<T>(dataSource: IDataSource<T>,
         itemGenerator: ItemGeneratorFunc<T>,
@@ -711,7 +713,7 @@ export interface LazyForEachAttribute extends DynamicNode {
      *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.0.1 staticonly
    */
   applyAttributesFinish(): void;
 }
@@ -788,7 +790,7 @@ export declare function LazyForEach<T = Any>(dataSource: IDataSource<T>,
  * @returns { LazyForEachAttribute } LazyForEach的属性。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.0.1 staticonly
  */
 @Builder
 export declare function LazyForEach<T = Any>(

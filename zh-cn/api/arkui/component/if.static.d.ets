@@ -79,7 +79,7 @@ export declare interface IfAttribute {
    * @returns { this } IfAttribute实例
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.0.1 staticonly
    */
   setIfOptions(condition: boolean): this;
 
@@ -88,7 +88,7 @@ export declare interface IfAttribute {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.0.1 staticonly
    */
   applyAttributesFinish(): void;
 }
@@ -118,10 +118,10 @@ export declare function If(
  * @returns { IfAttribute } If的属性。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.0.1 staticonly
  */
 @Builder
 export declare function If(
     style: CustomBuilderT<IfAttribute>,
     content_: CustomBuilder
-): IfAttribute;
+): IfAttribute;

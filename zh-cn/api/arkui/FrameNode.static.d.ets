@@ -1292,7 +1292,7 @@ export declare class FrameNode {
    * 查询节点是否被挂载到主节点树上。
    *
    * @returns { boolean } - 节点是否被挂载到主节点树上。<br/>true表示节点被挂载到主节点树上，false表示节点没有被挂载到主节点树上。
-   * @throws { BusinessError } 100026 - The curent FrameNode has been disposed.
+   * @throws { BusinessError } 100026 - The current FrameNode has been disposed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
