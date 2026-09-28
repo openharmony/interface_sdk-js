@@ -29,6 +29,7 @@ import { Callback } from './@ohos.base';
  * - 这些缓存数据可以被特定的ArkUI组件（例如：Image组件）使用，从而提升资源加载效率。请查看ArkUI组件文档确定组件是否支持该功能。
  *
  * @syscap SystemCapability.Request.FileTransferAgent
+ * @crossplatform [since 26.0.1]
  * @since 18 dynamic
  * @since 23 static
  */
@@ -37,6 +38,7 @@ declare namespace cacheDownload {
      * 表示安全通信协议的枚举。
      *
      * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform [since 26.0.1]
      * @since 21 dynamic
      * @since 23 static
      */
@@ -45,6 +47,7 @@ declare namespace cacheDownload {
          * 使用TLS安全通信协议。
          *
          * @syscap SystemCapability.Request.FileTransferAgent
+         * @crossplatform [since 26.0.1]
          * @since 21 dynamic
          * @since 23 static
          */
@@ -53,6 +56,7 @@ declare namespace cacheDownload {
          * 使用TLCP安全通信协议。
          *
          * @syscap SystemCapability.Request.FileTransferAgent
+         * @crossplatform [since 26.0.1]
          * @since 21 dynamic
          * @since 23 static
          */
@@ -63,6 +67,7 @@ declare namespace cacheDownload {
      * 表示缓存刷新策略的枚举。
      *
      * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform [since 26.0.1]
      * @since 23 dynamic&static
      */
     enum CacheStrategy {
@@ -70,6 +75,7 @@ declare namespace cacheDownload {
          * 强制更新缓存，无论缓存是否已经存在。
          *
          * @syscap SystemCapability.Request.FileTransferAgent
+         * @crossplatform [since 26.0.1]
          * @since 23 dynamic&static
          */
         FORCE = 0,
@@ -77,6 +83,7 @@ declare namespace cacheDownload {
          * 延迟更新缓存，只有当缓存不存在时才会更新。
          *
          * @syscap SystemCapability.Request.FileTransferAgent
+         * @crossplatform [since 26.0.1]
          * @since 23 dynamic&static
          */
         LAZY = 1,
@@ -86,6 +93,7 @@ declare namespace cacheDownload {
      * 表示错误返回信息的特定类型枚举。
      *
      * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform [since 26.0.1]
      * @since 23 dynamic&static
      */
     enum ErrorCode {  
@@ -93,6 +101,7 @@ declare namespace cacheDownload {
          * 表示未分类的其他类型错误。
          *
          * @syscap SystemCapability.Request.FileTransferAgent
+         * @crossplatform [since 26.0.1]
          * @since 23 dynamic&static
          */
         OTHERS = 0xFF,
@@ -101,6 +110,7 @@ declare namespace cacheDownload {
          * 表示DNS相关错误。
          *
          * @syscap SystemCapability.Request.FileTransferAgent
+         * @crossplatform [since 26.0.1]
          * @since 23 dynamic&static
          */
         DNS = 0x00,
@@ -109,6 +119,7 @@ declare namespace cacheDownload {
          * 表示TCP相关错误。
          *
          * @syscap SystemCapability.Request.FileTransferAgent
+         * @crossplatform [since 26.0.1]
          * @since 23 dynamic&static
          */
         TCP = 0x10,
@@ -117,6 +128,7 @@ declare namespace cacheDownload {
          * 表示SSL相关错误。
          *
          * @syscap SystemCapability.Request.FileTransferAgent
+         * @crossplatform [since 26.0.1]
          * @since 23 dynamic&static
          */
         SSL = 0x20,
@@ -125,6 +137,7 @@ declare namespace cacheDownload {
          * 表示HTTP相关错误。
          *
          * @syscap SystemCapability.Request.FileTransferAgent
+         * @crossplatform [since 26.0.1]
          * @since 23 dynamic&static
          */
         HTTP = 0x30,
@@ -135,6 +148,7 @@ declare namespace cacheDownload {
      *
      * @syscap SystemCapability.Request.FileTransferAgent
      * @stagemodelonly
+     * @crossplatform [since 26.0.1]
      * @since 26.0.0 dynamic&static
      */
     interface TimeoutOptions {  
@@ -148,6 +162,7 @@ declare namespace cacheDownload {
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @stagemodelonly
+       * @crossplatform [since 26.0.1]
        * @since 26.0.0 dynamic&static
        */
       networkCheckTimeout?: int;
@@ -159,6 +174,7 @@ declare namespace cacheDownload {
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @stagemodelonly
+       * @crossplatform [since 26.0.1]
        * @since 26.0.0 dynamic&static
        */
       httpTotalTimeout?: int;
@@ -169,6 +185,7 @@ declare namespace cacheDownload {
      *
      * @syscap SystemCapability.Request.FileTransferAgent
      * @stagemodelonly
+     * @crossplatform [since 26.0.1]
      * @since 26.0.0 dynamic&static
      */
     interface RetryOptions {
@@ -181,6 +198,7 @@ declare namespace cacheDownload {
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @stagemodelonly
+       * @crossplatform [since 26.0.1]
        * @since 26.0.0 dynamic&static
        */
       maxRetryCount?: int;
@@ -190,6 +208,7 @@ declare namespace cacheDownload {
      * 缓存下载的配置选项。包括HTTP选项、传输选项和任务选项。
      *
      * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform [since 26.0.1]
      * @since 18 dynamic
      * @since 23 static
      */
@@ -198,6 +217,7 @@ declare namespace cacheDownload {
          * 缓存下载任务在HTTP传输时使用的请求头。默认值为空。
          *
          * @syscap SystemCapability.Request.FileTransferAgent
+         * @crossplatform [since 26.0.1]
          * @since 18 dynamic
          * @since 23 static
          */
@@ -206,6 +226,7 @@ declare namespace cacheDownload {
          * 使用安全通信协议TLS或TLCP，默认使用TLS。当前TLS和TLCP均不支持双向认证。
          *
          * @syscap SystemCapability.Request.FileTransferAgent
+         * @crossplatform [since 26.0.1]
          * @since 21 dynamic
          * @since 23 static
          */
@@ -214,6 +235,7 @@ declare namespace cacheDownload {
          * CA证书路径。目前仅支持.pem格式证书，默认使用系统预设的CA证书。
          *
          * @syscap SystemCapability.Request.FileTransferAgent
+         * @crossplatform [since 26.0.1]
          * @since 21 dynamic
          * @since 23 static
          */
@@ -222,6 +244,7 @@ declare namespace cacheDownload {
          * 使用缓存刷新策略FORCE或LAZY，默认使用FORCE。
          *
          * @syscap SystemCapability.Request.FileTransferAgent
+         * @crossplatform [since 26.0.1]
          * @since 23 dynamic&static
          */
         cacheStrategy?: CacheStrategy;
@@ -230,6 +253,7 @@ declare namespace cacheDownload {
          *
          * @syscap SystemCapability.Request.FileTransferAgent
          * @stagemodelonly
+         * @crossplatform [since 26.0.1]
          * @since 26.0.0 dynamic&static
          */
         retry?: RetryOptions;
@@ -238,6 +262,7 @@ declare namespace cacheDownload {
          *
          * @syscap SystemCapability.Request.FileTransferAgent
          * @stagemodelonly
+         * @crossplatform [since 26.0.1]
          * @since 26.0.0 dynamic&static
          */
         timeout?: TimeoutOptions;
@@ -247,6 +272,7 @@ declare namespace cacheDownload {
      * 预下载的资源信息。
      *
      * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform [since 26.0.1]
      * @since 20 dynamic
      * @since 23 static
      */
@@ -255,6 +281,7 @@ declare namespace cacheDownload {
          * 预下载资源解压后的大小，单位为字节（B）。当值为正整数时表示资源下载成功，-1表示下载失败。
          *
          * @syscap SystemCapability.Request.FileTransferAgent
+         * @crossplatform [since 26.0.1]
          * @since 20 dynamic
          * @since 23 static
          */
@@ -265,6 +292,7 @@ declare namespace cacheDownload {
      * 预下载的网络信息。
      *
      * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform [since 26.0.1]
      * @since 20 dynamic
      * @since 23 static
      */
@@ -273,6 +301,7 @@ declare namespace cacheDownload {
          * 下载资源时使用的dns服务器列表。
          *
          * @syscap SystemCapability.Request.FileTransferAgent
+         * @crossplatform [since 26.0.1]
          * @since 20 dynamic
          * @since 23 static
          */
@@ -281,6 +310,7 @@ declare namespace cacheDownload {
          * 下载资源时url的ip地址。当dns解析失败时，ip为undefined。
          *
          * @syscap SystemCapability.Request.FileTransferAgent
+         * @crossplatform [since 26.0.1]
          * @since 23 dynamic&static
          */
         readonly ip?: string;
@@ -290,6 +320,7 @@ declare namespace cacheDownload {
      * 预下载的性能信息。
      *
      * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform [since 26.0.1]
      * @since 20 dynamic
      * @since 23 static
      */
@@ -298,6 +329,7 @@ declare namespace cacheDownload {
          * 从启动到dns解析完成所需的时间，单位：毫秒（ms）。
          *
          * @syscap SystemCapability.Request.FileTransferAgent
+         * @crossplatform [since 26.0.1]
          * @since 20 dynamic
          * @since 23 static
          */
@@ -306,6 +338,7 @@ declare namespace cacheDownload {
          * 从启动到tcp连接完成所需的时间，单位：毫秒（ms）。
          *
          * @syscap SystemCapability.Request.FileTransferAgent
+         * @crossplatform [since 26.0.1]
          * @since 20 dynamic
          * @since 23 static
          */
@@ -314,6 +347,7 @@ declare namespace cacheDownload {
          * 从启动到tls连接完成所需的时间，单位：毫秒（ms）。
          *
          * @syscap SystemCapability.Request.FileTransferAgent
+         * @crossplatform [since 26.0.1]
          * @since 20 dynamic
          * @since 23 static
          */
@@ -322,6 +356,7 @@ declare namespace cacheDownload {
          * 从启动到开始发送第一个字节所需的时间，单位：毫秒（ms）。
          *
          * @syscap SystemCapability.Request.FileTransferAgent
+         * @crossplatform [since 26.0.1]
          * @since 20 dynamic
          * @since 23 static
          */
@@ -330,6 +365,7 @@ declare namespace cacheDownload {
          * 从启动到接收第一个字节所需的时间，单位：毫秒（ms）。
          *
          * @syscap SystemCapability.Request.FileTransferAgent
+         * @crossplatform [since 26.0.1]
          * @since 20 dynamic
          * @since 23 static
          */
@@ -338,6 +374,7 @@ declare namespace cacheDownload {
          * 从启动到完成请求所需的时间，单位：毫秒（ms）。
          *
          * @syscap SystemCapability.Request.FileTransferAgent
+         * @crossplatform [since 26.0.1]
          * @since 20 dynamic
          * @since 23 static
          */
@@ -346,6 +383,7 @@ declare namespace cacheDownload {
          * 从启动到完成所有重定向步骤所需的时间，单位：毫秒（ms）。
          *
          * @syscap SystemCapability.Request.FileTransferAgent
+         * @crossplatform [since 26.0.1]
          * @since 20 dynamic
          * @since 23 static
          */
@@ -356,6 +394,7 @@ declare namespace cacheDownload {
      * 预下载的下载信息。
      *
      * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform [since 26.0.1]
      * @since 20 dynamic
      * @since 23 static
      */
@@ -364,6 +403,7 @@ declare namespace cacheDownload {
          * 预下载的资源信息。
          *
          * @syscap SystemCapability.Request.FileTransferAgent
+         * @crossplatform [since 26.0.1]
          * @since 20 dynamic
          * @since 23 static
          */
@@ -372,6 +412,7 @@ declare namespace cacheDownload {
          * 预下载的网络信息。
          *
          * @syscap SystemCapability.Request.FileTransferAgent
+         * @crossplatform [since 26.0.1]
          * @since 20 dynamic
          * @since 23 static
          */
@@ -380,6 +421,7 @@ declare namespace cacheDownload {
          * 预下载的性能信息。
          *
          * @syscap SystemCapability.Request.FileTransferAgent
+         * @crossplatform [since 26.0.1]
          * @since 20 dynamic
          * @since 23 static
          */
@@ -390,6 +432,7 @@ declare namespace cacheDownload {
      * 预下载错误回调的返回信息。
      *
      * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform [since 26.0.1]
      * @since 23 dynamic&static
      */
     interface DownloadError {
@@ -397,6 +440,7 @@ declare namespace cacheDownload {
          * 预下载错误回调返回的特定错误类型。
          *
          * @syscap SystemCapability.Request.FileTransferAgent
+         * @crossplatform [since 26.0.1]
          * @since 23 dynamic&static
          */
         readonly errorCode: ErrorCode;
@@ -405,6 +449,7 @@ declare namespace cacheDownload {
          * [HTTP错误码](docroot://reference/apis-network-kit/errorcode-net-http.md)。
          *
          * @syscap SystemCapability.Request.FileTransferAgent
+         * @crossplatform [since 26.0.1]
          * @since 23 dynamic&static
          */
         readonly message: string;
@@ -427,6 +472,7 @@ declare namespace cacheDownload {
      *     <br> 2. Incorrect parameter type.
      *     <br> 3. Parameter verification failed.
      * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform [since 26.0.1]
      * @since 18 dynamic
      * @since 23 static
      */
@@ -444,6 +490,7 @@ declare namespace cacheDownload {
      *     <br> 2. Incorrect parameter type.
      *     <br> 3. Parameter verification failed.
      * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform [since 26.0.1]
      * @since 18 dynamic
      * @since 23 static
      */
@@ -461,6 +508,7 @@ declare namespace cacheDownload {
      *     <br> 2. Incorrect parameter type.
      *     <br> 3. Parameter verification failed.
      * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform [since 26.0.1]
      * @since 18 dynamic
      * @since 23 static
      */
@@ -479,6 +527,7 @@ declare namespace cacheDownload {
      *     <br> 2. Incorrect parameter type.
      *     <br> 3. Parameter verification failed.
      * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform [since 26.0.1]
      * @since 18 dynamic
      * @since 23 static
      */
@@ -497,6 +546,7 @@ declare namespace cacheDownload {
      * @returns { DownloadInfo | undefined } 返回对应url的下载信息，url未记录时返回undefined。
      * @throws { BusinessError } 201 - permission denied.
      * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform [since 26.0.1]
      * @since 20 dynamic
      * @since 23 static
      */
@@ -511,6 +561,7 @@ declare namespace cacheDownload {
      *
      * @param { long } size - 设置的下载信息列表大小。取值范围：[0, 8192]，默认为0，表示不会存储任何下载信息。
      * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform [since 26.0.1]
      * @since 20 dynamic
      * @since 23 static
      */
@@ -520,6 +571,7 @@ declare namespace cacheDownload {
      * 清除缓存下载内容的内存缓存。
      *
      * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform [since 26.0.1]
      * @since 23 dynamic&static
      */
     function clearMemoryCache(): void;
@@ -528,6 +580,7 @@ declare namespace cacheDownload {
      * 清除保存下载内容的文件缓存。
      *
      * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform [since 26.0.1]
      * @since 23 dynamic&static
      */
     function clearFileCache(): void;
@@ -537,6 +590,7 @@ declare namespace cacheDownload {
      * @param { string } url - 待注册回调的url，url字符串的最大长度为8192字节。
      * @param { Callback<void> } callback - 回调函数。
      * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform [since 26.0.1]
      * @since 23 dynamic&static
      */
     function onDownloadSuccess(url: string, callback: Callback<void>): void;
@@ -547,6 +601,7 @@ declare namespace cacheDownload {
      * @param { string } url - 待注册回调的url，URL字符串的最大长度为8192字节。
      * @param { Callback<DownloadError> } callback - 回调函数，返回预下载的错误信息。
      * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform [since 26.0.1]
      * @since 23 dynamic&static
      */
     function onDownloadError(url: string, callback: Callback<DownloadError>): void;
@@ -557,6 +612,7 @@ declare namespace cacheDownload {
      * @param { string } url - 待注册回调的url，url字符串的最大长度为8192字节。
      * @param { Callback<void> } [callback] - 回调函数。若不填该参数，表示url下的所有完成回调函数。
      * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform [since 26.0.1]
      * @since 23 dynamic&static
      */
     function offDownloadSuccess(url: string, callback?: Callback<void>): void;
@@ -567,6 +623,7 @@ declare namespace cacheDownload {
      * @param { string } url - 待注册回调的url，url字符串最大长度为8192字节。
      * @param { Callback<DownloadError> } [callback] - 回调函数，返回预下载的错误信息。若不填该参数，表示url下的所有错误回调函数。
      * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform [since 26.0.1]
      * @since 23 dynamic&static
      */
     function offDownloadError(url: string, callback?: Callback<DownloadError>): void;
@@ -579,6 +636,7 @@ declare namespace cacheDownload {
      *     <br>Default value: Refer to the default value of RetryOptions.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @stagemodelonly
+     * @crossplatform [since 26.0.1]
      * @since 26.0.0 dynamic&static
      */
     function setGlobalRetryOptions(options?: RetryOptions): void;
@@ -591,6 +649,7 @@ declare namespace cacheDownload {
      *     <br>Default value: Refer to the default value of TimeoutOptions.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @stagemodelonly
+     * @crossplatform [since 26.0.1]
      * @since 26.0.0 dynamic&static
      */
     function setGlobalTimeoutOptions(options?: TimeoutOptions): void;

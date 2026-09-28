@@ -1718,7 +1718,7 @@ declare namespace request {
      *
      * @param { 'complete' | 'fail' } type - 取消订阅的事件类型。<br>- 取值为'complete'，表示上传任务完成。<br>- 取值为'fail'，表示上传任务失败。
      * @param { Callback<Array<TaskState>> } [callback] - 需要取消订阅的回调函数。若无此参数，则取消订阅当前类型的所有回调函数。
-     * @throws { BusinessError } 401 - the parameters check fails. Possible causes:
+     * @throws { BusinessError } 401 - The parameters check fails. Possible causes:
      *     <br> 1. Missing mandatory parameters.
      *     <br> 2. Incorrect parameter type.
      *     <br> 3. Parameter verification failed. [since 12]
