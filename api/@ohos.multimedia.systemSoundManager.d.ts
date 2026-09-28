@@ -728,7 +728,7 @@ declare namespace systemSoundManager {
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.2.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     ALARM = 41,
   }
