@@ -710,7 +710,7 @@ declare namespace abilityConnectionManager {
    * @param { 'receiveImage' } type - Registration Type, 'receiveImage'.
    * @param { number } sessionId - Ability connection Session id.
    * @param { Callback<EventCallbackInfo> } callback - Used to handle ('receiveImage') command.
-   * @throws { BusinessError } 202 - Not system App.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
    *     Incorrect parameter types.
    * @syscap SystemCapability.DistributedSched.AppCollaboration
@@ -727,7 +727,7 @@ declare namespace abilityConnectionManager {
    * @param { 'receiveImage' } type - Registration Type, 'receiveImage'.
    * @param { number } sessionId - Ability connection Session id.
    * @param { Callback<EventCallbackInfo> } callback - Used to handle ('receiveImage') command.
-   * @throws { BusinessError } 202 - Not system App.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
    *     Incorrect parameter types.
    * @syscap SystemCapability.DistributedSched.AppCollaboration
@@ -743,7 +743,7 @@ declare namespace abilityConnectionManager {
    *
    * @param { int } sessionId - Ability connection Session id.
    * @param { Callback<EventCallbackInfo> } callback - Used to handle ('receiveImage') command.
-   * @throws { BusinessError } 202 - Not system App.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.2.
    *     Incorrect parameter types.
    * @syscap SystemCapability.DistributedSched.AppCollaboration
@@ -759,7 +759,7 @@ declare namespace abilityConnectionManager {
    *
    * @param { int } sessionId - Ability connection Session id.
    * @param { Callback<EventCallbackInfo> } [callback] - Used to handle ('receiveImage') command.
-   * @throws { BusinessError } 202 - Not system App.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.2.
    *     Incorrect parameter types.
    * @syscap SystemCapability.DistributedSched.AppCollaboration
@@ -776,7 +776,7 @@ declare namespace abilityConnectionManager {
    * @param { 'collaborateEvent' } type - Registration Type, 'collaborateEvent'.
    * @param { number } sessionId - Ability connection Session id.
    * @param { Callback<CollaborateEventInfo> } callback - Called when an error event comes.
-   * @throws { BusinessError } 202 - Not system App.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
    *     Incorrect parameter types.
    * @syscap SystemCapability.DistributedSched.AppCollaboration
@@ -793,7 +793,7 @@ declare namespace abilityConnectionManager {
    * @param { 'collaborateEvent' } type - Registration Type, 'collaborateEvent'.
    * @param { number } sessionId - Ability connection Session id.
    * @param { Callback<CollaborateEventInfo> } callback - Called when an error event comes.
-   * @throws { BusinessError } 202 - Not system App.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
    *     Incorrect parameter types.
    * @syscap SystemCapability.DistributedSched.AppCollaboration
@@ -809,7 +809,7 @@ declare namespace abilityConnectionManager {
    *
    * @param { int } sessionId - Ability connection Session id.
    * @param { Callback<CollaborateEventInfo> } callback - Called when an error event comes.
-   * @throws { BusinessError } 202 - Not system App.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.2.
    *     Incorrect parameter types.
    * @syscap SystemCapability.DistributedSched.AppCollaboration
@@ -825,7 +825,7 @@ declare namespace abilityConnectionManager {
    *
    * @param { int } sessionId - Ability connection Session id.
    * @param { Callback<CollaborateEventInfo> } [callback] - Called when an error event comes.
-   * @throws { BusinessError } 202 - Not system App.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.2.
    *     Incorrect parameter types.
    * @syscap SystemCapability.DistributedSched.AppCollaboration
@@ -847,10 +847,10 @@ declare namespace abilityConnectionManager {
    * @param { PeerInfo } peerInfo - Collaboration information of the peer end.
    * @param { ConnectOptions } connectOptions - Connection options for the application.
    * @returns { int} ID of the collaboration session.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
    *     Incorrect parameter types.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes: Failed to call the API due to limited device capabilities.
    * @syscap SystemCapability.DistributedSched.AppCollaboration
    * @stagemodelonly
    * @since 18 dynamic
@@ -991,7 +991,7 @@ declare namespace abilityConnectionManager {
    * @param { image.PixelMap } image - image data to be sent.
    * @param { int } [quality] - image compression quality, range 0~100, default 30.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 202 - Not system App.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
    *     Incorrect parameter types.
    * @syscap SystemCapability.DistributedSched.AppCollaboration
@@ -1008,7 +1008,7 @@ declare namespace abilityConnectionManager {
    * @param { int } sessionId - Ability connection Session id.
    * @param { StreamParam } param - Transport Stream Parameters
    * @returns {Promise<int>}  The promise returned by the function, contain the ID of a transport stream.
-   * @throws { BusinessError } 202 - Not system App.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
    *     Incorrect parameter types.
    * @throws { BusinessError } 32300001 - Only one stream can be created for the current session.
@@ -1028,7 +1028,7 @@ declare namespace abilityConnectionManager {
    * @param { int } streamId - Indicates the ID of a transport stream.
    * @param { string } surfaceId - Surface ID.
    * @param { SurfaceParam } param - Surface Parameters
-   * @throws { BusinessError } 202 - Not system App.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
    *     Incorrect parameter types.
    * @syscap SystemCapability.DistributedSched.AppCollaboration
@@ -1044,7 +1044,7 @@ declare namespace abilityConnectionManager {
    * @param { int } streamId - Indicates the ID of a transport stream.
    * @param { SurfaceParam } param - Surface Parameters
    * @returns {string}  Returns the ID of a surface.
-   * @throws { BusinessError } 202 - Not system App.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
    *     Incorrect parameter types.
    * @syscap SystemCapability.DistributedSched.AppCollaboration
@@ -1060,7 +1060,7 @@ declare namespace abilityConnectionManager {
    *
    * @param { int } streamId - Stream ID.
    * @param { SurfaceParam } param - Surface Parameters
-   * @throws { BusinessError } 202 - Not system App.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
    *     Incorrect parameter types.
    * @syscap SystemCapability.DistributedSched.AppCollaboration
@@ -1075,7 +1075,7 @@ declare namespace abilityConnectionManager {
    * Destroy the Stream.
    *
    * @param { int } streamId - Indicates the ID of a transport stream.
-   * @throws { BusinessError } 202 - Not system App.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
    *     Incorrect parameter types.
    * @syscap SystemCapability.DistributedSched.AppCollaboration
@@ -1090,7 +1090,7 @@ declare namespace abilityConnectionManager {
    * Start Streaming
    *
    * @param { int } streamId - Indicates the ID of a transport stream.
-   * @throws { BusinessError } 202 - Not system App.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
    *     Incorrect parameter types.
    * @throws { BusinessError } 32300002 - The stream at the receive end is not started.
@@ -1106,7 +1106,7 @@ declare namespace abilityConnectionManager {
    * Stop Streaming
    *
    * @param { int } streamId - Indicates the ID of a transport stream.
-   * @throws { BusinessError } 202 - Not system App.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
    *     Incorrect parameter types.
    * @syscap SystemCapability.DistributedSched.AppCollaboration
