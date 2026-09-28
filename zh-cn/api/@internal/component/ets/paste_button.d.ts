@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -64,7 +64,8 @@ declare enum PasteDescription {
  * > **说明**
  * > - 建议icon或text至少传入一个。
  * >
- * > - 如果icon、text都不传入，PasteButton将使用默认样式创建，默认样式：PasteIconStyle默认样式为LINES；PasteDescription默认样式为PASTEButtonType默认样式为Capsule。
+ * > - 如果icon、text都不传入，PasteButton将使用默认样式创建，默认样式：PasteIconStyle默认样式为LINES；
+ * > PasteDescription默认样式为PASTE；ButtonType默认样式为Capsule。
  * >
  * > - icon、text和buttonType不支持动态修改。这是因为安全控件的样式和属性在创建时已通过系统校验，动态修改可能导致控件样式不符合安全控件规范，从而影响授权的有效性。
  *
@@ -100,8 +101,7 @@ declare interface PasteButtonOptions {
 
   /**
    * 设置粘贴控件的按钮形状。
-   * Capsule。
-   * 默认值：ButtonType。
+   * 默认值：ButtonType.Capsule。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

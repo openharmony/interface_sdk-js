@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -384,9 +384,10 @@ declare class SaveButtonAttribute extends SecurityComponentMethod<SaveButtonAttr
    *
    * @permission ohos.permission.CUSTOMIZE_SAVE_BUTTON
    * @param { Resource } icon - 自定义图标资源信息，仅支持Resource类型的数据源。
-   *     <br>可支持的图片格式：png、jpg、jpeg、bmp、svg、webp、gif和heif等，支持的图片格式范围见[Image]{@link
-   *     ./image}。当资源为非图片资源或不支持的格式时，图标显示为空白。<br/>从API版本26.0.0开始，支持Symbol格式的Resource类型的数据源。<br/>若应用不具备ohos.permission.CUS
-   *     TOMIZE_SAVE_BUTTON权限，则自定义图标设置不生效，保存控件保持默认样式。
+   *     <br>可支持的图片格式：png、jpg、jpeg、bmp、svg、webp、gif和heif等，支持的图片格式范围见
+   *     [Image]{@link ./image}。当资源为非图片资源或不支持的格式时，图标显示为空白。<br/>从API版本26.0.0开始，
+   *     支持Symbol格式的Resource类型的数据源。<br/>若应用不具备ohos.permission.CUSTOMIZE_SAVE_BUTTON权限，
+   *     则自定义图标设置不生效，保存控件保持默认样式。
    * @returns { SaveButtonAttribute } 返回保存控件的属性。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -514,9 +515,9 @@ declare class SaveButtonAttribute extends SecurityComponentMethod<SaveButtonAttr
    *
    * @permission ohos.permission.CUSTOMIZE_SAVE_BUTTON
    * @param { number | FontWeight | string | Resource } fontWeight - 设置保存控件Symbol图标粗细。
-   *     <br>支持number类型：取值范围为[100, 900]，取值间隔为100，数值越大字体越粗。<br/>支持string类型：可传入number类型的数字字符串（如"400"），或[FontWeight]{@link
-   *     FontWeight}的枚举值的小写字符串（如"normal"）。<br/>默认值：FontWeight.Normal（对应数值400）。<br/>若应用不具备ohos.permission.CUSTOMIZE_SAVE_
-   *     BUTTON权限，则该设置不生效。
+   *     <br>支持number类型：取值范围为[100, 900]，取值间隔为100，数值越大字体越粗。<br/>支持string类型：
+   *     可传入number类型的数字字符串（如"400"），或[FontWeight]{@link FontWeight}的枚举值的小写字符串（如"normal"）。
+   *     <br/>默认值：FontWeight.Normal（对应数值400）。<br/>若应用不具备ohos.permission.CUSTOMIZE_SAVE_BUTTON权限，则该设置不生效。
    * @returns { SaveButtonAttribute } 返回保存控件的属性。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
