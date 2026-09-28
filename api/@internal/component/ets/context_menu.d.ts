@@ -14,49 +14,40 @@
  */
 
 /**
- * @file
+ * @file openMenu
  * @kit ArkUI
  */
 
 /**
- * Defines Close contextMenu.
- * 
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- */
-/**
- * Defines Close contextMenu.
- * 
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defines Close contextMenu.
- * 
+ * The [Menu](docroot://ui/arkts-popup-and-menu-components-menu.md) component is a great option for creating menus, but
+ * it relies on a bound UI component to work. Since API version 18, however, the global API
+ * [openMenu]{@link @ohos.arkui.UIContext:PromptAction#openMenu} offers a more flexible solution. This API can be used
+ * directly or encapsulated in scenarios where no bound UI components are available, making it ideal for use cases such
+ * as event callbacks or when integrating with external systems.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare class ContextMenu {
   /**
    * Invoking method close.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
    * Invoking method close.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @since 10
    */
   /**
    * Invoking method close.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice

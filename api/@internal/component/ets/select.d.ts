@@ -53,7 +53,7 @@ declare interface SelectOption {
 
   /**
    * Symbol icon of drop-down menu option.
-   * 
+   *
    * **symbolIcon** takes precedence over **icon**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -67,7 +67,7 @@ declare interface SelectOption {
 
 /**
  * The **Select** component provides a drop-down menu that allows users to select among multiple options.
- * 
+ *
  * > **NOTE**
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -79,6 +79,7 @@ declare interface SelectOption {
  */
 interface SelectInterface {
   /**
+   * Creates the Select component.
    *
    * @param { Array<SelectOption> } options - Options of the drop-down menu.
    * @returns { SelectAttribute }
@@ -200,10 +201,11 @@ declare enum AvoidanceMode {
 }
 
 /**
- * Defines the callback invoked when a drop-down menu option is selected.
+ * Callback of selecting an item from the select event.
  *
- * @param {number} index - Index of the selected option. The index is zero-based.
- * @param {string} selectStr - Value of the selected option.
+ * @typedef {function} OnSelectCallback
+ * @param {number} index - The index of the selected item.
+ * @param {string} selectStr - The value of the selected item.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -224,7 +226,7 @@ declare type OnSelectCallback = (index: number, selectStr: string) => void;
 declare interface MenuOutlineOptions {
   /**
    * Width of the outline. Percentage values are not supported.
-   * 
+   *
    * Default value: **0**
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -234,10 +236,10 @@ declare interface MenuOutlineOptions {
    * @since 20 dynamic
    */
   width?: Dimension | EdgeOutlineWidths;
- 
+
   /**
    * Color of the outline.
-   * 
+   *
    * Default value: **#19ffffff**
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -247,8 +249,8 @@ declare interface MenuOutlineOptions {
    * @since 20 dynamic
    */
   color?: ResourceColor | EdgeColors;
- }
- 
+}
+
 /**
  * In addition to the [universal attributes]{@link common}, the following attributes are supported.
  *
@@ -261,14 +263,14 @@ declare interface MenuOutlineOptions {
  */
 declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   /**
-   * Sets the index of the initially selected option in the drop-down menu, where the first option has an index of 0. 
-   * When **selected** is set to an invalid value or is not set, the default default **-1** is used, which indicates no 
+   * Sets the index of the initially selected option in the drop-down menu, where the first option has an index of 0.
+   * When **selected** is set to an invalid value or is not set, the default default **-1** is used, which indicates no
    * selection. When **selected** is set to **undefined** or **null**, the first option is selected.
-   * 
-   * Since API version 10, this attribute supports two-way binding through 
+   *
+   * Since API version 10, this attribute supports two-way binding through
    * [$$](docroot://ui/state-management/arkts-two-way-sync.md).
-   * 
-   * Since API version 18, this attribute supports two-way binding through 
+   *
+   * Since API version 18, this attribute supports two-way binding through
    * [!!](docroot://ui/state-management/arkts-new-binding.md#two-way-binding-between-built-in-component-parameters).
    *
    * @param { number } value - Index of the initially selected option. The index is zero-based. [since 8 - 10]
@@ -283,11 +285,11 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   selected(value: number | Resource): SelectAttribute;
 
   /**
-   * Sets the index of the initially selected option in the drop-down menu, where the first option has an index of 0. 
-   * When **selected** is set to an invalid value or is not set, the default default **-1** is used, which indicates no 
+   * Sets the index of the initially selected option in the drop-down menu, where the first option has an index of 0.
+   * When **selected** is set to an invalid value or is not set, the default default **-1** is used, which indicates no
    * selection. When **selected** is set to **undefined** or **null**, the first option is selected.
-   * 
-   * This attribute supports two-way binding through [$$](docroot://ui/state-management/arkts-two-way-sync.md) and 
+   *
+   * This attribute supports two-way binding through [$$](docroot://ui/state-management/arkts-two-way-sync.md) and
    * [!!](docroot://ui/state-management/arkts-new-binding.md#two-way-binding-between-built-in-component-parameters).
    *
    * @param { Optional<number | Resource> } numCount - Index of the initially selected option.<br>When **numCount** is
@@ -298,17 +300,17 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   */  
+   */
   selected(numCount: Optional<number | Resource>): SelectAttribute;
 
   /**
-   * Sets the text content of drop-down button. After a menu option is selected, the button text will automatically 
+   * Sets the text content of drop-down button. After a menu option is selected, the button text will automatically
    * update to display the selected option's text.
-   * 
-   * Since API version 10, this attribute supports two-way binding through 
+   *
+   * Since API version 10, this attribute supports two-way binding through
    * [$$](docroot://ui/state-management/arkts-two-way-sync.md).
-   * 
-   * Since API version 18, this attribute supports two-way binding through 
+   *
+   * Since API version 18, this attribute supports two-way binding through
    * [!!](docroot://ui/state-management/arkts-new-binding.md#two-way-binding-between-built-in-component-parameters).
    *
    * @param { string } value - Text of the drop-down button.<br>Note: If the text exceeds the column width, it will be
@@ -325,12 +327,12 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   value(value: ResourceStr): SelectAttribute;
 
   /**
-   * Sets the text content of drop-down button. After a menu option is selected, the button text will automatically 
-   * update to display the selected option's text. Compared with 
-   * [value]{@link SelectAttribute#value(value: ResourceStr)}, this API supports the **undefined** type for the 
+   * Sets the text content of drop-down button. After a menu option is selected, the button text will automatically
+   * update to display the selected option's text. Compared with
+   * [value]{@link SelectAttribute#value(value: ResourceStr)}, this API supports the **undefined** type for the
    * **resStr** parameter.
-   * 
-   * This attribute supports two-way binding through [$$](docroot://ui/state-management/arkts-two-way-sync.md) and 
+   *
+   * This attribute supports two-way binding through [$$](docroot://ui/state-management/arkts-two-way-sync.md) and
    * [!!](docroot://ui/state-management/arkts-new-binding.md#two-way-binding-between-built-in-component-parameters).
    *
    * @param { Optional<ResourceStr> } resStr - Text of the drop-down button.<br>If **resStr** is set to **undefined**,
@@ -341,15 +343,15 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   */  
+   */
   value(resStr: Optional<ResourceStr>): SelectAttribute;
 
   /**
-   * Sets the text style of the drop-down button. When **size** is set to **0**, the text is not displayed. When 
+   * Sets the text style of the drop-down button. When **size** is set to **0**, the text is not displayed. When
    * **size** is set to a negative value, the text is displayed at its default size.
    *
    * @param { Font } value - Text style of the drop-down list button.<br>For API versions 11 and earlier, the default
-   *     value is as follows:<br>{<br>size: `$r('sys.float.ohos_id_text_size_button1')`,<br>weight: FontWeight.Medium<br
+   *     value is as follows:<br>{<br>size: `$r('sys.float.ohos_id_text_size_button1')`,<br>weight: FontWeight.Medium<br
    *     >} <br>Since API version 12: The default value of **size** is **$r('sys.float.ohos_id_text_size_button2')** in
    *     the case of **controlSize.SMALL** and **$r('sys.float.ohos_id_text_size_button1')** in other cases.
    * @returns { SelectAttribute }
@@ -362,9 +364,9 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   font(value: Font): SelectAttribute;
 
   /**
-   * Sets the text style of the drop-down button. When **size** is set to **0**, the text is not displayed. When 
-   * **size** is set to a negative value, the text is displayed at its default size. Compared with 
-   * [font]{@link SelectAttribute#font(value: Font)}, this API supports the **undefined** type for the **selectFont** 
+   * Sets the text style of the drop-down button. When **size** is set to **0**, the text is not displayed. When
+   * **size** is set to a negative value, the text is displayed at its default size. Compared with
+   * [font]{@link SelectAttribute#font(value: Font)}, this API supports the **undefined** type for the **selectFont**
    * parameter.
    *
    * @param { Optional<Font> } selectFont - Text style of the drop-down list button.<br>If **controlSize** is set to
@@ -377,7 +379,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   */  
+   */
   font(selectFont: Optional<Font>): SelectAttribute;
 
   /**
@@ -396,8 +398,8 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   fontColor(value: ResourceColor): SelectAttribute;
 
   /**
-   * Sets the font color of the drop-down button. Compared with 
-   * [fontColor]{@link SelectAttribute#fontColor(value: ResourceColor)}, this API supports the **undefined** type for 
+   * Sets the font color of the drop-down button. Compared with
+   * [fontColor]{@link SelectAttribute#fontColor(value: ResourceColor)}, this API supports the **undefined** type for
    * the **resColor** parameter.
    *
    * @param { Optional<ResourceColor> } resColor - Font color of the drop-down button.<br>When **resColor** is set to
@@ -410,7 +412,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   */  
+   */
   fontColor(resColor: Optional<ResourceColor>): SelectAttribute;
 
   /**
@@ -429,8 +431,8 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   selectedOptionBgColor(value: ResourceColor): SelectAttribute;
 
   /**
-   * Sets the background color of the selected option in the drop-down menu. Compared with 
-   * [selectedOptionBgColor]{@link SelectAttribute#selectedOptionBgColor(value: ResourceColor)}, this API supports the 
+   * Sets the background color of the selected option in the drop-down menu. Compared with
+   * [selectedOptionBgColor]{@link SelectAttribute#selectedOptionBgColor(value: ResourceColor)}, this API supports the
    * **undefined** type for the **resColor** parameter.
    *
    * @param { Optional<ResourceColor> } resColor - Background color of the selected option in the drop-down menu.<br>
@@ -443,15 +445,15 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   */  
+   */
   selectedOptionBgColor(resColor: Optional<ResourceColor>): SelectAttribute;
 
   /**
-   * Sets the text font of the selected option in the drop-down menu. When **size** is set to **0**, the text is not 
+   * Sets the text font of the selected option in the drop-down menu. When **size** is set to **0**, the text is not
    * displayed. When **size** is set to a negative value, the text is displayed at its default size.
    *
-   * @param { Font } value - Text font of the selected option in the drop-down menu.<br>Default value:<br>{<br>size: $r(
-   *     'sys.float.ohos_id_text_size_body1'),<br>weight: FontWeight.Regular<br>}
+   * @param { Font } value - Text font of the selected option in the drop-down menu.<br>Default value:<br>{<br>size: $r(
+   *     'sys.float.ohos_id_text_size_body1'),<br>weight: FontWeight.Regular<br>}
    * @returns { SelectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -462,21 +464,21 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   selectedOptionFont(value: Font): SelectAttribute;
 
   /**
-   * Sets the text font of the selected option in the drop-down menu. When **size** is set to **0**, the text is not 
-   * displayed. When **size** is set to a negative value, the text is displayed at its default size. Compared with 
-   * [selectedOptionFont]{@link SelectAttribute#selectedOptionFont(value: Font)}, this API supports the **undefined** 
+   * Sets the text font of the selected option in the drop-down menu. When **size** is set to **0**, the text is not
+   * displayed. When **size** is set to a negative value, the text is displayed at its default size. Compared with
+   * [selectedOptionFont]{@link SelectAttribute#selectedOptionFont(value: Font)}, this API supports the **undefined**
    * type for the **selectFont** parameter.
    *
    * @param { Optional<Font> } selectFont - Text font of the selected option in the drop-down menu.<br>If **selectFont**
-   *     is set to **undefined**, the default value is used:<br>{<br>size: $r('sys.float.ohos_id_text_size_body1'),<br>
-   *     weight: FontWeight.Regular<br>}
+   *     is set to **undefined**, the default value is used:<br>{<br>size: $r('sys.float.ohos_id_text_size_body1'),<br>
+   *     weight: FontWeight.Regular<br>}
    * @returns { SelectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   */  
+   */
   selectedOptionFont(selectFont: Optional<Font>): SelectAttribute;
 
   /**
@@ -494,8 +496,8 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   selectedOptionFontColor(value: ResourceColor): SelectAttribute;
 
   /**
-   * Sets the font color of the selected option in the drop-down menu. Compared with 
-   * [selectedOptionFontColor]{@link SelectAttribute#selectedOptionFontColor(value: ResourceColor)}, this API supports 
+   * Sets the font color of the selected option in the drop-down menu. Compared with
+   * [selectedOptionFontColor]{@link SelectAttribute#selectedOptionFontColor(value: ResourceColor)}, this API supports
    * the **undefined** type for the **resColor** parameter.
    *
    * @param { Optional<ResourceColor> } resColor - Font color of the selected option in the drop-down menu.<br>If
@@ -507,7 +509,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   */  
+   */
   selectedOptionFontColor(resColor: Optional<ResourceColor>): SelectAttribute;
 
   /**
@@ -525,8 +527,8 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   optionBgColor(value: ResourceColor): SelectAttribute;
 
   /**
-   * Sets the background color of options in the drop-down menu. Compared with 
-   * [optionBgColor]{@link SelectAttribute#optionBgColor(value: ResourceColor)}, this API supports the **undefined** 
+   * Sets the background color of options in the drop-down menu. Compared with
+   * [optionBgColor]{@link SelectAttribute#optionBgColor(value: ResourceColor)}, this API supports the **undefined**
    * type for the **resColor** parameter.
    *
    * @param { Optional<ResourceColor> } resColor - Background color of options in the drop-down menu.<br>When the value
@@ -537,15 +539,15 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   */  
+   */
   optionBgColor(resColor: Optional<ResourceColor>): SelectAttribute;
 
   /**
    * Sets the text font of options in the drop-down menu. When **size** is set to **0**, the text is not displayed. When
    * **size** is set to a negative value, the text is displayed at its default size.
    *
-   * @param { Font } value - Text font of options in the drop-down menu.<br>Default value:<br>{<br>size: $r('
-   *     sys.float.ohos_id_text_size_body1'),<br>weight: FontWeight.Regular<br>}
+   * @param { Font } value - Text font of options in the drop-down menu.<br>Default value:<br>{<br>size: $r('
+   *     sys.float.ohos_id_text_size_body1'),<br>weight: FontWeight.Regular<br>}
    * @returns { SelectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -558,12 +560,12 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   /**
    * Sets the text font of options in the drop-down menu. When **size** is set to **0**, the text is not displayed. When
    * **size** is set to a negative value, the text is displayed at its default size.
-   * 
+   *
    * Compared with [optionFont]{@link SelectAttribute#optionFont(value: Font)}, this API supports the **undefined** type
    * for the **selectFont** parameter.
    *
    * @param { Optional<Font> } selectFont - Text font of options in the drop-down menu.<br>If **selectFont** is set to
-   *     **undefined**, the default value is used:<br>{<br>size: $r('sys.float.ohos_id_text_size_body1'),<br>weight: 
+   *     **undefined**, the default value is used:<br>{<br>size: $r('sys.float.ohos_id_text_size_body1'),<br>weight:
    *     FontWeight.Regular<br>}
    * @returns { SelectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -589,7 +591,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   optionFontColor(value: ResourceColor): SelectAttribute;
 
   /**
-   * Sets the font color of options in the drop-down menu. Compared with 
+   * Sets the font color of options in the drop-down menu. Compared with
    * [optionFontColor]{@link SelectAttribute#optionFontColor(value: ResourceColor)}, this API supports the **undefined**
    * type for the **resColor** parameter.
    *
@@ -601,7 +603,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   */  
+   */
   optionFontColor(resColor: Optional<ResourceColor>): SelectAttribute;
 
   /**
@@ -618,7 +620,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   onSelect(callback: (index: number, value: string) => void): SelectAttribute;
 
   /**
-   * Triggered when a drop-down menu option is selected. Compared with 
+   * Triggered when a drop-down menu option is selected. Compared with
    * [onSelect]{@link SelectAttribute#onSelect(callback: (index: number, value: string) => void)}, this API supports the
    * **undefined** type for the **callback** parameter.
    *
@@ -660,7 +662,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   */  
+   */
   space(spaceLength: Optional<Length>): SelectAttribute;
 
   /**
@@ -678,8 +680,8 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   arrowPosition(value: ArrowPosition): SelectAttribute;
 
   /**
-   * Sets the alignment between the text and arrow of an option. Compared with 
-   * [arrowPosition]{@link SelectAttribute#arrowPosition(value: ArrowPosition)}, this API supports the **undefined** 
+   * Sets the alignment between the text and arrow of an option. Compared with
+   * [arrowPosition]{@link SelectAttribute#arrowPosition(value: ArrowPosition)}, this API supports the **undefined**
    * type for the **position** parameter.
    *
    * @param { Optional<ArrowPosition> } position - Alignment between the text and arrow of an option.<br>If **position**
@@ -690,7 +692,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   */  
+   */
   arrowPosition(position: Optional<ArrowPosition>): SelectAttribute;
 
   /**
@@ -705,12 +707,12 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @crossplatform [since 11]
    * @atomicservice [since 11]
    * @since 10 dynamic
-   */ 
+   */
   menuAlign(alignType: MenuAlignType, offset?: Offset): SelectAttribute;
 
   /**
-   * Sets the alignment between the drop-down button and the drop-down menu. Compared with 
-   * [menuAlign]{@link SelectAttribute#menuAlign(alignType: MenuAlignType, offset?: Offset)}<sup>10+</sup>, this API 
+   * Sets the alignment between the drop-down button and the drop-down menu. Compared with
+   * [menuAlign]{@link SelectAttribute#menuAlign(alignType: MenuAlignType, offset?: Offset)}<sup>10+</sup>, this API
    * supports the **undefined** type for the **alignType** parameter.
    *
    * @param { Optional<MenuAlignType> } alignType - Alignment type.<br>If **alignType** is set to **undefined**, the
@@ -727,14 +729,14 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   menuAlign(alignType: Optional<MenuAlignType>, offset?: Offset): SelectAttribute;
 
   /**
-   * Sets the width for the drop-down menu option. Percentage values are not supported. **OptionWidthMode** specifies 
+   * Sets the width for the drop-down menu option. Percentage values are not supported. **OptionWidthMode** specifies
    * whether to inherit the width of the drop-down button.
-   * 
-   * If an invalid value or a value less than the minimum width of 56 vp is set, the attribute has no effect. In this 
+   *
+   * If an invalid value or a value less than the minimum width of 56 vp is set, the attribute has no effect. In this
    * case, the option width uses the default value, which is the width of two columns.
-   * 
+   *
    * The **Select** component maintains 16 vp spacing from both left and right screen edges by default. This creates a 3
-   * 2 vp total horizontal margin (16 vp × 2). To prevent horizontal shifting when the drop-down menu is displayed, set 
+   * 2 vp total horizontal margin (16 vp × 2). To prevent horizontal shifting when the drop-down menu is displayed, set
    * the width of the component itself and its menu options to a value less than or equal to **calc(100% - 32 vp)**.
    *
    * @param { Dimension | OptionWidthMode } value - Width of the drop-down menu option.
@@ -748,16 +750,16 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   optionWidth(value: Dimension | OptionWidthMode ): SelectAttribute;
 
   /**
-   * Sets the width for the drop-down menu option. Percentage values are not supported. **OptionWidthMode** specifies 
-   * whether to inherit the width of the drop-down button. Compared with 
-   * [optionWidth]{@link SelectAttribute#optionWidth(value: Dimension | OptionWidthMode )}<sup>11+</sup>, this API 
+   * Sets the width for the drop-down menu option. Percentage values are not supported. **OptionWidthMode** specifies
+   * whether to inherit the width of the drop-down button. Compared with
+   * [optionWidth]{@link SelectAttribute#optionWidth(value: Dimension | OptionWidthMode )}<sup>11+</sup>, this API
    * supports the **undefined** type for the **width** parameter.
-   * 
-   * If an invalid value or a value less than the minimum width of 56 vp is set, the attribute has no effect. In this 
+   *
+   * If an invalid value or a value less than the minimum width of 56 vp is set, the attribute has no effect. In this
    * case, the option width uses the default value, which is the width of two columns.
-   * 
+   *
    * The **Select** component maintains 16 vp spacing from both left and right screen edges by default. This creates a 3
-   * 2 vp total horizontal margin (16 vp × 2). To prevent horizontal shifting when the drop-down menu is displayed, set 
+   * 2 vp total horizontal margin (16 vp × 2). To prevent horizontal shifting when the drop-down menu is displayed, set
    * the width of the component itself and its menu options to a value less than or equal to **calc(100% - 32 vp)**.
    *
    * @param { Optional<Dimension | OptionWidthMode> } width - Width of the drop-down menu option.<br>If **width** is set
@@ -769,16 +771,16 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   */  
+   */
   optionWidth(width: Optional<Dimension | OptionWidthMode> ): SelectAttribute;
 
   /**
-   * Sets the maximum height for the drop-down menu. Percentage values are not supported. The default maximum height is 
+   * Sets the maximum height for the drop-down menu. Percentage values are not supported. The default maximum height is
    * 80% of the available screen height, and any custom maximum height setting must not exceed this limit.
-   * 
+   *
    * This attribute has no effect when set to abnormal values or zero.
-   * 
-   * If the actual height of all drop-down menu options is less than the set height, the menu will automatically adjust 
+   *
+   * If the actual height of all drop-down menu options is less than the set height, the menu will automatically adjust
    * to the actual content height.
    *
    * @param { Dimension } value - Maximum height of the drop-down menu.
@@ -792,14 +794,14 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   optionHeight(value: Dimension): SelectAttribute;
 
   /**
-   * Sets the maximum height for the drop-down menu. Percentage values are not supported. The default maximum height is 
+   * Sets the maximum height for the drop-down menu. Percentage values are not supported. The default maximum height is
    * 80% of the available screen height, and any custom maximum height setting must not exceed this limit. Compared with
-   * [optionHeight]{@link SelectAttribute#optionHeight(value: Dimension)}<sup>11+</sup>, this API supports the 
+   * [optionHeight]{@link SelectAttribute#optionHeight(value: Dimension)}<sup>11+</sup>, this API supports the
    * **undefined** type for the **height** parameter.
-   * 
+   *
    * This attribute has no effect when set to abnormal values or zero.
-   * 
-   * If the actual height of all drop-down menu options is less than the set height, the menu will automatically adjust 
+   *
+   * If the actual height of all drop-down menu options is less than the set height, the menu will automatically adjust
    * to the actual content height.
    *
    * @param { Optional<Dimension> } height - Maximum height of the drop-down menu.<br>If **height** is set to
@@ -810,12 +812,12 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   */  
+   */
   optionHeight(height: Optional<Dimension>): SelectAttribute;
 
   /**
    * Sets the background color of the drop-down menu.
-   * 
+   *
    * > **NOTE**
    * >
    * > This API can be called within [attributeModifier]{@link CommonMethod#attributeModifier} since API version 12.
@@ -832,8 +834,8 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   menuBackgroundColor(value: ResourceColor): SelectAttribute;
 
   /**
-   * Sets the background color of the drop-down menu. Compared with 
-   * [menuBackgroundColor]{@link SelectAttribute#menuBackgroundColor(value: ResourceColor)}<sup>11+</sup>, this API 
+   * Sets the background color of the drop-down menu. Compared with
+   * [menuBackgroundColor]{@link SelectAttribute#menuBackgroundColor(value: ResourceColor)}<sup>11+</sup>, this API
    * supports the **undefined** type for the **resColor** parameter.
    *
    * @param { Optional<ResourceColor> } resColor - Background color of the drop-down menu.<br>If **resColor** is set to
@@ -844,12 +846,12 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   */  
+   */
   menuBackgroundColor(resColor: Optional<ResourceColor>): SelectAttribute;
 
   /**
    * Sets the background blur style of the drop-down menu.
-   * 
+   *
    * > **NOTE**
    * >
    * > This API can be called within [attributeModifier]{@link CommonMethod#attributeModifier} since API version 12.
@@ -866,8 +868,8 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   menuBackgroundBlurStyle(value: BlurStyle): SelectAttribute;
 
   /**
-   * Sets the background blur style of the drop-down menu. Compared with 
-   * [menuBackgroundBlurStyle]{@link SelectAttribute#menuBackgroundBlurStyle(value: BlurStyle)}<sup>11+</sup>, this API 
+   * Sets the background blur style of the drop-down menu. Compared with
+   * [menuBackgroundBlurStyle]{@link SelectAttribute#menuBackgroundBlurStyle(value: BlurStyle)}<sup>11+</sup>, this API
    * supports the **undefined** type for the **style** parameter.
    *
    * @param { Optional<BlurStyle> } style - Background blur style of the drop-down menu.<br>If **style** is set to
@@ -878,7 +880,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   */  
+   */
   menuBackgroundBlurStyle(style: Optional<BlurStyle>): SelectAttribute;
 
   /**
@@ -895,8 +897,8 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   controlSize(value: ControlSize): SelectAttribute;
 
   /**
-   * Sets the size of the **Select** component. Compared with 
-   * [controlSize]{@link SelectAttribute#controlSize(value: ControlSize)}<sup>12+</sup>, this API supports the 
+   * Sets the size of the **Select** component. Compared with
+   * [controlSize]{@link SelectAttribute#controlSize(value: ControlSize)}<sup>12+</sup>, this API supports the
    * **undefined** type for **size** parameter.
    *
    * @param { Optional<ControlSize> } size - Size of the **Select** component.<br>If **size** is set to **undefined**,
@@ -907,14 +909,14 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   */  
+   */
   controlSize(size: Optional<ControlSize>): SelectAttribute;
 
   /**
    * Creates a content modifier for the drop-down menu. After **menuItemContentModifier** is applied, the drop-down menu
-   * content will be completely customized by the developer, and the **Select** component's attributes, including the 
+   * content will be completely customized by the developer, and the **Select** component's attributes, including the
    * divider, option color, and drop-down menu font color, will not take effect.
-   * 
+   *
    * > **NOTE**
    * >
    * > This API cannot be called within [attributeModifier]{@link CommonMethod#attributeModifier}.
@@ -931,13 +933,13 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   menuItemContentModifier(modifier: ContentModifier<MenuItemConfiguration>): SelectAttribute;
 
   /**
-   * Creates a content modifier for the drop-down menu. Compared with 
+   * Creates a content modifier for the drop-down menu. Compared with
    * [menuItemContentModifier]{@link SelectAttribute#menuItemContentModifier(modifier: ContentModifier<MenuItemConfiguration>)}
-   * <sup>12+</sup>, this API supports the **undefined** type for **modifier** parameter. After 
-   * **menuItemContentModifier** is applied, the drop-down menu content will be completely customized by the developer, 
+   * <sup>12+</sup>, this API supports the **undefined** type for **modifier** parameter. After
+   * **menuItemContentModifier** is applied, the drop-down menu content will be completely customized by the developer,
    * and the **Select** component's attributes, including the divider, option color, and drop-down menu font color, will
    * not take effect.
-   * 
+   *
    * > **NOTE**
    * >
    * > This API cannot be called within [attributeModifier]{@link CommonMethod#attributeModifier}.
@@ -951,7 +953,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   */  
+   */
   menuItemContentModifier(modifier: Optional<ContentModifier<MenuItemConfiguration>>): SelectAttribute;
 
   /**
@@ -976,9 +978,9 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   divider(options: Optional<DividerOptions> | null): SelectAttribute;
 
   /**
-   * Creates a text modifier to customize the text style of the **Select** button. After **textModifier** is applied, 
+   * Creates a text modifier to customize the text style of the **Select** button. After **textModifier** is applied,
    * the text style of the **Select** button will be completely customized by the developer.
-   * 
+   *
    * > **NOTE**
    * >
    * > This API cannot be called within [attributeModifier]{@link CommonMethod#attributeModifier}.
@@ -995,10 +997,10 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   textModifier(modifier: Optional<TextModifier>): SelectAttribute;
 
   /**
-   * Creates an arrow modifier to customize the drop-down arrow icon style of the **Select** button. After 
+   * Creates an arrow modifier to customize the drop-down arrow icon style of the **Select** button. After
    * **arrowModifier** is applied, the drop-down arrow icon style of the **Select** button will be completely customized
    * by the developer.
-   * 
+   *
    * > **NOTE**
    * >
    * > This API cannot be called within [attributeModifier]{@link CommonMethod#attributeModifier}.
@@ -1013,16 +1015,16 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @since 20 dynamic
    */
   arrowModifier(modifier: Optional<SymbolGlyphModifier>): SelectAttribute;
-  
+
   /**
-   * Creates an option text modifier to customize the text style of unselected options in the drop-down menu. After 
+   * Creates an option text modifier to customize the text style of unselected options in the drop-down menu. After
    * **optionTextModifier** is applied, the unselected option text style will be completely customized by the developer.
-   * 
-   * 
+   *
+   *
    * If both [optionFont]{@link SelectAttribute#optionFont(value: Font)} and **Font** of **optionTextModifier** are set,
-   * [optionFont]{@link SelectAttribute#optionFont(value: Font)} takes precedence. Any unspecified attributes in 
+   * [optionFont]{@link SelectAttribute#optionFont(value: Font)} takes precedence. Any unspecified attributes in
    * **optionFont** will use default values.
-   * 
+   *
    * > **NOTE**
    * >
    * > This API cannot be called within [attributeModifier]{@link CommonMethod#attributeModifier}.
@@ -1039,16 +1041,16 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   optionTextModifier(modifier: Optional<TextModifier>): SelectAttribute;
 
   /**
-   * Creates a selected-option text modifier to customize the text style of selected options in the drop-down menu. 
-   * After **selectedOptionTextModifier** is applied, the selected-option text style will be completely customized by 
+   * Creates a selected-option text modifier to customize the text style of selected options in the drop-down menu.
+   * After **selectedOptionTextModifier** is applied, the selected-option text style will be completely customized by
    * the developer.
-   * 
-   * If both [selectedOptionFont]{@link SelectAttribute#selectedOptionFont(value: Font)} and **Font** of 
+   *
+   * If both [selectedOptionFont]{@link SelectAttribute#selectedOptionFont(value: Font)} and **Font** of
    * **selectedOptionTextModifier** are set, [selectedOptionFont]{@link SelectAttribute#selectedOptionFont(value: Font)}
    * takes precedence. If **selectedOptionFont** is not set, [optionFont]{@link SelectAttribute#optionFont(value: Font)}
-   * settings are applied. Any unspecified attributes in **selectedOptionFont** or **optionFont** will use default 
+   * settings are applied. Any unspecified attributes in **selectedOptionFont** or **optionFont** will use default
    * values.
-   * 
+   *
    * > **NOTE**
    * >
    * > This API cannot be called within [attributeModifier]{@link CommonMethod#attributeModifier}.
@@ -1066,7 +1068,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   selectedOptionTextModifier(modifier: Optional<TextModifier>): SelectAttribute;
 
   /**
-   * Sets the divider style. If this attribute is not set, the divider is displayed based on the default value. This 
+   * Sets the divider style. If this attribute is not set, the divider is displayed based on the default value. This
    * attribute cannot be used together with the **divider** attribute. The last one called will take effect.
    *
    * @param { Optional<DividerStyleOptions> } style - Divider options.<br>1. If **DividerOptions** is set, the divider
@@ -1116,7 +1118,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   menuOutline(outline: MenuOutlineOptions): SelectAttribute;
 
   /**
-   * Sets whether the drop-down menu is displayed in the subwindow. If this API is not used, the drop-down menu is not 
+   * Sets whether the drop-down menu is displayed in the subwindow. If this API is not used, the drop-down menu is not
    * displayed in the subwindow by default.
    *
    * @param { Optional<boolean> } showInSubWindow - Whether the drop-down menu is displayed in the subwindow.<br>
@@ -1130,6 +1132,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @since 20 dynamic
    */
   showInSubWindow(showInSubWindow: Optional<boolean>): SelectAttribute;
+
 
   /**
    * Sets whether to display the default selection icon.
@@ -1150,7 +1153,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   showDefaultSelectedIcon(show: boolean): SelectAttribute;
 
   /**
-   * Sets whether the drop-down menu avoids the soft keyboard. If this API is not used, the drop-down menu avoids the 
+   * Sets whether the drop-down menu avoids the soft keyboard. If this API is not used, the drop-down menu avoids the
    * soft keyboard by default.
    *
    * @param { Optional<MenuKeyboardAvoidMode> } mode - Whether the drop-down menu avoids the soft keyboard. If the value
@@ -1165,8 +1168,8 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   keyboardAvoidMode(mode: Optional<MenuKeyboardAvoidMode>): SelectAttribute;
 
   /**
-   * Sets the minimum distance for the **Select** component to avoid the soft keyboard. If this API is not used, the 
-   * minimum distance is 8 vp by default. This API is valid only when 
+   * Sets the minimum distance for the **Select** component to avoid the soft keyboard. If this API is not used, the
+   * minimum distance is 8 vp by default. This API is valid only when
    * [keyboardAvoidMode]{@link SelectAttribute#keyboardAvoidMode} is set to avoid the soft keyboard.
    *
    * @param { Optional<LengthMetrics> } distance - Sets the minimum distance for the drop-down menu to avoid the soft
@@ -1187,41 +1190,18 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * Device Behavior Differences:The effect of the same material may vary across different devices depending on
    * their computing power.
    *
-   * @param { Optional<SystemUiMaterial> } material - The select's menu material, undefined means 
+   * @param { Optional<SystemUiMaterial> } material - The select's menu material, undefined means
    *     retaining the original visual style of the select's menu.
    * @returns { SelectAttribute } - the attribute of the select.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @systemapi [since 23-24]
-    * @publicapi [since 26.0.0]
+   * @systemapi [since 23 - 24]
+   * @publicapi [since 26.0.0]
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 23 dynamic
    */
   menuSystemMaterial(material: Optional<SystemUiMaterial>): SelectAttribute;
-
-  /**
-   * Sets the distortion animation mode of the select with the new material.
-   *
-   * @param { DistortionMode } mode - Animation mode. The default value is DistortionMode.DISTORTION_AUTO.
-   * @returns { SelectAttribute } - the attribute of the select.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @stagemodelonly
-   * @since 26.0.0 dynamic
-   */
-  menuDistortionMode(mode: DistortionMode): SelectAttribute;
-  /**
-   * Sets the edgelight animation mode of the select with the new material.
-   * 
-   * @param { EdgeLightMode } mode - Animation mode. The default value is EdgeLightMode.EDGELIGHT_DISABLED.
-   * @returns { SelectAttribute } - the attribute of the select.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @stagemodelonly
-   * @since 26.0.0 dynamic
-   */
-  menuEdgeLightMode(mode: EdgeLightMode): SelectAttribute;
 
   /**
    * Defines the select menu's background blur style with options
@@ -1250,10 +1230,34 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @since 26.0.0 dynamic
    */
   menuBackgroundEffect(effect: Optional<BackgroundEffectOptions>): SelectAttribute;
+
+  /**
+   * Sets the distortion animation mode of the select with the new material.
+   *
+   * @param { DistortionMode } mode - Animation mode. The default value is DistortionMode.DISTORTION_AUTO.
+   * @returns { SelectAttribute } - the attribute of the select.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  menuDistortionMode(mode: DistortionMode): SelectAttribute;
+
+  /**
+   * Sets the edgelight animation mode of the select with the new material.
+   *
+   * @param { EdgeLightMode } mode - Animation mode. The default value is EdgeLightMode.EDGELIGHT_DISABLED.
+   * @returns { SelectAttribute } - the attribute of the select.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  menuEdgeLightMode(mode: EdgeLightMode): SelectAttribute;
 }
 
 /**
- * You need a custom class to implement the **ContentModifier** API. Inherits from 
+ * You need a custom class to implement the **ContentModifier** API. Inherits from
  * [CommonConfiguration]{@link CommonConfiguration}.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1262,15 +1266,14 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
  * @atomicservice
  * @since 12 dynamic
  */
-declare interface MenuItemConfiguration extends CommonConfiguration<MenuItemConfiguration>{
+declare interface MenuItemConfiguration extends CommonConfiguration<MenuItemConfiguration> {
   /**
    * Text content of the drop-down menu option.
-   * 
+   *
    * **NOTE**
-   * 
+   *
    * If the length of the text exceeds the width of the menu item text area, the text will be truncated.
    *
-   * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1281,9 +1284,9 @@ declare interface MenuItemConfiguration extends CommonConfiguration<MenuItemConf
 
   /**
    * Icon of the drop-down menu option.
-   * 
+   *
    * **NOTE**
-   * 
+   *
    * The string type can be used to load network images and local images.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1296,7 +1299,7 @@ declare interface MenuItemConfiguration extends CommonConfiguration<MenuItemConf
 
   /**
    * Symbol icon of drop-down menu option.
-   * 
+   *
    * **symbolIcon** takes precedence over **icon**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1308,9 +1311,9 @@ declare interface MenuItemConfiguration extends CommonConfiguration<MenuItemConf
   symbolIcon?: SymbolGlyphModifier;
 
   /**
-   * Whether the drop-down menu option is selected. The value **true** means that the option is selected, and **false** 
+   * Whether the drop-down menu option is selected. The value **true** means that the option is selected, and **false**
    * means the opposite.
-   * 
+   *
    * Default value: **false**
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1335,9 +1338,9 @@ declare interface MenuItemConfiguration extends CommonConfiguration<MenuItemConf
   /**
    * Invoked when a drop-down menu option is selected.
    * <br>**NOTE**
-   * <br>The value of **index** will be assigned to the **index** parameter in the 
-   * [onSelect]{@link SelectAttribute#onSelect(callback: (index: number, value: string) => void)} callback; 
-   * the value of **value** will be returned to the **Select** component for display and will also be assigned to 
+   * <br>The value of **index** will be assigned to the **index** parameter in the
+   * [onSelect]{@link SelectAttribute#onSelect(callback: (index: number, value: string) => void)} callback;
+   * the value of **value** will be returned to the **Select** component for display and will also be assigned to
    * the **value** parameter in the [onSelect]{@link SelectAttribute#onSelect(callback: (index: number, value: string) => void)} callback.
    *
    * @param { number } index - index of the selected option.
@@ -1352,11 +1355,11 @@ declare interface MenuItemConfiguration extends CommonConfiguration<MenuItemConf
 }
 /**
  * The **Select** component provides a drop-down menu that allows users to select among multiple options.
- * 
+ *
  * > **NOTE**
- * 
+ *
  * ###### Child Components
- * 
+ *
  * Not supported
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full

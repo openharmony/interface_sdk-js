@@ -14,142 +14,78 @@
 */
 
 /**
- * @file
+ * @file Dialog
  * @kit ArkUI
  */
-
-
-
 
 import { Theme, CustomTheme } from '@ohos.arkui.theme';
 
 /**
- * Declare ButtonOptions
+ * > **NOTE**
+ * >
+ * > The priority of **buttonStyle** and **role** is higher than that of **fontColor** and **background**. If
+ * > **buttonStyle** and **role** are at the default values, the settings of **fontColor** and **background** take
+ * > effect.
+ * >
+ * > If **defaultFocus** is set for multiple buttons, the default focus is the first button in the display order that
+ * > has **defaultFocus** set to **true**.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 10
- */
-
-
-/**
- * Declare ButtonOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @atomicservice
- * @since 11
- */
-/**
- * Declare ButtonOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 18 dynamic
+ * @crossplatform [since 18]
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 export declare class ButtonOptions {
   /**
-   * Sets the Display Content of a Button.
-   * @type { ResourceStr }.
+   * Content of the button.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Sets the Display Content of a Button.
-   * @type { ResourceStr }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the Display Content of a Button.
-   * @type { ResourceStr }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   value: ResourceStr;
   /**
-   * Sets the Button Callback.
-   * @type { ?() => void }.
+   * Click event of the button.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Sets the Button Callback.
-   * @type { ?() => void }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the Button Callback.
-   * @type { ?() => void }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   action?: () => void;
   /**
-   * Sets the background color of a button.
-   * @type { ?ResourceStr }.
+   * Background color of the button.
+   *
+   * The setting follows **buttonStyle** by default.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Sets the background color of a button.
-   * @type { ?ResourceStr }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the background color of a button.
-   * @type { ?ResourceStr }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   background?: ResourceColor;
   /**
-   * Sets the Button Text Color.
-   * @type { ?ResourceStr }.
+   * Font color of the button.
+   *
+   * The setting follows **buttonStyle** by default.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Sets the Button Text Color.
-   * @type { ?ResourceStr }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the Button Text Color.
-   * @type { ?ResourceStr }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   fontColor?: ResourceColor;
   /**
-   * Describes the Button style.
-   * @type { ?ButtonStyleMode }
+   * Style of the button.
+   *
+   * Default value: **ButtonStyleMode.NORMAL** for 2-in-1 devices and **ButtonStyleMode.TEXTUAL** for other devices
+   *
    * @default ButtonStyleMode.TEXTUAL
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -159,8 +95,10 @@ export declare class ButtonOptions {
    */
   buttonStyle?: ButtonStyleMode;
   /**
-   * Describes the Button role.
-   * @type { ?ButtonRole }
+   * Role of the button.
+   *
+   * Default value: **ButtonRole.NORMAL**
+   *
    * @default ButtonRole.NORMAL
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -170,8 +108,14 @@ export declare class ButtonOptions {
    */
   role?: ButtonRole;
   /**
-   * Set the default focus of a button.
-   * @type { ?boolean }
+   * Whether the button is the default focus.
+   *
+   * **true**: The button is the default focus.
+   *
+   * **false**: The button is not the default focus.
+   *
+   * Default value: **false**.
+   *
    * @default { false }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -181,8 +125,10 @@ export declare class ButtonOptions {
    */
   defaultFocus?: boolean;
   /**
-   * Set the alignment mode for the button label.
-   * @type { ?TextAlign }
+   * Alignment method of the button text.
+   *
+   * Default value: **TextAlign.Start**
+   *
    * @default { TextAlign.Start }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -193,299 +139,156 @@ export declare class ButtonOptions {
   textAlign?: TextAlign;
 }
 /**
- * Declare CustomDialog TipsDialog
+ * TipsDialog({controller: CustomDialogController, imageRes: ResourceStr | PixelMap, imageSize?: SizeOptions, title?:
+ * ResourceStr, content?: ResourceStr, checkTips?: ResourceStr, isChecked?: boolean, checkAction?: (isChecked: boolean)
+ * => void, onCheckedChange?: Callback\<boolean>, primaryButton?: ButtonOptions, secondaryButton?: ButtonOptions, theme?
+ * : Theme | CustomTheme, themeColorMode?: ThemeColorMode})
+ *
+ * Defines a tip dialog box used to remind users to pay attention to specific matters or perform confirmation
+ * operations.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 10
- */
-/**
- * Declare CustomDialog TipsDialog
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @atomicservice
- * @since 11
- */
-/**
- * Declare CustomDialog TipsDialog
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 18 dynamic
+ * @crossplatform [since 18]
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 @CustomDialog
 export declare struct TipsDialog {
   /**
-   * Sets the TipsDialog Controller.
-   * @type { CustomDialogController }.
+   * Tip pop-up dialog box controller, used to control the show and hide of the dialog box.
+   *
+   * **Note:** The **@Require** decorator is not used, and parameters are not mandatorily validated during construction.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Sets the TipsDialog Controller.
-   * @type { CustomDialogController }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the TipsDialog Controller.
-   * @type { CustomDialogController }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   controller: CustomDialogController;
   /**
-   * Sets the TipsDialog imageRes.
-   * @type { Resource }.
+   * Image displayed.
+   *
+   * @type { Resource }. [since 10 - 11]
+   * @type { ResourceStr | PixelMap } [since 12]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Sets the TipsDialog imageRes.
-   * @type { Resource }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the TipsDialog imageRes.
-   * @type { ResourceStr | PixelMap }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Sets the TipsDialog imageRes.
-   * @type { ResourceStr | PixelMap }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   imageRes: ResourceStr | PixelMap;
   /**
-   * Sets the TipsDialog image size.
-   * @type { SizeOptions }.
+   * Image size.
+   *
+   * Default value: **64*64vp**
+   *
+   * @type { SizeOptions }. [since 10 - 11]
+   * @type { ?SizeOptions }. [since 12]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Sets the TipsDialog image size.
-   * @type { SizeOptions }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the TipsDialog image size.
-   * @type { ?SizeOptions }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Sets the TipsDialog image size.
-   * @type { ?SizeOptions }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   imageSize?: SizeOptions;
   /**
-   * Sets the TipsDialog title.
-   * @type { ResourceStr }.
+   * Title of the dialog box.
+   *
+   * If this parameter is not set or is set to **undefined**, the title is not displayed.
+   *
+   * **NOTE**
+   *
+   * If the title exceeds two lines, it will be truncated with an ellipsis (...).
+   *
+   * @type { ResourceStr }. [since 10 - 11]
+   * @type { ?ResourceStr }. [since 12]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Sets the TipsDialog title.
-   * @type { ResourceStr }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the TipsDialog title.
-   * @type { ?ResourceStr }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Sets the TipsDialog title.
-   * @type { ?ResourceStr }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   title?: ResourceStr;
   /**
-   * Sets the TipsDialog content.
-   * @type { ?ResourceStr }.
+   * Content of the dialog box.
+   *
+   * If this parameter is not set or is set to **undefined**, the content is not displayed.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Sets the TipsDialog content.
-   * @type { ?ResourceStr }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the TipsDialog content.
-   * @type { ?ResourceStr }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   content?: ResourceStr;
   /**
-   * Sets the TipsDialog checkbox tips.
-   * @type { ?ResourceStr }.
+   * Content of the check box.
+   *
+   * If this parameter is not set or is set to **undefined**, the check box content is not displayed.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Sets the TipsDialog checkbox tips.
-   * @type { ?ResourceStr }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the TipsDialog checkbox tips.
-   * @type { ?ResourceStr }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   checkTips?: ResourceStr;
   /**
-   * Sets the TipsDialog checkbox check state.
-   * @type { ?boolean }.
+   * When **isChecked** is **true**, the checkbox is selected; when **isChecked** is **false**, the checkbox is
+   * unselected.
+   *
+   * Default value: **false**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
+  @Prop
+  isChecked?: boolean;
   /**
-   * Sets the TipsDialog checkbox check state.
-   * @type { ?boolean }.
+   * State change event of the checkbox. When **isChecked** is **true**, the checkbox is selected; when **isChecked** is
+   * **false**, the checkbox is unselected.
+   *
+   * **Note:** It is recommended to use onCheckedChange<sup>12+</sup>.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the TipsDialog checkbox check state.
-   * @type { ?boolean }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
-   */
-  @Prop isChecked?: boolean;
-  /**
-   * Sets the TipsDialog CheckBox Callback.
-   * @type { ?(isChecked: boolean) => void }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Sets the TipsDialog CheckBox Callback.
-   * @type { ?(isChecked: boolean) => void }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    */
   checkAction?: (isChecked: boolean) => void;
   /**
-   * Sets the TipsDialog primary button.
-   * @type { ?ButtonOptions }.
+   * Left button of the dialog box.
+   *
+   * If this parameter is not set or is set to **undefined**, the left button is not displayed.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Sets the TipsDialog primary button.
-   * @type { ?ButtonOptions }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the TipsDialog primary button.
-   * @type { ?ButtonOptions }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   primaryButton?: ButtonOptions;
   /**
-   * Sets the TipsDialog secondary button.
-   * @type { ?ButtonOptions }.
+   * Right button of the dialog box.
+   *
+   * If this parameter is not set or is set to **undefined**, the right button is not displayed.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Sets the TipsDialog secondary button.
-   * @type { ?ButtonOptions }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the TipsDialog secondary button.
-   * @type { ?ButtonOptions }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   secondaryButton?: ButtonOptions;
   /**
-   * Custom Theme.
+   * Theme information, which can be a custom theme or a **Theme** instance obtained from **onWillApplyTheme**.
    *
-   * @type { ?(Theme | CustomTheme) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -494,9 +297,10 @@ export declare struct TipsDialog {
    */
   theme?: Theme | CustomTheme;
   /**
-   * Sets the TipsDialog dark or light Mode.
+   * Theme color mode of the dialog box.
    *
-   * @type { ?ThemeColorMode }
+   * Default value: **ThemeColorMode.SYSTEM**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -505,202 +309,112 @@ export declare struct TipsDialog {
    */
   themeColorMode?: ThemeColorMode;
   /**
-   * Sets the TipsDialog CheckBox Callback.
-   * @type { ?Callback<boolean> }
+   * Callback invoked when the checked state of the checkbox changes. The callback parameter is of the boolean type. The
+   * value **true** indicates that the checkbox is checked, and **false** indicates that the checkbox is not checked.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Sets the TipsDialog CheckBox Callback.
-   * @type { ?Callback<boolean> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    */
   onCheckedChange?: Callback<boolean>;
 }
 
 /**
- * Declare CustomDialog SelectDialog
+ * SelectDialog({controller: CustomDialogController, title: ResourceStr, content?: ResourceStr, selectedIndex?: number,
+ * confirm?: ButtonOptions, radioContent: Array&lt;SheetInfo&gt;, theme?: Theme | CustomTheme, themeColorMode?:
+ * ThemeColorMode})
+ *
+ * Displays a dialog box from which the user can select options presented in a list or grid.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 10
- */
-/**
- * Declare CustomDialog SelectDialog
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @atomicservice
- * @since 11
- */
-/**
- * Declare CustomDialog SelectDialog
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 18 dynamic
+ * @crossplatform [since 18]
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 @CustomDialog
 export declare struct SelectDialog {
   /**
-   * Sets the SelectDialog Controller.
-   * @type { CustomDialogController }.
+   * Controller of the selection dialog box, used to control the show and hide of the dialog box.
+   *
+   * **Note:** The **@Require** decorator is not used, and mandatory validation is not performed on the parameter during
+   * construction.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Sets the SelectDialog Controller.
-   * @type { CustomDialogController }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the SelectDialog Controller.
-   * @type { CustomDialogController }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   controller: CustomDialogController;
   /**
-   * Sets the SelectDialog title.
-   * @type { ResourceStr }.
+   * Title of the dialog box.
+   *
+   * **NOTE**
+   *
+   * If the title exceeds two lines, it will be truncated with an ellipsis (...).
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Sets the SelectDialog title.
-   * @type { ResourceStr }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the SelectDialog title.
-   * @type { ResourceStr }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   title: ResourceStr;
   /**
-   * Sets the SelectDialog content.
-   * @type { ?ResourceStr }.
+   * Content of the dialog box.
+   *
+   * If this parameter is not set or is set to **undefined**, the content is not displayed.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Sets the SelectDialog content.
-   * @type { ?ResourceStr }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the SelectDialog content.
-   * @type { ?ResourceStr }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   content?: ResourceStr;
   /**
-   * Sets the SelectDialog selected index.
-   * @type { ?number }.
+   * Index of the selected option in the dialog box.
+   *
+   * Value range: an integer no less than -1
+   *
+   * The default value is **-1**, indicating that there is no selected option. Values less than -1 are treated as no
+   * selected option.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Sets the SelectDialog selected index.
-   * @type { ?number }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the SelectDialog selected index.
-   * @type { ?number }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   selectedIndex?: number;
   /**
-   * Sets the SelectDialog confirm button.
-   * @type { ?ButtonOptions }.
+   * Bottom button of the selection dialog box.
+   *
+   * When not set by default or set to **undefined**, the bottom button is not displayed.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Sets the SelectDialog confirm button.
-   * @type { ?ButtonOptions }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the SelectDialog confirm button.
-   * @type { ?ButtonOptions }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   confirm?: ButtonOptions;
   /**
-   * Sets the SelectDialog sheets.
-   * @type { Array<SheetInfo> }.
+   * List of subitems in the dialog box. You can set text and a select callback for each subitem.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Sets the SelectDialog sheets.
-   * @type { Array<SheetInfo> }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the SelectDialog sheets.
-   * @type { Array<SheetInfo> }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   radioContent: Array<SheetInfo>;
   /**
-   * Custom Theme.
+   * Theme information, which can be a custom theme or a **Theme** instance obtained from **onWillApplyTheme**.
    *
-   * @type { ?(Theme | CustomTheme) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -709,9 +423,10 @@ export declare struct SelectDialog {
    */
   theme?: Theme | CustomTheme;
   /**
-   * Sets the SelectDialog dark or light Mode.
+   * Theme color mode of the dialog box.
    *
-   * @type { ?ThemeColorMode }
+   * Default value: **ThemeColorMode.SYSTEM**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -722,207 +437,115 @@ export declare struct SelectDialog {
 }
 
 /**
- * Declare CustomDialog ConfirmDialog
+ * ConfirmDialog({controller: CustomDialogController, title: ResourceStr, content?: ResourceStr, checkTips?:
+ * ResourceStr, isChecked?: boolean, onCheckedChange?: Callback\<boolean>, primaryButton?: ButtonOptions,
+ * secondaryButton?: ButtonOptions, theme?: Theme | CustomTheme, themeColorMode?: ThemeColorMode})
+ *
+ * Defines a confirmation dialog box used to provide error feedback or prompt information when an operation is not
+ * correctly executed (for example, a network error or low battery level) or when an incorrect operation is performed (
+ * for example, fingerprint enrollment).
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 10
- */
-/**
- * Declare CustomDialog ConfirmDialog
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @atomicservice
- * @since 11
- */
-/**
- * Declare CustomDialog ConfirmDialog
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 18 dynamic
+ * @crossplatform [since 18]
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 @CustomDialog
 export declare struct ConfirmDialog {
   /**
-   * Sets the ConfirmDialog Controller.
-   * @type { CustomDialogController }.
+   * Confirmation dialog box controller, used to control the show and hide of the dialog box.
+   *
+   * **Note:** When **@Require** is not used, mandatory validation is not performed on the parameter during
+   * construction.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Sets the ConfirmDialog Controller.
-   * @type { CustomDialogController }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the ConfirmDialog Controller.
-   * @type { CustomDialogController }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   controller: CustomDialogController;
   /**
-   * Sets the ConfirmDialog title.
-   * @type { ResourceStr }.
+   * Title of the dialog box.
+   *
+   * **NOTE**
+   *
+   * If the title exceeds two lines, it will be truncated with an ellipsis (...).
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Sets the ConfirmDialog title.
-   * @type { ResourceStr }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the ConfirmDialog title.
-   * @type { ResourceStr }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   title: ResourceStr;
   /**
-   * Sets the ConfirmDialog content.
-   * @type { ?ResourceStr }.
+   * Content of the dialog box.
+   *
+   * If this parameter is not set or is set to **undefined**, the content is not displayed.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Sets the ConfirmDialog content.
-   * @type { ?ResourceStr }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the ConfirmDialog content.
-   * @type { ?ResourceStr }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   content?: ResourceStr;
   /**
-   * Sets the ConfirmDialog checkbox tips.
-   * @type { ?ResourceStr }.
+   * Tip content of the checkbox.
+   *
+   * When not set by default or set to **undefined**, the tip content of the checkbox is not displayed.
+   *
+   * **Note:** When the tip content is not set, the checkbox is also displayed.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Sets the ConfirmDialog checkbox tips.
-   * @type { ?ResourceStr }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the ConfirmDialog checkbox tips.
-   * @type { ?ResourceStr }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   checkTips?: ResourceStr;
   /**
-   * Sets the ConfirmDialog checkbox state.
-   * @type { ?boolean }.
+   * Whether the checkbox is selected. The value **true** means selected, and **false** means unselected.
+   *
+   * Default value: **false**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
+  @Prop
+  isChecked?: boolean;
   /**
-   * Sets the ConfirmDialog checkbox state.
-   * @type { ?boolean }.
+   * Left button of the dialog box.
+   *
+   * If this parameter is not set or is set to **undefined**, the left button is not displayed.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the ConfirmDialog checkbox state.
-   * @type { ?boolean }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
-   */
-  @Prop isChecked?: boolean;
-  /**
-   * Sets the ConfirmDialog primary button.
-   * @type { ?ButtonOptions }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Sets the ConfirmDialog primary button.
-   * @type { ?ButtonOptions }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the ConfirmDialog primary button.
-   * @type { ?ButtonOptions }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   primaryButton?: ButtonOptions;
   /**
-   * Sets the ConfirmDialog secondary button.
-   * @type { ?ButtonOptions }.
+   * Right button of the dialog box.
+   *
+   * If this parameter is not set or is set to **undefined**, the right button is not displayed.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Sets the ConfirmDialog secondary button.
-   * @type { ?ButtonOptions }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the ConfirmDialog secondary button.
-   * @type { ?ButtonOptions }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   secondaryButton?: ButtonOptions;
   /**
-   * Custom Theme.
+   * Theme information, which can be a custom theme or a **Theme** instance obtained from **onWillApplyTheme**.
    *
-   * @type { ?(Theme | CustomTheme) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -931,9 +554,10 @@ export declare struct ConfirmDialog {
    */
   theme?: Theme | CustomTheme;
   /**
-   * Sets the ConfirmDialog dark or light Mode.
+   * Theme color mode of the dialog box.
    *
-   * @type { ?ThemeColorMode }
+   * Default value: **ThemeColorMode.SYSTEM**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -942,76 +566,54 @@ export declare struct ConfirmDialog {
    */
   themeColorMode?: ThemeColorMode;
   /**
-   * Sets the ConfirmDialog CheckBox Callback.
-   * @type { ?Callback<boolean> }
+   * Callback invoked when the checked state of the checkbox changes. The callback parameter is of the boolean type. The
+   * value **true** indicates that the checkbox is checked, and **false** indicates that the checkbox is not checked.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Sets the ConfirmDialog CheckBox Callback.
-   * @type { ?Callback<boolean> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    */
   onCheckedChange?: Callback<boolean>;
 }
 
 /**
- * Declare CustomDialog AlertDialog
+ * AlertDialog({controller: CustomDialogController, primaryTitle?: ResourceStr, secondaryTitle?: ResourceStr, content:
+ * ResourceStr, primaryButton?: ButtonOptions, secondaryButton?: ButtonOptions, theme?: Theme | CustomTheme,
+ * themeColorMode?: ThemeColorMode})
+ *
+ * Defines an alert dialog box used to warn the user when triggering an irreversible operation that will have serious
+ * consequences (such as deletion, reset, cancel editing, stop, etc.).
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 10
- */
-/**
- * Declare CustomDialog AlertDialog
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @atomicservice
- * @since 11
- */
-/**
- * Declare CustomDialog AlertDialog
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 18 dynamic
+ * @crossplatform [since 18]
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 @CustomDialog
 export declare struct AlertDialog {
   /**
-   * Sets the AlertDialog Controller.
-   * @type { CustomDialogController }.
+   * Alert dialog box controller, used to control the show and hide of the dialog box.
+   *
+   * **Note:** The **@Require** decorator is not used, and mandatory validation is not performed during construction.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Sets the AlertDialog Controller.
-   * @type { CustomDialogController }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the AlertDialog Controller.
-   * @type { CustomDialogController }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   controller: CustomDialogController;
   /**
-   * Sets the AlertDialog title.
-   * @type { ?ResourceStr }
+   * Primary title of the alert dialog box.
+   *
+   * This parameter is not set or set to **undefined** by default, indicating the primary title of the alert dialog box
+   * is not displayed.
+   *
+   * **Note:** If the title exceeds two lines, "..." is displayed.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1020,8 +622,13 @@ export declare struct AlertDialog {
    */
   primaryTitle?: ResourceStr;
   /**
-   * Sets the AlertDialog secondary title.
-   * @type { ?ResourceStr }
+   * Secondary title of the alert dialog box.
+   *
+   * This parameter is not set or set to **undefined** by default, indicating the secondary title of the alert dialog
+   * box is not displayed.
+   *
+   * **Note:** If the title exceeds two lines, "..." is displayed.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1030,84 +637,44 @@ export declare struct AlertDialog {
    */
   secondaryTitle?: ResourceStr;
   /**
-   * Sets the AlertDialog content.
-   * @type { ResourceStr }.
+   * Content of the alert dialog box.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Sets the AlertDialog content.
-   * @type { ResourceStr }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the AlertDialog content.
-   * @type { ResourceStr }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   content: ResourceStr;
   /**
-   * Sets the AlertDialog primary button.
-   * @type { ?ButtonOptions }.
+   * Left button of the alert dialog box.
+   *
+   * This parameter is not set or set to **undefined** by default, indicating the left button of the alert dialog box is
+   * not displayed.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Sets the AlertDialog primary button.
-   * @type { ?ButtonOptions }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the AlertDialog primary button.
-   * @type { ?ButtonOptions }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   primaryButton?: ButtonOptions;
   /**
-   * Sets the AlertDialog secondary button.
-   * @type { ?ButtonOptions }.
+   * Right button of the alert dialog box.
+   *
+   * This parameter is not set or set to **undefined** by default, indicating the right button of the alert dialog box
+   * is not displayed.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Sets the AlertDialog secondary button.
-   * @type { ?ButtonOptions }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the AlertDialog secondary button.
-   * @type { ?ButtonOptions }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   secondaryButton?: ButtonOptions;
   /**
-   * Custom Theme.
+   * Theme information, which can be a custom theme or a **Theme** instance obtained from **onWillApplyTheme**.
    *
-   * @type { ?(Theme | CustomTheme) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1116,9 +683,10 @@ export declare struct AlertDialog {
    */
   theme?: Theme | CustomTheme;
   /**
-   * Sets the AlertDialog dark or light Mode.
+   * Theme color mode of the dialog box.
    *
-   * @type { ?ThemeColorMode }
+   * Default value: **ThemeColorMode.SYSTEM**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1129,82 +697,46 @@ export declare struct AlertDialog {
 }
 
 /**
- * Declare CustomDialog LoadingDialog
+ * LoadingDialog({Controller: CustomDialogController, content?: ResourceStr, theme?: Theme | CustomTheme, themeColorMode
+ * ?: ThemeColorMode})
+ *
+ * Displays a loading dialog box to inform the user of the operation progress.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 10
- */
-/**
- * Declare CustomDialog LoadingDialog
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @atomicservice
- * @since 11
- */
-/**
- * Declare CustomDialog LoadingDialog
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 18 dynamic
+ * @crossplatform [since 18]
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 @CustomDialog
 export declare struct LoadingDialog {
   /**
-   * Sets the LoadingDialog Controller.
-   * @type { CustomDialogController }.
+   * Controller of the loading dialog box, used to control the show and hide of the dialog box.
+   *
+   * **Note:** The **@Require** decorator is not used, and mandatory validation is not performed during construction.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Sets the LoadingDialog Controller.
-   * @type { CustomDialogController }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the LoadingDialog Controller.
-   * @type { CustomDialogController }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   Controller: CustomDialogController;
   /**
-   * Sets the LoadingDialog content.
-   * @type { ?ResourceStr }.
+   * Content of the loading dialog box.
+   *
+   * If this parameter is not set or is set to **undefined**, the content is not displayed.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Sets the LoadingDialog content.
-   * @type { ?ResourceStr }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the LoadingDialog content.
-   * @type { ?ResourceStr }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   content?: ResourceStr;
   /**
-   * Custom Theme.
+   * Theme information, which can be a custom theme or a **Theme** instance obtained from **onWillApplyTheme**.
    *
-   * @type { ?(Theme | CustomTheme) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1213,9 +745,10 @@ export declare struct LoadingDialog {
    */
   theme?: Theme | CustomTheme;
   /**
-   * Sets the LoadingDialog dark or light Mode.
+   * Theme color mode of the dialog box.
    *
-   * @type { ?ThemeColorMode }
+   * Default value: **ThemeColorMode.SYSTEM**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1226,7 +759,21 @@ export declare struct LoadingDialog {
 }
 
 /**
- * Declare custom content dialog
+ * CustomContentDialog({controller: CustomDialogController, contentBuilder: () => void, primaryTitle?: ResourceStr,
+ * secondaryTitle?: ResourceStr, localizedContentAreaPadding?: LocalizedPadding, contentAreaPadding?: Padding, buttons?:
+ * ButtonOptions[], theme?: Theme | CustomTheme, themeColorMode?: ThemeColorMode})
+ *
+ * Displays a dialog box that contains custom content and operation area.
+ *
+ * > **NOTE**
+ * >
+ * > When the height of the dialog box is insufficient, the area defined by **contentBuilder** will be compressed.
+ * > Global scrolling will be enabled if the compressed area's height falls below 100 vp.
+ * >
+ * > You must define scrolling of the content area in **CustomContentDialog**. In addition, the custom scrolling of the
+ * > content area must be used in conjunction with the **nestedScroll** property, as in the
+ * > **nestedScroll({ scrollForward: NestedScrollMode.PARALLEL, scrollBackward: NestedScrollMode.PARALLEL })** example.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1236,8 +783,11 @@ export declare struct LoadingDialog {
 @CustomDialog
 export declare struct CustomContentDialog {
   /**
-   * Sets the CustomContentDialog Controller.
-   * @type { CustomDialogController }.
+   * Dialog controller used to control the show and hide of the dialog box.
+   *
+   * **Note:** Not decorated by **@Require**, and the parameter is not subject to mandatory validation during
+   * construction.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1246,8 +796,14 @@ export declare struct CustomContentDialog {
    */
   controller: CustomDialogController;
   /**
-   * Sets the CustomContentDialog title.
-   * @type { ?ResourceStr }
+   * Primary title of the dialog box.
+   *
+   * If this parameter is not set or is set to **undefined**, the primary title is not displayed.
+   *
+   * **NOTE**
+   *
+   * If the title exceeds two lines, it will be truncated with an ellipsis (...).
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1256,8 +812,14 @@ export declare struct CustomContentDialog {
    */
   primaryTitle?: ResourceStr;
   /**
-   * Sets the CustomContentDialog secondary title.
-   * @type { ?ResourceStr }
+   * Secondary title of the dialog box.
+   *
+   * If this parameter is not set or is set to **undefined**, the secondary title is not displayed.
+   *
+   * **NOTE**
+   *
+   * If the title exceeds two lines, it will be truncated with an ellipsis (...).
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1266,18 +828,20 @@ export declare struct CustomContentDialog {
    */
   secondaryTitle?: ResourceStr;
   /**
-   * Sets the CustomContentDialog content.
-   * @type { () => void }
+   * Component builder function used to construct the content area of the dialog box.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
-  @BuilderParam contentBuilder: () => void;
+  @BuilderParam
+  contentBuilder: () => void;
   /**
-   * Sets the CustomContentDialog content area padding.
-   * @type { ?Padding }
+   * Padding of the content area of the dialog box. This attribute does not take effect when
+   * **localizedContentAreaPadding** is set.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1286,18 +850,19 @@ export declare struct CustomContentDialog {
    */
   contentAreaPadding?: Padding;
   /**
-     * Sets the CustomContentDialog content area localized padding.
-     * @type { ?LocalizedPadding }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
+   * Padding of the content area of the dialog box, which supports adaptation based on language direction. When this
+   * attribute is set, **contentAreaPadding** does not take effect.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
   localizedContentAreaPadding?: LocalizedPadding;
   /**
-   * Sets the CustomContentDialog buttons.
-   * @type { ?ButtonOptions[] }
+   * Buttons in the operation area of the dialog box. A maximum of four buttons are allowed.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1306,9 +871,8 @@ export declare struct CustomContentDialog {
    */
   buttons?: ButtonOptions[];
   /**
-   * Custom Theme.
+   * Theme information, which can be a custom theme or a **Theme** instance obtained from **onWillApplyTheme**.
    *
-   * @type { ?(Theme | CustomTheme) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1317,9 +881,10 @@ export declare struct CustomContentDialog {
    */
   theme?: Theme | CustomTheme;
   /**
-   * Sets the CustomContentDialog dark or light Mode.
+   * Light/dark mode of the custom dialog box.
    *
-   * @type { ?ThemeColorMode }
+   * Default value: **ThemeColorMode.SYSTEM**.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1330,8 +895,21 @@ export declare struct CustomContentDialog {
 }
 
 /**
- * Declare struct PopoverDialog
- * 
+ * A dialog is a modal window that temporarily displays information that requires user attention or actions that need to
+ * be performed, while preserving the current context. Users must complete the interaction before exiting this modal
+ * state.
+ *
+ * > **NOTE**
+ * >
+ * > - This component can be used only in the stage model.
+ * >
+ * > - If the **Dialog** component has [universal attributes]{@link ./@internal/component/ets/common} and
+ * > [universal events]{@link ./@internal/component/ets/common} configured, the compiler toolchain automatically
+ * > generates an additional \_\_Common\_\_ node and mounts the universal attributes and universal events on this node
+ * > rather than the **Dialog** component itself. As a result, the configured universal attributes and universal events
+ * > may fail to take effect or behave as intended. For this reason, avoid using universal attributes and events with
+ * > the **Dialog** component.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1341,9 +919,11 @@ export declare struct CustomContentDialog {
 @Component
 export declare struct PopoverDialog {
   /**
-   * Sets the PopoverDialog Visible Status.
-   * 
-   * @type { boolean }
+   * Whether to show the follow-hand dialog box. The value **true** means to show the dialog box, and **false** means to
+   * hide it.
+   *
+   * The default value is **false**.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1353,41 +933,46 @@ export declare struct PopoverDialog {
   @Link
   visible: boolean;
   /**
-   * Sets the PopoverDialog options.
-   * 
-   * @type { PopoverOptions }
+   * Parameters of the follow-hand dialog box, including the dialog box content, position, and other attributes. For
+   * details, see **PopoverOptions** type description.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
    */
-  @Require @Prop
+  @Require
+  @Prop
   popover: PopoverOptions;
   /**
-   * Sets the targetBuilder content.
-   * 
-   * @type { Callback<void> }
+   * Builder function of the target component on which the follow-hand dialog box is based, used to define the reference
+   * position component for displaying the dialog box.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
    */
-  @Require @BuilderParam 
+  @Require
+  @BuilderParam
   targetBuilder: Callback<void>;
 }
 
 /**
- * Defines PopoverDialog Options
- * 
- * @typedef PopoverOptions
- * @extends CustomPopupOptions
+ * Defines a set of options used to configure the popover dialog box, including its content and position.
+ *
+ * Inherits [CustomPopupOptions]{@link CustomPopupOptions}.
+ *
+ * > **NOTE**
+ * >
+ * > The default value of **radius** is **32vp**.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 14 dynamic
  */
-export declare interface PopoverOptions extends CustomPopupOptions {
-}
+export declare interface PopoverOptions extends CustomPopupOptions {}

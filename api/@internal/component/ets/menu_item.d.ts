@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -30,8 +30,8 @@
  */
 declare interface MenuItemOptions {
   /**
-   * Start icon of the menu item. Symbol icons are not supported. If a symbol icon is used, **symbolStartIcon** must be 
-   * used.
+   * Start icon of the menu item. Symbol icons are not supported. If a symbol icon is used, **symbolStartIcon** must be
+   * used. By default, no start icon is displayed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -42,8 +42,8 @@ declare interface MenuItemOptions {
   startIcon?: ResourceStr;
 
   /**
-   * Symbol icon at the start of a menu item. When this parameter is set, the icon set through **startIcon** is not 
-   * displayed.
+   * Symbol icon at the start of the menu item. When this parameter is set, the icon set through **startIcon** is not
+   * displayed. By default, no symbol icon is displayed at the start of the menu item.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -54,7 +54,7 @@ declare interface MenuItemOptions {
   symbolStartIcon?: SymbolGlyphModifier;
 
   /**
-   * Content of the menu item.
+   * Content of the menu item. The default value is an empty string.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -65,8 +65,8 @@ declare interface MenuItemOptions {
   content?: ResourceStr;
 
   /**
-   * End icon of the menu item. Symbol icons are not supported. If the symbol icon is used, **symbolEndIcon** must be 
-   * used.
+   * End icon of the menu item. Symbol icons are not supported. If the symbol icon is used, **symbolEndIcon** must be
+   * used. By default, no end icon is displayed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -77,8 +77,8 @@ declare interface MenuItemOptions {
   endIcon?: ResourceStr;
 
   /**
-   * Symbol icon at the end of a menu item. When this parameter is set, the icon set through **endIcon** is not 
-   * displayed.
+   * Symbol icon at the end of the menu item. When this parameter is set, the icon set through **endIcon** is not
+   * displayed. By default, no symbol icon is displayed at the end of the menu item.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -89,7 +89,8 @@ declare interface MenuItemOptions {
   symbolEndIcon?: SymbolGlyphModifier;
 
   /**
-   * Label information at the end of the menu item, such as shortcut keys like Ctrl+C.
+   * Label information at the end of the menu item, such as shortcut keys like Ctrl+C. By default, no label information
+   * is displayed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -100,7 +101,7 @@ declare interface MenuItemOptions {
   labelInfo?: ResourceStr;
 
   /**
-   * Builder for a level-2 menu.
+   * Builder for a level-2 menu. By default, no secondary menu is displayed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -113,11 +114,13 @@ declare interface MenuItemOptions {
 
 /**
  * The **MenuItem** component represents an item in a menu.
- * 
+ *
  * > **NOTE**
  * >
- * > This component is supported since API version 9. Newly added APIs will be marked with a superscript to indicate 
- * > their 
+ * > - This component is supported since API version 9. Newly added APIs will be marked with a superscript to indicate
+ * > their
+ * >
+ * > - This component supports [WithTheme]{@link ./with_theme} since API version 26.0.0.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -128,8 +131,12 @@ declare interface MenuItemOptions {
  */
 interface MenuItemInterface {
   /**
+   * Creates the MenuItem component.
    *
-   * @param { MenuItemOptions | CustomBuilder } value - Information about the menu item.
+   * @param { MenuItemOptions | CustomBuilder } value - Information about the menu item. Use the **MenuItemOptions**
+   *     type when standard menu item configuration (such as the start icon, content, and label) is required; use the
+   *     **CustomBuilder** type when the display content and layout of the menu item need to be customized. If this
+   *     parameter is not passed, an empty **MenuItem** object is created.
    * @returns { MenuItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -141,7 +148,7 @@ interface MenuItemInterface {
 }
 
 /**
- * In addition to the [universal attributes]{@link common}, the following attributes are supported.
+ * In addition to the [universal attributes]{@link ./common}, the following attributes are supported.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -153,15 +160,16 @@ interface MenuItemInterface {
 declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
   /**
    * Sets whether the menu item is selected.
-   * 
-   * Since API version 10, this parameter supports two-way binding through 
+   *
+   * Since API version 10, this parameter supports two-way binding through
    * [$$](docroot://ui/state-management/arkts-two-way-sync.md).
-   * 
-   * Since API version 18, this parameter supports two-way binding through 
+   *
+   * Since API version 18, this parameter supports two-way binding through
    * [!!](docroot://ui/state-management/arkts-new-binding.md#two-way-binding-between-built-in-component-parameters).
    *
-   * @param { boolean } value - Whether the menu item is selected.<br>**true**: The menu item is selected. **false**:
-   *     The menu item is not selected.<br>Default value: **false**.
+   * @param { boolean } value - Whether the menu item is selected.
+   *     <br>**true**: The menu item is selected. **false**: The menu item is not selected.
+   *     <br>Default value: **false**.
    * @returns { MenuItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -172,20 +180,19 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
   selected(value: boolean): MenuItemAttribute;
 
   /**
-   * Sets whether to display the selected icon when the menu item is selected.
+   * Sets how the icon of a menu item is displayed when the menu item is selected.
    *
-   * @param { boolean } value - Whether to display the selected icon when the menu item is selected.<br>**true**:
-   *     Display the default check mark icon. **false**: Hide the selected state icon.<br>**ResourceStr**: Display the
-   *     specified custom icon resource.<br>**SymbolGlyphModifier**: Display the specified HMSymbol icon.<br>Default
-   *     value: **false**. [since 9 - 9]
-   * @param { boolean | ResourceStr } value - Whether to display the selected icon when the menu item is selected.<br>
-   *     **true**: Display the default check mark icon. **false**: Hide the selected state icon.<br>**ResourceStr**:
-   *     Display the specified custom icon resource.<br>**SymbolGlyphModifier**: Display the specified HMSymbol icon.<br
-   *     >Default value: **false**. [since 10 - 11]
-   * @param { boolean | ResourceStr | SymbolGlyphModifier } value - Whether to display the selected icon when the menu
-   *     item is selected.<br>**true**: Display the default check mark icon. **false**: Hide the selected state icon.<br
-   *     >**ResourceStr**: Display the specified custom icon resource.<br>**SymbolGlyphModifier**: Display the specified
-   *     HMSymbol icon.<br>Default value: **false**. [since 12]
+   * @param { boolean } value - How the icon is displayed when the menu item is selected.<br/>**true**: display the
+   *     default check mark icon. **false**: do not display the icon.<br/>**ResourceStr**: display the specified icon.<
+   *     br/>**SymbolGlyphModifier**: display the specified HMSymbol icon.<br/>Default value: **false** [since 9 - 9]
+   * @param { boolean | ResourceStr } value - How the icon is displayed when the menu item is selected.<br/>**true**:
+   *     display the default check mark icon. **false**: do not display the icon.<br/>**ResourceStr**: display the
+   *     specified icon.<br/>**SymbolGlyphModifier**: display the specified HMSymbol icon.<br/>Default value:
+   *     **false** [since 10 - 11]
+   * @param { boolean | ResourceStr | SymbolGlyphModifier } value - How the icon is displayed when the menu item is
+   *     selected.<br/>**true**: display the default check mark icon. **false**: do not display the icon.<br/>
+   *     **ResourceStr**: display the specified icon.<br/>**SymbolGlyphModifier**: display the specified HMSymbol icon.<
+   *     br/>Default value: **false** [since 12]
    * @returns { MenuItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -225,7 +232,8 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
   /**
    * Sets the font color of the menu item content.
    *
-   * @param { ResourceColor } value - Font color of the menu item content.<br>Default value: **'#E5000000'**
+   * @param { ResourceColor } value - Font color of the menu item content.
+   *     <br>Default value: **'#E5000000'**
    * @returns { MenuItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -251,7 +259,8 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
   /**
    * Sets the font color of the menu item label.
    *
-   * @param { ResourceColor } value - Font color of the menu item label.<br>Default value: **'#99000000'**
+   * @param { ResourceColor } value - Font color of the menu item label.
+   *     <br>Default value: **'#99000000'**
    * @returns { MenuItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -262,9 +271,13 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
   labelFontColor(value: ResourceColor): MenuItemAttribute;
 
   /**
-   * Create the submenu for custom menu item.
+   * Sets the submenu of a custom menu item.
    *
-   * @param { CustomBuilder } builder - Indicates the builder function for submenu.
+   * @param { CustomBuilder } builder - Custom content of the submenu.<br/>When the input parameter type of the
+   *     **MenuItem** component is [CustomBuilder]{@link CustomBuilder},
+   *     this parameter can be used to access the custom submenu.<br/>When the parent component is [Menu]{@link ./menu},
+   *     the submenu can be triggered only when the [subMenuExpandingMode]{@link MenuAttribute#subMenuExpandingMode}
+   *     attribute is set to **SubMenuExpandingMode.SIDE_EXPAND** or **SubMenuExpandingMode.STACK_EXPAND**.
    * @returns { MenuItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -277,14 +290,16 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
 
 /**
  * The **MenuItem** component represents an item in a menu.
- * 
+ *
  * > **NOTE**
  * >
- * > This component is supported since API version 9. Newly added APIs will be marked with a superscript to indicate 
- * > their 
- * 
+ * > - This component is supported since API version 9. Newly added APIs will be marked with a superscript to indicate
+ * > their
+ * >
+ * > - This component supports [WithTheme]{@link ./with_theme} since API version 26.0.0.
+ *
  * ###### Child Components
- * 
+ *
  * Not supported
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full

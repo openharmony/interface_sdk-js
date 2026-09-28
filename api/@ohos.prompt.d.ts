@@ -18,23 +18,27 @@
  * @kit ArkUI
  */
 
-
 import { AsyncCallback } from './@ohos.base';
 
 /**
- * @namespace prompt
+ * The **Prompt** module provides APIs for creating and showing toasts, dialog boxes, and action menus.
+ *
+ * > **NOTE**
+ * >
+ * > The APIs of this module are deprecated since API Version 9. You are advised to use
+ * > [@ohos.promptAction]{@link @ohos.promptAction} instead.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
  * @since 8 dynamiconly
  * @deprecated since 9
- * @useinstead ohos.promptAction/promptAction
+ * @useinstead @ohos.promptAction
  */
 declare namespace prompt {
 
   /**
-   * Defines the options of ShowToast.
-   * 
-   * @interface ShowToastOptions
+   * Describes the options for showing the toast.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @since 8 dynamiconly
@@ -46,7 +50,6 @@ declare namespace prompt {
     /**
      * Text to display.
      *
-     * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @FaAndStageModel
      * @since 8 dynamiconly
@@ -56,11 +59,10 @@ declare namespace prompt {
     message: string;
 
     /**
-     * Duration of toast dialog box. The default value is 1500.
-     * The recommended value ranges from 1500 ms to 10000ms.
-     * NOTE: A value less than 1500 is automatically changed to 1500. The maximum value is 10000 ms.
+     * Duration that the toast will remain on the screen. The default value is 1500 ms. The value range is 1500 ms to 10
+     * 000 ms. If a value less than 1500 ms is set, the default value is used. If the value greater than 10000 ms is
+     * set, the upper limit 10000 ms is used.
      *
-     * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @FaAndStageModel
      * @since 8 dynamiconly
@@ -70,9 +72,9 @@ declare namespace prompt {
     duration?: number;
 
     /**
-     * The distance between toast dialog box and the bottom of screen.
+     * Distance between the toast border and the bottom of the screen. It does not have an upper limit. The default unit
+     * is vp.
      *
-     * @type { ?(string | number) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @FaAndStageModel
      * @since 8 dynamiconly
@@ -83,9 +85,8 @@ declare namespace prompt {
   }
 
   /**
-   * Defines the prompt info of button.
-   * 
-   * @interface Button
+   * Describes the menu item button in the action menu.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @since 8 dynamiconly
@@ -95,9 +96,8 @@ declare namespace prompt {
   interface Button {
 
     /**
-     * Defines the button info.
-     * 
-     * @type { string }
+     * Button text.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @FaAndStageModel
      * @since 8 dynamiconly
@@ -107,9 +107,8 @@ declare namespace prompt {
     text: string;
 
     /**
-     * Defines the color of button.
-     * 
-     * @type { string }
+     * Text color of the button.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @FaAndStageModel
      * @since 8 dynamiconly
@@ -120,10 +119,10 @@ declare namespace prompt {
   }
 
   /**
-   * Defines the response of ShowDialog.
-   * 
-   * @interface ShowDialogSuccessResponse
+   * Describes the dialog box response result.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.promptAction/promptAction.ShowDialogSuccessResponse
@@ -131,9 +130,8 @@ declare namespace prompt {
   interface ShowDialogSuccessResponse {
 
     /**
-     * Defines the index of data.
-     * 
-     * @type { number }
+     * Index of the selected button in the **buttons** array.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @FaAndStageModel
      * @since 8 dynamiconly
@@ -144,9 +142,8 @@ declare namespace prompt {
   }
 
   /**
-   * Defines the option of show dialog.
-   * 
-   * @interface ShowDialogOptions
+   * Describes the options for showing the dialog box.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @since 8 dynamiconly
@@ -156,9 +153,8 @@ declare namespace prompt {
   interface ShowDialogOptions {
 
     /**
-     * Title of the text to display.
+     * Title of the dialog box.
      *
-     * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @FaAndStageModel
      * @since 8 dynamiconly
@@ -170,7 +166,6 @@ declare namespace prompt {
     /**
      * Text body.
      *
-     * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @FaAndStageModel
      * @since 8 dynamiconly
@@ -180,11 +175,10 @@ declare namespace prompt {
     message?: string;
 
     /**
-     * Array of buttons in the dialog box.
-     * The array structure is {text:'button', color: '#666666'}.
-     * One to three buttons are supported. The first button is of the positiveButton type, the second is of the negativeButton type, and the third is of the neutralButton type.
+     * Array of buttons in the dialog box. The array structure is **{text:'button', color: '#666666'}**. Up to three
+     * buttons are supported. The first button is of the **positiveButton** type, the second is of the
+     * **negativeButton** type, and the third is of the **neutralButton** type.
      *
-     * @type { ?[Button, Button?, Button?] }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @FaAndStageModel
      * @since 8 dynamiconly
@@ -195,10 +189,10 @@ declare namespace prompt {
   }
 
   /**
-   * Defines the response of ShowActionMenu.
-   * 
-   * @interface ActionMenuSuccessResponse
+   * Describes the action menu response result.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
    * @since 8 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.promptAction/promptAction.ActionMenuSuccessResponse
@@ -206,9 +200,8 @@ declare namespace prompt {
   interface ActionMenuSuccessResponse {
 
     /**
-     * Defines the index of data.
-     * 
-     * @type { number }
+     * Index of the selected button in the **buttons** array, starting from **0**.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @FaAndStageModel
      * @since 8 dynamiconly
@@ -219,9 +212,8 @@ declare namespace prompt {
   }
 
   /**
-   * Defines the option of ShowActionMenu.
-   * 
-   * @interface ActionMenuOptions
+   * Describes the options for showing the action menu.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @since 8 dynamiconly
@@ -231,9 +223,8 @@ declare namespace prompt {
   interface ActionMenuOptions {
 
     /**
-     * Title of the text to display.
+     * Title of the menu.
      *
-     * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @FaAndStageModel
      * @since 8 dynamiconly
@@ -243,11 +234,9 @@ declare namespace prompt {
     title?: string;
 
     /**
-     * Array of buttons in the dialog box.
-     * The array structure is {text:'button', color: '#666666'}.
-     * One to six buttons are supported.
+     * Array of menu item buttons. The array structure is **{text:'button', color: '#666666'}**. Up to six buttons are
+     * supported. If there are more than six buttons, extra buttons will not be displayed.
      *
-     * @type { [Button, Button?, Button?, Button?, Button?, Button?] }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @FaAndStageModel
      * @since 8 dynamiconly
@@ -258,9 +247,9 @@ declare namespace prompt {
   }
 
   /**
-   * Displays the notification text.
+   * Shows a toast.
    *
-   * @param { ShowToastOptions } options - Options.
+   * @param { ShowToastOptions } options - Toast options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @since 8 dynamiconly
@@ -270,10 +259,11 @@ declare namespace prompt {
   function showToast(options: ShowToastOptions): void;
 
   /**
-   * Displays the dialog box.
+   * Shows a dialog box. This API uses an asynchronous callback to return the result.
    *
-   * @param { ShowDialogOptions } options - Options.
-   * @param { AsyncCallback<ShowDialogSuccessResponse> } callback
+   * @param { ShowDialogOptions } options - Dialog box options.
+   * @param { AsyncCallback<ShowDialogSuccessResponse> } callback - Callback used to return the dialog box response
+   *     result.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @since 8 dynamiconly
@@ -283,10 +273,10 @@ declare namespace prompt {
   function showDialog(options: ShowDialogOptions, callback: AsyncCallback<ShowDialogSuccessResponse>): void;
 
   /**
-   * Displays the dialog box.
+   * Shows a dialog box. This API uses a promise to return the result.
    *
-   * @param { ShowDialogOptions } options - Options.
-   * @returns { Promise<ShowDialogSuccessResponse> }
+   * @param { ShowDialogOptions } options - Dialog box options.
+   * @returns { Promise<ShowDialogSuccessResponse> } Promise used to return the dialog box response result.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @since 8 dynamiconly
@@ -296,10 +286,11 @@ declare namespace prompt {
   function showDialog(options: ShowDialogOptions): Promise<ShowDialogSuccessResponse>;
 
   /**
-   * Displays the menu.
+   * Shows an action menu. This API uses a callback to return the result asynchronously.
    *
-   * @param { ActionMenuOptions } options - Options.
-   * @param { AsyncCallback<ActionMenuSuccessResponse> } callback
+   * @param { ActionMenuOptions } options - Action menu options.
+   * @param { AsyncCallback<ActionMenuSuccessResponse> } callback - Callback used to return the action menu response
+   *     result.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @since 8 dynamiconly
@@ -309,10 +300,10 @@ declare namespace prompt {
   function showActionMenu(options: ActionMenuOptions, callback: AsyncCallback<ActionMenuSuccessResponse>): void;
 
   /**
-   * Displays the menu.
+   * Shows an action menu. This API uses a promise to return the result.
    *
-   * @param { ActionMenuOptions } options - Options.
-   * @returns { Promise<ActionMenuSuccessResponse> }
+   * @param { ActionMenuOptions } options - Action menu options.
+   * @returns { Promise<ActionMenuSuccessResponse> } Promise used to return the action menu response result.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @since 8 dynamiconly

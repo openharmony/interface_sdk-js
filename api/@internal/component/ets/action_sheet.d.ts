@@ -30,7 +30,7 @@
 interface SheetInfo {
   /**
    * Sheet text.
-   * 
+   *
    * If the text is too long to display, a scrollbar is displayed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -43,8 +43,8 @@ interface SheetInfo {
 
   /**
    * Sheet icon. By default, no icon is displayed.
-   * 
-   * The string type can be used to load local images and, more frequently, online images. The value can be a relative 
+   *
+   * The string type can be used to load local images and, more frequently, online images. The value can be a relative
    * path to a local image, for example, **Image("common/test.jpg")**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -70,7 +70,7 @@ interface SheetInfo {
 }
 
 /**
- * Provides information about the action to dismiss the dialog box.
+ * Defines the information about the dialog box dismissal.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -80,7 +80,8 @@ interface SheetInfo {
  */
 declare interface DismissDialogAction {
   /**
-   * Callback for dismissing the dialog box. This API is called only when the dialog box needs to be exited.
+   * Callback for the dialog box dismiss event. The developer calls it when the dialog box needs to be closed. If the
+   * dialog box does not need to be closed, it is not called, and the dialog box remains open.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -89,10 +90,10 @@ declare interface DismissDialogAction {
    * @since 12 dynamic
    */
   dismiss: Callback<void>;
-  
+
   /**
-   * Reason why the dialog box cannot be dismissed. You must specify whether to close the dialog box for each of the 
-   * listed actions.
+   * Type of the operation that triggers closing of the dialog box. The developer can determine the user's closing
+   * operation based on **reason** and decide whether to call **dismiss** to close the dialog box.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -105,10 +106,10 @@ declare interface DismissDialogAction {
 
 /**
  * Provides button style configuration for the dialog box.
- * 
+ *
  * > **NOTE**
  * >
- * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18. 
+ * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18.
  * > While historical version information is preserved for anonymous objects, there may be cases where the outer element
  * > 's @since version number is higher than inner elements'. This does not affect interface usability.
  *
@@ -120,9 +121,9 @@ declare interface DismissDialogAction {
  */
 interface ActionSheetButtonOptions {
   /**
-   * Whether to respond when the button is clicked. The value **true** means to respond when the button is clicked, and 
+   * Whether to respond when the button is clicked. The value **true** means to respond when the button is clicked, and
    * **false** means the opposite.
-   * 
+   *
    * Default value: **true**
    *
    * @default true
@@ -135,10 +136,13 @@ interface ActionSheetButtonOptions {
   enabled?: boolean;
 
   /**
-   * Whether the button is the default focus. The value **true** means that the button is the default focus, and 
-   * **false** means the opposite.
-   * 
-   * Default value: **false**
+   * Whether the button is the default focus. The value **true** indicates that the button is the default focus, and
+   * **false** indicates the opposite. When the dialog box gains focus and no focus traversal is performed using the Tab
+   * key, this button responds to the Enter key by default. In the case of multiple dialog boxes, the button can
+   * automatically gain focus and respond continuously. The default Enter key response capability does not take effect
+   * when defaultFocus is true.
+   *
+   * Default value: false
    *
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -151,7 +155,7 @@ interface ActionSheetButtonOptions {
 
   /**
    * Button style.
-   * 
+   *
    * Default value: **DialogButtonStyle.DEFAULT**
    *
    * @default DialogButtonStyle.DEFAULT
@@ -165,7 +169,7 @@ interface ActionSheetButtonOptions {
 
   /**
    * Button text.
-   * 
+   *
    * If the text is too long to display, it is truncated with an ellipsis (...).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -191,7 +195,7 @@ interface ActionSheetButtonOptions {
 }
 
 /**
- * Alignment mode of the dialog box.
+ * Defines the offset of the dialog box relative to the position of **alignment**.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -201,14 +205,13 @@ interface ActionSheetButtonOptions {
  */
 interface ActionSheetOffset {
   /**
-   * Offset of the action sheet along the x-axis relative to the alignment position.
-   * 
-   * Explicitly specify the length unit explicitly, for example, **'10px'**, or provide the length in percentage, for 
-   * example, **'100%'**.
-   * 
+   * Offset of the dialog box relative to the alignment position on the x-axis.
+   *
+   * A pixel unit can be specified, for example, '10px', or a percentage string can be set, for example, '100%'.
+   *
    * **NOTE**
-   * 
-   * If the unit is not specified, the default unit vp is used, in which case **'10'** is equivalent to **10**.
+   *
+   * When no pixel unit is specified, the default unit is vp. For example, '10' is equivalent to '10vp'.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -218,14 +221,13 @@ interface ActionSheetOffset {
    */
   dx: number | string | Resource;
   /**
-   * Offset of the action sheet along the y-axis relative to the alignment position.
-   * 
-   * Explicitly specify the length unit explicitly, for example, **'10px'**, or provide the length in percentage, for 
-   * example, **'100%'**.
-   * 
+   * Offset of the dialog box relative to the alignment position on the y-axis.
+   *
+   * A pixel unit can be specified, for example, '10px', or a percentage string can be set, for example, '100%'.
+   *
    * **NOTE**
-   * 
-   * If the unit is not specified, the default unit vp is used, in which case **'10'** is equivalent to **10**.
+   *
+   * When no pixel unit is specified, the default unit is vp. For example, '10' is equivalent to '10vp'.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -237,8 +239,9 @@ interface ActionSheetOffset {
 }
 
 /**
- * Defines the display level mode for the dialog box.
+ * Import the LevelMode type from promptAction.
  *
+ * @typedef { import('../api/@ohos.promptAction').LevelMode } LevelMode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -248,8 +251,9 @@ interface ActionSheetOffset {
 declare type LevelMode = import('../api/@ohos.promptAction').LevelMode;
 
 /**
- * Defines the overlay effect for the dialog box.
+ * Import the ImmersiveMode type from promptAction.
  *
+ * @typedef { import('../api/@ohos.promptAction').ImmersiveMode } ImmersiveMode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -267,12 +271,11 @@ declare type ImmersiveMode = import('../api/@ohos.promptAction').ImmersiveMode;
  * @atomicservice [since 11]
  * @since 8 dynamic
  */
-interface ActionSheetOptions
-{
+interface ActionSheetOptions {
   /**
-   * Title of the dialog box.
-   * 
-   * If the text is too long to display, it is truncated with an ellipsis (...).
+   * Dialog box title.
+   *
+   * When the text is too long to be displayed, an ellipsis is used to replace the part that is not displayed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -281,11 +284,11 @@ interface ActionSheetOptions
    * @since 8 dynamic
    */
   title: string | Resource;
-  
+
   /**
-   * Subtitle of the dialog box.
-   * 
-   * If the text is too long to display, it is truncated with an ellipsis (...).
+   * Dialog box subtitle.
+   *
+   * When the text is too long to be displayed, an ellipsis is used to replace the part that is not displayed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -296,9 +299,9 @@ interface ActionSheetOptions
   subtitle?: ResourceStr;
 
   /**
-   * Content of the dialog box.
-   * 
-   * If the text is too long to display, a scrollbar is displayed.
+   * Dialog box content.
+   *
+   * When the text is too long, a scroll bar is triggered.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -309,10 +312,7 @@ interface ActionSheetOptions
   message: string | Resource;
 
   /**
-   * Information about the confirm button. When the dialog box has focus and the **Tab** key is not pressed for 
-   * sequential focus navigation, the button responds to the **Enter** key by default. Multiple dialog boxes can 
-   * automatically gain focus and respond to user interactions in a sequential manner. The default response to the 
-   * **Enter** key does not work when **defaultFocus** is set to **true**.
+   * Enabling status, default focus, button style, text content, and click callback of the confirm button.
    *
    * @type { ?object } [since 8 - 17]
    * @type { ?ActionSheetButtonOptions } [since 18]
@@ -325,7 +325,7 @@ interface ActionSheetOptions
   confirm?: ActionSheetButtonOptions;
 
   /**
-   * Callback invoked when the dialog box is closed after the overlay is clicked.
+   * Callback invoked when the dialog box is closed by tapping the mask.
    *
    * @type { ?function } [since 8 - 17]
    * @type { ?VoidCallback } [since 18]
@@ -338,7 +338,7 @@ interface ActionSheetOptions
   cancel?: VoidCallback;
 
   /**
-   * Options in the dialog box. Each option supports the image, text, and callback.
+   * Option content. Each option supports setting an image, text, and a callback for selection.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -349,11 +349,12 @@ interface ActionSheetOptions
   sheets: Array<SheetInfo>;
 
   /**
-   * Whether to close the dialog box when the overlay is clicked.
-   * 
+   * Whether to close the dialog box when the mask is tapped.
+   *
    * Default value: **true**
-   * 
-   * The value **true** means to close the dialog box when the overlay is clicked, and **false** means the opposite.
+   *
+   * When the value is **true**, tapping the mask closes the dialog box; when the value is **false**, tapping the mask
+   * does not close the dialog box.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -365,13 +366,13 @@ interface ActionSheetOptions
 
   /**
    * Alignment mode of the dialog box in the vertical direction.
-   * 
+   *
    * Default value: **DialogAlignment.Bottom**
-   * 
+   *
    * **NOTE**
-   * 
-   * If **showInSubWindow** is set to **true** in **UIExtension**, the dialog box is aligned with the host window based 
-   * on **UIExtension**.
+   *
+   * If **showInSubWindow** is set to true in **UIExtension**, the dialog box is aligned based on the host window of
+   * **UIExtension**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -382,12 +383,12 @@ interface ActionSheetOptions
   alignment?: DialogAlignment;
 
   /**
-   * Offset of the dialog box relative to the alignment position.
-   * 
+   * Offset of the dialog box relative to the position of **alignment**.
+   *
    * Default value:
-   * 
-   * 1. If **alignment** is set to **Top**, **TopStart**, or **TopEnd**, the default offset value is **{dx: 0,dy: "40vp"}**.
-   * 2. If **alignment** is set to other values, the default offset value is **{dx: 0,dy: "-40vp"}**.
+   *
+   * 1. When **alignment** is set to **Top**, **TopStart**, or **TopEnd**, the default value is **{dx: 0,dy: "40vp"}**.
+   * 2. When **alignment** is set to **Center**, **CenterStart**, **CenterEnd**, **Bottom**, **BottomStart**, **BottomEnd**, or **Default**, the default value is **{dx: 0,dy: "-40vp"}**.
    *
    * @type { ?object } [since 8 - 17]
    * @type { ?ActionSheetOffset } [since 18]
@@ -400,14 +401,14 @@ interface ActionSheetOptions
   offset?: ActionSheetOffset;
 
   /**
-   * Mask area of the dialog box. Events outside the mask area are transparently transmitted, and events within the mask
-   * area are not.
-   * 
+   * Mask area of the dialog box. Events within the mask area are not passed through, while events outside the mask area
+   * are passed through.
+   *
    * Default value: **{ x: 0, y: 0, width: '100%', height: '100%' }**
-   * 
+   *
    * **NOTE**
-   * 
-   * **maskRect** does not take effect when **showInSubWindow** is set to **true**.
+   *
+   * When **showInSubWindow** is **true**, **maskRect** does not take effect.
    *
    * @default - {x:0,y:0, width:'100%', height:'100%'} [since 11]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -417,17 +418,18 @@ interface ActionSheetOptions
    * @since 10 dynamic
    */
   maskRect?: Rectangle;
-    
+
   /**
-   * Whether to show the dialog box in a subwindow when the dialog box needs to be displayed outside the main window. 
-   * **true**: The dialog box is shown in a subwindow.
-   * 
-   * Default value: **false**, meaning the dialog box is displayed within the application, not in a separate subwindow.
-   * 
+   * Whether to display the dialog box in a subwindow when it needs to be displayed outside the main window. The value
+   * **true** indicates that the dialog box is displayed in a subwindow.
+   *
+   * Default value: **false**, which means the dialog box is displayed within the app instead of in an independent
+   * subwindow.
+   *
    * **NOTE**
-   * 
-   * A dialog box whose **showInSubWindow** attribute is **true** cannot trigger the display of another dialog box whose
-   * **showInSubWindow** attribute is also **true**.
+   *
+   * A dialog box with **showInSubWindow** set to **true** cannot trigger the display of another dialog box with
+   * **showInSubWindow** set to **true**.
    *
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -439,10 +441,10 @@ interface ActionSheetOptions
   showInSubWindow?: boolean;
 
   /**
-   * Whether the dialog box is a modal. A modal dialog box has a mask applied, while a non-modal dialog box does not. 
-   * **false**: The dialog box is not a modal.
-   * 
-   * Default value: **true**
+   * Whether the dialog box is a modal window. A modal window has a mask, while a non-modal window does not. When the
+   * value is **false**, the dialog box is a non-modal window without a mask.
+   *
+   * Default value: **true**, which means the dialog box has a mask.
    *
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -455,14 +457,15 @@ interface ActionSheetOptions
 
   /**
    * Background color of the dialog box.
-   * 
+   *
    * Default value: **Color.Transparent**
-   * 
+   *
    * **NOTE**
-   * 
-   * The background color will be visually combined with the blur effect when both properties are set. If the resulting 
-   * effect does not match your design requirements, you can disable the blur effect entirely by explicitly setting the 
-   * **backgroundBlurStyle** property to **BlurStyle.NONE**.
+   *
+   * **backgroundColor** is superimposed with the blur attribute **backgroundBlurStyle** to produce an effect. If the
+   * effect does not meet expectations, set **backgroundBlurStyle** to **BlurStyle.NONE** to cancel the blur. When
+   * **backgroundBlurStyle** is set to a value other than NONE, do not set **backgroundColor**; otherwise, the color
+   * display will not meet expectations.
    *
    * @default Color.Transparent
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -474,15 +477,15 @@ interface ActionSheetOptions
   backgroundColor?: ResourceColor;
 
   /**
-   * Background blur style of the dialog box.
-   * 
-   * Default value: **BlurStyle.COMPONENT_ULTRA_THICK**
-   * 
+   * Blur material of the dialog box background.
+   *
+   * Default value: **BlurStyle.NONE** since API version 26.0.0, and **BlurStyle.COMPONENT_ULTRA_THICK** before API
+   * version 26.0.0.
+   *
    * **NOTE**
-   * 
-   * Setting this parameter to **BlurStyle.NONE** disables the background blur. When **backgroundBlurStyle** is set to a
-   * value other than **NONE**, do not set **backgroundColor**. If you do, the color display may not produce the 
-   * expected visual effect.
+   *
+   * Set this attribute to **BlurStyle.NONE** to disable background blur. When **backgroundBlurStyle** is set to a value
+   * other than NONE, do not set **backgroundColor**; otherwise, the color display will not meet expectations.
    *
    * @default BlurStyle.COMPONENT_ULTRA_THICK
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -494,8 +497,7 @@ interface ActionSheetOptions
   backgroundBlurStyle?: BlurStyle;
 
   /**
-   * Options for customizing the background blur style. For details about the default value, see 
-   * **BackgroundBlurStyleOptions**.
+   * Background blur effect. For the default value, see the **BackgroundBlurStyleOptions** type description.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -506,8 +508,7 @@ interface ActionSheetOptions
   backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
 
   /**
-   * Options for customizing the background effect. For details about the default value, see 
-   * **BackgroundEffectOptions**.
+   * Background effect parameters. For the default value, see the **BackgroundEffectOptions** type description.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -518,12 +519,12 @@ interface ActionSheetOptions
   backgroundEffect?: BackgroundEffectOptions;
 
   /**
-   * Callback for interactive closure of the dialog box.
-   * 
+   * Interactive dismiss callback.
+   *
    * **NOTE**
-   * 
-   * 1. If this callback is registered, the dialog box will not be dismissed immediately after the user touches the mask or the Back button, presses the Esc key, or swipes left or right on the screen. The **reason** parameter in the callback is used to determine whether the dialog box can be closed. The reason returned by the component does not support the value **CLOSE_BUTTON**.
-   * 2. In the **onWillDismiss** callback, another **onWillDismiss** callback is not allowed.
+   *
+   * 1. When the user performs interactive operations such as tapping the mask to close, swiping (left/right), pressing the three-key back button, or pressing ESC on the keyboard, if this callback is registered, the dialog box will not be closed immediately. In the callback, you can obtain the operation type that blocks the dialog box closure through reason, and determine whether the dialog box can be closed based on the reason. To close the dialog box, call the **dismiss** method of [DismissDialogAction]{@link DismissDialogAction} in the callback. The reason returned by the current component does not support the **CLOSE_BUTTON** enum value.
+   * 2. In the **onWillDismiss** callback, **onWillDismiss** interception cannot be performed again.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -534,13 +535,13 @@ interface ActionSheetOptions
   onWillDismiss?: Callback<DismissDialogAction>;
 
   /**
-   * Transition effect for the entrance and exit of the dialog box.
-   * 
+   * Transition effect for the display and exit of the dialog box.
+   *
    * **NOTE**
-   * 
-   * 1. If this parameter is not set, the default effect is used.
-   * 2. Touching the Back button during the entrance animation pauses the entrance animation and starts the exit animation. The final effect is one obtained after the curves of the entrance and exit animations are combined.
-   * 3. Touching the Back button during the exit animation does not affect the animation playback. Touching the Back button again closes the application.
+   *
+   * 1. If this attribute is not set, the default display/exit animation is used.
+   * 2. If the back key is pressed during the display animation, the display animation is interrupted and the exit animation is executed. The animation effect is the result of superimposing the curves of the display animation and the exit animation.
+   * 3. If the back key is pressed during the exit animation, the exit animation is not interrupted and continues to execute. Pressing the back key again exits the app.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -551,21 +552,22 @@ interface ActionSheetOptions
   transition?: TransitionEffect;
 
   /**
-   * Corner radius of the background.
-   * 
-   * You can set the radius for each of the four corners individually.
-   * 
+   * Corner radius of the dialog box background.
+   *
+   * The radius of the four corners can be set separately.
+   *
    * Default value: **{ topLeft: '32vp', topRight: '32vp', bottomLeft: '32vp', bottomRight: '32vp' }**
-   * 
-   * The corner radius is subject to the component size, with the maximum value being half of the component width or 
-   * height. If the value is negative, the default value is used.
-   * 
-   * When set to a percentage, the value defines the radius as a percentage of the parent dialog box's width or height.
-   * 
+   *
+   * The corner radius is limited by the component size, and the maximum value is half of the component width or height.
+   * If the value is negative, the default value is used.
+   *
+   * Percentage parameter: the corner radius of the dialog box is set as a percentage of the width and height of the
+   * parent dialog box.
+   *
    * **NOTE**
-   * 
-   * When **cornerRadius** is of type LocalizedBorderRadiuses, the layout order can be dynamically adjusted based on the
-   * user's language settings.
+   *
+   * When the **cornerRadius** attribute type is **LocalizedBorderRadiuses**, the layout order can be changed based on
+   * the language habit.
    *
    * @default - {topLeft:'32vp', topRight:'32vp', bottomLeft:'32vp', bottomRight:'32vp'}, The corner radius is subject
    *     to the component size, with the maximum value being half of the component width or height. If the value is
@@ -581,13 +583,13 @@ interface ActionSheetOptions
   cornerRadius?: Dimension | BorderRadiuses | LocalizedBorderRadiuses;
 
   /**
-   * Width of the dialog box.
-   * 
+   * Width of the dialog box background.
+   *
    * **NOTE**
-   * 
-   * - Default maximum width of the dialog box: 400 vp
-   * - When this parameter is set to a percentage, the reference width of the dialog box is the width of the window 
-   * where the dialog box is located. You can decrease or increase the width as needed.
+   *
+   * - Default maximum width of the dialog box: **400vp**.
+   * - Percentage parameter: the reference width of the dialog box is the width of the window where it is located, and
+   * the width can be adjusted smaller or larger based on this.
    *
    * @default - Default maximum width of the dialog box: 400 vp,
    *     When this parameter is set to a percentage, the reference width of the dialog box is the width of the window
@@ -601,13 +603,13 @@ interface ActionSheetOptions
   width?: Dimension;
 
   /**
-   * Height of the dialog box.
-   * 
+   * Height of the dialog box background.
+   *
    * **NOTE**
-   * 
-   * - Default maximum height of the dialog box: 0.9 x (Window height – Safe area)
-   * - When this parameter is set to a percentage, the reference height of the dialog box is the height of the window 
-   * where the dialog box is located minus the safe area. You can decrease or increase the height as needed.
+   *
+   * - Default maximum height of the dialog box: 0.9 × (window height - safe area).
+   * - Percentage parameter: the reference height of the dialog box is (window height - safe area), and the height can
+   * be adjusted smaller or larger based on this.
    *
    * @default - Default maximum height of the dialog box: 0.9 x (Window height – Safe area)
    *     <br>When this parameter is set to a percentage, the reference height of the dialog box is the height of the
@@ -621,21 +623,22 @@ interface ActionSheetOptions
   height?: Dimension;
 
   /**
-   * Border width of the dialog box.
-   * 
-   * You can set the width for all four sides or set separate widths for individual sides.
-   * 
+   * Border width of the dialog box background.
+   *
+   * The width of the four borders can be set separately.
+   *
    * Default value: **0**
-   * 
-   * When set to a percentage, the value defines the border width as a percentage of the parent dialog box's width.
-   * 
-   * If the left and right borders are greater than its width, or the top and bottom borders are greater than its 
-   * height, the dialog box may not display as expected.
-   * 
+   *
+   * Percentage parameter: the border width of the dialog box is set as a percentage of the width of the parent dialog
+   * box.
+   *
+   * When the left and right borders of the dialog box are greater than the dialog box width, or the top and bottom
+   * borders are greater than the dialog box height, the display may not meet expectations.
+   *
    * **NOTE**
-   * 
-   * When **borderWidth** is of type LocalizedEdgeWidths, the layout order can be dynamically adjusted based on the user
-   * 's language settings.
+   *
+   * When the **borderWidth** attribute type is **LocalizedEdgeWidths**, the layout order can be changed based on the
+   * language habit.
    *
    * @default 0 - When set to a percentage, the value defines the border width as a percentage of the parent dialog
    *     box's width. If the left and right borders are greater than its width, or the top and bottom borders are
@@ -650,16 +653,16 @@ interface ActionSheetOptions
   borderWidth?: Dimension | EdgeWidths | LocalizedEdgeWidths;
 
   /**
-   * Border color of the dialog box.
-   * 
+   * Border color of the dialog box background.
+   *
    * Default value: **Color.Black**
-   * 
-   * **borderColor** must be used with **borderWidth** in pairs.
-   * 
+   *
+   * If the **borderColor** attribute is used, it must be used together with the **borderWidth** attribute.
+   *
    * **NOTE**
-   * 
-   * When **borderColor** is of type LocalizedEdgeColors, the layout order can be dynamically adjusted based on the user
-   * 's language settings.
+   *
+   * When the **borderColor** attribute type is **LocalizedEdgeColors**, the layout order can be changed based on the
+   * language habit.
    *
    * @default Color.Black - borderColor must be used with borderWidth in pairs.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -671,11 +674,11 @@ interface ActionSheetOptions
   borderColor?: ResourceColor | EdgeColors | LocalizedEdgeColors;
 
   /**
-   * Border style of the dialog box.
-   * 
-   * Default value: **BorderStyle.Solid**
-   * 
-   * **borderStyle** must be used with **borderWidth** in pairs.
+   * Border style of the dialog box background.
+   *
+   * Default value: **BorderStyle.Solid**.
+   *
+   * If the **borderStyle** attribute is used, it must be used together with the **borderWidth** attribute.
    *
    * @default BorderStyle.Solid - borderStyle must be used with borderWidth in pairs.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -687,10 +690,11 @@ interface ActionSheetOptions
   borderStyle?: BorderStyle | EdgeStyles;
 
   /**
-   * Shadow of the dialog box.
-   * 
-   * Default value on 2-in-1 devices: **ShadowStyle.OUTER_FLOATING_MD** when the dialog box is focused and 
-   * **ShadowStyle.OUTER_FLOATING_SM** otherwise On other devices, the dialog box has no shadow by default.
+   * Shadow of the dialog box background.
+   *
+   * On 2-in-1 devices, in the default scenario, the shadow value when the dialog box is focused is
+   * **ShadowStyle.OUTER_FLOATING_MD**, and when it loses focus, it is **ShadowStyle.OUTER_FLOATING_SM**. Other devices
+   * have no shadow by default.
    *
    * @default - Default value on 2-in-1 devices: ShadowStyle.OUTER_FLOATING_MD when the dialog box is focused and
    *     ShadowStyle.OUTER_FLOATING_SM otherwise.
@@ -703,18 +707,17 @@ interface ActionSheetOptions
   shadow?: ShadowOptions | ShadowStyle;
 
   /**
-   * Whether to respond when the device is in semi-folded mode. The value **true** means to respond when the device is 
-   * in semi-folded mode.
-   * 
-   * Default value: **false**, meaning not to enable the hover mode.
-   * 
+   * Whether to respond to the hover state. The value **true** indicates that the hover state is responded to.
+   *
+   * Default value: **false**, which means no response by default.
+   *
    * **NOTE**
-   * 
-   * For a PC or 2-in-1 device, the dialog box is displayed on the upper half of the screen by default when 
-   * **enableHoverMode** is set to **true**. You can set **hoverModeArea** to display the dialog box on the lower half 
-   * of the screen. For other devices, the dialog box is displayed on the lower half of the screen by default when 
-   * **enableHoverMode** is set to **true**. You can set **hoverModeArea** to display the dialog box on the upper half 
-   * of the screen.
+   *
+   * On PCs/2-in-1 devices, the dialog box is displayed in the upper half of the screen by default. When
+   * **enableHoverMode** is set to **true**, it can be displayed in the lower half of the screen by setting the
+   * **hoverModeArea** parameter. On other devices, when **enableHoverMode** is set to **true**, the dialog box is
+   * displayed in the lower half of the screen by default, and can be displayed in the upper half of the screen by
+   * setting the **hoverModeArea** parameter.
    *
    * @default false - meaning not to enable the hover mode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -726,9 +729,13 @@ interface ActionSheetOptions
   enableHoverMode?: boolean;
 
   /**
-   * Display area of the dialog box in hover mode.
-   * 
-   * Default value: **HoverModeAreaType.BOTTOM_SCREEN**
+   * Default display area of the dialog box in the hover state.
+   *
+   * **NOTE**
+   *
+   * This attribute must be used together with the **enableHoverMode** attribute.
+   *
+   * Default value: **HoverModeAreaType.BOTTOM_SCREEN**.
    *
    * @default HoverModeAreaType.BOTTOM_SCREEN
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -740,14 +747,14 @@ interface ActionSheetOptions
   hoverModeArea?: HoverModeAreaType;
 
   /**
-   * Event callback after the dialog box appears.
-   * 
+   * Event callback after the dialog box is displayed.
+   *
    * **NOTE**
-   * 
-   * 1. The normal timing sequence is as follows: onWillAppear > onDidAppear > onWillDisappear > onDidDisappear.
-   * 2. You can set the callback event for changing the dialog box display effect in **onDidAppear**. The settings take effect next time the dialog box appears.
-   * 3. When a dialog box is dismissed immediately after being shown, **onWillDisappear** may be triggered before **onDidAppear**.
-   * 4. If the dialog box is dismissed before its entrance animation is finished, the animation will be interrupted, and **onDidAppear** will not be triggered.
+   *
+   * 1. The normal sequence is: **onWillAppear** >> **onDidAppear** >> **onWillDisappear** >> **onDidDisappear**.
+   * 2. Callback events that change the dialog box display effect set in **onDidAppear** take effect the second time the dialog box is displayed.
+   * 3. When the dialog box is quickly displayed and closed, **onWillDisappear** takes effect before **onDidAppear**.
+   * 4. If the dialog box is completely closed before the entrance animation is completed, the animation is interrupted and **onDidAppear** is not triggered.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -759,10 +766,10 @@ interface ActionSheetOptions
 
   /**
    * Event callback after the dialog box disappears.
-   * 
+   *
    * **NOTE**
-   * 
-   * The normal timing sequence is as follows: onWillAppear > onDidAppear > onWillDisappear > onDidDisappear.
+   *
+   * The normal sequence is: **onWillAppear** >> **onDidAppear** >> **onWillDisappear** >> **onDidDisappear**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -773,12 +780,12 @@ interface ActionSheetOptions
   onDidDisappear?: Callback<void>;
 
   /**
-   * Event callback when the dialog box is about to appear.
-   * 
+   * Event callback before the dialog box display animation.
+   *
    * **NOTE**
-   * 
-   * 1. The normal timing sequence is as follows: onWillAppear > onDidAppear > onWillDisappear > onDidDisappear.
-   * 2. You can set the callback event for changing the dialog box display effect in **onWillAppear**. The settings take effect next time the dialog box appears.
+   *
+   * 1. The normal sequence is: **onWillAppear** >> **onDidAppear** >> **onWillDisappear** >> **onDidDisappear**.
+   * 2. Callback events that change the dialog box display effect set in **onWillAppear** take effect the second time the dialog box is displayed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -789,11 +796,12 @@ interface ActionSheetOptions
   onWillAppear?: Callback<void>;
 
   /**
-   * Event callback when the dialog box is about to disappear.
-   * 
+   * Event callback before the dialog box exit animation.
+   *
    * **NOTE**
-   * 
-   * The normal timing sequence is as follows: onWillAppear > onDidAppear > onWillDisappear > onDidDisappear.
+   *
+   * 1. The normal sequence is: **onWillAppear** >> **onDidAppear** >> **onWillDisappear** >> **onDidDisappear**.
+   * 2. When the dialog box is quickly displayed and closed, **onWillDisappear** may take effect before **onDidAppear**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -805,11 +813,13 @@ interface ActionSheetOptions
 
   /**
    * Display level of the dialog box.
-   * 
+   *
    * **NOTE**
-   * 
+   *
    * - Default value: **LevelMode.OVERLAY**
-   * - This parameter takes effect only when **showInSubWindow** is set to **false**.
+   * - This attribute takes effect only when **showInSubWindow** is set to false.
+   * - When set to **LevelMode.EMBEDDED**, the level of the page-level dialog box can be set through **levelUniqueId**,
+   * and the mask effect of the dialog box within the page can be set through **immersiveMode**.
    *
    * @default LevelMode.OVERLAY - This parameter takes effect only when showInSubWindow is set to false.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -821,14 +831,14 @@ interface ActionSheetOptions
   levelMode?: LevelMode;
 
   /**
-   * [Unique ID]{@link FrameNode:FrameNode#getUniqueId} of the node under the display level for the page-level dialog 
-   * box.
-   * 
-   * Value range: a number no less than 0
-   * 
+   * [getUniqueId]{@link ../../../arkui/FrameNode:FrameNode#getUniqueId} of the level where the page-level dialog box
+   * needs to be displayed.
+   *
+   * Value range: a number greater than or equal to 0.
+   *
    * **NOTE**
-   * 
-   * - This parameter takes effect only when **levelMode** is set to **LevelMode.EMBEDDED**.
+   *
+   * - This attribute takes effect only when **levelMode** is set to **LevelMode.EMBEDDED**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -839,12 +849,12 @@ interface ActionSheetOptions
   levelUniqueId?: number;
 
   /**
-   * Overlay effect for the page-level dialog box.
-   * 
+   * Mask effect of the dialog box within the page.
+   *
    * **NOTE**
-   * 
+   *
    * - Default value: **ImmersiveMode.DEFAULT**
-   * - This parameter takes effect only when **levelMode** is set to **LevelMode.EMBEDDED**.
+   * - This attribute takes effect only when **levelMode** is set to **LevelMode.EMBEDDED**.
    *
    * @default ImmersiveMode.DEFAULT - This parameter takes effect only when levelMode is set to LevelMode.EMBEDDED.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -857,11 +867,11 @@ interface ActionSheetOptions
 
   /**
    * Display order of the dialog box.
-   * 
+   *
    * **NOTE**
-   * 
+   *
    * - Default value: **LevelOrder.clamp(0)**
-   * - Dynamic updating is not supported.
+   * - Dynamic refresh of the order is not supported.
    *
    * @default The value returns by LevelOrder.clamp(0)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -873,15 +883,23 @@ interface ActionSheetOptions
   levelOrder?: LevelOrder;
 
   /**
-   * Set system-styled materials for dialog. Different materials have different effects, which can influence
-   * backgroundColor, border, shadow, and other visual attributes of dialog.
-   * 
-   * Device Behavior Differences:The effect of same material may vary across different devices depending on
-   * their computing power.
+   * System material of the dialog box.
    *
-   * @type { ?SystemUiMaterial }
+   * **NOTE**
+   *
+   * - Default value: an ImmersiveMaterial object whose style in [ImmersiveOptions]{@link ImmersiveOptions}
+   * is **ImmersiveStyle.ULTRA_THICK**. When set to **undefined**, the default value is used.
+   * - Different materials have different effects. This API affects the background color
+   * [backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)}, background blur
+   * [backgroundBlurStyle]{@link CommonMethod#backgroundBlurStyle(value: BlurStyle, options?: BackgroundBlurStyleOptions)},
+   * background effect [backgroundEffect]{@link CommonMethod#backgroundEffect(options: BackgroundEffectOptions)}, border
+   * color [borderColor]{@link CommonMethod#borderColor}, border width [borderWidth]{@link CommonMethod#borderWidth},
+   * and shadow [shadow]{@link CommonMethod#shadow(value: ShadowOptions | ShadowStyle)}. When the system material is
+   * set, the preceding APIs do not take effect.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -911,6 +929,7 @@ interface ActionSheetOptions
 }
 
 /**
+ * Class for ActionSheet.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -923,11 +942,10 @@ interface ActionSheetOptions
 declare class ActionSheet {
   /**
    * Shows an action sheet in the given settings.
-   * 
+   *
    * > **NOTE**
    * >
-   * > Since API version 10, you can use 
-   * > [showActionSheet]{@link @ohos.arkui.UIContext:UIContext#showActionSheet} in 
+   * > Since API version 10, you can use [showActionSheet]{@link @ohos.arkui.UIContext:UIContext.showActionSheet} in
    * > [UIContext]{@link @ohos.arkui.UIContext} to specify the UI execution context.
    *
    * @param { ActionSheetOptions } value - Parameters of the action sheet.

@@ -19,9 +19,8 @@
  */
 
 /**
- * Defines the options of ShowToast.
+ * Describes the options for showing the toast.
  *
- * @interface ShowToastOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
  * @since 3 dynamiconly
@@ -32,7 +31,6 @@ export interface ShowToastOptions {
   /**
    * Text to display.
    *
-   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @since 3 dynamiconly
@@ -42,11 +40,9 @@ export interface ShowToastOptions {
   message: string;
 
   /**
-   * Duration of toast dialog box. The default value is 1500.
-   * The recommended value ranges from 1500 ms to 10000ms.
-   * NOTE: A value less than 1500 is automatically changed to 1500. The maximum value is 10000 ms.
+   * Duration that the toast will remain on the screen. The default value is 1500 ms. The recommended value range is 150
+   * 0 ms to 10000 ms. If a value less than 1500 ms is set, the default value is used.
    *
-   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @since 3 dynamiconly
@@ -56,9 +52,8 @@ export interface ShowToastOptions {
   duration?: number;
 
   /**
-   * The distance between toast dialog box and the bottom of screen.
+   * Distance between the toast border and the bottom of the screen.
    *
-   * @type { ?(string | number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @since 5 dynamiconly
@@ -69,333 +64,183 @@ export interface ShowToastOptions {
 }
 
 /**
- * Defines the prompt info of button.
+ * Defines the display information of a button.
  *
- * @interface Button
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 3
- */
-/**
- * Defines the prompt info of button.
- *
- * @interface Button
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 3 dynamic
  */
 export interface Button {
   /**
-   * Defines the button info.
+   * Text of the button.
    *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 3
-   */
-  /**
-   * Defines the button info.
-   *
-   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 3 dynamic
    */
   text: string;
 
   /**
-   * Defines the color of button.
+   * Color of the button.
    *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 3
-   */
-  /**
-   * Defines the color of button.
-   *
-   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 3 dynamic
    */
   color: string;
 }
 
 /**
- * Defines the response of ShowDialog.
+ * Defines the dialog box response result.
  *
- * @interface ShowDialogSuccessResponse
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 3
- */
-/**
- * Defines the response of ShowDialog.
- *
- * @interface ShowDialogSuccessResponse
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 3 dynamic
  */
 export interface ShowDialogSuccessResponse {
   /**
-   * Defines the index of data.
+   * Index of the clicked button.
    *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 3
-   */
-  /**
-   * Defines the index of data.
-   *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 3 dynamic
    */
   index: number;
 }
 
 /**
- * Defines the option of show dialog.
+ * Describes the options for showing the dialog box.
  *
- * @interface ShowDialogOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 3
- */
-/**
- * Defines the option of show dialog.
- *
- * @interface ShowDialogOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 3 dynamic
  */
 export interface ShowDialogOptions {
   /**
    * Title of the text to display.
    *
-   * @type { ?string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 3
-   */
-  /**
-   * Title of the text to display.
-   *
-   * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 3 dynamic
    */
   title?: string;
 
   /**
    * Text body.
    *
-   * @type { ?string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 3
-   */
-  /**
-   * Text body.
-   *
-   * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 3 dynamic
    */
   message?: string;
 
   /**
-   * Array of buttons in the dialog box.
-   * The array structure is {text:'button', color: '#666666'}.
-   * One to three buttons are supported. The first button is of the positiveButton type, the second is of the negativeButton type, and the third is of the neutralButton type.
+   * Array of buttons in the dialog box. The structure is {text:'button', color: '#666666'}, which supports 1 to 3
+   * buttons. If more than 3 buttons are specified, the dialog box is not displayed.
    *
-   * @type { ?[Button, Button?, Button?] }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 3
-   */
-  /**
-   * Array of buttons in the dialog box.
-   * The array structure is {text:'button', color: '#666666'}.
-   * One to three buttons are supported. The first button is of the positiveButton type, the second is of the negativeButton type, and the third is of the neutralButton type.
-   *
-   * @type { ?[Button, Button?, Button?] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 3 dynamic
    */
   buttons?: [Button, Button?, Button?];
 
   /**
-   * Called when the dialog box is displayed.
+   * Callback invoked upon success.
    *
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 3
-   */
-  /**
-   * Called when the dialog box is displayed.
-   *
-   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 3 dynamic
    */
   success?: (data: ShowDialogSuccessResponse) => void;
 
   /**
-   * Called when the operation is cancelled.
+   * Callback invoked when the API call is canceled.
    *
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 3
-   */
-  /**
-   * Called when the operation is cancelled.
-   *
-   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 3 dynamic
    */
   cancel?: (data: string, code: string) => void;
 
   /**
-   * Called when the dialog box is closed.
+   * Called invoked when the API call is complete.
    *
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 3
-   */
-  /**
-   * Called when the dialog box is closed.
-   *
-   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 3 dynamic
    */
   complete?: (data: string) => void;
 }
 
 /**
- * Defines the option of ShowActionMenu.
+ * Describes the options for showing the action menu.
  *
- * @interface ShowActionMenuOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 6
- */
-/**
- * Defines the option of ShowActionMenu.
- *
- * @interface ShowActionMenuOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 6 dynamic
  */
 export interface ShowActionMenuOptions {
   /**
    * Title of the text to display.
    *
-   * @type { ?string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 6
-   */
-  /**
-   * Title of the text to display.
-   *
-   * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 6 dynamic
    */
   title?: string;
 
   /**
-   * Array of buttons in the dialog box.
-   * The array structure is {text:'button', color: '#666666'}.
-   * One to six buttons are supported.
+   * Array of buttons in the action menu. The structure is {text: 'button', color: '#666666'}, which supports 1 to 6
+   * buttons.
    *
-   * @type { [Button, Button?, Button?, Button?, Button?, Button?] }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 6
-   */
-  /**
-   * Array of buttons in the dialog box.
-   * The array structure is {text:'button', color: '#666666'}.
-   * One to six buttons are supported.
-   *
-   * @type { [Button, Button?, Button?, Button?, Button?, Button?] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 6 dynamic
    */
   buttons: [Button, Button?, Button?, Button?, Button?, Button?];
 
   /**
-   * Called when the dialog box is displayed.
+   * Callback invoked when an action menu item is selected successfully.
    *
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 6
-   */
-  /**
-   * Called when the dialog box is displayed.
-   *
-   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 6 dynamic
    */
   success?: (tapIndex: number, errMsg: string) => void;
 
   /**
-   * Called when the operation is cancelled.
+   * Callback invoked upon failure.
    *
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 6
-   */
-  /**
-   * Called when the operation is cancelled.
-   *
-   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 6 dynamic
    */
   fail?: (errMsg: string) => void;
 
   /**
-   * Called when the dialog box is closed.
+   * Callback invoked when the API call is complete.
    *
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 6
-   */
-  /**
-   * Called when the dialog box is closed.
-   *
-   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 6 dynamic
    */
   complete?: () => void;
 }
