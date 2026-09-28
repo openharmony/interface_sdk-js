@@ -1663,5 +1663,40 @@ declare namespace formHost {
    * @since 26.0.0 dynamic&static
    */
   function offDeleteFormsCallback(callback?: formInfo.DeleteFormsCallback): void;
+
+  /**
+   * 注册卡片使用方服务信息。注册成功后，可用于跨设备卡片发布。使用Promise异步回调。
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { formInfo.FormHostServiceInfo } service - 注册到卡片管理服务的卡片使用方服务信息。
+   * @returns { Promise<string> } Promise对象，返回注册成功的卡片使用方服务的服务Id。
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.1 dynamic&static
+   */
+  function registerFormHostService(service: formInfo.FormHostServiceInfo): Promise<string>;
+
+    /**
+   * 注销卡片使用方服务信息。注销后，对应的卡片使用方服务不可用于跨设备卡片发布。使用Promise异步回调。
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { string } serviceId - 待注销的卡片使用方服务的服务Id。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @throws { BusinessError } 16501019 - A form service not owned by you cannot be unregistered.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.1 dynamic&static
+   */
+  function unregisterFormHostService(serviceId: string): Promise<void>;
 }
 export default formHost;

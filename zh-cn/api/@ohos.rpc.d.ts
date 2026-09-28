@@ -1201,7 +1201,7 @@ declare namespace rpc {
   class MessageSequence {
     /**
      * 静态方法，创建MessageSequence对象。调用此方法后，系统会在内存中分配一块连续的缓冲区空间，用于存储待传输的序列化数据。该对象在IPC/RPC通信中用于封装请求和响应数据。
-     * 
+     *
      * - 创建的MessageSequence对象必须在使用完毕后调用reclaim()释放资源，否则会导致内存泄漏。
      * - MessageSequence对象不能跨线程使用。
      * - 建议在需要IPC/RPC通信时按需创建，避免频繁创建和释放。
@@ -1215,7 +1215,7 @@ declare namespace rpc {
 
     /**
      * 释放不再使用的MessageSequence对象。
-     * 
+     *
      * - 必须与create()方法配对使用，调用create()创建MessageSequence对象后，必须在使用完毕后调用reclaim()释放资源。未及时调用reclaim()会导致内存资源泄漏。
      * - 调用后对象不能再被使用。
      * - 建议在finally块或任务结束时调用，确保资源释放。
@@ -1230,7 +1230,7 @@ declare namespace rpc {
     /**
      * 序列化远程对象并将其写入[MessageSequence]{@link rpc.MessageSequence}对象。调用此方法后，IRemoteObject对象会被序列化为特定格式并存入MessageSequence的缓冲区
      * 中，同时会更新内部写指针位置。该序列化对象可在接收端通过readRemoteObject方法反序列化读取。
-     * 
+     *
      * - 只能写入有效的IRemoteObject对象，传入无效对象会抛出异常。
      * - 序列化后的对象占用固定大小的缓冲区空间。
      * - 写入的对象必须与对应的readRemoteObject方法配对使用。
@@ -1250,7 +1250,7 @@ declare namespace rpc {
     /**
      * 从MessageSequence读取远程对象。此方法用于反序列化MessageSequence对象以生成IRemoteObject。远程对象按写入MessageSequence的顺序读取。调用此方法后，会从
      * MessageSequence缓冲区中读取已序列化的远程对象数据，并反序列化为IRemoteObject实例。读取操作会更新内部读指针位置。
-     * 
+     *
      * - 读取前应确保缓冲区中有可读数据。
      * - 如果写入的是RemoteObject，读取得到的是RemoteProxy。
      * - 读取失败时会抛出异常，建议使用try-catch捕获。
@@ -1268,7 +1268,7 @@ declare namespace rpc {
      * 将接口描述符写入MessageSequence对象，远端对象可使用该信息校验本次通信。适用于需要验证通信双方接口一致性的场景，如跨进程服务调用、安全通信验证以及标识服务端提供的接口类型。建议使用唯一且有意义的描述符字符串（如"
      * com.example.service"），避免使用敏感信息，长度应小于40960。调用此方法后，接口描述符字符串会被序列化并存入MessageSequence缓冲区。远端在接收到通信请求后，可读取该描述符来验证请求来源的合法
      * 性。
-     * 
+     *
      * - 必须与[readInterfaceToken]{@link rpc.MessageSequence#readInterfaceToken}配对使用。
      * - 长度超过限制会抛出参数错误异常。
      *
@@ -1287,7 +1287,7 @@ declare namespace rpc {
 
     /**
      * 从MessageSequence对象中读取接口描述符，接口描述符按写入MessageSequence的顺序读取，本地对象可使用该信息检验本次通信。
-     * 
+     *
      * - 必须与[writeInterfaceToken]{@link rpc.MessageSequence#writeInterfaceToken}配对使用。
      * - 读取前应确保缓冲区中有可读数据。
      * - 建议在收到IPC请求后立即读取校验。
@@ -1302,7 +1302,7 @@ declare namespace rpc {
 
     /**
      * 获取当前创建的MessageSequence对象的数据大小。
-     * 
+     *
      * - 查看已写入数据的总大小。
      * - 判断缓冲区使用情况。
      * - 在数据传输前检查数据大小。
@@ -1425,7 +1425,7 @@ declare namespace rpc {
 
     /**
      * 向MessageSequence写入“指示未发生异常”的信息。通常在IPC/RPC通信的服务端实现以及onRemoteMessageRequest回调中调用。
-     * 
+     *
      * - 此方法与[readException]{@link rpc.MessageSequence#readException}方法配对使用。
      * - 服务端在处理请求完成后，应调用writeNoException()写入未发生异常的信息。
      * - 客户端在收到响应后，应调用[readException]{@link rpc.MessageSequence#readException}读取异常信息。
@@ -1440,13 +1440,13 @@ declare namespace rpc {
 
     /**
      * 从MessageSequence中读取异常。适用于接收远端服务响应后检查异常状态的场景。
-     * 
+     *
      * - 在IPC/RPC通信的客户端使用。
      * - 在调用sendMessageRequest收到响应后调用。
      * - 在每次IPC/RPC调用后优先调用此方法。
      * - 如有异常立即处理并终止后续数据读取，异常处理后建议调用reclaim()释放MessageSequence对象。
      * - 此方法与[writeNoException]{@link rpc.MessageSequence#writeNoException}方法配对使用。
-     * - 调用顺序：服务端处理请求 → [writeNoException]{@link rpc.MessageSequence#writeNoException} → 客户端收到响应 → 
+     * - 调用顺序：服务端处理请求 → [writeNoException]{@link rpc.MessageSequence#writeNoException} → 客户端收到响应 →
      * [readException]{@link rpc.MessageSequence#readException} - 如果服务端未调用
      * [writeNoException]{@link rpc.MessageSequence#writeNoException}，调用此方法会失败。
      *
@@ -1480,7 +1480,7 @@ declare namespace rpc {
 
     /**
      * 将短整数值写入MessageSequence实例。
-     * 
+     *
      * - 超出范围会导致数据截断。
      * - 必须与[readShort]{@link rpc.MessageSequence#readShort}配对使用。
      * - 一次写入对应一次读取。
@@ -1573,7 +1573,7 @@ declare namespace rpc {
 
     /**
      * 将布尔值写入MessageSequence实例。
-     * 
+     *
      * - 必须与[readBoolean]{@link rpc.MessageSequence#readBoolean}配对使用。
      * - 一次写入对应一次读取。
      *
@@ -1590,7 +1590,7 @@ declare namespace rpc {
 
     /**
      * 将单个字符值写入MessageSequence实例。
-     * 
+     *
      * - 必须与[readChar]{@link rpc.MessageSequence#readChar}配对使用。
      * - 一次写入对应一次读取。
      *
@@ -1607,7 +1607,7 @@ declare namespace rpc {
 
     /**
      * 将字符串值写入MessageSequence实例。调用此方法后，字符串会被序列化存入缓冲区。写入时会先存储字符串长度，再存储字节数据。
-     * 
+     *
      * - 此方法与[readString]{@link rpc.MessageSequence#readString}方法配对使用。
      * - 先写入长度，再写入内容。
      * - 支持多语言字符集。
@@ -1633,7 +1633,7 @@ declare namespace rpc {
     /**
      * 将自定义序列化对象写入MessageSequence实例。调用此方法后，会调用Parcelable对象的marshalling方法，将对象的成员变量逐个序列化写入MessageSequence。该方法支持传输自定义数据结构对象
      * 适用于传输复杂数据结构、业务对象、配置信息等场景。
-     * 
+     *
      * - Parcelable接口定义了序列化和反序列化的标准方法。
      * - marshalling负责将对象状态写入MessageSequence。
      * - unmarshalling负责从MessageSequence恢复对象状态。
@@ -1657,7 +1657,7 @@ declare namespace rpc {
 
     /**
      * 将字节数组写入MessageSequence实例。
-     * 
+     *
      * - 必须与[readByteArray]{@link rpc.MessageSequence#readByteArray(dataIn: int[])}配对使用。
      * - 读取数组长度必须与写入数组长度一致。
      *
@@ -1677,7 +1677,7 @@ declare namespace rpc {
 
     /**
      * 将短整数数组写入MessageSequence实例。
-     * 
+     *
      * - 必须与[readShortArray]{@link rpc.MessageSequence#readShortArray(dataIn: int[])}配对使用。
      * - 读取数组长度必须与写入数组长度一致。
      *
@@ -1697,7 +1697,7 @@ declare namespace rpc {
 
     /**
      * 将整数数组写入MessageSequence实例。
-     * 
+     *
      * - 必须与[readIntArray]{@link rpc.MessageSequence#readIntArray(dataIn: int[])}配对使用。
      * - 读取数组长度必须与写入数组长度一致。
      *
@@ -1717,7 +1717,7 @@ declare namespace rpc {
 
     /**
      * 将长整数数组写入MessageSequence实例。
-     * 
+     *
      * - 必须与[readLongArray]{@link rpc.MessageSequence#readLongArray(dataIn: long[])}配对使用。
      * - 读取数组长度必须与写入数组长度一致。
      *
@@ -1737,7 +1737,7 @@ declare namespace rpc {
 
     /**
      * 将双精度浮点数组写入MessageSequence实例。
-     * 
+     *
      * - 必须与[readFloatArray]{@link rpc.MessageSequence#readFloatArray(dataIn: double[])}配对使用。
      * - 读取数组长度必须与写入数组长度一致。
      *
@@ -1757,7 +1757,7 @@ declare namespace rpc {
 
     /**
      * 将双精度浮点数组写入MessageSequence实例。
-     * 
+     *
      * - 必须与[readDoubleArray]{@link rpc.MessageSequence#readDoubleArray(dataIn: double[])}配对使用。
      * - 读取数组长度必须与写入数组长度一致。
      *
@@ -1777,7 +1777,7 @@ declare namespace rpc {
 
     /**
      * 将布尔数组写入MessageSequence实例。
-     * 
+     *
      * - 必须与[readBooleanArray]{@link rpc.MessageSequence#readBooleanArray(dataIn: boolean[])}配对使用。
      * - 读取数组长度必须与写入数组长度一致。
      *
@@ -1796,7 +1796,7 @@ declare namespace rpc {
 
     /**
      * 将单个字符数组写入MessageSequence实例。
-     * 
+     *
      * - 必须与[readCharArray]{@link rpc.MessageSequence#readCharArray(dataIn: int[])}配对使用。
      * - 读取数组长度必须与写入数组长度一致。
      *
@@ -1815,7 +1815,7 @@ declare namespace rpc {
 
     /**
      * 将字符串数组写入MessageSequence实例。
-     * 
+     *
      * - 必须与[readStringArray]{@link rpc.MessageSequence#readStringArray(dataIn: string[])}配对使用。
      * - 读取数组长度必须与写入数组长度一致。
      *
@@ -1835,7 +1835,7 @@ declare namespace rpc {
 
     /**
      * 将可序列化对象数组写入MessageSequence实例。适用于批量传输多个自定义数据结构对象的场景，如传输多条业务记录、批量配置信息、多个实体对象等。
-     * 
+     *
      * - 必须与[readParcelableArray]{@link rpc.MessageSequence#readParcelableArray}配对使用。
      * - 读取数组长度必须与写入数组长度一致。
      *
@@ -1854,7 +1854,7 @@ declare namespace rpc {
 
     /**
      * 将IRemoteObject对象数组写入MessageSequence。适用于需要传递多个远程对象的场景，如批量注册多个服务代理、传递多个回调接口、多服务端点管理等。
-     * 
+     *
      * - 必须与[readRemoteObjectArray]{@link rpc.MessageSequence#readRemoteObjectArray(objects: IRemoteObject[])}配对使用。
      * - 读取数组长度必须与写入数组长度一致。
      *
@@ -1874,7 +1874,7 @@ declare namespace rpc {
 
     /**
      * 从MessageSequence实例中读取字节值。
-     * 
+     *
      * - 必须与[writeByte]{@link rpc.MessageSequence#writeByte}配对使用。
      * - 一次写入对应一次读取。
      *
@@ -1888,7 +1888,7 @@ declare namespace rpc {
 
     /**
      * 从MessageSequence实例中读取短整数值。
-     * 
+     *
      * - 必须与[writeShort]{@link rpc.MessageSequence#writeShort}配对使用。
      * - 注意写入时的取值范围[-2^15, 2^15-1]，超出此范围会导致数据截断。
      *
@@ -1917,7 +1917,7 @@ declare namespace rpc {
 
     /**
      * 从MessageSequence实例中读取长整数值。
-     * 
+     *
      * - 取值范围：[-2^63, 2^63-1]。
      * - 长整数占用8字节存储空间。
      *
@@ -1942,7 +1942,7 @@ declare namespace rpc {
 
     /**
      * 从MessageSequence实例中读取双精度浮点值。
-     * 
+     *
      * - 返回新创建的数组，无需预先创建。
      * - 数组元素为双精度浮点数。
      *
@@ -1978,7 +1978,7 @@ declare namespace rpc {
 
     /**
      * 从MessageSequence实例中读取字符串值。
-     * 
+     *
      * - 先读取长度，再读取内容。
      *
      * @returns { string } 返回字符串值。
@@ -1992,7 +1992,7 @@ declare namespace rpc {
 
     /**
      * 从MessageSequence实例中读取成员变量到指定的对象（dataIn）。
-     * 
+     *
      * - dataIn参数必须为已实例化的Parcelable对象。
      * - unmarshalling方法必须按与marshalling相同的顺序读取。
      * - 反序列化顺序必须与序列化顺序一致。
@@ -2063,7 +2063,7 @@ declare namespace rpc {
 
     /**
      * 从MessageSequence实例中读取整数数组，并将其写入到创建的空数组中。
-     * 
+     *
      * - 需预先创建空数组且长度应与写入时的数组长度一致。
      * - 数组元素取值范围:[-2^31, 2^31-1]。
      *
@@ -2186,7 +2186,7 @@ declare namespace rpc {
 
     /**
      * 从MessageSequence实例中读取布尔数组。
-     * 
+     *
      * - 返回新创建的数组，无需预先创建。
      * - 数组元素为布尔值。
      *
@@ -2215,7 +2215,7 @@ declare namespace rpc {
 
     /**
      * 从MessageSequence实例中读取单个字符数组。
-     * 
+     *
      * - 返回新创建的数组，无需预先创建。
      * - 数组元素为字符编码，取值范围[0, 65535]。
      *
@@ -2229,7 +2229,7 @@ declare namespace rpc {
 
     /**
      * 从MessageSequence实例中读取字符串数组，并将其写入到创建的空数组中。
-     * 
+     *
      * - 需预先创建空数组且长度应与写入时的数组长度一致。
      * - 读取后dataIn数组会被填充读取的字节数据。
      * - 读指针向后移动相应字节数。
@@ -2248,7 +2248,7 @@ declare namespace rpc {
 
     /**
      * 从MessageSequence实例中读取字符串数组。
-     * 
+     *
      * - 返回新创建的数组，无需预先创建。
      * - 数组单个元素的长度范围[0, 40960)。
      *
@@ -2280,7 +2280,7 @@ declare namespace rpc {
 
     /**
      * 从MessageSequence读取IRemoteObject对象数组，并将其写入到创建的空数组中。适用于接收批量传递的多个远程对象的场景，如批量获取服务代理、接收多个回调接口、多服务端点管理等。
-     * 
+     *
      * - 需预先创建空数组且长度应与写入时的数组长度一致。
      * - 读取失败时会抛出异常，建议使用try-catch捕获。
      *
@@ -2310,7 +2310,7 @@ declare namespace rpc {
 
     /**
      * 静态方法，关闭给定的文件描述符。
-     * 
+     *
      * - 文件使用完毕后及时关闭，避免资源泄漏。
      * - 关闭前确保文件操作已完成。
      * - 不要关闭已关闭的文件描述符。
@@ -2328,7 +2328,7 @@ declare namespace rpc {
 
     /**
      * 静态方法，复制给定的文件描述符。
-     * 
+     *
      * - IPC传输前复制，避免原描述符被关闭。
      * - 多进程共享同一文件。
      * - 需要独立管理文件偏移量。
@@ -2360,7 +2360,7 @@ declare namespace rpc {
 
     /**
      * 写入文件描述符到MessageSequence。 调用此方法后，文件描述符会被封装并通过Binder机制跨进程传递。接收端可通过readFileDescriptor获取文件描述符并进行文件操作。
-     * 
+     *
      * - 文件描述符通过Binder的FD传递机制跨进程传输。
      * - 接收端获得的是映射后的新文件描述符。
      * - 实际指向同一个文件资源。
@@ -2402,16 +2402,16 @@ declare namespace rpc {
 
     /**
      * 将指定的匿名共享对象写入此MessageSequence。
-     * 
+     *
      * - 创建Ashmem对象：Ashmem.create()。
-     * - 映射内存并写入数据：[mapReadWriteAshmem]{@link rpc.Ashmem#mapReadWriteAshmem} + 
+     * - 映射内存并写入数据：[mapReadWriteAshmem]{@link rpc.Ashmem#mapReadWriteAshmem} +
      * [writeDataToAshmem]{@link rpc.Ashmem#writeDataToAshmem}。
      * - 将Ashmem写入MessageSequence：writeAshmem()。
      * - 接收端读取Ashmem：[readAshmem]{@link rpc.MessageSequence#readAshmem}。
      * - 接收端映射内存并读取数据：mapReadWriteAshmem() + readDataFromAshmem()。
      * - 此方法与readAshmem()方法配对使用。
-     * - 调用顺序：writeAshmem() → 传输MessageSequence → [readAshmem]{@link rpc.MessageSequence#readAshmem} → 
-     * [mapReadWriteAshmem]{@link rpc.Ashmem#mapReadWriteAshmem} → 
+     * - 调用顺序：writeAshmem() → 传输MessageSequence → [readAshmem]{@link rpc.MessageSequence#readAshmem} →
+     * [mapReadWriteAshmem]{@link rpc.Ashmem#mapReadWriteAshmem} →
      * [readDataFromAshmem]{@link rpc.Ashmem#readDataFromAshmem}。
      * - 使用前需先创建Ashmem对象并写入数据。
      *
@@ -2529,7 +2529,7 @@ declare namespace rpc {
 
     /**
      * 从MessageSequence读取原始数据。
-     * 
+     *
      * - 需与写入时的数据大小匹配。
      * - 该接口是一次性接口,不允许在一次parcel通信中多次调用。
      * - 大数据量传输时注意系统资源占用。
@@ -2549,7 +2549,7 @@ declare namespace rpc {
 
     /**
      * 将ArrayBuffer类型数据写入MessageSequence对象。
-     * 
+     *
      * - 此方法与[readArrayBuffer]{@link rpc.MessageSequence#readArrayBuffer}方法配对使用。
      * - 写入的typeCode必须与读取的typeCode一致，否则会导致数据异常。
      * - 调用顺序：先调用writeArrayBuffer()写入数据 → 再调用[readArrayBuffer]{@link rpc.MessageSequence#readArrayBuffer}读取数据。
@@ -2806,14 +2806,14 @@ declare namespace rpc {
     sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): boolean;
 
     /**
-     * 以同步或异步方式向对端进程发送MessageParcel消息。如果为选项设置了异步模式，则发送请求的响应结果立即返回，reply报文里没有内容，具体回复需要在业务侧的回调中获取。如果为选项设置了同步模式，则发送请求的响应结果将
-     * 在sendRequest返回时返回，回复内容在reply报文里。使用Promise异步回调。
      *
-     * @param { number } code - 本次请求调用的消息码[1-16777215]，由通信双方确定。如果接口由IDL工具生成，则消息代码由IDL自动生成。
-     * @param { MessageParcel } data - 保存待发送数据的MessageParcel对象。
-     * @param { MessageParcel } reply - 接收应答数据的MessageParcel对象。
-     * @param { MessageOption } options - 本次请求的同异步模式，默认同步调用。
-     * @returns { Promise<SendRequestResult> } Promise对象，返回发送请求的响应结果。
+     * @param { number } code - Message code [1-16777215] called by the request, which is determined by the
+     *     communication parties. If the method is generated by an IDL tool, the message code is automatically generated
+     *     by the IDL tool.
+     * @param { MessageParcel } data -      **MessageParcel** object holding the data to send.
+     * @param { MessageParcel } reply -      **MessageParcel** object that receives the response.
+     * @param { MessageOption } options - Request sending mode, which can be synchronous (default) or asynchronous.
+     * @returns { Promise<SendRequestResult> } Promise used to return the response to the request.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2827,14 +2827,22 @@ declare namespace rpc {
     ): Promise<SendRequestResult>;
 
     /**
-     * 以同步或异步方式向对端进程发送MessageSequence消息。如果为选项设置了异步模式，则发送请求的响应结果立即返回，reply报文里没有内容，具体回复需要在业务侧的回调中获取。如果为选项设置了同步模式，则发送请求的响应结
-     * 果将在sendMessageRequest返回时返回，回复内容在reply报文里。使用Promise异步回调。
+     * Sends a {@link MessageSequence} message to the peer process asynchronously.
+     * <p>If options indicates the asynchronous mode, a promise will be fulfilled immediately
+     * and the reply message does not contain any content. If options indicates the synchronous mode,
+     * a promise will be fulfilled when the response to sendMessageRequest is returned,
+     * and the reply message contains the returned information.
      *
-     * @param { int } code - 本次请求调用的消息码[1-16777215]，由通信双方确定。如果接口由IDL工具生成，则消息代码由IDL自动生成。
-     * @param {MessageSequence } data - 保存待发送数据的MessageSequence对象，需先通过create()方法创建并写入数据后方可使用。
-     * @param {MessageSequence } reply - 接收应答数据的MessageSequence对象。异步模式下reply报文里没有内容，具体回复需在业务侧回调中获取；同步模式下回复内容在reply报文里。
-     * @param { MessageOption } options - 本次请求的同异步模式，默认同步调用。
-     * @returns { Promise<RequestResult> } Promise对象，返回发送请求的响应结果。
+     * @param { int } code - Message code [1-16777215] called by the request, which is determined by the communication
+     *     parties. If the method is generated by an IDL tool, the message code is automatically generated by the IDL
+     *     tool.
+     * @param {MessageSequence } data -      **MessageSequence** object that stores the data to be sent. It can be used only
+     *     after being created via the **create()** method and data is written into it.
+     * @param {MessageSequence } reply -      **MessageSequence** object that receives the response. In asynchronous mode,
+     *     **reply** does not contain any content. The specific response needs to be obtained from the callback on the
+     *     service side. In synchronous mode, **reply** contains the response content.
+     * @param { MessageOption } options - Request sending mode, which can be synchronous (default) or asynchronous.
+     * @returns { Promise<RequestResult> } Promise used to return the response to the request.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match;
@@ -2851,14 +2859,14 @@ declare namespace rpc {
     ): Promise<RequestResult>;
 
     /**
-     * 以同步或异步方式向对端进程发送MessageParcel消息。使用callback异步回调。如果为选项设置了异步模式，则立即收到回调，reply报文里没有内容，具体回复需要在业务侧的回调中获取。如果为选项设置了同步模式，则将在
-     * sendRequest返回时收到回调，回复内容在reply报文里。
      *
-     * @param { number } code - 本次请求调用的消息码[1-16777215]，由通信双方确定。如果接口由IDL工具生成，则消息代码由IDL自动生成。
-     * @param { MessageParcel } data - 保存待发送数据的MessageParcel对象。
-     * @param { MessageParcel } reply - 接收应答数据的MessageParcel对象。
-     * @param { MessageOption } options - 本次请求的同异步模式，默认同步调用。
-     * @param { AsyncCallback<SendRequestResult> } callback - 接收发送结果的回调。
+     * @param { number } code - Message code [1-16777215] called by the request, which is determined by the
+     *     communication parties. If the method is generated by an IDL tool, the message code is automatically generated
+     *     by the IDL tool.
+     * @param { MessageParcel } data -      **MessageParcel** object holding the data to send.
+     * @param { MessageParcel } reply -      **MessageParcel** object that receives the response.
+     * @param { MessageOption } options - Request sending mode, which can be synchronous (default) or asynchronous.
+     * @param { AsyncCallback<SendRequestResult> } callback - Callback for receiving the sending result.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2874,14 +2882,18 @@ declare namespace rpc {
     ): void;
 
     /**
-     * 以同步或异步方式向对端进程发送MessageSequence消息。如果为选项设置了异步模式，则立即收到回调，reply报文里没有内容，具体回复需要在业务侧的回调中获取。如果为选项设置了同步模式，则将在sendRequest返回
-     * 时收到回调，回复内容在reply报文里。
+     * Sends a {@link MessageSequence} message to the peer process in synchronous or asynchronous mode.
+     * <p>If options indicates the asynchronous mode, a callback will be invoked immediately
+     * and the reply message does not contain any content. If options indicates the synchronous mode,
+     * a callback will be invoked when the response to sendMessageRequest is returned,
+     * and the reply message contains the returned information.
      *
-     * @param {int } code - 本次请求调用的消息码[1-16777215]，由通信双方确定。如果接口由IDL工具生成，则消息代码由IDL自动生成。
-     * @param { MessageSequence } data - 保存待发送数据的MessageSequence对象。
-     * @param { MessageSequence } reply - 接收应答数据的MessageSequence对象。
-     * @param { MessageOption } options - 本次请求的同异步模式，默认同步调用。
-     * @param { AsyncCallback<RequestResult> } callback - 回调函数。当消息发送成功时，可从RequestResult中读取服务端返回的数据。
+     * @param {int } code - Message code called by the request, which is determined by the client and server.
+     * If the method is generated by an IDL tool, the message code is automatically generated by the IDL tool.
+     * @param { MessageSequence } data - {@link MessageSequence} object holding the data to send.
+     * @param { MessageSequence } reply - {@link MessageSequence} object that receives the response.
+     * @param { MessageOption } options - Indicates the synchronous or asynchronous mode to send messages.
+     * @param { AsyncCallback<RequestResult> } callback - Callback for receiving the sending result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match;
@@ -3453,20 +3465,19 @@ declare namespace rpc {
     getDescriptor(): string;
 
     /**
-     * sendMessageRequest请求的响应处理函数，服务端在该函数里同步或异步地处理请求，回复结果。
-     * 
-     * > **说明：**
-     * >
-     * > 开发者应优先选择重写onRemoteMessageRequest方法，其中可以自由实现同步和异步的消息处理。
-     * >
-     * > 开发者同时重写onRemoteRequest和onRemoteMessageRequest方法时，仅onRemoteMessageRequest方法生效。
+     * Sets an entry for receiving requests.
+     * <p>This method is implemented by the remote service provider. You need to override this method with
+     * your own service logic when you are using IPC.
      *
-     * @param { int } code - 对端发送的服务请求码。
-     * @param { MessageSequence } data - 携带客户端调用参数的MessageSequence对象。
-     * @param { MessageSequence } reply - 写入结果的MessageSequence对象。
-     * @param { MessageOption } options - 指示操作是同步还是异步。
-     * @returns { boolean | Promise<boolean> } - 若在onRemoteMessageRequest中同步处理请求，则返回一个布尔值。返回true表示操作成功，返回false表示操作失败。
-     * <br/>- 若在onRemoteMessageRequest中异步处理请求，则返回一个Promise对象。返回true表示操作成功，返回false表示操作失败。
+     * @param { int } code - Service request code sent by the remote end.
+     * @param { MessageSequence } data -      **MessageSequence** object that holds the parameters called by the client.
+     * @param { MessageSequence } reply -      **MessageSequence** object to which the result is written.
+     * @param { MessageOption } options - Whether the operation is synchronous or asynchronous.
+     * @returns { boolean | Promise<boolean> } - If the request is processed synchronously in
+     *     **onRemoteMessageRequest**, a Boolean value is returned. The value **true** means that the operation is
+     *     successful, and **false** means the opposite.
+     *     <br>- If the request is processed asynchronously in **onRemoteMessageRequest**, a promise object is returned.
+     *     The value **true** means that the operation is successful, and **false** means the opposite.
      * @syscap SystemCapability.Communication.IPC.Core
      * @atomicservice [since 26.0.0]
      * @since 9 dynamic
@@ -3480,22 +3491,20 @@ declare namespace rpc {
     ): boolean | Promise<boolean>;
 
     /**
-     * sendMessageRequest请求的响应处理函数，服务端在该函数里同步或异步地处理请求，回复结果，该接口可从入参callingInfo中获取IPC上下文信息。
+     * Sets an entry for receiving requests.
+     *     <p>This method is implemented by the remote service provider. You need to override this method with
+     *     your own service logic when you are using IPC.
      *
-     * > **说明：**
-     * >
-     * > 开发者应优先选择重写带有CallingInfo参数的onRemoteMessageRequest方法，其中可以自由实现同步和异步的消息处理。
-     * >
-     * > 开发者同时重写onRemoteRequest和onRemoteMessageRequest方法时，仅onRemoteMessageRequest方法生效。
-     *
-     * @param { int } code - 对端发送的服务请求码。
-     * @param { MessageSequence } data - 携带客户端调用参数的MessageSequence对象。
-     * @param { MessageSequence } reply - 写入结果的MessageSequence对象。
-     * @param { MessageOption } options - 指示操作是同步还是异步。
-     * @param { CallingInfo } [callingInfo] - 获取IPC上下文信息。不传此参数时，默认为undefined。当需要获取调用者的PID、UID、TokenId或设备ID等信息时传入此参数，可通过
-     *     callingInfo.callerPid等方式获取。不传入时无法直接获取IPC上下文信息，需通过rpc.IPCSkeleton其他方法（如getCallingPid、getCallingUid等）获取。
-     * @returns { boolean | Promise<boolean> } - 若在onRemoteMessageRequest中同步处理请求，则返回一个布尔值。返回true表示操作成功，返回false表示操作失败。
-     * <br/>- 若在onRemoteMessageRequest中异步处理请求，则返回一个Promise对象。返回true表示操作成功，返回false表示操作失败。
+     * @param { int } code - Service request code sent by the remote end.
+     * @param { MessageSequence } data -      **MessageSequence** object that holds the parameters called by the client.
+     * @param { MessageSequence } reply -      **MessageSequence** object to which the result is written.
+     * @param { MessageOption } options - Whether the operation is synchronous or asynchronous.
+     * @param { CallingInfo } [callingInfo] - IPC context. If this parameter is not specified, it defaults to
+     *     **undefined**. Pass this parameter when you need to obtain information such as the caller's PID, UID, token
+     *     ID, or device ID. You can obtain this information via **callingInfo.callerPid** and similar properties. If
+     *     this parameter is not passed, IPC context information cannot be obtained directly, and you need to use other
+     *     methods of **rpc.IPCSkeleton**, such as **getCallingPid** and **getCallingUid**
+     * @returns { boolean | Promise<boolean> } 同步模式成功时返回true，失败返回false；异步模式返回promise对象
      * @syscap SystemCapability.Communication.IPC.Core
      * @FaAndStageModel
      * @since 23 dynamic&static
@@ -3542,14 +3551,14 @@ declare namespace rpc {
     sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): boolean;
 
     /**
-     * 以同步或异步方式向对端进程发送MessageParcel消息。如果为选项设置了异步模式，则发送请求的响应结果立即返回，reply报文里没有内容，具体回复需要在业务侧的回调中获取。如果为选项设置了同步模式，则发送请求的响应结果将
-     * 在sendRequest返回时返回，回复内容在reply报文里。使用Promise异步回调。
      *
-     * @param { number } code - 本次请求调用的消息码[1-16777215]，由通信双方确定。如果接口由IDL工具生成，则消息代码由IDL自动生成。
-     * @param { MessageParcel } data - 保存待发送数据的MessageParcel对象。
-     * @param { MessageParcel } reply - 接收应答数据的MessageParcel对象。
-     * @param { MessageOption } options - 本次请求的同异步模式，默认同步调用。
-     * @returns { Promise<SendRequestResult> } Promise对象，返回发送请求的响应结果。
+     * @param { number } code - Message code [1-16777215] called by the request, which is determined by the
+     *     communication parties. If the method is generated by an IDL tool, the message code is automatically generated
+     *     by the IDL tool.
+     * @param { MessageParcel } data -      **MessageParcel** object holding the data to send.
+     * @param { MessageParcel } reply -      **MessageParcel** object that receives the response.
+     * @param { MessageOption } options - Request sending mode, which can be synchronous (default) or asynchronous.
+     * @returns { Promise<SendRequestResult> } Promise used to return the response to the request.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -3564,14 +3573,19 @@ declare namespace rpc {
     ): Promise<SendRequestResult>;
 
     /**
-     * 以同步或异步方式向对端进程发送MessageSequence消息。如果为选项设置了异步模式，则发送请求的响应结果立即返回，reply报文里没有内容，具体回复需要在业务侧的回调中获取。如果为选项设置了同步模式，则发送请求的响应结
-     * 果将在sendMessageRequest返回时返回，回复内容在reply报文里。使用Promise异步回调。
+     * Sends a {@link MessageSequence} message to the peer process in synchronous or asynchronous mode.
+     * <p>If options indicates the asynchronous mode, a promise will be fulfilled immediately
+     * and the reply message does not contain any content. If options indicates the synchronous mode,
+     * a promise will be fulfilled when the response to sendMessageRequest is returned,
+     * and the reply message contains the returned information.
      *
-     * @param { int } code - 本次请求调用的消息码[1-16777215]，由通信双方确定。如果接口由IDL工具生成，则消息代码由IDL自动生成。
-     * @param { MessageSequence } data - 保存待发送数据的MessageSequence对象。
-     * @param { MessageSequence } reply - 接收应答数据的MessageSequence对象。
-     * @param { MessageOption } options - 本次请求的同异步模式，默认同步调用。
-     * @returns { Promise<RequestResult> } Promise对象，返回发送请求的响应结果。
+     * @param { int } code - Message code [1-16777215] called by the request, which is determined by the communication
+     *     parties. If the method is generated by an IDL tool, the message code is automatically generated by the IDL
+     *     tool.
+     * @param { MessageSequence } data -      **MessageSequence** object holding the data to send.
+     * @param { MessageSequence } reply -      **MessageSequence** object that receives the response.
+     * @param { MessageOption } options - Request sending mode, which can be synchronous (default) or asynchronous.
+     * @returns { Promise<RequestResult> } Promise used to return the response to the request.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match;
@@ -3588,14 +3602,14 @@ declare namespace rpc {
     ): Promise<RequestResult>;
 
     /**
-     * 以同步或异步方式向对端进程发送MessageParcel消息。使用callback异步回调。如果为选项设置了异步模式，则立即收到回调，reply报文里没有内容，具体回复需要在业务侧的回调中获取。如果为选项设置了同步模式，则将在
-     * sendRequest返回时收到回调，回复内容在reply报文里。
      *
-     * @param { number } code - 本次请求调用的消息码[1-16777215]，由通信双方确定。如果接口由IDL工具生成，则消息代码由IDL自动生成。
-     * @param { MessageParcel } data - 保存待发送数据的MessageParcel对象。
-     * @param { MessageParcel} reply - 接收应答数据的MessageParcel对象。
-     * @param { MessageOption } options - 本次请求的同异步模式，默认同步调用。
-     * @param { AsyncCallback<SendRequestResult> } callback - 接收发送结果的回调。
+     * @param { number } code - Message code [1-16777215] called by the request, which is determined by the
+     *     communication parties. If the method is generated by an IDL tool, the message code is automatically generated
+     *     by the IDL tool.
+     * @param { MessageParcel } data -      **MessageParcel** object holding the data to send.
+     * @param { MessageParcel} reply -      **MessageParcel** object that receives the response.
+     * @param { MessageOption } options - Request sending mode, which can be synchronous (default) or asynchronous.
+     * @param { AsyncCallback<SendRequestResult> } callback - Callback for receiving the sending result.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -3611,14 +3625,20 @@ declare namespace rpc {
     ): void;
 
     /**
-     * 以同步或异步方式向对端进程发送MessageSequence消息。使用callback异步回调。如果为选项设置了异步模式，则立即收到回调，reply报文里没有内容，具体回复需要在业务侧的回调中获取。如果为选项设置了同步模式，则
-     * 将在sendMessageRequest返回时收到回调，回复内容在reply报文里。
-     * 
-     * @param { int } code - 本次请求调用的消息码[1-16777215]，由通信双方确定。如果接口由IDL工具生成，则消息代码由IDL自动生成。
-     * @param { MessageSequence } data - 保存待发送数据的MessageSequence对象。
-     * @param { MessageSequence } reply - 接收应答数据的MessageSequence对象。
-     * @param { MessageOption } options - 本次请求的同异步模式，默认同步调用。
-     * @param { AsyncCallback<RequestResult> } callback - 回调函数。当消息发送成功时，可从RequestResult中读取服务端返回的数据。
+     * Sends a {@link MessageSequence} message to the peer process in synchronous or asynchronous mode.
+     * <p>If options indicates the asynchronous mode, a callback will be invoked immediately
+     * and the reply message does not contain any content. If options indicates the synchronous mode,
+     * a callback will be invoked when the response to sendMessageRequest is returned,
+     * and the reply message contains the returned information.
+     *
+     * @param { int } code - Message code [1-16777215] called by the request, which is determined by the communication
+     *     parties. If the method is generated by an IDL tool, the message code is automatically generated by the IDL
+     *     tool.
+     * @param { MessageSequence } data -      **MessageSequence** object holding the data to send.
+     * @param { MessageSequence } reply -      **MessageSequence** object that receives the response.
+     * @param { MessageOption } options - Request sending mode, which can be synchronous (default) or asynchronous.
+     * @param { AsyncCallback<RequestResult> } callback - Callback used to return the result. When the message is sent
+     *     successfully, the data returned by the server can be read from **RequestResult**.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match;
@@ -3910,14 +3930,14 @@ declare namespace rpc {
     sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): boolean;
 
     /**
-     * 以同步或异步方式向对端进程发送MessageParcel消息。如果为选项设置了异步模式，则发送请求的响应结果立即返回，reply报文里没有内容，具体回复需要在业务侧的回调中获取。如果为选项设置了同步模式，则发送请求的响应结果将
-     * 在sendRequest返回时返回，回复内容在reply报文里。使用Promise异步回调。
      *
-     * @param { number } code - 本次请求调用的消息码[1-16777215]，由通信双方确定。如果接口由IDL工具生成，则消息代码由IDL自动生成。
-     * @param { MessageParcel } data - 保存待发送数据的MessageParcel对象。
-     * @param { MessageParcel} reply - 接收应答数据的MessageParcel对象。
-     * @param { MessageOption } options - 本次请求的同异步模式，默认同步调用。
-     * @returns { Promise<SendRequestResult> } Promise对象，返回发送请求的响应结果。
+     * @param { number } code - Message code [1-16777215] called by the request, which is determined by the
+     *     communication parties. If the method is generated by an IDL tool, the message code is automatically generated
+     *     by the IDL tool.
+     * @param { MessageParcel } data -      **MessageParcel** object holding the data to send.
+     * @param { MessageParcel} reply -      **MessageParcel** object that receives the response.
+     * @param { MessageOption } options - Request sending mode, which can be synchronous (default) or asynchronous.
+     * @returns { Promise<SendRequestResult> } Promise used to return the response to the request.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -3932,14 +3952,19 @@ declare namespace rpc {
     ): Promise<SendRequestResult>;
 
     /**
-     * 以同步或异步方式向对端进程发送MessageSequence消息。如果为选项设置了异步模式，则发送请求的响应结果立即返回，reply报文里没有内容，具体回复需要在业务侧的回调中获取。如果为选项设置了同步模式，则发送请求的响应结
-     * 果将在sendMessageRequest返回时返回，回复内容在reply报文里。使用Promise异步回调。
+     * Sends a {@link MessageSequence} message to the peer process in synchronous or asynchronous mode.
+     * <p>If options indicates the asynchronous mode, a promise will be fulfilled immediately
+     * and the reply message does not contain any content. If options indicates the synchronous mode,
+     * a promise will be fulfilled when the response to sendMessageRequest is returned,
+     * and the reply message contains the returned information.
      *
-     * @param { int } code - 本次请求调用的消息码[1-16777215]，由通信双方确定。如果接口由IDL工具生成，则消息代码由IDL自动生成。
-     * @param { MessageSequence } data - 保存待发送数据的MessageSequence对象。
-     * @param { MessageSequence } reply - 接收应答数据的MessageSequence对象。
-     * @param { MessageOption } options - 本次请求的同异步模式，默认同步调用。
-     * @returns { Promise<RequestResult> } Promise对象，返回发送请求的响应结果。
+     * @param { int } code - Message code [1-16777215] called by the request, which is determined by the communication
+     *     parties. If the method is generated by an IDL tool, the message code is automatically generated by the IDL
+     *     tool.
+     * @param { MessageSequence } data -      **MessageSequence** object holding the data to send.
+     * @param { MessageSequence } reply -      **MessageSequence** object that receives the response.
+     * @param { MessageOption } options - Request sending mode, which can be synchronous (default) or asynchronous.
+     * @returns { Promise<RequestResult> } Promise used to return the response to the request.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match;
@@ -3956,14 +3981,14 @@ declare namespace rpc {
     ): Promise<RequestResult>;
 
     /**
-     * 以同步或异步方式向对端进程发送MessageParcel消息。如果为选项设置了异步模式，则立即收到回调，reply报文里没有内容，具体回复需要在业务侧的回调中获取。如果为选项设置了同步模式，则将在sendRequest返回时收
-     * 到回调，回复内容在reply报文里。
      *
-     * @param { number } code - 本次请求调用的消息码[1-16777215]，由通信双方确定。如果接口由IDL工具生成，则消息代码由IDL自动生成。
-     * @param { MessageParcel } data - 保存待发送数据的MessageParcel对象。
-     * @param { MessageParcel } reply - 接收应答数据的MessageParcel对象。
-     * @param { MessageOption } options - 本次请求的同异步模式，默认同步调用。
-     * @param { AsyncCallback<SendRequestResult> } callback - 接收发送结果的回调。
+     * @param { number } code - Message code [1-16777215] called by the request, which is determined by the
+     *     communication parties. If the method is generated by an IDL tool, the message code is automatically generated
+     *     by the IDL tool.
+     * @param { MessageParcel } data -      **MessageParcel** object holding the data to send.
+     * @param { MessageParcel } reply -      **MessageParcel** object that receives the response.
+     * @param { MessageOption } options - Request sending mode, which can be synchronous (default) or asynchronous.
+     * @param { AsyncCallback<SendRequestResult> } callback - Callback for receiving the sending result.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -3979,16 +4004,20 @@ declare namespace rpc {
     ): void;
 
     /**
-     * 以同步或异步方式向对端进程发送MessageSequence消息。使用callback异步回调。如果为选项设置了异步模式，则立即收到回调，reply报文里没有内容，具体回复需要在业务侧的回调中获取。如果为选项设置了同步模式，将
-     * 在[sendMessageRequest]{@link rpc.IRemoteObject#sendMessageRequest( code: int, data: MessageSequence,
-     * reply: MessageSequence, options: MessageOption )}返回后、服务端处理请求完成时执行回调，
-     * 回调中可读取[RequestResult]{@link rpc.RequestResult}获取服务端返回的数据。
+     * Sends a {@link MessageSequence} message to the peer process in synchronous or asynchronous mode.
+     * <p>If options indicates the asynchronous mode, a callback will be invoked immediately
+     * and the reply message does not contain any content. If options indicates the synchronous mode,
+     * a callback will be invoked when the response to sendRequest is returned,
+     * and the reply message contains the returned information.
      *
-     * @param { int } code - 本次请求调用的消息码[1-16777215]，由通信双方确定。如果接口由IDL工具生成，则消息代码由IDL自动生成。
-     * @param { MessageSequence } data - 保存待发送数据的MessageSequence对象。
-     * @param { MessageSequence } reply - 接收应答数据的MessageSequence对象。
-     * @param { MessageOption } options - 本次请求的同异步模式，默认同步调用。
-     * @param { AsyncCallback<RequestResult> } callback - 回调函数。当消息发送成功时，可从RequestResult中读取服务端返回的数据。
+     * @param { int } code - Message code [1-16777215] called by the request, which is determined by the communication
+     *     parties. If the method is generated by an IDL tool, the message code is automatically generated by the IDL
+     *     tool.
+     * @param { MessageSequence } data -      **MessageSequence** object holding the data to send.
+     * @param { MessageSequence } reply -      **MessageSequence** object that receives the response.
+     * @param { MessageOption } options - Request sending mode, which can be synchronous (default) or asynchronous.
+     * @param { AsyncCallback<RequestResult> } callback - Callback used to return the result. When the message is sent
+     *     successfully, the data returned by the server can be read from **RequestResult**.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match;
@@ -4165,9 +4194,9 @@ declare namespace rpc {
 
   /**
    * 提供与匿名共享内存对象相关的方法，包括创建、关闭、映射和取消映射Ashmem、从Ashmem读取数据和写入数据、获取Ashmem大小、设置Ashmem保护。
-   * 
+   *
    * 共享内存只适用于本设备内跨进程通信。
-   * 
+   *
    * - 大数据传输：传输大量数据(如图片、文件)时使用共享内存提升效率。
    * - 跨进程数据共享：多个进程需要共享访问同一块内存数据。
    * - 传输效率问题：大数据通过共享内存传输避免序列化开销，提升传输效率。
@@ -4311,7 +4340,7 @@ declare namespace rpc {
 
     /**
      * 关闭这个Ashmem。
-     * 
+     *
      * > **说明：**
      * >
      * > 关闭Ashmem对象前需要先解除地址映射。

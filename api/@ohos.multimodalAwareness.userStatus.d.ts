@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file User state awareness
  * @kit MultimodalAwarenessKit
  */
 

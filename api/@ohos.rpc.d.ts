@@ -169,10 +169,10 @@ declare namespace rpc {
   }
 
   /**
-   * Since API version 12, 
+   * Since API version 12,
    *     [writeArrayBuffer]{@link rpc.MessageSequence#writeArrayBuffer(buf: ArrayBuffer, typeCode: TypeCode)} and
    *     [readArrayBuffer]{@link rpc.MessageSequence#readArrayBuffer(typeCode: TypeCode)} are added to pass ArrayBuffer
-   *     data. The specific TypedArray type is determined by the **TypeCode** defined as follows:
+   *     data. The specific TypedArray type is determined by the **TypeCode** defined as follows.
    *
    * @syscap SystemCapability.Communication.IPC.Core
    * @since 12 dynamic
@@ -180,7 +180,8 @@ declare namespace rpc {
    */
   enum TypeCode {
     /**
-     * The TypedArray type is **INT8_ARRAY**.
+     * The TypedArray type is INT8_ARRAY. Data is read and written in 8-bit signed integer format, with each element
+     *     occupying 1 byte.
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 12 dynamic
@@ -189,7 +190,8 @@ declare namespace rpc {
     INT8_ARRAY = 0,
 
     /**
-     * The TypedArray type is **UINT8_ARRAY**.
+     * The TypedArray type is UINT8_ARRAY. Data is read and written in 8-bit unsigned integer format, with each element
+     *     occupying 1 byte.
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 12 dynamic
@@ -198,7 +200,8 @@ declare namespace rpc {
     UINT8_ARRAY = 1,
 
     /**
-     * The TypedArray type is **INT16_ARRAY**.
+     * The TypedArray type is INT16_ARRAY. Data is read and written in 16-bit signed integer format, with each element
+     *     occupying 2 bytes.
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 12 dynamic
@@ -207,7 +210,8 @@ declare namespace rpc {
     INT16_ARRAY = 2,
 
     /**
-     * The TypedArray type is **UINT16_ARRAY**.
+     * The TypedArray type is UINT16_ARRAY. Data is read and written in 16-bit unsigned integer format, with each
+     *     element occupying 2 bytes.
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 12 dynamic
@@ -216,7 +220,8 @@ declare namespace rpc {
     UINT16_ARRAY = 3,
 
     /**
-     * The TypedArray type is **INT32_ARRAY**.
+     * The TypedArray type is INT32_ARRAY. Data is read and written in 32-bit signed integer format, with each element
+     *     occupying 4 bytes.
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 12 dynamic
@@ -225,7 +230,8 @@ declare namespace rpc {
     INT32_ARRAY = 4,
 
     /**
-     * The TypedArray type is **UINT32_ARRAY**.
+     * The TypedArray type is UINT32_ARRAY. Data is read and written in 32-bit unsigned integer format, with each
+     *     element occupying 4 bytes.
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 12 dynamic
@@ -234,7 +240,8 @@ declare namespace rpc {
     UINT32_ARRAY = 5,
 
     /**
-     * The TypedArray type is **FLOAT32_ARRAY**.
+     * The TypedArray type is FLOAT32_ARRAY. Data is read and written in 32-bit single-precision floating-point format,
+     *     with each element occupying 4 bytes.
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 12 dynamic
@@ -243,7 +250,8 @@ declare namespace rpc {
     FLOAT32_ARRAY = 6,
 
     /**
-     * The TypedArray type is **FLOAT64_ARRAY**.
+     * The TypedArray type is FLOAT64_ARRAY. Data is read and written in 64-bit double-precision floating-point format,
+     *     with each element occupying 8 bytes.
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 12 dynamic
@@ -252,7 +260,8 @@ declare namespace rpc {
     FLOAT64_ARRAY = 7,
 
     /**
-     * The TypedArray type is **BIGINT64_ARRAY**.
+     * The TypedArray type is BIGINT64_ARRAY. Data is read and written in 64-bit big integer format, with each element
+     *     occupying 8 bytes.
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 12 dynamic
@@ -261,7 +270,8 @@ declare namespace rpc {
     BIGINT64_ARRAY = 8,
 
     /**
-     * The TypedArray type is **BIGUINT64_ARRAY**.
+     * The TypedArray type is BIGUINT64_ARRAY. Data is read and written in 64-bit unsigned big integer format, with each
+     *     element occupying 8 bytes.
      *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 12 dynamic
@@ -286,7 +296,8 @@ declare namespace rpc {
     /**
      * Creates a **MessageParcel** object. This method is a static method.
      *
-     * @returns { MessageParcel } **MessageParcel** object created.
+     * @returns { MessageParcel } Created **MessageParcel** object, which is used to encapsulate request and response
+     *     data during IPC.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -321,7 +332,7 @@ declare namespace rpc {
      *     **MessageParcel** object to generate an **IRemoteObject**. The remote objects are read in the order in which
      *     they are written to this **MessageParcel** object.
      *
-     * @returns { IRemoteObject } Remote object obtained.
+     * @returns { IRemoteObject } Remote object read, which is used for IPC/RPC communication.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -330,10 +341,10 @@ declare namespace rpc {
     readRemoteObject(): IRemoteObject;
 
     /**
-     * Writes an interface token to this **MessageParcel** object. The remote object can use this interface token to 
+     * Writes an interface token to this **MessageParcel** object. The remote object can use this interface token to
      *     verify the communication.
      *
-     * @param { string } token - Interface token to write. The length of the string must be less than 40960.
+     * @param { string } token - Interface token of the string type. The length of the string must be less than 40960.
      * @returns { boolean } Returns **true** if the operation is successful; returns **false** otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7 dynamiconly
@@ -527,7 +538,7 @@ declare namespace rpc {
     /**
      * Writes a long int value to this **MessageParcel** object.
      *
-     * @param { number } val - Long int value to write.
+     * @param { number } val - Long integer to write.
      * @returns { boolean } Returns **true** if the data is written successfully; returns **false** otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7 dynamiconly
@@ -575,7 +586,8 @@ declare namespace rpc {
     /**
      * Writes a single character value to this **MessageParcel** object.
      *
-     * @param { number } val - **Char** value to write.
+     * @param { number } val - **Char** value to write. The value range is [0, 65535], which corresponds to the Unicode
+     *     character encoding range. Values outside this range may cause character encoding errors.
      * @returns { boolean } Returns **true** if the data is written successfully; returns **false** otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7 dynamiconly
@@ -708,8 +720,7 @@ declare namespace rpc {
     /**
      * Writes a string array to this **MessageParcel** object.
      *
-     * @param { string[] } stringArray - String array to write. The length of a single element in the array must be less
-     *     than 40960.
+     * @param { string[] } stringArray - String array to write. Each string element must be less than 40960 in length.
      * @returns { boolean } Returns **true** if the data is written successfully; returns **false** otherwise.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7 dynamiconly
@@ -1208,7 +1219,8 @@ declare namespace rpc {
    *     **write()** method provided by **MessageSequence** to write data in specific format to a **MessageSequence**
    *     object. The receiver can use the **read()** method provided by **MessageSequence** to read data in specific
    *     format from a **MessageSequence** object. The data formats include basic data types and arrays, IPC objects,
-   *     interface tokens, and custom sequenceable objects.
+   *     interface tokens, and custom sequenceable objects. The read sequence must be the same as the write sequence.
+   *     Otherwise, data parsing errors occurs.
    *
    * @syscap SystemCapability.Communication.IPC.Core
    * @atomicservice [since 26.0.0]
@@ -1217,7 +1229,18 @@ declare namespace rpc {
    */
   class MessageSequence {
     /**
-     * Creates a **MessageSequence** object. This API is a static method.
+     * Creates a **MessageSequence** object. This API is a static method. After this method is called, the system
+     *     allocates a contiguous buffer in memory for storing the serialized data to be transmitted. This object is
+     *     used to encapsulate request and response data in IPC/RPC communication.
+     *
+     * - The created **MessageSequence** object must be released by calling **reclaim()** after use; otherwise,
+     *     memory leaks may occur.
+     * - An **MessageSequence** object cannot be used across threads.
+     * - You are advised to create the object on demand when IPC/RPC communication is required, and to avoid
+     *     frequent creation and release.
+     *
+     * **Paired calling**: For the **MessageSequence** object created via **create()**, you must call **reclaim()**
+     *     to release its resources after use. Otherwise, memory resource leaks occur.
      *
      * @returns { MessageSequence } **MessageSequence** object created.
      * @syscap SystemCapability.Communication.IPC.Core
@@ -1229,6 +1252,13 @@ declare namespace rpc {
     /**
      * Reclaims the **MessageSequence** object that is no longer used.
      *
+     * - This method and the **create ()** method must be used in pairs. For the **MessageSequence** object created via
+     *     **create()**, you must call **reclaim()** to release its resources after use. If **reclaim()** is not called
+     *     in a timely manner, memory resources leaks occur.
+     * - After this method is called, the object cannot be used anymore.
+     * - It is advised to call this method in a finally block or at the end of a task to ensure resource release.
+     * - Do not release the object across threads in asynchronous operations.
+     *
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
      * @since 23 static
@@ -1236,7 +1266,15 @@ declare namespace rpc {
     reclaim(): void;
 
     /**
-     * Serializes the remote object and writes it to the [MessageSequence]{@link rpc.MessageSequence} object.
+     * Serializes the remote object and writes it to the [MessageSequence]{@link rpc.MessageSequence} object. After this
+     *     method is called, the **IRemoteObject** object is serialized into a specific format and stored in the buffer
+     *     of **MessageSequence**. The internal write pointer position is updated accordingly. The serialized object can
+     *     be deserialized and read on the receiving side via the **readRemoteObject** method.
+     *
+     * - Only a valid **IRemoteObject** object can be written. Passing an invalid object will cause an exception to be
+     *     thrown.
+     * - The serialized object occupies a fixed amount of buffer space.
+     * - This method and the **readRemoteObject** method must be used in pairs.
      *
      * @param { IRemoteObject } obj - Remote object to serialize and write to the **MessageSequence** object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1253,9 +1291,15 @@ declare namespace rpc {
     /**
      * Reads the remote object from **MessageSequence**. You can use this API to deserialize the **MessageSequence**
      *     object to generate an **IRemoteObject**. The remote object is read in the order in which it is written to
-     *     this **MessageSequence** object.
+     *     this **MessageSequence** object. After this method is called, the serialized remote object data is read from
+     *     the **MessageSequence** buffer and deserialized into an **IRemoteObject** instance. The read operation
+     *     updates the internal read pointer position.
      *
-     * @returns { IRemoteObject } Remote object obtained.
+     * - Before reading, ensure that there is readable data available in the buffer.
+     * - If a **RemoteObject** was written, the read result will be a **RemoteProxy**.
+     * - If the read operation fails, an exception will be thrown. It is advised to use a try-catch block to catch it.
+     *
+     * @returns { IRemoteObject } Remote object read, which is used for IPC/RPC communication.
      * @throws { BusinessError } 1900008 - The proxy or remote object is invalid.
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
@@ -1266,9 +1310,22 @@ declare namespace rpc {
 
     /**
      * Writes an interface token to this **MessageSequence** object. The remote object can use this interface token to
-     *     verify the communication.
+     *     verify the communication. This method is applicable to scenarios where the consistency of communication
+     *     interfaces between both parties needs to be verified, such as cross-process service calls, secure
+     *     communication verification, and identifying the interface type provided by the server. It is advised to use a
+     *     unique and meaningful string as the interface token, such as **com.example.service**, and avoid including
+     *     sensitive information. The length of the token should be less than 40960. After this method is called, the
+     *     interface token string is serialized and stored in the **MessageSequence** buffer. Upon receiving a
+     *     communication request, the remote side can read the interface token to verify the legitimacy of the request
+     *     source.
      *
-     * @param { string } token - Interface token to write. The length of the string must be less than 40960.
+     * - This method and the [readInterfaceToken]{@link rpc.MessageSequence#readInterfaceToken} method must be used in
+     *     pairs.
+     * - If the length limit is exceeded, a parameter error exception will be thrown.
+     *
+     * @param { string } token - Interface token of the string type. It is used to verify the interface identity for the
+     *     current communication. The remote object can use this information to verify the validity of the
+     *     communication. The value length must be less than 40960.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match;
@@ -1286,6 +1343,11 @@ declare namespace rpc {
      *     which it is written to the **MessageSequence** object. The local object can use it to verify the
      *     communication.
      *
+     * - This method and the [writeInterfaceToken]{@link rpc.MessageSequence#writeInterfaceToken} method must be used in
+     *     pairs.
+     * - Before reading, ensure that there is readable data available in the buffer.
+     * - It is advised to read and verify the interface token immediately after receiving an IPC request.
+     *
      * @returns { string } Interface token obtained.
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
@@ -1297,7 +1359,12 @@ declare namespace rpc {
     /**
      * Obtains the data size of this **MessageSequence** object.
      *
-     * @returns { int } Size of the **MessageSequence** instance obtained, in bytes.
+     * - Check the total size of written data.
+     * - Check the buffer usage.
+     * - Check the data size before data transmission.
+     *
+     * @returns { int } Size of the **MessageSequence** instance obtained, in bytes. It is used to adjust the data read
+     *     range. You are advised to set this parameter to the actual size of the written data.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
      * @since 23 static
@@ -1331,7 +1398,9 @@ declare namespace rpc {
     /**
      * Sets the storage capacity of this **MessageSequence** object.
      *
-     * @param { int } size - Storage capacity of the **MessageSequence** object to set, in bytes.
+     * @param { int } size - Storage capacity of the **MessageSequence** object to set, in bytes. It is used to restrict
+     *     the maximum number of bytes that can be written. You are advised to set this parameter based on the actual
+     *     data volume.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match.
@@ -1386,7 +1455,9 @@ declare namespace rpc {
     /**
      * Moves the read pointer to the specified position.
      *
-     * @param { int } pos - Position from which data is to read.
+     * @param { int } pos - Target position from which to start reading data, in bytes. It is used to reposition the
+     *     read pointer of the **MessageSequence**. The value must be within the range of
+     *     [0, [getSize]{@link rpc.MessageSequence#getSize}].
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match.
@@ -1400,7 +1471,9 @@ declare namespace rpc {
     /**
      * Moves the write pointer to the specified position.
      *
-     * @param { int } pos - Position from which data is to write.
+     * @param { int } pos - Target position from which to start writing data, in bytes. It is used to reposition the
+     *     write pointer of the **MessageSequence**. The value must be within the range of
+     *     [0, [getSize]{@link rpc.MessageSequence#getSize}].
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match.
@@ -1412,7 +1485,17 @@ declare namespace rpc {
     rewindWrite(pos: int): void;
 
     /**
-     * Writes information to this **MessageSequence** object indicating that no exception occurred.
+     * Writes information to this **MessageSequence** object indicating that no exception occurred. This method is
+     *     typically called in the server-side implementation of IPC/RPC communication and within the
+     *     **onRemoteMessageRequest** callback.
+     *
+     * - This method must be used in pairs with the [readException]{@link rpc.MessageSequence#readException} method.
+     * - After processing a request, the server should call **writeNoException()** to write information indicating that
+     *     no exception occurred.
+     * - After receiving the response, the client should call [readException]{@link rpc.MessageSequence#readException}
+     *     to retrieve exception information.
+     * - If the server does not call **writeNoException()**, the client's call to
+     *     [readException]{@link rpc.MessageSequence#readException} will fail.
      *
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
@@ -1422,7 +1505,20 @@ declare namespace rpc {
     writeNoException(): void;
 
     /**
-     * Reads the exception information from this **MessageSequence** object.
+     * Reads the exception information from this **MessageSequence** object. This method is applicable to scenarios
+     *     where the exception status needs to be checked after a response from the remote service is received.
+     *
+     * - This method is used on the client side in IPC/RPC communication.
+     * - This method is called after the response to a **sendMessageRequest** API call is received.
+     * - It is advised to call this method first after each IPC/RPC call.
+     * - If an exception is detected, handle it immediately and stop subsequent data reading. After exception handling,
+     *     it is advised to call **reclaim()** to release the **MessageSequence** object.
+     * - This method must be used in pairs with the [writeNoException]{@link rpc.MessageSequence#writeNoException}
+     *     method.
+     * - Calling sequence: the server processes a request → call
+     *     [writeNoException]{@link rpc.MessageSequence#writeNoException} → the client receives the response → call
+     *     [readException]{@link rpc.MessageSequence#readException}. If the server does not call
+     *     [writeNoException]{@link rpc.MessageSequence#writeNoException}, calling this method will fail.
      *
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
@@ -1432,9 +1528,20 @@ declare namespace rpc {
     readException(): void;
 
     /**
-     * Writes a byte value to this **MessageSequence** object.
+     * Writes a byte value to this **MessageSequence** object. After this method is called, the byte value is stored as
+     *     an 8-bit unsigned integer at the current write pointer position in the buffer, and the write pointer is
+     *     automatically updated. This method is suitable for transmitting small-range integers or flag data.
      *
-     * @param { int } val - Byte value to write.
+     * - Storage range: 0 to 255 (unsigned) or -128 to 127 (signed).
+     * - Data alignment is byte-aligned.
+     * - The value must be within the byte range. Values outside this range may cause data truncation.
+     * - This method and the [readByte]{@link rpc.MessageSequence#readByte} method must be used in pairs.
+     * - This method is not suitable for transmitting large-range values. For large-range values, it is advised to use
+     *     [writeInt]{@link rpc.MessageSequence#writeInt} or [writeLong]{@link rpc.MessageSequence#writeLong}.
+     *
+     * @param { int } val - Byte value to write. The value range is [0, 255]. If the value exceeds this range, it will
+     *     be automatically truncated to 8 bits, which may result in loss of data precision. It is advised to check the
+     *     value range before passing it.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match.
@@ -1448,7 +1555,14 @@ declare namespace rpc {
     /**
      * Writes a short integer to this **MessageSequence** object.
      *
-     * @param { int } val - Short integer to write.
+     * - Values out of range will be truncated.
+     * - This API must be used together with [readShort]{@link rpc.MessageSequence#readShort}.
+     * - One write corresponds to one read.
+     *
+     * @param { int } val - Short integer to write. The value range is [-2^15, 2^15-1]. This is suitable for
+     *     transmitting small-range integer data (such as port numbers and IDs). Values outside this range will cause
+     *     data truncation or write failure. For values in the 0–255 range, it is advised to use **writeByte**. For
+     *     standard integers, use **writeInt**. For large integers, use **writeLong**.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match.
@@ -1460,9 +1574,24 @@ declare namespace rpc {
     writeShort(val: int): void;
 
     /**
-     * Writes an integer to this **MessageSequence** object.
+     * Writes an integer to this **MessageSequence** object. After this method is called, the integer is stored as an
+     *     32-bit signed integer at the current write pointer position in the buffer, and the write pointer is
+     *     automatically updated. This method is suitable for transmitting standard integer data. For small-range
+     *     values, it is advised to use [writeByte]{@link rpc.MessageSequence#writeByte} or
+     *     [writeShort]{@link rpc.MessageSequence#writeShort} to improve efficiency. For large-range values, it is
+     *     advised to use [writeLong]{@link rpc.MessageSequence#writeLong}.
      *
-     * @param { int } val - Integer to write.
+     * - This API must be used in pairs with [readInt]{@link rpc.MessageSequence#readInt}.
+     * - One write corresponds to one read.
+     * - 4 bytes (32 bits) of storage space are occupied.
+     * - The data is stored in the system default byte order.
+     * - Values outside this range will cause data truncation or write failure.
+     *
+     * @param { int } val - Integer to write. The value range is [-2^31, 2^31-1]. This parameter is suitable for
+     *     transmitting standard integer data (such as counters, index values, and configuration parameters). Values
+     *     outside this range will cause data truncation or write failure. For small-range values (0-255 or -128-127),
+     *     it is advised to use **writeByte** to improve efficiency. For small-range integers (-32768-32767), it is
+     *     advised to use **writeShort**. For large integers, it is advised to use **writeLong**.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match.
@@ -1477,7 +1606,13 @@ declare namespace rpc {
     /**
      * Writes a long integer to this **MessageSequence** object.
      *
-     * @param { long } val - Long integer to write.
+     * - This method and the [readLong]{@link rpc.MessageSequence#readLong} method must be used in pairs.
+     * - One write corresponds to one read.
+     *
+     * @param { long } val - Long integer to write. The value range is [-2^63, 2^63-1]. Values outside this range will
+     *     cause data truncation or write failure. You are advised to select a proper method
+     *     (writeByte/writeShort/writeInt/writeLong) based on the value range to improve transmission
+     *      efficiency.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match.
@@ -1489,9 +1624,12 @@ declare namespace rpc {
     writeLong(val: long): void;
 
     /**
-     * Writes a double value to this **MessageSequence** object.
+     * Writes a double value to this **MessageSequence** object. Since the system internally processes float data as
+     *     double, the data actually written is stored in double-precision format.
      *
-     * @param { double } val - Double value to write.
+     * @param { double } val - Double value to write. It is applicable to the transmission of floating-point data (such
+     *     as coordinates, ratios, and measurement values). This method and the
+     *     [readFloat]{@link rpc.MessageSequence#readFloat} method must be used in pairs.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match.
@@ -1504,6 +1642,9 @@ declare namespace rpc {
 
     /**
      * Writes a double value to this **MessageSequence** object.
+     *
+     * - This method and the [readDouble]{@link rpc.MessageSequence#readDouble} method must be used in pairs.
+     * - One write corresponds to one read.
      *
      * @param { double } val - Double value to write.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1519,7 +1660,11 @@ declare namespace rpc {
     /**
      * Writes a Boolean value to this **MessageSequence** object.
      *
-     * @param { boolean } val - Boolean value to write.
+     * - This method and the [readBoolean]{@link rpc.MessageSequence#readBoolean} method must be used in pairs.
+     * - One write corresponds to one read.
+     *
+     * @param { boolean } val - Boolean value to write. The value **true** indicates logical true, and the value
+     *     **false** indicates logical false. The value occupies 1 byte of storage space after being written.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match.
@@ -1533,7 +1678,11 @@ declare namespace rpc {
     /**
      * Writes a character to this **MessageSequence** object.
      *
-     * @param { int } val - **Char** value to write.
+     * - This method and the [readChar]{@link rpc.MessageSequence#readChar} method must be used in pairs.
+     * - One write corresponds to one read.
+     *
+     * @param { int } val - **Char** value to write. The value range is [0, 65535], which corresponds to the Unicode
+     *     character encoding range. Values outside this range may cause character encoding errors.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match.
@@ -1545,7 +1694,18 @@ declare namespace rpc {
     writeChar(val: int): void;
 
     /**
-     * Writes a string to this **MessageSequence** object.
+     * Writes a string to this **MessageSequence** object. After this method is called, the string is serialized and
+     *     stored to the buffer. During the write operation, the string length is stored first, followed by the byte
+     *     data.
+     *
+     * - This method must be used in pairs with the [readString]{@link rpc.MessageSequence#readString} method.
+     * - The length is written first, followed by the content.
+     * - Multilingual character sets are supported.
+     * - The length information helps [readString]{@link rpc.MessageSequence#readString} determine the read boundary.
+     * - Note the difference between the number of characters and the number of bytes. Chinese characters occupy more
+     *     bytes.
+     * - Long strings consume more buffer space.
+     * - An empty string can also be written normally.
      *
      * @param { string } val - String to write. The length of the string must be less than 40960.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1562,7 +1722,21 @@ declare namespace rpc {
     writeString(val: string): void;
 
     /**
-     * Writes a **Parcelable** object to this **MessageSequence** object.
+     * Writes a **Parcelable** object to this **MessageSequence** object. After this method is called, the
+     *     **marshalling** method of the **Parcelable** object is called to serialize the member variables of the object
+     *     one by one and write them to **MessageSequence**. This method supports the transmission of custom data
+     *     structure objects. It is applicable to scenarios such as transmitting complex data structures, service
+     *     objects, and configuration information.
+     *
+     * - The **Parcelable** API defines standard methods for serialization and deserialization.
+     * - The **marshalling** method is responsible for writing the object state to **MessageSequence**.
+     * - The **unmarshalling** method is responsible for restoring the object state from **MessageSequence**.
+     * - The service must implement the specific serialization logic itself.
+     * - Only objects that implement the **Parcelable** API can be passed.
+     * - The **marshalling** method must correctly implement the writing of all member variables.
+     * - The serialization order must be consistent with the deserialization order.
+     * - It is advised to handle exceptions within the **marshalling** method.
+     * - Complex objects may occupy a significant amount of buffer space.
      *
      * @param { Parcelable } val - **Parcelable** object to write.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1578,7 +1752,13 @@ declare namespace rpc {
     /**
      * Writes a byte array to this **MessageSequence** object.
      *
-     * @param { int[] } byteArray - Byte array to write.
+     * - This method and the [readByteArray]{@link rpc.MessageSequence#readByteArray(dataIn: int[])} method must be used
+     *     in pairs.
+     * - The length of the array to be read must match the length of the array that was written.
+     *
+     * @param { int[] } byteArray - Byte array to be written, which is used to transfer byte sequence data in batches.
+     *     The array cannot be empty, and each element must be within the range of [0, 255]. Values out of range may be
+     *     truncated.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The parameter is an empty array;
      *     2.The number of parameters is incorrect;
@@ -1595,7 +1775,11 @@ declare namespace rpc {
     /**
      * Writes a short array to this **MessageSequence** object.
      *
-     * @param { int[] } shortArray - Short array to write.
+     * - This method and the [readShortArray]{@link rpc.MessageSequence#readShortArray(dataIn: int[])} method must be
+     *     used in pairs.
+     * - The length of the array to be read must match the length of the array that was written.
+     *
+     * @param { int[] } shortArray - Short array to write. The value range of array elements is [-2^15, 2^15-1].
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The parameter is an empty array;
      *     2.The number of parameters is incorrect;
@@ -1612,7 +1796,11 @@ declare namespace rpc {
     /**
      * Writes an integer array to this **MessageSequence** object.
      *
-     * @param { int[] } intArray - Integer array to write.
+     * - This API must be used together with [readIntArray]{@link rpc.MessageSequence#readIntArray(dataIn: int[])}.
+     * - The length of the array to be read must match the length of the array that was written.
+     *
+     * @param { int[] } intArray - Integer array to write. The value range of array elements is [-2^31, 2^31-1]. Values
+     *     outside this range will cause data truncation or write failure.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The parameter is an empty array;
      *     2.The number of parameters is incorrect;
@@ -1629,7 +1817,12 @@ declare namespace rpc {
     /**
      * Writes a long array to this **MessageSequence** object.
      *
-     * @param { long[] } longArray - Long array to write.
+     * - This method and the [readLongArray]{@link rpc.MessageSequence#readLongArray(dataIn: long[])} method must be
+     *     used in pairs.
+     * - The length of the array to be read must match the length of the array that was written.
+     *
+     * @param { long[] } longArray - Long integer array to write. Each element is a 64-bit integer. Values out of range
+     *     will be truncated. You are advised to use **BigInt** to process ultra-large values.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The parameter is an empty array;
      *     2.The number of parameters is incorrect;
@@ -1645,6 +1838,10 @@ declare namespace rpc {
 
     /**
      * Writes a double array to this **MessageSequence** object.
+     *
+     * - This method and the [readFloatArray]{@link rpc.MessageSequence#readFloatArray(dataIn: double[])} method must be
+     *     used in pairs.
+     * - The length of the array to be read must match the length of the array that was written.
      *
      * @param { double[] } floatArray - Double array to write. The system processes float data as that of the double
      *     type. Therefore, the total number of bytes occupied by a float array must be calculated as the double type.
@@ -1664,6 +1861,10 @@ declare namespace rpc {
     /**
      * Writes a double array to this **MessageSequence** object.
      *
+     * - This method and the [readDoubleArray]{@link rpc.MessageSequence#readDoubleArray(dataIn: double[])} method must
+     *     be used in pairs.
+     * - The length of the array to be read must match the length of the array that was written.
+     *
      * @param { double[] } doubleArray - Double array to write.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The parameter is an empty array;
@@ -1681,6 +1882,10 @@ declare namespace rpc {
     /**
      * Writes a Boolean array to this **MessageSequence** object.
      *
+     * - This method and the [readBooleanArray]{@link rpc.MessageSequence#readBooleanArray(dataIn: boolean[])} method
+     *     must be used in pairs.
+     * - The length of the array to be read must match the length of the array that was written.
+     *
      * @param { boolean[] } booleanArray - Boolean array to write.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The parameter is an empty array;
@@ -1696,6 +1901,9 @@ declare namespace rpc {
 
     /**
      * Writes a character array to this **MessageSequence** object.
+     *
+     * - This API must be used together with [readCharArray]{@link rpc.MessageSequence#readCharArray(dataIn: int[])}.
+     * - The length of the array to be read must match the length of the array that was written.
      *
      * @param { int[] } charArray - Character array to write.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1713,8 +1921,11 @@ declare namespace rpc {
     /**
      * Writes a string array to this **MessageSequence** object.
      *
-     * @param { string[] } stringArray - String array to write. The length of a single element in the array must be less
-     *     than 40960.
+     * - This method and the [readStringArray]{@link rpc.MessageSequence#readStringArray(dataIn: string[])} method must
+     *     be used in pairs.
+     * - The length of the array to be read must match the length of the array that was written.
+     *
+     * @param { string[] } stringArray - String array to write. Each string element must be less than 40960 in length.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The parameter is an empty array;
      *     2.The number of parameters is incorrect;
@@ -1729,7 +1940,13 @@ declare namespace rpc {
     writeStringArray(stringArray: string[]): void;
 
     /**
-     * Writes the **Parcelable** array to this **MessageSequence** object.
+     * Writes the **Parcelable** array to this **MessageSequence** object. This method is applicable to scenarios where
+     *     multiple custom data structure objects need to be transmitted in batch, such as transmitting multiple service
+     *     records, batch configuration information, or multiple entity objects.
+     *
+     * - This method and the [readParcelableArray]{@link rpc.MessageSequence#readParcelableArray} method must be used in
+     *     pairs.
+     * - The length of the array to be read must match the length of the array that was written.
      *
      * @param { Parcelable[] } parcelableArray - **Parcelable** array to write.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1745,7 +1962,14 @@ declare namespace rpc {
     writeParcelableArray(parcelableArray: Parcelable[]): void;
 
     /**
-     * Writes an **IRemoteObject** array to this **MessageSequence** object.
+     * Writes an **IRemoteObject** array to this **MessageSequence** object. This method is applicable to scenarios
+     *     where multiple remote objects need to be passed, such as registering multiple service proxies in batches,
+     *     passing multiple callback APIs, and managing multiple service endpoints.
+     *
+     * - This method and the
+     *     [readRemoteObjectArray]{@link rpc.MessageSequence#readRemoteObjectArray(objects: IRemoteObject[])} method
+     *     must be used in pairs.
+     * - The length of the array to be read must match the length of the array that was written.
      *
      * @param { IRemoteObject[] } objectArray - **IRemoteObject** array to write.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1764,6 +1988,9 @@ declare namespace rpc {
     /**
      * Reads the byte value from this **MessageSequence** object.
      *
+     * - This method and the [writeByte]{@link rpc.MessageSequence#writeByte} method must be used in pairs.
+     * - One write corresponds to one read.
+     *
      * @returns { int } Byte value read.
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
@@ -1775,6 +2002,10 @@ declare namespace rpc {
     /**
      * Reads the short integer from this **MessageSequence** object.
      *
+     * - This method and the [writeShort]{@link rpc.MessageSequence#writeShort} method must be used in pairs.
+     * - Note that the value range for writing is [-2^15, 2^15 - 1]. Values outside this range will cause data
+     *     truncation.
+     *
      * @returns { int } Short integer read.
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
@@ -1785,6 +2016,9 @@ declare namespace rpc {
 
     /**
      * Reads the integer from this **MessageSequence** object.
+     *
+     * - The integer occupies 4 bytes of storage space.
+     * - Storage range: –2^31 to 2^31 – 1.
      *
      * @returns { int } Integer read.
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
@@ -1798,6 +2032,9 @@ declare namespace rpc {
     /**
      * Reads the long integer from this **MessageSequence** object.
      *
+     * - The value range is [-2^63, 2^63-1].
+     * - The long integer occupies 8 bytes of storage space.
+     *
      * @returns { long } Long integer read.
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
@@ -1807,9 +2044,11 @@ declare namespace rpc {
     readLong(): long;
 
     /**
-     * Reads the double value from this **MessageSequence** object.
+     * Reads a float value from this **MessageSequence** instance. Since the system internally processes float data as
+     *     double, the read data is returned with double precision.
      *
-     * @returns { double } Double value read.
+     * @returns { double } Double value read. Since the system internally processes float data as double, the read data
+     *     is returned with double precision.
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
@@ -1819,6 +2058,9 @@ declare namespace rpc {
 
     /**
      * Reads the double value from this **MessageSequence** object.
+     *
+     * - This API returns a newly created array. It is not necessary to pre-allocate the array.
+     * - The array elements are double-precision floating-point numbers.
      *
      * @returns { double } Double value read.
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
@@ -1853,6 +2095,8 @@ declare namespace rpc {
     /**
      * Reads the string from this **MessageSequence** object.
      *
+     * - The length is read first, followed by the content.
+     *
      * @returns { string } String read.
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
@@ -1865,7 +2109,13 @@ declare namespace rpc {
     /**
      * Reads the **Parcelable** object from this **MessageSequence** object to the specified object (**dataIn**).
      *
-     * @param { Parcelable } dataIn - **Parcelable** object to read.
+     * - The **dataIn** parameter must be an instantiated **Parcelable** object.
+     * - The **unmarshalling** method must read data in the same sequence as the **marshalling** method.
+     * - The deserialization order must be consistent with the serialization order.
+     * - It is advised to handle exceptions within the **unmarshalling** method.
+     *
+     * @param { Parcelable } dataIn - Object that reads member variables from the **MessageSequence** object.
+     *     Instantiate the serializable object before using it.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect.
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
@@ -1877,9 +2127,12 @@ declare namespace rpc {
     readParcelable(dataIn: Parcelable): void;
 
     /**
-     * Reads the byte array from this **MessageSequence** object and writes it to the created empty array.
+     * Reads the byte array from this **MessageSequence** object and writes it to the created empty array. After
+     *     reading, the **dataIn** array will be filled with the read byte data, and the read pointer advances by the
+     *     corresponding number of bytes.
      *
-     * @param { int[] } dataIn - Byte array to read.
+     * @param { int[] } dataIn - Stores the byte array read from **MessageSequence**. It must be pre-allocated as an
+     *     empty array, and its length must match the length of the array that was written.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The parameter is an empty array;
      *     2.The number of parameters is incorrect;
@@ -1892,7 +2145,8 @@ declare namespace rpc {
     readByteArray(dataIn: int[]): void;
 
     /**
-     * Reads the byte array from this **MessageSequence** object.
+     * Reads the byte array from this **MessageSequence** object. After the read operation, the byte array data is
+     *     returned, the read pointer advances by the number of bytes read.
      *
      * @returns { int[] } Byte array read.
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
@@ -1905,7 +2159,8 @@ declare namespace rpc {
     /**
      * Reads the short array from this **MessageSequence** object and writes it to the created empty array.
      *
-     * @param { int[] } dataIn - Short array to read.
+     * @param { int[] } dataIn - Stores the short integer array read from the MessageSequence. A pre-allocated empty
+     *     array is required, and its length must match the length of the array that was written.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The parameter is an empty array;
      *     2.The number of parameters is incorrect;
@@ -1931,7 +2186,11 @@ declare namespace rpc {
     /**
      * Reads the integer array from this **MessageSequence** object and writes it to the created empty array.
      *
-     * @param { int[] } dataIn - Integer array to read.
+     * - An empty array must be created in advance, and its length must be the same as that of the array written.
+     * - The value range of array elements is [-2^31, 2^31-1].
+     *
+     * @param { int[] } dataIn - Stores the integer array read from **MessageSequence**. It must be pre-allocated as an
+     *     empty array, and its length must match the length of the array that was written.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The parameter is an empty array;
      *     2.The number of parameters is incorrect;
@@ -1955,9 +2214,10 @@ declare namespace rpc {
     readIntArray(): int[];
 
     /**
-     * Reads the long array from this **MessageSequence** object and writes it to the created empty array.
+     * Reads a long array from this **MessageSequence** object and writes it to a created empty array.
      *
-     * @param { long[] } dataIn - Long array to read.
+     * @param { long[] } dataIn - Stores the long integer array read from **MessageSequence**. It must be pre-allocated
+     *     as an empty array, and its length must match the length of the array that was written.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The parameter is an empty array;
      *     2.The number of parameters is incorrect;
@@ -1970,7 +2230,7 @@ declare namespace rpc {
     readLongArray(dataIn: long[]): void;
 
     /**
-     * Reads the long integer array from this **MessageSequence** object.
+     * Reads a long array from this **MessageSequence** object.
      *
      * @returns { long[] } Long array read.
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
@@ -1983,8 +2243,10 @@ declare namespace rpc {
     /**
      * Reads the double array from this **MessageSequence** object and writes it to the created empty array.
      *
-     * @param { double[] } dataIn - Double array to read. The system processes float data as that of the double type.
-     *     Therefore, the total number of bytes occupied by a float array must be calculated as the double type.
+     * @param { double[] } dataIn - Stores the double-precision floating-point number array read from
+     *     **MessageSequence**. It must be pre-allocated as an empty array, and its length must match the length of the
+     *     array that was written. The system processes float data as that of the double type. Therefore, the total
+     *     number of bytes occupied by a float array must be calculated as the double type.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The parameter is an empty array;
      *     2.The number of parameters is incorrect;
@@ -1997,7 +2259,9 @@ declare namespace rpc {
     readFloatArray(dataIn: double[]): void;
 
     /**
-     * Reads the double array from this **MessageSequence** object.
+     * Reads the double array from this **MessageSequence** object. The system processes float data as that of the
+     *     double type. Therefore, the total number of bytes occupied by a float array must be calculated as the double
+     *     type.
      *
      * @returns { double[] } Double array read.
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
@@ -2010,7 +2274,9 @@ declare namespace rpc {
     /**
      * Reads the double array from this **MessageSequence** object and writes it to the created empty array.
      *
-     * @param { double[] } dataIn - Double array to read.
+     * @param { double[] } dataIn - Stores the double-precision floating-point number array read from
+     *     **MessageSequence**. It must be pre-allocated as an empty array, and its length must match the length of the
+     *     array that was written.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The parameter is an empty array;
      *     2.The number of parameters is incorrect;
@@ -2023,7 +2289,9 @@ declare namespace rpc {
     readDoubleArray(dataIn: double[]): void;
 
     /**
-     * Reads the double array from this **MessageSequence** object.
+     * Reads the double array from this **MessageSequence** object. The system processes float data as that of the
+     *     double type. Therefore, the total number of bytes occupied by a float array must be calculated as the double
+     *     type.
      *
      * @returns { double[] } Double array read.
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
@@ -2036,7 +2304,8 @@ declare namespace rpc {
     /**
      * Reads the Boolean array from this **MessageSequence** object and writes it to the created empty array.
      *
-     * @param { boolean[] } dataIn - Boolean array to read.
+     * @param { boolean[] } dataIn - Boolean array read from the message sequence. An empty array must be created in
+     *     advance, and the length of the array must be the same as that of the array written.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The parameter is an empty array;
      *     2.The number of parameters is incorrect;
@@ -2049,7 +2318,10 @@ declare namespace rpc {
     readBooleanArray(dataIn: boolean[]): void;
 
     /**
-     * Reads the Boolean array from this **MessageSequence** object.
+     * Reads a boolean array from this MessageSequence instance.
+     *
+     * - This API returns a newly created array. It is not necessary to pre-allocate the array.
+     * - The array elements are of the boolean type.
      *
      * @returns { boolean[] } Boolean array read.
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
@@ -2062,7 +2334,8 @@ declare namespace rpc {
     /**
      * Reads the character array from this **MessageSequence** object and writes it to the created empty array.
      *
-     * @param { int[] } dataIn - Character array to read.
+     * @param { int[] } dataIn - Stores the character array read from **MessageSequence**. It must be pre-allocated as
+     *     an empty array, and its length must match the length of the array that was written.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The parameter is an empty array;
      *     2.The number of parameters is incorrect;
@@ -2077,6 +2350,9 @@ declare namespace rpc {
     /**
      * Reads the character array from this **MessageSequence** object.
      *
+     * - This API returns a newly created array. It is not necessary to pre-allocate the array.
+     * - The array elements are character codes, with a value range of [0, 65535].
+     *
      * @returns { int[] } Character array read.
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
@@ -2087,6 +2363,10 @@ declare namespace rpc {
 
     /**
      * Reads the string array from this **MessageSequence** object and writes it to the created empty array.
+     *
+     * - An empty array must be created in advance, and its length must be the same as that of the array written.
+     * - After the read operation, the **dataIn** array will be filled with the read byte data.
+     * - The read pointer advances by the corresponding number of bytes.
      *
      * @param { string[] } dataIn - String array to read.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -2103,6 +2383,9 @@ declare namespace rpc {
     /**
      * Reads the string array from this **MessageSequence** object.
      *
+     * - This API returns a newly created array. It is not necessary to pre-allocate the array.
+     * - The length of a single element in the array ranges from 0 to 40959 bytes.
+     *
      * @returns { string[] } String array read.
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
@@ -2112,9 +2395,12 @@ declare namespace rpc {
     readStringArray(): string[];
 
     /**
-     * Reads the **Parcelable** array from this **MessageSequence** object.
+     * Reads the **Parcelable** array from this **MessageSequence** object. This method is applicable to scenarios where
+     *     multiple custom data structure objects that are transmitted in batches need to be received, such as reading
+     *     multiple service records, batch configuration information, or multiple entity objects.
      *
-     * @param { Parcelable[] } parcelableArray - **Parcelable** array to read.
+     * @param { Parcelable[] } parcelableArray - Array of **Parcelable** objects to read. Instantiate the objects before
+     *     use. The lengths of the serialized and deserialized arrays must be consistent.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The parameter is an empty array;
      *     2.The number of parameters is incorrect;
@@ -2131,8 +2417,15 @@ declare namespace rpc {
 
     /**
      * Reads the **IRemoteObject** array from this **MessageSequence** object and writes it to the created empty array.
+     *     This method is applicable to scenarios where multiple remote objects that are passed in batches need to be
+     *     passed, such as obtaining multiple service proxies in batches, receiving multiple callback APIs, and managing
+     *     multiple service endpoints.
      *
-     * @param { IRemoteObject[] } objects - **IRemoteObject** array to read.
+     * - An empty array must be created in advance, and its length must be the same as that of the array written.
+     * - If the read operation fails, an exception will be thrown. It is advised to use a try-catch block to catch it.
+     *
+     * @param { IRemoteObject[] } objects - Array of **IRemoteObject** objects read from **MessageSequence**, which is
+     *     used for IPC/RPC communication and stores multiple remote objects.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The parameter is an empty array;
      *     2.The number of parameters is incorrect;
@@ -2148,7 +2441,7 @@ declare namespace rpc {
     /**
      * Reads the **IRemoteObject** array from this **MessageSequence** object.
      *
-     * @returns { IRemoteObject[] } The **IRemoteObject** array is returned. If an empty array is written, **null** is
+     * @returns { IRemoteObject[] } **IRemoteObject** object array. If an empty array is written, **nullptr** is
      *     returned.
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
@@ -2159,6 +2452,11 @@ declare namespace rpc {
 
     /**
      * Closes a file descriptor. This API is a static method.
+     *
+     * - After the file is no longer needed, close the file descriptor in a timely manner to avoid resource leaks.
+     * - Ensure that the file operations are complete before closing the file descriptor.
+     * - Do not close a file descriptor that has already been closed.
+     * - After the file descriptor is closed, the file cannot be read or written.
      *
      * @param { int } fd - File descriptor to close.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -2173,6 +2471,14 @@ declare namespace rpc {
     /**
      * Duplicates a file descriptor. This API is a static method.
      *
+     * - The file descriptor should be duplicated before IPC transmission to prevent the original descriptor from being
+     *     closed.
+     * - Multiple processes can share the same file.
+     * - The file offset needs to be managed independently.
+     * - After duplication, both the original and the duplicated descriptors must be closed separately.
+     * - An invalid file descriptor should not be duplicated.
+     * - The lifecycle of each descriptor must be managed independently after duplication.
+     *
      * @param { int } fd - File descriptor to duplicate.
      * @returns { int } New file descriptor.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -2186,7 +2492,9 @@ declare namespace rpc {
     static dupFileDescriptor(fd: int): int;
 
     /**
-     * Checks whether this **MessageSequence** object contains file descriptors.
+     * Checks whether this **MessageSequence** object contains file descriptors. This method is applicable to scenarios
+     *     where you need to determine whether to process file descriptors during file transfer or check the data type
+     *     before receiving data to determine the processing method.
      *
      * @returns { boolean } Returns **true** if the **MessageSequence** object contains file descriptors; returns
      *     **false** otherwise.
@@ -2197,9 +2505,22 @@ declare namespace rpc {
     containFileDescriptors(): boolean;
 
     /**
-     * Writes a file descriptor to this **MessageSequence** object.
+     * Writes a file descriptor to this **MessageSequence** object. After this method is called, the file descriptor is
+     *     encapsulated and transmitted across processes through the Binder mechanism. The receiving side can obtain the
+     *     file descriptor via **readFileDescriptor** and perform file operations accordingly.
      *
-     * @param { int } fd - File descriptor to write.
+     * - The file descriptor is transmitted across processes through Binder's FD passing mechanism.
+     * - The receiving side obtains a new mapped file descriptor.
+     * - Both descriptors actually point to the same file resource.
+     * - Various descriptor types, such as regular files, pipes, and sockets, are supported.
+     * - The file descriptor must be valid and already opened.
+     * - After the write operation, the original descriptor remains valid and must be managed by the service itself.
+     * - It is advised to duplicate the file descriptor using **dupFileDescriptor** before transmission.
+     * - After transmission, the receiving side should use the descriptor promptly to avoid resource waste.
+     * - After reading, it is advised to close the descriptor in a timely manner to prevent resource leaks.
+     *
+     * @param { int } fd - File descriptor, which is usually obtained through a file operation API (such as
+     *     **fileIo.open**).
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match.
@@ -2211,7 +2532,18 @@ declare namespace rpc {
     writeFileDescriptor(fd: int): void;
 
     /**
-     * Reads the file descriptor from this **MessageSequence** object.
+     * Reads the file descriptor from this **MessageSequence** object. The receiver reads the mapped new file descriptor
+     *     ID, which is different from the descriptor ID written by the sender but points to the same file resource.
+     *     After reading, it is advised to use and close the descriptor in a timely manner to prevent resource leaks. If
+     *     the descriptor needs to be used for a long time, you can call **dupFileDescriptor** to duplicate the
+     *     descriptor.
+     *
+     * - This method and the [writeFileDescriptor]{@link rpc.MessageSequence#writeFileDescriptor} method must be used in
+     *     pairs.
+     * - Do not rely on the fd ID of the source end.
+     * - After the read operation, the lifecycle of the file descriptor needs to be managed.
+     * - You are advised to use the descriptor promptly to avoid resource waste.
+     * - Close the file descriptor in a timely manner after use.
      *
      * @returns { int } File descriptor read.
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
@@ -2223,6 +2555,19 @@ declare namespace rpc {
 
     /**
      * Writes an anonymous shared object to this **MessageSequence** object.
+     *
+     * - Create an **Ashmem** object: Ashmem.create()
+     * - Perform memory map and write data: [mapReadWriteAshmem]{@link rpc.Ashmem#mapReadWriteAshmem} +
+     *     [writeDataToAshmem]{@link rpc.Ashmem#writeDataToAshmem}
+     * - Write **Ashmem** to **MessageSequence**: writeAshmem()
+     * - Read **Ashmem** by the receiving side: [readAshmem]{@link rpc.MessageSequence#readAshmem}
+     * - Perform memory mapping and read data by the receiving side: mapReadWriteAshmem() + readDataFromAshmem()
+     * - This method must be used in pairs with the **readAshmem()** method.
+     * - Call sequence: writeAshmem() → transmit **MessageSequence** →
+     *     [readAshmem]{@link rpc.MessageSequence#readAshmem} →
+     *     [mapReadWriteAshmem]{@link rpc.Ashmem#mapReadWriteAshmem} →
+     *     [readDataFromAshmem]{@link rpc.Ashmem#readDataFromAshmem}
+     * - Before using this method, create an **Ashmem** object and write data to it.
      *
      * @param { Ashmem } ashmem - Anonymous shared object to write.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -2236,9 +2581,20 @@ declare namespace rpc {
     writeAshmem(ashmem: Ashmem): void;
 
     /**
-     * Reads the anonymous shared object from this **MessageSequence** object.
+     * Reads the anonymous shared object from this **MessageSequence** object. Before using this method, call
+     *     [mapReadWriteAshmem]{@link rpc.Ashmem#mapReadWriteAshmem} to perform memory mapping.
      *
-     * @returns { Ashmem } Anonymous share object obtained.
+     * - readAshmem(): obtains an object.
+     * - [mapReadWriteAshmem]{@link rpc.Ashmem#mapReadWriteAshmem}: performs memory mapping.
+     * - [readDataFromAshmem]{@link rpc.Ashmem#readDataFromAshmem}: reads data.
+     * - unmapAshmem(): cancels mapping.
+     * - closeAshmem(): closes an object.
+     * - Data can be read only after memory mapping.
+     * - Mapping needs to be canceled after data is read.
+     * - The object needs to be closed in a timely manner to avoid memory leaks.
+     *
+     * @returns { Ashmem } Anonymous shared object for memory data sharing across processes. Before reading data, call
+     *     [mapReadWriteAshmem]{@link rpc.Ashmem#mapReadWriteAshmem} to perform memory mapping.
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 9 dynamic
@@ -2247,7 +2603,9 @@ declare namespace rpc {
     readAshmem(): Ashmem;
 
     /**
-     * Obtains the maximum amount of raw data that can be held by this **MessageSequence** object.
+     * Obtains the maximum amount of raw data that can be held by this **MessageSequence** object. This method is
+     *     applicable to scenarios where you need to check whether the capacity meets the requirements before large-data
+     *     transmission, or to estimate the data size in advance before processing large batches of data.
      *
      * @returns { int } Maximum amount of raw data that **MessageSequence** can hold, that is, 128 MB.
      * @syscap SystemCapability.Communication.IPC.Core
@@ -2258,13 +2616,13 @@ declare namespace rpc {
 
     /**
      * Writes raw data to this **MessageSequence** object.
-     * 
+     *
      * > **NOTE**
      * >
-     * > - This API cannot be called for multiple times in one parcel communication.
+     * > This API cannot be called for multiple times in one parcel communication.
      * >
-     * > - When the data volume is large (greater than 32 KB), the shared memory is used to transmit data. In this case,
-     * >  pay attention to the SELinux configuration.
+     * > When the data volume is large (greater than 32 KB), the shared memory is used to transmit data. In this case,
+     * >     pay attention to the SELinux configuration.
      *
      * @param { number[] } rawData - Raw data to write. The size cannot exceed 128 MB.
      * @param { number } size - Size of the raw data, in bytes.
@@ -2288,13 +2646,13 @@ declare namespace rpc {
 
     /**
      * Writes raw data to this **MessageSequence** object.
-     * 
+     *
      * > **NOTE**
      * >
-     * > - This API cannot be called for multiple times in one parcel communication.
+     * > This API cannot be called for multiple times in one parcel communication.
      * >
-     * > - When the data volume is large (greater than 32 KB), the shared memory is used to transmit data. In this case,
-     * >  pay attention to the SELinux configuration.
+     * > When the data volume is large (greater than 32 KB), the shared memory is used to transmit data. In this case,
+     * >     pay attention to the SELinux configuration.
      *
      * @param { ArrayBuffer } rawData - Raw data to write. The size cannot exceed 128 MB.
      * @param { int } size - Size of the raw data, in bytes.
@@ -2315,7 +2673,7 @@ declare namespace rpc {
     /**
      * Reads raw data from this **MessageSequence** object.
      *
-     * @param { number } size - Size of the raw data to read.
+     * @param { number } size - Size of the original data to read, in bytes.
      * @returns { number[] } Raw data obtained, in bytes.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
@@ -2331,7 +2689,14 @@ declare namespace rpc {
     /**
      * Reads raw data from this **MessageSequence** object.
      *
-     * @param { int } size - Size of the raw data to read.
+     * - The size must match the size of the data written.
+     * - This API must not be called multiple times within a single parcel communication.
+     * - When transmitting large data volumes, be mindful of system resource usage.
+     * - This method and the [writeRawDataBuffer]{@link rpc.MessageSequence#writeRawDataBuffer} method must be used in
+     *     pairs.
+     *
+     * @param { int } size - Size of the original data to read, in bytes. The value must match the size of the data
+     *     written.
      * @returns { ArrayBuffer } Raw data obtained, in bytes.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
@@ -2346,9 +2711,18 @@ declare namespace rpc {
     /**
      * Writes data of the ArrayBuffer type to this **MessageSequence** object.
      *
-     * @param { ArrayBuffer } buf - Data to write.
-     * @param { TypeCode } typeCode - TypedArray type of the ArrayBuffer data.<br>The underlying write mode is
-     *     determined based on the enum value of **TypeCode** passed by the service.
+     * - This method must be used in pairs with the [readArrayBuffer]{@link rpc.MessageSequence#readArrayBuffer} method.
+     * - **typeCode** written must be consistent with **typeCode** read. Otherwise, data exceptions may occur.
+     * - Calling sequence: call **writeArrayBuffer()** to write the data → call
+     *     [readArrayBuffer]{@link rpc.MessageSequence#readArrayBuffer} to read the data
+     * - The **typeCode** parameter determines the data write and read methods.
+     * - A mismatch between the write and read **typeCode** values will cause data parsing errors.
+     * - You must select the correct [TypeCode]{@link rpc.TypeCode} enumeration value based on the actual data type.
+     *
+     * @param { ArrayBuffer } buf - ArrayBuffer data to be written. The data is formatted and written based on the
+     *     TypedArray type specified by **typeCode**.
+     * @param { TypeCode } typeCode - TypedArray type of the ArrayBuffer data.
+     *     <br>The underlying write mode is determined based on the enum value of **TypeCode** passed by the service.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The parameter is an empty array;
      *     2.The number of parameters is incorrect;
@@ -2365,9 +2739,16 @@ declare namespace rpc {
     /**
      * Reads data of the ArrayBuffer type from this **MessageSequence**.
      *
-     * @param { TypeCode } typeCode - TypedArray type of the ArrayBuffer data.<br>The underlying read mode is determined
-     *     based on the enum value of **TypeCode** passed by the service.
-     * @returns { ArrayBuffer } Data of the ArrayBuffer type read, in bytes.
+     * - This method and the [writeArrayBuffer]{@link rpc.MessageSequence#writeArrayBuffer} method must be used in
+     *     pairs.
+     * - The read **typeCode** must be consistent with the write **typeCode**, and the order must also match.
+     * - A mismatch in **typeCode** values may cause data exception or errors. It is advised to select an appropriate
+     *     [TypeCode]{@link rpc.TypeCode} value based on the service type.
+     *
+     * @param { TypeCode } typeCode - TypedArray type of the ArrayBuffer data.
+     *     <br>The underlying read mode is determined based on the enum value of **TypeCode** passed by the service.
+     * @returns { ArrayBuffer } ArrayBuffer data, which is used to store the binary data read from **MessageSequence**.
+     *     The data can be accessed and operated using a TypedArray.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match;
@@ -2543,7 +2924,7 @@ declare namespace rpc {
   }
 
   /**
-   * Provides methods to query of obtain interface descriptors, add or delete death notifications, dump object status to
+   * Provides methods to query or obtain interface descriptors, add or delete death notifications, dump object status to
    *     specific files, and send messages.
    *
    * @syscap SystemCapability.Communication.IPC.Core
@@ -2555,7 +2936,7 @@ declare namespace rpc {
      * Obtains the string of the interface descriptor.
      *
      * @param { string } descriptor - Interface descriptor.
-     * @returns { IRemoteBroker } **IRemoteBroker** object bound to the specified interface token.
+     * @returns { IRemoteBroker } **IRemoteBroker** object bound to the specified interface descriptor.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -2566,8 +2947,9 @@ declare namespace rpc {
     /**
      * Obtains the string of the interface descriptor.
      *
-     * @param { string } descriptor - Interface descriptor.
-     * @returns { IRemoteBroker } **IRemoteBroker** object bound to the specified interface token.
+     * @param { string } descriptor - String of the interface descriptor. The length of the string must be less than
+     *     40960.
+     * @returns { IRemoteBroker } **IRemoteBroker** object bound to the specified interface descriptor.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match;
@@ -2580,10 +2962,10 @@ declare namespace rpc {
     getLocalInterface(descriptor: string): IRemoteBroker;
 
     /**
-     * Sends a **MessageParcel** message to the remote process in synchronous or asynchronous mode. If asynchronous mode
-     *     is set in **options**, a promise will be fulfilled immediately and the reply message does not contain any
-     *     content. If synchronous mode is set in **options**, a promise will be fulfilled when the response to
-     *     **sendRequest** is returned, and the reply message contains the returned information.
+     * Sends a **MessageParcel** message to the remote process in synchronous or asynchronous mode. If the asynchronous
+     *     mode is set in **options**, the API returns immediately and **reply** is empty. If the synchronous mode is
+     *     set in **options**, the response is returned when **sendRequest** returns, and **reply** contains the
+     *     response content.
      *
      * @param { number } code - Message code [1-16777215] called by the request, which is determined by the
      *     communication parties. If the method is generated by an IDL tool, the message code is automatically generated
@@ -2600,11 +2982,11 @@ declare namespace rpc {
     sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): boolean;
 
     /**
-     * Sends a **MessageParcel** message to the remote process in synchronous or asynchronous mode. If asynchronous mode
-     *     is set in **options**, a promise will be fulfilled immediately and the reply message is empty. The specific
-     *     reply needs to be obtained from the callback on the service side. If synchronous mode is set in **options**,
-     *     a promise will be fulfilled when the response to **sendRequest** is returned, and the reply message contains
-     *     the returned information.
+     * Sends a **MessageParcel** message to the remote process in synchronous or asynchronous mode. If the asynchronous
+     *     mode is set in **options**, the response result is returned immediately and **reply** is empty. The specific
+     *     response needs to be obtained from the callback on the service side. If the synchronous mode is set in
+     *     **options**, the response result is returned when **sendRequest** returns, and **reply** contains the
+     *     response content. This API returns the result asynchronously through a promise.
      *
      * @param { number } code - Message code [1-16777215] called by the request, which is determined by the
      *     communication parties. If the method is generated by an IDL tool, the message code is automatically generated
@@ -2612,7 +2994,7 @@ declare namespace rpc {
      * @param { MessageParcel } data - **MessageParcel** object holding the data to send.
      * @param { MessageParcel } reply - **MessageParcel** object that receives the response.
      * @param { MessageOption } options - Request sending mode, which can be synchronous (default) or asynchronous.
-     * @returns { Promise<SendRequestResult> } Promise used to return a **sendRequestResult** instance.
+     * @returns { Promise<SendRequestResult> } Promise used to return the response to the request.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2626,19 +3008,22 @@ declare namespace rpc {
     ): Promise<SendRequestResult>;
 
     /**
-     * Sends a **MessageSequence** message to the remote process in synchronous or asynchronous mode. If asynchronous
-     *     mode is set in **options**, a promise will be fulfilled immediately and the reply message is empty. The
-     *     specific reply needs to be obtained from the callback on the service side. If synchronous mode is set
-     *     in **options**, a promise will be fulfilled when the response to **sendMessageRequest** is returned, and the
-     *     reply message contains the returned information.
+     * Sends a **MessageSequence** message to the remote process in synchronous or asynchronous mode. If the
+     *     asynchronous mode is set in **options**, the response result is returned immediately and **reply** is empty.
+     *     The specific response needs to be obtained from the callback on the service side. If the synchronous mode is
+     *     set in **options**, the response result is returned when **sendMessageRequest** returns, and **reply**
+     *     contains the response content. This API returns the result asynchronously through a promise.
      *
      * @param { int } code - Message code [1-16777215] called by the request, which is determined by the communication
      *     parties. If the method is generated by an IDL tool, the message code is automatically generated by the IDL
      *     tool.
-     * @param {MessageSequence } data - **MessageSequence** object holding the data to send.
-     * @param {MessageSequence } reply - **MessageSequence** object that receives the response.
+     * @param {MessageSequence } data - **MessageSequence** object that stores the data to be sent. It can be used only
+     *     after being created via the **create()** method and data is written into it.
+     * @param {MessageSequence } reply - **MessageSequence** object that receives the response. In asynchronous mode,
+     *     **reply** does not contain any content. The specific response needs to be obtained from the callback on the
+     *     service side. In synchronous mode, **reply** contains the response content.
      * @param { MessageOption } options - Request sending mode, which can be synchronous (default) or asynchronous.
-     * @returns { Promise<RequestResult> } Promise used to return a **requestResult** instance.
+     * @returns { Promise<RequestResult> } Promise used to return the response to the request.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match;
@@ -2655,11 +3040,11 @@ declare namespace rpc {
     ): Promise<RequestResult>;
 
     /**
-     * Sends a **MessageParcel** message to the remote process in synchronous or asynchronous mode. If asynchronous mode
-     *     is set in **options**, a callback will be called immediately, and the reply message is empty. The specific
-     *     reply needs to be obtained from the callback on the service side. If synchronous mode is set in **options**,
-     *     a callback will be invoked when the response to **sendRequest** is returned, and the reply message contains
-     *     the returned information.
+     * Sends a **MessageParcel** message to the remote process in synchronous or asynchronous mode. This API uses an
+     *     asynchronous callback to return the result. If asynchronous mode is set in **options**, a callback will be
+     *     called immediately, and the reply message is empty. The specific response needs to be obtained from the
+     *     callback on the service side. If synchronous mode is set in **options**, a callback will be invoked when the
+     *     response to **sendRequest** is returned, and the reply message contains the returned information.
      *
      * @param { number } code - Message code [1-16777215] called by the request, which is determined by the
      *     communication parties. If the method is generated by an IDL tool, the message code is automatically generated
@@ -2729,7 +3114,7 @@ declare namespace rpc {
      * Registers a callback for receiving death notifications of the remote object.
      *
      * @param { DeathRecipient } recipient - Callback to register.
-     * @param { int } flags - Flag of the death notification.
+     * @param { int } flags - Flag of the death notification. This is a reserved parameter. Set it to **0**.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match;
@@ -2759,7 +3144,7 @@ declare namespace rpc {
      * Unregisters from the callback used to receive death notifications of the remote object.
      *
      * @param { DeathRecipient } recipient - Callback to unregister.
-     * @param { int } flags - Flag of the death notification.
+     * @param { int } flags - Flag of the death notification. This is a reserved parameter. Set it to **0**.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match;
@@ -2911,7 +3296,9 @@ declare namespace rpc {
     static get TF_ASYNC(): int;
 
     /**
-     * Indication to **sendMessageRequest** for passing the file descriptor.
+     * Whether the
+     *     [sendMessageRequest]{@link rpc.IRemoteObject#sendMessageRequest(code: int, data: MessageSequence,
+     *     reply: MessageSequence, options: MessageOption)} API can transfer the file descriptor.
      *
      * @default 16
      * @syscap SystemCapability.Communication.IPC.Core
@@ -2953,10 +3340,15 @@ declare namespace rpc {
     /**
      * A constructor used to create a **MessageOption** object.
      *
-     * @param { number } [syncFlags] - Call flag to set. The options are as follows: 0 (synchronous call) and 1
-     *     (asynchronous call). The default value is **synchronous**.
-     * @param { number } [waitTime] - Maximum wait time for an RPC call, in seconds. The default value is
-     *     **TF_WAIT_TIME**.
+     * @param { number } [syncFlags] - Synchronous or asynchronous call flag. The value range is {0, 1}. The value **0**
+     *     indicates synchronous call (use this value when you need to obtain the response immediately), and the value
+     *     **1** indicates asynchronous call (use this value when you do not need to obtain the response immediately).
+     *     If this parameter is not specified, **0** (synchronous call) is used by default.
+     * @param { number } [waitTime] - Maximum wait time for an RPC call, in seconds.
+     *     <br>Default value: **8**
+     *     <br>Value range: (0, 3000]. If an RPC call takes a long time, you can increase the wait time. If a quick
+     *     response is required, you can reduce the wait time. If this parameter is not specified, the default wait time
+     *     of 8 seconds is used.
      * @syscap SystemCapability.Communication.IPC.Core
      * @atomicservice [since 26.0.0]
      * @since 7 dynamic
@@ -2966,9 +3358,10 @@ declare namespace rpc {
     /**
      * A constructor used to create a **MessageOption** object.
      *
-     * @param { boolean } [async] - Whether to execute the call asynchronously. The value **true** means to execute the
-     *     call asynchronously; the value **false** means to execute the call synchronously. The default value is
-     *     **synchronous**.
+     * @param { boolean } [async] - Whether the call is asynchronous. **true** indicates an asynchronous call (use this
+     *     value when you do not need to obtain the response immediately), and **false** indicates a synchronous call
+     *     (use this value when you need to obtain the response immediately). If this parameter is not specified, the
+     *     default value is **false** (synchronous call).
      * @syscap SystemCapability.Communication.IPC.Core
      * @atomicservice [since 26.0.0]
      * @since 9 dynamic
@@ -3006,7 +3399,8 @@ declare namespace rpc {
      * A constructor used to create a MessageOption instance.
      *
      * @param { int } syncFlags - Specifies whether the SendRequest is called synchronously (default) or asynchronously.
-     * @param { int } waitTime - Maximum wait time for a RPC call, in seconds. The default value is **TF_WAIT_TIME**.
+     * @param { int } waitTime - Maximum wait time for a RPC call, in seconds. <br>Default value: **8**
+     *     <br>Value range: (0, 3000]
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 23 static
      */
@@ -3026,7 +3420,8 @@ declare namespace rpc {
     /**
      * Sets the call flag, which can be synchronous or asynchronous.
      *
-     * @param { int } flags - Call flag to set. **0**: synchronous call flag; **1**: asynchronous call flag.
+     * @param { int } flags - Call flag to set. The value range is {0, 1}. **0**: synchronous call flag; **1**:
+     *     asynchronous call flag.
      * @syscap SystemCapability.Communication.IPC.Core
      * @atomicservice [since 26.0.0]
      * @since 7 dynamic
@@ -3035,10 +3430,12 @@ declare namespace rpc {
     setFlags(flags: int): void;
 
     /**
-     * Checks whether **SendMessageRequest** is called synchronously or asynchronously.
+     * Checks whether
+     *     [sendMessageRequest]{@link rpc.IRemoteObject#sendMessageRequest(code: int, data: MessageSequence, reply:
+     *     MessageSequence, options: MessageOption)} is called asynchronously.
      *
-     * @returns { boolean } Returns **true** if **SendMessageRequest** is called asynchronously; returns **false** if it
-     *     is called synchronously.
+     * @returns { boolean } Returns **true** if **SendMessageRequest** is called asynchronously; returns **false**
+     *     if it is called synchronously.
      * @syscap SystemCapability.Communication.IPC.Core
      * @atomicservice [since 26.0.0]
      * @since 9 dynamic
@@ -3047,7 +3444,9 @@ declare namespace rpc {
     isAsync(): boolean;
 
     /**
-     * Sets whether **SendMessageRequest** is called synchronously or asynchronously.
+     * Sets whether to call
+     *     [sendMessageRequest]{@link rpc.IRemoteObject#sendMessageRequest(code: int, data: MessageSequence,
+     *     reply: MessageSequence, options: MessageOption)} asynchronously.
      *
      * @param { boolean } isAsync - Whether to execute the call asynchronously. The value **true** means to execute the
      *     call asynchronously; the value **false** means to execute the call synchronously.
@@ -3059,10 +3458,9 @@ declare namespace rpc {
     setAsync(isAsync: boolean): void;
 
     /**
-     * Obtains the maximum wait time for this RPC call.
+     * Obtains the maximum wait time for an RPC call.
      *
-     * @returns { int } Return the maximum waiting time obtained by the RPC, in seconds. The default value is
-     *     **TF_WAIT_TIME**.
+     * @returns { int } Maximum wait time for an RPC call, in seconds.
      * @syscap SystemCapability.Communication.IPC.Core
      * @atomicservice [since 26.0.0]
      * @since 7 dynamic
@@ -3071,10 +3469,9 @@ declare namespace rpc {
     getWaitTime(): int;
 
     /**
-     * Sets the maximum wait time for this RPC call.
+     * Sets the maximum wait time for an RPC call.
      *
-     * @param { int } waitTime - Indicates the maximum waiting time for RPC, in seconds. The upper limit is 3000
-     *     seconds.
+     * @param { int } waitTime - Maximum wait time for an RPC call, in seconds. The value range is (0, 3000].
      * @syscap SystemCapability.Communication.IPC.Core
      * @atomicservice [since 26.0.0]
      * @since 7 dynamic
@@ -3082,7 +3479,7 @@ declare namespace rpc {
      */
     setWaitTime(waitTime: int): void;
   }
-  
+
   /**
    * Defines the IPC context, including the PID and UID, local and remote device IDs, and whether the API is invoked on
    *     the same device.
@@ -3093,8 +3490,8 @@ declare namespace rpc {
    */
   class CallingInfo {
     /**
-     * PID of the caller.
-     * callerPid is valid only when the {@link isLocalCalling} is true. Otherwise callerPid is invalid
+     * PID of the caller, which is valid only in the IPC scenario.
+     *
      * @default -1
      * @syscap SystemCapability.Communication.IPC.Core
      * @FaAndStageModel
@@ -3112,8 +3509,7 @@ declare namespace rpc {
     get callerPid(): int;
 
     /**
-     * UID of the caller.
-     * callerUid is valid only when the {@link isLocalCalling} is true. Otherwise callerUid is invalid.
+     * UID of the caller, which is valid only in the IPC scenario.
      *
      * @default -1
      * @syscap SystemCapability.Communication.IPC.Core
@@ -3132,8 +3528,7 @@ declare namespace rpc {
     get callerUid(): int;
 
     /**
-     * Token ID of the caller.
-     * callerTokenId is valid only when the {@link isLocalCalling} is true. Otherwise callerTokenId is invalid.
+     * Token ID of the caller, which is valid only in the IPC scenario.
      *
      * @default -1
      * @syscap SystemCapability.Communication.IPC.Core
@@ -3153,7 +3548,6 @@ declare namespace rpc {
 
     /**
      * Remote device ID. This parameter is valid only in RPC scenarios.
-     * remoteDeviceId is valid only when the {@link isLocalCalling} is false. Otherwise remoteDeviceId is invalid.
      *
      * @default
      * @syscap SystemCapability.Communication.IPC.Core
@@ -3173,7 +3567,6 @@ declare namespace rpc {
 
     /**
      * Local device ID. This parameter is valid only in RPC scenarios.
-     * localDeviceId is valid only when the {@link isLocalCalling} is false. Otherwise localDeviceId is invalid.
      *
      * @default
      * @syscap SystemCapability.Communication.IPC.Core
@@ -3192,15 +3585,16 @@ declare namespace rpc {
     get localDeviceId(): string;
 
     /**
-     * Whether the peer end of the current communication is a process on the local device. Returns **true** if the local
-     *     and peer processes are on the same device; returns **false** otherwise.
+     * Whether the peer end of the current communication is a process on the local device. The value **true** indicates
+     *     that the local and peer processes are on the same device (IPC scenario), and the value **false** indicates
+     *     that they are not on the same device (RPC scenario).
      *
      * @default true
      * @syscap SystemCapability.Communication.IPC.Core
      * @FaAndStageModel
      * @since 23 dynamic
      */
-    readonly isLocalCalling: boolean
+    readonly isLocalCalling: boolean;
 
     /**
      * Indicates whether the peer process is a process of the local device.
@@ -3224,7 +3618,7 @@ declare namespace rpc {
     /**
      * A constructor used to create a **RemoteObject** object.
      *
-     * @param { string } descriptor - Interface descriptor. The length of the string must be less than 40960.
+     * @param { string } descriptor - Interface descriptor. Its length must be less than 40960.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7 dynamic
      * @since 23 static
@@ -3248,7 +3642,7 @@ declare namespace rpc {
      *
      * @param { string } descriptor - String of the interface descriptor. The length of the string must be less than
      *     40960.
-     * @returns { IRemoteBroker } **IRemoteBroker** object bound to the specified interface token.
+     * @returns { IRemoteBroker } **IRemoteBroker** object bound to the specified interface descriptor.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match;
@@ -3288,11 +3682,11 @@ declare namespace rpc {
      *
      * > **NOTE**
      * >
-     * > - You are advised to overload **onRemoteMessageRequest** preferentially, which implements synchronous and
-     * > asynchronous message processing.
+     * > You are advised to override **onRemoteMessageRequest** preferentially, which can implement synchronous and
+     * >     asynchronous message processing.
      * >
-     * > - If both **onRemoteRequest()** and **onRemoteMessageRequest()** are overloaded, only
-     * > **onRemoteMessageRequest()** takes effect.
+     * > If both **onRemoteRequest** and **onRemoteMessageRequest** are overridden, only **onRemoteMessageRequest**
+     * >     takes effect.
      *
      * @param { int } code - Service request code sent by the remote end.
      * @param { MessageSequence } data - **MessageSequence** object that holds the parameters called by the client.
@@ -3300,9 +3694,9 @@ declare namespace rpc {
      * @param { MessageOption } options - Whether the operation is synchronous or asynchronous.
      * @returns { boolean | Promise<boolean> } - If the request is processed synchronously in
      *     **onRemoteMessageRequest**, a Boolean value is returned. The value **true** means that the operation is
-     *     successful, and **false** means the opposite.<br>- If the request is processed asynchronously in
-     *     **onRemoteMessageRequest**, a promise object is returned. The value **true** means that the operation is
      *     successful, and **false** means the opposite.
+     *     <br>- If the request is processed asynchronously in **onRemoteMessageRequest**, a promise object is returned.
+     *     The value **true** means that the operation is successful, and **false** means the opposite.
      * @syscap SystemCapability.Communication.IPC.Core
      * @atomicservice [since 26.0.0]
      * @since 9 dynamic
@@ -3314,28 +3708,33 @@ declare namespace rpc {
       reply: MessageSequence,
       options: MessageOption
     ): boolean | Promise<boolean>;
-	
+
     /**
      * Provides a response to **sendMessageRequest()**. The server processes the request and returns a response in this
      *     API. The IPC context can be obtained from the input parameter **callingInfo**.
      *
      * > **NOTE**
      * >
-     * > You are advised to overload the **onRemoteMessageRequest** method with the **CallingInfo** parameter to
-     * > implement synchronous and asynchronous message processing.
-     * > If both **onRemoteRequest()** and **onRemoteMessageRequest()** are overloaded, only
-     * > **onRemoteMessageRequest()** takes effect.
+     * > You are advised to override the **onRemoteMessageRequest** method with the **CallingInfo** parameter to
+     * >     implement synchronous and asynchronous message processing.
+     * >
+     * > If both **onRemoteRequest** and **onRemoteMessageRequest** are overridden, only **onRemoteMessageRequest**
+     * >     takes effect.
      *
      * @param { int } code - Service request code sent by the remote end.
      * @param { MessageSequence } data - **MessageSequence** object that holds the parameters called by the client.
      * @param { MessageSequence } reply - **MessageSequence** object to which the result is written.
      * @param { MessageOption } options - Whether the operation is synchronous or asynchronous.
-     * @param { CallingInfo } [callingInfo] - IPC context.
+     * @param { CallingInfo } [callingInfo] - IPC context. If this parameter is not specified, it defaults to
+     *     **undefined**. Pass this parameter when you need to obtain information such as the caller's PID, UID, token
+     *     ID, or device ID. You can obtain this information via **callingInfo.callerPid** and similar properties. If
+     *     this parameter is not passed, IPC context information cannot be obtained directly, and you need to use other
+     *     methods of **rpc.IPCSkeleton**, such as **getCallingPid** and **getCallingUid**
      * @returns { boolean | Promise<boolean> } - If the request is processed synchronously in
      *     **onRemoteMessageRequest**, a Boolean value is returned. The value **true** means that the operation is
-     *     successful, and **false** means the opposite.<br>- If the request is processed asynchronously in
-     *     **onRemoteMessageRequest**, a promise object is returned. The value **true** means that the operation is
      *     successful, and **false** means the opposite.
+     *     <br>- If the request is processed asynchronously in **onRemoteMessageRequest**, a promise object is returned.
+     *     The value **true** means that the operation is successful, and **false** means the opposite.
      * @syscap SystemCapability.Communication.IPC.Core
      * @FaAndStageModel
      * @since 23 dynamic&static
@@ -3366,11 +3765,10 @@ declare namespace rpc {
     onRemoteRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): boolean;
 
     /**
-     * Sends a **MessageParcel** message to the remote process in synchronous or asynchronous mode. If asynchronous mode
-     *     is set in **options**, a promise will be fulfilled immediately and the reply message is empty. The specific
-     *     reply needs to be obtained from the callback on the service side. If synchronous mode is set in **options**,
-     *     a promise will be fulfilled when the response to **sendRequest** is returned, and the reply message contains
-     *     the returned information.
+     * Sends a **MessageParcel** message to the remote process in synchronous or asynchronous mode. If the asynchronous
+     *     mode is set in **options**, the API returns immediately and **reply** is empty. The specific response needs
+     *     to be obtained from the callback on the service side. If the synchronous mode is set in **options**, the
+     *     response is returned when **sendRequest** returns, and **reply** contains the response content.
      *
      * @param { number } code - Message code [1-16777215] called by the request, which is determined by the
      *     communication parties. If the method is generated by an IDL tool, the message code is automatically generated
@@ -3388,11 +3786,11 @@ declare namespace rpc {
     sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): boolean;
 
     /**
-     * Sends a **MessageParcel** message to the remote process in synchronous or asynchronous mode. If asynchronous mode
-     *     is set in **options**, a promise will be fulfilled immediately and the reply message is empty. The specific
-     *     reply needs to be obtained from the callback on the service side. If synchronous mode is set in **options**,
-     *     a promise will be fulfilled when the response to **sendRequest** is returned, and the reply message contains
-     *     the returned information.
+     * Sends a **MessageParcel** message to the remote process in synchronous or asynchronous mode. If the asynchronous
+     *     mode is set in **options**, the response result is returned immediately and **reply** is empty. The specific
+     *     response needs to be obtained from the callback on the service side. If the synchronous mode is set in
+     *     **options**, the response result is returned when **sendRequest** returns, and **reply** contains the
+     *     response content. This API returns the result asynchronously through a promise.
      *
      * @param { number } code - Message code [1-16777215] called by the request, which is determined by the
      *     communication parties. If the method is generated by an IDL tool, the message code is automatically generated
@@ -3400,7 +3798,7 @@ declare namespace rpc {
      * @param { MessageParcel } data - **MessageParcel** object holding the data to send.
      * @param { MessageParcel } reply - **MessageParcel** object that receives the response.
      * @param { MessageOption } options - Request sending mode, which can be synchronous (default) or asynchronous.
-     * @returns { Promise<SendRequestResult> } Promise used to return a **sendRequestResult** instance.
+     * @returns { Promise<SendRequestResult> } Promise used to return the response to the request.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -3415,11 +3813,11 @@ declare namespace rpc {
     ): Promise<SendRequestResult>;
 
     /**
-     * Sends a **MessageSequence** message to the remote process in synchronous or asynchronous mode. If asynchronous
-     *     mode is set in **options**, a promise will be fulfilled immediately and the reply message is empty. The
-     *     specific reply needs to be obtained from the callback on the service side. If synchronous mode is set in
-     *     **options**, a promise will be fulfilled when the response to **sendMessageRequest** is returned, and the
-     *     reply message contains the returned information.
+     * Sends a **MessageSequence** message to the remote process in synchronous or asynchronous mode. If the
+     *     asynchronous mode is set in **options**, the response result is returned immediately and **reply** is empty.
+     *     The specific response needs to be obtained from the callback on the service side. If the synchronous mode is
+     *     set in **options**, the response result is returned when **sendMessageRequest** returns, and **reply**
+     *     contains the response content. This API returns the result asynchronously through a promise.
      *
      * @param { int } code - Message code [1-16777215] called by the request, which is determined by the communication
      *     parties. If the method is generated by an IDL tool, the message code is automatically generated by the IDL
@@ -3427,7 +3825,7 @@ declare namespace rpc {
      * @param { MessageSequence } data - **MessageSequence** object holding the data to send.
      * @param { MessageSequence } reply - **MessageSequence** object that receives the response.
      * @param { MessageOption } options - Request sending mode, which can be synchronous (default) or asynchronous.
-     * @returns { Promise<RequestResult> } Promise used to return a **requestResult** instance.
+     * @returns { Promise<RequestResult> } Promise used to return the response to the request.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match;
@@ -3444,11 +3842,11 @@ declare namespace rpc {
     ): Promise<RequestResult>;
 
     /**
-     * Sends a **MessageParcel** message to the remote process in synchronous or asynchronous mode. If asynchronous mode
-     *     is set in **options**, a callback will be called immediately, and the reply message is empty. The specific
-     *     reply needs to be obtained from the callback on the service side. If synchronous mode is set in **options**,
-     *     a callback will be invoked when the response to **sendRequest** is returned, and the reply message contains
-     *     the returned information.
+     * Sends a **MessageParcel** message to the remote process in synchronous or asynchronous mode. This API uses an
+     *     asynchronous callback to return the result. If asynchronous mode is set in **options**, a callback will be
+     *     called immediately, and the reply message is empty. The specific response needs to be obtained from the
+     *     callback on the service side. If synchronous mode is set in **options**, a callback will be invoked when the
+     *     response to **sendRequest** is returned, and the reply message contains the returned information.
      *
      * @param { number } code - Message code [1-16777215] called by the request, which is determined by the
      *     communication parties. If the method is generated by an IDL tool, the message code is automatically generated
@@ -3472,11 +3870,11 @@ declare namespace rpc {
     ): void;
 
     /**
-     * Sends a **MessageSequence** message to the remote process in synchronous or asynchronous mode. If asynchronous 
-     *     mode is set in **options**, a callback will be called immediately, and the reply message is empty. The
-     *     specific reply needs to be obtained from the callback on the service side. If synchronous mode is set in
-     *     **options**, a callback will be invoked when the response to **sendMessageRequest** is returned, and the
-     *     reply message contains the returned information.
+     * Sends a **MessageSequence** message to the remote process in synchronous or asynchronous mode. This API uses an
+     *     asynchronous callback to return the result. If asynchronous mode is set in **options**, a callback will be
+     *     called immediately, and the reply message is empty. The specific response needs to be obtained from the
+     *     callback on the service side. If synchronous mode is set in **options**, a callback will be invoked when the
+     *     response to **sendMessageRequest** is returned, and the reply message contains the returned information.
      *
      * @param { int } code - Message code [1-16777215] called by the request, which is determined by the communication
      *     parties. If the method is generated by an IDL tool, the message code is automatically generated by the IDL
@@ -3484,7 +3882,8 @@ declare namespace rpc {
      * @param { MessageSequence } data - **MessageSequence** object holding the data to send.
      * @param { MessageSequence } reply - **MessageSequence** object that receives the response.
      * @param { MessageOption } options - Request sending mode, which can be synchronous (default) or asynchronous.
-     * @param { AsyncCallback<RequestResult> } callback - Callback for receiving the sending result.
+     * @param { AsyncCallback<RequestResult> } callback - Callback used to return the result. When the message is sent
+     *     successfully, the data returned by the server can be read from **RequestResult**.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match;
@@ -3537,8 +3936,8 @@ declare namespace rpc {
      * Binds an interface descriptor to an **IRemoteBroker** object.
      *
      * @param { IRemoteBroker } localInterface - **IRemoteBroker** object.
-     * @param { string } descriptor - **IRemoteBroker** object bound to the interface descriptor. The length of the
-     *     descriptor must be less than 40960.
+     * @param { string } descriptor - Descriptor used for binding with the **IRemoteBroker** object. Its length should
+     *     be less than 40960.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match;
@@ -3624,7 +4023,7 @@ declare namespace rpc {
 
     /**
      * Indicates the minimum value of a valid message code.
-     * 
+     *
      * <p>This constant is used to check the validity of an operation.
      *
      * @returns { int } Return vaule indicating the minimum value of a valid message code.
@@ -3644,7 +4043,7 @@ declare namespace rpc {
 
     /**
      * Indicates the maximum value of a valid message code.
-     * 
+     *
      * <p>This constant is used to check the validity of an operation.
      *
      * @returns { int } Return vaule indicating the maximum value of a valid message code.
@@ -3668,7 +4067,7 @@ declare namespace rpc {
     /**
      * Obtains the **LocalInterface** object of an interface token.
      *
-     * @param { string } interfaceDes - Interface descriptor.
+     * @param { string } interfaceDes - Interface token to be queried. Its length must be less than 40960.
      * @returns { IRemoteBroker } Returns **Null** by default, which indicates a proxy interface.
      * @throws { BusinessError } 401 - check param failed
      * @throws { BusinessError } 1900006 - Operation allowed only for the remote object.
@@ -3760,11 +4159,10 @@ declare namespace rpc {
     getDescriptor(): string;
 
     /**
-     * Sends a **MessageParcel** message to the remote process in synchronous or asynchronous mode. If asynchronous mode
-     *     is set in **options**, a promise will be fulfilled immediately and the reply message is empty. The specific
-     *     reply needs to be obtained from the callback on the service side. If synchronous mode is set in **options**,
-     *     a promise will be fulfilled when the response to **sendRequest** is returned, and the reply message contains
-     *     the returned information.
+     * Sends a **MessageParcel** message to the remote process in synchronous or asynchronous mode. If the asynchronous
+     *     mode is set in **options**, the API returns immediately and **reply** is empty. The specific response need
+     *     to be obtained from the callback on the service side. If the synchronous mode is set in **options**, the
+     *     response is returned when **sendRequest** returns, and **reply** contains the response content.
      *
      * @param { number } code - Message code [1-16777215] called by the request, which is determined by the
      *     communication parties. If the method is generated by an IDL tool, the message code is automatically generated
@@ -3782,11 +4180,11 @@ declare namespace rpc {
     sendRequest(code: number, data: MessageParcel, reply: MessageParcel, options: MessageOption): boolean;
 
     /**
-     * Sends a **MessageParcel** message to the remote process in synchronous or asynchronous mode. If asynchronous mode
-     *     is set in **options**, a promise will be fulfilled immediately and the reply message is empty. The specific
-     *     reply needs to be obtained from the callback on the service side. If synchronous mode is set in **options**,
-     *     a promise will be fulfilled when the response to **sendRequest** is returned, and the reply message contains
-     *     the returned information.
+     * Sends a **MessageParcel** message to the remote process in synchronous or asynchronous mode. If the asynchronous
+     *     mode is set in **options**, the response result is returned immediately and **reply** is empty. The specific
+     *     response needs to be obtained from the callback on the service side. If the synchronous mode is set in
+     *     **options**, the response result is returned when **sendRequest** returns, and **reply** contains the
+     *     response content. This API returns the result asynchronously through a promise.
      *
      * @param { number } code - Message code [1-16777215] called by the request, which is determined by the
      *     communication parties. If the method is generated by an IDL tool, the message code is automatically generated
@@ -3794,7 +4192,7 @@ declare namespace rpc {
      * @param { MessageParcel } data - **MessageParcel** object holding the data to send.
      * @param { MessageParcel} reply - **MessageParcel** object that receives the response.
      * @param { MessageOption } options - Request sending mode, which can be synchronous (default) or asynchronous.
-     * @returns { Promise<SendRequestResult> } Promise used to return a **sendRequestResult** instance.
+     * @returns { Promise<SendRequestResult> } Promise used to return the response to the request.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -3809,11 +4207,11 @@ declare namespace rpc {
     ): Promise<SendRequestResult>;
 
     /**
-     * Sends a **MessageSequence** message to the remote process in synchronous or asynchronous mode. If asynchronous 
-     *     mode is set in **options**, a promise will be fulfilled immediately and the reply message is empty. The
-     *     specific reply needs to be obtained from the callback on the service side. If synchronous mode is set in
-     *     **options**, a promise will be fulfilled when the response to **sendMessageRequest** is returned, and the
-     *     reply message contains the returned information.
+     * Sends a **MessageSequence** message to the remote process in synchronous or asynchronous mode. If the
+     *     asynchronous mode is set in **options**, the response result is returned immediately and **reply** is empty.
+     *     The specific response needs to be obtained from the callback on the service side. If the synchronous mode is
+     *     set in **options**, the response result is returned when **sendMessageRequest** returns, and **reply**
+     *     contains the response content. This API returns the result asynchronously through a promise.
      *
      * @param { int } code - Message code [1-16777215] called by the request, which is determined by the communication
      *     parties. If the method is generated by an IDL tool, the message code is automatically generated by the IDL
@@ -3821,7 +4219,7 @@ declare namespace rpc {
      * @param { MessageSequence } data - **MessageSequence** object holding the data to send.
      * @param { MessageSequence } reply - **MessageSequence** object that receives the response.
      * @param { MessageOption } options - Request sending mode, which can be synchronous (default) or asynchronous.
-     * @returns { Promise<RequestResult> } Promise used to return a **requestResult** instance.
+     * @returns { Promise<RequestResult> } Promise used to return the response to the request.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match;
@@ -3840,9 +4238,9 @@ declare namespace rpc {
     /**
      * Sends a **MessageParcel** message to the remote process in synchronous or asynchronous mode. If asynchronous mode
      *     is set in **options**, a callback will be called immediately, and the reply message is empty. The specific
-     *     reply needs to be obtained from the callback on the service side. If synchronous mode is set in **options**,
-     *     a callback will be invoked when the response to **sendRequest** is returned, and the reply message contains
-     *     the returned information.
+     *     response needs to be obtained from the callback on the service side. If synchronous mode is set in
+     *     **options**, a callback will be invoked when the response to **sendRequest** is returned, and the reply
+     *     message contains the returned information.
      *
      * @param { number } code - Message code [1-16777215] called by the request, which is determined by the
      *     communication parties. If the method is generated by an IDL tool, the message code is automatically generated
@@ -3866,11 +4264,13 @@ declare namespace rpc {
     ): void;
 
     /**
-     * Sends a **MessageSequence** message to the remote process in synchronous or asynchronous mode. If asynchronous
-     *     mode is set in **options**, a callback will be called immediately, and the reply message is empty. The
-     *     specific reply needs to be obtained from the callback on the service side. If synchronous mode is set in
-     *     **options**, a callback will be invoked at certain time after the response to **RequestResult** is returned,
-     *     and the reply contains the returned information.
+     * Sends a **MessageSequence** message to the remote process in synchronous or asynchronous mode. This API uses an
+     *     asynchronous callback to return the result. If asynchronous mode is set in **options**, a callback will be
+     *     called immediately, and the reply message is empty. The specific response needs to be obtained from the
+     *     callback on the service side. If the synchronous mode is set in **options**, the callback is executed after
+     *     [sendMessageRequest]{@link rpc.IRemoteObject#sendMessageRequest(code: int, data: MessageSequence,
+     *     reply: MessageSequence, options: MessageOption)} returns and the server finishes processing the request. You
+     *     can read [RequestResult]{@link rpc.RequestResult} in the callback to obtain the data returned by the server.
      *
      * @param { int } code - Message code [1-16777215] called by the request, which is determined by the communication
      *     parties. If the method is generated by an IDL tool, the message code is automatically generated by the IDL
@@ -3878,7 +4278,8 @@ declare namespace rpc {
      * @param { MessageSequence } data - **MessageSequence** object holding the data to send.
      * @param { MessageSequence } reply - **MessageSequence** object that receives the response.
      * @param { MessageOption } options - Request sending mode, which can be synchronous (default) or asynchronous.
-     * @param { AsyncCallback<RequestResult> } callback - Callback for receiving the sending result.
+     * @param { AsyncCallback<RequestResult> } callback - Callback used to return the result. When the message is sent
+     *     successfully, the data returned by the server can be read from **RequestResult**.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match;
@@ -3916,7 +4317,7 @@ declare namespace rpc {
    */
   class IPCSkeleton {
     /**
-     * Obtains the system capability manager. This API is a static method.
+     * Obtains the system service manager (SAMGR) object. This method is static method.
      *
      * @returns { IRemoteObject } System capability manager obtained.
      * @syscap SystemCapability.Communication.IPC.Core
@@ -3926,10 +4327,11 @@ declare namespace rpc {
     static getContextObject(): IRemoteObject;
 
     /**
-     * Obtains the PID of the caller. This API is a static method, which is invoked by the **RemoteObject** object in
-     *     the **onRemoteRequest** method. If this method is not invoked in the IPC context (**onRemoteRequest**), the
-     *     PID of the process will be returned.
-     *
+     * Obtains the PID of the caller. This API is a static method, which is called by the
+     *     [RemoteObject]{@link rpc.RemoteObject} object in the IPC context
+     *     [onRemoteMessageRequest]{@link rpc.RemoteObject#onRemoteMessageRequest(code: int, data: MessageSequence,
+     *     reply: MessageSequence, options: MessageOption )}. If the method is not called in the IPC context, the PID of
+     *     the current process is returned.
      * @returns { int } PID of the caller.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7 dynamic
@@ -3938,10 +4340,11 @@ declare namespace rpc {
     static getCallingPid(): int;
 
     /**
-     * Obtains the UID of the caller. This API is a static method, which is invoked by the **RemoteObject** object in
-     *     the **onRemoteRequest** method. If this method is not invoked in the IPC context (**onRemoteRequest**), the
-     *     UID of the process will be returned.
-     *
+     * Obtains the UID of the caller. This API is a static method, which is called by the
+     *     [RemoteObject]{@link rpc.RemoteObject} object in the IPC context
+     *     [onRemoteMessageRequest]{@link rpc.RemoteObject#onRemoteMessageRequest( code: int, data: MessageSequence,
+     *     reply: MessageSequence, options: MessageOption)}. If the method is not called in the IPC context, the UID of
+     *     the current process is returned.
      * @returns { int } UID of the caller.
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7 dynamic
@@ -4030,7 +4433,7 @@ declare namespace rpc {
     static resetCallingIdentity(): string;
 
     /**
-     * Sets the UID and PID of the remote user. This API is a static method. It is usually called after
+     * Sets the UID and PID to those of the remote user. This API is a static method. It is usually called after
      *    **resetCallingIdentity**, and the UID and PID of the remote user returned by **resetCallingIdentity** are
      *    required.
      *
@@ -4045,12 +4448,14 @@ declare namespace rpc {
     static setCallingIdentity(identity: string): boolean;
 
     /**
-     * Restores the UID and PID of the remote user. This API is a static method. It is usually called after
+     * Restores the UID and PID to those of the remote user. This API is a static method. It is usually called after
      *     **resetCallingIdentity**, and the UID and PID of the remote user returned by **resetCallingIdentity** are
-     *     required.
+     *     required. This API is supported only in the IPC context
+     *     [onRemoteMessageRequest]{@link rpc.RemoteObject#onRemoteMessageRequest(code: int, data: MessageSequence,
+     *     reply: MessageSequence, options: MessageOption)}; otherwise, it returns directly.
      *
-     * @param { string } identity - A string containing the UID and PID of the remote user. The length of the string
-     *     must be less than 40960. are returned by **resetCallingIdentity**.
+     * @param { string } identity - String that contains the remote user UID and PID. Its length must be less than
+     *     40960. are returned by **resetCallingIdentity**.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.The number of parameters is incorrect;
      *     2.The parameter type does not match;
@@ -4066,8 +4471,19 @@ declare namespace rpc {
   /**
    * Provides methods related to anonymous shared memory objects, including creating, closing, mapping, and unmapping an
    *     **Ashmem** object, reading data from and writing data to an **Ashmem** object, obtaining the **Ashmem** size,
-   *     and setting **Ashmem** protection. The shared memory applies only to cross-process communication within the
-   *     local device.
+   *     and setting **Ashmem** protection.
+   *
+   * The shared memory applies only to cross-process communication within the local device.
+   *
+   * - Large data transmission: When transmitting large amounts of data (such as images or files), shared memory can be
+   *     used to improve efficiency.
+   * - Cross-process data sharing: Multiple processes need to share access to the same block of memory data.
+   * - Transmission efficiency: Transmitting large data via shared memory avoids serialization overhead and improves
+   *     transmission efficiency.
+   * - Memory reuse: Multiple processes can share access to the same memory, avoiding data duplication.
+   * - Improved transmission performance: The shared memory mechanism significantly improves the efficiency of large
+   *     data transmission.
+   * - Reduced memory usage: Avoiding multiple data copies helps save memory resources.
    *
    * @syscap SystemCapability.Communication.IPC.Core
    * @since 8 dynamic
@@ -4129,7 +4545,7 @@ declare namespace rpc {
     static get PROT_READ(): int;
 
     /**
-     * Mapped memory protection type, indicating that the mapped memory is readable.
+     * Mapped memory protection type, indicating that the mapped memory is writable.
      *
      * @default 2
      * @syscap SystemCapability.Communication.IPC.Core
@@ -4340,10 +4756,10 @@ declare namespace rpc {
      * > **NOTE**
      * >
      * > - Before writing an **Ashmem** object, you need to call
-     * > [mapReadWriteAshmem]{@link rpc.Ashmem#mapReadWriteAshmem()} for mapping.
+     * >     [mapReadWriteAshmem]{@link rpc.Ashmem#mapReadWriteAshmem()} for mapping.
      *
      * @param { number[] } buf - Data to write.
-     * @param { number } size - Size of the data to write.
+     * @param { number } size - Size of the data to write, in bytes.
      * @param { number } offset - Start position of the data to write in the memory region associated with this
      *     **Ashmem** object.
      * @returns { boolean } Returns **true** if the data is written successfully; returns **false** otherwise.
@@ -4360,10 +4776,10 @@ declare namespace rpc {
      * > **NOTE**
      * >
      * > - Before writing an **Ashmem** object, you need to call
-     * > [mapReadWriteAshmem]{@link rpc.Ashmem#mapReadWriteAshmem()} for mapping.
+     * >     [mapReadWriteAshmem]{@link rpc.Ashmem#mapReadWriteAshmem()} for mapping.
      *
      * @param { number[] } buf - Data to write.
-     * @param { number } size - Size of the data to write.
+     * @param { number } size - Size of the data to write, in bytes.
      * @param { number } offset - Start position of the data to write in the memory region associated with this
      *     **Ashmem** object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -4384,10 +4800,10 @@ declare namespace rpc {
      * > **NOTE**
      * >
      * > Before writing an **Ashmem** object, you need to call
-     * > [mapReadWriteAshmem]{@link rpc.Ashmem#mapReadWriteAshmem()} for mapping.
+     * >     [mapReadWriteAshmem]{@link rpc.Ashmem#mapReadWriteAshmem()} for mapping.
      *
      * @param { ArrayBuffer } buf - Data to write.
-     * @param { int } size - Size of the data to write.
+     * @param { int } size - Size of the data to write, in bytes.
      * @param { int } offset - Start position of the data to write in the memory region associated with this **Ashmem**
      *     object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -4425,7 +4841,7 @@ declare namespace rpc {
      *
      * > **NOTE**
      * >
-     * > - Before writing an **Ashmem** object, you need to call 
+     * > - Before writing an **Ashmem** object, you need to call
      * > [mapReadWriteAshmem]{@link rpc.Ashmem#mapReadWriteAshmem()} for mapping.
      *
      * @param { number } size - Size of the data to read.
@@ -4448,10 +4864,10 @@ declare namespace rpc {
      *
      * > **NOTE**
      * >
-     * > Before writing an **Ashmem** object, you need to call 
-     * > [mapReadWriteAshmem]{@link rpc.Ashmem#mapReadWriteAshmem()} for mapping.
+     * > Before writing an **Ashmem** object, you need to call
+     * >     [mapReadWriteAshmem]{@link rpc.Ashmem#mapReadWriteAshmem()} for mapping.
      *
-     * @param { int } size - Size of the data to read.
+     * @param { int } size - Size of the data to read, in bytes.
      * @param { int } offset - Start position of the data to read in the memory region associated with this **Ashmem**
      *     object.
      * @returns { ArrayBuffer } Data read.

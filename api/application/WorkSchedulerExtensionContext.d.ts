@@ -14,7 +14,7 @@
  */
 
 /**
- * @file ExtensionAbility Context for Deferred Task Scheduling Callbacks
+ * @file Work Scheduler Callback Context
  * @kit BackgroundTasksKit
  */
 

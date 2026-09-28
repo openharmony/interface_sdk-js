@@ -83,8 +83,8 @@ declare namespace formProvider {
    * 
    * > **说明：**
    * >
-   * > 从API version 20开始，如果卡片刷新的数据通过共享内存更新，刷新数据总大小不超过10MB，刷新图片数量不超过20张。API version 19及之前的版本，图片文件数量上限为5张，每张限制内存2MB，超出限制的图
-   * > 片会显示异常。
+   * > 从API version 26.0.1开始，如果卡片刷新的数据通过共享内存更新，刷新数据总大小不超过10MB，刷新图片数量不超过30张。API version 20至API version 26.0.1之前，刷新数据总大小不超过10MB，刷新图片数量不超
+   * > 过20张。API version 19及之前的版本，图片文件数量上限为5张，每张限制内存2MB，超出限制的图片会显示异常。
    *
    * @param { string } formId - 请求更新的卡片标识。
    * @param { formBindingData.FormBindingData } formBindingData - 用于更新的数据。具体限制请参考上方说明。
@@ -113,8 +113,8 @@ declare namespace formProvider {
    * 
    * > **说明：**
    * >
-   * > 从API version 20开始，如果卡片刷新的数据通过共享内存更新，刷新数据总大小不超过10MB，刷新图片数量不超过20张。API version 19及之前的版本，图片文件数量上限为5张，每张限制内存2MB，超出限制的图
-   * > 片会显示异常。
+   * > 从API version 26.0.1开始，如果卡片刷新的数据通过共享内存更新，刷新数据总大小不超过10MB，刷新图片数量不超过30张。API version 20至API version 26.0.1之前，刷新数据总大小不超过10MB，刷新图片数量不超
+   * > 过20张。API version 19及之前的版本，图片文件数量上限为5张，每张限制内存2MB，超出限制的图片会显示异常。
    *
    * @param { string } formId - 请求更新的卡片标识。
    * @param { formBindingData.FormBindingData } formBindingData - 用于更新的数据。具体限制请参考上方说明。
@@ -202,9 +202,9 @@ declare namespace formProvider {
    * @throws { BusinessError } 16500050 - IPC connection error.
    * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
-   * @throws { BusinessError } 16501002 - The number of forms exceeds the upper limit. [since 26.0.1]
+   * @throws { BusinessError } 16501002 - The number of forms exceeds the maximum allowed. [since 26.0.1]
    * @throws { BusinessError } 16501008 - Waiting for the form addition to the desktop timed out. [since 26.0.1]
-   * @throws { BusinessError } 16501017 - There is no space to publish form. [since 26.0.1]
+   * @throws { BusinessError } 16501017 - There is no space to publish the form. [since 26.0.1]
    * @throws { BusinessError } 16501018 - This form does not support publishing. [since 26.0.1]
    * @syscap SystemCapability.Ability.Form
    * @systemapi
@@ -233,9 +233,9 @@ declare namespace formProvider {
    * @throws { BusinessError } 16500050 - IPC connection error.
    * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
-   * @throws { BusinessError } 16501002 - The number of forms exceeds the upper limit. [since 26.0.1]
+   * @throws { BusinessError } 16501002 - The number of forms exceeds the maximum allowed. [since 26.0.1]
    * @throws { BusinessError } 16501008 - Waiting for the form addition to the desktop timed out. [since 26.0.1]
-   * @throws { BusinessError } 16501017 - There is no space to publish form. [since 26.0.1]
+   * @throws { BusinessError } 16501017 - There is no space to publish the form. [since 26.0.1]
    * @throws { BusinessError } 16501018 - This form does not support publishing. [since 26.0.1]
    * @syscap SystemCapability.Ability.Form
    * @systemapi

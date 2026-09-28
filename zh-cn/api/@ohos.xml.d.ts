@@ -63,7 +63,7 @@ declare namespace xml {
      * 构造并返回一个XmlDynamicSerializer对象，该对象支持动态扩容生成XML字符串，无需预先指定缓存大小。
      *
      * @param { string } [encoding] - 编码格式，默认'utf-8'（目前仅支持'utf-8'）。
-     * @throws { BusinessError } 10200066 - 编码格式错误，目前仅支持utf-8。
+     * @throws { BusinessError } 10200066 - Incorrect encoding format, only support utf-8.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -81,9 +81,9 @@ declare namespace xml {
      *
      * @param { string } name - 属性名。所组成的XML长度不能超过100000，不可为空字符。
      * @param { string } value - 属性值。所组成的XML长度不能超过100000字符。
-     * @throws { BusinessError } 10200062 - xml累计长度超过上限100000。
-     * @throws { BusinessError } 10200063 - xml位置非法。
-     * @throws { BusinessError } 10200064 - 不能为空字符串。
+     * @throws { BusinessError } 10200062 - The cumulative length of xml has exceeded the upper limit 100000.
+     * @throws { BusinessError } 10200063 - Illegal position for xml.
+     * @throws { BusinessError } 10200064 - Cannot be an empty string.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -100,8 +100,8 @@ declare namespace xml {
      * > 该接口对所添加数据不做标准XML校验处理，请确保所添加的数据符合标准XML规范。比如不允许添加数字开头的元素名称。
      *
      * @param { string } name - 该空元素的元素名，所组成的XML长度不能超过100000。
-     * @throws { BusinessError } 10200062 - xml累计长度超过上限100000。
-     * @throws { BusinessError } 10200064 - 不能为空字符串。
+     * @throws { BusinessError } 10200062 - The cumulative length of xml has exceeded the upper limit 100000.
+     * @throws { BusinessError } 10200064 - Cannot be an empty string.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -113,8 +113,8 @@ declare namespace xml {
     /**
      * 编写带有编码的文件声明，调用后将在XML文本中生成`<?xml version="1.0" encoding="utf-8"?>`格式的声明。
      *
-     * @throws { BusinessError } 10200062 - xml累计长度超过上限100000。
-     * @throws { BusinessError } 10200063 - xml位置非法。
+     * @throws { BusinessError } 10200062 - The cumulative length of xml has exceeded the upper limit 100000.
+     * @throws { BusinessError } 10200063 - Illegal position for xml.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -133,8 +133,8 @@ declare namespace xml {
      * > - 该接口对所添加数据不做标准XML校验处理，请确保所添加的数据符合标准XML规范。比如不允许添加数字开头的元素名称。
      *
      * @param { string } name - 当前元素的元素名。所组成的XML长度不能超过100000，不可为空字符。
-     * @throws { BusinessError } 10200062 - xml累计长度超过上限100000。
-     * @throws { BusinessError } 10200064 - 不能为空字符串。
+     * @throws { BusinessError } 10200062 - The cumulative length of xml has exceeded the upper limit 100000.
+     * @throws { BusinessError } 10200064 - Cannot be an empty string.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -150,8 +150,8 @@ declare namespace xml {
      * >
      * > 调用该接口前必须先调用[startElement]{@link xml.XmlSerializer#startElement}接口写入元素开始标记。
      *
-     * @throws { BusinessError } 10200062 - xml累计长度超过上限100000。
-     * @throws { BusinessError } 10200065 - startElement和endElement不匹配。
+     * @throws { BusinessError } 10200062 - The cumulative length of xml has exceeded the upper limit 100000.
+     * @throws { BusinessError } 10200065 - There is no match between the startElement and the endElement.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -172,8 +172,8 @@ declare namespace xml {
      *
      * @param { string } prefix - 当前元素及其子元素的前缀。所组成的XML长度不能超过100000，不可为空字符串。
      * @param { string } namespace - 当前元素及其子元素的命名空间。所组成的XML长度不能超过100000，不可为空字符串。
-     * @throws { BusinessError } 10200062 - xml累计长度超过上限100000。
-     * @throws { BusinessError } 10200064 - 不能为空字符串。
+     * @throws { BusinessError } 10200062 - The cumulative length of xml has exceeded the upper limit 100000.
+     * @throws { BusinessError } 10200064 - Cannot be an empty string.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -186,8 +186,8 @@ declare namespace xml {
      * 写入注释内容，所生成的注释结构为：`<!--` + 注释内容 + `-->`。
      *
      * @param { string } text - 当前元素的注释内容。所组成的XML长度不能超过100000，不可为空字符。
-     * @throws { BusinessError } 10200062 - xml累计长度超过上限100000。
-     * @throws { BusinessError } 10200064 - 不能为空字符串。
+     * @throws { BusinessError } 10200062 - The cumulative length of xml has exceeded the upper limit 100000.
+     * @throws { BusinessError } 10200064 - Cannot be an empty string.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -204,8 +204,8 @@ declare namespace xml {
      * > 该接口对所添加数据不做标准XML校验处理，请确保所添加的数据符合标准XML规范。比如不允许在CDATA标签中添加包含"\]\]\>"字符串的数据。
      *
      * @param { string } text - CDATA标签中的数据内容。所组成的XML长度不能超过100000。
-     * @throws { BusinessError } 10200062 - xml累计长度超过上限100000。
-     * @throws { BusinessError } 10200064 - 不能为空字符串。
+     * @throws { BusinessError } 10200062 - The cumulative length of xml has exceeded the upper limit 100000.
+     * @throws { BusinessError } 10200064 - Cannot be an empty string.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -223,8 +223,8 @@ declare namespace xml {
      * > [endElement]{@link xml.XmlDynamicSerializer#endElement}之前调用，用于设置当前元素的文本内容。
      *
      * @param { string } text - 标签值。所组成的XML长度不能超过100000，不可为空字符。
-     * @throws { BusinessError } 10200062 - xml累计长度超过上限100000。
-     * @throws { BusinessError } 10200064 - 不能为空字符串。
+     * @throws { BusinessError } 10200062 - The cumulative length of xml has exceeded the upper limit 100000.
+     * @throws { BusinessError } 10200064 - Cannot be an empty string.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -237,8 +237,8 @@ declare namespace xml {
      * 写入文档类型。
      *
      * @param { string } text - 文档类型声明的内容。所组成的XML长度不能超过100000。
-     * @throws { BusinessError } 10200062 - xml累计长度超过上限100000。
-     * @throws { BusinessError } 10200064 - 不能为空字符串。
+     * @throws { BusinessError } 10200062 - The cumulative length of xml has exceeded the upper limit 100000.
+     * @throws { BusinessError } 10200064 - Cannot be an empty string.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice

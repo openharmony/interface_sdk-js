@@ -223,7 +223,7 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi [since 12 - 26.0.1]
-     * @publicapi [since 26.2.0]
+     * @publicapi [since 26.1.0]
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1656,7 +1656,7 @@ declare namespace bundleManager {
    * @stagemodelonly
    * @since 26.0.1 dynamic&static
    */
-  export enum ApplicationReservedFlag {  
+  export enum ApplicationReservedFlag {
     /**
      * Indicates that the application is an encrypted application.
      *
@@ -1780,7 +1780,7 @@ declare namespace bundleManager {
    */
   export enum AppSandboxPolicy {
     /**
-     * Shared sandbox (default)
+     * Application sharing sandbox in the two modes.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
@@ -1789,7 +1789,7 @@ declare namespace bundleManager {
      */
     SHARED_SANDBOX = 0,
     /**
-     * Isolated sandbox
+     * The application isolation sandbox for the two modes, with each application having its own independent sandbox.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
