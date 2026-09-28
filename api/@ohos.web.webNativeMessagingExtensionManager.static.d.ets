@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 /**
- * @file
+ * @file Web Native Messaging Extension Manager
  * @kit ArkWeb
  */
 import type UIAbilityContext from './application/UIAbilityContext';

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 /**
- * @file
+ * @file Web Native Messaging Extension Ability
  * @kit ArkWeb
  */
 import ExtensionAbility from './@ohos.app.ability.ExtensionAbility';

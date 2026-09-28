@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 /**
-  * @file
+  * @file Web原生消息扩展上下文
   * @kit ArkWeb
  */
 import ExtensionContext from './application/ExtensionContext';

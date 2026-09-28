@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 /**
- * @file
+ * @file Web Net Error List
  * @kit ArkWeb
  */
 /**

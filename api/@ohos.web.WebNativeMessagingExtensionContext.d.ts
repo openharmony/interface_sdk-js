@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Web Native Messaging Extension Context
  * @kit ArkWeb
  */
 

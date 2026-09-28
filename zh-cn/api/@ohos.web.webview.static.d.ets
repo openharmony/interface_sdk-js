@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 /**
-  * @file
+  * @file WebView控制
   * @kit ArkWeb
   */
 import { Resource } from './global/resource';
