@@ -23,13 +23,12 @@
  * effect drawing performance.
  * 
  * > **NOTE**
- * 
- * > - The APIs provided by this component are system APIs.
  * >
- * > - Currently, this component provides only combined background blur effects for child components.
+ * > - Currently, this component only supports the drawing combination optimization of the background blur effect of 
+ * > child components.
  * >
- * > - To use this component for combined background blur effects, first replace the **backgroundBlurStyle(BlurStyle)** 
- * > attribute of the target child components with **useEffect(true)**.
+ * > - When performing drawing combination on the background blur effect of a child component, replace the child 
+ * > component's **backgroundBlurStyle(BlurStyle)** attribute with **useEffect(true)**.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -50,9 +49,9 @@ interface EffectComponentInterface {
   (): EffectComponentAttribute;
 
   /**
-   * Creates an effect drawing and combination component. If no parameter is passed or the parameter is 
-   * EffectLayer.None, the background blur effect of child components is combined. If a parameter is specified, the 
-   * current rendering layer is placed on a special layer.
+   * Creates an effect rendering merging component. When no parameter is passed or the parameter is 
+   * **EffectLayer.NONE**, it is used to merge the rendering of the background blur effect of child components. When an 
+   * explicit parameter is passed, it indicates that the current rendering layer is placed on a special layer.
    *
    * @param { EffectComponentOptions } [options] - EffectComponent constructor parameter.
    * @returns { EffectComponentAttribute }
@@ -115,7 +114,7 @@ declare enum EffectLayer {
  */
 declare interface EffectComponentOptions {
   /**
-   * Rendering layer of the EffectComponent.
+   * Rendering layer of EffectComponent.
    * 
    * Default value: EffectLayer.NONE
    *
@@ -159,14 +158,13 @@ declare class EffectComponentAttribute extends CommonMethod<EffectComponentAttri
  * effect drawing performance.
  * 
  * > **NOTE**
+ * >
+ * > - Currently, this component only supports the drawing combination optimization of the background blur effect of 
+ * > child components.
+ * >
+ * > - When performing drawing combination on the background blur effect of a child component, replace the child 
+ * > component's **backgroundBlurStyle(BlurStyle)** attribute with **useEffect(true)**.
  * 
- * > - The APIs provided by this component are system APIs.
- * >
- * > - Currently, this component provides only combined background blur effects for child components.
- * >
- * > - To use this component for combined background blur effects, first replace the **backgroundBlurStyle(BlurStyle)** 
- * > attribute of the target child components with **useEffect(true)**.
- *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
