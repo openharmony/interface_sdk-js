@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 车辆感知
  * @kit MultimodalAwarenessKit
  */
 import { Callback } from './@ohos.base';

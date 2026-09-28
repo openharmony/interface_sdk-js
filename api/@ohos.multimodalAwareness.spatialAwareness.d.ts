@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Spatial awareness
  * @kit MultimodalAwarenessKit
  */
 import type { Callback } from './@ohos.base';
