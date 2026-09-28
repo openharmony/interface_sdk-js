@@ -90,8 +90,7 @@ declare namespace inputEventClient {
     isIntercepted: boolean;
 
     /**
-     * 目标屏幕ID。
-     * 取值应为≥0的整数。
+     * 目标屏幕ID。取值应为≥0的整数。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
      * @systemapi hide for inner use
