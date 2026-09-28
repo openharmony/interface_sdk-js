@@ -1103,9 +1103,12 @@ interface ParticleColorPropertyOptions<UPDATER extends ParticleUpdater> {
   /**
    * Color property change configuration. The color property change type has three categories:
    * 
-   * 1. When **type** is **ParticleUpdater.NONE**, it indicates no change, and the **config** type is [ParticleColorPropertyUpdaterConfigs]{@link ParticleColorPropertyUpdaterConfigs}[ParticleUpdater.NONE]. 
-   * 2. When **type** is **ParticleUpdater.RANDOM**, it indicates random uniform change, and the **config** type is [ParticleColorPropertyUpdaterConfigs]{@link ParticleColorPropertyUpdaterConfigs}[ParticleUpdater.RANDOM]. 
-   * 3. When **type** is **ParticleUpdater.CURVE**, it indicates change along an animation curve, and the **config** type is [ParticleColorPropertyUpdaterConfigs]{@link ParticleColorPropertyUpdaterConfigs}[ParticleUpdater.CURVE].
+   * 1. When **type** is **ParticleUpdater.NONE**, it indicates no change, and the **config** type is
+   * [ParticleColorPropertyUpdaterConfigs]{@link ParticleColorPropertyUpdaterConfigs}[ParticleUpdater.NONE]. 
+   * 2. When **type** is **ParticleUpdater.RANDOM**, it indicates random uniform change, and the **config** type is
+   * [ParticleColorPropertyUpdaterConfigs]{@link ParticleColorPropertyUpdaterConfigs}[ParticleUpdater.RANDOM]. 
+   * 3. When **type** is **ParticleUpdater.CURVE**, it indicates change along an animation curve, and the **config** type is
+   * [ParticleColorPropertyUpdaterConfigs]{@link ParticleColorPropertyUpdaterConfigs}[ParticleUpdater.CURVE].
    * 
    * Default value: **type** defaults to **ParticleUpdater.NONE**. 
    * 
