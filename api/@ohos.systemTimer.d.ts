@@ -110,7 +110,7 @@ declare namespace systemTimer {
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
-   *     <br> 2. Incorrect parameter type.
+   *     <br> 2. Incorrect parameter types.
    *     <br> 3. Parameter verification failed.
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use.
