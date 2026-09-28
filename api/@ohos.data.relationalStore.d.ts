@@ -229,6 +229,17 @@ declare namespace relationalStore {
      * @since 23 static
      */
     status?: AssetStatus;
+
+    /**
+     * Extended by the business side.
+     * Default value: Empty string.
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.2.0 dynamic&static
+     */
+    extension?: string;
   }
 
   /**
