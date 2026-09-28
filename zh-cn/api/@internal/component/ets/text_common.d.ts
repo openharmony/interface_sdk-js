@@ -874,11 +874,8 @@ declare interface LayoutManager {
    * > - 本接口返回的字符位置为UTF-8编码偏移量。
    *
    * @param { number } x - 相对于组件的横坐标。
-   *     <br>单位为：[px]（docroot://reference/apis-arkui/arkui-ts/ts-像素单元.md#基本像素单元）。
-   *     <br>单位：[px]（docroot://reference/apis-arkui/arkui-ts/ts-像素-单位.md#基本像素-单位）。
    *     <br>单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
    * @param { number } y - 相对于组件的纵坐标。
-   *     <br>单位为：[px]（docroot://reference/apis-arkui/arkui-ts/ts-像素单元.md#基本像素单元）。
    *     <br>单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
    * @returns { PositionWithAffinity | undefined } 字符的位置信息。当[LayoutManager]{@link LayoutManager}没有和组件绑定时，该接口会返回
    *     undefined。
