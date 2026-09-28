@@ -403,6 +403,11 @@ export interface FormCallbackInfo {
 /**
  * 卡片错误信息。
  *
+ * > **说明：**
+ * >
+ * > 为规范匿名对象的定义，API 18版本修改了此处的元素定义。其中，保留了历史匿名对象的起始版本信息，
+ * > 会出现外层元素@since版本号高于内层元素版本号的情况，但这不影响接口的使用。
+ *
  * @typedef ErrorInformation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -412,7 +417,6 @@ export interface FormCallbackInfo {
 export interface ErrorInformation {
     /**
      * 错误码。
-     * Anonymous Object Rectification
      *
      * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -424,7 +428,6 @@ export interface ErrorInformation {
 
     /**
      * 错误信息。
-     * Anonymous Object Rectification
      *
      * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
