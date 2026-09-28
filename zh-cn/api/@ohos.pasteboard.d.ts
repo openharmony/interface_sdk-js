@@ -18,10 +18,13 @@
  * @kit BasicServicesKit
  */
 
-import { AsyncCallback, Callback, RecordData } from './@ohos.base';
+import { AsyncCallback, Callback } from './@ohos.base';
 import Want from './@ohos.app.ability.Want';
 import image from './@ohos.multimedia.image';
 import unifiedDataChannel from './@ohos.data.unifiedDataChannel';
+/*** if arkts static */
+import { RecordData } from './@ohos.base';
+/*** endif */
 
 /**
  * 本模块提供管理系统剪贴板的能力，支持系统复制、粘贴功能。系统剪贴板支持对文本、HTML、URI、Want、PixelMap等内容的操作。
