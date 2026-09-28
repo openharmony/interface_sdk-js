@@ -52,6 +52,7 @@
     "SystemCapability.Multimedia.SystemSound.Core",
     "SystemCapability.Multimedia.AudioHaptic.Core",
     "SystemCapability.Security.Huks.Core",
+    "SystemCapability.Startup.BoardInfo",
     "SystemCapability.Startup.SystemInfo",
     "SystemCapability.Ability.DistributedAbilityManager",
     "SystemCapability.Graphic.Graphic2D.WebGL2",

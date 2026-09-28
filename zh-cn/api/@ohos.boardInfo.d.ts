@@ -1,0 +1,137 @@
+/*
+ * Copyright (c) 2026 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
+ * @file
+ * @kit BasicServicesKit
+ */
+
+/**
+ * boardInfo模块用于查询硬件设备信息。
+ *
+ * > **说明：**
+ * >
+ * > 本模块首批接口从API version 26开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+ * > 本模块接口返回设备常量信息，建议应用只调用一次，不需要频繁调用。
+ *
+ * @syscap SystemCapability.Startup.BoardInfo
+ * @stagemodelonly
+ * @since 26.0.1 dynamic
+ */
+declare namespace boardInfo {
+  /**
+   * CPU ID。
+   *
+   * 示例：AA AA AA AA 00 00 00 00（十六进制字符串）
+   *
+   * @syscap SystemCapability.Startup.BoardInfo
+   * @stagemodelonly
+   * @since 26.0.1 dynamic
+   */
+  const cpuId: string;
+
+  /**
+   * CPU架构。
+   *
+   * 示例：aarch64
+   *
+   * @syscap SystemCapability.Startup.BoardInfo
+   * @stagemodelonly
+   * @since 26.0.1 dynamic
+   */
+  const cpuArch: string;
+
+  /**
+   * CPU厂商信息。
+   *
+   * 示例：HISILICON
+   *
+   * @syscap SystemCapability.Startup.BoardInfo
+   * @stagemodelonly
+   * @since 26.0.1 dynamic
+   */
+  const cpuVendor: string;
+
+  /**
+   * 主板序列号。
+   *
+   * **需要权限**：ohos.permission.ACCESS_BOARD_INFO
+   *
+   * 示例：0123456789ABCDEF
+   *
+   * @permission ohos.permission.ACCESS_BOARD_INFO
+   * @syscap SystemCapability.Startup.BoardInfo
+   * @stagemodelonly
+   * @since 26.0.1 dynamic
+   */
+  const boardSn: string;
+
+  /**
+   * 主板厂商。
+   *
+   * 示例：HUAWEI
+   *
+   * @syscap SystemCapability.Startup.BoardInfo
+   * @stagemodelonly
+   * @since 26.0.1 dynamic
+   */
+  const boardVendor: string;
+
+  /**
+   * 主板产品名称。
+   *
+   * 示例：HAD-PCB
+   *
+   * @syscap SystemCapability.Startup.BoardInfo
+   * @stagemodelonly
+   * @since 26.0.1 dynamic
+   */
+  const boardName: string;
+
+  /**
+   * BIOS厂商。
+   *
+   * 示例：HUAWEI
+   *
+   * @syscap SystemCapability.Startup.BoardInfo
+   * @stagemodelonly
+   * @since 26.0.1 dynamic
+   */
+  const biosVendor: string;
+
+  /**
+   * BIOS版本。
+   *
+   * 示例：1.00
+   *
+   * @syscap SystemCapability.Startup.BoardInfo
+   * @stagemodelonly
+   * @since 26.0.1 dynamic
+   */
+  const biosVersion: string;
+
+  /**
+   * BIOS发布日期。
+   *
+   * 示例：2026/01/01 08:00:00
+   *
+   * @syscap SystemCapability.Startup.BoardInfo
+   * @stagemodelonly
+   * @since 26.0.1 dynamic
+   */
+  const biosDate: string;
+}
+
+export default boardInfo;
