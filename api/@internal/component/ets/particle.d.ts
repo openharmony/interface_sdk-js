@@ -741,7 +741,8 @@ interface ParticlePropertyUpdaterConfigs<T> {
    * property value is **0.2** and **config** is [0.1,1.0]:
    * 
    * 1. If the change difference takes a random value 0.5 within the range [0.1,1.0], the target property value is 0.2 + 0.5 = 0.7.
-   * 2. The change difference can also be negative. For example, if the current property value is 0.2 and **config** is [-3.0,2.0], and the change difference takes a random value -2.0 within the range [-3.0,2.0], the target property value is 0.2 - 2.0 = -1.8.
+   * 2. The change difference can also be negative. For example, if the current property value is 0.2 and **config** is [-3.0,2.0],
+   * and the change difference takes a random value -2.0 within the range [-3.0,2.0], the target property value is 0.2 - 2.0 = -1.8.
    * 
    * **Note:**
    * 
@@ -925,9 +926,12 @@ interface ParticleColorUpdaterOptions<UPDATER extends ParticleUpdater> {
   /**
    * The color property change type has three categories:
    * 
-   * 1. When **type** is **ParticleUpdater.NONE**, it indicates no change, and the **config** type is [ParticleColorPropertyUpdaterConfigs]{@link ParticleColorPropertyUpdaterConfigs}[ParticleUpdater.NONE].
-   * 2. When **type** is **ParticleUpdater.RANDOM**, it indicates random uniform change, and the **config** type is [ParticleColorPropertyUpdaterConfigs]{@link ParticleColorPropertyUpdaterConfigs}[ParticleUpdater.RANDOM].
-   * 3. When **type** is **ParticleUpdater.CURVE**, it indicates change following the animation curve, and the **config** type is [ParticleColorPropertyUpdaterConfigs]{@link ParticleColorPropertyUpdaterConfigs}[ParticleUpdater.CURVE].
+   * 1. When **type** is **ParticleUpdater.NONE**, it indicates no change, and the **config** type is
+   * [ParticleColorPropertyUpdaterConfigs]{@link ParticleColorPropertyUpdaterConfigs}[ParticleUpdater.NONE].
+   * 2. When **type** is **ParticleUpdater.RANDOM**, it indicates random uniform change, and the **config** type is
+   * [ParticleColorPropertyUpdaterConfigs]{@link ParticleColorPropertyUpdaterConfigs}[ParticleUpdater.RANDOM].
+   * 3. When **type** is **ParticleUpdater.CURVE**, it indicates change following the animation curve, and the **config** type is
+   * [ParticleColorPropertyUpdaterConfigs]{@link ParticleColorPropertyUpdaterConfigs}[ParticleUpdater.CURVE].
    * 
    * **NOTE**
    * 
