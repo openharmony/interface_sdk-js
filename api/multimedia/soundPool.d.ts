@@ -14,8 +14,9 @@
  */
 
 /**
- * The module provides APIs for loading, unloading, playing, and stopping playing sounds, setting the volume, and 
- * setting the number of loops.
+ * The module provides APIs for loading, unloading, playing, and stopping playing sounds, setting the volume,
+ * and setting the number of loops. The module is applicable to scenarios that require quick response and
+ * low-latency playback, such as game sound effects, UI interaction sound effects, and notification sounds.
  * 
  * Before using these APIs, you must call 
  * [media.createSoundPool]{@link ../@ohos.multimedia.media:media.createSoundPool}
@@ -128,7 +129,7 @@ export interface PlayParameters {
   loop?: int;
   /**
    * Playback rate. For details, see [AudioRendererRate]{@link ../@ohos.multimedia.audio:audio.AudioRendererRate}. 
-   * Default value: **0**
+   * The default value is **RENDER_RATE_NORMAL**, corresponding to the enumerated value **0**.
    *
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10 dynamic
@@ -184,7 +185,10 @@ export interface PlayParameters {
    */
   parallelPlayFlag?: boolean;
   /**
-   * Pitch of the sound. The value ranges from 0.25 to 4.0 with a step size of 0.001. The default value is 1.0.
+   * Pitch for playing an audio stream. The value range is [0.25, 4.0].
+   * The default value is **1.0**.<br>When the pitch exceeds the boundary value,
+   * the boundary value is automatically used.<br>**Since:** 26.0.0<br>
+   * **Model restriction**: This API can be used only in the stage model.
    *
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @stagemodelonly
@@ -429,8 +433,8 @@ export declare interface SoundPool {
    *
    * @param {int} streamID - Audio stream ID, which is obtained by calling **play()**.
    * @param {int} loop - Number of loops.<br>If this parameter is set to a value greater than or equal to 0, the number
-   *     of times the content is actually played is the value of **loop** plus 1.<br> If this parameter is set to a
-   *     value less than 0, the content is played repeatedly.
+   *     of times the content is actually played is the value of **loop** plus 1.<br>If this parameter is set to a
+   *     floating-point number, only the integer part is used.
    * @param {AsyncCallback<void>} callback - Callback function. If the operation is successful, **err** is
    *     **undefined**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
@@ -447,8 +451,8 @@ export declare interface SoundPool {
    *
    * @param {int} streamID - Audio stream ID, which is obtained by calling **play()**.
    * @param {int} loop - Number of loops.<br>If this parameter is set to a value greater than or equal to 0, the number
-   *     of times the content is actually played is the value of **loop** plus 1.<br> If this parameter is set to a
-   *     value less than 0, the content is played repeatedly.
+   *     of times the content is actually played is the value of **loop** plus 1.<br>If this parameter is set to a
+   *     floating-point number, only the integer part is used.
    * @returns {Promise<void>} Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    *     2.Incorrect parameter types. 3.Parameter verification failed. Return by promise.
@@ -559,12 +563,12 @@ export declare interface SoundPool {
    */
   setVolume(streamID: int, leftVolume: double, rightVolume: double): Promise<void>;
   /**
-   * Sets the interruption mode of the audio files with the same ID during playback. After the **SoundPool** is created,
-   * this API is valid only when the **Play** function of the **SoundPool** is called for the first time. You can set 
-   * the interruption mode for multiple times. If the interruption mode is not set, the 
-   * [SAME_SOUND_INTERRUPT](docroot://reference/apis-media-kit/arkts-media-media-soundinterruptmode-e.md) mode is used by default. That is
-   * , if the former audio file is not completely played, the latter audio file with the same ID interrupts the former 
-   * audio file.
+   * Sets the interruption mode of the audio resources with the same sound ID during playback.
+   * After a **soundPool** instance is created, this API is valid only before the play function of
+   * the **soundPool** instance is called for the first time. If this parameter is not set,
+   * [SAME_SOUND_INTERRUPT](arkts-apis-media-e.md#soundinterruptmode23) is used by default.
+   * That is, for the audio resources with the same sound ID, if the previous playback instance
+   * has not finished playing, the next playback instance interrupts the previous one before playing.
    *
    * @param { media.SoundInterruptMode } interruptMode - Interruption mode of the audio files with the same ID during
    *     playback, which is obtained through the **media.SoundInterruptMode** enum.
