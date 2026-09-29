@@ -22,7 +22,6 @@ import { LazyLayoutAlgorithm } from './arkui/LazyLayoutAlgorithm';
 /**
  * Defines the LazyDynamicLayout attribute functions.
  *
- * @extends CommonMethod<LazyDynamicLayoutAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -30,24 +29,30 @@ import { LazyLayoutAlgorithm } from './arkui/LazyLayoutAlgorithm';
  * @since 26.0.0 dynamic
  */
 export declare class LazyDynamicLayoutAttribute extends CommonMethod<LazyDynamicLayoutAttribute> {
-    /**
-     * Called when visible indexes change.
-     *
-     * @param { Callback<int[]> | undefined } callback - Callback used to return the list of index
-     *     numbers of visible subcomponents.
-     *     <br>Passing undefined will unregister the callback.
-     * @returns { LazyDynamicLayoutAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 26.0.0 dynamic
-     */
-    onVisibleIndexesChange(callback: Callback<int[]> | undefined): LazyDynamicLayoutAttribute;
+  /**
+   * Sets the **onVisibleIndexesChange** callback. This callback is triggered
+   *     when the list of child component indexes in the visible area of **LazyDynamicLayout** changes,
+   *     and returns the list of child component indexes in the visible area.
+   *
+   * @param { Callback<int[]> | undefined } callback - Callback used to return the list of child component indexes
+   *     in the visible area.
+   *     When the input parameter is **undefined**, the listener is canceled.
+   * @returns { LazyDynamicLayoutAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  onVisibleIndexesChange(callback: Callback<int[]> | undefined): LazyDynamicLayoutAttribute;
 }
 
 /**
  * Defines LazyDynamicLayout Component.
+ *
+ * ###### Child Components
+ *
+ * Child components are supported.
  *
  * @param { LazyLayoutAlgorithm } algorithm - Lazy layout algorithm.
  * @returns { LazyDynamicLayoutAttribute }
@@ -61,7 +66,7 @@ export declare function LazyDynamicLayout(algorithm: LazyLayoutAlgorithm): LazyD
 
 /**
  * Defines LazyDynamicLayout Component instance.
- * @type { LazyDynamicLayoutAttribute }
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
