@@ -92,6 +92,7 @@ export enum SuppressWarningsType {
  * @stagemodelonly
  * @since 26.0.1 static
  */
+@Retention('SOURCE')
 export @interface SuppressWarnings {
 
   /**
