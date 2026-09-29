@@ -4662,7 +4662,7 @@ declare namespace cert {
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
      * @throws { BusinessError } 19020003 - Parameter check failed. Possible causes:
-     *     <br>1. The value of encodingType is invalid.
+     *     <br>1. The value of encodingType is not in the EncodingType enumeration range.
      * @throws { BusinessError } 19030001 - Crypto operation error.
      * @syscap SystemCapability.Security.Cert
      * @stagemodelonly
