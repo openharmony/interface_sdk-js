@@ -89,7 +89,7 @@ export declare class DynamicLayoutAttribute extends CommonMethod<DynamicLayoutAt
  */
 export declare const DynamicLayout: DynamicLayoutInterface;
 /**
- * Defines DynamicLayout Component instance.
+ * DynamicLayout组件实例。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly

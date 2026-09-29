@@ -134,7 +134,7 @@ declare const CounterInstance: CounterAttribute;
  * >
  * > - 该组件从API版本26.0.0开始支持[WithTheme]{@link ./with_theme}。
  *
- * ###### 子组件
+ * ## 子组件
  *
  * 可以包含子组件。
  *

@@ -231,7 +231,8 @@ export type OnSelectedIndexChange = (selectedIndex: number) => void;
 export type OnSelectedIndexesChange = (selectedIndexes: number[]) => void;
 
 /**
-*
+ * 分段按钮选项类，用于定义单个分段按钮的文本、图标等属性。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform

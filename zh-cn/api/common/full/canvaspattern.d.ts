@@ -278,7 +278,7 @@ export class Matrix2D {
   /**
    * 创建单位矩阵。
    *
-   * @returns { Matrix2D }
+   * @returns { Matrix2D } - 单位矩阵。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @famodelonly
    * @since 8
@@ -286,7 +286,7 @@ export class Matrix2D {
   /**
    * 创建单位矩阵。
    *
-   * @returns { Matrix2D }
+   * @returns { Matrix2D } - 单位矩阵。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @famodelonly
    * @form
@@ -295,7 +295,7 @@ export class Matrix2D {
   /**
    * 创建单位矩阵。
    *
-   * @returns { Matrix2D }
+   * @returns { Matrix2D } - 单位矩阵。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @famodelonly
    * @form
@@ -307,7 +307,7 @@ export class Matrix2D {
   /**
    * 获取当前矩阵的逆矩阵。
    *
-   * @returns { Matrix2D }
+   * @returns { Matrix2D } - 逆矩阵结果。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @famodelonly
    * @since 8
@@ -315,7 +315,7 @@ export class Matrix2D {
   /**
    * 获取当前矩阵的逆矩阵。
    *
-   * @returns { Matrix2D }
+   * @returns { Matrix2D } - 逆矩阵结果。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @famodelonly
    * @form
@@ -324,7 +324,7 @@ export class Matrix2D {
   /**
    * 获取当前矩阵的逆矩阵。
    *
-   * @returns { Matrix2D }
+   * @returns { Matrix2D } - 逆矩阵结果。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @famodelonly
    * @form
@@ -337,7 +337,7 @@ export class Matrix2D {
    * 当前矩阵与目标矩阵相乘。
    *
    * @param { Matrix2D } [other] - 目标矩阵。<br/>异常值undefined和null按无效值处理。<br/>默认值：null
-   * @returns { Matrix2D }
+   * @returns { Matrix2D } - 相乘结果矩阵。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @famodelonly
    * @since 8
@@ -346,7 +346,7 @@ export class Matrix2D {
    * 当前矩阵与目标矩阵相乘。
    *
    * @param { Matrix2D } [other] - 目标矩阵。<br/>异常值undefined和null按无效值处理。<br/>默认值：null
-   * @returns { Matrix2D }
+   * @returns { Matrix2D } - 相乘结果矩阵。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @famodelonly
    * @form
@@ -356,7 +356,7 @@ export class Matrix2D {
    * 当前矩阵与目标矩阵相乘。
    *
    * @param { Matrix2D } [other] - 目标矩阵。<br/>异常值undefined和null按无效值处理。<br/>默认值：null
-   * @returns { Matrix2D }
+   * @returns { Matrix2D } - 相乘结果矩阵。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @famodelonly
    * @form
@@ -370,7 +370,7 @@ export class Matrix2D {
    *
    * @param { number } [rx] - 旋转点的水平方向坐标，取值范围无限制。<br/>异常值undefined和null按无效值处理，NaN和Infinity会导致Matrix2D异常。<br/>默认单位：vp
    * @param { number } [ry] - 旋转点的垂直方向坐标，取值范围无限制。<br/>异常值undefined和null按无效值处理，NaN和Infinity会导致Matrix2D异常。<br/>默认单位：vp
-   * @returns { Matrix2D }
+   * @returns { Matrix2D } - 旋转后结果矩阵对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @famodelonly
    * @since 8
@@ -380,7 +380,7 @@ export class Matrix2D {
    *
    * @param { number } [rx] - 旋转点的水平方向坐标，取值范围无限制。<br/>异常值undefined和null按无效值处理，NaN和Infinity会导致Matrix2D异常。<br/>默认单位：vp
    * @param { number } [ry] - 旋转点的垂直方向坐标，取值范围无限制。<br/>异常值undefined和null按无效值处理，NaN和Infinity会导致Matrix2D异常。<br/>默认单位：vp
-   * @returns { Matrix2D }
+   * @returns { Matrix2D } - 旋转后结果矩阵对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @famodelonly
    * @form
@@ -391,7 +391,7 @@ export class Matrix2D {
    *
    * @param { number } [rx] - 旋转点的水平方向坐标，取值范围无限制。<br/>异常值undefined和null按无效值处理，NaN和Infinity会导致Matrix2D异常。<br/>默认单位：vp
    * @param { number } [ry] - 旋转点的垂直方向坐标，取值范围无限制。<br/>异常值undefined和null按无效值处理，NaN和Infinity会导致Matrix2D异常。<br/>默认单位：vp
-   * @returns { Matrix2D }
+   * @returns { Matrix2D } - 旋转后结果矩阵对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @famodelonly
    * @form
@@ -405,7 +405,7 @@ export class Matrix2D {
    *
    * @param { number } [tx] - 水平方向平移距离，取值范围无限制。<br/>异常值undefined和null按无效值处理，NaN和Infinity会导致Matrix2D异常。<br/>默认单位：vp<br/>默认值：0
    * @param { number } [ty] - 垂直方向平移距离，取值范围无限制。<br/>异常值undefined和null按无效值处理，NaN和Infinity会导致Matrix2D异常。<br/>默认单位：vp<br/>默认值：0
-   * @returns { Matrix2D }
+   * @returns { Matrix2D } - 平移后结果矩阵对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @famodelonly
    * @since 8
@@ -415,7 +415,7 @@ export class Matrix2D {
    *
    * @param { number } [tx] - 水平方向平移距离，取值范围无限制。<br/>异常值undefined和null按无效值处理，NaN和Infinity会导致Matrix2D异常。<br/>默认单位：vp<br/>默认值：0
    * @param { number } [ty] - 垂直方向平移距离，取值范围无限制。<br/>异常值undefined和null按无效值处理，NaN和Infinity会导致Matrix2D异常。<br/>默认单位：vp<br/>默认值：0
-   * @returns { Matrix2D }
+   * @returns { Matrix2D } - 平移后结果矩阵对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @famodelonly
    * @form
@@ -426,7 +426,7 @@ export class Matrix2D {
    *
    * @param { number } [tx] - 水平方向平移距离，取值范围无限制。<br/>异常值undefined和null按无效值处理，NaN和Infinity会导致Matrix2D异常。<br/>默认单位：vp<br/>默认值：0
    * @param { number } [ty] - 垂直方向平移距离，取值范围无限制。<br/>异常值undefined和null按无效值处理，NaN和Infinity会导致Matrix2D异常。<br/>默认单位：vp<br/>默认值：0
-   * @returns { Matrix2D }
+   * @returns { Matrix2D } - 平移后结果矩阵对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @famodelonly
    * @form
@@ -440,7 +440,7 @@ export class Matrix2D {
    *
    * @param { number } [sx] - 水平缩放比例系数，取值范围无限制。<br/>异常值undefined和null按无效值处理，NaN和Infinity会导致Matrix2D异常。<br/>默认值：1.0
    * @param { number } [sy] - 垂直缩放比例系数，取值范围无限制。<br/>异常值undefined和null按无效值处理，NaN和Infinity会导致Matrix2D异常。<br/>默认值：1.0
-   * @returns { Matrix2D }
+   * @returns { Matrix2D } - 缩放后结果矩阵对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @famodelonly
    * @since 8
@@ -450,7 +450,7 @@ export class Matrix2D {
    *
    * @param { number } [sx] - 水平缩放比例系数，取值范围无限制。<br/>异常值undefined和null按无效值处理，NaN和Infinity会导致Matrix2D异常。<br/>默认值：1.0
    * @param { number } [sy] - 垂直缩放比例系数，取值范围无限制。<br/>异常值undefined和null按无效值处理，NaN和Infinity会导致Matrix2D异常。<br/>默认值：1.0
-   * @returns { Matrix2D }
+   * @returns { Matrix2D } - 缩放后结果矩阵对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @famodelonly
    * @form
@@ -461,7 +461,7 @@ export class Matrix2D {
    *
    * @param { number } [sx] - 水平缩放比例系数，取值范围无限制。<br/>异常值undefined和null按无效值处理，NaN和Infinity会导致Matrix2D异常。<br/>默认值：1.0
    * @param { number } [sy] - 垂直缩放比例系数，取值范围无限制。<br/>异常值undefined和null按无效值处理，NaN和Infinity会导致Matrix2D异常。<br/>默认值：1.0
-   * @returns { Matrix2D }
+   * @returns { Matrix2D } - 缩放后结果矩阵对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @famodelonly
    * @form

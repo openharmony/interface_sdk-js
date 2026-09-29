@@ -80,10 +80,6 @@ interface EllipseOptions {
 
 /**
  * 椭圆绘制组件。该组件通过设置宽度和高度属性绘制椭圆形状，在给定的矩形区域内渲染椭圆轮廓和填充区域。
- * 
- * > **说明：**
- * >
- * > 该组件从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -95,11 +91,11 @@ interface EllipseOptions {
  */
 interface EllipseInterface {
   /**
-   * use new function to set the value.
-   * Anonymous Object Rectification.
+   * 用于绘制椭圆的构造函数。调用后创建一个Ellipse对象，可设置宽高属性。
    *
    * @param { object } value [since 7 - 17]
-   * @param { EllipseOptions } [options] - ellipse options [since 18]
+   * @param { EllipseOptions } [options] - 椭圆绘制配置选项，包含宽度和高度设置。不传入时使用默认尺寸（宽度和高度均为0）。
+   *     <br>异常值undefined和null按照无效值处理，本次设置不生效。 [since 18]
    * @returns { EllipseAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -143,10 +139,6 @@ declare class EllipseAttribute extends CommonShapeMethod<EllipseAttribute> {}
 /**
  * 椭圆绘制组件。该组件通过设置宽度和高度属性绘制椭圆形状，在给定的矩形区域内渲染椭圆轮廓和填充区域。
  * 
- * > **说明：**
- * >
- * > 该组件从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
- * 
  * ## 子组件
  * 
  * 无
@@ -162,7 +154,7 @@ declare class EllipseAttribute extends CommonShapeMethod<EllipseAttribute> {}
 declare const Ellipse: EllipseInterface;
 
 /**
- * Defines Ellipse Component instance.
+ * 定义Ellipse组件实例。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel

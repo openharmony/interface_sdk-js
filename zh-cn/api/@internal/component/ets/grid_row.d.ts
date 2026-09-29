@@ -516,10 +516,6 @@ declare interface GridRowOptions {
  * 栅格容器组件，仅可以和栅格子组件([GridCol]{@link ./grid_col})在栅格布局场景中使用。
  * 
  * 支持根据设备尺寸和断点动态调整列数与间距，实现响应式布局。
- * 
- * > **说明：**
- * >
- * > 该组件从API version 9开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -532,7 +528,7 @@ interface GridRowInterface {
   /**
    * 栅格行布局容器。仅可以和栅格子组件在栅格布局场景中使用。
    *
-   * @param { GridRowOptions } option
+   * @param { GridRowOptions } option - 栅格行布局选项，包含columns、gutter、breakpoints等布局属性。不传入时使用各属性默认值。
    * @returns { GridRowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -602,11 +598,7 @@ declare class GridRowAttribute extends CommonMethod<GridRowAttribute> {
  * 栅格容器组件，仅可以和栅格子组件([GridCol]{@link ./grid_col})在栅格布局场景中使用。
  * 
  * 支持根据设备尺寸和断点动态调整列数与间距，实现响应式布局。
- * 
- * > **说明：**
- * >
- * > 该组件从API version 9开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
- * 
+ *
  * ## 子组件
  * 
  * 可以包含GridCol子组件。

@@ -1311,11 +1311,13 @@ declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptio
 }
 
 /**
-* > **说明：**
-* >
-* > 不支持设置字体类型。
+ * 分段按钮选项类，用于提供初始数据和自定义属性。
+ *
+ * > **说明：**
+ * >
+ * > 不支持设置字体类型。
  * > 分段按钮选项类用于提供初始数据和自定义属性。
-*
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform

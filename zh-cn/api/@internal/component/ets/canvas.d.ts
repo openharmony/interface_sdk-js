@@ -151,7 +151,7 @@ declare type CanvasTextBaseline = "alphabetic" | "bottom" | "hanging" | "ideogra
 declare type ImageSmoothingQuality = "high" | "low" | "medium";
 
 /**
- * Import the frame node type object for Canvas.
+ * 为Canvas导入FrameNode类型对象。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1817,7 +1817,7 @@ declare class CanvasRenderer extends CanvasPath {
   /**
    * 获取虚线样式。
    *
-   * @returns { number[] }
+   * @returns { number[] } 虚线样式数组，包含交替绘制线和间距的距离。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -2664,16 +2664,6 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
  * @atomicservice [since 11]
  * @since 8 dynamic
  */
-declare interface OffscreenCanvasRenderingContext2DInterface {
-  /**
-   * @since 8
-   */
-  (width: number, height: number, settings?: RenderingContextSettings): OffscreenCanvasRenderingContext2D;
-  /**
-   * @since 12
-   */
-  (width: number, height: number, settings?: RenderingContextSettings, unit?: LengthMetricsUnit): OffscreenCanvasRenderingContext2D;
-}
 declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
   /**
    * 生成一个包含图片展示的URL，该接口存在内存拷贝行为，高耗时，应避免频繁使用。

@@ -4792,84 +4792,30 @@ declare interface ScaleOptions {
 declare interface VerticalAlignParam {
 
   /**
-   * 指定锚点组件。
-   *
-   * @type { ?string } anchor
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * 指定锚点组件。
-   *
-   * @type { string } anchor
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * 指定锚点组件。
-   *
-   * @type { string } anchor
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Specifies the anchor component
+   * 设置作为锚点的组件的id值。
    *
    * Anonymous Object Rectification
    *
    * @type { string } anchor
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
+   * @crossplatform [since 10]
    * @form
-   * @atomicservice
-   * @since 23 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   anchor: string;
 
   /**
-   * Sets the vertical alignment relative to the anchor component.
-   *
-   * @type { VerticalAlign }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Sets the vertical alignment relative to the anchor component.
-   *
-   * @type { VerticalAlign }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Sets the vertical alignment relative to the anchor component.
-   *
-   * @type { VerticalAlign }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the vertical alignment relative to the anchor component.
+   * 设置相对于锚点组件的纵向对齐方式。
    *
    * Anonymous Object Rectification
    *
    * @type { VerticalAlign }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
+   * @crossplatform [since 10]
    * @form
-   * @atomicservice
-   * @since 23 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   align: VerticalAlign;
 }
@@ -4888,89 +4834,33 @@ declare interface VerticalAlignParam {
 declare interface HorizontalAlignParam {
 
   /**
-   * 指定锚点组件
-   *
-   * @type { string } anchor
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * 指定锚点组件
-   *
-   * @type { string } anchor
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * 指定锚点组件
-   *
-   * @type { string } anchor
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Specifies the anchor component
-   *
+   * 设置作为锚点的组件的id值。
    * Anonymous Object Rectification
    * @type { string } anchor
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
+   * @crossplatform [since 10]
    * @form
-   * @atomicservice
-   * @since 23 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   anchor: string;
 
   /**
-   * Sets the horizontal alignment relative to the anchor component.
-   *
-   * @type { HorizontalAlign } align
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Sets the horizontal alignment relative to the anchor component.
-   *
-   * @type { HorizontalAlign } align
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Sets the horizontal alignment relative to the anchor component.
-   *
-   * @type { HorizontalAlign } align
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the horizontal alignment relative to the anchor component.
-   *
+   * 设置相对于锚点组件的水平对齐方式。
    * Anonymous Object Rectification
    *
    * @type { HorizontalAlign } align
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
+   * @crossplatform [since 10]
    * @form
-   * @atomicservice
-   * @since 23 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   align: HorizontalAlign;
 }
 
 /**
- * Defines the align rule options of relative container.
+ * 相对布局组件中子组件的对齐规则。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -5073,7 +4963,7 @@ declare interface AlignRuleOption {
 }
 
 /**
- * Defines the localized horizontal align param of relative container.
+ * 定义相对容器的水平对齐规则。
  *
  * @interface LocalizedHorizontalAlignParam
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -5085,7 +4975,7 @@ declare interface AlignRuleOption {
 declare interface LocalizedHorizontalAlignParam {
 
   /**
-   * The anchor of localized align param.
+   * 设置作为锚点的组件的id值。
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -5097,7 +4987,7 @@ declare interface LocalizedHorizontalAlignParam {
   anchor: string;
 
   /**
-   * The align of localized align param.
+   * 设置相对于锚点组件的水平对齐方式。
    *
    * @type { HorizontalAlign }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -5110,7 +5000,7 @@ declare interface LocalizedHorizontalAlignParam {
 }
 
 /**
- * Defines the localized vertical align param of relative container.
+ * 定义相对容器的纵向对齐规则。
  *
  * @interface LocalizedVerticalAlignParam
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -5122,7 +5012,7 @@ declare interface LocalizedHorizontalAlignParam {
 declare interface LocalizedVerticalAlignParam {
 
   /**
-   * The anchor of localized align param.
+   * 设置作为锚点的组件的id值。
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -5134,7 +5024,7 @@ declare interface LocalizedVerticalAlignParam {
   anchor: string;
 
   /**
-   * The align of localized align param.
+   * 设置相对于锚点组件的纵向对齐方式。
    *
    * @type { VerticalAlign }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -5147,7 +5037,7 @@ declare interface LocalizedVerticalAlignParam {
 }
 
 /**
- * Defines the Localized align rule options of relative container.
+ * 相对布局组件中子组件的对齐规则。
  *
  * @interface LocalizedAlignRuleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -25954,500 +25844,184 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @systemapi
-   * @since 7
-   */
-  /**
-   * constructor.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @systemapi
-   * @form
-   * @since 9 dynamic
+   * @form [since 9]
+   * @since 7 dynamic
    */
   constructor();
 
   /**
-   * border Color
+   * 设置边框颜色，支持attributeModifier动态设置属性方法，不设置时，默认边框透明度为0，即无边框。
    *
-   * @param { ResourceColor } value - 
+   * @param { ResourceColor } value - 边框颜色。
+   * <br>默认值：Color.Transparent<br/>异常值undefined和null按照默认值处理，NaN和Infinity按照Color.Black处理。
    * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * border Color
-   *
-   * @param { ResourceColor } value - 
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * border Color
-   *
-   * @param { ResourceColor } value - 
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * border Color
-   *
-   * @param { ResourceColor } value - 
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   stroke(value: ResourceColor): T;
 
   /**
-   * Fill color.
+   * 设置填充区域的颜色，支持attributeModifier动态设置属性方法，异常值按照默认值处理。与通用属性foregroundColor同时设置时，后设置的属性生效。
    *
-   * @param { ResourceColor } value - 
+   * @param { ResourceColor } value - 填充区域颜色。
+   * <br>默认值：Color.Black
+   * <br>异常值undefined、null、NaN和Infinity按照默认值处理。
    * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Fill color.
-   *
-   * @param { ResourceColor } value - 
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Fill color.
-   *
-   * @param { ResourceColor } value - 
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Fill color.
-   *
-   * @param { ResourceColor } value - 
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   fill(value: ResourceColor): T;
 
   /**
-   * Offset from the start point of the border drawing.
+   * 设置边框绘制起点的偏移量，支持attributeModifier动态设置属性方法。异常值按照默认值处理。
    *
-   * @param { number | string } value - 
+   * @param { number | string } value - 边框绘制起点的偏移量。
+   * <br>默认值：0<br/>默认单位：vp
+   * <br>异常值undefined和null按照默认值处理，NaN和Infinity会导致strokeDashArray失效。
    * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Offset from the start point of the border drawing.
-   *
-   * @param { number | string } value - 
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Offset from the start point of the border drawing.
-   *
-   * @param { number | string } value - 
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Offset from the start point of the border drawing.
-   *
-   * @param { number | string } value - 
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   strokeDashOffset(value: number | string): T;
 
   /**
-   * Path endpoint drawing style.
+   * 设置边框端点绘制样式，支持attributeModifier动态设置属性方法。
    *
-   * @param { LineCapStyle } value - 
+   * @param { LineCapStyle } value - 边框端点绘制样式。
+   * <br>默认值：LineCapStyle.Butt
+   * <br>异常值undefined、null、NaN和Infinity按照默认值处理。
    * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Path endpoint drawing style.
-   *
-   * @param { LineCapStyle } value - 
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Path endpoint drawing style.
-   *
-   * @param { LineCapStyle } value - 
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Path endpoint drawing style.
-   *
-   * @param { LineCapStyle } value - 
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   strokeLineCap(value: LineCapStyle): T;
 
   /**
-   * Border corner drawing style.
+   * 设置边框拐角绘制样式，支持attributeModifier动态设置属性方法。
    *
-   * @param { LineJoinStyle } value - 
+   * @param { LineJoinStyle } value - 边框拐角绘制样式。
+   * <br>默认值：LineJoinStyle.Miter
+   * <br>异常值undefined、null、NaN和Infinity按照默认值处理。
    * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Border corner drawing style.
-   *
-   * @param { LineJoinStyle } value - 
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Border corner drawing style.
-   *
-   * @param { LineJoinStyle } value - 
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Border corner drawing style.
-   *
-   * @param { LineJoinStyle } value - 
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   strokeLineJoin(value: LineJoinStyle): T;
 
   /**
-   * Limits for drawing acute angles as bevels
+   * 设置斜接长度与边框宽度比值的极限值，支持attributeModifier动态设置属性方法。斜接长度表示外边框外边交点到内边交点的距离，边框宽度即strokeWidth属性的值。该属性取值需在strokeLineJoin属性取值LineJoinStyle.Miter时生效。该属性的合法值范围应当大于等于1.0，当取值范围在[0,1)时按1.0处理，其余异常值按默认值处理。
    *
-   * @param { number | string } value
+   * @param { number | string } value - 斜接长度与边框宽度比值的极限值。
+   * <br>默认值：4
+   * <br>异常值undefined、null和NaN按照默认值处理，Infinity会导致stroke失效。
    * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Limits for drawing acute angles as bevels
-   *
-   * @param { number | string } value
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Limits for drawing acute angles as bevels
-   *
-   * @param { number | string } value
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Limits for drawing acute angles as bevels
-   *
-   * @param { number | string } value
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   strokeMiterLimit(value: number | string): T;
 
   /**
-   * Sets the opacity of the border.
+   * 设置边框透明度，支持attributeModifier动态设置属性方法。该属性的取值范围是[0.0, 1.0]，若给定值小于0.0，则取值为0.0；若给定值大于1.0，则取值为1.0。
    *
-   * @param { number | string | Resource } value - 
+   * @param { number | string | Resource } value - 边框透明度。
+   * <br>默认值：stroke接口设置的透明度
+   * <br>异常值NaN按0.0处理，undefined、null和Infinity按1.0处理。
    * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Sets the opacity of the border.
-   *
-   * @param { number | string | Resource } value - 
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Sets the opacity of the border.
-   *
-   * @param { number | string | Resource } value - 
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Sets the opacity of the border.
-   *
-   * @param { number | string | Resource } value - 
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   strokeOpacity(value: number | string | Resource): T;
 
   /**
-   * fill Opacity
+   * 设置填充区域透明度，支持attributeModifier动态设置属性方法。
    *
-   * @param { number | string | Resource } value - 
+   * @param { number | string | Resource } value - 填充区域透明度。
+   * <br>默认值：1.0
    * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * fill Opacity
-   *
-   * @param { number | string | Resource } value - 
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * fill Opacity
-   *
-   * @param { number | string | Resource } value - 
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * fill Opacity
-   *
-   * @param { number | string | Resource } value - 
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   fillOpacity(value: number | string | Resource): T;
 
   /**
-   * Sets the width of the dividing line.
+   * 设置边框宽度，支持attributeModifier动态设置属性方法。该属性若为string类型，暂不支持百分比，百分比按照1px处理。
    *
-   * @param { Length } value - 
+   * @param { Length } value - 边框宽度，取值范围≥0。
+   * <br>默认值：1
+   * <br>默认单位：vp<br/>异常值undefined、null和NaN按照默认值处理，Infinity按0处理。
    * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Sets the width of the dividing line.
-   *
-   * @param { Length } value - 
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Sets the width of the dividing line.
-   *
-   * @param { Length } value - 
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Sets the width of the dividing line.
-   *
-   * @param { Length } value - 
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   strokeWidth(value: Length): T;
 
   /**
-   * Indicates whether to enable anti-aliasing
+   * 设置是否开启抗锯齿效果，支持attributeModifier动态设置属性方法。
    *
-   * @param { boolean } value - 
+   * @param { boolean } value - 是否开启抗锯齿效果。
+   * <br>true：开启抗锯齿；false：关闭抗锯齿。
+   * <br>默认值：true
+   * <br>异常值undefined和null按照false处理。
    * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Indicates whether to enable anti-aliasing
-   *
-   * @param { boolean } value - 
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Indicates whether to enable anti-aliasing
-   *
-   * @param { boolean } value - 
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Indicates whether to enable anti-aliasing
-   *
-   * @param { boolean } value - 
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   antiAlias(value: boolean): T;
 
   /**
-   * Sets the gap for the border.
+   * 设置边框的虚线长度和虚线间隙长度，支持attributeModifier动态设置属性方法。取值范围≥0。异常值将按默认值处理。
    *
-   * @param { Array<any> } value - 
+   * @param { Array<any> } value - 定义Rect边框的虚线模式的数组，数组元素交替表示线段长度和间隙长度。
+   * <br>默认值：[]（空数组）
+   * <br>默认单位：vp
+   * <br>异常值undefined和null按照默认值处理。
    * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Sets the gap for the border.
-   *
-   * @param { Array<any> } value - 
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Sets the gap for the border.
-   *
-   * @param { Array<any> } value - 
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Sets the gap for the border.
-   *
-   * @param { Array<any> } value - 
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   strokeDashArray(value: Array<any>): T;
 }
@@ -26978,7 +26552,7 @@ declare interface LayoutChild {
   /**
    * 在 onMeasure 回调中调用此 measure 方法以提供子组件的尺寸。
    *
-   * @param { ConstraintSizeOptions } childConstraint
+   * @param { ConstraintSizeOptions } childConstraint - 子组件的尺寸约束。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9 dynamiconly
@@ -26990,7 +26564,7 @@ declare interface LayoutChild {
   /**
    * 在 onLayout 回调中调用此布局方法，将布局信息分配给子组件。
    *
-   * @param { LayoutInfo } childLayoutInfo
+   * @param { LayoutInfo } childLayoutInfo - 子组件的布局信息。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9 dynamiconly
@@ -27001,7 +26575,9 @@ declare interface LayoutChild {
 }
 
 /**
- * 父组件（自定义组件）布局信息，继承自[SizeResult]{@link SizeResult}。
+ * 父组件（自定义组件）布局信息。
+ * 在onMeasureSize和onPlaceChildren方法中，可通过selfLayoutInfo参数获取GeometryInfo对象，
+ * 其中包含父组件的边框宽度、外边距和内边距信息，开发者在计算子组件布局时需要考虑这些信息。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -27049,7 +26625,8 @@ declare interface GeometryInfo extends SizeResult {
 }
 
 /**
- * 子组件布局信息。
+ * 子组件布局信息。Layoutable对象由ArkUI框架在onPlaceChildren调用时创建并传入，包含子组件的测量结果和唯一标识。
+ * 开发者通过Layoutable的layout方法设置子组件位置，通过getMargin、getPadding、getBorderWidth方法获取子组件的边距信息用于精确布局计算。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -27072,8 +26649,7 @@ declare interface Layoutable {
   measureResult: MeasureResult;
 
   /**
-   * 系统为子组件分配的唯一标识UniqueID。
-   * 取值应为≥0的整数。
+   * 系统为子组件分配的唯一标识UniqueID。用于唯一标识子组件以进行后续操作（如通过getFrameNodeByUniqueId获取FrameNode）。取值范围[0, +∞)。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -27084,9 +26660,9 @@ declare interface Layoutable {
   uniqueId?: number;
 
   /**
-   * 调用此方法对子组件的位置信息进行限制。
+   * 调用此方法设置子组件的位置信息。
    *
-   * @param { Position } position - 绝对位置。
+   * @param { Position } position - 绝对位置，包含x和y坐标（原点为父组件左上角，x轴向右为正，y轴向下为正）。单位：vp。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -27096,9 +26672,9 @@ declare interface Layoutable {
   layout(position: Position): void;
 
   /**
-   * 调用此方法获取子组件的margin信息。
+   * 调用此方法获取子组件的margin信息，返回其外边距。
    *
-   * @returns { DirectionalEdgesT<number> } 子组件的margin信息。
+   * @returns { DirectionalEdgesT<number> } 子组件的外边距对象，包含四个方向的边距值。单位：vp。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -27108,9 +26684,9 @@ declare interface Layoutable {
   getMargin() : DirectionalEdgesT<number>;
 
   /**
-   * 调用此方法获取子组件的padding信息。
+   * 调用此方法获取子组件的padding信息，返回其内边距。
    *
-   * @returns { DirectionalEdgesT<number> } 子组件的padding信息。
+   * @returns { DirectionalEdgesT<number> } 子组件的内边距对象，包含四个方向的内边距值。单位：vp。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -27120,9 +26696,9 @@ declare interface Layoutable {
   getPadding() : DirectionalEdgesT<number>;
 
   /**
-   * 调用此方法获取子组件的borderWidth信息。
+   * 调用此方法获取子组件的borderWidth信息，返回其边框宽度。
    *
-   * @returns { DirectionalEdgesT<number> } 子组件的borderWidth信息。
+   * @returns { DirectionalEdgesT<number> } 子组件的边框宽度对象，包含四个方向的边框宽度值。单位：vp。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -27133,7 +26709,9 @@ declare interface Layoutable {
 }
 
 /**
- * 子组件位置信息。
+ * 子组件测量信息。Measurable对象由ArkUI框架在onMeasureSize调用时创建并传入，用于测量阶段。
+ * 与Layoutable（用于布局阶段）不同，Measurable主要用于测量子组件尺寸，开发者通过measure方法设置约束条件并获取测量结果。
+ * Measurable和Layoutable是同一子组件在不同布局阶段的两种表示形式。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -27145,7 +26723,7 @@ declare interface Measurable {
 
   /**
    * 系统为子组件分配的唯一标识UniqueID。
-   * 取值限定为整数。
+   * 用于唯一标识子组件以进行后续操作（如通过getFrameNodeByUniqueId获取FrameNode）。取值范围[0, +∞)。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -27156,10 +26734,10 @@ declare interface Measurable {
   uniqueId?: number;
 
   /**
-   * 调用此方法限制子组件的尺寸范围。
+   * 调用此方法限制子组件的尺寸范围，返回测量后的组件布局信息。
    *
-   * @param { ConstraintSizeOptions } constraint - 约束尺寸。
-   * @returns { MeasureResult } Provides the measurement result of the component.
+   * @param { ConstraintSizeOptions } constraint - 约束尺寸，包含minWidth、maxWidth、minHeight、maxHeight等约束条件，用于限制子组件的尺寸范围。取值原则：minWidth≤maxWidth，minHeight≤maxHeight；单位：vp。
+   * @returns { MeasureResult } 测量后的组件布局信息，包含测量后的宽度和高度。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -27169,9 +26747,9 @@ declare interface Measurable {
   measure(constraint: ConstraintSizeOptions) : MeasureResult;
 
   /**
-   * 调用此方法获取子组件的margin信息。
+   * 获取子组件的margin信息，返回其外边距。
    *
-   * @returns { DirectionalEdgesT<number> } 子组件的margin信息。
+   * @returns { DirectionalEdgesT<number> } 子组件的外边距对象，包含四个方向的边距值。单位：vp。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -27181,9 +26759,9 @@ declare interface Measurable {
   getMargin() : DirectionalEdgesT<number>;
 
   /**
-   * 调用此方法获取子组件的padding信息。
+   * 获取子组件的padding信息，返回其内边距。
    *
-   * @returns { DirectionalEdgesT<number> } 子组件的padding信息。
+   * @returns { DirectionalEdgesT<number> } 子组件的内边距对象，包含四个方向的内边距值。单位：vp。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -27193,9 +26771,9 @@ declare interface Measurable {
   getPadding() : DirectionalEdgesT<number>;
 
   /**
-   * 调用此方法获取子组件的borderWidth信息。
+   * 获取子组件的borderWidth信息，返回其边框宽度。
    *
-   * @returns { DirectionalEdgesT<number> } 子组件的borderWidth信息。
+   * @returns { DirectionalEdgesT<number> } 子组件的边框宽度对象，包含四个方向的边框宽度值。单位：vp。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -27226,7 +26804,7 @@ declare interface SizeResult {
 
   /**
    * 测量后的宽。
-   * 单位为： vp。
+   * 单位为： vp。取值范围：[0, +∞)。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -27238,7 +26816,7 @@ declare interface SizeResult {
 
   /**
    * 测量后的高。
-   * 单位为： vp。
+   * 单位为： vp。取值范围：[0, +∞)。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -27250,7 +26828,7 @@ declare interface SizeResult {
 }
 
 /**
- * Sub component MeasureResult info.
+ * 测量后的组件布局信息。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -27420,8 +26998,8 @@ declare class CustomComponent extends BaseCustomComponent {
 
   /**
    *
-   * @param { Array<LayoutChild> } children - Child component layout information.
-   * @param { ConstraintSizeOptions } constraint - Size constraint of the parent component.
+   * @param { Array<LayoutChild> } children - 子组件的布局信息。
+   * @param { ConstraintSizeOptions } constraint - 父组件的尺寸约束。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9 dynamiconly
@@ -27432,8 +27010,8 @@ declare class CustomComponent extends BaseCustomComponent {
 
   /**
    *
-   * @param { Array<LayoutChild> } children - Child component layout information.
-   * @param { ConstraintSizeOptions } constraint - Size constraint of the parent component.
+   * @param { Array<LayoutChild> } children - 子组件的布局信息。
+   * @param { ConstraintSizeOptions } constraint - 父组件的尺寸约束。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9 dynamiconly
@@ -27589,7 +27167,7 @@ declare class BaseCustomComponent extends CommonAttribute {
    * @param { Array<Measurable> } children - 计算子组件大小后的子组件布局信息。<br/>**说明：**
    *     <br/>如果没有设置子组件的布局信息，子组件会维持上一次的布局信息，当子组件从来没有设置过尺寸时，尺寸默认为0。
    * @param { ConstraintSizeOptions } constraint - 自定义组件的布局约束信息。
-   * @returns { SizeResult } Component size information.
+   * @returns { SizeResult } 组件尺寸信息。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform

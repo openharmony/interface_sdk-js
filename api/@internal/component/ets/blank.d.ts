@@ -47,7 +47,7 @@ interface BlankInterface {
    *
    * @param { number | string } min - Minimum size of the **Blank** component in the container along the main axis.
    *     <br>Default value: **0**
-   *     <br>If the type is number, the default unit is vp. If the type is string, the [pixel unit]{@link CommonMethod} can
+   *     <br>If the type is number, the default unit is vp. The value range is [0, +∞). If the type is string, the [pixel unit]{@link CommonMethod} can
    *     be explicitly specified, for example, '**10px'**. If the unit is not specified, the default unit vp is used, in
    *     which case **'10'** is equivalent to **10vp**.
    *     <br>Invalid values are treated as the default value.

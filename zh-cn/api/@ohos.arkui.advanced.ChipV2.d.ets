@@ -683,8 +683,6 @@ export interface ChipV2CloseConfig extends ChipV2AccessibilityConfig {
 /**
  * ChipV2CloseIcon用于定义ChipV2组件关闭图标的功能属性类，包括无障碍功能属性。
  *
- * 继承自[ChipV2Accessibility]{@link ChipV2Accessibility}。
- *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform

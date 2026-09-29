@@ -194,7 +194,7 @@ export declare class ProgressButtonV2Color {
    *
    * 设备行为差异：该接口在Wearable设备上使用时，应用程序运行异常，异常信息中提示接口未定义，在其他设备中可正常调用。
    *
-   * @param options { ProgressButtonV2ColorOptions } 色彩信息。
+   * @param { ProgressButtonV2ColorOptions } options - 色彩信息。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform

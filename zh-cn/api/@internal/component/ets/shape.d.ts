@@ -128,8 +128,6 @@ declare interface ViewportRect {
  * 
  * > **说明：**
  * >
- * > 该组件从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
- * >
  * > 该组件从API version 20开始支持使用[AttributeUpdater]{@link ../../../arkui/AttributeUpdater}类的
  * > [updateConstructorParams](docroot://reference/apis-arkui/js-apis-arkui-AttributeUpdater.md#属性)接口更新构造参数。
  *
@@ -142,8 +140,9 @@ declare interface ViewportRect {
  */
 interface ShapeInterface {
   /**
-   * Use the new function to create Shape.
+   * 用于绘制Shape组件的构造函数。调用后创建一个Shape对象，可设置视口、填充、边框等属性。
    *
+   * @param { PixelMap } value - 绘制目标，可将图形绘制在指定的PixelMap对象中，若未设置，则默认在当前绘制目标中进行绘制。<br/>异常值undefined和null按照无效值处理，本次设置不生效。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -167,7 +166,7 @@ interface ShapeInterface {
    */
   (value: PixelMap): ShapeAttribute;
   /**
-   * Called when a component is drawn.
+   * 用于绘制Shape组件的无参构造函数。调用后创建一个Shape对象，使用默认视口和属性。
    *
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -438,11 +437,9 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
  * 
  * > **说明：**
  * >
- * > 该组件从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
- * >
  * > 该组件从API version 20开始支持使用[AttributeUpdater]{@link ../../../arkui/AttributeUpdater}类的
  * > [updateConstructorParams](docroot://reference/apis-arkui/js-apis-arkui-AttributeUpdater.md#属性)接口更新构造参数。
- * 
+ *
  * ## 子组件
  * 
  * 包含[Rect]{@link rect}、[Path]{@link path}、[Circle]{@link circle}、[Ellipse]{@link ellipse}、[Polyline]{@link polyline}、
@@ -459,7 +456,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
 declare const Shape: ShapeInterface;
 
 /**
- * Defines Shape Component instance.
+ * 定义Shape组件实例。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel

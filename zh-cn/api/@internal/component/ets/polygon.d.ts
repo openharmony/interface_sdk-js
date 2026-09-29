@@ -80,8 +80,6 @@ declare interface PolygonOptions {
  * 
  * > **说明：**
  * >
- * > 该组件从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
- * >
  * > 该组件从API version 20开始支持使用[AttributeUpdater]{@link ../../../arkui/AttributeUpdater}类的
  * > [updateConstructorParams](docroot://reference/apis-arkui/js-apis-arkui-AttributeUpdater.md#属性)接口更新构造参数。
  *
@@ -95,10 +93,10 @@ declare interface PolygonOptions {
  */
 interface PolygonInterface {
   /**
-   * Uses new to create Polygon.
-   * Anonymous Object Rectification.
+   * 用于绘制多边形的构造函数。
    *
-   * @param { PolygonOptions } [options] - Polygon options [since 18]
+   * @param { PolygonOptions } [options] - Polygon组件的配置选项，用于定义绘制区域的宽度和高度。需要指定多边形尺寸时传入此参数，不传入时使用默认宽度和高度（均为0）。当传入undefined
+   *     或null时，参数设置无效，组件属性维持原值。 [since 18]
    * @returns { PolygonAttribute } [since 18]
    * @syscap SystemCapability.ArkUI.ArkUI.Full [since 9]
    * @FaAndStageModel
@@ -163,11 +161,9 @@ declare class PolygonAttribute extends CommonShapeMethod<PolygonAttribute> {
  * 
  * > **说明：**
  * >
- * > 该组件从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
- * >
  * > 该组件从API version 20开始支持使用[AttributeUpdater]{@link ../../../arkui/AttributeUpdater}类的
  * > [updateConstructorParams](docroot://reference/apis-arkui/js-apis-arkui-AttributeUpdater.md#属性)接口更新构造参数。
- * 
+ *
  * ## 子组件
  * 
  * 无
@@ -183,7 +179,7 @@ declare class PolygonAttribute extends CommonShapeMethod<PolygonAttribute> {
 declare const Polygon: PolygonInterface;
 
 /**
- * Defines Polygon Component instance.
+ * 定义Polygon组件实例。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
