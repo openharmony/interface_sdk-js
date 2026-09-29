@@ -5552,6 +5552,7 @@ interface Watcher {
    * Starts listening.
    *
    * @throws { BusinessError } 13900002 - No such file or directory
+   * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900008 - Bad file descriptor
    * @throws { BusinessError } 13900011 - Out of memory
    * @throws { BusinessError } 13900012 - Permission denied
@@ -5573,6 +5574,7 @@ interface Watcher {
    * Stops listening and removes the Watcher object.
    *
    * @throws { BusinessError } 13900002 - No such file or directory
+   * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900008 - Bad file descriptor
    * @throws { BusinessError } 13900011 - Out of memory
    * @throws { BusinessError } 13900012 - Permission denied
