@@ -90,8 +90,6 @@ declare interface PathOptions {
  * 
  * > **说明：**
  * >
- * > 该组件从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
- * >
  * > 该组件从API version 20开始支持使用[AttributeUpdater]{@link ../../../arkui/AttributeUpdater}类的
  * > [updateConstructorParams](docroot://reference/apis-arkui/js-apis-arkui-AttributeUpdater.md#属性)接口更新构造参数。
  *
@@ -104,11 +102,12 @@ declare interface PathOptions {
  */
 interface PathInterface {
   /**
-   * Use new to create Path.
-   * Annonymous Object Rectification.
+   * 创建Path对象实例，用于根据绘制路径生成封闭的自定义形状。
    *
    * @param { object } value [since 7 - 17]
-   * @param { PathOptions } [options] - path options [since 18]
+   * @param { PathOptions } [options] - Path组件绘制属性的配置对象。
+   *     <br>省略时不设置绘制属性，组件按默认尺寸显示。默认尺寸根据路径内容自动计算宽度和高度。
+   *     <br>异常值undefined和null按照无效值处理，本次设置不生效。 [since 18]
    * @returns { PathAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -175,16 +174,14 @@ declare class PathAttribute extends CommonShapeMethod<PathAttribute> {
  * 
  * > **说明：**
  * >
- * > 该组件从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
- * >
  * > 该组件从API version 20开始支持使用[AttributeUpdater]{@link ../../../arkui/AttributeUpdater}类的
  * > [updateConstructorParams](docroot://reference/apis-arkui/js-apis-arkui-AttributeUpdater.md#属性)接口更新构造参数。
- * 
+ *
  * ## 子组件
  * 
  * 无
  * 
- * ###### SVG路径描述规范
+ * ## SVG路径描述规范
  * 
  * SVG路径描述规范支持的命令如下：
  * 
@@ -261,7 +258,7 @@ declare class PathAttribute extends CommonShapeMethod<PathAttribute> {
 declare const Path: PathInterface;
 
 /**
- * Defines Path Component instance.
+ * 定义Path组件实例。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]

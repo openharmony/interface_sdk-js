@@ -79,8 +79,6 @@ declare interface PolylineOptions {
  * 
  * > **说明：**
  * >
- * > 该组件从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
- * >
  * > 该组件从API version 20开始支持使用[AttributeUpdater]{@link ../../../arkui/AttributeUpdater}类的
  * > [updateConstructorParams](docroot://reference/apis-arkui/js-apis-arkui-AttributeUpdater.md#属性)接口更新构造参数。
  *
@@ -94,10 +92,11 @@ declare interface PolylineOptions {
  */
 interface PolylineInterface {
   /**
-   * Uses new to create Polyline.
-   * Anonymous Object Rectification.
+   * 用于绘制折线的构造函数。
    *
-   * @param { PolylineOptions } [options] - Poly line options [since 18]
+   * @param { PolylineOptions } [options] - Polyline绘制区域，用于设置Polyline组件的宽度和高度。
+   * 当需要指定Polyline的绘制区域大小时传入此参数，不传入时使用默认宽度和高度（均为0）。
+   * <br>异常值undefined和null按照无效值处理，本次设置不生效。 [since 18]
    * @returns { PolylineAttribute } [since 18]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -162,11 +161,9 @@ declare class PolylineAttribute extends CommonShapeMethod<PolylineAttribute> {
  * 
  * > **说明：**
  * >
- * > 该组件从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
- * >
  * > 该组件从API version 20开始支持使用[AttributeUpdater]{@link ../../../arkui/AttributeUpdater}类的
  * > [updateConstructorParams](docroot://reference/apis-arkui/js-apis-arkui-AttributeUpdater.md#属性)接口更新构造参数。
- * 
+ *
  * ## 子组件
  * 
  * 无
@@ -182,7 +179,7 @@ declare class PolylineAttribute extends CommonShapeMethod<PolylineAttribute> {
 declare const Polyline: PolylineInterface;
 
 /**
- * Defines Polyline Component instance.
+ * 定义Polyline组件实例。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel

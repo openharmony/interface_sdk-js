@@ -75,8 +75,6 @@ interface LineOptions {
  * 
  * > **说明：**
  * >
- * > 该组件从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
- * >
  * > 该组件从API version 20开始支持使用[AttributeUpdater]{@link ../../../arkui/AttributeUpdater}类的
  * > [updateConstructorParams](docroot://reference/apis-arkui/js-apis-arkui-AttributeUpdater.md#属性)接口更新构造参数。
  * >
@@ -94,11 +92,12 @@ interface LineOptions {
  */
 interface LineInterface {
   /**
-   * Uses new to create the line.
-   * Anonymous Object Rectification.
+   * 用于绘制直线的构造函数。Line组件在width和height定义的矩形区域内绘制直线，绘制区域的左上角为坐标原点(0,0)，x轴向右延伸，y轴向下延伸。
    *
    * @param { object } value [since 7 - 17]
-   * @param { LineOptions } [options] - Line options [since 18]
+   * @param { LineOptions } [options] - Line组件绘制区域，包含width和height属性，用于设置Line组件的宽高。不传递此参数时，Line组件的width和height属性将按照各自属性的缺
+   *     省逻辑处理（参见LineOptions对象说明）。
+   *     <br>异常值undefined和null按照无效值处理，本次设置不生效。 [since 18]
    * @returns { LineAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -178,15 +177,13 @@ declare class LineAttribute extends CommonShapeMethod<LineAttribute> {
  * 
  * > **说明：**
  * >
- * > 该组件从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
- * >
  * > 该组件从API version 20开始支持使用[AttributeUpdater]{@link ../../../arkui/AttributeUpdater}类的
  * > [updateConstructorParams](docroot://reference/apis-arkui/js-apis-arkui-AttributeUpdater.md#属性)接口更新构造参数。
  * >
  * > - Line组件无法形成闭合区域，fill和fillOpacity属性设置无效。
  * >
  * > - Line组件不支持拐角，strokeLineJoin和strokeMiterLimit属性设置无效。
- * 
+ *
  * ## 子组件
  * 
  * 无
@@ -202,7 +199,7 @@ declare class LineAttribute extends CommonShapeMethod<LineAttribute> {
 declare const Line: LineInterface;
 
 /**
- * Defines Line Component instance.
+ * 定义Line组件实例。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel

@@ -119,8 +119,6 @@ interface ColumnOptionsV2 {
  * 
  * > **说明：**
  * >
- * > 该组件从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
- * >
  * > Column未设置高度或宽度时，在主轴（垂直方向）或交叉轴（水平方向）方向上自适应子组件大小。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -244,10 +242,8 @@ declare class ColumnAttribute extends CommonMethod<ColumnAttribute> {
  * 
  * > **说明：**
  * >
- * > 该组件从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
- * >
  * > Column未设置高度或宽度时，在主轴（垂直方向）或交叉轴（水平方向）方向上自适应子组件大小。
- * 
+ *
  * ## 子组件
  * 
  * 可以包含子组件。
@@ -262,7 +258,7 @@ declare class ColumnAttribute extends CommonMethod<ColumnAttribute> {
 declare const Column: ColumnInterface;
 
 /**
- * Defines Column Component instance.
+ * 定义Column组件实例。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]

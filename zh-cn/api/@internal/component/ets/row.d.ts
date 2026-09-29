@@ -62,8 +62,6 @@ declare interface RowOptions {
  * 
  * > **说明：**
  * >
- * > 该组件从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
- * >
  * > Row未设置宽度或高度时，在主轴或交叉轴方向上自适应子组件大小。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -71,7 +69,7 @@ declare interface RowOptions {
  * @form [since 9]
  * @atomicservice [since 11]
  * @since 7 dynamic
- * @noninterop
+ * @noninterop [since 11]
  */
 interface RowInterface {
   /**
@@ -194,8 +192,6 @@ declare class RowAttribute extends CommonMethod<RowAttribute> {
  * 
  * > **说明：**
  * >
- * > 该组件从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
- * >
  * > Row未设置宽度或高度时，在主轴或交叉轴方向上自适应子组件大小。
  * 
  * ## 子组件
@@ -212,7 +208,7 @@ declare class RowAttribute extends CommonMethod<RowAttribute> {
 declare const Row: RowInterface;
 
 /**
- * Defines Row Component instance.
+ * 定义Row组件实例。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]

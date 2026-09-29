@@ -159,7 +159,7 @@ declare class Matrix2D {
    *     按无效值处理，NaN和Infinity会导致Matrix2D异常。<br>默认单位：vp
    * @param { number } ry - 旋转点的垂直方向坐标，取值范围无限制。<br>异常值undefined和null
    *     按无效值处理，NaN和Infinity会导致Matrix2D异常。<br>默认单位：vp
-   * @returns { Matrix2D }
+   * @returns { Matrix2D } - 旋转后结果矩阵对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @form [since 9]
@@ -182,7 +182,7 @@ declare class Matrix2D {
    * @param { number } ry - 旋转点的垂直方向坐标，取值范围无限制。<br>默认单位：vp
    *     <br>异常值undefined和null按无效值处理，NaN和Infinity会导致Matrix2D异常。
    *     <br>默认值：0
-   * @returns { Matrix2D }
+   * @returns { Matrix2D } - 旋转后结果矩阵对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -216,7 +216,7 @@ declare class Matrix2D {
    *     按无效值处理，NaN和Infinity会导致Matrix2D异常。<br>默认值：1.0
    * @param { number } sy - 垂直缩放比例系数，取值范围无限制。<br>异常值undefined和null
    *     按无效值处理，NaN和Infinity会导致Matrix2D异常。<br>默认值：1.0
-   * @returns { Matrix2D }
+   * @returns { Matrix2D } - 缩放后结果矩阵对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]

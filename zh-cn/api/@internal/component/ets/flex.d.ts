@@ -306,7 +306,7 @@ declare class FlexAttribute extends CommonMethod<FlexAttribute> {
 declare const Flex: FlexInterface;
 
 /**
- * Defines Flex Component instance.
+ * 定义Flex组件实例。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]

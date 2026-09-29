@@ -20,10 +20,6 @@
 
 /**
  * 空白填充组件，在容器主轴方向上，空白填充组件具有自动填充容器空余部分的能力。仅当父组件为[Row]{@link Row}/[Column]{@link Column}/[Flex]{@link Flex}时生效。
- * 
- * # 子组件
- * 
- * 不支持设置子组件。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -44,7 +40,7 @@ interface BlankInterface {
      * - Blank在父容器交叉轴上设置大小时不会撑满父容器交叉轴，交叉轴不设置大小时alignSelf默认值为ItemAlign.Stretch，会撑满容器交叉轴。
      *
      * @param { number | string } min - 空白填充组件在容器主轴上的最小大小。
-     * <br>默认值：0，number类型单位为vp，string类型可以显式指定像素单位，如'10px'。不指定像素单位时，默认单位vp，如'10'，等同于10vp。
+     * <br>默认值：0，number类型单位为vp，取值范围为[0, +∞)；string类型可以显式指定像素单位，如'10px'。不指定像素单位时，默认单位vp，如'10'，等同于10vp。
      * <br>非法值：按默认值处理。
      * <br>**说明：** <br/>不支持设置百分比。负值使用默认值。当最小值大于容器可用空间时，使用最小值作为自身大小并超出容器。
      * @returns { BlankAttribute }
@@ -88,9 +84,9 @@ interface BlankInterface {
   
   /**
    * 空白填充组件，在容器主轴方向上，空白填充组件具有自动填充容器空余部分的能力。仅当父组件为[Row]{@link Row}/[Column]{@link Column}/[Flex]{@link Flex}时生效。
-   * 
-   * # 子组件
-   * 
+   *
+   * ## 子组件
+   *
    * 不支持设置子组件。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full

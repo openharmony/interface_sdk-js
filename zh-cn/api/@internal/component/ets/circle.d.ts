@@ -68,10 +68,6 @@ declare interface CircleOptions {
 
 /**
  * 用于绘制圆形的组件。 
- * 
- * > **说明：**
- * >
- * > 该组件从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -83,9 +79,10 @@ declare interface CircleOptions {
  */
 interface CircleInterface {
   /**
-   * use new function to set the value.
+   * 用于绘制圆形的构造函数。调用后创建一个Circle对象，可设置宽高属性。
    *
-   * @param { CircleOptions } value
+   * @param { CircleOptions } value - 设置圆形尺寸。当需要自定义圆形大小时传入此参数，不传入时width和height默认为0。
+   *     <br>异常值undefined和null按照无效值处理，本次设置不生效。
    * @returns { CircleAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -126,8 +123,9 @@ interface CircleInterface {
  */
 declare class CircleAttribute extends CommonShapeMethod<CircleAttribute> {
   /**
-   * 设置边框颜色，支持使用[ColorMetrics]{@link ../../../arkui/Graphics:ColorMetrics}描述颜色，可进行HDR提亮。支持
-   * [attributeModifier]{@link CommonMethod#attributeModifier}动态设置属性。不设置时，默认边框颜色为[Color]{@link Color}.Transparent，即没有边框。
+   * 设置边框颜色，相较于图形绘制通用属性中的[stroke](docroot://reference/apis-arkui/arkui-ts/ts-drawing-components-common.md#stroke)接口，
+   * 本接口新增支持使用[ColorMetrics]{@link ColorMetrics}描述颜色<!--Del-->，可进行HDR提亮<!--DelEnd-->。
+   * 支持[attributeModifier]{@link CommonMethod#attributeModifier}动态设置属性。不设置时，默认边框颜色为[Color]{@link Color}.Transparent，即没有边框。
    * 异常值undefined和null按照默认值处理，NaN和Infinity按照[Color]{@link Color}.Black处理。
    *
    * @param { ResourceColor | ColorMetrics } value - 边框颜色。
@@ -144,9 +142,10 @@ declare class CircleAttribute extends CommonShapeMethod<CircleAttribute> {
   stroke(value: ResourceColor | ColorMetrics): CircleAttribute;
   
   /**
-   * 设置填充区域的颜色，支持使用[ColorMetrics]{@link ../../../arkui/Graphics:ColorMetrics}描述颜色，可进行HDR提亮。支持
-   * [attributeModifier]{@link CommonMethod#attributeModifier}动态设置属性。不设置时，默认填充颜色为[Color]{@link Color}.Black。异常值undefined
-   * 、null、NaN和Infinity按照默认值处理。与通用属性foregroundColor同时设置时，后设置的属性生效。
+   * 设置填充区域的颜色，，相较于图形绘制通用属性中的[fill](docroot://reference/apis-arkui/arkui-ts/ts-drawing-components-common.md#fill)接口，
+   * 本接口新增支持使用[ColorMetrics]{@link ColorMetrics}描述颜色<!--Del-->，可进行HDR提亮<!--DelEnd-->。
+   * 支持[attributeModifier]{@link CommonMethod#attributeModifier}动态设置属性。不设置时，默认填充颜色为[Color]{@link Color}.Black。
+   * 异常值undefined、null、NaN和Infinity按照默认值处理。与通用属性foregroundColor同时设置时，后设置的属性生效。
    *
    * @param { ResourceColor | ColorMetrics } value - 填充区域颜色。
    *     <br>默认值：[Color]{@link Color}.Black 
@@ -163,12 +162,8 @@ declare class CircleAttribute extends CommonShapeMethod<CircleAttribute> {
 }
 
 /**
- * 用于绘制圆形的组件。 
- * 
- * > **说明：**
- * >
- * > 该组件从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
- * 
+ * 用于绘制圆形的组件。
+ *
  * ## 子组件
  * 
  * 无
@@ -184,7 +179,7 @@ declare class CircleAttribute extends CommonShapeMethod<CircleAttribute> {
 declare const Circle: CircleInterface;
 
 /**
- * Defines Circle Component instance.
+ * 定义Circle组件实例。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel

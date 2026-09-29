@@ -65,8 +65,6 @@ interface FolderStackOptions {
  * 
  * > **说明：**
  * >
- * > - 该组件从API version 11开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
- * >
  * > - 该组件的悬停态能力针对<!--RP2-->双折叠<!--RP2End-->设计，只在双折叠设备生效。可通过[FoldStatus]{@link FoldStatus}判断设备的折叠状态。
  * >
  * > - 当该组件的父组件为[if/else：条件渲染](docroot://ui/rendering-control/arkts-rendering-control-ifelse.md)节点时，折叠屏悬停能力将会失效。
@@ -256,6 +254,7 @@ declare class FolderStackAttribute extends CommonMethod<FolderStackAttribute> {
 }
 
 /**
+ * FolderStack悬停事件参数，包含设备折叠状态、悬停态和应用旋转角度等信息。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
