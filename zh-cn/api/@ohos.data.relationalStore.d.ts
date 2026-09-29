@@ -213,6 +213,17 @@ declare namespace relationalStore {
      * @since 23 static
      */
     status?: AssetStatus;
+
+    /**
+     * 业务侧扩展。
+     * 默认值：空字符串。
+     *
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.2.0 dynamic&static
+     */
+    extension?: string;
   }
 
   /**
