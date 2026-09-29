@@ -888,7 +888,8 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * > This API is supported since API version 8 and deprecated since API version 10. This API has been completely
    * > removed, and there is no substitute API.
    *
-   * @param { function } callback
+   * @param { function } callback - Callback invoked when the OK button in the dialog box is clicked. The callback
+   *     returns the text and index of the selected item.
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -924,7 +925,8 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * This callback is triggered only after the scroll animation completes. To obtain real-time index changes, use
    * [onEnterSelectedArea]{@link TextPickerAttribute#onEnterSelectedArea} instead.
    *
-   * @param { function } callback
+   * @param { function } callback - Callback invoked when the text picker snaps to the selected item. The callback
+   *     returns the text and index of the selected item.
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -1115,7 +1117,18 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * If the sum of **startMargin** and **endMargin** in [DividerOptions]{@link DividerOptions} exceeds the component's
    * width, both margins are automatically reset to 0.
    *
-   * @param { DividerOptions | null } value
+   * @param { DividerOptions | null } value - Divider style. To customize the width, margin, and color of the divider,
+   *     pass the **DividerOptions** object. To hide the divider, pass **null**. If no value is passed, the default
+   *     style is used.<br>Default value:
+   *     <br>{
+   *     <br>strokeWidth: '2px',
+   *     <br>startMargin: 0,
+   *     <br>endMargin: 0,
+   *     <br>color: '#33000000'
+   *     <br>}
+   *     <br>1. If **value** is set to a valid [DividerOptions]{@link DividerOptions} object, the divider is
+   *     rendered using the specified style.
+   *     <br>2. If **value** is **null**, the divider is hidden.
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1274,7 +1287,7 @@ declare interface TextPickerResult {
    *
    * For an image list, **value** is empty.
    *
-   * The value must be within the range defined by the **range** attribute and cannot contain the escape character ().
+   * The value must be within the range defined by the **range** attribute and cannot contain the escape character (\).
    *
    * @type { string } [since 8 - 9]
    * @type { string | string[] } [since 10]

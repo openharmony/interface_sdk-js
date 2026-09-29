@@ -19,7 +19,7 @@
  */
 
 /**
- * Provides a monthly view component to display information such as date, shift break, and schedule.
+ * Calendar day information.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -31,7 +31,6 @@
 interface CalendarDay {
   /**
    * Indicates the sequence number of the 7 x 7 (7 x 6) grid layout on a calendar page by row.
-   * The week sequence is one, two, three, four, five, six.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -43,8 +42,7 @@ interface CalendarDay {
   index: number;
 
   /**
-   * Lunar moon.
-   * The week sequence is one, two, three, four, five, six.
+   * Lunar month.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -68,7 +66,7 @@ interface CalendarDay {
   lunarDay: string;
 
   /**
-   * Day.
+   * Work or off day state. The options are work and off.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -80,8 +78,7 @@ interface CalendarDay {
   dayMark: string;
 
   /**
-   * Indicates the off-duty flag information. The options are work and off.By default, the off-duty flag information is
-   * not required.
+   * Display text of the work or off day state.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -129,7 +126,7 @@ interface CalendarDay {
   day: number;
 
   /**
-   * Indicates whether the default value is Lunar calendar.
+   * Indicates whether the day is the first day of a lunar month.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -141,8 +138,7 @@ interface CalendarDay {
   isFirstOfLunar: boolean;
 
   /**
-   * Indicates whether to display has Schedule.
-   * The week sequence is one, two, three, four, five, six.
+   * Indicates whether there is a schedule.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -154,7 +150,7 @@ interface CalendarDay {
   hasSchedule: boolean;
 
   /**
-   * Display Lunar Date.The week sequence is one, two, three, four, five, six.
+   * Indicates whether to display the lunar date.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -563,7 +559,7 @@ interface NonCurrentDayStyle {
 }
 
 /**
- * Non current day style.
+ * Today style.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -646,7 +642,7 @@ interface WeekStyle {
   weekColor?: ResourceColor;
 
   /**
-   * Style of week day color.
+   * Weekend day color.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -658,7 +654,7 @@ interface WeekStyle {
   weekendDayColor?: ResourceColor;
 
   /**
-   * Style of lunar color.
+   * Weekend lunar color.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -730,7 +726,7 @@ interface WeekStyle {
  */
 interface WorkStateStyle {
   /**
-   * Style of day color.
+   * Work day mark color.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -742,7 +738,7 @@ interface WorkStateStyle {
   workDayMarkColor?: ResourceColor;
 
   /**
-   * Style of day color.
+   * Off day mark color.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -754,7 +750,7 @@ interface WorkStateStyle {
   offDayMarkColor?: ResourceColor;
 
   /**
-   * Style of day size.
+   * Work day mark size.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -766,7 +762,7 @@ interface WorkStateStyle {
   workDayMarkSize?: number;
 
   /**
-   * Style of day size.
+   * Off day mark size.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -790,7 +786,7 @@ interface WorkStateStyle {
   workStateWidth?: number;
 
   /**
-   * Style of distance.
+   * Horizontal moving distance of the work state.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -802,7 +798,7 @@ interface WorkStateStyle {
   workStateHorizontalMovingDistance?: number;
 
   /**
-   * Style of distance.
+   * Vertical moving distance of the work state.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -972,7 +968,8 @@ declare class CalendarController {
   /**
    * To the specified element.
    *
-   * @param { object } value
+   * @param { object } value - Target date to navigate to.<br>year: Year of the target date.<br>month: Month of the
+   *     target date.<br>day: Day of the target date.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @FaAndStageModel
@@ -998,7 +995,9 @@ interface CalendarInterface {
   /**
    * Set value.
    *
-   * @param { object } value
+   * @param { object } value - Calendar configuration.<br>date: Date to set as the current date, including year, month,
+   *     and day.<br>currentData: Month data of the current month.<br>preData: Month data of the previous
+   *     month.<br>nextData: Month data of the next month.<br>controller: Calendar controller.
    * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -1017,6 +1016,7 @@ interface CalendarInterface {
 }
 
 /**
+ * Defines the attributes of the Calendar component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -1030,7 +1030,8 @@ declare class CalendarAttribute {
   /**
    * Specifies whether the component displays the lunar calendar information.
    *
-   * @param { boolean } value
+   * @param { boolean } value - Whether to display the lunar calendar information. The value true means to display the
+   *     lunar calendar information, and false means the opposite.
    * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -1044,7 +1045,8 @@ declare class CalendarAttribute {
   /**
    * Setting whether to display holiday information
    *
-   * @param { boolean } value
+   * @param { boolean } value - Whether to display holiday information. The value true means to display holiday
+   *     information, and false means the opposite.
    * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -1058,7 +1060,8 @@ declare class CalendarAttribute {
   /**
    * Indicates whether the page can be scrolled.
    *
-   * @param { boolean } value
+   * @param { boolean } value - Whether the page can be scrolled. The value true means the page can be scrolled, and
+   *     false means the opposite.
    * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -1072,7 +1075,8 @@ declare class CalendarAttribute {
   /**
    * Set the start day of the week for the calendar.
    *
-   * @param { number } value
+   * @param { number } value - Start day of the week. The value ranges from 0 to 6, where 0 indicates Monday and 6
+   *     indicates Sunday.
    * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -1086,7 +1090,9 @@ declare class CalendarAttribute {
   /**
    * Set weekend. The default value is Sunday and Saturday.
    *
-   * @param { number } value
+   * @param { number } value - Off days, specified as a bitmask. Each bit represents a day of the week, where bit 0
+   *     indicates Monday and bit 6 indicates Sunday. Multiple off days can be set by combining the corresponding
+   *     bits.
    * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -1100,7 +1106,7 @@ declare class CalendarAttribute {
   /**
    * Sets the sliding direction.
    *
-   * @param { Axis } value
+   * @param { Axis } value - Sliding direction. The options are Axis.Vertical and Axis.Horizontal.
    * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -1114,7 +1120,7 @@ declare class CalendarAttribute {
   /**
    * Sets the date style in the current month.
    *
-   * @param { CurrentDayStyle } value
+   * @param { CurrentDayStyle } value - Date style in the current month.
    * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -1128,7 +1134,7 @@ declare class CalendarAttribute {
   /**
    * Sets the non-monthly date style.
    *
-   * @param { NonCurrentDayStyle } value
+   * @param { NonCurrentDayStyle } value - Non-current month date style.
    * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -1142,7 +1148,7 @@ declare class CalendarAttribute {
   /**
    * Set the date style for today.
    *
-   * @param { TodayStyle } value
+   * @param { TodayStyle } value - Date style for today.
    * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -1156,7 +1162,7 @@ declare class CalendarAttribute {
   /**
    * Sets the date style for the weekend.
    *
-   * @param { WeekStyle } value
+   * @param { WeekStyle } value - Weekend date style.
    * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -1170,7 +1176,7 @@ declare class CalendarAttribute {
   /**
    * Sets the style of the working state.
    *
-   * @param { WorkStateStyle } value
+   * @param { WorkStateStyle } value - Working state style.
    * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -1184,7 +1190,8 @@ declare class CalendarAttribute {
   /**
    * Click a date to return the information about the date you clicked.
    *
-   * @param { function } event
+   * @param { function } event - Callback invoked when a date is clicked. The callback returns the information about
+   *     the selected date.
    * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -1198,7 +1205,8 @@ declare class CalendarAttribute {
   /**
    * When you swipe to switch months, the information about the previous month and the next month is requested.
    *
-   * @param { function } event
+   * @param { function } event - Callback invoked when swiping to switch months. The callback returns the information
+   *     about the previous month and the next month to be requested.
    * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -1213,7 +1221,7 @@ declare class CalendarAttribute {
 }
 
 /**
- * Defines Calendar Component.
+ * Provides a monthly view component to display information such as date, shift break, and schedule.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi

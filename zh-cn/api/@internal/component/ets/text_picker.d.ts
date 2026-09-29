@@ -145,7 +145,7 @@ declare interface TextPickerOptions {
    * @type { ?string } [since 8 - 9]
    * @type { ?(string | string[]) } [since 10 - 19]
    * @type { ?(ResourceStr | ResourceStr[]) } [since 20]
-   * @default value of the first item [since 8 - 9]
+   * @default 第一项的值 [since 8 - 9]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -190,7 +190,7 @@ declare interface TextPickerOptions {
    * > 4. 当columnWidths数组长度与实际列数不匹配时，超出列数的列宽值将被忽略；未指定列宽的列将均分组件剩余可用宽度
    * > （组件宽度减去已指定列宽之和）。
    *
-   * @default Each column has equal width, calculated by dividing the total component width by the number of columns.
+   * @default 各列宽度均等，按组件总宽度除以列数计算。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -823,7 +823,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * >
    * > 从API version 8开始支持，从API version 10开始废弃。此接口已完全移除，无替代接口。
    *
-   * @param { function } callback
+   * @param { function } callback - 点击弹窗中的"确定"按钮时触发的回调。回调返回选中项的文本和索引值。
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -839,7 +839,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * >
    * > 从API version 8开始支持，从API version 10开始废弃。此接口已完全移除，无替代接口。
    *
-   * @param { function } callback - Callback invoked when the cancel button in the dialog box is clicked.
+   * @param { function } callback - 点击弹窗中的"取消"按钮时触发的回调。
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -855,7 +855,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * 回调会在滑动动画结束后触发，如果需要快速获取索引值变化，
    * 建议使用[onEnterSelectedArea]{@link TextPickerAttribute#onEnterSelectedArea}接口。
    *
-   * @param { function } callback
+   * @param { function } callback - 选项归位至选中项位置时触发的回调。回调返回选中项的文本和索引值。
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -1008,7 +1008,16 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * 
    * [DividerOptions]{@link DividerOptions}中startMargin + endMargin 超过组件宽度后，startMargin和endMargin会被置0。
    *
-   * @param { DividerOptions | null } value
+   * @param { DividerOptions | null } value - 分割线样式。当需要自定义分割线的线宽、边距、颜色时传入
+   *     DividerOptions对象；当需要隐藏分割线时传入null；不传入时使用默认样式。<br>默认值：
+   *     <br>{
+   *     <br>strokeWidth: '2px',
+   *     <br>startMargin: 0,
+   *     <br>endMargin: 0,
+   *     <br>color: '#33000000'
+   *     <br>}
+   *     <br>1. 当value设置为有效的[DividerOptions]{@link DividerOptions}时，按设置的样式显示分割线。
+   *     <br>2. 当value设置为null时，不显示分割线。
    * @returns { TextPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1155,7 +1164,7 @@ declare interface TextPickerResult {
    * >
    * > 当显示图片列表时，value值为空。
    * >
-   * > value值必须在range参数定义的选项范围内，不支持包含转义字符''。
+   * > value值必须在range参数定义的选项范围内，不支持包含转义字符'\'。
    *
    * @type { string } [since 8 - 9]
    * @type { string | string[] } [since 10]
@@ -1199,7 +1208,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * >
    * > 当defaultPickerItemHeight的值为负数时，使用默认值。
    *
-   * @default 56 vp (selected) and 36 vp (unselected) [since 11]
+   * @default 56 vp（选中项）和36 vp（非选中项） [since 11]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -1635,7 +1644,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    *
    * 默认值：false
    *
-   * @default false - meaning not to enable the hover mode.
+   * @default false - 表示不开启悬停模式。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform

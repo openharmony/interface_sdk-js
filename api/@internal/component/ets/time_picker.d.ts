@@ -600,7 +600,8 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * column are linked, the behavior of this callback may not meet expectations, and it is not recommended to use it in
    * this scenario.
    *
-   * @param { function } callback - Time in 24-hour format.
+   * @param { function } callback - Callback used to return the selected time. The value of hour ranges from 0 to
+   *     23, regardless of the display format.
    * @returns { TimePickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
