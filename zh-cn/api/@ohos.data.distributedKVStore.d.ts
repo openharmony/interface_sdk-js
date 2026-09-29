@@ -73,11 +73,6 @@ declare namespace distributedKVStore {
      * 从API version 10开始，context的参数类型为[BaseContext]{@link ./application/BaseContext:BaseContext}。
      *
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     *     if swap the area, you should close all the KV store and use the new Context to create the
-     *     KVManager [since 9 - 23]
-     * @syscap SystemCapability.DistributedDataManager.KVStore.Core
-     *     if swap the area, you should close all the KV store and use the new BaseContext to create the
-     *     KVManager [since 10]
      * @stagemodelonly [staticonly]
      * @crossplatform [since 24]
      * @since 9 dynamic
