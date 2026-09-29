@@ -68,7 +68,7 @@ export declare enum Action {
   UP = 3,
 
   /**
-   * 触屏开始拖拽。<br/>**起始版本：** 26.0.0<br/>**模型约束：** 此接口仅可在Stage模型下使用。
+   * 触屏开始拖拽。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @stagemodelonly
@@ -77,7 +77,7 @@ export declare enum Action {
   PULL_DOWN = 4,
 
   /**
-   * 触屏拖拽移动。<br/>**起始版本：** 26.0.0<br/>**模型约束：** 此接口仅可在Stage模型下使用。
+   * 触屏拖拽移动。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @stagemodelonly
@@ -86,7 +86,7 @@ export declare enum Action {
   PULL_MOVE = 5,
 
   /**
-   * 触屏结束拖拽。<br/>**起始版本：** 26.0.0<br/>**模型约束：** 此接口仅可在Stage模型下使用。
+   * 触屏结束拖拽。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @stagemodelonly

@@ -14,12 +14,14 @@
  */
 
 /**
- * @file Keycode
+ * The **keyCode** module provides key codes of key devices, including keyboards, CDs, and gamepads.
+ *
+ * @file Key Code
  * @kit InputKit
  */
 
 /**
- * The **keyCode** module provides key codes of key devices, including keyboards, CDs, and gamepads.
+ * Enumerates the key codes.
  *
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @atomicservice [since 12]
@@ -74,12 +76,8 @@ export declare enum KeyCode {
   KEYCODE_SEARCH = 9,
 
   /**
-   * Play/Pause key
-   *
-   * Difference between this key and **KEYCODE_PLAYPAUSE**:
-   *
-   * **KEYCODE_PLAYPAUSE** is an earlier definition, while **KEYCODE_MEDIA_PLAY_PAUSE** is designed for modern media key
-   * devices.
+   * Media key: Play/Pause key<br>Difference between this key and **KEYCODE_PLAYPAUSE**:<br>**KEYCODE_PLAYPAUSE** is
+   *     an earlier definition, while **KEYCODE_MEDIA_PLAY_PAUSE** is designed for modern media key devices.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice [since 12]
@@ -89,7 +87,7 @@ export declare enum KeyCode {
   KEYCODE_MEDIA_PLAY_PAUSE = 10,
 
   /**
-   * Media: Stop Key
+   * Media key: Stop key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice [since 12]
@@ -99,7 +97,7 @@ export declare enum KeyCode {
   KEYCODE_MEDIA_STOP = 11,
 
   /**
-   * Next key
+   * Media key: Next key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice [since 12]
@@ -109,7 +107,7 @@ export declare enum KeyCode {
   KEYCODE_MEDIA_NEXT = 12,
 
   /**
-   * Previous key
+   * Media key: Previous key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice [since 12]
@@ -119,7 +117,7 @@ export declare enum KeyCode {
   KEYCODE_MEDIA_PREVIOUS = 13,
 
   /**
-   * Rewind key
+   * Media key: Rewind key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice [since 12]
@@ -129,7 +127,7 @@ export declare enum KeyCode {
   KEYCODE_MEDIA_REWIND = 14,
 
   /**
-   * Fast forward key
+   * Media key: Fast forward key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice [since 12]
@@ -301,7 +299,7 @@ export declare enum KeyCode {
   KEYCODE_9 = 2009,
 
   /**
-   * Key /
+   * Key *
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -310,7 +308,7 @@ export declare enum KeyCode {
   KEYCODE_STAR = 2010,
 
   /**
-   * Key /
+   * Key #
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -715,7 +713,7 @@ export declare enum KeyCode {
   KEYCODE_DEL = 2055,
 
   /**
-   * Key /
+   * Key `
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -778,7 +776,7 @@ export declare enum KeyCode {
   KEYCODE_SEMICOLON = 2062,
 
   /**
-   * Key '
+   * Key ''' (single quote)
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -796,7 +794,7 @@ export declare enum KeyCode {
   KEYCODE_SLASH = 2064,
 
   /**
-   * Key /
+   * Key @
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1563,7 +1561,7 @@ export declare enum KeyCode {
   KEYCODE_SCALE = 2612,
 
   /**
-   * Hanguel key
+   * Hangul key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -1716,12 +1714,8 @@ export declare enum KeyCode {
   KEYCODE_NEXT = 2629,
 
   /**
-   * Play/Pause key
-   *
-   * Difference between this key and **KEYCODE_MEDIA_PLAY_PAUSE**:
-   *
-   * **KEYCODE_PLAYPAUSE** is an earlier definition, while **KEYCODE_MEDIA_PLAY_PAUSE** is designed for modern media key
-   * devices.
+   * Play/Pause key<br>Difference between this key and **KEYCODE_MEDIA_PLAY_PAUSE**:<br>**KEYCODE_PLAYPAUSE** is an
+   *     earlier definition, while **KEYCODE_MEDIA_PLAY_PAUSE** is designed for modern media key devices.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2216,7 +2210,7 @@ export declare enum KeyCode {
   KEYCODE_CALENDAR = 2685,
 
   /**
-   * Red indicator.
+   * Red indicator key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2225,7 +2219,7 @@ export declare enum KeyCode {
   KEYCODE_RED = 2686,
 
   /**
-   * Green indicator.
+   * Green indicator key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2234,7 +2228,7 @@ export declare enum KeyCode {
   KEYCODE_GREEN = 2687,
 
   /**
-   * Yellow indicator.
+   * Yellow indicator key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2243,7 +2237,7 @@ export declare enum KeyCode {
   KEYCODE_YELLOW = 2688,
 
   /**
-   * Blue indicator.
+   * Blue indicator key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2459,7 +2453,7 @@ export declare enum KeyCode {
   KEYCODE_SPELLCHECK = 2712,
 
   /**
-   * Coffee key, which is used to launch screen lock or screen saver
+   * Terminal lock/screen saver key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2495,7 +2489,7 @@ export declare enum KeyCode {
   KEYCODE_BUTTONCONFIG = 2716,
 
   /**
-   * Task Manager key
+   * Task manager key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -2632,10 +2626,6 @@ export declare enum KeyCode {
   /**
    * Mouse AI assistant key.
    *
-   * **Starting Version:** 26.0.0
-   *
-   * **Model constraint:** This API can only be used in the stage model.
-   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
@@ -2644,10 +2634,6 @@ export declare enum KeyCode {
 
   /**
    * Mouse smart selection key.
-   *
-   * **Starting Version:** 26.0.0
-   *
-   * **Model constraint:** This API can only be used in the stage model.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @stagemodelonly
@@ -2658,10 +2644,6 @@ export declare enum KeyCode {
   /**
    * Phone touchscreen single-click event, used in Always-On Display (AOD) mode.
    *
-   * **Starting Version:** 26.0.0
-   *
-   * **Model constraint:** This API can only be used in the stage model.
-   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
@@ -2669,7 +2651,7 @@ export declare enum KeyCode {
   KEYCODE_AOD_SINGLE_CLICK = 2740,
 
   /**
-   * Front key, which is used to launch the windshield defogger
+   * Windshield defogger on/off key
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -3074,7 +3056,7 @@ export declare enum KeyCode {
   KEYCODE_WWAN_WIMAX = 2846,
 
   /**
-   * RF Kill key
+   * Key that controls all wireless devices
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -3092,7 +3074,7 @@ export declare enum KeyCode {
   KEYCODE_CHANNEL = 3001,
 
   /**
-   * Button 0
+   * Button '0'
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -3101,7 +3083,7 @@ export declare enum KeyCode {
   KEYCODE_BTN_0 = 3100,
 
   /**
-   * Button 1
+   * Button '1'
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -3110,7 +3092,7 @@ export declare enum KeyCode {
   KEYCODE_BTN_1 = 3101,
 
   /**
-   * Button 2
+   * Button '2'
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -3119,7 +3101,7 @@ export declare enum KeyCode {
   KEYCODE_BTN_2 = 3102,
 
   /**
-   * Button 3
+   * Button '3'
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -3128,7 +3110,7 @@ export declare enum KeyCode {
   KEYCODE_BTN_3 = 3103,
 
   /**
-   * Button 4
+   * Button '4'
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -3137,7 +3119,7 @@ export declare enum KeyCode {
   KEYCODE_BTN_4 = 3104,
 
   /**
-   * Button 5
+   * Button '5'
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -3146,7 +3128,7 @@ export declare enum KeyCode {
   KEYCODE_BTN_5 = 3105,
 
   /**
-   * Button 6
+   * Button '6'
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -3155,7 +3137,7 @@ export declare enum KeyCode {
   KEYCODE_BTN_6 = 3106,
 
   /**
-   * Button 7
+   * Button '7'
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -3164,7 +3146,7 @@ export declare enum KeyCode {
   KEYCODE_BTN_7 = 3107,
 
   /**
-   * Button 8
+   * Button '8'
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -3173,7 +3155,7 @@ export declare enum KeyCode {
   KEYCODE_BTN_8 = 3108,
 
   /**
-   * Button 9
+   * Button '9'
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -3220,10 +3202,6 @@ export declare enum KeyCode {
   /**
    * Custom hotkey
    *
-   * **Since:** 26.0.0
-   *
-   * **Model restriction:** This API can only be used in the stage model.
-   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
@@ -3232,10 +3210,6 @@ export declare enum KeyCode {
 
   /**
    * Smart control key slide-up
-   *
-   * **Since:** 26.0.0
-   *
-   * **Model restriction:** This API can only be used in the stage model.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @stagemodelonly
@@ -3246,10 +3220,6 @@ export declare enum KeyCode {
   /**
    * Smart control key slide-down
    *
-   * **Since:** 26.0.0
-   *
-   * **Model restriction:** This API can only be used in the stage model.
-   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
@@ -3258,8 +3228,6 @@ export declare enum KeyCode {
 
   /**
    * PTZ click
-   *
-   * **Model restriction:** This API can only be used in the stage model.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @stagemodelonly
@@ -3270,8 +3238,6 @@ export declare enum KeyCode {
   /**
    * PTZ focus left
    *
-   * **Model restriction:** This API can only be used in the stage model.
-   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @stagemodelonly
    * @since 26.0.1 dynamic&static
@@ -3280,8 +3246,6 @@ export declare enum KeyCode {
 
   /**
    * PTZ focus right
-   *
-   * **Model restriction:** This API can only be used in the stage model.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @stagemodelonly
@@ -3292,8 +3256,6 @@ export declare enum KeyCode {
   /**
    * PTZ exposure left
    *
-   * **Model restriction:** This API can only be used in the stage model.
-   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @stagemodelonly
    * @since 26.0.1 dynamic&static
@@ -3302,8 +3264,6 @@ export declare enum KeyCode {
 
   /**
    * PTZ exposure right
-   *
-   * **Model restriction:** This API can only be used in the stage model.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @stagemodelonly
@@ -3314,8 +3274,6 @@ export declare enum KeyCode {
   /**
    * PTZ shutter left
    *
-   * **Model restriction:** This API can only be used in the stage model.
-   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @stagemodelonly
    * @since 26.0.1 dynamic&static
@@ -3324,8 +3282,6 @@ export declare enum KeyCode {
 
   /**
    * PTZ shutter right
-   *
-   * **Model restriction:** This API can only be used in the stage model.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @stagemodelonly
@@ -3336,8 +3292,6 @@ export declare enum KeyCode {
   /**
    * PTZ aperture left
    *
-   * **Model restriction:** This API can only be used in the stage model.
-   *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @stagemodelonly
    * @since 26.0.1 dynamic&static
@@ -3346,8 +3300,6 @@ export declare enum KeyCode {
 
   /**
    * PTZ aperture right
-   *
-   * **Model restriction:** This API can only be used in the stage model.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @stagemodelonly

@@ -14,12 +14,14 @@
  */
 
 /**
+ * The **inputEvent** module provides the basic events reported by a device.
+ *
  * @file Input Event
  * @kit InputKit
  */
 
 /**
- * The **inputEvent** module provides the basic events reported by the device.
+ * Represents an input event.
  *
  * @interface InputEvent [since 9 - 11]
  * @syscap SystemCapability.MultimodalInput.Input.Core
@@ -30,7 +32,7 @@
 export declare interface InputEvent {
 
   /**
-   * Enumerates event IDs.
+   * Event ID.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice [since 12]

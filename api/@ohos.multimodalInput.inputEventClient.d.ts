@@ -25,7 +25,8 @@ import { KeyCode} from './@ohos.multimodalInput.keyCode';
 import { TouchEvent } from './@ohos.multimodalInput.touchEvent';
 
 /**
- * The **inputEventClient** module provides the capability of injecting key, mouse/touchpad, and touchscreen events.
+ * The inputEventClient module provides the capability to inject input events, including key, mouse/touchpad, and
+ * touchscreen events.
  *
  * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
  * @systemapi hide for inner use [since 8 - 24]
@@ -219,10 +220,11 @@ declare namespace inputEventClient {
    *
    * @permission ohos.permission.INJECT_INPUT_EVENT [since 12]
    * @param { KeyEventData } keyEvent - Key event to inject.
-   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 201 - Permission denied. [since 12]
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API. [since 12]
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
    * @systemapi hide for inner use
    * @since 11 dynamic
@@ -234,13 +236,15 @@ declare namespace inputEventClient {
    * Injects keys (including single keys and combination keys).
    * Since API version 26.0.1, the caller can specify the display ID for injecting a key event.
    * If the specified display ID does not exist, the operation will not take effect.
-   * 
+   *
    * @permission ohos.permission.INJECT_INPUT_EVENT [since 12]
    * @param { { KeyEvent } } KeyEvent - Key event to inject.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 201 - Permission denied. [since 12]
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api. [since 12]
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API. [since 12]
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   *     [since 12]
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
    * @systemapi hide for inner use
    * @since 8 dynamic
@@ -248,16 +252,17 @@ declare namespace inputEventClient {
   function injectEvent({ KeyEvent: KeyEvent }): void;
 
   /**
-   * Inject system keys.
+   * Injects keys (including single keys and combination keys).
    * Since API version 26.0.1, the caller can specify the display ID for injecting a key event.
    * If the specified display ID does not exist, the operation will not take effect.
    *
    * @permission ohos.permission.INJECT_INPUT_EVENT
    * @param { KeyEventInfo } keyEvent - the key event to be injected.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
    * @systemapi hide for inner use
    * @since 23 static
@@ -270,10 +275,11 @@ declare namespace inputEventClient {
    * @permission ohos.permission.INJECT_INPUT_EVENT [since 12]
    * @param { MouseEventData } mouseEvent - Mouse/touchpad event to inject.
    *     [Action]{@link @ohos.multimodalInput.mouseEvent:Action} in this parameter cannot be set to **CANCEL**.
-   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 201 - Permission denied. [since 12]
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API. [since 12]
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
    * @systemapi hide for inner use
    * @since 11 dynamic
@@ -287,10 +293,11 @@ declare namespace inputEventClient {
    * @permission ohos.permission.INJECT_INPUT_EVENT [since 12]
    * @param { TouchEventData } touchEvent - Touch event data. [Action]{@link @ohos.multimodalInput.touchEvent:Action} in
    *     this parameter cannot be set to **CANCEL**.
-   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 201 - Permission denied. [since 12]
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API. [since 12]
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
    * @systemapi hide for inner use
    * @since 11 dynamic
@@ -304,10 +311,11 @@ declare namespace inputEventClient {
    * @permission ohos.permission.INJECT_INPUT_EVENT
    * @param { boolean } result - Authorization result. The value **true** indicates that event injection is allowed,
    *     and the value **false** indicates the opposite.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
    * @systemapi hide for inner use
    * @since 12 dynamic

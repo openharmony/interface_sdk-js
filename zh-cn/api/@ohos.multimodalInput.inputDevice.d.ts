@@ -407,7 +407,6 @@ declare namespace inputDevice {
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @stagemodelonly
-     * @readonly
      * @since 26.0.1 dynamic&static
      */
     readonly displayId?: int;
@@ -415,8 +414,6 @@ declare namespace inputDevice {
 
   /**
    * 获取所有输入设备的ID列表，使用callback异步回调。
-   *
-   * > **说明**：
    *
    * @param { AsyncCallback<Array<number>> } callback - 回调函数。当获取成功，err为undefined，data为所有输入设备的ID列表；否则为错误对象。
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
@@ -429,8 +426,6 @@ declare namespace inputDevice {
   /**
    * 获取所有输入设备的ID列表，使用Promise异步回调。
    *
-   * > **说明**：
-   *
    * @returns { Promise<Array<number>> } Promise对象，返回所有输入设备的ID列表。ID是输入设备的唯一标识。
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @since 8 dynamiconly
@@ -441,8 +436,6 @@ declare namespace inputDevice {
 
   /**
    * 获取指定id的输入设备信息，使用callback异步回调。
-   *
-   * > **说明**：
    *
    * @param { number } deviceId - 输入设备的唯一标识，同一个物理设备反复插拔或重启，设备ID可能会发生变化。
    * @param { AsyncCallback<InputDeviceData> } callback - 回调函数。当获取成功，err为undefined，data为输入设备信息；否则为错误对象。
@@ -455,8 +448,6 @@ declare namespace inputDevice {
 
   /**
    * 获取指定id的输入设备信息，使用Promise异步回调。
-   *
-   * > **说明**：
    *
    * @param { number } deviceId - 输入设备的唯一标识，同一个物理设备反复插拔或重启，设备ID可能会发生变化。
    * @returns { Promise<InputDeviceData> } Promise对象，返回输入设备信息，包括输入设备ID、名称、支持的输入能力、物理地址、版本信息及产品信息等。
@@ -534,8 +525,8 @@ declare namespace inputDevice {
    *
    * @param { int } deviceId - 输入设备的唯一标识，同一个物理设备反复插拔或重启，设备ID可能会发生变化。
    * @param { Array<KeyCode> } keys - 需要查询的键值，最多支持5个按键查询。
-   * @param { AsyncCallback<Array<boolean>> } callback - 回调函数。当查询成功，err为undefined，data为按键支持查询结果（数组元素与keys参数一一对应，true表示支
-   * 持，false表示不支持）；否则为错误对象。
+   * @param { AsyncCallback<Array<boolean>> } callback - 回调函数。当查询成功，err为undefined，data为按键支持查询结果（数组元素与keys参数一一对应，
+   * true表示支持，false表示不支持）；否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
@@ -616,7 +607,7 @@ declare namespace inputDevice {
    *
    * @param { int } delay - 键盘按键的重复时延，默认值500ms，调节范围[300ms, 1000ms]。
    * @param { AsyncCallback<void> } callback - 回调函数。当设置键盘按键重复延迟时间成功，err为undefined，否则为错误对象。
-   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
@@ -631,7 +622,7 @@ declare namespace inputDevice {
    *
    * @param { int } delay - 键盘按键重复延迟时间，默认值500ms，调节范围[300ms, 1000ms]。
    * @returns { Promise<void> } Promise对象，无返回结果。
-   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
@@ -645,7 +636,7 @@ declare namespace inputDevice {
    * 获取键盘按键的重复时延，使用callback异步回调。
    *
    * @param { AsyncCallback<int> } callback - 回调函数。当获取成功，err为undefined，data为键盘按键的重复时延，单位为ms；否则为错误对象。
-   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
@@ -659,7 +650,7 @@ declare namespace inputDevice {
    * 获取键盘按键的重复时延，使用Promise异步回调。
    *
    * @returns { Promise<int> } Promise对象，返回键盘按键的重复时延，单位为ms。
-   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
@@ -674,7 +665,7 @@ declare namespace inputDevice {
    *
    * @param { int } rate - 键盘按键重复速率，默认值50ms/次，单位为ms/次，取值范围[36, 100]。
    * @param { AsyncCallback<void> } callback - 回调函数。当设置键盘按键重复速率成功，err为undefined，否则为错误对象。
-   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
@@ -689,7 +680,7 @@ declare namespace inputDevice {
    *
    * @param { int } rate - 键盘按键重复速率，默认值50ms/次，调节范围[36ms/次, 100ms/次]。
    * @returns { Promise<void> } Promise对象，无返回结果。
-   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
@@ -703,7 +694,7 @@ declare namespace inputDevice {
    * 获取键盘按键的重复速率，使用callback异步回调。
    *
    * @param { AsyncCallback<int> } callback - 回调函数。当获取成功，err为undefined，data为键盘按键的重复速率，单位为ms/次；否则为错误对象。
-   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
@@ -717,7 +708,7 @@ declare namespace inputDevice {
    * 获取键盘按键的重复速率，使用Promise异步回调。
    *
    * @returns { Promise<int> } Promise对象，返回键盘按键的重复速率，单位为ms/次。
-   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
@@ -744,9 +735,10 @@ declare namespace inputDevice {
    * @param { int } deviceId - 输入设备的唯一标识，同一个物理设备反复插拔或重启，设备ID可能会发生变化。
    * @param { boolean } enabled - 输入设备的开关状态，取值为true表示开启输入设备，取值为false表示关闭输入设备。
    * @returns { Promise<void> } Promise对象，无返回结果。
-   * @throws { BusinessError } 201 - Permission denied. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Input parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 3900001 - The specified device does not exist.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
@@ -796,7 +788,8 @@ declare namespace inputDevice {
    * @param { FunctionKey } functionKey - 需要设置的功能键类型。
    * @param { boolean } enabled - 功能键使能状态。取值为true表示使能功能键，取值为false表示不使能功能键。
    * @returns { Promise<void> } Promise对象，无返回结果。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 3900002 - There is currently no keyboard device connected.
@@ -811,14 +804,12 @@ declare namespace inputDevice {
    * 将输入设备绑定到显示器组。仅支持外接USB和蓝牙的鼠标、触摸板、键盘和游戏手柄。绑定后，输入设备将固定在指定显示器所在的显示器组上操作。使用Promise异步回调。
    *
    * @permission ohos.permission.INPUT_DEVICE_CONTROLLER
-   * @param { int } inputDeviceId - 输入设备的ID。如果输入服务重启或输入设备重连，此ID可能会发生变化。
-   *     <br>取值应为≥0的整数。
-   * @param { int } displayId - 目标显示器的ID。
-   *     <br>取值应为≥0的整数。
+   * @param { int } inputDeviceId - 输入设备的ID。如果输入服务重启或输入设备重连，此ID可能会发生变化。取值应为≥0的整数。
+   * @param { int } displayId - 目标显示器的ID。取值应为≥0的整数。
    * @returns { Promise<void> } Promise对象，无返回结果。
-   * @throws { BusinessError } 201 - Permission denied.
-   *     The application does not have the required permission.
-   * @throws { BusinessError } 202 - Permission denied. Called by non-system application.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 3800001 - Input service exception.
    * @throws { BusinessError } 3900001 - The specified input device does not exist.
    * @throws { BusinessError } 3900004 - The specified display does not exist.

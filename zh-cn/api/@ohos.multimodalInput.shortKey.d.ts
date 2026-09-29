@@ -38,7 +38,7 @@ declare namespace shortKey {
    * @param { string } businessKey - 业务在多模侧注册的唯一标识，与ability_launch_config.json中的businessId对应。调用接口前自行查询。
    * @param { int } delay - 按下快捷键多长时间后拉起Ability，单位：ms，仅支持快捷键按下触发。
    * @param { AsyncCallback<void> } callback - 回调函数。当设置快捷键拉起Ability的延迟时间成功，err为undefined，否则为错误对象。
-   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.ShortKey
@@ -54,7 +54,7 @@ declare namespace shortKey {
    * @param { string } businessKey - 业务在多模侧注册的唯一标识，与ability_launch_config.json中的businessId对应。调用接口前自行查询。
    * @param { int } delay - 按下快捷键多长时间后拉起Ability，单位：ms，仅支持快捷键按下触发。
    * @returns { Promise<void> } Promise对象，无返回结果。
-   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.ShortKey
