@@ -19,9 +19,8 @@
  */
 
 /**
- * Defines a pair of given type for particle.
+ * Defines the particle tuple, which defines the type of animation parameter configuration value pairs.
  *
- * @typedef { [T1, T2] } ParticleTuple
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -31,15 +30,14 @@
 declare type ParticleTuple<T1, T2> = [T1, T2];
 
 /**
- * Defines velocity options.
- *
- *  * > **NOTE**
+ * Particle velocity.
+ * 
+ * > **NOTE**
  * >
  * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18. 
- * > While historical version information is preserved for anonymous objects, there may be cases where the outer
- * > element's @since version number is higher than inner elements'. This does not affect interface usability.
+ * > While historical version information is preserved for anonymous objects, there may be cases where the outer element
+ * > 's @since version number is higher than inner elements'. This does not affect interface usability.
  *
- * @typedef VelocityOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -48,9 +46,12 @@ declare type ParticleTuple<T1, T2> = [T1, T2];
  */
 declare interface VelocityOptions {
   /**
-   * Time rate at which the particle moves.
+   * Velocity magnitude.
+   * 
+   * Default value: **{range:[0.0,0.0]}**    
+   * 
+   * **Atomic service API:** Since API version 11, this API is supported in atomic services.
    *
-   * @type { ParticleTuple<number, number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -60,10 +61,13 @@ declare interface VelocityOptions {
   speed: ParticleTuple<number, number>;
 
   /**
-   * Direction (in angles) in which the particle moves, with the geometric center of the element as the coordinate 
-   * origin and the horizontal direction as the x-axis. A positive number indicates clockwise rotation.
+   * Direction of velocity, in degrees (°). With the geometric center of the element as the coordinate origin and the 
+   * horizontal direction as the X-axis, a positive value indicates a clockwise rotation angle.
+   * 
+   * Default value: **{range:[0.0,0.0]}** 
+   * 
+   * **Atomic service API:** Since API version 11, this API is supported in atomic services.
    *
-   * @type { ParticleTuple<number, number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -79,10 +83,9 @@ declare interface VelocityOptions {
  * > **NOTE**
  * >
  * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18. 
- * > While historical version information is preserved for anonymous objects, there may be cases where the
- * > outer element's @since version number is higher than inner elements'. This does not affect interface usability.
+ * > While historical version information is preserved for anonymous objects, there may be cases where the outer element
+ * > 's @since version number is higher than inner elements'. This does not affect interface usability.
  *
- * @typedef AccelerationOptions<ACC_SPEED_UPDATER extends ParticleUpdater, ACC_ANGLE_UPDATER extends ParticleUpdater>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -94,11 +97,12 @@ declare interface AccelerationOptions<
   ACC_ANGLE_UPDATER extends ParticleUpdater
 > {
   /**
-   * Acceleration speed.
+   * Acceleration magnitude. Unit: vp/s²
    * 
-   * Default value: **{range:[0.0,0.0]}**
+   * Default value: **{range:[0.0,0.0]}**      
+   * 
+   * **Atomic service API:** Since API version 11, this API is supported in atomic services.
    *
-   * @type { ?ParticlePropertyOptions<number, ACC_SPEED_UPDATER> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -108,11 +112,12 @@ declare interface AccelerationOptions<
   speed?: ParticlePropertyOptions<number, ACC_SPEED_UPDATER>;
 
   /**
-   * Acceleration direction (in angles).
+   * Acceleration direction. The unit is degree (°).
    * 
-   * Default value: **{range:[0.0,0.0]}**
+   * Default value: **{range:[0.0,0.0]}** 
+   * 
+   * **Atomic service API:** Since API version 11, this API is supported in atomic services.
    *
-   * @type { ?ParticlePropertyOptions<number, ACC_ANGLE_UPDATER> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -123,9 +128,8 @@ declare interface AccelerationOptions<
 }
 
 /**
- * Defines the ParticleOptions Interface.
+ * Sets particle parameters.
  *
- * @interface ParticleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -142,8 +146,8 @@ interface ParticleOptions<
   SPIN_UPDATER extends ParticleUpdater
 > {
   /**
-   * Particle emitter.
-   * @type { EmitterOptions<PARTICLE> }
+   * Particle emitter configuration.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -153,13 +157,12 @@ interface ParticleOptions<
   emitter: EmitterOptions<PARTICLE>;
 
   /**
-   * Particle color.
+   * Particle color configuration.
    * 
-   * **NOTE**
+   * **Note:**
    * 
-   * Default value: **{ range:[Color.White,Color.White] }.** Colors cannot be set for image particles.
+   * Default value: **{ range:[Color.White,Color.White] }**. Image particles do not support setting the color.
    *
-   * @type { ?ParticleColorPropertyOptions<COLOR_UPDATER> }
    * @default {range:['#FFFFFF','#FFFFFF']}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -170,11 +173,10 @@ interface ParticleOptions<
   color?: ParticleColorPropertyOptions<COLOR_UPDATER>;
 
   /**
-   * Particle opacity.
+   * Particle opacity configuration.
    * 
    * Default value: **{ range:[1.0,1.0] }**
    *
-   * @type { ?ParticlePropertyOptions<number, OPACITY_UPDATER> }
    * @default {range:[1.0,1.0]}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -185,11 +187,10 @@ interface ParticleOptions<
   opacity?: ParticlePropertyOptions<number, OPACITY_UPDATER>;
 
   /**
-   * Particle scale.
+   * Particle size configuration.
    * 
    * Default value: **{ range:[1.0,1.0] }**
    *
-   * @type { ?ParticlePropertyOptions<number, SCALE_UPDATER> }
    * @default {range:[1.0,1.0]}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -200,15 +201,15 @@ interface ParticleOptions<
   scale?: ParticlePropertyOptions<number, SCALE_UPDATER>;
 
   /**
-   * Particle velocity.
+   * Particle velocity configuration.
    * 
-   * **NOTE**
+   * **Note:**
    * 
-   * **speed** indicates the time rate at which the particle moves. **angle** indicates the direction (in angles) in 
-   * which the particle moves, with the geometric center of the element as the coordinate origin and the horizontal 
-   * direction as the x-axis. A positive number indicates clockwise rotation.
+   * **speed** indicates the velocity magnitude. **angle** indicates the direction of the velocity (unit: degree), with 
+   * the geometric center of the element as the coordinate origin and the horizontal direction as the X-axis. A positive
+   * value indicates clockwise rotation angle.
    * 
-   * Default value: **{speed: [0.0,0.0],angle: [0.0,0.0] }**
+   * Default value: **{ speed:[0.0,0.0],angle:[0.0,0.0] }**
    *
    * @type { ?object } [since 10 - 17]
    * @type { ?VelocityOptions } [since 18]
@@ -222,13 +223,13 @@ interface ParticleOptions<
   velocity?: VelocityOptions;
 
   /**
-   * Particle acceleration.
+   * Particle acceleration configuration. 
    * 
-   * **NOTE**
+   * **Note:**
    * 
-   * **speed** indicates the acceleration speed, and **angle** indicates the acceleration direction (in angles).
+   * **speed** indicates the acceleration magnitude, and angle indicates the acceleration direction (unit: degree).
    * 
-   * Default value: **{ speed:{range:[0.0,0.0]},angle:{range:[0.0,0.0]} }**
+   * Default value: **{ speed:{range:[0.0,0.0]},angle:{range:[0.0,0.0]}** }
    *
    * @type { ?object } [since 10 - 17]
    * @type { ?AccelerationOptions<ACC_SPEED_UPDATER, ACC_ANGLE_UPDATER> } [since 18]
@@ -242,13 +243,12 @@ interface ParticleOptions<
   acceleration?: AccelerationOptions<ACC_SPEED_UPDATER, ACC_ANGLE_UPDATER>;
 
   /**
-   * Particle spin angle.
+   * Particle spin angle configuration, unit is degree (°). 
    * 
    * Default value: **{range:[0.0,0.0]}**
    * 
-   * Direction: A positive number indicates clockwise spinning, and a negative number indicates anticlockwise spinning.
+   * Direction: a positive value indicates clockwise rotation, and a negative value indicates counterclockwise rotation.
    *
-   * @type { ?ParticlePropertyOptions<number, SPIN_UPDATER> }
    * @default {range:[0,0]}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -260,8 +260,8 @@ interface ParticleOptions<
 }
 
 /**
- * Defines the parameters for a point-like particle.
- * @interface PointParticleParameters
+ * Sets the radius of a particle.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -271,8 +271,11 @@ interface ParticleOptions<
 interface PointParticleParameters {
   /**
    * Particle radius.
+   * 
+   * Default value: **0**. If the value is less than 0, the default value **0** is used.
+   * 
+   * Value range: [0, +∞)
    *
-   * @type { VP }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -283,8 +286,8 @@ interface PointParticleParameters {
 }
 
 /**
- * Defines the parameters for an image-like particle.
- * @interface ImageParticleParameters
+ * Sets the image options.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -293,16 +296,14 @@ interface PointParticleParameters {
  */
 interface ImageParticleParameters {
   /**
-   * Path to the image. Local and online sources are supported. For details about how to reference an image, see 
+   * Image path. Both local images and network images are supported. For details about how to reference images, see 
    * [Loading Image Resources](docroot://ui/arkts-graphics-display.md#loading-image-resources).
    * 
-   * SVG images are not supported.
+   * The SVG image type is not supported yet.
    * 
-   * If the value of src does not change, the cached resource is preferentially used. As a result, resources cannot be 
-   * dynamically switched. If you want to dynamically switch resources, you are advised to switch to different src 
-   * values.
+   * When src remains unchanged, cached resources are used preferentially, and resources cannot be switched dynamically.
+   * To switch resources dynamically, you are advised to switch to a different src.
    *
-   * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -312,7 +313,9 @@ interface ImageParticleParameters {
   src: ResourceStr;
 
   /**
-   * Particle image size.
+   * Image size. The first parameter is the image width, and the second parameter is the image height.
+   * 
+   * Default value: [0, 0]
    *
    * @type { [Dimension, Dimension] } [since 10 - 17]
    * @type { ParticleTuple<Dimension, Dimension> } [since 18]
@@ -326,8 +329,9 @@ interface ImageParticleParameters {
 
   /**
    * Image display mode.
+   * 
+   * Default value: **ImageFit.Cover**
    *
-   * @type { ?ImageFit }
    * @default ImageFit.Cover
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -339,9 +343,8 @@ interface ImageParticleParameters {
 }
 
 /**
- * Defines the particle configs.
+ * Sets particle configuration items.
  *
- * @interface ParticleConfigs
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -352,7 +355,6 @@ interface ParticleConfigs {
   /**
    * Point particle configuration.
    *
-   * @type { PointParticleParameters } 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -364,7 +366,6 @@ interface ParticleConfigs {
   /**
    * Image particle configuration.
    *
-   * @type { ImageParticleParameters } 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -375,9 +376,8 @@ interface ParticleConfigs {
 }
 
 /**
- * Defines the emitter property.
+ * Sets the emitter attributes.
  *
- * @interface EmitterProperty
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -387,8 +387,10 @@ interface ParticleConfigs {
 interface EmitterProperty {
 
   /**
-   * Index of the emitter based on the index array of the emitters in the initialization parameters. The value is 
-   * rounded to the nearest whole number. The default value **0** is used in case of exceptions.
+   * Index, rounded to an integer, which specifies the corresponding emitter by the array index of the emitter in the 
+   * initialization parameters. The default value is 0 for an invalid value.
+   * 
+   * **Atomic service API:** This API is supported in atomic services since API version 12.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -399,13 +401,14 @@ interface EmitterProperty {
   index: number;
 
   /**
-   * Emit rate, that is, the number of particles emitted per second.
+   * Emission rate of the emitter, that is, the number of particles emitted per second.
    * 
-   * If no value is passed in, the current emit rate is retained. If a value less than 0 is passed in, the default value
-   * **5** is used. The **emitRate** value can significantly impact performance when it exceeds 5000; you are advised to
-   * set it to be less than 5000.
+   * If this parameter is not passed, the current emission rate is retained. If the passed value is less than 0, the 
+   * default value 5 is used. An **emitRate** value greater than 5000 may have a significant impact on performance and a
+   * sharp drop in frame rate. It is recommended to set this parameter to a value less than 5000.
+   * 
+   * **Atomic service API:** This API is supported in atomic services since API version 12.
    *
-   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -415,14 +418,16 @@ interface EmitterProperty {
   emitRate?: number;
 
   /**
-   * Array of emitter positions. Only the number type is supported.
+   * Emitter position. Only the number type is supported.
    * 
-   * If no value is passed in, the current emitter position is retained. Two valid values must be passed in; if either 
-   * is an invalid value, **position** will not take effect.
+   * If this parameter is not passed, the current emitter position is retained. Two valid parameters must be passed. If 
+   * either of them is invalid, **position** does not take effect. When the shape of the emitter corresponding to the 
+   * **index** is annulus (**ANNULUS**), **position** does not take effect.
    * 
-   * Value range of **x** and **y**: (-∞, +∞).
+   * Value range of x and y: (-∞, +∞).
+   * 
+   * **Atomic service API:** This API is supported in atomic services since API version 12.
    *
-   * @type { ?PositionT<number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -432,12 +437,14 @@ interface EmitterProperty {
   position?: PositionT<number>;
 
   /**
-   * Size of the emit window. Only the number type is supported.
+   * Size of the emitter. Only the number type is supported.
    * 
-   * If no value is passed in, the current emitter window size is retained. Two valid values greater than 0 must be 
-   * passed in; if either is an invalid value, **size** will not take effect.
+   * If this parameter is not passed, the current emitter size is retained. Two valid parameters greater than 0 must be 
+   * passed. If either of them is invalid, **size** does not take effect. When the shape of the emitter corresponding to
+   * the index is annulus (**ANNULUS**), **size** does not take effect.
+   * 
+   * **Atomic service API:** This API is supported in atomic services since API version 12.
    *
-   * @type { ?SizeT<number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -447,28 +454,29 @@ interface EmitterProperty {
   size?: SizeT<number>;
 
   /**
-   * the description of the annulus region. This parameter is valid only for emitter whose shape is annulus.
-   *
-   * @type { ?ParticleAnnulusRegion }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   */
+    * Ring emitter parameters. This parameter takes effect only when the shape of the emitter corresponding to the 
+    * **index** is annulus. For a annulus emitter, **position** and **size** do not take effect.
+    * 
+    * **Atomic service API:** This API is supported in atomic services since API version 20.
+    *
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @crossplatform
+    * @atomicservice
+    * @since 20 dynamic
+    */
    annulusRegion?: ParticleAnnulusRegion;
 }
 
 /**
- * Defines parameters of particles used by emitters.
- *
+ * Particle configuration.
+ * 
  * > **NOTE**
  * >
  * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18. 
  * > While historical version information is preserved for anonymous objects, there may be cases where the outer element
  * > 's @since version number is higher than inner elements'. This does not affect interface usability.
  *
- * @typedef EmitterParticleOptions<PARTICLE extends ParticleType>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -477,9 +485,10 @@ interface EmitterProperty {
  */
 interface EmitterParticleOptions<PARTICLE extends ParticleType> {
   /**
-   * Particle type, which can be **IMAGE** or **POINT**.
+   * Particle type, which can be an image or a point.   
+   * 
+   * **Atomic service API:** Since API version 11, this API is supported in atomic services.
    *
-   * @type { PARTICLE }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -488,14 +497,15 @@ interface EmitterParticleOptions<PARTICLE extends ParticleType> {
    */
   type: PARTICLE;
   /**
-   * Configuration of the particle type.
+   * Configuration of the corresponding type.
    * 
-   * The value type of **config** is subject to the value of **type**.
+   * The **config** type is related to the **type** value:
    * 
-   * 1. If the type is ParticleType.POINT, the config type is [PointParticleParameters]{@link PointParticleParameters}.
-   * 2. If the type is ParticleType.IMAGE, the config type is [ImageParticleParameters]{@link ImageParticleParameters}.
+   * 1. If **type** is **ParticleType.POINT**, the **config** type is [PointParticleParameters]{@link PointParticleParameters}.
+   * 2. If **type** is **ParticleType.IMAGE**, the **config** type is [ImageParticleParameters]{@link ImageParticleParameters}.
+   * 
+   * **Atomic service API:** Since API version 11, this API is supported in atomic services.
    *
-   * @type { ParticleConfigs[PARTICLE] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -505,10 +515,17 @@ interface EmitterParticleOptions<PARTICLE extends ParticleType> {
   config: ParticleConfigs[PARTICLE];
 
   /**
-   * Number of particles. The value is greater than or equal to -1. The value **-1** indicates that the number of 
-   * particles is infinite.
+   * Total number of emitted particles. The value of **count** must be greater than or equal to -1. When **count** is -
+   * 1, the total number of particles is infinite.
+   * 
+   * **Note:**
+   * 
+   * When **count** is -1, the emitter continuously emits particles. If you do not need to continuously generate a large
+   * number of particles, it is recommended not to set **count** to -1, as this may cause significant performance 
+   * impact. It is recommended to set reasonable **emitRate** and **lifetime** values to avoid performance issues.
+   * 
+   * **Atomic service API:** Since API version 11, this API is supported in atomic services.
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -518,14 +535,15 @@ interface EmitterParticleOptions<PARTICLE extends ParticleType> {
   count: number;
 
   /**
-   * Lifetime of a single particle. The default value is **1000** (that is, 1000 ms, 1s). The value is greater than or 
-   * equal to -1. The value **-1** indicates that the lifetime of the particle is infinite. If the value specified is 
-   * less than **-1**, the default value is used.
+   * Lifecycle of a single particle. The default value is **1000** (that is, 1000 ms, or 1 s), and **lifetime** must be 
+   * greater than or equal to -1. When **lifetime** is -1, the particle lifecycle is infinite. When **lifetime** is less
+   * than -1, the default value is used.
    * 
-   * Note: If you do not want the animation to keep playing, you are advised not to set the lifetime to –1, which may 
-   * greatly affect the performance.
+   * **Note:** If you do not need the animation to play continuously, it is recommended not to set the **lifecycle** to 
+   * -1, as this may cause significant performance impact.
+   * 
+   * **Atomic service API:** Since API version 11, this API is supported in atomic services.
    *
-   * @type { ?number }
    * @default 1000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -536,11 +554,13 @@ interface EmitterParticleOptions<PARTICLE extends ParticleType> {
   lifetime?: number;
 
   /**
-   * Random integer within the range of [lifetime – lifetimeRange, lifetime + lifetimeRange]. After lifetimeRange is 
-   * set, the particle lifecycle is a random integer within the range. The default value is 0. The value range is from 0
-   * to positive infinity. If it is set to a negative value, the default value is used.
+   * Value range of the particle lifecycle, in milliseconds (ms). After **lifetimeRange** is set, the particle lifecycle
+   * is a random integer between [lifetime - lifetimeRange, lifetime + lifetimeRange]. The default value of 
+   * **lifetimeRange** is **0**, and the value range is from 0 to positive infinity. When it is set to a negative value,
+   * the default value is used. 
+   * 
+   * **Atomic service API:** Since API version 12, this API is supported in atomic services.
    *
-   * @type { ?number }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -552,9 +572,8 @@ interface EmitterParticleOptions<PARTICLE extends ParticleType> {
 }
 
 /**
- * Particle emitter configuration.
+ * Defines the configuration options of the particle emitter.
  *
- * @interface EmitterOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -565,26 +584,31 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
   /**
    * Particle configuration.
    * 
-   * - **type**: particle type, which can be **IMAGE** or **POINT**.
-   * - **config**: configuration of the particle type.
-   * - The value type of **config** is subject to the value of **type**.
+   * -**type** indicates the particle type, which can be an image or a point.
    * 
-   * 1. If the type is ParticleType.POINT, the config type is [PointParticleParameters]{@link PointParticleParameters}.
-   * 2. If the type is ParticleType.IMAGE, the config type is [ImageParticleParameters]{@link ImageParticleParameters}.
+   * -**config** indicates the configuration of the corresponding type.
    * 
-   * - **count**: number of particles. The value is greater than or equal to -1. The value **-1** indicates that the 
-   * number of particles is infinite.
-   * - **lifetime**: lifetime of a single particle. The default value is **1000** (that is, 1000 ms, 1s). The value is 
-   * greater than or equal to -1. The value **-1** indicates that the lifetime of the particle is infinite. If the value
-   * specified is less than **-1**, the default value is used.
+   * -The **config** type is related to the **type** value:
    * 
-   * Note: If you do not want the animation to keep playing, you are advised not to set the lifetime to –1, which may 
-   * greatly affect the performance.
+   * 1. If **type** is **ParticleType.POINT**, the **config** type is [PointParticleParameters]{@link PointParticleParameters}.
+   * 2. If **type** is **ParticleType.IMAGE**, the **config** type is [ImageParticleParameters]{@link ImageParticleParameters}.
    * 
-   * The **lifeTimeRange** parameter indicates the range of the particle lifetime. After this parameter is set, the 
-   * lifetime of a particle is a random integer within the range of 
-   * [lifetime – lifeTimeRange, lifetime + lifeTimeRange]. The default value of lifeTimeRange is 0. The value ranges 
-   * from 0 to positive infinity. If it is set to a negative value, the default value is used.
+   * -**count** indicates the total number of emitted particles. The value of **count** must be greater than or equal to
+   * -1. When **count** is -1, the total number of particles is infinite.
+   * 
+   * -**lifetime** indicates the lifecycle of a single particle. The default value is **1000** (that is, 1000 ms, 1 s). 
+   * The value of lifetime must be greater than or equal to -1. When **lifetime** is -1, the particle lifecycle is 
+   * infinite. When **lifetime** is less than -1, the default value is used.
+   * 
+   * **Note:** If the animation does not need to play continuously, it is recommended not to set the lifecycle to -1, as
+   * this may cause significant performance impact.
+   * 
+   * **lifetimeRange** indicates the value range of the particle lifecycle. After **lifetimeRange** is set, the particle
+   * lifecycle is a random integer in [lifetime - lifetimeRange, lifetime + lifetimeRange]. The default value of 
+   * **lifetimeRange** is **0**, and the value range is 
+   * [0, +∞). When it is set to a negative value, the default value is used.
+   * 
+   * **Atomic service API:** Since API version 11, this API is supported in atomic services.
    *
    * @type { object } [since 10 - 17]
    * @type { EmitterParticleOptions<PARTICLE> } [since 18]
@@ -597,14 +621,13 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
   particle: EmitterParticleOptions<PARTICLE>;
 
   /**
-   * Emit rate (that is, the number of particles emitted per second).
+   * Emission rate of the emitter (that is, the number of particles emitted per second). Default value: **5**. When the 
+   * value is less than 0, the default value **5** is used. When **emitRate** exceeds 5000, performance is severely 
+   * affected and the frame rate may drop significantly. It is recommended to set this parameter to a value less than 50
+   * 00.
    * 
-   * Default value: **5**. If the value specified is less than 0, the default value is used.
-   * 
-   * The **emitRate** value can significantly impact performance when it exceeds 5000; you are advised to set it to be 
-   * less than 5000.
+   * **Atomic service API:** Since API version 11, this API is supported in atomic services.
    *
-   * @type { ?number }
    * @default 5
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -615,11 +638,12 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
   emitRate?: number;
 
   /**
-   * Shape of emitter.
+   * Shape of the emitter.
    * 
-   * Default value: ParticleEmitterShape.RECTANGLE
+   * Default value: **ParticleEmitterShape.RECTANGLE**
+   * 
+   * **Atomic service API:** Since API version 11, this API is supported in atomic services.
    *
-   * @type { ?ParticleEmitterShape }
    * @default ParticleEmitterShape.RECTANGLE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -630,10 +654,14 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
   shape?: ParticleEmitterShape;
 
   /**
-   * Emitter position (distance from the upper left corner of the component). The first parameter indicates the relative
-   * offset along the x-axis, and the second parameter indicates the relative offset along the y-axis.
+   * Emitter position (the position relative to the upper left corner of the component. The first parameter is the 
+   * relative offset in the x direction, and the second parameter is the relative offset in the y direction.). When the 
+   * emitter shape is annular (that is, **shape** is **ParticleEmitterShape.ANNULUS**), this property does not take 
+   * effect, and the shape information must be specified through the **annulusRegion** parameter. 
    * 
-   * Default value: **[0.0, 0.0]**
+   * Default value: `[0.0, 0.0]`
+   * 
+   * **Atomic service API:** Since API version 11, this API is supported in atomic services.
    *
    * @type { ?[Dimension, Dimension] } [since 10 - 17]
    * @type { ?ParticleTuple<Dimension, Dimension> } [since 18]
@@ -647,10 +675,13 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
   position?: ParticleTuple<Dimension, Dimension>;
 
   /**
-   * Size of the emit window. The first parameter indicates the emitter width, and the second parameter indicates the 
-   * emitter height.
+   * Size of the emitter. The first parameter is the emitter width, and the second parameter is the emitter height. When
+   * the emitter shape is annulus (that is, **shape** is **ParticleEmitterShape.ANNULUS**), this property does not take 
+   * effect, and the shape information must be specified through the **annulusRegion** parameter.
    * 
-   * Default value: **['100%','100%']** (that is, the emission window occupies the entire Particle component.)
+   * Default value: `['100%','100%']` (that is, the emission window occupies the entire **Particle** component)
+   * 
+   * **Atomic service API:** Since API version 11, this API is supported in atomic services.
    *
    * @type { ?[Dimension, Dimension] } [since 10 - 17]
    * @type { ?ParticleTuple<Dimension, Dimension> } [since 18]
@@ -664,11 +695,13 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
   size?: ParticleTuple<Dimension, Dimension>;
 
   /**
-   * Annulus emitter parameters. This parameter takes effect only when the emitter shape is annulus (that is, the shape 
-   * parameter is ParticleEmitterShape.ANNULUS). For an annulus emitter, the shape information must be specified by the 
-   * annulusRegion parameter, and the position and size parameters do not take effect.
+   * Ring emitter parameter. It takes effect only when the emitter shape is annulus (that is, the **shape** parameter is
+   * **ParticleEmitterShape.ANNULUS**). For a annulus emitter, the shape information must be specified through the 
+   * **annulusRegion** parameter, and **position** and **size** do not take effect. When it is not set, the emitter does
+   * not use the annulus region parameter.
+   * 
+   * **Atomic service API:** Since API version 20, this API is supported in atomic services.
    *
-   * @type { ?ParticleAnnulusRegion }
    * @default {innerRadius:LengthMetrics.vp(0),outerRadius:LengthMetrics.vp(0)}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -680,8 +713,8 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
 }
 
 /**
- * Defines the particle property updater configs.
- * @interface ParticlePropertyUpdaterConfigs
+ * Sets the particle property updater configuration.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -690,9 +723,8 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
  */
 interface ParticlePropertyUpdaterConfigs<T> {
   /**
-   * No effect of particle updater.
+   * No change.
    *
-   * @type { void }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -702,26 +734,26 @@ interface ParticlePropertyUpdaterConfigs<T> {
   [ParticleUpdater.NONE]: void;
 
   /**
-   * The property changes randomly, with the per-second change difference being a value randomly generated from the 
-   * range.
+   * When the change mode is random, the change difference per second is a value randomly generated within the 
+   * configured range.
    * 
-   * The target property value is obtained by applying the change difference to the current property value. For example,
-   * if the current property value is **0.2** and **config** is set to **[0.1,1.0]**, then:
+   * The target property value is the current property value plus the change difference. For example, if the current 
+   * property value is **0.2** and **config** is [0.1,1.0]:
    * 
-   * 1. When the random change difference is 0.5, the target property value is 0.2 + 0.5 = 0.7.
-   * 2. The change difference may also be a negative value. For example, if the current property
-   * value is **0.2** and **config** is set to **[-3.0,2.0]**, then when the random change difference is **-2.0**,
-   * the target property value is 0.2 - 2.0 = -1.8.
+   * 1. If the change difference takes a random value 0.5 within the range [0.1,1.0], the target property value is 0.2 + 0.5 = 0.7.
+   * 2. The change difference can also be negative. For example, if the current property value is 0.2 and **config** is [-3.0,2.0],
+   * and the change difference takes a random value -2.0 within the range [-3.0,2.0], the target property value is 0.2 - 2.0 = -1.8.
    * 
-   * **NOTE**
+   * **Note:**
    * 
-   * **config** sets the value range of the change difference. While the change difference does not have a maximum or 
-   * minimum value limit, the target property value does. Therefore, if the target property value is greater than the 
-   * maximum property value, the maximum property value will be used instead; if the target property value is less than 
-   * the minimum property value, the minimum property value will be used instead. **T** represents a number.
+   * **config** configures the value range of the change difference, and there is no constraint on the maximum and 
+   * minimum values of the difference. However, if the current property value plus the difference is greater than the 
+   * maximum property value, the target property value takes the maximum property value; if the current property value 
+   * plus the difference is less than the minimum property value, the target property value takes the minimum property 
+   * value. **T** is number.
    * 
-   * For example, if the value range of **opacity** is **[0.0, 1.0]**, then if the target property value is greater than
-   * 1.0, **1.0** will be used instead.
+   * For example, if the value range of **opacity** is [0.0,1.0], when the current property value plus the difference 
+   * exceeds 1.0, 1.0 is used.
    *
    * @type { [T, T] } [since 10 - 17]
    * @type { ParticleTuple<T, T> } [since 18]
@@ -734,10 +766,10 @@ interface ParticlePropertyUpdaterConfigs<T> {
   [ParticleUpdater.RANDOM]: ParticleTuple<T, T>;
 
   /**
-   * The property changes with the animation curve. The array type indicates that multiple animation segments can be set
-   * for the current property, for example, 0-3000 ms, 3000-5000 ms, and 5000-8000 ms. **T** represents a number.
+   * Configuration of property change when the change mode is curve. The array type indicates that multiple animation 
+   * segments can be set for the current property, for example, **0ms-3000ms**, **3000ms-5000ms**, and 
+   * **5000ms-8000ms**. **T** is number.
    *
-   * @type { Array<ParticlePropertyAnimation<T>> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -748,15 +780,14 @@ interface ParticlePropertyUpdaterConfigs<T> {
 }
 
 /**
- * Defines the particle updater options.
+ * Defines the property change configuration.
  * 
  * > **NOTE**
  * >
  * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18. 
  * > While historical version information is preserved for anonymous objects, there may be cases where the outer element
- * > 's @since version number is higher than inner elements'. This does not affect interface usability.
+ * > 's @since version number is higher than the inner element's. This does not affect interface usability.
  *
- * @typedef ParticleUpdaterOptions<TYPE, UPDATER extends ParticleUpdater>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -765,9 +796,11 @@ interface ParticlePropertyUpdaterConfigs<T> {
  */
 interface ParticleUpdaterOptions<TYPE, UPDATER extends ParticleUpdater> {
   /**
-   * Particle updater type.
+   * Property change type. 
+   * 
+   * Default value: **type** defaults to **ParticleUpdater.NONE**.    **Atomic service API:** Since API version 11, this
+   * API is supported in atomic services.
    *
-   * @type { UPDATER }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -777,17 +810,16 @@ interface ParticleUpdaterOptions<TYPE, UPDATER extends ParticleUpdater> {
   type: UPDATER;
 
   /**
-   * How the property is updated. The available options of **type** are as follows:
+   * Property change configuration. The property change type has three categories:
    * 
-   * 1. **ParticleUpdater.NONE**: The property does not change. In this case, the **config** type is
-   *  [ParticlePropertyUpdaterConfigs]{@link ParticlePropertyUpdaterConfigs}[ParticleUpdater.NONE].
-   * 2. **ParticleUpdater.RANDOM**: The property changes randomly. In this case, the **config** type is
-   *  [ParticlePropertyUpdaterConfigs]{@link ParticlePropertyUpdaterConfigs}[ParticleUpdater.RANDOM].
-   * 3. **ParticleUpdater.CURVE**: The property changes with the animation curve. In this case,
-   * the **config** type is
+   * 1. When **type** is **ParticleUpdater.NONE**, it indicates no change, and **config** is of type
+   * [ParticlePropertyUpdaterConfigs]{@link ParticlePropertyUpdaterConfigs}[ParticleUpdater.NONE].
+   * 2. When type is **ParticleUpdater.RANDOM**, it indicates the change type is random, and **config** is of type
+   * [ParticlePropertyUpdaterConfigs]{@link ParticlePropertyUpdaterConfigs}[ParticleUpdater.RANDOM].
+   * 3. When **type** is **ParticleUpdater.CURVE**, it indicates the change type is curve, and **config** is of type
    * [ParticlePropertyUpdaterConfigs]{@link ParticlePropertyUpdaterConfigs}[ParticleUpdater.CURVE].
+   * **Atomic service API:** Since API version 11, this API is supported in atomic services.
    *
-   * @type { ParticlePropertyUpdaterConfigs<TYPE>[UPDATER] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -798,9 +830,9 @@ interface ParticleUpdaterOptions<TYPE, UPDATER extends ParticleUpdater> {
 }
 
 /**
- * The color changes randomly, with the per-second change difference being a value randomly generated from the range. 
- * The target color is obtained by applying the change difference to the current color value of each of the R, G, B, A 
- * channels.  
+ * Randomly generates a difference value within the interval when the color change mode is random. The four color 
+ * channels—r, g, b, and a—each overlay the current color value with the difference value every second to produce the 
+ * target color value, achieving the effect of random color changes.
  * 
  * > **NOTE**
  * >
@@ -808,7 +840,6 @@ interface ParticleUpdaterOptions<TYPE, UPDATER extends ParticleUpdater> {
  * > While historical version information is preserved for anonymous objects, there may be cases where the outer element
  * > 's @since version number is higher than inner elements'. This does not affect interface usability.
  *
- * @typedef ParticleColorOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -819,7 +850,6 @@ interface ParticleColorOptions {
   /**
    * Difference value for the red color channel.
    *
-   * @type { ParticleTuple<number, number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -831,7 +861,6 @@ interface ParticleColorOptions {
   /**
    * Difference value for the green color channel.
    *
-   * @type { ParticleTuple<number, number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -843,7 +872,6 @@ interface ParticleColorOptions {
   /**
    * Difference value for the blue color channel.
    *
-   * @type { ParticleTuple<number, number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -855,7 +883,6 @@ interface ParticleColorOptions {
   /**
    * Difference value for the alpha (transparency) channel.
    *
-   * @type { ParticleTuple<number, number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -874,7 +901,6 @@ interface ParticleColorOptions {
  * > While historical version information is preserved for anonymous objects, there may be cases where the outer element
  * > 's @since version number is higher than inner elements'. This does not affect interface usability.
  *
- * @typedef ParticleColorUpdaterOptions<UPDATER extends ParticleUpdater>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -883,11 +909,12 @@ interface ParticleColorOptions {
  */
 interface ParticleColorUpdaterOptions<UPDATER extends ParticleUpdater> {
   /**
-   * Type of property updating.
+   * Change type of the color property.
    * 
-   * The default value of **type** is **ParticleUpdater.NONE**.
+   * Default value: **type** defaults to **ParticleUpdater.NONE**.     
+   * 
+   * **Atomic service API:** This API is supported in atomic services since API version 11.
    *
-   * @type { UPDATER }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -897,25 +924,24 @@ interface ParticleColorUpdaterOptions<UPDATER extends ParticleUpdater> {
   type: UPDATER;
 
   /**
-   * Color updater configuration.
+   * The color property change type has three categories:
    * 
-   * The available options of **type** are as follows:
-   * 
-   * 1. **ParticleUpdater.NONE**: The property does not change. In this case,
-   *  the **config** type is [ParticleColorPropertyUpdaterConfigs]{@link ParticleColorPropertyUpdaterConfigs}[ParticleUpdater.NONE].
-   * 2. **ParticleUpdater.RANDOM**: The property changes randomly. In this case,
-   *  the **config** type is [ParticleColorPropertyUpdaterConfigs]{@link ParticleColorPropertyUpdaterConfigs}[ParticleUpdater.RANDOM].
-   * 3. **ParticleUpdater.CURVE**: The property changes with the animation curve.
-   *  In this case, the **config** type is [ParticleColorPropertyUpdaterConfigs]{@link ParticleColorPropertyUpdaterConfigs}[ParticleUpdater.CURVE].
+   * 1. When **type** is **ParticleUpdater.NONE**, it indicates no change, and the **config** type is
+   * [ParticleColorPropertyUpdaterConfigs]{@link ParticleColorPropertyUpdaterConfigs}[ParticleUpdater.NONE].
+   * 2. When **type** is **ParticleUpdater.RANDOM**, it indicates random uniform change, and the **config** type is
+   * [ParticleColorPropertyUpdaterConfigs]{@link ParticleColorPropertyUpdaterConfigs}[ParticleUpdater.RANDOM].
+   * 3. When **type** is **ParticleUpdater.CURVE**, it indicates change following the animation curve, and the **config** type is
+   * [ParticleColorPropertyUpdaterConfigs]{@link ParticleColorPropertyUpdaterConfigs}[ParticleUpdater.CURVE].
    * 
    * **NOTE**
    * 
-   * When **type** is set to **ParticleUpdater.RANDOM** or **ParticleUpdater.CURVE**, the color configuration in 
-   * **updater** has higher priority than that in **range**. During the animation period specified by updater, the color
-   * changes based on the color configuration in updater. Before the animation period specified by updater, the color 
-   * changes based on the color configuration in range.
+   * When **type** is **ParticleUpdater.RANDOM** or **ParticleUpdater.CURVE**, the color configuration in **updater** 
+   * takes precedence over the color configuration in **range**. Within the animation time period configured in updater,
+   * the color changes according to the color configuration in **updater**; outside the animation time period configured
+   * in **updater**, the color changes according to the color configuration in **range**.
+   * 
+   * **Atomic service API:** This API is supported in atomic services since API version 11.
    *
-   * @type { ParticleColorPropertyUpdaterConfigs[UPDATER] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -926,8 +952,8 @@ interface ParticleColorUpdaterOptions<UPDATER extends ParticleUpdater> {
 }
 
 /**
- * Defines the particle property Options.
- * @interface ParticlePropertyOptions
+ * Sets particle attributes.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -936,23 +962,21 @@ interface ParticleColorUpdaterOptions<UPDATER extends ParticleUpdater> {
  */
 interface ParticlePropertyOptions<TYPE, UPDATER extends ParticleUpdater> {
   /**
-   * Initial property value range of the particle. The initial property value of particles generated by the particle 
-   * emitter is randomly selected in this range.
+   * Initial particle property value range. The property value of the particle generated by the particle emitter is 
+   * randomly selected within the range.
    * 
-   * **NOTE**
+   * **Note:**
    * 
-   * If a property is set to an invalid value, the default value will be used. If the maximum value is less than the 
-   * minimum value, the default range will be used. **TYPE** is number.
+   * For each property, invalid input uses the default value. When the maximum value is less than the minimum value, the
+   * default range is used. **TYPE** is number.
    * 
-   * The default value varies by property:
+   * The default values of different properties are different:
    * 
-   * 1. **opacity** property: **range:[1.0,1.0]**; the value range is [0, 1]; the default value is **1.0**.
-   * 2. **scale** property: **range:[1.0,1.0]**; the value range is [0, 10000]; the default value is **1.0**.
-   * 3. **acceleration** speed property:
-   *   **range:[0.0,0.0]**; the value range is [0, 10000]; the default value is **0.0**.
-   * 4. **acceleration** angle property:
-   *   **range:[0.0,0.0]**; the value range is [-10000, 10000]; the default value is **0.0**.
-   * 5. **spin** speed property: **range:[0.0,0.0]**; the value range is [-10000, 10000]; the default value is **0.0**.
+   * 1. **opacity**: range:[1.0,1.0], value range is [0, 1], default value is **1.0**.
+   * 2. **scale**: range:[1.0,1.0], value range is [0, 10000], default value is **1.0**.
+   * 3. **speed** of **acceleration**: range:[0.0,0.0], value range is [0, 10000], default value is **0.0**.
+   * 4. **angle** of **acceleration**: range:[0.0,0.0], value range is [-10000, 10000], default value is **0.0**.
+   * 5. **spin**: range:[0.0,0.0], value range is [-10000, 10000], default value is **0.0**.
    *
    * @type { [TYPE, TYPE] } [since 10 - 17]
    * @type { ParticleTuple<TYPE, TYPE> } [since 18]
@@ -965,16 +989,16 @@ interface ParticlePropertyOptions<TYPE, UPDATER extends ParticleUpdater> {
   range: ParticleTuple<TYPE, TYPE>;
 
   /**
-   * How the property is updated. The available options of **type** are as follows:
+   * Property change configuration. The property change type has three categories:
    * 
-   * 1. **ParticleUpdater.NONE**: The property does not change. In this case, the **config** type is
-   *  [ParticlePropertyUpdaterConfigs]{@link ParticlePropertyUpdaterConfigs}[ParticleUpdater.NONE].
-   * 2. **ParticleUpdater.RANDOM**: The property changes randomly. In this case, the **config** type is
-   *  [ParticlePropertyUpdaterConfigs]{@link ParticlePropertyUpdaterConfigs}[ParticleUpdater.RANDOM].
-   * 3. **ParticleUpdater.CURVE**: The property changes with the animation curve. In this case, the
-   *  **config** type is [ParticlePropertyUpdaterConfigs]{@link ParticlePropertyUpdaterConfigs}[ParticleUpdater.CURVE].
+   * 1. When **type** is **ParticleUpdater.NONE**, it indicates no change, and the **config** type is
+   * [ParticlePropertyUpdaterConfigs]{@link ParticlePropertyUpdaterConfigs}[ParticleUpdater.NONE].
+   * 2. When **type** is **ParticleUpdater.RANDOM**, it indicates that the change type is random change, and the **config** type is
+   * [ParticlePropertyUpdaterConfigs]{@link ParticlePropertyUpdaterConfigs}[ParticleUpdater.RANDOM].
+   * 3. When **type** is **ParticleUpdater.CURVE**, it indicates that the change type is curve change, and the **config** type is
+   * [ParticlePropertyUpdaterConfigs]{@link ParticlePropertyUpdaterConfigs}[ParticleUpdater.CURVE].
    * 
-   * The default value of **type** is **ParticleUpdater.NONE**.
+   * Default value: **type** defaults to **ParticleUpdater.NONE**.
    *
    * @type { ?object } [since 10 - 17]
    * @type { ?ParticleUpdaterOptions<TYPE, UPDATER> } [since 18]
@@ -989,8 +1013,8 @@ interface ParticlePropertyOptions<TYPE, UPDATER extends ParticleUpdater> {
 }
 
 /**
- * Defines the particle color property updater configs.
- * @interface ParticleColorPropertyUpdaterConfigs
+ * Sets the configuration of the particle color attribute updater.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1010,9 +1034,9 @@ interface ParticleColorPropertyUpdaterConfigs {
   [ParticleUpdater.NONE]: void;
 
   /**
-   * The color changes randomly, with the per-second change difference being a value randomly generated from the range. 
-   * The target color is obtained by applying the change difference to the current color value of each of the R, G, B, A
-   * channels.
+   * Indicates that when the change mode is random, a difference value is randomly generated for each particle within 
+   * the change range. The r, g, b, and a color channels each use the difference value to overlay the current color 
+   * value per second to generate the target color value, achieving the effect of random color change.
    *
    * @type { object } [since 10 - 17]
    * @type { ParticleColorOptions } [since 18]
@@ -1025,8 +1049,9 @@ interface ParticleColorPropertyUpdaterConfigs {
   [ParticleUpdater.RANDOM]: ParticleColorOptions;
 
   /**
-   * The color changes with the animation curve. The array type indicates that multiple animation segments can be set 
-   * for the current property, for example, 0–3000 ms, 3000–5000 ms, and 5000–8000 ms.
+   * Indicates the configuration of color change when the change mode is curve. The array type indicates that the 
+   * current property can be set with multiple animation segments, for example, **0ms-3000ms**, **3000ms-5000ms**, and 
+   * **5000ms-8000ms** are set as separate animations.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1038,8 +1063,8 @@ interface ParticleColorPropertyUpdaterConfigs {
 }
 
 /**
- * Defines the particle color property updater configs which can support generics.
- * @interface ParticleColorPropertyOptions
+ * Sets the particle color attribute updater configuration.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1048,10 +1073,12 @@ interface ParticleColorPropertyUpdaterConfigs {
  */
 interface ParticleColorPropertyOptions<UPDATER extends ParticleUpdater> {
   /**
-   * Initial color range of the particle. The initial color of particles generated by the particle emitter is randomly 
-   * selected in this range.
+   * Particle initial color range. The initial color of particles generated by the particle emitter is randomly selected
+   * from the **range**.
    * 
-   * Default value: range:[Color.White,Color.White]
+   * Default value: **range:[Color.White,Color.White]** 
+   * 
+   * **Atomic service API:** Since API version 11, this API is supported in atomic services.
    *
    * @type { [ResourceColor, ResourceColor] } [since 10 - 17]
    * @type { ParticleTuple<ResourceColor, ResourceColor> } [since 18]
@@ -1064,12 +1091,13 @@ interface ParticleColorPropertyOptions<UPDATER extends ParticleUpdater> {
   range: ParticleTuple<ResourceColor, ResourceColor>;
 
   /**
-   * Type of random value distribution for the initial color of the particle. Both uniform distribution and normal (
-   * Gaussian) distribution are supported.
+   * Distribution type of the particle initial color random values. Allows you to select the distribution type for 
+   * generating random color values, supporting uniform distribution or normal (Gaussian) distribution.
    * 
    * Default value: **DistributionType.UNIFORM**
+   * 
+   * **Atomic service API:** Since API version 12, this API is supported in atomic services.
    *
-   * @type { ?DistributionType }
    * @default DistributionType.UNIFORM
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1080,23 +1108,25 @@ interface ParticleColorPropertyOptions<UPDATER extends ParticleUpdater> {
   distributionType?: DistributionType;
 
   /**
-   * How the color property is updated. The available options of **type** are as follows:
+   * Color property change configuration. The color property change type has three categories:
    * 
-   * 1. **ParticleUpdater.NONE**: The property does not change. In this case, the **config** type is
-   *  [ParticleColorPropertyUpdaterConfigs]{@link ParticleColorPropertyUpdaterConfigs}[ParticleUpdater.NONE].
-   * 2. **ParticleUpdater.RANDOM**: The property changes randomly. In this case, the **config** type
-   *  is [ParticleColorPropertyUpdaterConfigs]{@link ParticleColorPropertyUpdaterConfigs}[ParticleUpdater.RANDOM].
-   * 3. **ParticleUpdater.CURVE**: The property changes with the animation curve. In this case, the **config** type
-   *  is [ParticleColorPropertyUpdaterConfigs]{@link ParticleColorPropertyUpdaterConfigs}[ParticleUpdater.CURVE].
+   * 1. When **type** is **ParticleUpdater.NONE**, it indicates no change, and the **config** type is
+   * [ParticleColorPropertyUpdaterConfigs]{@link ParticleColorPropertyUpdaterConfigs}[ParticleUpdater.NONE]. 
+   * 2. When **type** is **ParticleUpdater.RANDOM**, it indicates random uniform change, and the **config** type is
+   * [ParticleColorPropertyUpdaterConfigs]{@link ParticleColorPropertyUpdaterConfigs}[ParticleUpdater.RANDOM]. 
+   * 3. When **type** is **ParticleUpdater.CURVE**, it indicates change along an animation curve, and the **config** type is
+   * [ParticleColorPropertyUpdaterConfigs]{@link ParticleColorPropertyUpdaterConfigs}[ParticleUpdater.CURVE].
    * 
-   * The default value of **type** is **ParticleUpdater.NONE**.
+   * Default value: **type** defaults to **ParticleUpdater.NONE**. 
    * 
    * **NOTE**
    * 
-   * When **type** is set to **ParticleUpdater.RANDOM** or **ParticleUpdater.CURVE**, the color configuration in 
-   * **updater** has higher priority than that in **range**. During the animation time period configured in **updater**,
-   * the color configuration from **updater** is used. Outside of the animation time period configured in **updater**, 
-   * the color configuration from **range** is used.
+   * When **type** is **ParticleUpdater.RANDOM** or **ParticleUpdater.CURVE**, the color configuration in **updater** 
+   * takes precedence over the color configuration in **range**. Within the animation time period configured in 
+   * **updater**, the color changes according to the color configuration in **updater**; outside the animation time 
+   * period configured in **updater**, the color changes according to the color configuration in **range**.
+   * 
+   * **Atomic service API:** Since API version 11, this API is supported in atomic services.
    *
    * @type { ?object } [since 10 - 17]
    * @type { ?ParticleColorUpdaterOptions<UPDATER> } [since 18]
@@ -1111,8 +1141,8 @@ interface ParticleColorPropertyOptions<UPDATER extends ParticleUpdater> {
 }
 
 /**
- * Defines the particle property lifecycle.
- * @interface ParticlePropertyAnimation
+ * Sets the lifecycle of particle properties.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1123,7 +1153,6 @@ interface ParticlePropertyAnimation<T> {
   /**
    * Initial value of the property. If the value is invalid, the default value will be used.
    *
-   * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1135,7 +1164,6 @@ interface ParticlePropertyAnimation<T> {
   /**
    * Target value of the property. If the value is invalid, the default value will be used.
    *
-   * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1149,9 +1177,8 @@ interface ParticlePropertyAnimation<T> {
    * 
    * Unit: ms.
    * 
-   * Value range: [0, +∞).
+   * Value range: [0, +∞). If a negative value is passed in, the default value **0** is used.
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1165,9 +1192,8 @@ interface ParticlePropertyAnimation<T> {
    * 
    * Unit: ms.
    * 
-   * Value range: [0, +∞).
+   * Value range: [0, +∞). If a negative value is passed in, the default value **0** is used.
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1181,7 +1207,6 @@ interface ParticlePropertyAnimation<T> {
    * 
    * Default value: **Curve.Linear**
    *
-   * @type { ?(Curve | ICurve) }
    * @default Curve.Linear
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1193,15 +1218,14 @@ interface ParticlePropertyAnimation<T> {
 }
 
 /**
- * Defines the particle array.
+ * Defines a collection of particle animations.
  * 
  * > **NOTE**
  * >
  * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18. 
  * > While historical version information is preserved for anonymous objects, there may be cases where the outer element
- * > 's @since version number is higher than inner elements'. This does not affect interface usability.
+ * > 's @since version number is higher than the inner element's. This does not affect interface usability.
  *
- * @typedef Particles
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1218,10 +1242,12 @@ interface Particles<
   SPIN_UPDATER extends ParticleUpdater
 > {
   /**
-   * An array of particle options, each of which covers the emitter, color, opacity, scale, velocity, acceleration, and 
-   * spin speed of particles. For details, see [ParticleOptions]{@link ParticleOptions}.
+   * Collection of particle animations. Each particle animation ([ParticleOptions]{@link ParticleOptions}) contains 
+   * particle emission, and can configure the color, opacity, size, velocity, acceleration, and spin angle of particles.
+   * For details, see [ParticleOptions]{@link ParticleOptions}. 
+   * 
+   * **Atomic service API:** This API is supported in atomic services since API version 11.
    *
-   * @type { Array<ParticleOptions<PARTICLE, COLOR_UPDATER, OPACITY_UPDATER, SCALE_UPDATER, ACC_SPEED_UPDATER, ACC_ANGLE_UPDATER, SPIN_UPDATER>> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1244,7 +1270,6 @@ interface Particles<
 /**
  * Defines the particle Interface.
  *
- * @interface ParticleInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1255,18 +1280,19 @@ interface Particles<
 interface ParticleInterface {
   /**
    * create a particle array.
-   *
+   * 
    * Anonymous Object Rectification.
+   *
    * @param { object } value - Particle value
    *     particles - list of ParticleOptions. [since 10 - 17]
    * @param { Particles<PARTICLE, COLOR_UPDATER, OPACITY_UPDATER, SCALE_UPDATER, ACC_SPEED_UPDATER, ACC_ANGLE_UPDATER,
-  *     SPIN_UPDATER> } particles - Array of particles. [since 18]
-  * @returns { ParticleAttribute } Returns the particle attribute.
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @atomicservice [since 11]
-  * @since 10 dynamic
+   *     SPIN_UPDATER> } particles - Array of particles. [since 18]
+   * @returns { ParticleAttribute } Returns the particle attribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   <
     PARTICLE extends ParticleType,
@@ -1288,9 +1314,8 @@ interface ParticleInterface {
 }
 
 /**
- * Enumerates the particle types.
+ * Particle type.
  *
- * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1299,7 +1324,7 @@ interface ParticleInterface {
  */
 declare enum ParticleType {
   /**
-   * Point-like particle.
+   * Point particle.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1310,7 +1335,9 @@ declare enum ParticleType {
   POINT = 'point',
 
   /**
-   * Image-like particle.
+   * Image particle.
+   * 
+   * Image particles do not support color settings.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1322,9 +1349,8 @@ declare enum ParticleType {
 }
 
 /**
- * Enumerates the emitter shapes of a particle.
+ * Particle emitter shape.
  *
- * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1333,7 +1359,7 @@ declare enum ParticleType {
  */
 declare enum ParticleEmitterShape {
   /**
-   * Rectangle.
+   * The particle emitter is a rectangle.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1344,7 +1370,7 @@ declare enum ParticleEmitterShape {
   RECTANGLE = 'rectangle',
 
   /**
-   * Circle.
+   * The particle emitter is a circle.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1355,7 +1381,7 @@ declare enum ParticleEmitterShape {
   CIRCLE = 'circle',
 
   /**
-   * Ellipse.
+   * The particle emitter is an ellipse.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1366,20 +1392,21 @@ declare enum ParticleEmitterShape {
   ELLIPSE = 'ellipse',
 
   /**
-   * Annulus.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   */
+    * The particle emitter is an annulus. When this shape is used, the **annulusRegion** parameter must be configured, 
+    * and the **position** and **size** parameters do not take effect.
+    *
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @crossplatform
+    * @atomicservice
+    * @since 20 dynamic
+    */
    ANNULUS = 'annulus'
 }
 
 /**
- * Enumerates the color distribution types of a particle.
- * 
- * @enum { number }
+ * Defines the random distribution type of the initial color.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1389,7 +1416,7 @@ declare enum ParticleEmitterShape {
 declare enum DistributionType {
   /**
    * The initial color random values are distributed uniformly.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1400,7 +1427,7 @@ declare enum DistributionType {
 
   /**
    * The initial color random values are distributed according to a Gaussian distribution.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1411,9 +1438,8 @@ declare enum DistributionType {
 }
 
 /**
- * Enumerates the updater types of a particle.
+ * Particle change type.
  *
- * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1433,7 +1459,7 @@ declare enum ParticleUpdater {
   NONE = 'none',
 
   /**
-   * Random change.
+   * Random uniform change.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1444,7 +1470,7 @@ declare enum ParticleUpdater {
   RANDOM = 'random',
 
   /**
-   * Change with the animation curve.
+   * Animation curve change.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1456,9 +1482,8 @@ declare enum ParticleUpdater {
 }
 
 /**
- * Defines the SizeT type.
+ * Defines the Size type.
  *
- * @typedef { import('../api/arkui/Graphics').SizeT<T> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1468,9 +1493,8 @@ declare enum ParticleUpdater {
 declare type SizeT<T> = import('../api/arkui/Graphics').SizeT<T>;
 
 /**
- * Defines the PositionT type.
+ * Sets or returns the position of the component.
  *
- * @typedef { import('../api/arkui/Graphics').PositionT<T> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1480,9 +1504,8 @@ declare type SizeT<T> = import('../api/arkui/Graphics').SizeT<T>;
 declare type PositionT<T> = import('../api/arkui/Graphics').PositionT<T>;
 
 /**
- * Defines the Vector2T type. The Vector2T type contains two attribute values: x and y.
+ * Defines the **Vector2T** type. The **Vector2T** type contains two property values: **x** and **y**.
  *
- * @typedef { import('../api/arkui/Graphics').Vector2T<T> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1492,9 +1515,10 @@ declare type PositionT<T> = import('../api/arkui/Graphics').PositionT<T>;
 declare type Vector2T<T> = import('../api/arkui/Graphics').Vector2T<T>;
 
 /**
- * Defines the Particle component attribute functions.
+ * In addition to the [universal attributes]{@link ./common}, the following attributes are supported.
+ * 
+ * The [universal events]{@link ./common} are supported.
  *
- * @extends CommonMethod<ParticleAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1506,7 +1530,9 @@ declare class ParticleAttribute extends CommonMethod<ParticleAttribute> {
   /**
    * Sets the disturbance fields.
    *
-   * @param { Array<DisturbanceFieldOptions> } fields - Array of disturbance fields.
+   * @param { Array<DisturbanceFieldOptions> } fields - Array of disturbance fields. Used to set the disturbance effect
+   *     on the particle motion trajectory. By configuring multiple disturbance fields, repulsive or attractive forces
+   *     can be applied to particles to change their motion trajectories.
    * @returns { ParticleAttribute } Returns the particle attribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1517,9 +1543,14 @@ declare class ParticleAttribute extends CommonMethod<ParticleAttribute> {
   disturbanceFields(fields: Array<DisturbanceFieldOptions>): ParticleAttribute;
 
   /**
-   * Sets the emitter parameters.
+   * Supports dynamic update of emitter properties. Use the index in **EmitterProperty** to specify the emitter to 
+   * update (based on the array index of the emitter in the initialization parameters), and dynamically update the 
+   * emission rate, position, size, and annular area parameters of the emitter. You must first create a particle 
+   * animation and configure the emitter through the **Particle** API, and then dynamically update the parameters of the
+   * corresponding emitter through the **emitter()** property. The **emitter()** property only updates the parameters of
+   * existing emitters and cannot add new emitters.
    *
-   * @param { Array<EmitterProperty> } value - Array of emitter parameters to set.
+   * @param { Array<EmitterProperty> } value - Array of emitter parameters to be updated.
    * @returns { ParticleAttribute } Returns the particle attribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1530,11 +1561,11 @@ declare class ParticleAttribute extends CommonMethod<ParticleAttribute> {
   emitter(value: Array<EmitterProperty>): ParticleAttribute;
 
   /**
-   * Sets the particle wave field. The wave field applies a force that changes according to the waveform to particles 
-   * within the affected range, producing an effect similar to the spreading of ripples.
+   * Sets the particle ripple field. The ripple field applies a force that changes in a waveform manner to particles 
+   * within its influence range, producing an effect similar to ripple diffusion.
    *
-   * @param { Array<RippleFieldOptions> | undefined } fields - Particle wave field array. You can set multiple particle
-   *     wave fields in array form. If this parameter is set to undefined, no wave field is available.
+   * @param { Array<RippleFieldOptions> | undefined } fields - Array of particle ripple fields. Multiple particle ripple
+   *     fields can be set in the array form. When set to **undefined**, it indicates no ripple field.
    * @returns { ParticleAttribute } Returns the particle attribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1545,11 +1576,11 @@ declare class ParticleAttribute extends CommonMethod<ParticleAttribute> {
   rippleFields(fields: Array<RippleFieldOptions> | undefined): ParticleAttribute;
 
   /**
-   * Sets the particle velocity field. The velocity field applies a force to particles within the affected range, so 
-   * that the particles move at the velocity specified by the velocity field in addition to their original velocity.
+   * Sets the particle velocity field. The velocity field applies a force to particles within its influence range, so 
+   * that the velocity specified by the velocity field is superimposed on the original velocity of the particles.
    *
-   * @param { Array<VelocityFieldOptions> | undefined } fields - Particle velocity field array. You can set multiple
-   *     particle velocity fields in array form. If this parameter is set to undefined, there is no velocity field.
+   * @param { Array<VelocityFieldOptions> | undefined } fields - Array of particle velocity fields. Multiple particle
+   *     velocity fields can be set in array form. When set to **undefined**, it indicates no velocity field.
    * @returns { ParticleAttribute } Returns the particle attribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1573,9 +1604,8 @@ declare class ParticleAttribute extends CommonMethod<ParticleAttribute> {
 declare const Particle: ParticleInterface;
 
 /**
- * Defines particle disturbance Field params.
+ * Sets the parameters of the disturbance field.
  *
- * @interface DisturbanceFieldOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1585,13 +1615,12 @@ declare const Particle: ParticleInterface;
 declare interface DisturbanceFieldOptions {
 
   /**
-   * Field strength, which indicates the intensity of the repulsive force from the center outward. The default value is 
-   * **0**. Positive values indicate a repulsive force directed outward, while negative values indicate an attractive 
-   * force directed inward.
+   * Field strength, which indicates the strength of the repulsive force from the center of the field outward. Default 
+   * value: **0**. A positive value indicates that the repulsive force points outward, and a negative value indicates an
+   * attractive force pointing inward.
    * 
    * Value range: (-∞, +∞).
    *
-   * @type { ?number }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1604,9 +1633,8 @@ declare interface DisturbanceFieldOptions {
   /**
    * Shape of the field.
    * 
-   * Default value: **DisturbanceFieldShape.RECT**
+   * The default value is **DisturbanceFieldShape.RECT**.
    *
-   * @type { ?DisturbanceFieldShape }
    * @default DisturbanceFieldShape.RECT
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1617,13 +1645,12 @@ declare interface DisturbanceFieldOptions {
   shape?: DisturbanceFieldShape;
 
   /**
-   * Size of the field.
+   * Size of the field, in vp.
    * 
-   * Default value: {width:0, height:0}.
+   * Default value: **{width:0, height:0}**.
    * 
    * Value range of **width** and **height**: [0, +∞).
    *
-   * @type { ?SizeT<number> }
    * @default {width:0,height:0}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1634,13 +1661,12 @@ declare interface DisturbanceFieldOptions {
   size?: SizeT<number>;
 
   /**
-   * Position of the field.
+   * Position of the field, in vp.
    * 
-   * Default value: {x:0, y:0}.
+   * Default value: **{x:0, y:0}**.
    * 
-   * Value range of **x** and **y**: (-∞, +∞).
+   * Value range of x and y: (-∞, +∞).
    *
-   * @type { ?PositionT<number> }
    * @default {x:0,y:0}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1651,14 +1677,14 @@ declare interface DisturbanceFieldOptions {
   position?: PositionT<number>;
 
   /**
-   * Feather value, which represents the degree of attenuation from the center of the field to its edges. The value is 
-   * an integer ranging from 0 to 100. A value of 0 indicates that the field is rigid, and all particles within its 
-   * range are repelled. The higher the feather value, the more gradual the field becomes, resulting in more particles 
-   * close to the center point appearing within the field's range.
+   * Feathering value, which indicates the degree of attenuation from the center of the field to the field edge. It is 
+   * an integer ranging from 0 to 100. The value **0** indicates that the field is a rigid body, and all particles 
+   * within the range are repelled. A larger feathering value indicates a greater degree of easing of the field, and 
+   * more particles close to the center appear within the field range. If the value is set to negative or greater than 1
+   * 00, the default value is used. If the value is set to a non-integer, it is truncated to an integer.
    * 
    * Default value: **0**.
    *
-   * @type { ?number }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1669,11 +1695,10 @@ declare interface DisturbanceFieldOptions {
   feather?: number;
 
   /**
-   * Noise scale, used to control the overall size of the noise pattern. The value is greater than or equal to 0.
+   * Noise scale, used to control the overall size of the noise pattern. The value must be greater than or equal to 0.
    * 
-   * Default value: **1**.
+   * Default value: **1**. If a negative value is passed in, the default value **1** is used.
    *
-   * @type { ?number }
    * @default 1
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1684,11 +1709,10 @@ declare interface DisturbanceFieldOptions {
   noiseScale?: number;
 
   /**
-   * Noise frequency. The higher the frequency, the finer the noise. The value is greater than or equal to 0.
+   * Noise frequency. A larger frequency indicates finer noise. The value must be greater than or equal to 0.
    * 
-   * Default value: **1**.
+   * Default value: **1**. If a negative value is passed in, the default value **1** is used.
    *
-   * @type { ?number }
    * @default 1
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1699,12 +1723,11 @@ declare interface DisturbanceFieldOptions {
   noiseFrequency?: number;
 
   /**
-   * Noise amplitude, which indicates the range of noise fluctuations. The greater the amplitude, the greater the 
-   * difference between the noises. The value is greater than or equal to 0.
+   * Noise amplitude, which indicates the fluctuation range of the noise value. A larger amplitude indicates a larger 
+   * fluctuation range. The value must be greater than or equal to 0.
    * 
-   * Default value: **1**.
+   * Default value: **1**. If a negative value is passed in, the default value **1** is used.
    *
-   * @type { ?number }
    * @default 1
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1716,9 +1739,8 @@ declare interface DisturbanceFieldOptions {
 }
 
 /**
- * Defines particle disturbance shape.
+ * Defines the shape of the disturbance field.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1763,22 +1785,21 @@ declare enum DisturbanceFieldShape {
 }
 
 /**
- * Configures the annular emitter area.
+ * Configures the annulus emitter area.
  * 
  * > **NOTE**
  * >
- * > - If the value of outerRadius or innerRadius is less than 0 or uses the percentage unit, the value is considered as
- * > 0.
+ * > - If **outerRadius** or **innerRadius** is less than 0 or uses the percentage unit, the value 0 is used.
  * >
- * > - If the value of outerRadius is less than that of innerRadius, the smaller value is used as the new inner radius 
- * > and the larger value is used as the new outer radius.
+ * > - If **outerRadius** is less than **innerRadius** (that is, the outer circle radius is less than the inner circle 
+ * > radius), the smaller value is used as the new inner circle radius, and the larger value is used as the new outer 
+ * > circle radius.
  * >
- * > - If the value of endAngle is less than that of startAngle, the smaller value is used as the new start angle and 
- * > the larger value is used as the new end angle.
+ * > - If **endAngle** is less than **startAngle** (that is, the end angle is less than the start angle), the smaller 
+ * > value is used as the new start angle, and the larger value is used as the new end angle.
  * >
  * > ![](docroot://reference/apis-arkui/arkui-ts/figures/annulus.png)
- * 
- * @interface ParticleAnnulusRegion
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1789,7 +1810,6 @@ declare interface ParticleAnnulusRegion {
   /**
    * The coordinates of the center of the annulus
    *
-   * @type { ?PositionT<LengthMetrics> }
    * @default {x:LengthMetrics.percent(0.5),y:LengthMetrics.percent(0.5)}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1801,7 +1821,6 @@ declare interface ParticleAnnulusRegion {
   /**
    * The outer radius of the annulus
    *
-   * @type { LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1812,7 +1831,6 @@ declare interface ParticleAnnulusRegion {
   /**
    * The inner radius of the annulus
    *
-   * @type { LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1823,7 +1841,6 @@ declare interface ParticleAnnulusRegion {
   /**
    * The start angle of the annulus, in degree
    *
-   * @type { ?number }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1835,7 +1852,6 @@ declare interface ParticleAnnulusRegion {
   /**
    * The end angle of the annulus, in degree
    *
-   * @type { ?number }
    * @default 360
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1847,9 +1863,8 @@ declare interface ParticleAnnulusRegion {
 }
 
 /**
- * Defines the area information of the particle field.
- * 
- * @interface FieldRegion
+ * Sets the region information of the particle field.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1860,7 +1875,6 @@ declare interface FieldRegion {
   /**
    * The shape of the field
    *
-   * @type { ?DisturbanceFieldShape }
    * @default DisturbanceFieldShape.RECT
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1873,7 +1887,6 @@ declare interface FieldRegion {
    * The coordinates of the center position of the field. The top-left corner of the component is the origin of the
    * coordinate system. The coordinate unit is vp.
    *
-   * @type { ?PositionT<number> }
    * @default {x:0,y:0}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1885,7 +1898,6 @@ declare interface FieldRegion {
   /**
    * The size of the field. The unit of value is vp.
    *
-   * @type { ?SizeT<number> }
    * @default {width:0,height:0}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1897,9 +1909,8 @@ declare interface FieldRegion {
 }
 
 /**
- * Defines ripple field options.
- * 
- * @interface RippleFieldOptions
+ * Defines the parameters used to describe the particle ripple field information.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1911,7 +1922,6 @@ declare interface RippleFieldOptions {
    * The amplitude of the ripple field. The greater the amplitude, the stronger the force of the ripple field.
    * Range of values:[0, +∞)
    *
-   * @type { ?number }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1925,7 +1935,6 @@ declare interface RippleFieldOptions {
    * the wavelength, the slower the wave changes with distance, and the less pronounced the wave fluctiations.
    * Range of values:[0, +∞)
    *
-   * @type { ?number }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1938,7 +1947,6 @@ declare interface RippleFieldOptions {
    * Wave speed. The greater the wave speed, the faster the wave changes over time, and the more pronounced the wave
    * motion. Range of values:[0, +∞)
    *
-   * @type { ?number }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1951,7 +1959,6 @@ declare interface RippleFieldOptions {
    * The attenuation coefficient of the ripple field. The larger the attenuation coefficient, the faster the wave
    * attenuates over time. Range of values:[0,1]
    *
-   * @type { ?number }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1964,7 +1971,6 @@ declare interface RippleFieldOptions {
    * The central point where the ripple field generates force. The top-left corner of the component is the origin of
    * coordinates. The coordinate unit is vp.
    *
-   * @type { ?PositionT<number> }
    * @default {x:0,y:0}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1976,7 +1982,6 @@ declare interface RippleFieldOptions {
   /**
    * The region influenced by the ripple field.
    *
-   * @type { ?FieldRegion }
    * @default {shape:DisturbanceFieldShape.RECT,position:{x:0,y:0},size:{width:0,height:0}}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1988,9 +1993,8 @@ declare interface RippleFieldOptions {
 }
 
 /**
- * Parameter used to describe the velocity field of particles.
- * 
- * @interface VelocityFieldOptions
+ * Defines the parameters used to describe the particle velocity field information.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -2003,7 +2007,6 @@ declare interface VelocityFieldOptions {
    * the range of the velocity field; once they leave the range of the velocity field, they are no longer influenced
    * by it and do not gain this additional velocity.
    *
-   * @type { ?Vector2T<number> }
    * @default {x:0,y:0}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2015,7 +2018,6 @@ declare interface VelocityFieldOptions {
   /**
    * The region influenced by the velocity field.
    *
-   * @type { ?FieldRegion }
    * @default {shape:DisturbanceFieldShape.RECT,position:{x:0,y:0},size:{width:0,height:0}}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

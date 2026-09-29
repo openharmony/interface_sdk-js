@@ -51,16 +51,22 @@ declare interface UnionEffectContainerInterface {
  */
 declare interface UnionEffectContainerOptions {
     /**
-     * Degree of union deformation of the descendant component. This parameter does not represent the actual spacing. 
-     * Union occurs only when the descendant components use the union effect of the ancestor component 
-     * **UnionEffectContainer** and they come close to a certain extent.
+     * Degree of union deformation that occurs between descendant components. It does not represent the actual spacing. 
+     * Union occurs only when descendant components that use the union effect of the ancestor **UnionEffectContainer** 
+     * component are set and come close to a certain degree.
+     * 
      * **NOTE**
-     * If **spacing** is greater than 0 and the descendant components that use the union effect of the ancestor 
-     * component **UnionEffectContainer** come close to a certain extent, the descendant components start to deform due 
-     * to union. The closer the descendant components are, the stronger the deformation effect. A larger value indicates
-     * that the union of descendant components starts earlier and is more likely to occur when the descendant components
-     * come close to each other.
-     * The Value must be greater than or equal to 0. Default value: **0**.
+     * 
+     * If **spacing** is set to a value greater than 0 and descendant components that use the union effect of the 
+     * ancestor **UnionEffectContainer** component come close to a certain degree, these descendant components start to 
+     * fuse and deform with each other, and the union deformation effect becomes stronger as the distance decreases. A 
+     * larger value causes the union to start earlier and makes union deformation more likely to occur when descendant 
+     * components come close to each other.
+     * 
+     * Default value: **0**, in which case the shapes of descendant components fuse together without any deformation 
+     * effect.
+     * 
+     * Value range: [0, +∞). Values less than 0 are treated as 0.
      *
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -72,7 +78,7 @@ declare interface UnionEffectContainerOptions {
 }
 
 /**
- * Enumerates the union modes.
+ * Enumerates the union effect modes.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -81,7 +87,13 @@ declare interface UnionEffectContainerOptions {
  */
 declare enum UnionMode {
   /**
-   * Smooth union mode.
+   * Smooth union deformation effect, suitable for union scenarios that require smooth transitions and natural 
+   * connections.
+   * 
+   * **NOTE**
+   * 
+   * When this type is set, the union effect is produced only when descendant components set the 
+   * [useUnionEffect]{@link CommonMethod#useUnionEffect(value: boolean | undefined)} attribute.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -90,15 +102,15 @@ declare enum UnionMode {
    */
   SMOOTH_UNION = 0,
   /**
-   * Gravity union mode.
+   * Union deformation effect under gravity, suitable for union scenarios that require simulating a gravitational 
+   * attraction effect, such as the visual representation of attraction and approaching trends between elements.
    * 
    * **NOTE**
    * 
-   * This mode takes effect only when 
-   * [useUnionEffect](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-use-union-effect-sys.md#useunioneffect-1)
-   * is used and **gravityCenter** of 
-   * [GravityCenterOptions](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-use-union-effect-sys.md#gravitycenteroptions)
-   * is set to **true**.
+   * When this type is set, it takes effect only when used together with 
+   * [useUnionEffect]{@link CommonMethod#useUnionEffect(value: boolean | undefined, options?: GravityCenterOptions)} and
+   * when **gravityCenter** of [GravityCenterOptions]{@link GravityCenterOptions} is set to **true**. If the preceding 
+   * conditions are not met, **GRAVITY_UNION** does not take effect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -113,22 +125,26 @@ declare enum UnionMode {
  * 
  * > **NOTE**
  * >
- * > - During the union, the container exhibits a sticky non-linear deformation effect, and its border will show a sticky
- * > effect after union. Therefore, border-related capabilities will be affected. Currently, the following border-
- * > related attributes support the union deformation effect: 
- * > [border](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-border.md#border), 
- * > [outline](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-outline.md#outline), 
- * > [shadow]{@link CommonMethod#shadow(value: ShadowOptions | ShadowStyle)}, 
- * > [backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)}, and 
- * > [pointLight]{@link UnionEffectContainerAttribute#pointLight}. The above effects are drawn on the shape after union,
- * > which is the drawing part of **UnionEffectContainer**.
+ * > - During the union, the container exhibits a sticky non-linear deformation effect, and its border will show a 
+ * > sticky
+ * > > effect after union. Therefore, border-related capabilities will be affected. Currently, the following border-
+ * > > related attributes support the union deformation effect:
+ * > > [border](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-border.md#border),
+ * > > [outline](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-outline.md#outline),
+ * > > [shadow]{@link CommonMethod#shadow(value: ShadowOptions | ShadowStyle)},
+ * > > [backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)}, and
+ * > > [pointLight]{@link UnionEffectContainerAttribute#pointLight}. The above effects are drawn on the shape after 
+ * > union,
+ * > > which is the drawing part of **UnionEffectContainer**.
  * >
  * > - If the attributes related to the border and supporting the union deformation effect are set on the component, the
- * > drawing is displayed on the component. If the same attribute is set on the descendant component, the two attributes
- * > are set independently. The drawing is performed twice, once in the drawing of the **UnionEffectContainer** 
- * > component and once in the drawing of the descendant component. Generally, you do not need to set the same attribute
- * > that supports the union deformation effect on the descendant component that uses the union effect of the ancestor 
- * > component **UnionEffectContainer**. This prevents the deterioration of the union effect.
+ * > > drawing is displayed on the component. If the same attribute is set on the descendant component, the two 
+ * > attributes
+ * > > are set independently. The drawing is performed twice, once in the drawing of the **UnionEffectContainer**
+ * > > component and once in the drawing of the descendant component. Generally, you do not need to set the same 
+ * > attribute
+ * > > that supports the union deformation effect on the descendant component that uses the union effect of the ancestor
+ * > > component **UnionEffectContainer**. This prevents the deterioration of the union effect.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -170,7 +186,7 @@ declare class UnionEffectContainerAttribute extends CommonMethod<UnionEffectCont
  * @since 23 dynamic
  */
 declare const UnionEffectContainer: UnionEffectContainerInterface;
-
+  
 /**
  * Defines UnionEffectContainer Component instance.
  *

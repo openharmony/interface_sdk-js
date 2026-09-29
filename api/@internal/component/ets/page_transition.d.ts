@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -28,8 +28,9 @@
  */
 declare enum RouteType {
   /**
-   * The page is not redirected. The animation specified by **PageTransitionEnter** takes effect for page entrance, and 
-   * the animation specified by **PageTransitionExit** takes effect for page exit.
+   * The page is not redirected. For example, when **RouteType** is **None** as described in **Push** and **Pop**, the 
+   * transition effect of **PageTransitionEnter** takes effect when the page enters, and the transition effect of 
+   * **PageTransitionExit** takes effect when the page exits.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -39,9 +40,9 @@ declare enum RouteType {
   None = 0,
 
   /**
-   * Redirects to the next page. To redirect the user from page A to page B, set **RouteType** of **PageTransitionExit**
-   * to **None** or **Push** for page A and set **RouteType** of **PageTransitionEnter** to **None** or **Push** for 
-   * page B.
+   * Jumps to the next page, for example, from PageA to PageB. For PageA, the component style of **PageTransitionExit** 
+   * with **RouteType** set to **None** or **Push** takes effect; for PageB, the component style of 
+   * **PageTransitionEnter** with **RouteType** set to **None** or **Push** takes effect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -51,9 +52,9 @@ declare enum RouteType {
   Push = 1,
 
   /**
-   * Redirects to a specified page. To redirect the user from page B back to page A, set **RouteType** of 
-   * **PageTransitionExit** to **None** or **Pop** for page B and set **RouteType** of **PageTransitionEnter** to 
-   * **None** or **Pop** for page A.
+   * Returns to the previous page, for example, from PageB to PageA. For PageB, the component style of 
+   * **PageTransitionExit** with **RouteType** set to **None** or **Pop** takes effect; for PageA, the component style 
+   * of **PageTransitionEnter** with **RouteType** set to **None** or **Pop** takes effect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -64,9 +65,8 @@ declare enum RouteType {
 }
 
 /**
- * Slide-in and slide-out effects for page transitions.
+ * Defines the slide-in and slide-out effects for page transitions.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
  * @atomicservice [since 11]
@@ -74,7 +74,10 @@ declare enum RouteType {
  */
 declare enum SlideEffect {
   /**
-   * When set to Enter, slides in from the left. When set to Exit, slides out to the left.
+   * When set for entrance, it indicates sliding in from the left; when set for exit, it indicates sliding out to the 
+   * left.
+   * 
+   * **Atomic service API:** Since API version 11, this interface is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -84,7 +87,10 @@ declare enum SlideEffect {
   Left,
 
   /**
-   * When set to Enter, slides in from the right. When set to Exit, slides out to the right.
+   * When set for entrance, it indicates sliding in from the right; when set for exit, it indicates sliding out to the 
+   * right.
+   * 
+   * **Atomic service API:** Since API version 11, this interface is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -94,7 +100,10 @@ declare enum SlideEffect {
   Right,
 
   /**
-   * When set to Enter, slides in from the top. When set to Exit, slides out to the top.
+   * When set for entrance, it indicates sliding in from the top; when set for exit, it indicates sliding out to the 
+   * top.
+   * 
+   * **Atomic service API:** Since API version 11, this interface is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -104,7 +113,10 @@ declare enum SlideEffect {
   Top,
 
   /**
-   * When set to Enter, slides in from the bottom. When set to Exit, slides out to the bottom.
+   * When set for entrance, it indicates sliding in from the bottom; when set for exit, it indicates sliding out to the 
+   * bottom.
+   * 
+   * **Atomic service API:** Since API version 11, this interface is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -114,8 +126,12 @@ declare enum SlideEffect {
   Bottom,
 
   /**
-   * Left-to-right scripts: When set to Enter, slides in from the left; when set to Exit, slides out to the left. Right-
-   * to-left scripts: When set to Enter, slides in from the right; when set to Exit, slides out to the right.
+   * When set for LTR entrance, it indicates sliding in from the left; for exit, it indicates sliding out to the left. 
+   * When set for RTL entrance, it indicates sliding in from the right; for exit, it indicates sliding out to the right.
+   * 
+   * **Atomic service API:** Since API version 12, this interface is supported in atomic services.
+   * 
+   * **Model constraint:** This interface can be used only under the Stage model.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -126,8 +142,12 @@ declare enum SlideEffect {
   START = 5,
 
   /**
-   * Left-to-right scripts: When set to Enter, slides in from the right; when set to Exit, slides out to the right. 
-   * Right-to-left scripts: When set to Enter, slides in from the left; when set to Exit, slides out to the left.
+   * When set for LTR entrance, it indicates sliding in from the right; for exit, it indicates sliding out to the right.
+   * When set for RTL entrance, it indicates sliding in from the left; for exit, it indicates sliding out to the left.
+   * 
+   * **Atomic service API:** Since API version 12, this interface is supported in atomic services.
+   * 
+   * **Model constraint:** This interface can be used only under the Stage model.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -139,7 +159,15 @@ declare enum SlideEffect {
 }
 
 /**
- * Defines a common transition animation for page transitions.
+ * Defines the common transition animation for page transitions, which is inherited and used by 
+ * [PageTransitionEnter](docroot://reference/apis-arkui/arkui-ts/ts-page-transition-animation.md#pagetransitionenter) 
+ * and [PageTransitionExit](docroot://reference/apis-arkui/arkui-ts/ts-page-transition-animation.md#pagetransitionexit).
+ * It must be configured in the **pageTransition()** function. Both **slide** and **translate** involve position 
+ * movement: **slide** is suitable for scenarios that require sliding in and out along a preset direction (left/right/up
+ * /down/**START**\/**END)** and is simple to use; **translate** is suitable for scenarios that require a custom 
+ * translation distance and offers higher flexibility. When **slide** and **translate** are set simultaneously, 
+ * **slide** takes effect by default. **scale** and **opacity** set the scale and opacity effects respectively, and can 
+ * be combined with the effects above.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -158,10 +186,11 @@ declare class CommonTransition<T> {
   constructor();
 
   /**
-   * Sets the slide-in and slide-out effects for page transitions.
+   * Sets the slide-in and slide-out effect during page transition. When set simultaneously with **translate**, 
+   * **slide** takes effect by default.
    *
    * @param { SlideEffect } value - Slide-in and slide-out effects for page transitions.
-   * @returns { T } Current component.
+   * @returns { T } Current component, used for chained calls.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -172,15 +201,19 @@ declare class CommonTransition<T> {
   /**
    * Sets the translation effect for page transitions.
    *
-   * @param { object } value - Translation effect for page transitions, specifying the start value for entrance and the
-   *     end value for exit. When this parameter is set together with **slide**, the latter takes effect by default.<br>
-   *     - **x**: translation distance along the x-axis.<br>- **y**: translation distance along the y-axis.<br>- **z**:
-   *     translation distance along the y-axis. [since 7 - 17]
-   * @param { TranslateOptions } value - Translation effect for page transitions, specifying the start value for
-   *     entrance and the end value for exit. When this parameter is set together with **slide**, the latter takes
-   *     effect by default.<br>- **x**: translation distance along the x-axis.<br>- **y**: translation distance along
-   *     the y-axis.<br>- **z**: translation distance along the y-axis. [since 18]
-   * @returns { T } Current component.
+   * @param { object } value - Translation effect during page transition, which is the value at the start point when
+   *     entering and at the end point when exiting. When set simultaneously with **slide**, **slide** takes effect by
+   *     default.
+   *     <br>- **x**: horizontal translation distance.
+   *     <br>- **y**: vertical translation distance.
+   *     <br>- **z**: z-axis translation distance. [since 7 - 17]
+   * @param { TranslateOptions } value - Translation effect during page transition, which is the value at the start
+   *     point when entering and at the end point when exiting. When set simultaneously with **slide**, **slide** takes
+   *     effect by default.
+   *     <br>- **x**: horizontal translation distance.
+   *     <br>- **y**: vertical translation distance.
+   *     <br>- **z**: z-axis translation distance. [since 18]
+   * @returns { T } Current component, used for chained calls.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -191,17 +224,23 @@ declare class CommonTransition<T> {
   /**
    * Sets the scaling effect for page transitions.
    *
-   * @param { object } value - Scaling effect for page transitions, specifying the start value for entrance and the end
-   *     value for exit.<br>- **x**: scale factor along the x-axis.<br>- **y**: scale factor along the y-axis.<br>-
-   *     **z**: scale factor along the z-axis.<br>- **centerX** and **centerY**: scaling center. The default values are
-   *     both **"50%"**, meaning the center of the page is used as the scaling center by default.<br>- If the center
-   *     point is (0, 0), it refers to the upper left corner of the component. [since 7 - 17]
-   * @param { ScaleOptions } value - Scaling effect for page transitions, specifying the start value for entrance and
-   *     the end value for exit.<br>- **x**: scale factor along the x-axis.<br>- **y**: scale factor along the y-axis.<
-   *     br>- **z**: scale factor along the z-axis.<br>- **centerX** and **centerY**: scaling center. The default values
-   *     are both **"50%"**, meaning the center of the page is used as the scaling center by default.<br>- If the center
-   *     point is (0, 0), it refers to the upper left corner of the component. [since 18]
-   * @returns { T } Current component.
+   * @param { object } value - Scale effect during page transition, which is the value at the start point when entering
+   *     and at the end point when exiting.
+   *     <br>- **x**: horizontal scale multiple (or scale ratio).
+   *     <br>- **y**: vertical scale multiple (or scale ratio).
+   *     <br>- **z**: depth scale multiple (or scale ratio).
+   *     <br>- **centerX** and **centerY**: scale center point. The default values of **centerX** and **centerY** are
+   *     **"50%"**, that is, the center point of the page is used as the scale center point by default.
+   *     <br>- A center point of (0, 0) represents the upper left corner of the page. [since 7 - 17]
+   * @param { ScaleOptions } value - Scale effect during page transition, which is the value at the start point when
+   *     entering and at the end point when exiting.
+   *     <br>- **x**: horizontal scale multiple (or scale ratio).
+   *     <br>- **y**: vertical scale multiple (or scale ratio).
+   *     <br>- **z**: depth scale multiple (or scale ratio).
+   *     <br>- **centerX** and **centerY**: scale center point. The default values of **centerX** and **centerY** are
+   *     **"50%"**, that is, the center point of the page is used as the scale center point by default.
+   *     <br>- A center point of (0, 0) represents the upper left corner of the page. [since 18]
+   * @returns { T } Current component, used for chained calls.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -212,9 +251,10 @@ declare class CommonTransition<T> {
   /**
    * Sets the starting opacity value for entrance or the ending opacity value for exit.
    *
-   * @param { number } value - Starting opacity value for entrance or the ending opacity value for exit.<br>Value range:
-   *     [0, 1]
-   * @returns { T } Current component.
+   * @param { number } value - Start opacity value of the entrance animation or the end opacity value of the exit
+   *     animation.
+   *     <br>Value range: [0, 1]
+   * @returns { T } Current component, used for chained calls.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -224,9 +264,8 @@ declare class CommonTransition<T> {
 }
 
 /**
- * Parameters of the exit or entrance animation.
+ * Defines the parameters of the exit/entrance animation.
  *
- * @interface PageTransitionOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
  * @atomicservice [since 11]
@@ -234,11 +273,26 @@ declare class CommonTransition<T> {
  */
 declare interface PageTransitionOptions {
   /**
-   * Route type for the page transition effect to take effect.
+   * Route type for which the page transition effect takes effect.
    * 
-   * Default value: **RouteType.None**
+   * Default value: **RouteType.None**.
+   * 
+   * **Note:**
+   * 
+   * When multiple 
+   * [PageTransitionEnter](docroot://reference/apis-arkui/arkui-ts/ts-page-transition-animation.md#pagetransitionenter) 
+   * or [PageTransitionExit](docroot://reference/apis-arkui/arkui-ts/ts-page-transition-animation.md#pagetransitionexit)
+   * components are configured in the **pageTransition** function, they take effect according to the **RouteType** 
+   * matching rule: the system selects the last matching component from all configured **PageTransitionEnter**\/
+   * **PageTransitionExit** components based on the current route operation type (**Push** or **Pop**); if no component 
+   * matches, the system default page transition effect is used (which may vary by device). If multiple 
+   * **PageTransitionEnter** components match the same **RouteType**, the last configured one takes effect; if multiple 
+   * **PageTransitionExit** components match the same **RouteType**, the last configured one takes effect. 
+   * **RouteType.None** matches all route types.
+   * 
+   * Value selection principle: **None** indicates that it takes effect for all route types; **Push** takes effect only 
+   * for push routes; **Pop** takes effect only for pop routes.
    *
-   * @type { ?RouteType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -246,7 +300,7 @@ declare interface PageTransitionOptions {
    */
   type?: RouteType;
   /**
-   * Animation duration.
+   * Duration of the animation.
    * 
    * Unit: ms
    * 
@@ -254,7 +308,6 @@ declare interface PageTransitionOptions {
    * 
    * Value range: [0, +∞)
    *
-   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -264,10 +317,10 @@ declare interface PageTransitionOptions {
   /**
    * Animation curve.
    * 
-   * You are advised to specify the curve using the **Curve** or **ICurve** type.
+   * It is recommended to specify it in the form of **Curve** or **ICurve**.
    * 
-   * For the string type, this parameter indicates an animation interpolation curve. For available values, see the 
-   * **curve** parameter in [AnimateParam]{@link AnimateParam}.
+   * When the type is string, it is the animation interpolation curve. For details about the value, see the **curve** 
+   * parameter of [AnimateParam]{@link AnimateParam}.
    * 
    * Default value: **Curve.Linear**
    *
@@ -286,13 +339,7 @@ declare interface PageTransitionOptions {
    * Unit: ms
    * 
    * Default value: **0**
-   * 
-   * **NOTE**
-   * 
-   * If no match is found, the default page transition effect is used (which may vary according to the device). To 
-   * disable the default page transition effect, set **duration** to **0**.
    *
-   * @type { ?number }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -305,9 +352,8 @@ declare interface PageTransitionOptions {
 /**
  * Represents the callback for page transition events.
  *
- * @typedef { function } PageTransitionCallback
- * @param { RouteType } type - transition route type
- * @param { number } progress - transition progess
+ * @param { RouteType } type - Route type for which the page transition effect takes effect.
+ * @param { number } progress - Transition progress, ranging from 0 to 1.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -319,8 +365,6 @@ declare type PageTransitionCallback = (type: RouteType, progress: number) => voi
 /**
  * Provides an interface to set transition style when a page enters.
  *
- * @extends CommonTransition<PageTransitionEnterInterface>
- * @interface PageTransitionEnterInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
  * @atomicservice [since 11]
@@ -341,7 +385,7 @@ interface PageTransitionEnterInterface extends CommonTransition<PageTransitionEn
   (value: PageTransitionOptions): PageTransitionEnterInterface;
 
   /**
-   * Invoked on a per-frame basis until the entrance animation is complete, with the **progress** parameter changing 
+   * Invoked on a per-frame basis until the entrance animation is complete, with the **progress** parameter changing
    * from 0 to 1.
    *
    * @param { function } event - Callback invoked on a per-frame basis until the entrance animation is complete, with
@@ -360,8 +404,6 @@ interface PageTransitionEnterInterface extends CommonTransition<PageTransitionEn
 /**
  * Provide an interface to set transition style when a page exits.
  *
- * @extends CommonTransition<PageTransitionExitInterface>
- * @interface PageTransitionExitInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
  * @atomicservice [since 11]
@@ -382,7 +424,7 @@ interface PageTransitionExitInterface extends CommonTransition<PageTransitionExi
   (value: PageTransitionOptions): PageTransitionExitInterface;
 
   /**
-   * Invoked on a per-frame basis until the exit animation is complete, with the **progress** parameter changing from 0 
+   * Invoked on a per-frame basis until the exit animation is complete, with the **progress** parameter changing from 0
    * to 1.
    *
    * @param { function } event - Callback invoked on a per-frame basis until the exit animation is complete, with the
