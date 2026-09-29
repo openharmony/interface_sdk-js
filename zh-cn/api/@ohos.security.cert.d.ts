@@ -698,7 +698,7 @@ declare namespace cert {
      *
      * @param { cryptoFramework.PubKey } key - 用于验签的公钥对象。
      * @param { AsyncCallback<void> } callback - 回调函数。当验签成功时，err为undefined，否则为错误对象。
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -716,7 +716,7 @@ declare namespace cert {
      *
      * @param { cryptoFramework.PubKey } key - 用于验签的公钥对象。
      * @returns { Promise<void> } Promise对象，无返回结果。
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -734,7 +734,7 @@ declare namespace cert {
      *
      * @param { AsyncCallback<EncodingBlob> } callback - 回调函数。当获取X.509证书序列化数据成功时，err为undefined，data为
      *     获取到的X.509证书序列化数据；否则为错误对象。
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      * @throws { BusinessError } 19020001 - Memory malloc failed.
@@ -755,7 +755,7 @@ declare namespace cert {
      * 表示获取X.509证书序列化数据。使用Promise方式返回结果。
      *
      * @returns { Promise<EncodingBlob> } Promise对象，返回X.509证书序列化数据。
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -791,7 +791,7 @@ declare namespace cert {
      * 表示校验X.509证书有效期。
      *
      * @param { string } date - 表示日期，日期采用ASN.1 UTCTime或GeneralizedTime格式。
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -914,7 +914,7 @@ declare namespace cert {
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
      * @throws { BusinessError } 19030001 - Crypto operation error.
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync] Invalid parameters. Possible causes:
      *     <br>1. Incorrect parameter types;
      *     <br>2. Parameter verification failed. [since 12]
      * @syscap SystemCapability.Security.Cert
@@ -1127,7 +1127,7 @@ declare namespace cert {
      *
      * @param { CertItemType } itemType - 表示需要获取的证书字段。
      * @returns { DataBlob } 表示X.509证书对应的字段，返回值为DER格式。
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -1150,7 +1150,7 @@ declare namespace cert {
      *
      * @param { X509CertMatchParameters } param - 表示需要匹配的参数。
      * @returns { boolean } 当参数匹配时，该方法返回true，否则返回false。
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -1300,7 +1300,7 @@ declare namespace cert {
    * @param { EncodingBlob } inStream - X.509证书序列化数据。
    * @param { AsyncCallback<X509Cert> } callback - 回调函数。当创建X.509证书对象成功时，err为undefined，data为获取到的
    *     X509Cert实例；否则为错误对象。
-   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types;
    *     <br>3. Parameter verification failed.
@@ -1320,7 +1320,7 @@ declare namespace cert {
    *
    * @param { EncodingBlob } inStream - X.509证书序列化数据。
    * @returns { Promise<X509Cert> } Promise对象，返回创建的X509Cert实例。
-   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types;
    *     <br>3. Parameter verification failed.
@@ -1368,7 +1368,7 @@ declare namespace cert {
      *
      * @param { ExtensionOidType } valueType - 指定要获取的OID类型。
      * @returns { DataArray } 获取的证书扩展OID列表。
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -1392,7 +1392,7 @@ declare namespace cert {
      * @param { ExtensionEntryType } valueType - 指定要获取的扩展信息类型。
      * @param { DataBlob } oid - 指定要获取的扩展项OID。
      * @returns { DataBlob } 获取的证书扩展项数据。
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -1455,7 +1455,7 @@ declare namespace cert {
    * @param { EncodingBlob } inStream - 表示序列化的证书扩展数据。
    * @param { AsyncCallback<CertExtension> } callback - 回调函数。当创建证书扩展对象成功时，err为undefined，data为获取
    *     到的CertExtension实例；否则为错误对象。
-   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types;
    *     <br>3. Parameter verification failed.
@@ -1475,7 +1475,7 @@ declare namespace cert {
    *
    * @param { EncodingBlob } inStream - 表示序列化的证书扩展数据。
    * @returns { Promise<CertExtension> } Promise对象，返回创建的CertExtension实例。
-   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types;
    *     <br>3. Parameter verification failed.
@@ -1513,7 +1513,7 @@ declare namespace cert {
      *
      * @param { AsyncCallback<EncodingBlob> } callback - 回调函数。当获取证书吊销条目序列化数据成功时，err为undefined，
      *     data为获取到的证书吊销条目序列化数据；否则为错误对象。
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      * @throws { BusinessError } 19020001 - Memory malloc failed.
@@ -1537,7 +1537,7 @@ declare namespace cert {
      * > 从API version 9开始支持，从API version 11开始废弃，建议使用[X509CRLEntry.getEncoded()]{@link cert.X509CRLEntry.getEncoded()}替代。
      *
      * @returns { Promise<EncodingBlob> } Promise对象，返回证书吊销条目的序列化数据。
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      * @throws { BusinessError } 19020001 - Memory malloc failed.
@@ -1629,7 +1629,7 @@ declare namespace cert {
      *
      * @param { AsyncCallback<EncodingBlob> } callback - 回调函数。当获取证书吊销条目序列化数据成功时，err为undefined，
      *     data为获取到的证书吊销条目序列化数据；否则为错误对象。
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      * @throws { BusinessError } 19020001 - Memory malloc failed.
@@ -1650,7 +1650,7 @@ declare namespace cert {
      * 表示获取证书吊销条目的序列化数据。使用Promise方式返回结果。
      *
      * @returns { Promise<EncodingBlob> } Promise对象，返回证书吊销条目的序列化数据。
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      * @throws { BusinessError } 19020001 - Memory malloc failed.
@@ -1879,7 +1879,7 @@ declare namespace cert {
      *
      * @param { X509Cert } cert - 表示被检查的证书对象。
      * @returns { boolean } 表示证书吊销状态，true表示已吊销，false表示未吊销。
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -1915,7 +1915,7 @@ declare namespace cert {
      *
      * @param { AsyncCallback<EncodingBlob> } callback - 回调函数。当获取X.509证书吊销列表序列化数据成功时，err为undefined，
      *     data为获取到的X.509证书吊销列表序列化数据；否则为错误对象。
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      * @throws { BusinessError } 19020001 - Memory malloc failed.
@@ -1939,7 +1939,7 @@ declare namespace cert {
      * > 从API version 9开始支持，从API version 11开始废弃，建议使用[X509CRL.getEncoded()]{@link cert.X509CRL.getEncoded()}替代。
      *
      * @returns { Promise<EncodingBlob> } Promise对象，返回X.509证书吊销列表的序列化数据。
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      * @throws { BusinessError } 19020001 - Memory malloc failed.
@@ -1965,7 +1965,7 @@ declare namespace cert {
      *
      * @param { cryptoFramework.PubKey } key - 表示用于验签的公钥对象。
      * @param { AsyncCallback<void> } callback - 回调函数。当验签成功时，err为undefined，否则为错误对象。
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -1987,7 +1987,7 @@ declare namespace cert {
      *
      * @param { cryptoFramework.PubKey } key - 表示用于验签的公钥对象。
      * @returns { Promise<void> } Promise对象，无返回结果。
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -2086,7 +2086,7 @@ declare namespace cert {
      *
      * @param { number } serialNumber - 表示证书序列号。
      * @returns { X509CrlEntry } 表示证书吊销条目。
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -2109,7 +2109,7 @@ declare namespace cert {
      *
      * @param { X509Cert } cert - 表示证书对象。
      * @returns { X509CrlEntry } 表示证书吊销条目。
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -2132,7 +2132,7 @@ declare namespace cert {
      *
      * @param { AsyncCallback<Array<X509CrlEntry>> } callback - 回调函数。当获取证书吊销条目列表成功时，err为undefined，
      *     data为获取到的证书吊销条目列表；否则为错误对象。
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      * @throws { BusinessError } 19020001 - Memory malloc failed.
@@ -2152,7 +2152,7 @@ declare namespace cert {
      * > 从API version 9开始支持，从API version 11开始废弃，建议使用[X509CRL.getRevokedCerts()]{@link cert.X509CRL.getRevokedCerts()}替代。
      *
      * @returns { Promise<Array<X509CrlEntry>> } Promise对象，返回证书吊销条目列表。
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      * @throws { BusinessError } 19020001 - Memory malloc failed.
@@ -2286,7 +2286,7 @@ declare namespace cert {
    * @param { EncodingBlob } inStream - 表示证书吊销列表序列化数据。
    * @param { AsyncCallback<X509Crl> } callback - 回调函数。当创建X.509证书吊销列表对象成功时，err为undefined，data为获取到的
    *     X509Crl实例；否则为错误对象。
-   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types;
    *     <br>3. Parameter verification failed.
@@ -2309,7 +2309,7 @@ declare namespace cert {
    *
    * @param { EncodingBlob } inStream - 表示证书吊销列表序列化数据。
    * @returns { Promise<X509Crl> } Promise对象，返回创建的X509Crl实例。
-   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types;
    *     <br>3. Parameter verification failed.
@@ -2337,7 +2337,7 @@ declare namespace cert {
      *
      * @param { X509Cert } cert - 表示被检查的证书对象。
      * @returns { boolean } 表示证书吊销状态，true表示已吊销，false表示未吊销。
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -2366,7 +2366,7 @@ declare namespace cert {
      *
      * @param { AsyncCallback<EncodingBlob> } callback - 回调函数。当获取X.509证书吊销列表序列化数据成功时，err为undefined，
      *     data为获取到的X.509证书吊销列表序列化数据；否则为错误对象。
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      * @throws { BusinessError } 19020001 - Memory malloc failed.
@@ -2387,7 +2387,7 @@ declare namespace cert {
      * 表示获取X.509证书吊销列表的序列化数据。使用Promise方式返回结果。
      *
      * @returns { Promise<EncodingBlob> } Promise对象，返回X.509证书吊销列表的序列化数据。
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      * @throws { BusinessError } 19020001 - Memory malloc failed.
@@ -2409,7 +2409,7 @@ declare namespace cert {
      *
      * @param { cryptoFramework.PubKey } key - 表示用于验签的公钥对象。
      * @param { AsyncCallback<void> } callback - 回调函数。当验签成功时，err为undefined，否则为错误对象。
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -2427,7 +2427,7 @@ declare namespace cert {
      *
      * @param { cryptoFramework.PubKey } key - 表示用于验签的公钥对象。
      * @returns { Promise<void> } Promise对象，无返回结果。
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -2536,7 +2536,7 @@ declare namespace cert {
      *
      * @param { bigint } serialNumber - 表示证书序列号。
      * @returns { X509CRLEntry } 表示证书吊销条目。
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -2555,7 +2555,7 @@ declare namespace cert {
      *
      * @param { X509Cert } cert - 表示证书对象。
      * @returns { X509CRLEntry } 表示证书吊销条目。
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -2574,7 +2574,7 @@ declare namespace cert {
      *
      * @param { AsyncCallback<Array<X509CRLEntry>> } callback - 回调函数。当获取证书吊销条目列表成功时，err为undefined，
      *     data为获取到的证书吊销条目列表；否则为错误对象。
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      * @throws { BusinessError } 19020001 - Memory malloc failed.
@@ -2591,7 +2591,7 @@ declare namespace cert {
      * 表示获取证书吊销条目列表。使用Promise方式返回结果。
      *
      * @returns { Promise<Array<X509CRLEntry>> } Promise对象，返回证书吊销条目列表。
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      * @throws { BusinessError } 19020001 - Memory malloc failed.
@@ -2718,7 +2718,7 @@ declare namespace cert {
      *
      * @param { X509CRLMatchParameters } param - 表示需要匹配的参数。
      * @returns { boolean } 当参数匹配时，该方法返回true，否则返回false。
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -2832,7 +2832,7 @@ declare namespace cert {
    * @param { EncodingBlob } inStream - 表示证书吊销列表序列化数据。当前支持的数据长度不超过8192字节。
    * @param { AsyncCallback<X509CRL> } callback - 回调函数。当创建X.509证书吊销列表对象成功时，err为undefined，data为获取到的
    *     X509CRL实例；否则为错误对象。
-   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types;
    *     <br>3. Parameter verification failed.
@@ -2851,7 +2851,7 @@ declare namespace cert {
    *
    * @param { EncodingBlob } inStream - 表示证书吊销列表序列化数据。当前支持的数据长度不超过8192字节。
    * @returns { Promise<X509CRL> } Promise对象，返回创建的X509CRL实例。
-   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types;
    *     <br>3. Parameter verification failed.
@@ -3279,7 +3279,7 @@ declare namespace cert {
      *
      * @param { CertChainData } certChain - 表示X.509证书链序列化数据。
      * @param { AsyncCallback<void> } callback - 回调函数。当校验成功时，err为undefined，否则为错误对象。
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -3312,7 +3312,7 @@ declare namespace cert {
      *
      * @param { CertChainData } certChain - 表示X.509证书链序列化数据。
      * @returns { Promise<void> } Promise对象，无返回结果。
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -3404,7 +3404,7 @@ declare namespace cert {
    *
    * @param { string } algorithm - 表示证书链校验器算法。当前仅支持输入"PKIX"。
    * @returns { CertChainValidator } 表示证书链校验器对象。
-   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   * @throws { BusinessError } 401 - [Sync] Invalid parameters. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types;
    *     <br>3. Parameter verification failed.
@@ -3855,7 +3855,7 @@ declare namespace cert {
      *
      * @param { X509CertMatchParameters } param - 表示证书需匹配的参数。
      * @returns { Promise<Array<X509Cert>> } Promise对象，返回匹配到的证书对象数组。
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -3875,7 +3875,7 @@ declare namespace cert {
      * @param { X509CertMatchParameters } param - 表示证书需匹配的参数。
      * @param { AsyncCallback<Array<X509Cert>> } callback - 回调函数。当查找证书对象成功时，err为undefined，data为获取到的
      *     匹配的证书对象数组；否则为错误对象。
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -3894,7 +3894,7 @@ declare namespace cert {
      *
      * @param { X509CRLMatchParameters } param - 表示证书吊销列表需匹配的参数。
      * @returns { Promise<Array<X509CRL>> } Promise对象，返回匹配到的证书吊销列表对象数组。
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -3914,7 +3914,7 @@ declare namespace cert {
      * @param { X509CRLMatchParameters } param - 表示证书吊销列表需匹配的参数对象。
      * @param { AsyncCallback<Array<X509CRL>> } callback - 回调函数。当查找证书吊销列表成功时，err为undefined，data为获取到
      *     的匹配的证书吊销列表对象数组；否则为错误对象。
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -3936,7 +3936,7 @@ declare namespace cert {
    * @param { Array<X509CRL> } [options] crls - X509CRL数组。 [since 11 - 11]
    * @param { Array<X509CRL> } [crls] - X509CRL数组。
    * @returns { CertCRLCollection } 表示证书和证书吊销列表集合对象。
-   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   * @throws { BusinessError } 401 - [Sync] Invalid parameters. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types;
    *     <br>3. Parameter verification failed.
@@ -3963,7 +3963,7 @@ declare namespace cert {
      * 获取X.509证书列表。
      *
      * @returns { Array<X509Cert> } X.509证书数组。
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -3982,7 +3982,7 @@ declare namespace cert {
      *
      * @param { CertChainValidationParameters } param - 表示校验X.509证书链的参数。
      * @returns { Promise<CertChainValidationResult> } Promise对象，返回证书链校验结果。
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -4012,7 +4012,7 @@ declare namespace cert {
      * @param { CertChainValidationParameters } param - 表示校验X.509证书链的参数。
      * @param { AsyncCallback<CertChainValidationResult> } callback - 回调函数。当校验证书链成功时，err为undefined，
      *     data为获取到的证书链校验结果；否则为错误对象。
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -4078,7 +4078,7 @@ declare namespace cert {
    *
    * @param { EncodingBlob } inStream - X.509证书序列化数据。
    * @returns { Promise<X509CertChain> } Promise对象，返回创建的X509CertChain实例。
-   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types;
    *     <br>3. Parameter verification failed.
@@ -4098,7 +4098,7 @@ declare namespace cert {
    * @param { EncodingBlob } inStream - X.509证书序列化数据。
    * @param { AsyncCallback<X509CertChain> } callback - 回调函数。当创建X.509证书链对象成功时，err为undefined，data为获取到的
    *     X509CertChain实例；否则为错误对象。
-   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types;
    *     <br>3. Parameter verification failed.
@@ -4117,7 +4117,7 @@ declare namespace cert {
    *
    * @param { Array<X509Cert> } certs - X.509证书对象数组。
    * @returns { X509CertChain } 表示X.509证书链对象。
-   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   * @throws { BusinessError } 401 - [Sync] Invalid parameters. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types;
    *     <br>3. Parameter verification failed.
@@ -4137,7 +4137,7 @@ declare namespace cert {
    * @param { CertChainBuildParameters } param - 构建证书链的参数对象。  <br>
    *     [CertChainBuildParameters]{@link cert.CertChainBuildParameters}中的maxLength要小于证书集合中证书数量。
    * @returns { Promise<CertChainBuildResult> } Promise对象，返回创建的CertChainBuildResult实例。
-   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types;
    *     <br>3. Parameter verification failed.
@@ -4320,7 +4320,7 @@ declare namespace cert {
    * @param { Uint8Array } data - DER格式的P12文件原始数据。
    * @param { Pkcs12ParsingConfig } config - P12文件的解析配置。
    * @returns { Pkcs12Data } 表示解析后的P12数据。
-   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   * @throws { BusinessError } 401 - [Sync] Invalid parameters. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types;
    *     <br>3. Parameter verification failed.
@@ -4369,7 +4369,7 @@ declare namespace cert {
    * @param { Uint8Array } keystore - DER格式的P12文件原始数据。
    * @param { string } pwd - 密码。
    * @returns { Promise<Array<X509TrustAnchor>> } Promise对象，返回X509TrustAnchor对象数组。
-   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types;
    *     <br>3. Parameter verification failed.
@@ -4400,7 +4400,7 @@ declare namespace cert {
    *     常用属性包括CN（通用名）、O（组织名）、OU（组织单位）、C（国家/地区）、ST（省/州）、L（市/区）。
    *     例如：/CN=example.com/O=Example/C=CN。
    * @returns { Promise<X500DistinguishedName> } Promise对象，返回X500DistinguishedName实例。
-   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types;
    *     <br>3. Parameter verification failed.
@@ -4429,7 +4429,7 @@ declare namespace cert {
    *
    * @param { Uint8Array } nameDer - DER格式的X.500可分辨名称。
    * @returns { Promise<X500DistinguishedName> } Promise对象，返回X500DistinguishedName实例。
-   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types;
    *     <br>3. Parameter verification failed.
@@ -4507,7 +4507,7 @@ declare namespace cert {
      *
      * @param { string } type - 指定类型的名称。如"CN"、"OU"等。
      * @returns { Array<string> } 相对可分辨名称的字符串数组。
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -5707,7 +5707,7 @@ declare namespace cert {
      * @param { X509Cert } cert - 指定X.509证书。
      * @param { PrivateKeyInfo } keyInfo - 指定私钥信息。
      * @param { CmsSignerConfig } config - 指定签名者选项。
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -5732,7 +5732,7 @@ declare namespace cert {
      * <br>如果未调用addSigner接口，并且仅添加证书后，生成的CMS签名数据将只包含证书。
      *
      * @param { X509Cert } cert - 要添加的X.509证书。
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -5803,7 +5803,7 @@ declare namespace cert {
      * @param { Uint8Array } data - Cms操作的内容。
      * @param { CmsGeneratorOptions } [options] - Cms操作的配置选项。
      * @returns { Promise<Uint8Array | string> } Promise对象，返回CMS消息。
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -5827,7 +5827,7 @@ declare namespace cert {
      * @param { Uint8Array } data - Cms操作的内容。
      * @param { CmsGeneratorOptions } [options] - Cms操作的配置选项。
      * @returns { Uint8Array | string } 生成的CMS消息。
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -5871,7 +5871,7 @@ declare namespace cert {
    *
    * @param { CmsContentType } contentType - 指定CMS内容类型。
    * @returns { CmsGenerator } CmsGenerator对象。
-   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   * @throws { BusinessError } 401 - [Sync] Invalid parameters. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types;
    *     <br>3. Parameter verification failed.
@@ -6311,7 +6311,7 @@ declare namespace cert {
    * @param { PrivateKeyInfo } keyInfo - 包含私钥跟口令的配置参数。
    * @param { CsrGenerationConfig } config - 包含生成CSR的配置参数。
    * @returns { string | Uint8Array } 生成的CSR。
-   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   * @throws { BusinessError } 401 - [Sync] Invalid parameters. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types;
    *     <br>3. Parameter verification failed.
