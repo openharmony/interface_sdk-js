@@ -397,7 +397,7 @@ declare namespace advertising {
    * @param { common.UIAbilityContext } [context] - UIAbility的上下文环境，不设置从api:
    *     [@ohos.app.ability.common](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/
    *     js-apis-app-ability-common)中获取。 [since 12]  
-   * @throws { BusinessError } 401 - Invalid input parameter. Possible causes: 1. Mandatory parameters are left
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left
    *     unspecified.
    * @throws { BusinessError } 21800001 - System internal error.
    * @throws { BusinessError } 21800004 - Failed to display the ad.
@@ -431,7 +431,7 @@ declare namespace advertising {
      * @param { AdRequestParams } adParam - 广告请求参数。
      * @param { AdOptions } adOptions - 广告配置参数。
      * @param { AdLoadListener } listener - 请求广告回调监听。
-     * @throws { BusinessError } 401 - Invalid input parameter. Possible causes: 1. Mandatory parameters are left
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left
      *     unspecified.2. Incorrect parameter types. 3.Parameter verification failed
      * @throws { BusinessError } 21800001 - System internal error.
      * @throws { BusinessError } 21800003 - Failed to load the ad request.
@@ -448,7 +448,7 @@ declare namespace advertising {
      * @param { AdRequestParams[] } adParams - 广告请求参数。
      * @param { AdOptions } adOptions - 广告配置参数。
      * @param { MultiSlotsAdLoadListener } listener - 请求广告回调监听。
-     * @throws { BusinessError } 401 - Invalid input parameter. Possible causes: 1. Mandatory parameters are left
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left
      *     unspecified.2. Incorrect parameter types. 3.Parameter verification failed
      * @throws { BusinessError } 21800001 - System internal error.
      * @throws { BusinessError } 21800003 - Failed to load the ad request.
@@ -467,7 +467,7 @@ declare namespace advertising {
    *     **说明：** 该接口体的adId参数可以为空。
    * @param { AdOptions } adOptions - 广告配置参数。
    * @returns { Promise<string> } Promise对象，返回字符类型的广告数据。
-   * @throws { BusinessError } 401 - Invalid input parameter. Possible causes: 1. Mandatory parameters are
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are
    *     left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 21800001 - System internal error.
@@ -482,7 +482,7 @@ declare namespace advertising {
    * @param { string } adResponse - 广告响应体。
    * @param { MultiSlotsAdLoadListener } listener - 请求广告回调监听。
    * @param { common.UIAbilityContext } context - UIAbility的上下文环境。
-   * @throws { BusinessError } 401 - Invalid input parameter.Possible causes: 1. Mandatory parameters are
+   * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are
    *     left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 21800001 - System internal error.
@@ -497,7 +497,7 @@ declare namespace advertising {
    *
    * @param { web_webview.WebviewController } controller - Web组件控制器。
    * @param { common.UIAbilityContext } context - UIAbility的上下文环境。
-   * @throws { BusinessError } 401 - Invalid input parameter. Possible causes: 1. Mandatory parameters are left
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left
    *     unspecified.
    * @throws { BusinessError } 21800001 - System internal error.
    * @syscap SystemCapability.Advertising.Ads
@@ -512,7 +512,7 @@ declare namespace advertising {
    * @param { web_webview.WebviewController } controller - Web组件控制器。
    * @param { common.UIAbilityContext } context - UIAbility的上下文环境。
    * @param { boolean } needRefresh - 是否需要刷新页面（true: 需要；false: 不需要）。
-   * @throws { BusinessError } 401 - Invalid input parameter. Possible causes: Mandatory parameters are left
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left
    *     unspecified.
    * @throws { BusinessError } 21800001 - System internal error.
    * @syscap SystemCapability.Advertising.Ads
@@ -527,7 +527,7 @@ declare namespace advertising {
    *
    * @param { web_webview.WebviewController } controller - Web组件控制器。
    * @param { boolean } needRefresh - 是否需要刷新页面（true: 需要；false: 不需要）。
-   * @throws { BusinessError } 401 - Invalid input parameter. Possible causes: Mandatory parameters are left
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left
    *     unspecified.
    * @throws { BusinessError } 21800001 - System internal error.
    * @syscap SystemCapability.Advertising.Ads
