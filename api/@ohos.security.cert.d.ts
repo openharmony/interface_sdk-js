@@ -700,7 +700,7 @@ declare namespace cert {
      * @param { cryptoFramework.PubKey } key - Public key used for signature verification.
      * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
      *     **err** is **undefined**. Otherwise, **err** is an error object.
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -718,7 +718,7 @@ declare namespace cert {
      *
      * @param { cryptoFramework.PubKey } key - Public key used for signature verification.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -737,7 +737,7 @@ declare namespace cert {
      * @param { AsyncCallback<EncodingBlob> } callback - Callback used to return the result. If the operation is
      *     successful, **err** is **undefined**, and **data** is the serialized X.509 certificate data obtained.
      *     Otherwise, **err** is an error object.
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      * @throws { BusinessError } 19020001 - Memory malloc failed.
@@ -758,7 +758,7 @@ declare namespace cert {
      * Obtains the serialized X.509 certificate data. This API uses a promise to return the result.
      *
      * @returns { Promise<EncodingBlob> } Promise used to return the serialized X.509 certificate data obtained.
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -795,7 +795,7 @@ declare namespace cert {
      * Checks the validity period of this X.509 certificate.
      *
      * @param { string } date - Date in an ASN.1 time format, specifically UTCTime or GeneralizedTime.
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -924,7 +924,7 @@ declare namespace cert {
      *     <br>2. A null pointer occurs inside the system;
      *     <br>3. Failed to obtain the native object or convert parameters.
      * @throws { BusinessError } 19030001 - Crypto operation error.
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync] Invalid parameters. Possible causes:
      *     <br>1. Incorrect parameter types;
      *     <br>2. Parameter verification failed. [since 12]
      * @syscap SystemCapability.Security.Cert
@@ -1140,7 +1140,7 @@ declare namespace cert {
      *
      * @param { CertItemType } itemType - Certificate field to obtain.
      * @returns { DataBlob } Fields in DER format.
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -1164,7 +1164,7 @@ declare namespace cert {
      * @param { X509CertMatchParameters } param - Parameters specified for matching the certificate.
      * @returns { boolean } Returns **true** if the certificate matches the parameters specified; returns **false**
      *     otherwise.
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -1315,7 +1315,7 @@ declare namespace cert {
    * @param { AsyncCallback<X509Cert> } callback - Callback used to return the result. If the operation is successful,
    *     **err** is **undefined**, and **data** is the **X509Cert** instance created. Otherwise, **err** is an error
    *     object.
-   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types;
    *     <br>3. Parameter verification failed.
@@ -1335,7 +1335,7 @@ declare namespace cert {
    *
    * @param { EncodingBlob } inStream - X.509 certificate serialization data.
    * @returns { Promise<X509Cert> } Promise used to return the **X509Cert** instance created.
-   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types;
    *     <br>3. Parameter verification failed.
@@ -1383,7 +1383,7 @@ declare namespace cert {
      *
      * @param { ExtensionOidType } valueType - Type of the OIDs to obtain.
      * @returns { DataArray } OIDs obtained.
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -1407,7 +1407,7 @@ declare namespace cert {
      * @param { ExtensionEntryType } valueType - Type of the information to obtain.
      * @param { DataBlob } oid - OID of the certificate extension to obtain.
      * @returns { DataBlob } Certificate extension object information obtained.
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -1473,7 +1473,7 @@ declare namespace cert {
    * @param { AsyncCallback<CertExtension> } callback - Callback used to return the result. If the operation is
    *     successful, **err** is **undefined**, and **data** is the **CertExtension** instance created. Otherwise,
    *     **err** is an error object.
-   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types;
    *     <br>3. Parameter verification failed.
@@ -1493,7 +1493,7 @@ declare namespace cert {
    *
    * @param { EncodingBlob } inStream - Serialized certificate extension data.
    * @returns { Promise<CertExtension> } Promise used to return the **CertExtension** instance created.
-   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types;
    *     <br>3. Parameter verification failed.
@@ -1534,7 +1534,7 @@ declare namespace cert {
      * @param { AsyncCallback<EncodingBlob> } callback - Callback used to return the result. If the operation is
      *     successful, **err** is **undefined**, and **data** is the serialized data of the revoked certificate entry
      *     obtained. Otherwise, **err** is an error object.
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      * @throws { BusinessError } 19020001 - Memory malloc failed.
@@ -1560,7 +1560,7 @@ declare namespace cert {
      *
      * @returns { Promise<EncodingBlob> } Promise used to return the serialized data of the revoked certificate entry
      *     obtained.
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      * @throws { BusinessError } 19020001 - Memory malloc failed.
@@ -1655,7 +1655,7 @@ declare namespace cert {
      * @param { AsyncCallback<EncodingBlob> } callback - Callback used to return the result. If the operation is
      *     successful, **err** is **undefined**, and **data** is the serialized data of the revoked certificate entry
      *     obtained. Otherwise, **err** is an error object.
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      * @throws { BusinessError } 19020001 - Memory malloc failed.
@@ -1677,7 +1677,7 @@ declare namespace cert {
      *
      * @returns { Promise<EncodingBlob> } Promise used to return the serialized data of the revoked certificate entry
      *     obtained.
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      * @throws { BusinessError } 19020001 - Memory malloc failed.
@@ -1909,7 +1909,7 @@ declare namespace cert {
      * @param { X509Cert } cert - X.509 certificate to check.
      * @returns { boolean } Whether the certificate is revoked. The value **true** indicates that the certificate is
      *     revoked, and **false** indicates the opposite.
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -1947,7 +1947,7 @@ declare namespace cert {
      * @param { AsyncCallback<EncodingBlob> } callback - Callback used to return the result. If the operation is
      *     successful, **err** is **undefined**, and **data** is the serialized X.509 CRL data obtained. Otherwise,
      *     **err** is an error object.
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      * @throws { BusinessError } 19020001 - Memory malloc failed.
@@ -1972,7 +1972,7 @@ declare namespace cert {
      * > [X509CRL.getEncoded()]{@link cert.X509CRL.getEncoded()} instead.
      *
      * @returns { Promise<EncodingBlob> } Promise used to return the serialized X.509 CRL data obtained.
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      * @throws { BusinessError } 19020001 - Memory malloc failed.
@@ -2001,7 +2001,7 @@ declare namespace cert {
      * @param { cryptoFramework.PubKey } key - Public key used for signature verification.
      * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
      *     **err** is **undefined**. Otherwise, **err** is an error object.
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -2024,7 +2024,7 @@ declare namespace cert {
      *
      * @param { cryptoFramework.PubKey } key - Public key used for signature verification.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -2130,7 +2130,7 @@ declare namespace cert {
      *
      * @param { number } serialNumber - Serial number of the certificate.
      * @returns { X509CrlEntry } Revoked certificate entry obtained.
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -2153,7 +2153,7 @@ declare namespace cert {
      *
      * @param { X509Cert } cert - Certificate based on which the revoked certificate is obtained.
      * @returns { X509CrlEntry } Revoked certificate entry obtained.
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -2179,7 +2179,7 @@ declare namespace cert {
      * @param { AsyncCallback<Array<X509CrlEntry>> } callback - Callback used to return the result. If the operation is
      *     successful, **err** is **undefined**, and **data** is the revoked certificate entries obtained. Otherwise,
      *     **err** is an error object.
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      * @throws { BusinessError } 19020001 - Memory malloc failed.
@@ -2200,7 +2200,7 @@ declare namespace cert {
      * > [X509CRL.getRevokedCerts()]{@link cert.X509CRL.getRevokedCerts()} instead.
      *
      * @returns { Promise<Array<X509CrlEntry>> } Promise used to return the revoked certificate entries obtained.
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      * @throws { BusinessError } 19020001 - Memory malloc failed.
@@ -2337,7 +2337,7 @@ declare namespace cert {
    * @param { AsyncCallback<X509Crl> } callback - Callback used to return the result. If the operation is successful,
    *     **err** is **undefined**, and **data** is the **X509Crl** instance created. Otherwise, **err** is an error
    *     object.
-   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types;
    *     <br>3. Parameter verification failed.
@@ -2360,7 +2360,7 @@ declare namespace cert {
    *
    * @param { EncodingBlob } inStream - Serialized CRL data.
    * @returns { Promise<X509Crl> } Promise used to return the **X509Crl** instance created.
-   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types;
    *     <br>3. Parameter verification failed.
@@ -2389,7 +2389,7 @@ declare namespace cert {
      * @param { X509Cert } cert - X.509 certificate to check.
      * @returns { boolean } Whether the certificate is revoked. The value **true** indicates that the certificate is
      *     revoked, and **false** indicates the opposite.
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -2419,7 +2419,7 @@ declare namespace cert {
      * @param { AsyncCallback<EncodingBlob> } callback - Callback used to return the result. If the operation is
      *     successful, **err** is **undefined**, and **data** is the serialized X.509 CRL data obtained. Otherwise,
      *     **err** is an error object.
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      * @throws { BusinessError } 19020001 - Memory malloc failed.
@@ -2440,7 +2440,7 @@ declare namespace cert {
      * Obtains the serialized X.509 CRL data. This API uses a promise to return the result.
      *
      * @returns { Promise<EncodingBlob> } Promise used to return the serialized X.509 CRL data obtained.
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      * @throws { BusinessError } 19020001 - Memory malloc failed.
@@ -2464,7 +2464,7 @@ declare namespace cert {
      * @param { cryptoFramework.PubKey } key - Public key used for signature verification.
      * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
      *     **err** is **undefined**. Otherwise, **err** is an error object.
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -2483,7 +2483,7 @@ declare namespace cert {
      *
      * @param { cryptoFramework.PubKey } key - Public key used for signature verification.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -2594,7 +2594,7 @@ declare namespace cert {
      *
      * @param { bigint } serialNumber - Serial number of the certificate.
      * @returns { X509CRLEntry } Revoked certificate entry obtained.
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -2613,7 +2613,7 @@ declare namespace cert {
      *
      * @param { X509Cert } cert - Certificate based on which the revoked certificate is obtained.
      * @returns { X509CRLEntry } Revoked certificate entry obtained.
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -2634,7 +2634,7 @@ declare namespace cert {
      * @param { AsyncCallback<Array<X509CRLEntry>> } callback - Callback used to return the result. If the operation is
      *     successful, **err** is **undefined**, and **data** is the revoked certificate entries obtained. Otherwise,
      *     **err** is an error object.
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      * @throws { BusinessError } 19020001 - Memory malloc failed.
@@ -2651,7 +2651,7 @@ declare namespace cert {
      * Obtains all the revoked certificate entries from the X.509 CRL. This API uses a promise to return the result.
      *
      * @returns { Promise<Array<X509CRLEntry>> } Promise used to return the revoked certificate entries obtained.
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      * @throws { BusinessError } 19020001 - Memory malloc failed.
@@ -2780,7 +2780,7 @@ declare namespace cert {
      * @param { X509CRLMatchParameters } param - Parameters specified for matching the CRL.
      * @returns { boolean } Returns **true** if the CRL matches the parameters specified; returns **false**
      *     otherwise.
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -2895,7 +2895,7 @@ declare namespace cert {
    * @param { AsyncCallback<X509CRL> } callback - Callback used to return the result. If the operation is successful,
    *     **err** is **undefined**, and **data** is the **X509CRL** instance created. Otherwise, **err** is an error
    *     object.
-   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types;
    *     <br>3. Parameter verification failed.
@@ -2914,7 +2914,7 @@ declare namespace cert {
    *
    * @param { EncodingBlob } inStream - Serialized CRL data. The data length cannot exceed 8192 bytes.
    * @returns { Promise<X509CRL> } Promise used to return the **X509CRL** instance created.
-   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types;
    *     <br>3. Parameter verification failed.
@@ -3374,7 +3374,7 @@ declare namespace cert {
      * @param { CertChainData } certChain - Serialized X.509 certificate chain data.
      * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
      *     **err** is **undefined**. Otherwise, **err** is an error object.
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -3410,7 +3410,7 @@ declare namespace cert {
      *
      * @param { CertChainData } certChain - Serialized X.509 certificate chain data.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -3510,7 +3510,7 @@ declare namespace cert {
    *
    * @param { string } algorithm - Certificate chain validator algorithm. Currently, only **PKIX** is supported.
    * @returns { CertChainValidator } **CertChainValidator** object created.
-   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   * @throws { BusinessError } 401 - [Sync] Invalid parameters. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types;
    *     <br>3. Parameter verification failed.
@@ -3966,7 +3966,7 @@ declare namespace cert {
      *
      * @param { X509CertMatchParameters } param - Parameters used to match the certificates.
      * @returns { Promise<Array<X509Cert>> } Promise used to return the matched certificates.
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -3988,7 +3988,7 @@ declare namespace cert {
      * @param { AsyncCallback<Array<X509Cert>> } callback - Callback used to return the result. If the operation is
      *     successful, **err** is **undefined**, and **data** is the matched certificates obtained. Otherwise, **err**
      *     is an error object.
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -4007,7 +4007,7 @@ declare namespace cert {
      *
      * @param { X509CRLMatchParameters } param - Parameters used to match the CRLs.
      * @returns { Promise<Array<X509CRL>> } Promise used to return the matched CRLs.
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -4028,7 +4028,7 @@ declare namespace cert {
      * @param { AsyncCallback<Array<X509CRL>> } callback - Callback used to return the result. If the operation is
      *     successful, **err** is **undefined**, and **data** is the matched CRLs obtained. Otherwise, **err** is an
      *     error object.
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -4050,7 +4050,7 @@ declare namespace cert {
    * @param { Array<X509CRL> } [options] crls - Array of X509CRL. [since 11 - 11]
    * @param { Array<X509CRL> } [crls] - Array of X509CRL.
    * @returns { CertCRLCollection } **CertCRLCollection** object created.
-   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   * @throws { BusinessError } 401 - [Sync] Invalid parameters. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types;
    *     <br>3. Parameter verification failed.
@@ -4077,7 +4077,7 @@ declare namespace cert {
      * Obtains the X.509 certificate list.
      *
      * @returns { Array<X509Cert> } X.509 certificate list obtained.
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -4096,7 +4096,7 @@ declare namespace cert {
      *
      * @param { CertChainValidationParameters } param - Parameters for validating the X.509 certificate chain.
      * @returns { Promise<CertChainValidationResult> } Promise used to return the certificate chain validation result.
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -4127,7 +4127,7 @@ declare namespace cert {
      * @param { AsyncCallback<CertChainValidationResult> } callback - Callback used to return the result. If the operation
      *     is successful, **err** is **undefined**, and **data** is the certificate chain validation result obtained.
      *     Otherwise, **err** is an error object.
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -4193,7 +4193,7 @@ declare namespace cert {
    *
    * @param { EncodingBlob } inStream - X.509 certificate serialization data.
    * @returns { Promise<X509CertChain> } Promise used to return the **X509CertChain** instance created.
-   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types;
    *     <br>3. Parameter verification failed.
@@ -4214,7 +4214,7 @@ declare namespace cert {
    * @param { AsyncCallback<X509CertChain> } callback - Callback used to return the result. If the operation is
    *     successful, **err** is **undefined**, and **data** is the **X509CertChain** instance created. Otherwise,
    *     **err** is an error object.
-   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types;
    *     <br>3. Parameter verification failed.
@@ -4234,7 +4234,7 @@ declare namespace cert {
    *
    * @param { Array<X509Cert> } certs - Array of X.509 certificates.
    * @returns { X509CertChain } **X509CertChain** object created.
-   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   * @throws { BusinessError } 401 - [Sync] Invalid parameters. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types;
    *     <br>3. Parameter verification failed.
@@ -4256,7 +4256,7 @@ declare namespace cert {
    *     **maxLength** in [CertChainBuildParameters]{@link cert.CertChainBuildParameters} must be less than the number
    *     of certificates in the certificate set.
    * @returns { Promise<CertChainBuildResult> } Promise used to return the **CertChainBuildResult** object created.
-   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types;
    *     <br>3. Parameter verification failed.
@@ -4440,7 +4440,7 @@ declare namespace cert {
    * @param { Uint8Array } data - Raw data of P12 file, in DER format.
    * @param { Pkcs12ParsingConfig } config - Configuration for parsing the P12.
    * @returns { Pkcs12Data } Indicates the parsed P12 data.
-   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   * @throws { BusinessError } 401 - [Sync] Invalid parameters. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types;
    *     <br>3. Parameter verification failed.
@@ -4491,7 +4491,7 @@ declare namespace cert {
    * @param { Uint8Array } keystore - Raw data of P12 file, in DER format.
    * @param { string } pwd - Password.
    * @returns { Promise<Array<X509TrustAnchor>> } Promise used to return the **X509TrustAnchor** object array created.
-   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types;
    *     <br>3. Parameter verification failed.
@@ -4524,7 +4524,7 @@ declare namespace cert {
    *     **OU** (organization unit), **C** (country/region), **ST** (province/state), and **L** (city/district).
    *     For example, **\/CN=example.com/O=Example/C=CN**.
    * @returns { Promise<X500DistinguishedName> } Promise used to return the **X500DistinguishedName** object created.
-   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types;
    *     <br>3. Parameter verification failed.
@@ -4554,7 +4554,7 @@ declare namespace cert {
    *
    * @param { Uint8Array } nameDer - X.500 Distinguished Name in DER format.
    * @returns { Promise<X500DistinguishedName> } Promise used to return the **X500DistinguishedName** object created.
-   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types;
    *     <br>3. Parameter verification failed.
@@ -4632,7 +4632,7 @@ declare namespace cert {
      *
      * @param { string } type - Type of the RDNs to obtain. For example, **CN** and **OU**.
      * @returns { Array<string> } Array of RDN strings.
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -5853,7 +5853,7 @@ declare namespace cert {
      * @param { X509Cert } cert - X.509 certificate.
      * @param { PrivateKeyInfo } keyInfo - Private key information.
      * @param { CmsSignerConfig } config - Signer configuration.
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -5880,7 +5880,7 @@ declare namespace cert {
      * contains only the certificate.
      *
      * @param { X509Cert } cert - X.509 certificate to add.
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -5954,7 +5954,7 @@ declare namespace cert {
      * @param { Uint8Array } data - Data to be operated.
      * @param { CmsGeneratorOptions } [options] - Configuration of the CMS operation.
      * @returns { Promise<Uint8Array | string> } Promise used to return the CMS message.
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync/Async] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -5979,7 +5979,7 @@ declare namespace cert {
      * @param { Uint8Array } data - Data to be operated.
      * @param { CmsGeneratorOptions } [options] - Configuration of the CMS operation.
      * @returns { Uint8Array | string } CMS message generated.
-     * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+     * @throws { BusinessError } 401 - [Sync] Invalid parameters. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
@@ -6025,7 +6025,7 @@ declare namespace cert {
    *
    * @param { CmsContentType } contentType - CMS message type.
    * @returns { CmsGenerator } **CmsGenerator** object created.
-   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   * @throws { BusinessError } 401 - [Sync] Invalid parameters. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types;
    *     <br>3. Parameter verification failed.
@@ -6475,7 +6475,7 @@ declare namespace cert {
    * @param { PrivateKeyInfo } keyInfo - Private key information.
    * @param { CsrGenerationConfig } config - Configuration for generating the CSR.
    * @returns { string | Uint8Array } CSR generated.
-   * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
+   * @throws { BusinessError } 401 - [Sync] Invalid parameters. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types;
    *     <br>3. Parameter verification failed.
