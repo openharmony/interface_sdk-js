@@ -301,6 +301,21 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
   fillMode(value: FillMode): ImageAnimatorAttribute;
 
   /**
+   * Sets the interpolation effect of the frame images. This attribute mitigates aliasing during image scaling. This
+   * attribute is not applicable to SVG images.
+   *
+   * @param { ImageInterpolation } value - Interpolation effect of the frame images.<br>Default value:
+   *     **ImageInterpolation.Low**<br>When set to **undefined**, the value is treated as **ImageInterpolation.Low**.
+   * @returns { ImageAnimatorAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.1 dynamic
+   */
+  interpolation(value: ImageInterpolation): ImageAnimatorAttribute;
+
+  /**
    * Sets the number of times that the animation is played.
    *
    * @param { number } value - By default, the animation is played once. The value **-1** indicates that the animation
