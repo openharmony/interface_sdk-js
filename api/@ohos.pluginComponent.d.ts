@@ -66,7 +66,8 @@ interface PluginComponentTemplate {
 }
 
 /**
- * Implements a plugin component manager.
+ * Implements a plugin component manager, which provides management capabilities such as requesting, pushing, and
+ * event listening for plug-in components.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice [since 12]
@@ -74,7 +75,7 @@ interface PluginComponentTemplate {
  */
 declare namespace pluginComponentManager {
   /**
-   * Defines a key-value pair data structure that conforms to JSON format.
+   * Stores information in the form of key-value pairs, conforming to the JSON format.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice [since 12]
@@ -83,7 +84,7 @@ declare namespace pluginComponentManager {
   type KVObject = { [key: string]: number | string | boolean | [] | KVObject };
 
   /**
-   * Defines the parameters required when using the **PluginManager.Push** API.
+   * Defines the parameters required when using the **pluginComponentManager.push** API.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice [since 12]
@@ -109,7 +110,8 @@ declare namespace pluginComponentManager {
     name: string;
 
     /**
-     * Component data.
+     * Component data stored in key-value pairs, used to transfer service data to the component user. The key and value
+     * types are defined by the service.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice [since 12]
@@ -118,7 +120,8 @@ declare namespace pluginComponentManager {
     data: KVObject;
 
     /**
-     * Extra data.
+     * Extra data stored in key-value pairs, used to transfer additional service information. The key and value types
+     * are defined by the service.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice [since 12]
@@ -127,9 +130,13 @@ declare namespace pluginComponentManager {
     extraData: KVObject;
 
     /**
-     * Path to the
+     * Path of the
      * [external.json](docroot://reference/apis-arkui/js-apis-plugincomponent.md#about-the-externaljson-file) file that
-     * stores the template path.
+     * stores the template path. This parameter is passed when the template needs to be loaded directly through an
+     * external configuration file instead of being sent through Push communication. When **jsonPath** is not empty,
+     * Push communication is not triggered, and the template path is read directly from **external.json** for loading.
+     * When this parameter is not passed or is empty, Push communication is triggered to push the component and data to
+     * the component user.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice [since 12]
@@ -139,7 +146,7 @@ declare namespace pluginComponentManager {
   }
 
   /**
-   * Plugin component push parameters which is used in push function.
+   * Sets the parameters to be passed in the **pluginComponentManager.push** API in the stage model.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -147,7 +154,7 @@ declare namespace pluginComponentManager {
    */
   interface PushParameterForStage {
     /**
-     * Defines owner.
+     * Ability information of the component provider.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
@@ -156,7 +163,7 @@ declare namespace pluginComponentManager {
     owner: Want;
 
     /**
-     * Defines target.
+     * Ability information of the component user.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
@@ -165,7 +172,8 @@ declare namespace pluginComponentManager {
     target: Want;
 
     /**
-     * Defines name.
+     * Component name. When **jsonPath** is not empty, the component name must be consistent with the key name in the
+     * [external.json](docroot://reference/apis-arkui/js-apis-plugincomponent.md#about-the-externaljson-file) file.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
@@ -174,7 +182,8 @@ declare namespace pluginComponentManager {
     name: string;
 
     /**
-     * Defines data.
+     * Component data, stored in key-value pairs. It is used to transfer service data to the component user, such as the
+     * page path (if **key** is **'js'**, **value** is the template path string) and custom data fields.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
@@ -183,7 +192,8 @@ declare namespace pluginComponentManager {
     data: KVObject;
 
     /**
-     * Defines extraData.
+     * Extra data used to transfer additional custom data when sending a component. It is distinguished from component
+     * data (**data**) and can be set based on service requirements.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
@@ -192,7 +202,11 @@ declare namespace pluginComponentManager {
     extraData: KVObject;
 
     /**
-     * Defines jsonPath.
+     * Path of the
+     * [external.json](docroot://reference/apis-arkui/js-apis-plugincomponent.md#about-the-externaljson-file) file that
+     * stores the template path. When **jsonPath** is not empty, Push communication is not triggered, and the component
+     * template path is read from the **external.json** file. When **jsonPath** is empty (default), the component
+     * template is sent to the component user through Push communication.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
@@ -202,7 +216,7 @@ declare namespace pluginComponentManager {
   }
 
   /**
-   * Defines the parameters required when using the **PluginManager.Request** API.
+   * Defines the parameters required when using the **pluginComponentManager.request** API.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice [since 12]
@@ -210,7 +224,7 @@ declare namespace pluginComponentManager {
    */
   interface RequestParameters {
     /**
-     * Ability information of the component user.
+     * Ability information of the component provider.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice [since 12]
@@ -219,7 +233,7 @@ declare namespace pluginComponentManager {
     want: Want;
 
     /**
-     * Component name.
+     * Name of the requested component.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice [since 12]
@@ -228,7 +242,8 @@ declare namespace pluginComponentManager {
     name: string;
 
     /**
-     * Component data.
+     * Component data stored in key-value pairs, used to transfer service data to the component provider. The key and
+     * value types are defined by the service.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice [since 12]
@@ -239,7 +254,11 @@ declare namespace pluginComponentManager {
     /**
      * Path to the
      * [external.json](docroot://reference/apis-arkui/js-apis-plugincomponent.md#about-the-externaljson-file) file that
-     * stores the template path.
+     * stores the template path. This parameter is passed when the template needs to be loaded directly through an
+     * external configuration file instead of being obtained through Request communication. When **jsonPath** is not
+     * empty, Request communication is not triggered and the template path is read directly from **external.json**.
+     * When this parameter is not passed or is empty, Request communication is triggered to request the template from
+     * the component provider.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice [since 12]
@@ -249,7 +268,7 @@ declare namespace pluginComponentManager {
   }
 
   /**
-   * Plugin component request parameters which is used in request function.
+   * Sets the parameters to be passed in the **pluginComponentManager.request** API in the stage model.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -257,7 +276,7 @@ declare namespace pluginComponentManager {
    */
   interface RequestParameterForStage {
     /**
-     * Defines owner.
+     * Ability information of the component user.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
@@ -266,7 +285,7 @@ declare namespace pluginComponentManager {
     owner: Want;
 
     /**
-     * Defines target.
+     * Ability information of the component provider.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
@@ -274,7 +293,8 @@ declare namespace pluginComponentManager {
      */
     target: Want;
     /**
-     * Defines name.
+     * Name of the requested component. When **jsonPath** is not empty, it must be consistent with the key name in the
+     * [external.json](docroot://reference/apis-arkui/js-apis-plugincomponent.md#about-the-externaljson-file) file.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
@@ -283,7 +303,8 @@ declare namespace pluginComponentManager {
     name: string;
 
     /**
-     * Defines data.
+     * Extra data stored in key-value pairs, used to transfer custom service parameters to the component provider during
+     * a request, so that the provider can return an appropriate component template based on the data.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
@@ -292,7 +313,12 @@ declare namespace pluginComponentManager {
     data: KVObject;
 
     /**
-     * Defines jsonPath.
+     * Path of the
+     * [external.json](docroot://reference/apis-arkui/js-apis-plugincomponent.md#about-the-externaljson-file) file that
+     * stores the template path. This parameter is passed when the template path needs to be loaded from the
+     * **external.json** file instead of being obtained through Request communication. When **jsonPath** is not empty,
+     * Request communication is not triggered. When **jsonPath** is empty (default), the component template is
+     * requested from the component provider through Request communication.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
@@ -302,7 +328,7 @@ declare namespace pluginComponentManager {
   }
 
   /**
-   * Provides the result returned after the **PluginManager.Request** API is called.
+   * Provides the result returned after the **pluginComponentManager.request** API is called.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice [since 12]
@@ -320,7 +346,7 @@ declare namespace pluginComponentManager {
     componentTemplate: PluginComponentTemplate;
 
     /**
-     * Component data.
+     * Component data stored in key-value pairs. The key and value types are defined by the service.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice [since 12]
@@ -329,7 +355,8 @@ declare namespace pluginComponentManager {
     data: KVObject;
 
     /**
-     * Extra data.
+     * Extra data. This is an optional parameter. If not provided, it is not included in the returned result by
+     * default.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice [since 12]
@@ -339,7 +366,7 @@ declare namespace pluginComponentManager {
   }
 
   /**
-   * Provides the result returned after the request listener is registered and the requested event is received.
+   * Provides the data type used to respond to a request event after the request listener is registered.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice [since 12]
@@ -347,7 +374,9 @@ declare namespace pluginComponentManager {
    */
   interface RequestEventResult {
     /**
-     * Component template.
+     * Component template. This is an optional parameter. If not provided, it is not included in the return result by
+     * default. Set this parameter when the component template information needs to be returned; it can be omitted when
+     * the template is not required.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice [since 12]
@@ -356,7 +385,9 @@ declare namespace pluginComponentManager {
     template?: string;
 
     /**
-     * Component data.
+     * Component data stored in key-value pairs, used to transfer service data when responding to a request. The key
+     * and value types are defined by the service. This is an optional parameter. If not provided, it is not included
+     * in the return result by default.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice [since 12]
@@ -365,7 +396,8 @@ declare namespace pluginComponentManager {
     data?: KVObject;
 
     /**
-     * Extra data.
+     * Extra data passed in the request event. This is an optional parameter. If not provided, it is not included in
+     * the return result by default.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @atomicservice [since 12]
@@ -378,24 +410,27 @@ declare namespace pluginComponentManager {
    * Registers the listener for the push event.
    *
    * @param { Want } source - Information about the push request sender.
-   * @param { PluginComponentTemplate } template - Name of the requested component template.
-   * @param { KVObject } data - Data.
-   * @param { KVObject } extraData - Extra data.
+   * @param { PluginComponentTemplate } template - Component template.
+   * @param { KVObject } data - Data content transmitted in the push event, stored in key-value pairs. The key and value
+   *     types are defined by the service.
+   * @param { KVObject } extraData - Extra data transmitted in the push event, stored in key-value pairs. The key and
+   *     value types are defined by the service.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice [since 12]
    * @since 8 dynamic
    */
   type OnPushEventCallback = (source: Want, template: PluginComponentTemplate, data: KVObject,
-    extraData: KVObject) => void;
+     extraData: KVObject) => void;
 
   /**
    * Registers the listener for the request event.
    *
    * @param { Want } source - Information about the request sender.
-   * @param { string } name - Template name.
-   * @param { KVObject } data - Data.
-   * @returns { RequestEventResult } Provides the result returned after the request listener is registered and the
-   *     requested event is received. [since 12]
+   * @param { string } name - Name of the requested component.
+   * @param { KVObject } data - Data content transmitted in the request event, stored in key-value pairs. The key and
+   *     value types are defined by the service.
+   * @returns { RequestEventResult } Data type for responding to a request event after the request listener is
+   *     registered. [since 12]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice [since 12]
    * @since 8 dynamic
@@ -403,10 +438,15 @@ declare namespace pluginComponentManager {
   type OnRequestEventCallback = (source: Want, name: string, data: KVObject) => RequestEventResult;
 
   /**
-   * Pushes the component and data to the component user.
+   * Pushes the component and data to the component user. This API is applicable to scenarios where the provider needs
+   * to proactively notify the user to refresh the display after data is updated.
+   * <br>Cooperation method: The user must first call
+   * [on('push', callback)](docroot://reference/apis-arkui/js-apis-plugincomponent.md#plugincomponentmanageron) to
+   * register a push event listener before receiving the components and data pushed through this API. If the user does
+   * not register the listener, the pushed data cannot be received.
    *
-   * @param { PushParameters } param
-   * @param { AsyncCallback<void> } callback
+   * @param { PushParameters } param - Detailed parameters for pushing the component.
+   * @param { AsyncCallback<void> } callback - Asynchronous callback used to return the result.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice [since 12]
    * @since 8 dynamic
@@ -414,11 +454,16 @@ declare namespace pluginComponentManager {
   function push(param: PushParameters, callback: AsyncCallback<void>): void;
 
   /**
-   * Requests the component from the component provider.
+   * Requests the component from the component provider. This API is applicable to scenarios where the user needs to
+   * obtain the provider's components and data on demand.
+   * <br>Cooperation method: The provider must first call
+   * [on('request', callback)](docroot://reference/apis-arkui/js-apis-plugincomponent.md#plugincomponentmanageron) to
+   * register a request event listener before receiving the request initiated by the user through this API and
+   * returning data. If the provider does not register the listener, the request cannot be responded to.
    *
-   * @param { RequestParameters } param - Information about the component request.
-   * @param { AsyncCallback<RequestCallbackParameters> } callback - Asynchronous callback used to return the requested
-   *     data.
+   * @param { RequestParameters } param - Details about the component template request.
+   * @param { AsyncCallback<RequestCallbackParameters> } callback - Asynchronous callback for this request, used to
+   *     return the data obtained from the request through the parameter of the callback.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice [since 12]
    * @since 8 dynamic
@@ -426,10 +471,16 @@ declare namespace pluginComponentManager {
   function request(param: RequestParameters, callback: AsyncCallback<RequestCallbackParameters>): void;
 
   /**
-   * Plugin component push method used to send the information of the template it provides.
+   * Proactively pushes the component and data to the component user. This API applies to scenarios where the plug-in
+   * component template needs to be proactively pushed, for example, cross-application content sharing and proactive
+   * refresh of home screen cards. **push** is proactively initiated by the component provider, while **request** is
+   * proactively initiated by the component user. Note that the two have similar parameter structures but opposite
+   * meanings of **owner** and **target**, so do not confuse them. The component user must listen for the received
+   * data through the **onPush** event. For details about the event listener API, see
+   * [@ohos.pluginComponent (PluginComponentManager)](docroot://reference/apis-arkui/js-apis-plugincomponent.md#plugincomponentmanageron).
    *
-   * @param { PushParameterForStage } param - Plugin component push parameters for stage.
-   * @param { AsyncCallback<void> } callback - Plugin component push event callback.
+   * @param { PushParameterForStage } param - Parameters to be sent by the component provider.
+   * @param { AsyncCallback<void> } callback - Asynchronous callback used to return the result.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @StageModelOnly
@@ -438,10 +489,16 @@ declare namespace pluginComponentManager {
   function push(param: PushParameterForStage, callback: AsyncCallback<void>): void;
 
   /**
-   * Plugin component request method used to send a request for the information of the template it wants.
+   * Requests the component from the component provider. This API applies to scenarios where the component user needs
+   * to dynamically obtain the plug-in component template on demand, for example, dynamically loading plug-in content
+   * provided by other applications and displaying cross-application components on demand. The component provider must
+   * listen for the request response through the **onRequest** event, and return the component template information
+   * through a callback. For details about the event listener API, see
+   * [@ohos.pluginComponent (PluginComponentManager)](docroot://reference/apis-arkui/js-apis-plugincomponent.md#plugincomponentmanageron).
    *
-   * @param { RequestParameterForStage } param - Plugin component request parameters for stage.
-   * @param { AsyncCallback<RequestCallbackParameters> } callback - Plugin component request event callback.
+   * @param { RequestParameterForStage } param - Details about the component template request.
+   * @param { AsyncCallback<RequestCallbackParameters> } callback - Asynchronous callback for this request, which
+   *     returns the request response data through the parameter of the callback.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @StageModelOnly
@@ -453,9 +510,9 @@ declare namespace pluginComponentManager {
    * Listens for events of the request type and returns the requested data, or listens for events of the push type and
    * receives the data pushed by the provider.
    *
-   * @param { string } eventType - Type of the event to listen for. The options are as follows:<br>**"push"**: The
-   *     component provider pushes data to the component user.<br>**"request"**: The component user proactively requests
-   *     data from the component provider.
+   * @param { string } eventType - Event type to listen for. The options are as follows:<br>**"push"**: The component
+   *     provider proactively pushes data to the user.<br>**"request"**: The component user proactively requests data
+   *     from the provider.
    * @param { OnPushEventCallback | OnRequestEventCallback } callback - Callback used to return the result. The type is
    *     [OnPushEventCallback]{@link pluginComponentManager.OnPushEventCallback} for the push event and
    *     [OnRequestEventCallback]{@link pluginComponentManager.OnRequestEventCallback} for the request event.

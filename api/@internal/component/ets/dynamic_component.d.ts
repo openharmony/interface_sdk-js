@@ -19,7 +19,7 @@
  */
 
 /**
- * Defines the worker thread object for running the .abc file.
+ * Worker thread object used to run .abc. It must be created through **worker.ThreadWorker**.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -48,7 +48,8 @@ declare type ErrorCallback = import('../api/@ohos.base').ErrorCallback;
  */
 declare interface DynamicOptions {
   /**
-   * Entry of the .abc page to be loaded.
+   * The .abc page entry to load. The value format is 'bundleName/moduleName/pagePath', for example,
+   * 'com.example.myapplication/entry/ets/pages/DynamicPage'.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -57,7 +58,8 @@ declare interface DynamicOptions {
    */
   entryPoint: string;
   /**
-   * Worker for running the .abc file.
+   * Worker thread object used to run the .abc, which must be created through **worker.ThreadWorker**. The Worker
+   * executes the UI logic of the .abc in an independent thread and communicates with the main thread.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -66,9 +68,8 @@ declare interface DynamicOptions {
    */
   worker: Worker;
   /**
-   * Whether to enable the transparent background for the component.
-   * **true**: yes; **false**: no.
-   * The default value is **false**.
+   * Whether to enable background transparency for the component.<br>**true**: enable background transparency;
+   * **false**: disable background transparency.<br>Default value: **false**
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -77,9 +78,8 @@ declare interface DynamicOptions {
    */
   backgroundTransparent?: boolean;
   /**
-   * Whether to allow cross-process [UIExtensionComponent]{@link ./ui_extension_component} nesting.
-   * **true**: yes; **false**: no.
-   * The default value is **false**.
+   * Whether to allow cross-process [UIExtensionComponent]{@link ./ui_extension_component} nesting.<br>**true**: allow
+   * cross-process nesting; **false**: disallow cross-process nesting.<br>Default value: **false**
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -88,7 +88,8 @@ declare interface DynamicOptions {
    */
   allowCrossProcessNesting?: boolean;
   /**
-   * Indicates allow keyboard avoidance inside the DynamicComponent.
+   * Whether to allow the **DynamicComponent** to avoid the keyboard internally.<br>**true**: allow avoiding the
+   * keyboard; **false**: do not allow avoiding the keyboard.<br>Default value: **false**
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -99,10 +100,11 @@ declare interface DynamicOptions {
 }
 
 /**
- * **DynamicComponent** is designed to support the embedding and display of UIs provided by independent .abc files
- * within the current page, with the displayed content running in a worker thread.
+ * **DynamicComponent** is designed to support the embedding and display of UIs provided by independent Abc (Ark
+ * bytecode, .abc files) within the current page, with the displayed content running in a worker thread.
  *
- * It is typically used in modular development scenarios where .abc pages are dynamically loaded.
+ * It is typically used in modular development scenarios where .abc pages are dynamically loaded. The .abc UI runs in
+ * isolation in a worker thread, preventing the main thread from being blocked and improving app smoothness.
  *
  * @returns { DynamicComponentAttribute } Attribute of DynamicComponent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -115,7 +117,8 @@ interface DynamicComponentInterface {
    * Creates a **DynamicComponent** component to display the .abc UI running in the worker thread.
    *
    * @param { DynamicOptions } options - Configuration parameters for constructing a **DynamicComponent**, which are
-   *     used to configure the entry of the .abc page to be loaded, worker thread to run, and display options.
+   *     used to configure the entry of the .abc page to be loaded, worker thread to run, display options, and
+   *     cross-process nesting.
    * @returns { DynamicComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -153,10 +156,11 @@ declare class DynamicComponentAttribute extends CommonMethod<DynamicComponentAtt
 }
 
 /**
- * **DynamicComponent** is designed to support the embedding and display of UIs provided by independent .abc files
- * within the current page, with the displayed content running in a worker thread.
+ * **DynamicComponent** is designed to support the embedding and display of UIs provided by independent Abc (Ark
+ * bytecode, .abc files) within the current page, with the displayed content running in a worker thread.
  *
- * It is typically used in modular development scenarios where .abc pages are dynamically loaded.
+ * It is typically used in modular development scenarios where .abc pages are dynamically loaded. The .abc UI runs in
+ * isolation in a worker thread, preventing the main thread from being blocked and improving app smoothness.
  *
  * ###### Child Components
  *

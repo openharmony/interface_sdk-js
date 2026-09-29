@@ -79,7 +79,7 @@ declare enum WindowModeFollowStrategy {
 }
 
 /**
- * Describes the optional construction parameters during **UIExtensionComponent** construction.
+ * Used to pass optional construction parameters when the **UIExtensionComponent** is constructed.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -88,9 +88,9 @@ declare enum WindowModeFollowStrategy {
  */
 declare interface UIExtensionOptions {
   /**
-   * Whether the **UIExtensionComponent** forwards the upper-level caller information when it is used for nesting.
-   *
-   * Default value: **false**
+   * Whether to forward the Caller information of the previous level when **UIExtensionComponent** is nested. The value
+   * **true** indicates that the Caller information of the previous level is forwarded, and **false** indicates that
+   * it is not forwarded.<br> Default value: **false**
    *
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -101,7 +101,9 @@ declare interface UIExtensionOptions {
   isTransferringCaller?: boolean;
 
   /**
-   * Placeholder to be displayed before the UIExtensionComponent establishes a connection with the UIExtensionAbility.
+   * Placeholder displayed before the connection between **UIExtensionComponent** and **UIExtensionAbility** is
+   * established. Pass this parameter when a loading state or prompt content needs to be displayed to users before the
+   * connection is established. If this parameter is not set, no placeholder content is displayed by default.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -111,9 +113,10 @@ declare interface UIExtensionOptions {
   placeholder?: ComponentContent;
 
   /**
-   * Placeholder for size changes, displayed when the UIExtensionComponent's size changes and the internal rendering of
-   * **UIExtension** is not completed. The key value can be **FOLD_TO_EXPAND** (size change for folding and expanding)
-   * or **UNDEFINED** (default size change).
+   * Placeholder displayed when the size of **UIExtensionComponent** changes and the internal rendering of
+   * **UIExtensionAbility** is not complete. The key supports only "FOLD_TO_EXPAND" (fold-to-expand size change) and
+   * "UNDEFINED" (default size change). Other key values do not take effect. If this parameter is not set, no
+   * size-change placeholder content is displayed by default.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -123,9 +126,8 @@ declare interface UIExtensionOptions {
   areaChangePlaceholder?: Record<string, ComponentContent>;
 
   /**
-   * Whether the DPI settings follow the host or UIExtensionAbility.
-   *
-   * Default value: **FOLLOW_UI_EXTENSION_ABILITY_DPI**
+   * Provides an API for setting whether the DPI follows the host or the **UIExtensionAbility**.<br> Default value:
+   * **FOLLOW_UI_EXTENSION_ABILITY_DPI**
    *
    * @default DpiFollowStrategy.FOLLOW_UI_EXTENSION_ABILITY_DPI
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -136,9 +138,8 @@ declare interface UIExtensionOptions {
   dpiFollowStrategy?: DpiFollowStrategy;
 
   /**
-   * Following strategy of the window mode.
-   *
-   * Default value: **FOLLOW_UI_EXTENSION_ABILITY_WINDOW_MODE**
+   * Provides an API for setting the window mode so that it follows the host or the **UIExtensionAbility**.<br> Default
+   * value: **FOLLOW_UI_EXTENSION_ABILITY_WINDOW_MODE**
    *
    * @default WindowModeFollowStrategy.FOLLOW_UI_EXTENSION_ABILITY_WINDOW_MODE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -150,7 +151,8 @@ declare interface UIExtensionOptions {
 }
 
 /**
- * Indicates the information when the provider of the embedded UI is terminated.
+ * Triggered when the started UIExtensionAbility exits properly by calling **terminateSelfWithResult** or
+ * **terminateSelf**.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -159,7 +161,8 @@ declare interface UIExtensionOptions {
  */
 declare interface TerminationInfo {
   /**
-   * Defines the termination code.
+   * Result code returned when the launched **UIExtensionAbility** exits. The result code is determined by the data
+   * passed in when `terminateSelfWithResult` or `terminateSelf` is called.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -169,7 +172,7 @@ declare interface TerminationInfo {
   code: number;
 
   /**
-   * Defines the additional termination information.
+   * Data returned when the launched **UIExtensionAbility** exits. The default value is **undefined**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -190,8 +193,8 @@ declare interface TerminationInfo {
 declare type ReceiveCallback = import('../api/@ohos.base').Callback<Record<string, Object>>;
 
 /**
- * Implements a **UIExtensionProxy** instance for the component host to send data to, subscribe to, or unsubscribe from
- * the started UIExtensionAbility through the connection established between the two parties.
+ * Used for the component user to send data to the launched Ability and to subscribe to and unsubscribe from the
+ * registration events of the extension Ability after a connection is successfully established between the two parties.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -200,13 +203,19 @@ declare type ReceiveCallback = import('../api/@ohos.base').Callback<Record<strin
  */
 declare interface UIExtensionProxy {
   /**
-   * Asynchronously sends data from the component host to the started UIExtensionAbility through the connection
-   * established between the two parties.
+   * Used in the scenario where the component user sends data to the launched Ability after a connection is
+   * successfully established between the two parties, providing asynchronous data sending.
    *
-   * @param { object } data - Data to be asynchronously sent to the started UIExtensionAbility. In versions earlier than
-   *     API version 18, the data type is **Object**. [since 10 - 17]
-   * @param { Record<string, Object> } data - Data to be asynchronously sent to the started UIExtensionAbility. In
-   *     versions earlier than API version 18, the data type is **Object**. [since 18]
+   * > **NOTE**
+   * > Both **send** and **sendSync** can be used to send data to the launched Ability. **send** is asynchronous and
+   * > has no return value, and is suitable for scenarios where the reply from the extension Ability is not required.
+   * > **sendSync** is synchronous and can obtain the reply data from the extension Ability, and is suitable for
+   * > scenarios where the processing result needs to be obtained synchronously.
+   *
+   * @param { object } data - Data asynchronously sent to the launched **UIExtensionAbility**. In versions earlier than
+   *     API version 18, the type of data is Object. [since 10 - 17]
+   * @param { Record<string, Object> } data - Data asynchronously sent to the launched **UIExtensionAbility**. In
+   *     versions earlier than API version 18, the type of data is Object. [since 18]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -215,13 +224,15 @@ declare interface UIExtensionProxy {
   send(data: Record<string, Object>): void;
 
   /**
-   * Synchronously sends data from the component host to the started UIExtensionAbility through the connection
-   * established between the two parties.
+   * Used in the scenario where the component user sends data to the launched Ability after a connection is
+   * successfully established between the two parties, providing synchronous data sending.
    *
-   * @param { object } data - Data to be synchronously sent to the started UIExtensionAbility. [since 11 - 17]
-   * @param { Record<string, Object> } data - Data to be synchronously sent to the started UIExtensionAbility. [since 18]
-   * @returns { object } data - data transferred from the UIExtensionAbility [since 11 - 17]
-   * @returns { Record<string, Object> } data - Data transferred from the UIExtensionAbility. [since 18]
+   * @param { object } data - Data synchronously sent to the launched **UIExtensionAbility**. Before API version 18,
+   *     the type of data is Object. [since 11 - 17]
+   * @param { Record<string, Object> } data - Data synchronously sent to the launched **UIExtensionAbility**. Before
+   *     API version 18, the type of data is Object. [since 18]
+   * @returns { object } data - Data replied by the extension Ability. [since 11 - 17]
+   * @returns { Record<string, Object> } data - Data replied by the extension Ability. [since 18]
    * @throws { BusinessError } 100011 - No callback has been registered to respond to this request.
    * @throws { BusinessError } 100012 - Transferring data failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -235,11 +246,20 @@ declare interface UIExtensionProxy {
    * Subscribes to asynchronous registration of the started UIExtensionAbility through the connection established
    * between the component host and UIExtensionAbility.
    *
-   * @param { 'asyncReceiverRegister' } type - Event type. The value is fixed at **'asyncReceiverRegister'**.
-   * @param { function } callback - Callback. It is triggered after UIExtensionAbility registers the
-   *     **setReceiveDataCallback** method. [since 11 - 17]
-   * @param { Callback<UIExtensionProxy> } callback - Callback. It is triggered after UIExtensionAbility registers the
-   *     **setReceiveDataCallback** method. [since 18]
+   * > **NOTE**
+   * > **asyncReceiverRegister** and **syncReceiverRegister** subscribe to the asynchronous and synchronous data
+   * > receiving registration events of the extension Ability, respectively. When the extension Ability calls
+   * > **setReceiveDataCallback** to register asynchronous receiving, the **asyncReceiverRegister** callback is
+   * > triggered. When the extension Ability calls **setReceiveDataForResultCallback** to register synchronous
+   * > receiving, the **syncReceiverRegister** callback is triggered. Developers should select the corresponding event
+   * > to subscribe to based on the data receiving mode used by the extension Ability.
+   *
+   * @param { 'asyncReceiverRegister' } type - Event type. The value is **'asyncReceiverRegister'**, indicating
+   *     subscription to the asynchronous registration callback of the extended Ability.
+   * @param { function } callback - Callback invoked when the extended Ability registers **setReceiveDataCallback**.
+   *     [since 11 - 17]
+   * @param { Callback<UIExtensionProxy> } callback - Callback invoked when the extended Ability registers
+   *     **setReceiveDataCallback**. [since 18]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -251,10 +271,11 @@ declare interface UIExtensionProxy {
    * Subscribes to synchronous registration of the started UIExtensionAbility through the connection established between
    * the component host and UIExtensionAbility.
    *
-   * @param { 'syncReceiverRegister' } type - Event type. The value is fixed at **'syncReceiverRegister'**.
-   * @param { function } callback - Callback. It is triggered after the UIExtensionAbility registers
+   * @param { 'syncReceiverRegister' } type - Event type. The value is **'syncReceiverRegister'**, indicating
+   *     subscription to the synchronous registration callback of the extension Ability.
+   * @param { function } callback - Callback invoked when the extension Ability registers
    *     **setReceiveDataForResultCallback**. [since 11 - 17]
-   * @param { Callback<UIExtensionProxy> } callback - Callback. It is triggered after the UIExtensionAbility registers
+   * @param { Callback<UIExtensionProxy> } callback - Callback invoked when the extension Ability registers
    *     **setReceiveDataForResultCallback**. [since 18]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -264,16 +285,22 @@ declare interface UIExtensionProxy {
   on(type: 'syncReceiverRegister', callback: Callback<UIExtensionProxy>): void;
 
   /**
-   * Unsubscribes from asynchronous registration of the started UIExtensionAbility through the connection established
-   * between the component host and UIExtensionAbility.
+   * Used in the scenario where the component user unsubscribes from the asynchronous registration event of the
+   * launched Ability after a connection is successfully established between the two parties. This method is used
+   * together with **on('asyncReceiverRegister')** to cancel the subscription registered through
+   * **on('asyncReceiverRegister')**. When it is no longer necessary to listen for the asynchronous registration
+   * event (for example, before the component is destroyed), call this method to unsubscribe to avoid the callback
+   * being unable to be released.
    *
-   * @param { 'asyncReceiverRegister' } type - Event type. The value is fixed at **'asyncReceiverRegister'**.
-   * @param { function } callback - Callback. If this parameter is left empty, it means unsubscribing from all callbacks
-   *     triggered after UIExtensionAbility's asynchronous registration.<br> If this parameter is not empty, it means
-   *     unsubscribing from callbacks corresponding to **type**. [since 11 - 17]
-   * @param { Callback<UIExtensionProxy> } [callback] - Callback. If this parameter is left empty, it means
-   *     unsubscribing from all callbacks triggered after UIExtensionAbility's asynchronous registration.<br> If this
-   *     parameter is not empty, it means unsubscribing from callbacks corresponding to **type**. [since 18]
+   * @param { 'asyncReceiverRegister' } type - Event type. The value is **'asyncReceiverRegister'**, which indicates
+   *     unsubscribing from the asynchronous registration callback of the extension Ability.
+   * @param { function } callback - Callback for the asynchronous registration event. If this parameter is left empty,
+   *     all asynchronous registration callbacks of the extension Ability are unsubscribed.<br> If it is not empty, the
+   *     corresponding asynchronous registration callback is unsubscribed. [since 11 - 17]
+   * @param { Callback<UIExtensionProxy> } [callback] - Callback for the asynchronous registration event. If this
+   *     parameter is left empty, all asynchronous registration callbacks of the extension Ability are
+   *     unsubscribed.<br> If it is not empty, the corresponding asynchronous registration callback is unsubscribed.
+   *     [since 18]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -282,16 +309,23 @@ declare interface UIExtensionProxy {
   off(type: 'asyncReceiverRegister', callback?: Callback<UIExtensionProxy>): void;
 
   /**
-   * Unsubscribes from synchronous registration of the started UIExtensionAbility through the connection established
-   * between the component host and UIExtensionAbility.
+   * Used in the scenario where the component user unsubscribes from the synchronous registration event of the
+   * launched Ability after a connection is successfully established between the two parties. This method is used
+   * together with **on('syncReceiverRegister')** to cancel the subscription registered through
+   * **on('syncReceiverRegister')**. When it is no longer necessary to listen for the synchronous registration event
+   * (for example, before the component is destroyed), call this method to unsubscribe to avoid the callback being
+   * unable to be released.
    *
-   * @param { 'syncReceiverRegister' } type - Event type. The value is fixed at **'syncReceiverRegister'**.
-   * @param { function } callback - Callback. If this parameter is left empty, it means unsubscribing from all callbacks
-   *     triggered after UIExtensionAbility's synchronous registration.<br> If this parameter is not empty, it means
-   *     unsubscribing from callbacks corresponding to **type**. [since 11 - 17]
-   * @param { Callback<UIExtensionProxy> } [callback] - Callback. If this parameter is left empty, it means
-   *     unsubscribing from all callbacks triggered after UIExtensionAbility's synchronous registration.<br> If this
-   *     parameter is not empty, it means unsubscribing from callbacks corresponding to **type**. [since 18]
+   * @param { 'syncReceiverRegister' } type - Event type. The value is **'syncReceiverRegister'**, which indicates
+   *     unsubscribing from the synchronous registration callback of the extension Ability.
+   * @param { function } callback - Callback for the synchronous registration event. If this parameter is left empty,
+   *     it indicates unsubscribing from all callbacks triggered after the synchronous registration of the extension
+   *     Ability.<br> If this parameter is not empty, it indicates unsubscribing from the corresponding synchronous
+   *     registration callback. [since 11 - 17]
+   * @param { Callback<UIExtensionProxy> } [callback] - Callback for the synchronous registration event. If this
+   *     parameter is left empty, it indicates unsubscribing from all callbacks triggered after the synchronous
+   *     registration of the extension Ability.<br> If this parameter is not empty, it indicates unsubscribing from
+   *     the corresponding synchronous registration callback. [since 18]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -301,10 +335,13 @@ declare interface UIExtensionProxy {
 }
 
 /**
- * **UIExtensionComponent** is used to embed UIs provided by other applications in the local application UI. The
- * embedded content runs in another process, and the local application does not participate in its layout and rendering.
+ * **UIExtensionComponent** is used to embed UIs provided by other apps in the local page. The displayed content runs
+ * in another process, and the local app does not participate in its layout or rendering. Through process isolation,
+ * secure UI isolation and crash isolation between apps can be achieved, while supporting independent development and
+ * deployment of modules.
  *
- * It is usually used in modular development scenarios where process isolation is required.
+ * It is usually used in modular development scenarios where process isolation is required, such as embedding
+ * functional modules provided by third-party apps and implementing UI capability extension between apps.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -317,8 +354,14 @@ interface UIExtensionComponentInterface {
    * Construct the UIExtensionComponent.<br/>
    * Called when the UIExtensionComponent is used.
    *
-   * @param { import('../api/@ohos.app.ability.Want').default } want - Ability to start.
-   * @param { UIExtensionOptions } [options] - Construction parameters. [since 11]
+   * @param { import('../api/@ohos.app.ability.Want').default } want - Ability to load, which must be a UI-capable
+   *     Ability extension. In the **parameters** of Want, set the
+   *     **ability.want.params.uiExtensionType** field, whose value must be consistent with the type configured for
+   *     the extension Ability in **module.json5**.
+   * @param { UIExtensionOptions } [options] - Construction parameters to pass, used to customize the configuration of
+   *     **UIExtensionComponent** (such as setting the placeholder, DPI following policy, window mode following
+   *     policy, etc.). Pass this parameter when the preceding configurations need to be customized; otherwise, the
+   *     default configuration is used. [since 11]
    * @returns { UIExtensionComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -336,7 +379,7 @@ interface UIExtensionComponentInterface {
  *
  * Universal events, such as the [click event]{@link ./common}, are not supported.
  *
- * The events are passed to the remote UIExtensionAbility for processing after coordinate conversion.
+ * The component converts the coordinates of the event and then passes it to the launched Ability for processing.
  *
  * The following events are supported:
  *
@@ -350,8 +393,9 @@ declare class UIExtensionComponentAttribute extends CommonMethod<UIExtensionComp
    * Invoked when the connection to the remote UIExtensionAbility is set up, that is, the UIExtensionAbility is ready to
    * receive data through the proxy.
    *
-   * @param { import('../api/@ohos.base').Callback<UIExtensionProxy> } callback - Callback invoked to send data to the
-   *     remote Ability.
+   * @param { import('../api/@ohos.base').Callback<UIExtensionProxy> } callback - Callback invoked when the
+   *     **UIExtensionAbility** is connected. The input parameter is **UIExtensionProxy**, through which data can be
+   *     sent to the launched **Ability**.
    * @returns { UIExtensionComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -367,9 +411,9 @@ declare class UIExtensionComponentAttribute extends CommonMethod<UIExtensionComp
    * return the result.
    *
    * @param { import('../api/@ohos.base').Callback<{ [key: string]: Object }> } callback - Callback invoked to return
-   *     the data received from the remote ability. [since 10 - 17]
-   * @param { ReceiveCallback } callback - Callback invoked to return the data received from the remote
-   *     ability. [since 18]
+   *     the data received from the launched Ability. [since 10 - 17]
+   * @param { ReceiveCallback } callback - Callback invoked to return the data received from the launched Ability.
+   *     [since 18]
    * @returns { UIExtensionComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -379,15 +423,16 @@ declare class UIExtensionComponentAttribute extends CommonMethod<UIExtensionComp
   onReceive(callback: ReceiveCallback): UIExtensionComponentAttribute;
 
   /**
-   * Invoked when the started UIExtensionAbility calls **terminateSelfWithResult**. After this callback is invoked,
-   * **OnRelease** is invoked.
+   * When the launched Ability extension calls **terminateSelfWithResult**, this callback is invoked first, and then
+   * **onRelease** is invoked.
    *
-   * The result data of the remote UIExtensionAbility can be processed in this callback. For details, see
+   * The result data of the launched **Ability** can be processed in this callback. For details, see
    * [AbilityResult]{@link ../../../ability/abilityResult:AbilityResult}.
    *
    * @param { import('../api/@ohos.base').Callback<{code: number;want?: import('../api/@ohos.app.ability.Want').default;
    *     }> } callback
-   *     - called when the UIExtensionAbility is terminated with result data.
+   *     - Callback invoked to return the result data when the launched **Ability** extension calls
+   *     **terminateSelfWithResult**.
    * @returns { UIExtensionComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -447,7 +492,8 @@ declare class UIExtensionComponentAttribute extends CommonMethod<UIExtensionComp
    * Called when the started UIExtensionAbility is terminated by calling **terminateSelfWithResult** or
    * **terminateSelf**.
    *
-   * @param { Callback<TerminationInfo> } callback - Callback used to return the result from the UIExtensionAbility.
+   * @param { Callback<TerminationInfo> } callback - Callback used to return the result from the
+   *     **UIExtensionAbility**. The type is [TerminationInfo]{@link TerminationInfo}.
    * @returns { UIExtensionComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -471,17 +517,20 @@ declare class UIExtensionComponentAttribute extends CommonMethod<UIExtensionComp
 }
 
 /**
- * **UIExtensionComponent** is used to embed UIs provided by other applications in the local application UI. The
- * embedded content runs in another process, and the local application does not participate in its layout and rendering.
+ * **UIExtensionComponent** is used to embed UIs provided by other apps in the local page. The displayed content runs
+ * in another process, and the local app does not participate in its layout or rendering. Through process isolation,
+ * secure UI isolation and crash isolation between apps can be achieved, while supporting independent development and
+ * deployment of modules.
  *
- * It is usually used in modular development scenarios where process isolation is required.
+ * It is usually used in modular development scenarios where process isolation is required, such as embedding
+ * functional modules provided by third-party apps and implementing UI capability extension between apps.
  *
  * ###### Constraints
  *
  * This component does not support preview.
  *
- * The ability to be started must be a UIExtensionAbility, an extension ability with UI. For details about how to
- * implement a UIExtensionAbility, see
+ * The launched Ability (app component) must be a UI-enabled Ability extension. For details about how to implement a
+ * UI-enabled Ability extension, see
  * [@ohos.app.ability.UIExtensionAbility (Base Class for ExtensionAbilities with UI)]{@link @ohos.app.ability.UIExtensionAbility:UIExtensionAbility}.
  *
  * The width and height of the component must be explicitly set to non-zero valid values.

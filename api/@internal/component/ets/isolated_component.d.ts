@@ -19,7 +19,7 @@
  */
 
 /**
- * Indicates restricted worker for run abc.
+ * Restricted worker that runs the .abc file.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -49,7 +49,7 @@ declare type ErrorCallback = import('../api/@ohos.base').ErrorCallback;
 declare type Want = import('../api/@ohos.app.ability.Want').default;
 
 /**
- * Describes the optional construction parameters during **IsolatedComponent** construction.
+ * Used to pass construction parameters during **IsolatedComponent** construction.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -58,7 +58,11 @@ declare type Want = import('../api/@ohos.app.ability.Want').default;
  */
 declare interface IsolatedOptions {
   /**
-   * .abc file information to load.
+   * The .abc file information to load. The .abc file runs in the restricted worker specified by the **worker**
+   * parameter. The parameters of the **Want** object must contain the following fields: **resourcePath** (resource
+   * path, which must be a .hap file path), **abcPath** (.abc file path verified by
+   * [verifyAbc]{@link bundleManager.verifyAbc}, which must start with '/abcs'), and **entryPoint** (.abc entry
+   * point, in the format of 'bundleName/page path').
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -67,7 +71,8 @@ declare interface IsolatedOptions {
    */
   want: Want;
   /**
-   * Restricted Worker thread where the .abc file is running.
+   * Restricted worker that runs the .abc file. Note that layout rendering and event delivery between the main thread
+   * and the restricted worker thread are asynchronous.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -78,9 +83,23 @@ declare interface IsolatedOptions {
 }
 
 /**
- * Provide an interface for the IsolatedComponent, which is used to render UI of other ABC
+ * **IsolatedComponent** is designed to support the embedding and display of UIs provided by independent .abc files
+ * (Ark bytecode) within the current page, with the displayed content running in a restricted Worker thread.
  *
- * @param { IsolatedOptions } options - Construction configuration of IsolatedComponentAttribute
+ * This component is primarily designed for modular development scenarios that require hot updates for .abc files.
+ * (The .abc files loaded by **IsolatedComponent** can be dynamically replaced, enabling content updates without
+ * reinstalling the app.)
+ *
+ * Creates an **IsolatedComponent** component to display the .abc file executed in a restricted Worker thread.
+ *
+ * > **NOTE**
+ *
+ * > Constructor parameter updates are not supported; only the initial input is effective. Before use, ensure that the
+ * > .abc file has passed [verifyAbc]{@link bundleManager.verifyAbc} verification and that the
+ * > **ohos.permission.RUN_DYN_CODE** permission has been configured in **module.json5**.
+ *
+ * @param { IsolatedOptions } options - Constructor parameter to pass. Only valid on first input. Constructor parameter
+ *     update is not supported.
  * @returns { IsolatedComponentAttribute } Attribute of IsolatedComponent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -96,7 +115,8 @@ declare type IsolatedComponentInterface = (options: IsolatedOptions) => Isolated
  *
  * The [universal events]{@link ./common} are not supported.
  *
- * Events are asynchronously passed to the restricted Worker thread after coordinate conversion.
+ * Events are asynchronously passed to the restricted Worker thread after coordinate conversion. Inter-thread event
+ * bubbling is not supported, and event conflicts may occur during inter-thread UI interactions.
  *
  * The following events are supported:
  *
@@ -108,10 +128,12 @@ declare type IsolatedComponentInterface = (options: IsolatedOptions) => Isolated
  */
 declare class IsolatedComponentAttribute extends CommonMethod<IsolatedComponentAttribute> {
   /**
-   * Invoked when an error occurs during the running of the **IsolatedComponent**. You can obtain the error information
-   * based on the **code**, **name**, and **message** parameters in the callback and rectify the exception accordingly.
+   * Invoked when an error occurs during the running of the .abc file loaded by **IsolatedComponent** (which runs as
+   * an Ability extension). You can obtain the error information based on the **code**, **name**, and **message**
+   * parameters in the callback and rectify the error accordingly.
    *
-   * @param { ErrorCallback } callback - Error information.
+   * @param { ErrorCallback } callback - Callback invoked when an error occurs. The error information including
+   *     **code**, **name**, and **message** can be obtained through the callback parameters.
    * @returns { IsolatedComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -124,7 +146,16 @@ declare class IsolatedComponentAttribute extends CommonMethod<IsolatedComponentA
 }
 
 /**
- * Defines IsolatedComponent Component.
+ * **IsolatedComponent** is designed to support the embedding and display of UIs provided by independent .abc files
+ * (Ark bytecode) within the current page, with the displayed content running in a restricted Worker thread.
+ *
+ * This component is primarily designed for modular development scenarios that require hot updates for .abc files.
+ * (The .abc files loaded by **IsolatedComponent** can be dynamically replaced, enabling content updates without
+ * reinstalling the app.)
+ *
+ * ###### Child Components
+ *
+ * Not supported
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi

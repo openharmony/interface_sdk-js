@@ -58,13 +58,10 @@ declare enum ToolBarItemPlacement {
  */
 interface ToolBarItemOptions {
   /**
-   * Placement position of the toolbar item.
-   *
-   * Default value: **ToolBarItemPlacement.TOP_BAR_LEADING**.
-   *
-   * **ToolBarItemPlacement.TOP_BAR_LEADING**: places the item at the start of the top bar.
-   *
-   * **ToolBarItemPlacement.TOP_BAR_TRAILING**: places the item at the end of the top bar.
+   * Placement of the toolbar item.<br>Default value: **ToolBarItemPlacement.TOP_BAR_LEADING**<br>When set to
+   * **ToolBarItemPlacement.TOP_BAR_LEADING**, the toolbar item is placed at the beginning of the corresponding top
+   * bar.<br>When set to **ToolBarItemPlacement.TOP_BAR_TRAILING**, the toolbar item is placed at the end of the
+   * corresponding top bar.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -95,8 +92,8 @@ interface ToolBarItemInterface {
    * [toolbar](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-toolbar.md#toolbar) attribute
    * configuration.
    *
-   * @param { ToolBarItemOptions } [options] - Optional parameters for **ToolBarItem**, including the **placement**
-   *     parameter of the [ToolBarItemPlacement]{@link ToolBarItemPlacement} type.<br>Default value:
+   * @param { ToolBarItemOptions } [options] - Optional parameters for **ToolBarItem**. This object contains the
+   *     **placement** parameter of the [ToolBarItemPlacement]{@link ToolBarItemPlacement} enum type.<br>Default value:
    *     **placement: ToolBarItemPlacement.TOP_BAR_LEADING**
    * @returns { ToolBarItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
