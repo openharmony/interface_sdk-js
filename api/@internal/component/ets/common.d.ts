@@ -2120,34 +2120,14 @@ declare type Context = import('../api/application/Context').default;
  * Post Card Action.
  *
  * @param { Object } component - indicate the card entry component.
- * @param { Object } action - indicate the router, message or call event.
+ * @param { Object } action - indicate the router, message or call event.<!--Del-->Since API version 26.0.1,
+ *     for system applications,the action support insightIntent event.<!--DelEnd-->
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @StageModelOnly
+ * @crossplatform [since 10]
  * @form
- * @since 9
- */
-/**
- * Post Card Action.
- *
- * @param { Object } component - indicate the card entry component.
- * @param { Object } action - indicate the router, message or call event.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @StageModelOnly
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Post Card Action.
- *
- * @param { Object } component - indicate the card entry component.
- * @param { Object } action - indicate the router, message or call event.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @StageModelOnly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 9 dynamiconly
  */
 declare function postCardAction(component: Object, action: Object): void;
 
