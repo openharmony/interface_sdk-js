@@ -118,7 +118,7 @@ declare namespace metadataBinding {
    *
    * @param { string } type - 事件类型，固定传入'operationSubmitMetadata'，表示系统应用获取编码内容。
    * @param { string } bundleName - 应用包名，标识注册应用的包名，需与订阅时传入的包名一致。
-   * @param { Callback<number> } [callback] - 回调函数，用于返回事件码。需要取消监听的回调函数，需与订阅时传入的回调函数一致。建议在订阅时保存回调函数引用，
+   * @param { Callback<int> } [callback] - 回调函数，用于返回事件码。需要取消监听的回调函数，需与订阅时传入的回调函数一致。建议在订阅时保存回调函数引用，
    *     <br>在取消订阅时使用同一引用。若不填，则取消当前监听该事件的所有回调函数。
    * @throws { BusinessError } 32100001 - Internal handling failed.
    * @throws { BusinessError } 32100005 - Unsubscribe Failed. Possible causes:
