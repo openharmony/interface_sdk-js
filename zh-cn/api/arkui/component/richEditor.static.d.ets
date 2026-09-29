@@ -3183,8 +3183,9 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * @param { RichEditorOptions | RichEditorStyledStringOptions } options - RichEditor 构造函数选项。
      * @returns { RichEditorAttribute } - 返回RichEditorAttribute实例。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @unpublished
      * @stagemodelonly
-     * @since 26.0.0 staticonly
+     * @since 26.0.1 staticonly
      */
     default setRichEditorOptions(options: RichEditorOptions | RichEditorStyledStringOptions): this;
 
@@ -3370,8 +3371,9 @@ export declare function RichEditor(
  * @param { CustomBuilderT<RichEditorAttribute> } style - RichEditor attribute instance
  * @returns { RichEditorAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.0.1 staticonly
  * @noninterop
  */
 @Builder
