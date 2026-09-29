@@ -72,7 +72,7 @@ declare enum FormDimension {
    * @since 9 dynamiconly
    * @deprecated since 20
    */
-  Dimension_2_1,
+  Dimension_2_1 = 4,
 
   /**
    * 1*1 卡片
