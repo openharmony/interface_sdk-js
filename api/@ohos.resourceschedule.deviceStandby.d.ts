@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Device Standby
  * @kit BackgroundTasksKit
  */
 
