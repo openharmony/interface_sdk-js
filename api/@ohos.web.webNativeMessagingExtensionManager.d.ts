@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Web Native Messaging Extension Manager
  * @kit ArkWeb
  */
 

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 /**
- * @file
+ * @file Web Controller
  * @kit ArkWeb
  */
 import webview from '../../@ohos.web.webview';

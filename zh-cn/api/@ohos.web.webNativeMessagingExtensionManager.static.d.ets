@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 /**
-  * @file
+  * @file Web原生消息扩展管理模块
   * @kit ArkWeb
  */
 import type UIAbilityContext from './application/UIAbilityContext';

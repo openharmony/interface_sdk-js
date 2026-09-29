@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 /**
- * @file
+ * @file Web Native Messaging Extension Context
  * @kit ArkWeb
  */
 import ExtensionContext from './application/ExtensionContext';

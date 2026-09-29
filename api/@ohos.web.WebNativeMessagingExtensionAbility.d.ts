@@ -26,7 +26,7 @@
  * efficient message passing and data exchange to enhance extension integration and functionality. The app side must 
  * manage pipe read/write operations, permission verification, and the Ability lifecycle on its own.
  *
- * @file
+ * @file Web Native Messaging Extension Ability
  * @kit ArkWeb
  */
 

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 /**
-  * @file
+  * @file Web原生消息扩展能力
   * @kit ArkWeb
  */
 import ExtensionAbility from './@ohos.app.ability.ExtensionAbility';
