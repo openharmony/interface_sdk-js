@@ -692,10 +692,10 @@ declare namespace workScheduler {
    *
    * @permission ohos.permission.SET_WORK_SCHEDULER_PROPERTY
    * @param { FrequencyInfo } info - 应用所在活跃分组的执行频率信息。
-   * @throws { BusinessError } 201 - 没有权限.
-   * @throws { BusinessError } 202 - 非系统应用.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 9700003 - System service operation failed.
-   * @throws { BusinessError } 9700006 - 执行频率参数检查失败.
+   * @throws { BusinessError } 9700006 - Failed to check the execution frequency parameters.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @systemapi
    * @stagemodelonly
@@ -708,10 +708,10 @@ declare namespace workScheduler {
    *
    * @permission ohos.permission.SET_WORK_SCHEDULER_PROPERTY
    * @param { int } uid - 应用uid。
-   * @throws { BusinessError } 201 - 没有权限.
-   * @throws { BusinessError } 202 - 非系统应用.
-   * @throws { BusinessError } 9700003 - 系统服务异常.
-   * @throws { BusinessError } 9700006 - 执行频率参数检查失败.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 9700003 - System service operation failed.
+   * @throws { BusinessError } 9700006 - Failed to check the execution frequency parameters.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @systemapi
    * @stagemodelonly
