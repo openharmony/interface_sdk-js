@@ -6227,16 +6227,18 @@ declare namespace webview {
          * Plays this video.
          *
          * @syscap SystemCapability.Web.Webview.Core
+         * @stagemodelonly
          * @since 23 static
          */
-        play: ZeroParamFn<>;
+        play: ZeroParamFn<void>;
         /**
          * Pauses playback.
          *
          * @syscap SystemCapability.Web.Webview.Core
+         * @stagemodelonly
          * @since 23 static
          */
-        pause: ZeroParamFn<>;
+        pause: ZeroParamFn<void>;
         /**
          * Seeks to a specific time point in the media.
          *
@@ -6269,23 +6271,26 @@ declare namespace webview {
          * Releases this player.
          *
          * @syscap SystemCapability.Web.Webview.Core
+         * @stagemodelonly
          * @since 23 static
          */
-        release: ZeroParamFn<>;
+        release: ZeroParamFn<void>;
         /**
          * Enables the player to enter full screen mode.
          *
          * @syscap SystemCapability.Web.Webview.Core
+         * @stagemodelonly
          * @since 23 static
          */
-        enterFullscreen: ZeroParamFn<>;
+        enterFullscreen: ZeroParamFn<void>;
         /**
          * Enables the player to exit full screen mode.
          *
          * @syscap SystemCapability.Web.Webview.Core
+         * @stagemodelonly
          * @since 23 static
          */
-        exitFullscreen: ZeroParamFn<>;
+        exitFullscreen: ZeroParamFn<void>;
         /**
          * Resumes the player and its status information.
          *
