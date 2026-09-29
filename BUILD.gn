@@ -68,10 +68,7 @@ action("ohos_base_split") {
 
 # 运行处理static解析拆分工具所需要的依赖
 group("build_ohos_ets_es2panda") {
-  external_deps = [
-    ohos_ets_koala_wrapper_deps,
-    ohos_ets_stdlib_deps,
-  ]
+  external_deps = [ ohos_ets_stdlib_deps ]
   if (is_linux || is_win) {
     external_deps += [ ohos_ets_libarkts_deps ]
   }
