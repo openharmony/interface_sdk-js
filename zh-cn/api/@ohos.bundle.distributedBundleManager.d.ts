@@ -258,9 +258,10 @@ declare namespace distributedBundleManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 17700001 - The specified bundle name is not found.
+   * @throws { BusinessError } 17700001 - The specified bundle is not found.
    * @throws { BusinessError } 17700007 - The specified device ID is not found.
    * @throws { BusinessError } 17700027 - The distributed service is not running.
+   * @throws { BusinessError } 17700101 - Bundle manager service is excepted.
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
    * @stagemodelonly
