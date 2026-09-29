@@ -208,8 +208,12 @@ export class TryCatchValidator extends BaseValidator implements NodeValidator {
 
   private isNodeWrappedInTryCatch(node: arkts.AstNode): boolean {
     return this.findParentNode(node, (parent) => {
-      if (arkts.isTryStatement(parent)) {
-        return true;
+      if (arkts.isTryStatement(parent) && parent.catchClauses.length > 0 && parent.block) {
+        const nodeStartPos = node.startPosition?.getIndex() || 0;
+        const nodeEndPos = node.endPosition?.getIndex() || 0;
+        const tryStartPos = parent.block.startPosition?.getIndex() || 0;
+        const tryEndPos = parent.block.endPosition?.getIndex() || 0;
+        return nodeStartPos >= tryStartPos && nodeEndPos <= tryEndPos;
       }
       return false;
     }) !== null;
