@@ -198,7 +198,7 @@ interface CalendarPickerInterface {
    * 日历选择器。
    *
    * @param { CalendarOptions } options - 配置日历选择器组件的参数。未设置该参数时使用默认配置。
-   * @returns { CalendarPickerAttribute } the attribute of the CalendarPicker.
+   * @returns { CalendarPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -229,7 +229,7 @@ declare class CalendarPickerAttribute extends CommonMethod<CalendarPickerAttribu
    * @param { Offset } offset - 按照对齐方式对齐后，选择器相对入口组件的偏移量。
    *     <br>默认值：{dx: 0, dy: 0}
    *     <br>单位：vp
-   * @returns { CalendarPickerAttribute } the attribute of the CalendarPicker.
+   * @returns { CalendarPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -248,7 +248,7 @@ declare class CalendarPickerAttribute extends CommonMethod<CalendarPickerAttribu
    * @param { Offset } offset - 按照对齐方式对齐后，选择器相对入口组件的偏移量。
    *     <br>默认值：{dx: 0, dy: 0}
    *     <br>单位：vp
-   * @returns { CalendarPickerAttribute } the attribute of the CalendarPicker.
+   * @returns { CalendarPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -269,7 +269,7 @@ declare class CalendarPickerAttribute extends CommonMethod<CalendarPickerAttribu
    *     <br>weight: FontWeight.Regular
    *     <br>}
    *     <br>}
-   * @returns { CalendarPickerAttribute } the attribute of the CalendarPicker.
+   * @returns { CalendarPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -292,7 +292,7 @@ declare class CalendarPickerAttribute extends CommonMethod<CalendarPickerAttribu
    *     <br>}
    *     <br>}
    *     <br>当style的值为undefined时，使用默认值。
-   * @returns { CalendarPickerAttribute } the attribute of the CalendarPicker.
+   * @returns { CalendarPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -304,12 +304,11 @@ declare class CalendarPickerAttribute extends CommonMethod<CalendarPickerAttribu
   /**
    * 选择日期时触发该事件。不能通过双向绑定的状态变量触发。
    *
-   * @param { function } callback - Called when a date is selected. The callback parameter is the selected date of the
-   *     **Date** type. You can obtain the selected date in the callback function and perform corresponding
-   *     processing. [since 10 - 17]
+   * @param { function } callback - 日期选择时触发的回调函数。回调参数为Date类型的选中日期值，开发者可在回调
+   *     函数中获取用户选中的日期并进行相应处理。 [since 10 - 17]
    * @param { Callback<Date> } callback - 日期选择时触发的回调函数。回调参数为Date类型的选中日期值，开发者可在回调函数中获取用户选中的日
    * 期并进行相应处理。 [since 18]
-   * @returns { CalendarPickerAttribute } the attribute of the CalendarPicker.
+   * @returns { CalendarPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -329,7 +328,7 @@ declare class CalendarPickerAttribute extends CommonMethod<CalendarPickerAttribu
    *
    * @param { Optional<Callback<Date>> } callback - 日期选择时触发的回调函数，回调参数为选中的日期值。
    *     <br>当callback的值为undefined时，不使用回调函数。
-   * @returns { CalendarPickerAttribute } the attribute of the CalendarPicker.
+   * @returns { CalendarPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -345,7 +344,7 @@ declare class CalendarPickerAttribute extends CommonMethod<CalendarPickerAttribu
    *     <br>- true：系统当前日期在日历选择器内保持高亮显示。
    *     <br>- false：系统当前日期在日历选择器内不保持高亮显示。
    *     <br>默认值：false
-   * @returns { CalendarPickerAttribute } the attribute of the calendar picker.
+   * @returns { CalendarPickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform

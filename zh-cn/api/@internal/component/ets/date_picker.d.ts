@@ -224,8 +224,8 @@ declare interface DatePickerOptions {
    * >
    * > 上述DatePickerDialog相关限制仅适用于DatePickerDialog组件。
    *
-   * @default DatePickerMode.DATE - which means to display three columns: year, month, and day.
-   *     <br>Decimal values are rounded off.
+   * @default DatePickerMode.DATE - 即显示年、月、日三列。
+   *     <br>小数值会被取整。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -483,10 +483,9 @@ declare class DatePickerAttribute extends CommonMethod<DatePickerAttribute> {
    * 滑动DatePicker文本内容后，选项完全归位至选中项位置时，触发该回调。归位是指滚动动画结束、选项稳定停靠在选中位置。不
    * 能通过双向绑定的状态变量触发，可以响应用户的滑动操作。
    *
-   * @param { function } callback - Callback used to return the selected time. The year, month, and day are the selected
-   *     date; the hour and minute depend on the hour and minute of the current system time; and the second is always 0
-   *     0. This is applicable to scenarios where the selected date needs to be obtained, the UI needs to be updated, or
-   *     service logic needs to be executed after the user confirms the date selection. [since 10 - 17]
+   * @param { function } callback - 返回选中的时间，年、月、日为选中的日期，时、分取决于当前系统时间的时、
+   *     分，秒恒为00。适用于需要在用户确认日期选择后获取选中日期、更新界面或执行业务逻辑的场景。
+   *     [since 10 - 17]
    * @param { Callback<Date> } callback - 返回选中的时间，年、月、日为选中的日期，时、分取决于当前系统时间的时、分，秒恒为00。
    * 适用于需要在用户确认日期选择后获取选中日期、更新界面或执行业务逻辑的场景。 [since 18]
    * @returns { DatePickerAttribute }
@@ -1152,9 +1151,9 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * > - minute: 默认为"2-digit"，设置minute是否按照2位数字显示，如果实际数值小于10，则会补充前导0并显示，即为"0X"。
    * > 可选值为"numeric"或"2-digit"，传入其他值时按默认值处理。
    *
-   * @default hour: In the 24-hour format, it defaults to 2-digit, which means a leading zero is used;
-   *     <br>In the 12-hour format, it defaults to numeric, which means no leading zero is used.
-   *     <br>minute: defaults to 2-digit, which means a leading zero is used.
+   * @default hour: 24小时制默认为2-digit，即使用前导0；
+   *     <br>12小时制默认为numeric，即不使用前导0。
+   *     <br>minute: 默认为2-digit，即使用前导0。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1171,7 +1170,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    *
    * 默认值：false
    *
-   * @default false - meaning not to enable the hover mode.
+   * @default false - 表示不开启悬停模式。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform

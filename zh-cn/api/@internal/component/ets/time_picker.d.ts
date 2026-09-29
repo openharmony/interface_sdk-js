@@ -94,7 +94,7 @@ declare enum TimePickerFormat {
   HOUR_MINUTE,
 
   /**
-   * Hour and minute and second
+   * 按照小时、分钟和秒进行显示。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -314,7 +314,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    *     <br>- false：不启用循环模式。
    *     <br>默认值：true
    *     <br>**说明：** 设置了start或end且为非默认值的场景下，loop不生效。
-   * @returns { TimePickerAttribute } the attribute of the time picker
+   * @returns { TimePickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -336,7 +336,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    *     <br>- false：不启用循环模式。
    *     <br>默认值：true
    *     <br>当isLoop的值为undefined时，使用默认值。
-   * @returns { TimePickerAttribute } the attribute of the time picker
+   * @returns { TimePickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -490,7 +490,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    *     <br>minute: 默认为"2-digit"，设置minute是否按照2位数字显示，如果实际数值小于10，则会补充前导0并显示，即为"0X"。
    *     <br>second: 默认为"2-digit"，设置second是否按照2位数字显示，如果实际数值小于10，则会补充前导0并显示，即为"0X"。
    *     <br> 当hour、minute、second的值设置为undefined时，显示效果与其默认值规则一致。
-   * @returns { TimePickerAttribute } the attribute of the time picker
+   * @returns { TimePickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -510,7 +510,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    *     <br>minute: 默认为"2-digit"，设置minute是否按照2位数字显示，如果实际数值小于10，则会补充前导0并显示，即为"0X"。
    *     <br>second: 默认为"2-digit"，设置second是否按照2位数字显示，如果实际数值小于10，则会补充前导0并显示，即为"0X"。
    *     <br> 当hour、minute、second的值设置为undefined时，显示效果与其默认值规则一致。
-   * @returns { TimePickerAttribute } the attribute of the time picker
+   * @returns { TimePickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -528,7 +528,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * 当[enableCascade]{@link TimePickerAttribute#enableCascade}设置为true时，由于上午/下午列与小时列存在联动关系，
    * 该回调的行为可能不符合预期，不建议在此场景下使用。
    *
-   * @param { function } callback - Time in 24-hour format.
+   * @param { function } callback - 回调返回选中的时间结果，hour取值0-23，与展示制式无关。
    * @returns { TimePickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel

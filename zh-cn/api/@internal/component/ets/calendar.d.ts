@@ -19,7 +19,7 @@
  */
 
 /**
- * Provides a monthly view component to display information such as date, shift break, and schedule.
+ * 日历日期信息。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -30,8 +30,7 @@
  */
 interface CalendarDay {
   /**
-   * Indicates the sequence number of the 7 x 7 (7 x 6) grid layout on a calendar page by row.
-   * The week sequence is one, two, three, four, five, six.
+   * 表示日历页面上7 x 7（7 x 6）网格布局的行序号。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -43,8 +42,7 @@ interface CalendarDay {
   index: number;
 
   /**
-   * Lunar moon.
-   * The week sequence is one, two, three, four, five, six.
+   * 农历月份。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -56,7 +54,7 @@ interface CalendarDay {
   lunarMonth: string;
 
   /**
-   * Lunar day.
+   * 农历日。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -68,7 +66,7 @@ interface CalendarDay {
   lunarDay: string;
 
   /**
-   * Day.
+   * 上下班状态。取值为work和off。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -80,8 +78,7 @@ interface CalendarDay {
   dayMark: string;
 
   /**
-   * Indicates the off-duty flag information. The options are work and off.By default, the off-duty flag information is
-   * not required.
+   * 上下班状态的显示文本。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -93,7 +90,7 @@ interface CalendarDay {
   dayMarkValue: string;
 
   /**
-   * Gregorian calendar year.
+   * 公历年。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -105,7 +102,7 @@ interface CalendarDay {
   year: number;
 
   /**
-   * Gregorian calendar month.
+   * 公历月。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -117,7 +114,7 @@ interface CalendarDay {
   month: number;
 
   /**
-   * Gregorian calendar day.
+   * 公历日。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -129,7 +126,7 @@ interface CalendarDay {
   day: number;
 
   /**
-   * Indicates whether the default value is Lunar calendar.
+   * 表示是否为农历月的第一天。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -141,8 +138,7 @@ interface CalendarDay {
   isFirstOfLunar: boolean;
 
   /**
-   * Indicates whether to display has Schedule.
-   * The week sequence is one, two, three, four, five, six.
+   * 表示是否有日程。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -154,7 +150,7 @@ interface CalendarDay {
   hasSchedule: boolean;
 
   /**
-   * Display Lunar Date.The week sequence is one, two, three, four, five, six.
+   * 表示是否显示农历日期。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -167,7 +163,7 @@ interface CalendarDay {
 }
 
 /**
- * Date object.
+ * 日期数据对象。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -178,7 +174,7 @@ interface CalendarDay {
  */
 interface MonthData {
   /**
-   * Gregorian calendar year.
+   * 公历年。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -190,7 +186,7 @@ interface MonthData {
   year: number;
 
   /**
-   * Gregorian calendar month.
+   * 公历月。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -202,7 +198,7 @@ interface MonthData {
   month: number;
 
   /**
-   * CalendarDay.
+   * CalendarDay数组。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -215,7 +211,7 @@ interface MonthData {
 }
 
 /**
- * CurrentDayStyle object.
+ * CurrentDayStyle对象。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -226,7 +222,7 @@ interface MonthData {
  */
 interface CurrentDayStyle {
   /**
-   * Text color.
+   * 文本颜色。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -238,7 +234,7 @@ interface CurrentDayStyle {
   dayColor?: ResourceColor;
 
   /**
-   * lunar Text color.
+   * 农历文本颜色。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -250,7 +246,7 @@ interface CurrentDayStyle {
   lunarColor?: ResourceColor;
 
   /**
-   * lunar  Work and rest  text color.
+   * 农历作息文本颜色。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -262,7 +258,7 @@ interface CurrentDayStyle {
   markLunarColor?: ResourceColor;
 
   /**
-   * Text fontSize.
+   * 文本字体大小。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -274,7 +270,7 @@ interface CurrentDayStyle {
   dayFontSize?: number;
 
   /**
-   * lunar text fontSize.
+   * 农历文本字体大小。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -286,7 +282,7 @@ interface CurrentDayStyle {
   lunarDayFontSize?: number;
 
   /**
-   * Single date height.
+   * 单个日期高度。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -298,7 +294,7 @@ interface CurrentDayStyle {
   dayHeight?: number;
 
   /**
-   * Single date width.
+   * 单个日期宽度。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -310,7 +306,7 @@ interface CurrentDayStyle {
   dayWidth?: number;
 
   /**
-   * Gregorian calendar height.
+   * 公历日期高度。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -322,7 +318,7 @@ interface CurrentDayStyle {
   gregorianCalendarHeight?: number;
 
   /**
-   * Data y axis Off set.
+   * 日期Y轴偏移量。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -334,7 +330,7 @@ interface CurrentDayStyle {
   dayYAxisOffset?: number;
 
   /**
-   * Lunar data y axis Off set.
+   * 农历日期Y轴偏移量。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -346,7 +342,7 @@ interface CurrentDayStyle {
   lunarDayYAxisOffset?: number;
 
   /**
-   * Under score X Axis Off set.
+   * 下划线X轴偏移量。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -358,7 +354,7 @@ interface CurrentDayStyle {
   underscoreXAxisOffset?: number;
 
   /**
-   * Under score Y Axis Off set
+   * 下划线Y轴偏移量。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -370,7 +366,7 @@ interface CurrentDayStyle {
   underscoreYAxisOffset?: number;
 
   /**
-   * Schedule marker X axis Off set
+   * 日程标记X轴偏移量。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -382,7 +378,7 @@ interface CurrentDayStyle {
   scheduleMarkerXAxisOffset?: number;
 
   /**
-   * schedule Marker Y Axis Off set
+   * 日程标记Y轴偏移量。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -394,7 +390,7 @@ interface CurrentDayStyle {
   scheduleMarkerYAxisOffset?: number;
 
   /**
-   * Number of columns.
+   * 列数。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -406,7 +402,7 @@ interface CurrentDayStyle {
   colSpace?: number;
 
   /**
-   * Daily five row space.
+   * 每日五行间距。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -418,7 +414,7 @@ interface CurrentDayStyle {
   dailyFiveRowSpace?: number;
 
   /**
-   * Daily six row space.
+   * 每日六行间距。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -430,7 +426,7 @@ interface CurrentDayStyle {
   dailySixRowSpace?: number;
 
   /**
-   * Single lunar height.
+   * 单个农历高度。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -442,7 +438,7 @@ interface CurrentDayStyle {
   lunarHeight?: number;
 
   /**
-   * Under score width.
+   * 下划线宽度。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -454,7 +450,7 @@ interface CurrentDayStyle {
   underscoreWidth?: number;
 
   /**
-   * Under score length.
+   * 下划线长度。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -466,7 +462,7 @@ interface CurrentDayStyle {
   underscoreLength?: number;
 
   /**
-   * Schedule marker radius.
+   * 日程标记半径。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -478,7 +474,7 @@ interface CurrentDayStyle {
   scheduleMarkerRadius?: number;
 
   /**
-   * Boundary row offset.
+   * 边界行偏移量。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -490,7 +486,7 @@ interface CurrentDayStyle {
   boundaryRowOffset?: number;
 
   /**
-   * Boundary col offset.
+   * 边界列偏移量。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -503,7 +499,7 @@ interface CurrentDayStyle {
 }
 
 /**
- * Non current day style.
+ * 非当月日期样式。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -514,7 +510,7 @@ interface CurrentDayStyle {
  */
 interface NonCurrentDayStyle {
   /**
-   * Non-current month day color.
+   * 非当月日期颜色。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -526,7 +522,7 @@ interface NonCurrentDayStyle {
   nonCurrentMonthDayColor?: ResourceColor;
 
   /**
-   * Lunar style of non-current month.
+   * 非当月农历颜色。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -538,7 +534,7 @@ interface NonCurrentDayStyle {
   nonCurrentMonthLunarColor?: ResourceColor;
 
   /**
-   * Non-Current Month Workday Marker Color.
+   * 非当月工作日标记颜色。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -550,7 +546,7 @@ interface NonCurrentDayStyle {
   nonCurrentMonthWorkDayMarkColor?: ResourceColor;
 
   /**
-   * Non-Current Month Off Day Marker Color.
+   * 非当月休息日标记颜色。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -563,7 +559,7 @@ interface NonCurrentDayStyle {
 }
 
 /**
- * Non current day style.
+ * 今日样式。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -574,7 +570,7 @@ interface NonCurrentDayStyle {
  */
 interface TodayStyle {
   /**
-   * Style of focus color.
+   * 聚焦日期颜色。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -586,7 +582,7 @@ interface TodayStyle {
   focusedDayColor?: ResourceColor;
 
   /**
-   * Focus on Lunar Colors.
+   * 聚焦农历颜色。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -598,7 +594,7 @@ interface TodayStyle {
   focusedLunarColor?: ResourceColor;
 
   /**
-   * Background color of the focus area.
+   * 聚焦区域背景颜色。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -610,7 +606,7 @@ interface TodayStyle {
   focusedAreaBackgroundColor?: ResourceColor;
 
   /**
-   * Focus area radius.
+   * 聚焦区域半径。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -623,7 +619,7 @@ interface TodayStyle {
 }
 
 /**
- * Week Style.
+ * 周样式。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -634,7 +630,7 @@ interface TodayStyle {
  */
 interface WeekStyle {
   /**
-   * Style of week color.
+   * 周颜色。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -646,7 +642,7 @@ interface WeekStyle {
   weekColor?: ResourceColor;
 
   /**
-   * Style of week day color.
+   * 周末日期颜色。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -658,7 +654,7 @@ interface WeekStyle {
   weekendDayColor?: ResourceColor;
 
   /**
-   * Style of lunar color.
+   * 周末农历颜色。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -670,7 +666,7 @@ interface WeekStyle {
   weekendLunarColor?: ResourceColor;
 
   /**
-   * Style of week font size.
+   * 周字体大小。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -682,7 +678,7 @@ interface WeekStyle {
   weekFontSize?: number;
 
   /**
-   * Style of week height.
+   * 周高度。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -694,7 +690,7 @@ interface WeekStyle {
   weekHeight?: number;
 
   /**
-   * Style of week width.
+   * 周宽度。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -706,7 +702,7 @@ interface WeekStyle {
   weekWidth?: number;
 
   /**
-   * Style of week space.
+   * 周间距。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -719,7 +715,7 @@ interface WeekStyle {
 }
 
 /**
- * Work state style.
+ * 工作状态样式。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -730,7 +726,7 @@ interface WeekStyle {
  */
 interface WorkStateStyle {
   /**
-   * Style of day color.
+   * 工作日标记颜色。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -742,7 +738,7 @@ interface WorkStateStyle {
   workDayMarkColor?: ResourceColor;
 
   /**
-   * Style of day color.
+   * 休息日标记颜色。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -754,7 +750,7 @@ interface WorkStateStyle {
   offDayMarkColor?: ResourceColor;
 
   /**
-   * Style of day size.
+   * 工作日标记大小。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -766,7 +762,7 @@ interface WorkStateStyle {
   workDayMarkSize?: number;
 
   /**
-   * Style of day size.
+   * 休息日标记大小。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -778,7 +774,7 @@ interface WorkStateStyle {
   offDayMarkSize?: number;
 
   /**
-   * Style of width.
+   * 工作状态宽度。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -790,7 +786,7 @@ interface WorkStateStyle {
   workStateWidth?: number;
 
   /**
-   * Style of distance.
+   * 工作状态水平移动距离。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -802,7 +798,7 @@ interface WorkStateStyle {
   workStateHorizontalMovingDistance?: number;
 
   /**
-   * Style of distance.
+   * 工作状态垂直移动距离。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -815,7 +811,7 @@ interface WorkStateStyle {
 }
 
 /**
- * Defines the struct of CalendarSelectedDate.
+ * 定义CalendarSelectedDate结构体。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -826,7 +822,7 @@ interface WorkStateStyle {
  */
 declare interface CalendarSelectedDate {
   /**
-   * Application year
+   * 选中年份
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -838,7 +834,7 @@ declare interface CalendarSelectedDate {
   year: number;
 
   /**
-   * Application month
+   * 选中月份
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -850,7 +846,7 @@ declare interface CalendarSelectedDate {
   month: number;
 
   /**
-   * Application day
+   * 选中日期
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -863,7 +859,7 @@ declare interface CalendarSelectedDate {
 }
 
 /**
- * Defines the struct of CalendarRequestedData.
+ * 定义CalendarRequestedData结构体。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -874,7 +870,7 @@ declare interface CalendarSelectedDate {
  */
 declare interface CalendarRequestedData {
   /**
-   * Previous year
+   * 请求年份
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -886,7 +882,7 @@ declare interface CalendarRequestedData {
   year: number;
 
   /**
-   * Previous month
+   * 请求月份
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -898,7 +894,7 @@ declare interface CalendarRequestedData {
   month: number;
 
   /**
-   * Current Year
+   * 当前年份
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -910,7 +906,7 @@ declare interface CalendarRequestedData {
   currentYear: number;
 
   /**
-   * Current Month
+   * 当前月份
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -922,7 +918,7 @@ declare interface CalendarRequestedData {
   currentMonth: number;
 
   /**
-   * State of month
+   * 月份状态
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -935,7 +931,7 @@ declare interface CalendarRequestedData {
 }
 
 /**
- * Calendar controller.
+ * 日历控制器。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -946,7 +942,7 @@ declare interface CalendarRequestedData {
  */
 declare class CalendarController {
   /**
-   * Constructor.
+   * 构造函数。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -958,7 +954,7 @@ declare class CalendarController {
   constructor();
 
   /**
-   * Back to day.
+   * 回到今天。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -970,9 +966,10 @@ declare class CalendarController {
   backToToday();
 
   /**
-   * To the specified element.
+   * 跳转到指定日期。
    *
-   * @param { object } value
+   * @param { object } value - 跳转的目标日期。<br>year: 目标年份。<br>month: 目标月份。<br>day: 目标
+   *     日期。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @FaAndStageModel
@@ -984,7 +981,7 @@ declare class CalendarController {
 }
 
 /**
- * Calendar Interface
+ * 日历组件接口
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -996,9 +993,10 @@ declare class CalendarController {
  */
 interface CalendarInterface {
   /**
-   * Set value.
+   * 设置日历配置。
    *
-   * @param { object } value
+   * @param { object } value - 日历配置信息。<br>date: 设置为当前日期的日期，包含year、month和day。<br>currentData:
+   *     当月数据。<br>preData: 上月数据。<br>nextData: 下月数据。<br>controller: 日历控制器。
    * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -1017,6 +1015,7 @@ interface CalendarInterface {
 }
 
 /**
+ * 定义Calendar组件的属性。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -1028,9 +1027,9 @@ interface CalendarInterface {
  */
 declare class CalendarAttribute {
   /**
-   * Specifies whether the component displays the lunar calendar information.
+   * 设置是否显示农历信息。
    *
-   * @param { boolean } value
+   * @param { boolean } value - 是否显示农历信息。值为true表示显示农历信息，值为false表示相反。
    * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -1042,9 +1041,10 @@ declare class CalendarAttribute {
   showLunar(value: boolean): CalendarAttribute;
 
   /**
-   * Setting whether to display holiday information
+   * 设置是否显示节假日信息。
    *
-   * @param { boolean } value
+   * @param { boolean } value - 是否显示节假日信息。值为true表示显示节假日信息，值为false表示
+   *     相反。
    * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -1056,9 +1056,9 @@ declare class CalendarAttribute {
   showHoliday(value: boolean): CalendarAttribute;
 
   /**
-   * Indicates whether the page can be scrolled.
+   * 设置是否可以滑动翻页。
    *
-   * @param { boolean } value
+   * @param { boolean } value - 是否可以滑动翻页。值为true表示可以滑动翻页，值为false表示相反。
    * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -1070,9 +1070,9 @@ declare class CalendarAttribute {
   needSlide(value: boolean): CalendarAttribute;
 
   /**
-   * Set the start day of the week for the calendar.
+   * 设置日历的每周起始日。
    *
-   * @param { number } value
+   * @param { number } value - 每周起始日。取值范围为0到6，其中0表示周一，6表示周日。
    * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -1084,9 +1084,10 @@ declare class CalendarAttribute {
   startOfWeek(value: number): CalendarAttribute;
 
   /**
-   * Set weekend. The default value is Sunday and Saturday.
+   * 设置休息日。默认值为周六和周日。
    *
-   * @param { number } value
+   * @param { number } value - 休息日，以位掩码表示。每一位代表一周中的一天，其中bit 0表示周一，bit 6表示
+   *     周日。可通过组合对应位来设置多个休息日。
    * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -1098,9 +1099,9 @@ declare class CalendarAttribute {
   offDays(value: number): CalendarAttribute;
 
   /**
-   * Sets the sliding direction.
+   * 设置滑动方向。
    *
-   * @param { Axis } value
+   * @param { Axis } value - 滑动方向。取值为Axis.Vertical和Axis.Horizontal。
    * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -1112,9 +1113,9 @@ declare class CalendarAttribute {
   direction(value: Axis): CalendarAttribute;
 
   /**
-   * Sets the date style in the current month.
+   * 设置当月日期样式。
    *
-   * @param { CurrentDayStyle } value
+   * @param { CurrentDayStyle } value - 当月日期样式。
    * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -1126,9 +1127,9 @@ declare class CalendarAttribute {
   currentDayStyle(value: CurrentDayStyle): CalendarAttribute;
 
   /**
-   * Sets the non-monthly date style.
+   * 设置非当月日期样式。
    *
-   * @param { NonCurrentDayStyle } value
+   * @param { NonCurrentDayStyle } value - 非当月日期样式。
    * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -1140,9 +1141,9 @@ declare class CalendarAttribute {
   nonCurrentDayStyle(value: NonCurrentDayStyle): CalendarAttribute;
 
   /**
-   * Set the date style for today.
+   * 设置今日日期样式。
    *
-   * @param { TodayStyle } value
+   * @param { TodayStyle } value - 今日日期样式。
    * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -1154,9 +1155,9 @@ declare class CalendarAttribute {
   todayStyle(value: TodayStyle): CalendarAttribute;
 
   /**
-   * Sets the date style for the weekend.
+   * 设置周末日期样式。
    *
-   * @param { WeekStyle } value
+   * @param { WeekStyle } value - 周末日期样式。
    * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -1168,9 +1169,9 @@ declare class CalendarAttribute {
   weekStyle(value: WeekStyle): CalendarAttribute;
 
   /**
-   * Sets the style of the working state.
+   * 设置工作状态样式。
    *
-   * @param { WorkStateStyle } value
+   * @param { WorkStateStyle } value - 工作状态样式。
    * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -1182,9 +1183,9 @@ declare class CalendarAttribute {
   workStateStyle(value: WorkStateStyle): CalendarAttribute;
 
   /**
-   * Click a date to return the information about the date you clicked.
+   * 点击日期时返回所点击日期的信息。
    *
-   * @param { function } event
+   * @param { function } event - 日期被点击时触发的回调。回调返回选中日期的信息。
    * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -1196,9 +1197,9 @@ declare class CalendarAttribute {
   onSelectChange(event: (event: CalendarSelectedDate) => void): CalendarAttribute;
 
   /**
-   * When you swipe to switch months, the information about the previous month and the next month is requested.
+   * 滑动切换月份时，请求上月和下月的信息。
    *
-   * @param { function } event
+   * @param { function } event - 滑动切换月份时触发的回调。回调返回需请求的上月和下月信息。
    * @returns { CalendarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -1213,7 +1214,7 @@ declare class CalendarAttribute {
 }
 
 /**
- * Defines Calendar Component.
+ * 提供一个月视图组件，用于显示日期、轮休和日程等信息。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -1226,7 +1227,7 @@ declare class CalendarAttribute {
 declare const Calendar: CalendarInterface;
 
 /**
- * Defines Calendar Component instance.
+ * 定义Calendar组件实例。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
