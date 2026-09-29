@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 日志打印
  * @kit PerformanceAnalysisKit
  */
 
