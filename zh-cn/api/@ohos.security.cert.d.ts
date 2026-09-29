@@ -916,7 +916,7 @@ declare namespace cert {
      * @throws { BusinessError } 19030001 - Crypto operation error.
      * @throws { BusinessError } 401 - Invalid parameters. Possible causes:
      *     <br>1. Incorrect parameter types;
-     *     <br>2. Parameter verification failed.[since 12]
+     *     <br>2. Parameter verification failed. [since 12]
      * @syscap SystemCapability.Security.Cert
      * @crossplatform [since 11]
      * @atomicservice [since 12]
