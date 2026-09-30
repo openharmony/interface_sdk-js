@@ -11754,7 +11754,7 @@ declare namespace media {
      * @throws { BusinessError } 5400103 - IO error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @throws { BusinessError } 5400106 - Unsupported format. Returned by promise.
-     * @throws { BusinessError } 401 - The parameter check failed. Return by promise. [since 22]
+     * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @atomicservice [since 22]
      * @since 12 dynamic

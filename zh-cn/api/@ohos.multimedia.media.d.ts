@@ -764,7 +764,7 @@ declare namespace media {
    *
    * @returns {  Promise<AVTranscoder>  } Promise对象。异步返回AVTranscoder实例，失败时返回null。可用于视频转码。
    * @throws {  BusinessError  } 5400101 - No memory. Return by promise. 
-   * @throws {   BusinessError   } 5400101 - No memory. Return by promise. [since 22]
+   * @throws {   BusinessError   } 5400101 - No memory. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.AVTranscoder
    * @atomicservice [since 22]
    * @since 12 dynamic
