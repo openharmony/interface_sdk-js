@@ -13286,10 +13286,12 @@ declare namespace window {
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
      *     capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
-     *     Possible cause: 1. The window is not created or destroyed;
+     *     Possible causes: 1. The window is not created or destroyed;
      *     2. Internal task error;
      *     3. The subWindow has been created and cannot be created again.
      *     4. It is not allowed to create non-secure window when secure extension exists.
+     *     5. The parent window and the subwindow are not created by the same process.
+     *     6. Subwindow level exceeds the maximum limit.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause:
      *     1. Invalid window type. Only main windows, subwindows, and floating windows are supported;
@@ -14303,7 +14305,11 @@ declare namespace window {
      * @returns { Promise<Window> } Promise used to return the subwindow.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
-     *     Possible cause: The subWindow has been created and can not be created again.
+     *     Possible causes: 1. The window is not created or destroyed.
+     *     2. Internal task error.
+     *     3. The subWindow has been created and cannot be created again.
+     *     4. It is not allowed to create non-secure window when secure extension exists.
+     *     5. The parent window and the subwindow are not created by the same process.
      * @throws { BusinessError } 1300005 - This window stage is abnormal. [since 9 - 9]
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
@@ -14320,7 +14326,11 @@ declare namespace window {
      * @param { AsyncCallback<Window> } callback Callback used to return the subwindow.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: Incorrect parameter types.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
-     *     Possible cause: The subWindow has been created and cannot be created again.
+     *     Possible causes: 1. The window is not created or destroyed.
+     *     2. Internal task error.
+     *     3. The subWindow has been created and cannot be created again.
+     *     4. It is not allowed to create non-secure window when secure extension exists.
+     *     5. The parent window and the subwindow are not created by the same process.
      * @throws { BusinessError } 1300005 - This window stage is abnormal. [since 9 - 9]
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
@@ -14340,8 +14350,11 @@ declare namespace window {
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
      *     capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
-     *     Possible cause: 1. The window is not created or destroyed;
+     *     Possible causes: 1. The window is not created or destroyed;
      *     2. The subWindow has been created and cannot be created again.
+     *     3. Internal task error.
+     *     4. It is not allowed to create non-secure window when secure extension exists.
+     *     5. The parent window and the subwindow are not created by the same process.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @StageModelOnly
