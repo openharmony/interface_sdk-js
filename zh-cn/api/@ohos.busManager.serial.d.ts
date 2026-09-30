@@ -104,6 +104,10 @@ declare namespace serial {
      * @param { int } [timeout] - 超时时间，取值范围：[0, 300000]，整数，单位为毫秒。默认值0表示当数据无法写入串口时，不等待直接返回写入长度0。
    	 *     传入负数、非整数或大于300000时返回错误码35700002。
      * @returns { Promise<int> } - Promise对象，返回写入数据长度。
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified.
+     *     <br>2. Incorrect parameter types.
+     *     <br>3. undefined is passed as the optional parameter.
      * @throws { BusinessError } 35700001 - Service error.
      * @throws { BusinessError } 35700002 - Invalid parameter.
      * @throws { BusinessError } 35700003 - Virtual serial port disconnected.

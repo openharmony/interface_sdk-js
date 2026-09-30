@@ -122,6 +122,10 @@ declare namespace serial {
      *     If a negative number, a non-integer, or a number greater than 300000 is passed, error code 35700002
      *     is returned.
      * @returns { Promise<int> } Promise used to return the length of the data written.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified.
+     *     <br>2. Incorrect parameter types.
+     *     <br>3. undefined is passed as the optional parameter.
      * @throws { BusinessError } 35700001 - Service error.
      * @throws { BusinessError } 35700002 - Invalid parameter.
      * @throws { BusinessError } 35700003 - Virtual serial port disconnected.
