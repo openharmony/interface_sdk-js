@@ -38,10 +38,13 @@ declare class WorkSchedulerExtensionContext extends ExtensionContext {
    *
    * @param { Want } want - 启动Ability的want信息，需包含bundleName和abilityName等必要字段。
    * @returns { Promise<void> } Promise对象，无返回结果。
-   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - [Async] Parameter error. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified;
+   *     <br>2. Incorrect parameters types;
+   *     <br>3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Cannot start an invisible component.
@@ -66,10 +69,13 @@ declare class WorkSchedulerExtensionContext extends ExtensionContext {
    *
    * @param { Want } want - 停止Ability的want信息，需包含bundleName和abilityName等必要字段。
    * @returns { Promise<void> } 无返回结果的Promise对象。
-   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - [Async] Parameter error. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified;
+   *     <br>2. Incorrect parameters types;
+   *     <br>3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Cannot start an invisible component.

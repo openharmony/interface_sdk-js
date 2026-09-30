@@ -238,13 +238,15 @@ declare namespace workScheduler {
    * executed by the system once the trigger conditions are met.
    *
    * @param { WorkInfo } work - The info of work.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     2. Incorrect parameters types; 3. Parameter verification failed.
+   * @throws { BusinessError } 401 - [Sync] Parameter error. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified;
+   *     <br>2. Incorrect parameters types;
+   *     <br>3. Parameter verification failed.
    * @throws { BusinessError } 9700001 - Memory operation failed.
    * @throws { BusinessError } 9700002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    *     2. Failed to apply for memory.
    * @throws { BusinessError } 9700003 - System service operation failed.
-   * @throws { BusinessError } 9700004 - Check on workInfo failed.
+   * @throws { BusinessError } 9700004 - Input param failed.
    * @throws { BusinessError } 9700005 - Calling startWork failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
@@ -259,13 +261,15 @@ declare namespace workScheduler {
    * @param { WorkInfo } work - Deferred task to stop.
    * @param { boolean } needCancel - Whether to clear the task while stopping it.<br>The value **true** means to clear
    *     the task while stopping it, and **false** means to stop the task only. The default value is **false**.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     2. Incorrect parameters types; 3. Parameter verification failed.
+   * @throws { BusinessError } 401 - [Sync] Parameter error. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified;
+   *     <br>2. Incorrect parameters types;
+   *     <br>3. Parameter verification failed.
    * @throws { BusinessError } 9700001 - Memory operation failed.
    * @throws { BusinessError } 9700002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    *     2. Failed to apply for memory.
    * @throws { BusinessError } 9700003 - System service operation failed.
-   * @throws { BusinessError } 9700004 - Check on workInfo failed.
+   * @throws { BusinessError } 9700004 - Input param failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
    * @since 9 dynamic
@@ -279,12 +283,15 @@ declare namespace workScheduler {
    * @param { int } workId - ID of the deferred task.
    * @param { AsyncCallback<WorkInfo> } callback - Callback used to return the result. If **workId** is valid, the task
    *     information obtained from WorkSchedulerService is returned. Otherwise, an exception is thrown.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: Parameter verification failed.
+   * @throws { BusinessError } 401 - [Async] Parameter error. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified;
+   *     <br>2. Incorrect parameters types;
+   *     <br>3. Parameter verification failed.
    * @throws { BusinessError } 9700001 - Memory operation failed.
    * @throws { BusinessError } 9700002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    *     2. Failed to apply for memory.
    * @throws { BusinessError } 9700003 - System service operation failed.
-   * @throws { BusinessError } 9700004 - Check on workInfo failed.
+   * @throws { BusinessError } 9700004 - Input param failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
    * @since 9 dynamic
@@ -298,12 +305,15 @@ declare namespace workScheduler {
    * @param { int } workId - ID of the deferred task.
    * @returns { Promise<WorkInfo> } Promise used to return the result. If **workId** is valid, the task information
    *     obtained from WorkSchedulerService is returned. Otherwise, an exception is thrown.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: Parameter verification failed.
+   * @throws { BusinessError } 401 - [Async] Parameter error. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified;
+   *     <br>2. Incorrect parameters types;
+   *     <br>3. Parameter verification failed.
    * @throws { BusinessError } 9700001 - Memory operation failed.
    * @throws { BusinessError } 9700002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    *     2. Failed to apply for memory.
    * @throws { BusinessError } 9700003 - System service operation failed.
-   * @throws { BusinessError } 9700004 - Check on workInfo failed.
+   * @throws { BusinessError } 9700004 - Input param failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
    * @since 9 dynamic
@@ -318,8 +328,10 @@ declare namespace workScheduler {
    *     obtained, **err** is **undefined**. Otherwise, **err** is an error object.
    * @returns { Array<WorkInfo> } List of deferred tasks. If deferred tasks have been added to the execution queue, the
    *     list of all deferred tasks in the current application is returned. Otherwise, an empty list is returned.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     2. Incorrect parameters types.
+   * @throws { BusinessError } 401 - [Async] Parameter error. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified;
+   *     <br>2. Incorrect parameters types;
+   *     <br>3. Parameter verification failed.
    * @throws { BusinessError } 9700001 - Memory operation failed.
    * @throws { BusinessError } 9700002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    *     2. Failed to apply for memory.
@@ -337,8 +349,10 @@ declare namespace workScheduler {
    *
    * @param { AsyncCallback<Array<WorkInfo>> } callback - Callback used to return the list of all deferred tasks in the
    *     current application. If the list fails to be obtained, an exception is thrown.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     2. Incorrect parameters types.
+   * @throws { BusinessError } 401 - [Async] Parameter error. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified;
+   *     <br>2. Incorrect parameters types;
+   *     <br>3. Parameter verification failed.
    * @throws { BusinessError } 9700001 - Memory operation failed.
    * @throws { BusinessError } 9700002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    *     2. Failed to apply for memory.
@@ -354,8 +368,10 @@ declare namespace workScheduler {
    * Obtains all the deferred tasks. This API uses a promise to return the result.
    *
    * @returns { Promise<Array<WorkInfo>> } Promise used to return all the deferred tasks.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     2. Incorrect parameters types.
+   * @throws { BusinessError } 401 - [Async] Parameter error. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified;
+   *     <br>2. Incorrect parameters types;
+   *     <br>3. Parameter verification failed.
    * @throws { BusinessError } 9700001 - Memory operation failed.
    * @throws { BusinessError } 9700002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    *     2. Failed to apply for memory.
@@ -370,8 +386,10 @@ declare namespace workScheduler {
   /**
    * Stops and clears all the deferred tasks.
    *
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     2. Incorrect parameters types.
+   * @throws { BusinessError } 401 - [Sync] Parameter error. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified;
+   *     <br>2. Incorrect parameters types;
+   *     <br>3. Parameter verification failed.
    * @throws { BusinessError } 9700001 - Memory operation failed.
    * @throws { BusinessError } 9700002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    *     2. Failed to apply for memory.
@@ -392,12 +410,15 @@ declare namespace workScheduler {
    *     whether the last execution of the task obtained from WorkSchedulerService timed out; otherwise, an exception is
    *     thrown. **true** indicates that the last execution of the deferred task corresponding to the **workId** timed
    *     out, while **false** indicates the opposite.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: Parameter verification failed.
+   * @throws { BusinessError } 401 - [Async] Parameter error. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified;
+   *     <br>2. Incorrect parameters types;
+   *     <br>3. Parameter verification failed.
    * @throws { BusinessError } 9700001 - Memory operation failed.
    * @throws { BusinessError } 9700002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    *     2. Failed to apply for memory.
    * @throws { BusinessError } 9700003 - System service operation failed.
-   * @throws { BusinessError } 9700004 - Check on workInfo failed.
+   * @throws { BusinessError } 9700004 - Input param failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
    * @since 9 dynamiconly
@@ -411,12 +432,15 @@ declare namespace workScheduler {
    *
    * @param { int } workId - ID of the deferred task.
    * @param { AsyncCallback<boolean> } callback - Callback used to return the result.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: Parameter verification failed.
+   * @throws { BusinessError } 401 - [Async] Parameter error. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified;
+   *     <br>2. Incorrect parameters types;
+   *     <br>3. Parameter verification failed.
    * @throws { BusinessError } 9700001 - Memory operation failed.
    * @throws { BusinessError } 9700002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    *     2. Failed to apply for memory.
    * @throws { BusinessError } 9700003 - System service operation failed.
-   * @throws { BusinessError } 9700004 - Check on workInfo failed.
+   * @throws { BusinessError } 9700004 - Input param failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
    * @since 10 dynamic
@@ -430,12 +454,15 @@ declare namespace workScheduler {
    * @param { int } workId - ID of the deferred task.
    * @returns { Promise<boolean> } Promise used to return the result. The value **true** means that the last execution
    *     of the specified task times out, and **false** means the opposite.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: Parameter verification failed.
+   * @throws { BusinessError } 401 - [Async] Parameter error. Possible causes:
+   *     <br>1. Mandatory parameters are left unspecified;
+   *     <br>2. Incorrect parameters types;
+   *     <br>3. Parameter verification failed.
    * @throws { BusinessError } 9700001 - Memory operation failed.
    * @throws { BusinessError } 9700002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    *     2. Failed to apply for memory.
    * @throws { BusinessError } 9700003 - System service operation failed.
-   * @throws { BusinessError } 9700004 - Check on workInfo failed.
+   * @throws { BusinessError } 9700004 - Input param failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
    * @since 9 dynamic
@@ -681,8 +708,8 @@ declare namespace workScheduler {
    *
    * @permission ohos.permission.SET_WORK_SCHEDULER_PROPERTY
    * @param { FrequencyInfo } info - Execution frequency information.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 9700003 - System service operation failed.
    * @throws { BusinessError } 9700006 - Failed to check the execution frequency parameters.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
@@ -698,8 +725,8 @@ declare namespace workScheduler {
    * @permission ohos.permission.SET_WORK_SCHEDULER_PROPERTY
    * @param { int } uid - App uid.
    *     <br>The value should be an integer.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 9700003 - System service operation failed.
    * @throws { BusinessError } 9700006 - Failed to check the execution frequency parameters.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
