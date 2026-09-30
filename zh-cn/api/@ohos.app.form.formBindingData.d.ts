@@ -40,9 +40,8 @@ declare namespace formBindingData {
    *     `{'formImages': {'key1': fd1, 'key2': fd2}}`。
    *     <br>**说明：** 在[卡片刷新](docroot://form/arkts-ui-widget-interaction-overview.md)过程中，卡片UI通过
    *     [@LocalStorageProp](docroot://ui/state-management/arkts-localstorage.md#localstorageprop)接收卡片数据时，
-   *     FormBindingData对象会序列化，即卡片数据会转换成string类型。从API version 26.0.1开始，如果卡片刷新的数据通过共享内存更新，刷新数据总大小不超过10MB，刷新图片数量不超过30张。API
-   *     version 20至API version 26.0.1之前，刷新数据总大小不超过10MB，刷新图片数量不超过20张。API version 19及之前的版本，
-   *     图片文件数量上限为5张，每张限制内存2MB，超出限制的图片会显示异常。
+   *     FormBindingData对象会序列化，即卡片数据会转换成string类型。从API version 20开始，如果卡片刷新的数据通过共享内存更新，刷新数据总大小不超过10MB，刷新图片数量不超过20张，API
+   *     version 19及之前的版本，图片文件数量上限为5张，每张限制内存2MB，超出限制的图片会显示异常。
    * @returns { FormBindingData } 根据传入数据创建的FormBindingData对象，用于卡片数据绑定，向卡片提供要展示的数据。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
