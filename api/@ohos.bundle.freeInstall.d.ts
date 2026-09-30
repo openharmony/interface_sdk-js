@@ -14,13 +14,8 @@
  */
 
 /**
- * The module provides APIs for setting and obtaining installation-free information and APIs for obtaining 
- * BundlePackInfo and DispatchInfo.
- * 
- * > **NOTE**
- * >
- * > The APIs provided by this module are system APIs.
- * @file
+ *
+ * @file freeInstall Module
  * @kit AbilityKit
  */
 
@@ -29,18 +24,18 @@ import { DispatchInfo as _DispatchInfo } from './bundleManager/DispatchInfo';
 /*** if arkts dynamic */
 import * as _PackInfo from './bundleManager/BundlePackInfo';
 /*** endif */
-import { BundlePackInfo as _BundlePackInfo, PackageConfig as _PackageConfig, PackageSummary as _PackageSummary,
-  BundleConfigInfo as _BundleConfigInfo, ExtensionAbility as _ExtensionAbility, ModuleConfigInfo as _ModuleConfigInfo,
-  ModuleDistroInfo as _ModuleDistroInfo, ModuleAbilityInfo as _ModuleAbilityInfo, AbilityFormInfo as _AbilityFormInfo,
-  Version as _Version, ApiVersion as _ApiVersion } from './bundleManager/BundlePackInfo';
+/*** if arkts static */
+import {
+    BundlePackInfo as _BundlePackInfo, PackageConfig as _PackageConfig, PackageSummary as _PackageSummary,
+    BundleConfigInfo as _BundleConfigInfo, ExtensionAbility as _ExtensionAbility, ModuleConfigInfo as _ModuleConfigInfo,
+    ModuleDistroInfo as _ModuleDistroInfo, ModuleAbilityInfo as _ModuleAbilityInfo, AbilityFormInfo as _AbilityFormInfo,
+    Version as _Version, ApiVersion as _ApiVersion
+} from './bundleManager/BundlePackInfo';
+/*** endif */
 
 /**
  * The module provides APIs for setting and obtaining installation-free information and APIs for obtaining
  * BundlePackInfo and DispatchInfo.
- *
- * > **NOTE**
- * >
- * > The APIs provided by this module are system APIs.
  *
  * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
  * @systemapi
@@ -140,8 +135,8 @@ declare namespace freeInstall {
    * @param { string } bundleName - Bundle name.
    * @param { string } moduleName - Module name.
    * @param { UpgradeFlag } upgradeFlag - Upgrade flag, which is for internal use only.
-   * @param { AsyncCallback<void> } callback - [Callback]{@link @ohos.base:AsyncCallback} used to return the result. If
-   *     the operation is successful, **err** is **null**; otherwise, **err** is an error object.
+   * @param { AsyncCallback<void> } callback - [AsyncCallback]{@link @ohos.base:AsyncCallback} used to return the
+   *     result. If the operation is successful, **err** is **undefined**; otherwise, **err** is an error object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
@@ -185,9 +180,9 @@ declare namespace freeInstall {
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName - Bundle name.
    * @param { string } moduleName - Module name.
-   * @param { AsyncCallback<boolean> } callback - [Callback]{@link @ohos.base:AsyncCallback} used to return the result.
-   *     If the operation is successful, **err** is **null** and **data** is a Boolean value (**true** if the module can
-   *     be removed, **false** otherwise). If the operation fails, **err** is an error object.
+   * @param { AsyncCallback<boolean> } callback - [AsyncCallback]{@link @ohos.base:AsyncCallback} used to return the
+   *     result. If the operation is successful, **err** is **undefined** and **data** is a Boolean value (**true** if
+   *     the module can be removed, **false** otherwise). Otherwise, **err** is an error object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
@@ -208,8 +203,8 @@ declare namespace freeInstall {
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName - Bundle name.
    * @param { string } moduleName - Module name.
-   * @returns { Promise<boolean> } Promise used to return the result. If the module can be removed, **true** is returned
-   *     ; otherwise, **false** is returned.
+   * @returns { Promise<boolean> } Promise used to return the result. If the module can be removed, **true** is
+   *     returned; otherwise, **false** is returned.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
@@ -231,9 +226,9 @@ declare namespace freeInstall {
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName - Bundle name.
    * @param { BundlePackFlag } bundlePackFlag - Flag of the bundle package.
-   * @param { AsyncCallback<BundlePackInfo> } callback - [Callback]{@link @ohos.base:AsyncCallback} used to return the
-   *     result. If the operation is successful, **err** is **null** and **data** is the BundlePackInfo object obtained;
-   *     otherwise, **err** is an error object.
+   * @param { AsyncCallback<BundlePackInfo> } callback - [AsyncCallback]{@link @ohos.base:AsyncCallback} used to return
+   *     the result. If the operation is successful, **err** is **undefined** and **data** is the BundlePackInfo object
+   *     obtained; otherwise, **err** is an error object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
@@ -273,8 +268,8 @@ declare namespace freeInstall {
    * Obtains the dispatch information. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { AsyncCallback<DispatchInfo> } callback - [Callback]{@link @ohos.base:AsyncCallback} used to return the
-   *     result. If the operation is successful, **err** is **null**, and **data** is the
+   * @param { AsyncCallback<DispatchInfo> } callback - [AsyncCallback]{@link @ohos.base:AsyncCallback} used to return
+   *     the result. If the operation is successful, **err** is **undefined**, and **data** is the
    *     [DispatchInfo]{@link ./bundleManager/DispatchInfo:DispatchInfo} object obtained. otherwise, **err** is an error
    *     object.
    * @throws { BusinessError } 201 - Permission denied.

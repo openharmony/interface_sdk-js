@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file bundleMonitor模块
  * @kit AbilityKit
  */
 
@@ -40,7 +40,7 @@ declare namespace bundleMonitor {
    */
   interface BundleChangedInfo {
     /**
-     * 应用状态发生变化的应用Bundle名称。
+     * 应用发生变更的应用Bundle名称。
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
@@ -49,7 +49,8 @@ declare namespace bundleMonitor {
      */
     readonly bundleName: string;
     /**
-     * 应用状态发生变化的用户ID，可以通过getOsAccountLocalId接口获取。
+     * 应用发生变更的用户ID，可以通过
+     * [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}获取。
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
@@ -58,7 +59,7 @@ declare namespace bundleMonitor {
      */
     readonly userId: int;
     /**
-     * 应用状态发生变化的应用分身索引。
+     * 应用发生变更的应用分身索引。
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
@@ -70,6 +71,8 @@ declare namespace bundleMonitor {
 
   /**
    * 监听的事件类型。
+   * 
+   * 取值类型为下表类型中的一个。
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
@@ -82,10 +85,12 @@ declare namespace bundleMonitor {
    *
    * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
    * @param { BundleChangedEvent } type - 注册监听的事件类型。
-   * @param { Callback<BundleChangedInfo> } callback - 回调函数，当回调成功时，err为undefined，data为应用变更信息；否则为错误对象。
+   * @param { Callback<BundleChangedInfo> } callback - [Callback]{@link @ohos.base:Callback}，当回调成功时，
+   *     err为undefined，data为应用变更信息；否则为错误对象。
    * @throws { BusinessError } 201 - Verify permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
@@ -96,7 +101,7 @@ declare namespace bundleMonitor {
    * 注册监听应用的安装。
    *
    * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
-   * @param { Callback<BundleChangedInfo> } callback - 注册监听的AsyncCallback
+   * @param { Callback<BundleChangedInfo> } callback - 注册监听的[Callback]{@link @ohos.base:Callback}。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -109,7 +114,7 @@ declare namespace bundleMonitor {
    * 注册监听应用的更新。
    *
    * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
-   * @param { Callback<BundleChangedInfo> } callback - 注册监听的AsyncCallback
+   * @param { Callback<BundleChangedInfo> } callback - 注册监听的[Callback]{@link @ohos.base:Callback}。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -122,7 +127,7 @@ declare namespace bundleMonitor {
    * 注册监听应用的卸载。
    *
    * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
-   * @param { Callback<BundleChangedInfo> } callback - 注册监听的AsyncCallback
+   * @param { Callback<BundleChangedInfo> } callback - 注册监听的[Callback]{@link @ohos.base:Callback}。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -136,10 +141,12 @@ declare namespace bundleMonitor {
    *
    * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
    * @param { BundleChangedEvent } type - 注销监听的事件类型。
-   * @param { Callback<BundleChangedInfo> } callback - 回调函数，当回调成功时，err为undefined，data为应用变更信息；否则为错误对象。
+   * @param { Callback<BundleChangedInfo> } callback - [Callback]{@link @ohos.base:Callback}，当回调成功时，
+   *     err为undefined，data为应用变更信息；否则为错误对象。
    * @throws { BusinessError } 201 - Verify permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
@@ -150,7 +157,7 @@ declare namespace bundleMonitor {
    * 注销监听应用的安装。
    *
    * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
-   * @param { Callback<BundleChangedInfo> } [callback] - 注销监听的AsyncCallback，默认值：注销当前事件的所有callback。
+   * @param { Callback<BundleChangedInfo> } [callback] - 注册监听的[Callback]{@link @ohos.base:Callback}。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -163,7 +170,7 @@ declare namespace bundleMonitor {
    * 注销监听应用的更新。
    *
    * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
-   * @param { Callback<BundleChangedInfo> } [callback] - 注销监听的AsyncCallback，默认值：注销当前事件的所有callback。
+   * @param { Callback<BundleChangedInfo> } [callback] - 注册监听的[Callback]{@link @ohos.base:Callback}。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -176,7 +183,7 @@ declare namespace bundleMonitor {
    * 注销监听应用的卸载。
    *
    * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
-   * @param { Callback<BundleChangedInfo> } [callback] - 注销监听的AsyncCallback，默认值：注销当前事件的所有callback。
+   * @param { Callback<BundleChangedInfo> } [callback] - 注册监听的[Callback]{@link @ohos.base:Callback}。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core

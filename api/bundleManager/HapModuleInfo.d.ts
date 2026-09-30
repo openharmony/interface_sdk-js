@@ -14,12 +14,7 @@
  */
 
 /**
- * The module defines the HAP module information. An application can obtain its own HAP module information through 
- * [getBundleInfoForSelf]{@link ./../@ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)}, 
- * with **GET_BUNDLE_INFO_WITH_HAP_MODULE** passed in for 
- * [bundleFlags]{@link ./../@ohos.bundle.bundleManager:bundleManager.BundleFlag}.
- *
- * @file
+ * @file HapModuleInfo
  * @kit AbilityKit
  */
 
@@ -29,7 +24,10 @@ import { Metadata } from './Metadata';
 import bundleManager from './../@ohos.bundle.bundleManager';
 
 /**
- * The module defines the HAP module information.
+ * The module defines the HAP module information. An application can obtain its own HAP module information through
+ * [getBundleInfoForSelf]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf}, with
+ * **GET_BUNDLE_INFO_WITH_HAP_MODULE** passed in for
+ * [bundleFlags]{@link @ohos.bundle.bundleManager:bundleManager.BundleFlag}.
  *
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @crossplatform [since 10]
@@ -41,6 +39,8 @@ export interface HapModuleInfo {
   /**
    * Module name.
    *
+   * **Atomic service API:** Since API version 11, this API is supported in atomic services.
+   *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -50,11 +50,13 @@ export interface HapModuleInfo {
   readonly name: string;
 
   /**
-   * [Icon](docroot://quick-start/layered-image.md) for the entry ability of the current module. It is the index of the
-   * icon resource file and should match the value of **icon** in the
-   * [abilities](docroot://quick-start/module-configuration-file.md#abilities) or
-   * [extensionAbilities](docroot://quick-start/module-configuration-file.md#extensionabilities) field in the module
-   * configuration file. If no entry ability is configured, this parameter is left empty.
+   * [Icon](docroot://quick-start/layered-image.md) of the entry ability of the current module. The value is the index
+   * of the icon resource file, which is the same as the value of the **icon** field of the
+   * [abilities tag](docroot://quick-start/module-configuration-file.md#abilities) or
+   * [extensionAbilities tag](docroot://quick-start/module-configuration-file.md#extensionabilities) in the module
+   * configuration file. If no entry ability is configured, the value is empty.
+   *
+   * **Atomic service API:** Since API version 11, this API is supported in atomic services.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform [since 10]
@@ -65,8 +67,10 @@ export interface HapModuleInfo {
   readonly icon: string;
 
   /**
-   * [Resource ID](docroot://quick-start/resource-categories-and-access.md#resource-directories) of the icon for the
-   * entry ability of the current module. If no entry ability is configured, this parameter is left empty.
+   * [Resource ID](docroot://quick-start/resource-categories-and-access.md#resource-directories) of the icon of the
+   * entry ability of the current module. If no entry ability is configured, the value is **0**.
+   *
+   * **Atomic service API:** Since API version 11, this API is supported in atomic services.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform [since 10]
@@ -77,10 +81,13 @@ export interface HapModuleInfo {
   readonly iconId: long;
 
   /**
-   * Label of the entry ability of the current module. It is the index of a string resource and should match the value
-   * of **label** in the [abilities](docroot://quick-start/module-configuration-file.md#abilities) or
-   * [extensionAbilities](docroot://quick-start/module-configuration-file.md#extensionabilities) field in the module
-   * configuration file. If no entry ability is configured, this parameter is left empty.
+   * Name of the entry ability of the current module. The value is the index of the string resource, which is the same
+   * as the value of the **label** field of the
+   * [abilities tag](docroot://quick-start/module-configuration-file.md#abilities) or
+   * [extensionAbilities tag](docroot://quick-start/module-configuration-file.md#extensionabilities) in the module
+   * configuration file. If no entry ability is configured, the value is empty.
+   *
+   * **Atomic service API:** Since API version 11, this API is supported in atomic services.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform [since 10]
@@ -91,8 +98,10 @@ export interface HapModuleInfo {
   readonly label: string;
 
   /**
-   * [Resource ID](docroot://quick-start/resource-categories-and-access.md#resource-directories) of the label for the
-   * entry ability of the current module. If no entry ability is configured, this parameter is left empty.
+   * [Resource ID](docroot://quick-start/resource-categories-and-access.md#resource-directories) of the name of the
+   * entry ability of the current module. If no entry ability is configured, the value is **0**.
+   *
+   * **Atomic service API:** Since API version 11, this API is supported in atomic services.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform [since 10]
@@ -105,6 +114,8 @@ export interface HapModuleInfo {
   /**
    * Module description.
    *
+   * **Atomic service API:** Since API version 11, this API is supported in atomic services.
+   *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -114,7 +125,9 @@ export interface HapModuleInfo {
   readonly description: string;
 
   /**
-   * ID of the module description.
+   * Resource ID of the description.
+   *
+   * **Atomic service API:** Since API version 11, this API is supported in atomic services.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform [since 10]
@@ -125,7 +138,9 @@ export interface HapModuleInfo {
   readonly descriptionId: long;
 
   /**
-   * Name of the UIAbility or ExtensionAbility that serves as the entry of the current module.
+   * Name of the entry UIAbility or ExtensionAbility of the current module.
+   *
+   * **Atomic service API:** Since API version 11, this API is supported in atomic services.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform [since 10]
@@ -136,9 +151,12 @@ export interface HapModuleInfo {
   readonly mainElementName: string;
 
   /**
-   * Information about all ability components of the current module. The information can be obtained by passing in
-   * **GET_BUNDLE_INFO_WITH_HAP_MODULE** and **GET_BUNDLE_INFO_WITH_ABILITY** to the **bundleFlags** parameter of
-   * [getBundleInfoForSelf]{@link ./../@ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)}.
+   * Information about all abilities in the current module. Obtained by calling
+   * [getBundleInfoForSelf]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf} with
+   * **GET_BUNDLE_INFO_WITH_HAP_MODULE** and **GET_BUNDLE_INFO_WITH_ABILITY** passed in as the **bundleFlags**
+   * parameter.
+   *
+   * **Atomic service API:** Since API version 11, this API is supported in atomic services.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform [since 10]
@@ -149,10 +167,12 @@ export interface HapModuleInfo {
   readonly abilitiesInfo: Array<AbilityInfo>;
 
   /**
-   * Information about all ExtensionAbility components of the current module. The information can be obtained by passing
-   * in **GET_BUNDLE_INFO_WITH_HAP_MODULE** and **GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY** to the **bundleFlags**
-   * parameter of
-   * [getBundleInfoForSelf]{@link ./../@ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)}.
+   * Information about all ExtensionAbilities in the current module. Obtained by calling
+   * [getBundleInfoForSelf]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf} with
+   * **GET_BUNDLE_INFO_WITH_HAP_MODULE** and **GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY** passed in as the **bundleFlags**
+   * parameter.
+   *
+   * **Atomic service API:** Since API version 11, this API is supported in atomic services.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice [since 11]
@@ -162,9 +182,12 @@ export interface HapModuleInfo {
   readonly extensionAbilitiesInfo: Array<ExtensionAbilityInfo>;
 
   /**
-   * Metadata of the current module. The information can be obtained by passing in **GET_BUNDLE_INFO_WITH_HAP_MODULE**
-   * and **GET_BUNDLE_INFO_WITH_METADATA** to the **bundleFlags** parameter of
-   * [getBundleInfoForSelf]{@link ./../@ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)}.
+   * Metadata of the current module. Obtained by calling
+   * [getBundleInfoForSelf]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf} with
+   * **GET_BUNDLE_INFO_WITH_HAP_MODULE** and **GET_BUNDLE_INFO_WITH_METADATA** passed in as the **bundleFlags**
+   * parameter.
+   *
+   * **Atomic service API:** Since API version 11, this API is supported in atomic services.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform [since 10]
@@ -175,8 +198,10 @@ export interface HapModuleInfo {
   readonly metadata: Array<Metadata>;
 
   /**
-   * Array of [device types](docroot://quick-start/module-configuration-file.md#devicetypes) that the module supports
-   * for installation and running.
+   * Set of [device types](docroot://quick-start/module-configuration-file.md#devicetypes) on which the module can be
+   * installed and run.
+   *
+   * **Atomic service API:** Since API version 11, this API is supported in atomic services.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform [since 20]
@@ -187,9 +212,10 @@ export interface HapModuleInfo {
   readonly deviceTypes: Array<string>;
 
   /**
-   * Whether the module supports the installation-free feature. Installation-free means that the module does not need to
-   * be explicitly installed through an app market. **true** if the module supports installation-free, **false**
-   * otherwise.
+   * Whether the module supports installation-free (without requiring the user to explicitly install it from the app
+   * market). The value **true** indicates that installation-free is supported, and **false** indicates the opposite.
+   *
+   * **Atomic service API:** Since API version 11, this API is supported in atomic services.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform [since 20]
@@ -200,7 +226,10 @@ export interface HapModuleInfo {
   readonly installationFree: boolean;
 
   /**
-   * Hash value of the module.
+   * Hash value of the module, which uniquely identifies the module. The hash value is calculated based on the module
+   * content and can be used to verify module integrity and compare versions.
+   *
+   * **Atomic service API:** Since API version 11, this API is supported in atomic services.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform [since 20]
@@ -211,7 +240,9 @@ export interface HapModuleInfo {
   readonly hashValue: string;
 
   /**
-   * Type of the module.
+   * Identifies the type of the current module.
+   *
+   * **Atomic service API:** Since API version 11, this API is supported in atomic services.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform [since 20]
@@ -222,7 +253,9 @@ export interface HapModuleInfo {
   readonly type: bundleManager.ModuleType;
 
   /**
-   * Dynamic shared libraries on which the module depends.
+   * List of dynamic shared libraries that the module depends on at runtime.
+   *
+   * **Atomic service API:** Since API version 11, this API is supported in atomic services.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice [since 11]
@@ -232,7 +265,9 @@ export interface HapModuleInfo {
   readonly dependencies: Array<Dependency>;
 
   /**
-   * Preloaded modules in the atomic service.
+   * Preload list of the modules in the atomic service.
+   *
+   * **Atomic service API:** Since API version 11, this API is supported in atomic services.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice [since 11]
@@ -242,9 +277,11 @@ export interface HapModuleInfo {
   readonly preloads: Array<PreloadItem>;
 
   /**
-   * File menu configuration of the module. The information can be obtained by passing in
-   * **GET_BUNDLE_INFO_WITH_HAP_MODULE** and **GET_BUNDLE_INFO_WITH_MENU** to the **bundleFlags** parameter of
-   * [getBundleInfoForSelf]{@link ./../@ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)}.
+   * File menu configuration of the module. Obtained by calling
+   * [getBundleInfoForSelf]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf} with
+   * **GET_BUNDLE_INFO_WITH_HAP_MODULE** and **GET_BUNDLE_INFO_WITH_MENU** passed in as the **bundleFlags** parameter.
+   *
+   * **Atomic service API:** Since API version 11, this API is supported in atomic services.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
@@ -254,10 +291,12 @@ export interface HapModuleInfo {
   readonly fileContextMenuConfig: string;
 
   /**
-   * [Router table configuration of the module](docroot://quick-start/module-configuration-file.md#routermap). The
-   * information can be obtained by passing in **GET_BUNDLE_INFO_WITH_HAP_MODULE** and
-   * **GET_BUNDLE_INFO_WITH_ROUTER_MAP** to the **bundleFlags** parameter of
-   * [getBundleInfoForSelf]{@link ./../@ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)}.
+   * [Route table configuration of the module](docroot://quick-start/module-configuration-file.md#routermap). Obtained
+   * by calling [getBundleInfoForSelf]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf} with
+   * **GET_BUNDLE_INFO_WITH_HAP_MODULE** and **GET_BUNDLE_INFO_WITH_ROUTER_MAP** passed in as the **bundleFlags**
+   * parameter.
+   *
+   * **Atomic service API:** Since API version 12, this API is supported in atomic services.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
@@ -267,7 +306,7 @@ export interface HapModuleInfo {
   readonly routerMap: Array<RouterItem>;
 
   /**
-   * Local library file path of the module in the application.
+   * Path of the local library file of the module in the application.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 12 dynamic
@@ -278,6 +317,8 @@ export interface HapModuleInfo {
   /**
    * Installation path of the module.
    *
+   * **Atomic service API:** Since API version 12, this API is supported in atomic services.
+   *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
    * @since 12 dynamic
@@ -285,7 +326,7 @@ export interface HapModuleInfo {
    */
   readonly codePath: string;
 
-   /**
+  /**
    * Indicates the physical installation path of the module.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core

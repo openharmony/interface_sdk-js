@@ -21,9 +21,9 @@
 /**
  * A structured identifier for an application component, containing fields such as **bundleName**, **moduleName**, and
  * **abilityName**. It is usually used in
- * [AbilityRunningInfo.ability]{@link ./../application/AbilityRunningInfo:AbilityRunningInfo} for component launch
+ * [AbilityRunningInfo.ability]{@link ../application/AbilityRunningInfo:AbilityRunningInfo} for component launch
  * information and in the
- * [connectOptions.onConnect]{@link ./../ability/connectOptions:ConnectOptions.onConnect(elementName: ElementName, remote: rpc.IRemoteObject)}
+ * [connectOptions.onConnect]{@link ../ability/connectOptions:ConnectOptions.onConnect(elementName: ElementName, remote: rpc.IRemoteObject)}
  * callback for component connection.
  *
  * @syscap SystemCapability.BundleManager.BundleFramework.Core

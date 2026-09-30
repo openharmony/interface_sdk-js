@@ -14,12 +14,7 @@
  */
 
 /**
- * The module defines the HAP module information. An application can obtain its own HAP module information through 
- * [getBundleInfoForSelf]{@link ./../@ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)}, 
- * with **GET_BUNDLE_INFO_WITH_HAP_MODULE** passed in for 
- * [bundleFlags]{@link ./../@ohos.bundle.bundleManager:bundleManager.BundleFlag}.
- *
- * @file
+ * @file HapModuleInfo
  * @kit AbilityKit
  */
 
@@ -29,7 +24,8 @@ import { Metadata } from './Metadata';
 import bundleManager from './../@ohos.bundle.bundleManager';
 
 /**
- * HAP信息。
+ * HAP信息，可以通过[getBundleInfoForSelf]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf}获取自身的HAP信息，其中参数
+ * [bundleFlags]{@link @ohos.bundle.bundleManager:bundleManager.BundleFlag}至少包含GET_BUNDLE_INFO_WITH_HAP_MODULE。
  *
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @crossplatform [since 10]
@@ -132,9 +128,8 @@ export interface HapModuleInfo {
   readonly mainElementName: string;
 
   /**
-   * 当前模块所有Ability的信息。通过调用
-   * [getBundleInfoForSelf]{@link ./../@ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)}接
-   * 口，bundleFlags参数传入GET_BUNDLE_INFO_WITH_HAP_MODULE和GET_BUNDLE_INFO_WITH_ABILITY获取。
+   * 当前模块所有Ability的信息。通过调用[getBundleInfoForSelf]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf}接口，
+   * bundleFlags参数传入GET_BUNDLE_INFO_WITH_HAP_MODULE和GET_BUNDLE_INFO_WITH_ABILITY获取。
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform [since 10]
@@ -146,8 +141,8 @@ export interface HapModuleInfo {
 
   /**
    * 当前模块所有ExtensionAbility的信息。通过调用
-   * [getBundleInfoForSelf]{@link ./../@ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)}接
-   * 口，bundleFlags参数传入GET_BUNDLE_INFO_WITH_HAP_MODULE和GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY获取。
+   * [getBundleInfoForSelf]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf}接口，bundleFlags参数传入
+   * GET_BUNDLE_INFO_WITH_HAP_MODULE和GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY获取。
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice [since 11]
@@ -157,9 +152,8 @@ export interface HapModuleInfo {
   readonly extensionAbilitiesInfo: Array<ExtensionAbilityInfo>;
 
   /**
-   * 当前模块的元数据。通过调用
-   * [getBundleInfoForSelf]{@link ./../@ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)}接
-   * 口，bundleFlags参数传入GET_BUNDLE_INFO_WITH_HAP_MODULE和GET_BUNDLE_INFO_WITH_METADATA获取。
+   * 当前模块的元数据。通过调用[getBundleInfoForSelf]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf}接口，
+   * bundleFlags参数传入GET_BUNDLE_INFO_WITH_HAP_MODULE和GET_BUNDLE_INFO_WITH_METADATA获取。
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform [since 10]
@@ -192,7 +186,7 @@ export interface HapModuleInfo {
   readonly installationFree: boolean;
 
   /**
-   * 模块的Hash值。
+   * 模块的Hash值，唯一标识模块。Hash值根据模块内容计算生成，可校验模块完整性和比对版本。
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform [since 20]
@@ -234,9 +228,8 @@ export interface HapModuleInfo {
   readonly preloads: Array<PreloadItem>;
 
   /**
-   * 模块的文件菜单配置。通过调用
-   * [getBundleInfoForSelf]{@link ./../@ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)}接
-   * 口，bundleFlags参数传入GET_BUNDLE_INFO_WITH_HAP_MODULE和GET_BUNDLE_INFO_WITH_MENU获取。
+   * 模块的文件菜单配置。通过调用[getBundleInfoForSelf]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf}接口，
+   * bundleFlags参数传入GET_BUNDLE_INFO_WITH_HAP_MODULE和GET_BUNDLE_INFO_WITH_MENU获取。
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
@@ -247,8 +240,8 @@ export interface HapModuleInfo {
 
   /**
    * [模块的路由表配置](docroot://quick-start/module-configuration-file.md#routermap标签)。通过调用
-   * [getBundleInfoForSelf]{@link ./../@ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)}接
-   * 口，bundleFlags参数传入GET_BUNDLE_INFO_WITH_HAP_MODULE和GET_BUNDLE_INFO_WITH_ROUTER_MAP获取。
+   * [getBundleInfoForSelf]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf}接口，bundleFlags参数传入
+   * GET_BUNDLE_INFO_WITH_HAP_MODULE和GET_BUNDLE_INFO_WITH_ROUTER_MAP获取。
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
@@ -276,8 +269,8 @@ export interface HapModuleInfo {
    */
   readonly codePath: string;
 
-   /**
-   * 标识模块的物理安装路径。
+  /**
+   * 模块的物理安装路径。
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi

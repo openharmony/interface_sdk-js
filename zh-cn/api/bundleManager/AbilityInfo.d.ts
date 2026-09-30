@@ -14,12 +14,7 @@
  */
 
 /**
- * The module defines the ability information. An application can obtain its own ability information through 
- * [bundleManager.getBundleInfoForSelf]{@link ./../@ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)}
- * , with **GET_BUNDLE_INFO_WITH_HAP_MODULE** and **GET_BUNDLE_INFO_WITH_ABILITY** passed in to 
- * [bundleFlags]{@link ./../@ohos.bundle.bundleManager:bundleManager.BundleFlag}.
- *
- * @file
+ * @file AbilityInfo
  * @kit AbilityKit
  */
 
@@ -29,7 +24,10 @@ import bundleManager from './../@ohos.bundle.bundleManager';
 import { Skill } from './Skill';
 
 /**
- * Ability信息。
+ * Ability信息，可以通过
+ * [bundleManager.getBundleInfoForSelf]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf}获取Ability信息，
+ * 其中参数[bundleFlags]{@link @ohos.bundle.bundleManager:bundleManager.BundleFlag}至少包含GET_BUNDLE_INFO_WITH_HAP_MODULE和
+ * GET_BUNDLE_INFO_WITH_ABILITY。
  *
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @crossplatform [since 10]
@@ -61,7 +59,7 @@ export interface AbilityInfo {
   readonly moduleName: string;
 
   /**
-   * Ability名称。
+   * Ability名称，对应[module.json5](docroot://quick-start/module-configuration-file.md)中abilities下配置的name字段。
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform [since 10]
@@ -75,7 +73,7 @@ export interface AbilityInfo {
    * Ability对用户显示的名称的资源描述符，对应[module.json5](docroot://quick-start/module-configuration-file.md)中abilities下配置的label字段。
    * 
    * **说明：** 从API version 20开始，如果是通过
-   * [bundleManager.getAbilityInfo]{@link ./../@ohos.bundle.bundleManager:bundleManager.getAbilityInfo}获取Ability信息，该字段为
+   * [bundleManager.getAbilityInfo]{@link @ohos.bundle.bundleManager:bundleManager.getAbilityInfo}获取Ability信息，该字段为
    * Ability对用户显示的名称。
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -110,7 +108,7 @@ export interface AbilityInfo {
   readonly description: string;
 
   /**
-   * Ability的描述资源id，是编译构建时根据应用配置abilities下的description自动生成的资源id。
+   * Ability的描述资源id，编译构建时根据应用配置abilities下的description自动生成。
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform [since 10]
@@ -177,7 +175,8 @@ export interface AbilityInfo {
   /**
    * Ability的显示模式。来源于[module.json5](docroot://quick-start/module-configuration-file.md)中abilities标签下配置的orientation字段，如果
    * module.json5配置文件中orientation配置枚举，orientation属性有值且非0，取值详情参考
-   * [显示模式枚举]{@link ./../@ohos.bundle.bundleManager:bundleManager.DisplayOrientation}；如果配置文件中配置的是资源索引，orientation属性值为0。
+   * [DisplayOrientation]{@link @ohos.bundle.bundleManager:bundleManager.DisplayOrientation}；如果配置文件中配置的是资源索引，orientation
+   * 属性值为0。
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform [since 20]
@@ -188,7 +187,7 @@ export interface AbilityInfo {
   readonly orientation: bundleManager.DisplayOrientation;
 
   /**
-   * Ability的启动模式，在启动的时候是否以多实例启动，详情参考[启动模式枚举]{@link ./../@ohos.bundle.bundleManager:bundleManager.LaunchType} 。
+   * Ability的启动模式，在启动的时候是否以多实例启动，详情参考[LaunchType]{@link @ohos.bundle.bundleManager:bundleManager.LaunchType} 。
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform [since 10]
@@ -254,14 +253,12 @@ export interface AbilityInfo {
   readonly deviceTypes: Array<string>;
 
   /**
-   * 应用程序的配置信息<!--Del-->，可以通过调用
-   * [queryAbilityInfo]{@link ./../@ohos.bundle.bundleManager:bundleManager.queryAbilityInfo(want: Want, abilityFlags: int, userId: int, callback: AsyncCallback<Array<AbilityInfo>>)}
-   * 接口，abilityFlags参数传入GET_ABILITY_INFO_WITH_APPLICATION获取<!--DelEnd-->。
+   * 应用程序的配置信息<!--Del-->，可以通过调用[queryAbilityInfo]{@link @ohos.bundle.bundleManager:bundleManager.queryAbilityInfo}接口，
+   * abilityFlags参数传入GET_ABILITY_INFO_WITH_APPLICATION获取<!--DelEnd-->。
    * 
-   * [getBundleInfoForSelf]{@link ./../@ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)}或
-   * 者
-   * [getBundleInfo]{@link ./../@ohos.bundle.bundleManager:bundleManager.getBundleInfo(bundleName: string, bundleFlags: int, userId: int, callback: AsyncCallback<BundleInfo>)}
-   * 接口获取AbilityInfo信息时不会返回该字段内容，可以通过获取[bundleInfo]{@link BundleInfo:BundleInfo}.appInfo对象来获取相关信息。
+   * [getBundleInfoForSelf]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf}或者
+   * [getBundleInfo]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfo}接口获取AbilityInfo信息时不会返回该字段内容，可以通过获取
+   * [bundleInfo]{@link ./BundleInfo:BundleInfo}.appInfo对象来获取相关信息。
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform [since 10]
@@ -271,14 +268,12 @@ export interface AbilityInfo {
   readonly applicationInfo: ApplicationInfo;
 
   /**
-   * 应用程序的配置信息<!--Del-->，可以通过调用
-   * [queryAbilityInfo]{@link ./../@ohos.bundle.bundleManager:bundleManager.queryAbilityInfo(want: Want, abilityFlags: int, userId: int, callback: AsyncCallback<Array<AbilityInfo>>)}
-   * 接口，abilityFlags参数传入GET_ABILITY_INFO_WITH_APPLICATION获取<!--DelEnd-->。
+   * 应用程序的配置信息<!--Del-->，可以通过调用[queryAbilityInfo]{@link @ohos.bundle.bundleManager:bundleManager.queryAbilityInfo}接口，
+   * abilityFlags参数传入GET_ABILITY_INFO_WITH_APPLICATION获取<!--DelEnd-->。
    * 
-   * [getBundleInfoForSelf]{@link ./../@ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)}或
-   * 者
-   * [getBundleInfo]{@link ./../@ohos.bundle.bundleManager:bundleManager.getBundleInfo(bundleName: string, bundleFlags: int, userId: int, callback: AsyncCallback<BundleInfo>)}
-   * 接口获取AbilityInfo信息时不会返回该字段内容，可以通过获取[bundleInfo]{@link BundleInfo:BundleInfo}.appInfo对象来获取相关信息。
+   * [getBundleInfoForSelf]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf}或者
+   * [getBundleInfo]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfo}接口获取AbilityInfo信息时不会返回该字段内容，可以通过获取
+   * [bundleInfo]{@link ./BundleInfo:BundleInfo}.appInfo对象来获取相关信息。
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
@@ -289,8 +284,8 @@ export interface AbilityInfo {
   /**
    * Ability的元信息。可以配置成系统定义的参数，使用系统提供的能力，例如[快捷方式](docroot://quick-start/module-configuration-file.md#shortcuts标签)、
    * [窗口元数据配置](docroot://windowmanager/window-config-m.md)等。也可以自定义配置参数，通过调用
-   * [getBundleInfoForSelf]{@link ./../@ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)}接
-   * 口，bundleFlags参数传入GET_BUNDLE_INFO_WITH_HAP_MODULE、GET_BUNDLE_INFO_WITH_ABILITY和GET_BUNDLE_INFO_WITH_METADATA获取。
+   * [getBundleInfoForSelf]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf}接口，bundleFlags参数传入
+   * GET_BUNDLE_INFO_WITH_HAP_MODULE、GET_BUNDLE_INFO_WITH_ABILITY和GET_BUNDLE_INFO_WITH_METADATA获取。
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform [since 10]
@@ -301,8 +296,8 @@ export interface AbilityInfo {
   readonly metadata: Array<Metadata>;
 
   /**
-   * Ability是否可用，可用表示可以拉起或者查询，不可用时调用[getAbilityInfo]{@link ./../@ohos.bundle.bundleManager:bundleManager.getAbilityInfo}
-   * 查询ability需要携带GET_ABILITY_INFO_WITH_DISABLE的AbilityFlag，取值为true表示Ability可用，取值为false表示Ability不可用。
+   * Ability是否可用，可用表示可以拉起或者查询，不可用时调用[getAbilityInfo]{@link @ohos.bundle.bundleManager:bundleManager.getAbilityInfo}查询
+   * ability需要携带GET_ABILITY_INFO_WITH_DISABLE的AbilityFlag，取值为true表示Ability可用，取值为false表示Ability不可用。
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform [since 20]
@@ -357,7 +352,7 @@ export interface AbilityInfo {
   readonly skills: Array<Skill>;
 
   /**
-   * 应用包的分身索引标识，仅在[分身应用](docroot://quick-start/app-clone.md)中生效。
+   * 应用包的分身索引标识。取值为自然数，0表示主应用，大于0的值表示分身应用。该字段仅在[分身应用](docroot://quick-start/app-clone.md)中生效。
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 12 dynamic
@@ -380,8 +375,6 @@ export interface AbilityInfo {
 
 /**
  * 描述窗口尺寸。
- * 
- * **原子化服务API：** 从API version 11开始，该接口支持在原子化服务中使用。
  *
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @crossplatform [since 20]
@@ -391,7 +384,9 @@ export interface AbilityInfo {
  */
 export interface WindowSize {
   /**
-   * 表示自由窗口状态下窗口的最大宽高比；取值范围0-1，例如：0.12。
+   * 表示自由窗口状态下窗口的最大宽高比（宽度/高度）。
+   * 
+   * 取值范围：[0, 1]，例如，0.62表示窗口最大宽度为高度的0.62倍。该属性用于限制窗口的显示比例。
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform [since 20]
@@ -402,7 +397,9 @@ export interface WindowSize {
   readonly maxWindowRatio: double;
 
   /**
-   * 表示自由窗口状态下窗口的最小宽高比；取值范围0-1，例如：0.5。
+   * 表示自由窗口状态下窗口的最小宽高比（宽度/高度）。
+   *
+   * 取值范围：[0, 1]，例如，0.12表示窗口最小宽度为高度的0.12倍。该属性用于限制窗口的显示比例。
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform [since 20]

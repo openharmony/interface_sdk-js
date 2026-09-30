@@ -14,23 +14,21 @@
  */
 
 /**
- * @file
+ * @file ElementName
  * @kit AbilityKit
  */
 
 /**
- * ElementName信息，通过接口
- * [Context.getElementName](docroot://reference/apis-ability-kit/js-apis-inner-app-context.md#contextgetelementname7)获取。
- * 
+ * ElementName信息，通过接口[Context.getElementName]{@link ../app/context:Context.getElementName}获取。
  * 
  * > **说明：**
  * >
- * > 从API version 9开始，该模块不再维护，建议使用[bundleManager-ElementName]{@link elementName:ElementName}替代。
+ * > 从API version 9开始，该模块不再维护，
  *
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @since 7 dynamiconly
  * @deprecated since 9
- * @useinstead elementName:ElementName
+ * @useinstead ElementName
  */
 export interface ElementName {
   /**

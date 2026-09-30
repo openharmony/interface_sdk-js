@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file RemoteAbilityInfo
  * @kit AbilityKit
  */
 
@@ -22,12 +22,8 @@ import { ElementName } from './ElementName';
 
 /**
  * 包含远程的ability信息，通过接口
- * [distributedBundle.getRemoteAbilityInfo]{@link ./../@ohos.bundle.distributedBundleManager:distributedBundleManager.getRemoteAbilityInfo(elementName: ElementName, callback: AsyncCallback<RemoteAbilityInfo>)}
+ * [distributedBundle.getRemoteAbilityInfo]{@link @ohos.bundle.distributedBundleManager:distributedBundleManager.getRemoteAbilityInfo}
  * 获取。
- * 
- * > **说明：**
- * >
- * > 本模块为系统接口。
  *
  * @syscap SystemCapability.BundleManager.DistributedBundleFramework
  * @systemapi
@@ -56,7 +52,7 @@ export interface RemoteAbilityInfo {
   readonly label: string;
 
   /**
-   * 指明的远程ability的图标信息。
+   * 指明远程ability的图标信息。
    *
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi

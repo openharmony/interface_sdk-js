@@ -14,16 +14,7 @@
  */
 
 /**
- * The module defines the bundle information, which can be obtained through 
- * [bundle.getBundleInfo]{@link ./../@ohos.bundle:bundle.getBundleInfo(bundleName: string, bundleFlags: number, options?: BundleOptions)}
- * .
- * 
- * > **NOTE**
- * >
- * > The APIs of this module have been deprecated since API version 9. You are advised to use 
- * > [bundleManager-BundleInfo]{@link bundleInfo} instead.
- *
- * @file
+ * @file BundleInfo
  * @kit AbilityKit
  */
 
@@ -35,14 +26,13 @@ import { HapModuleInfo } from './hapModuleInfo';
  * > **NOTE**
  * >
  * > This API has been supported since API version 7 and deprecated since API version 9. You are advised to use
- * > [UsedScene]{@link bundleInfo:UsedScene} instead.
- *
- * Describes the application scenario and timing for using the permission.
+ * > [UsedScene]{@link UsedScene} instead.
+ * > Describes the application scenario and timing for using the permission.
  *
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @since 7 dynamiconly
  * @deprecated since 9
- * @useinstead bundleInfo:UsedScene
+ * @useinstead UsedScene
  */
 export interface UsedScene {
   /**
@@ -72,14 +62,13 @@ export interface UsedScene {
  * > **NOTE**
  * >
  * > This API has been supported since API version 7 and deprecated since API version 9. You are advised to use
- * > [ReqPermissionDetail]{@link bundleInfo} instead.
- *
- * Provides the detailed information of the permissions to request from the system.
+ * > [ReqPermissionDetail]{@link ReqPermissionDetail} instead.
+ * > Provides the detailed information of the permissions to request from the system.
  *
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @since 7 dynamiconly
  * @deprecated since 9
- * @useinstead bundleInfo
+ * @useinstead ReqPermissionDetail
  */
 export interface ReqPermissionDetail {
   /**
@@ -117,10 +106,13 @@ export interface ReqPermissionDetail {
 }
 
 /**
+ * The module defines the bundle information, which can be obtained through
+ * [bundle.getBundleInfo]{@link @ohos.bundle:bundle.getBundleInfo}.
+ *
  * > **NOTE**
  * >
- * > This API has been supported since API version 7 and deprecated since API version 9. You are advised to use
- * > [bundleManager-BundleInfo]{@link bundleInfo:BundleInfo} instead.
+ * > This module is deprecated since API version 9. You are advised to use
+ * > [bundleManager-BundleInfo]{@link ./bundleInfo} instead.
  *
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @since 7 dynamiconly
@@ -176,7 +168,7 @@ export interface BundleInfo {
   readonly uid: number;
 
   /**
-   * Time when the HAP file was installed.
+   * HAP installation time, in milliseconds.
    *
    * @default Indicates the hap install time
    * @syscap SystemCapability.BundleManager.BundleFramework
@@ -187,7 +179,7 @@ export interface BundleInfo {
   readonly installTime: number;
 
   /**
-   * Time when the HAP file was updated.
+   * HAP update time, in milliseconds.
    *
    * @default Indicates the hap update time
    * @syscap SystemCapability.BundleManager.BundleFramework
@@ -212,8 +204,7 @@ export interface BundleInfo {
    * Ability configuration information.
    *
    * The value is obtained by passing in GET_BUNDLE_WITH_ABILITIES to
-   * [bundle.getBundleInfo]{@link ./../@ohos.bundle:bundle.getBundleInfo(bundleName: string, bundleFlags: number, options?: BundleOptions)}
-   * .
+   * [bundle.getBundleInfo]{@link @ohos.bundle:bundle.getBundleInfo}.
    *
    * @default Obtains configuration information about an ability
    * @syscap SystemCapability.BundleManager.BundleFramework
@@ -227,8 +218,7 @@ export interface BundleInfo {
    * Permissions to request from the system for running the application.
    *
    * The value is obtained by passing in GET_BUNDLE_WITH_REQUESTED_PERMISSION to
-   * [bundle.getBundleInfo]{@link ./../@ohos.bundle:bundle.getBundleInfo(bundleName: string, bundleFlags: number, options?: BundleOptions)}
-   * .
+   * [bundle.getBundleInfo]{@link @ohos.bundle:bundle.getBundleInfo}.
    *
    * @default Indicates the required permissions name defined in file config.json
    * @syscap SystemCapability.BundleManager.BundleFramework
@@ -242,8 +232,7 @@ export interface BundleInfo {
    * Detailed information of the permissions to request from the system.
    *
    * The value is obtained by passing in GET_BUNDLE_WITH_REQUESTED_PERMISSION to
-   * [bundle.getBundleInfo]{@link ./../@ohos.bundle:bundle.getBundleInfo(bundleName: string, bundleFlags: number, options?: BundleOptions)}
-   * .
+   * [bundle.getBundleInfo]{@link @ohos.bundle:bundle.getBundleInfo}.
    *
    * @default Indicates the required permissions details defined in file config.json
    * @syscap SystemCapability.BundleManager.BundleFramework

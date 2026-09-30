@@ -14,19 +14,16 @@
  */
 
 /**
- * The module defines plugin information, which is obtained through the 
- * [bundleManager.getAllPluginInfo]{@link ./../@ohos.bundle.bundleManager:bundleManager.getAllPluginInfo} API.
- * 
- * > **NOTE**
- * >
- * > The APIs provided by this module are system APIs.
- *
- * @file
+ * @file PluginBundleInfo
  * @kit AbilityKit
  */
 
 /**
- * Defines the plugin information.
+ * Provides the plugin information, which is obtained by calling
+ * [pluginBundleManager.getAllLocalPluginInfoForSelf]{@link @ohos.bundle.pluginBundleManager:pluginBundleManager.getAllLocalPluginInfoForSelf}
+ * to obtain all plugin information installed by the current app through self-distribution. The information includes the
+ * plugin name, icon, version number, and module information, and is used to manage installed plugins and perform
+ * compatibility checks and updates based on the version number and module information.
  *
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @systemapi [since 19 - 24]
@@ -36,7 +33,8 @@
  */
 export interface PluginBundleInfo {
   /**
-   * Plugin name.
+   * Name of the plugin. Corresponds to the **label** field configured in
+   * [app.json5](docroot://quick-start/app-configuration-file.md#tags-in-the-configuration-file).
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi [since 19 - 24]
@@ -47,7 +45,8 @@ export interface PluginBundleInfo {
   readonly label: string;
 
   /**
-   * Resource ID of the plugin name.
+   * Resource ID of the plugin name. It is automatically generated during compilation and building based on the label
+   * configured for the plugin.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi [since 19 - 24]
@@ -58,7 +57,8 @@ export interface PluginBundleInfo {
   readonly labelId: long;
 
   /**
-   * Plugin icon.
+   * Icon of the plugin. Corresponds to the **icon** field configured in
+   * [app.json5](docroot://quick-start/app-configuration-file.md#tags-in-the-configuration-file).
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi [since 19 - 24]
@@ -69,7 +69,8 @@ export interface PluginBundleInfo {
   readonly icon: string;
 
   /**
-   * Resource ID of the plugin icon.
+   * Resource ID of the plugin icon. It is automatically generated during compilation and building based on the icon
+   * configured for the plugin.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi [since 19 - 24]
@@ -80,7 +81,8 @@ export interface PluginBundleInfo {
   readonly iconId: long;
 
   /**
-   * Bundle name of the application for which the plugin is installed.
+   * Bundle name of the application that installs the plugin. Corresponds to the **bundleName** field configured in
+   * [app.json5](docroot://quick-start/app-configuration-file.md#tags-in-the-configuration-file).
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi [since 19 - 24]
@@ -91,7 +93,8 @@ export interface PluginBundleInfo {
   readonly pluginBundleName: string;
 
   /**
-   * Version number of the plugin.
+   * Version code of the plugin. Corresponds to the **versionCode** field configured in
+   * [app.json5](docroot://quick-start/app-configuration-file.md#tags-in-the-configuration-file).
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi [since 19 - 24]
@@ -102,7 +105,8 @@ export interface PluginBundleInfo {
   readonly versionCode: long;
 
   /**
-   * Version name of the plugin.
+   * Version name of the plugin. Corresponds to the **versionName** field configured in
+   * [app.json5](docroot://quick-start/app-configuration-file.md#tags-in-the-configuration-file).
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi [since 19 - 24]
@@ -125,7 +129,7 @@ export interface PluginBundleInfo {
 }
 
 /**
- * Defines the module information of a plugin.
+ * Provides the module information of a plugin, which describes the name and function description of the plugin module.
  *
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @systemapi [since 19 - 24]
@@ -135,7 +139,8 @@ export interface PluginBundleInfo {
  */
 export interface PluginModuleInfo {
   /**
-   * Module name of the plugin.
+   * Name of the plugin module. It corresponds to the **name** field configured in the
+   * [module.json5 configuration file](docroot://quick-start/module-configuration-file.md#tags-in-the-configuration-file).
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi [since 19 - 24]
@@ -146,7 +151,8 @@ export interface PluginModuleInfo {
   readonly moduleName: string;
 
   /**
-   * Resource ID of the module description.
+   * Resource ID of the plugin module description. It is a resource ID automatically generated during compilation and
+   * building based on the **description** configured in the plugin configuration.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi [since 19 - 24]
@@ -157,7 +163,8 @@ export interface PluginModuleInfo {
   readonly descriptionId: long;
 
   /**
-   * Description of the module.
+   * Description of the plugin module. It corresponds to the **description** field configured in the
+   * [module.json5 configuration file](docroot://quick-start/module-configuration-file.md#tags-in-the-configuration-file).
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi [since 19 - 24]

@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file LauncherAbilityResourceInfo
  * @kit AbilityKit
  */
 
@@ -22,12 +22,8 @@ import { DrawableDescriptor } from './../@ohos.arkui.drawableDescriptor';
 
 /**
  * 应用配置的入口图标和名称信息，可以通过
- * [getLauncherAbilityResourceInfo]{@link ./../@ohos.bundle.bundleResourceManager:bundleResourceManager.getLauncherAbilityResourceInfo(bundleName: string, resourceFlags?: int)}
+ * [getLauncherAbilityResourceInfo]{@link @ohos.bundle.bundleResourceManager:bundleResourceManager.getLauncherAbilityResourceInfo}
  * 获取。
- * 
- * > **说明：**
- * >
- * > 本模块为系统接口。
  *
  * @syscap SystemCapability.BundleManager.BundleFramework.Resource
  * @systemapi
@@ -56,7 +52,7 @@ export interface LauncherAbilityResourceInfo {
   readonly moduleName: string;
 
   /**
-   * 应用的组件名称。
+   * 应用的Ability名称。
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi

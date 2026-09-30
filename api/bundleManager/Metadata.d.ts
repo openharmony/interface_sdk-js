@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -14,20 +14,16 @@
  */
 
 /**
- * @file
+ * @file Metadata
  * @kit AbilityKit
  */
 
 /**
- * The module defines a metadata object. An application can obtain the metadata through
- * [bundleManager.getBundleInfoForSelf]{@link ./../@ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)}
- * , with **GET_BUNDLE_INFO_WITH_METADATA** passed in for
- * [bundleFlags]{@link ./../@ohos.bundle.bundleManager:bundleManager.BundleFlag}. This object is contained in
- * [ApplicationInfo]{@link ApplicationInfo}, [HapModuleInfo]{@link HapModuleInfo}, [AbilityInfo]{@link AbilityInfo}, and
- * [ExtensionAbilityInfo]{@link ExtensionAbilityInfo:ExtensionAbilityInfo}.
- *
- * The module provides the configuration about the module, UIAbility, and ExtensionAbility. The value is of the array
- * type. The configuration is valid only for the current module, UIAbility, or ExtensionAbility.
+ * Represents a metadata object, which can be obtained through
+ * [bundleManager.getBundleInfoForSelf]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf}, where the
+ * **bundleFlags** parameter must contain at least GET_BUNDLE_INFO_WITH_METADATA. This object is included in
+ * [ApplicationInfo]{@link ./ApplicationInfo}, [HapModuleInfo]{@link ./HapModuleInfo},
+ * [AbilityInfo]{@link ./AbilityInfo}, and [ExtensionAbilityInfo]{@link ./ExtensionAbilityInfo:ExtensionAbilityInfo}.
  *
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @crossplatform [since 10]
@@ -37,7 +33,7 @@
  */
 export interface Metadata {
   /**
-   * Indicates the metadata name
+   * Metadata name.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform [since 10]
@@ -48,7 +44,7 @@ export interface Metadata {
   name: string;
 
   /**
-   * Indicates the metadata value
+   * Metadata value.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform [since 10]
@@ -59,7 +55,8 @@ export interface Metadata {
   value: string;
 
   /**
-   * Indicates the metadata resource
+   * Metadata resource descriptor. For example, $profile:config_file indicates that the config_file.json file is
+   * configured in the profile directory.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform [since 10]
@@ -70,7 +67,9 @@ export interface Metadata {
   resource: string;
 
   /**
-   * Indicates the value id of the metadata
+   * Metadata value ID. When valueId is not 0, the current metadata value is a custom configuration, and valueId must
+   * be used to obtain the corresponding value from the resource manager. When valueId is 0, the current metadata
+   * value is a fixed string.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice

@@ -14,16 +14,18 @@
  */
 
 /**
- * @file
+ *
+ * @file Distributed Bundle Management
  * @kit AbilityKit
  */
 
 import { AsyncCallback } from './@ohos.base';
 import { ElementName } from './bundle/elementName';
 import { RemoteAbilityInfo } from './bundle/remoteAbilityInfo';
+
 /**
  * # System Capability
- *
+ * 
  * SystemCapability.BundleManager.DistributedBundleFramework
  */
 /**
@@ -31,11 +33,11 @@ import { RemoteAbilityInfo } from './bundle/remoteAbilityInfo';
  *
  * > **NOTE**
  * >
- * > The APIs of this module have been deprecated since API version 9. You are advised to use
+ * > This module is no longer maintained since API version 9. You are advised to use
  * > [@ohos.bundle.distributedBundleManager]{@link @ohos.bundle.distributedBundleManager:distributedBundleManager}
  * > instead.
  * >
- * > The APIs provided by this module are system APIs.
+ * > This module is a system API.
  *
  * @syscap SystemCapability.BundleManager.DistributedBundleFramework
  * @systemapi Hide this for inner system use
@@ -106,5 +108,4 @@ declare namespace distributedBundle {
    */
   function getRemoteAbilityInfos(elementNames: Array<ElementName>): Promise<Array<RemoteAbilityInfo>>;
 }
-
 export default distributedBundle;

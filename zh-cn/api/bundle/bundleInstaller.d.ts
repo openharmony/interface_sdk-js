@@ -14,9 +14,8 @@
  */
 
 /**
- * The module provides APIs for you to install, uninstall, and recover bundles on devices.
  *
- * @file
+ * @file BundleInstaller
  * @kit AbilityKit
  */
 
@@ -34,7 +33,7 @@ import bundle from './../@ohos.bundle';
  */
 export interface InstallParam {
   /**
-   * 指示用户id, 默认值：调用方的userId。
+   * 指示用户id，默认值：调用方的userId。
    *
    * @default Indicates the user id
    * @syscap SystemCapability.BundleManager.BundleFramework
@@ -46,7 +45,7 @@ export interface InstallParam {
   userId: number;
 
   /**
-   * 指示安装标志, 默认值：1。 </br>取值范围：</br>1: 覆盖安装。</br>16: 免安装。
+   * 指示安装标志，默认值：1。 </br>取值范围：</br>1: 覆盖安装。</br>16: 免安装。
    *
    * @default Indicates the install flag
    * @syscap SystemCapability.BundleManager.BundleFramework
@@ -97,9 +96,9 @@ export interface InstallStatus {
    * "STATUS_INSTALL_FAILURE_INVALID": 安装参数无效。 </br> "STATUS_INSTALL_FAILURE_CONFLICT":  安装冲突（常见于升级和已有应用基本信息不一致）。 </br> 
    * "STATUS_INSTALL_FAILURE_STORAGE": 存储包信息失败。 </br> "STATUS_INSTALL_FAILURE_INCOMPATIBLE": 安装不兼容（常见于版本降级安装或者签名信息错误）。 <
    * /br> "STATUS_UNINSTALL_FAILURE": 卸载失败（不存在卸载的应用）。 </br> "STATUS_UNINSTALL_FAILURE_ABORTED": 卸载中止（没有使用）。 </br> "
-   * STATUS_UNINSTALL_FAILURE_ABORTED": 卸载冲突（卸载系统应用失败， 结束应用进程失败）。 </br> "STATUS_INSTALL_FAILURE_DOWNLOAD_TIMEOUT": 安装失败（
-   * 下载超时）。</br> "STATUS_INSTALL_FAILURE_DOWNLOAD_FAILED": 安装失败（下载失败）。 </br> "STATUS_RECOVER_FAILURE_INVALID": 恢复预置应用失败。
-   * </br> "STATUS_ABILITY_NOT_FOUND": Ability未找到。</br> "STATUS_BMS_SERVICE_ERROR": BMS服务错误。 </br> "
+   * STATUS_UNINSTALL_FAILURE_CONFLICT": 卸载冲突（卸载系统应用失败， 结束应用进程失败）。 </br> "STATUS_INSTALL_FAILURE_DOWNLOAD_TIMEOUT": 安装失败
+   * （下载超时）。</br> "STATUS_INSTALL_FAILURE_DOWNLOAD_FAILED": 安装失败（下载失败）。 </br> "STATUS_RECOVER_FAILURE_INVALID": 恢复预置应用失
+   * 败。 </br> "STATUS_ABILITY_NOT_FOUND": Ability未找到。</br> "STATUS_BMS_SERVICE_ERROR": BMS服务错误。 </br> "
    * STATUS_FAILED_NO_SPACE_LEFT": 设备空间不足。</br> "STATUS_GRANT_REQUEST_PERMISSIONS_FAILED": 应用授权失败。 </br> "
    * STATUS_INSTALL_PERMISSION_DENIED": 缺少安装权限。 </br> "STATUS_UNINSTALL_PERMISSION_DENIED": 缺少卸载权限。
    *
@@ -114,6 +113,10 @@ export interface InstallStatus {
 
 /**
  * 本模块提供设备上安装、升级和卸载应用的能力。
+ * 
+ * > **说明：**
+ * >
+ * > 从API version 9开始，该模块不再维护，
  *
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @systemapi Hide this for inner system use
@@ -126,10 +129,10 @@ export interface BundleInstaller {
    * 在应用中安装hap，支持多hap安装。使用callback异步回调。
    *
    * @permission ohos.permission.INSTALL_BUNDLE
-   * @param { Array<string> } bundleFilePaths - 指示存储HAP的沙箱路径。
+   * @param { Array<string> } bundleFilePaths - 指示存储HAP的沙箱路径。沙箱路径的获取方法参见
+   *     [获取应用的沙箱路径](docroot://reference/apis-ability-kit/js-apis-bundle-BundleInstaller-sys.md#获取应用的沙箱路径)。
    * @param { InstallParam } param - 指定安装所需的其他参数。
-   * @param { AsyncCallback<InstallStatus> } callback - [回调函数]{@link @ohos.base:AsyncCallback}，程序
-   *   启动作为入参的回调函数，返回安装状态信息。
+   * @param { AsyncCallback<InstallStatus> } callback - 程序启动作为入参的回调函数，返回安装状态信息。
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
    * @since 7 dynamiconly
@@ -144,8 +147,7 @@ export interface BundleInstaller {
    * @permission ohos.permission.INSTALL_BUNDLE
    * @param { string } bundleName - 应用Bundle名称。
    * @param { InstallParam } param - 指定卸载所需的其他参数。
-   * @param { AsyncCallback<InstallStatus> } callback - [回调函数]{@link @ohos.base:AsyncCallback}，程序
-   *   启动作为入参的回调函数，返回安装状态信息。
+   * @param { AsyncCallback<InstallStatus> } callback - 程序启动作为入参的回调函数，返回安装状态信息。
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
    * @since 7 dynamiconly
@@ -160,8 +162,7 @@ export interface BundleInstaller {
    * @permission ohos.permission.INSTALL_BUNDLE
    * @param { string } bundleName - 应用Bundle名称。
    * @param { InstallParam } param - 指定应用恢复所需的其他参数。
-   * @param { AsyncCallback<InstallStatus> } callback - [回调函数]{@link @ohos.base:AsyncCallback}，程序
-   *   启动作为入参的回调函数，返回安装状态信息。
+   * @param { AsyncCallback<InstallStatus> } callback - 程序启动作为入参的回调函数，返回应用恢复状态信息。
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
    * @since 8 dynamiconly

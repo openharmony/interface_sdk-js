@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file LauncherAbilityResourceInfo
  * @kit AbilityKit
  */
 
@@ -23,12 +23,7 @@ import { DrawableDescriptor } from './../@ohos.arkui.drawableDescriptor';
 /**
  * The module provides resource information of the entry ability of an application, such as the icon and label. The
  * information can be obtained by calling
- * [getLauncherAbilityResourceInfo]{@link ./../@ohos.bundle.bundleResourceManager:bundleResourceManager.getLauncherAbilityResourceInfo(bundleName: string, resourceFlags?: int)}
- * .
- *
- * > **NOTE**
- * >
- * > The APIs provided by this module are system APIs.
+ * [getLauncherAbilityResourceInfo]{@link @ohos.bundle.bundleResourceManager:bundleResourceManager.getLauncherAbilityResourceInfo}.
  *
  * @syscap SystemCapability.BundleManager.BundleFramework.Resource
  * @systemapi
@@ -57,7 +52,7 @@ export interface LauncherAbilityResourceInfo {
   readonly moduleName: string;
 
   /**
-   * Name of the entry ability.
+   * Name of the ability of the application.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi

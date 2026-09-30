@@ -14,13 +14,8 @@
  */
 
 /**
- * The module provides APIs for setting and obtaining installation-free information and APIs for obtaining 
- * BundlePackInfo and DispatchInfo.
- * 
- * > **NOTE**
- * >
- * > The APIs provided by this module are system APIs.
- * @file
+ *
+ * @file freeInstall模块
  * @kit AbilityKit
  */
 
@@ -29,17 +24,17 @@ import { DispatchInfo as _DispatchInfo } from './bundleManager/DispatchInfo';
 /*** if arkts dynamic */
 import * as _PackInfo from './bundleManager/BundlePackInfo';
 /*** endif */
-import { BundlePackInfo as _BundlePackInfo, PackageConfig as _PackageConfig, PackageSummary as _PackageSummary,
-  BundleConfigInfo as _BundleConfigInfo, ExtensionAbility as _ExtensionAbility, ModuleConfigInfo as _ModuleConfigInfo,
-  ModuleDistroInfo as _ModuleDistroInfo, ModuleAbilityInfo as _ModuleAbilityInfo, AbilityFormInfo as _AbilityFormInfo,
-  Version as _Version, ApiVersion as _ApiVersion } from './bundleManager/BundlePackInfo';
+/*** if arkts static */
+import {
+    BundlePackInfo as _BundlePackInfo, PackageConfig as _PackageConfig, PackageSummary as _PackageSummary,
+    BundleConfigInfo as _BundleConfigInfo, ExtensionAbility as _ExtensionAbility, ModuleConfigInfo as _ModuleConfigInfo,
+    ModuleDistroInfo as _ModuleDistroInfo, ModuleAbilityInfo as _ModuleAbilityInfo, AbilityFormInfo as _AbilityFormInfo,
+    Version as _Version, ApiVersion as _ApiVersion
+} from './bundleManager/BundlePackInfo';
+/*** endif */
 
 /**
  * 本模块提供免安装相关的设置和查询能力，支持BundlePackInfo、DispatchInfo等信息的查询。
- * 
- * > **说明：**
- * >
- * > 本模块为系统接口。
  *
  * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
  * @systemapi
@@ -48,7 +43,11 @@ import { BundlePackInfo as _BundlePackInfo, PackageConfig as _PackageConfig, Pac
  */
 declare namespace freeInstall {
   /**
-   * 仅供内部系统使用标志位
+   * 应用模块升级策略的标志。
+   * 
+   * > **说明：**
+   * >
+   * > 不支持组合使用，如：let flag = UpgradeFlag.NOT_UPGRADE | UpgradeFlag.SINGLE_UPGRADE，只支持单个枚举类型传入。
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
@@ -86,7 +85,11 @@ declare namespace freeInstall {
   }
 
   /**
-   * 要查询的应用包标志
+   * 应用包pack.info的信息标志。
+   * 
+   * > **说明：**
+   * >
+   * > 不支持组合使用，如：let flag = BundlePackFlag.GET_PACKAGES | BundlePackFlag.GET_BUNDLE_SUMMARY，只支持单个枚举类型传入。
    *
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi
@@ -138,8 +141,9 @@ declare namespace freeInstall {
    * @permission ohos.permission.INSTALL_BUNDLE
    * @param { string } bundleName - 应用Bundle名称。
    * @param { string } moduleName - 应用程序模块名称。
-   * @param { UpgradeFlag } upgradeFlag - 仅供内部系统使用标志位。
-   * @param { AsyncCallback<void> } callback - [回调函数]{@link @ohos.base:AsyncCallback}。当函数调用成功，err为undefined，否则为错误对象。
+   * @param { UpgradeFlag } upgradeFlag - 设置模块升级策略的标志位。
+   * @param { AsyncCallback<void> } callback - [AsyncCallback]{@link @ohos.base:AsyncCallback}。当函数调用成功，err为undefined，否则为
+   *     错误对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
@@ -161,7 +165,7 @@ declare namespace freeInstall {
    * @permission ohos.permission.INSTALL_BUNDLE
    * @param { string } bundleName - 应用Bundle名称。
    * @param { string } moduleName - 应用程序模块名称。
-   * @param { UpgradeFlag } upgradeFlag - 仅供内部系统使用标志位。
+   * @param { UpgradeFlag } upgradeFlag - 设置模块升级策略的标志位。
    * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -183,8 +187,8 @@ declare namespace freeInstall {
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName - 应用Bundle名称。
    * @param { string } moduleName - 应用程序模块名称。
-   * @param { AsyncCallback<boolean> } callback - [回调函数]{@link @ohos.base:AsyncCallback}。当获取成功时，err为undefined，data为bool值
-   *     ，true表示可以移除；false表示不可移除；否则为错误对象。
+   * @param { AsyncCallback<boolean> } callback - [AsyncCallback]{@link @ohos.base:AsyncCallback}。当获取成功时，err为undefined，
+   *     data为bool值，true表示可以移除；false表示不可移除；否则为错误对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
@@ -226,8 +230,8 @@ declare namespace freeInstall {
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName - 应用Bundle名称。
    * @param { BundlePackFlag } bundlePackFlag - 指示要查询的应用包标志。
-   * @param { AsyncCallback<BundlePackInfo> } callback - [回调函数]{@link @ohos.base:AsyncCallback}。当函数调用成功，err为undefined，
-   *     data为获取到的BundlePackInfo信息。否则为错误对象。
+   * @param { AsyncCallback<BundlePackInfo> } callback - [AsyncCallback]{@link @ohos.base:AsyncCallback}。当函数调用成功，err为
+   *     undefined，data为获取到的BundlePackInfo信息。否则为错误对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
@@ -266,8 +270,8 @@ declare namespace freeInstall {
    * 获取有关dispatch版本的信息。使用callback异步回调。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { AsyncCallback<DispatchInfo> } callback - [回调函数]{@link @ohos.base:AsyncCallback}。当函数调用成功，err为undefined，data
-   *     为获取到的[DispatchInfo]{@link ./bundleManager/DispatchInfo:DispatchInfo}信息。否则为错误对象。
+   * @param { AsyncCallback<DispatchInfo> } callback - [AsyncCallback]{@link @ohos.base:AsyncCallback}。当函数调用成功，err为
+   *     undefined，data为获取到的[DispatchInfo]{@link ./bundleManager/DispatchInfo:DispatchInfo}信息。否则为错误对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 801 - Capability not supported.

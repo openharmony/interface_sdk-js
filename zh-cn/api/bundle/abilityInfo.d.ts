@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file AbilityInfo
  * @kit AbilityKit
  */
 
@@ -23,17 +23,16 @@ import { CustomizeData } from './customizeData';
 import bundle from './../@ohos.bundle';
 
 /**
- * Ability信息，未做特殊说明的属性，均通过
- * [bundle.getAbilityInfo]{@link ./../@ohos.bundle:bundle.getAbilityInfo(bundleName: string, abilityName: string)}获取。
+ * Ability信息，未做特殊说明的属性，均通过[bundle.getAbilityInfo]{@link @ohos.bundle:bundle.getAbilityInfo}获取。
  * 
  * > **说明：**
  * >
- * > 从API version 9开始，该模块不再维护，建议使用[bundleManager-AbilityInfo]{@link abilityInfo:AbilityInfo}替代。
+ * > 从API version 9开始，该模块不再维护。
  *
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @since 7 dynamiconly
  * @deprecated since 9
- * @useinstead abilityInfo:AbilityInfo
+ * @useinstead AbilityInfo
  */
 export interface AbilityInfo {
   /**
@@ -247,8 +246,7 @@ export interface AbilityInfo {
   /**
    * 被其他应用Ability调用时需要申请的权限集合。
    * 
-   * 通过调用[bundle.getAbilityInfo]{@link ./../@ohos.bundle:bundle.getAbilityInfo(bundleName: string, abilityName: string)}
-   * 接口时，传入GET_ABILITY_INFO_WITH_PERMISSION获取。
+   * 通过调用[bundle.getAbilityInfo]{@link @ohos.bundle:bundle.getAbilityInfo}接口时，传入GET_ABILITY_INFO_WITH_PERMISSION获取。
    *
    * @default The permissions that others need to launch this ability
    * @syscap SystemCapability.BundleManager.BundleFramework
@@ -308,8 +306,7 @@ export interface AbilityInfo {
   /**
    * 应用程序的配置信息。
    * 
-   * 通过调用[bundle.getAbilityInfo]{@link ./../@ohos.bundle:bundle.getAbilityInfo(bundleName: string, abilityName: string)}
-   * 接口时，传入GET_ABILITY_INFO_WITH_APPLICATION获取。
+   * 通过调用[bundle.getAbilityInfo]{@link @ohos.bundle:bundle.getAbilityInfo}接口时，传入GET_ABILITY_INFO_WITH_APPLICATION获取。
    *
    * @default Obtains configuration information about an application
    * @syscap SystemCapability.BundleManager.BundleFramework
@@ -335,8 +332,7 @@ export interface AbilityInfo {
   /**
    * Ability的元信息。
    * 
-   * 通过调用[bundle.getAbilityInfo]{@link ./../@ohos.bundle:bundle.getAbilityInfo(bundleName: string, abilityName: string)}
-   * 接口时，传入GET_ABILITY_INFO_WITH_METADATA获取。
+   * 通过调用[bundle.getAbilityInfo]{@link @ohos.bundle:bundle.getAbilityInfo}接口时，传入GET_ABILITY_INFO_WITH_METADATA获取。
    *
    * @default Indicates the metadata of ability
    * @syscap SystemCapability.BundleManager.BundleFramework

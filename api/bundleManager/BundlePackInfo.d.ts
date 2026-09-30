@@ -14,20 +14,13 @@
  */
 
 /**
- * The module provides information in the **pack.info** file. The information can be obtained using 
- * [freeInstall.getBundlePackInfo]{@link ./../@ohos.bundle.freeInstall:freeInstall.getBundlePackInfo(bundleName: string,  bundlePackFlag : BundlePackFlag, callback: AsyncCallback<BundlePackInfo>)}
- * .
- * 
- * > **NOTE**
- * >
- * > The APIs provided by this module are system APIs.
- *
- * @file
+ * @file BundlePackInfo
  * @kit AbilityKit
  */
 
 /**
- * The bundle pack info class.
+ * The module provides information in the **pack.info** file. The information can be obtained using
+ * [freeInstall.getBundlePackInfo]{@link @ohos.bundle.freeInstall:freeInstall.getBundlePackInfo}.
  *
  * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
  * @systemapi
@@ -409,7 +402,9 @@ export interface AbilityFormInfo {
   readonly updateEnabled: boolean;
 
   /**
-   * Scheduled time to update the widget. The value is in 24-hour format and accurate to the minute.
+   * Indicates the time for scheduled refresh of the card, in 24-hour format and accurate to the minute. This parameter
+   * and the periodic refresh parameter are mutually exclusive. If both are configured, the scheduled refresh takes
+   * precedence.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
@@ -419,9 +414,9 @@ export interface AbilityFormInfo {
   readonly scheduledUpdateTime: string;
 
   /**
-   * Interval to update the widget. The unit is 30 minutes. The value is a multiple of 30. A widget can be updated at a
-   * specified interval (**updateDuration**) or at the scheduled time (**scheduledUpdateTime**). If both are configured,
-   * **updateDuration** takes precedence.
+   * Indicates the update frequency for periodic refresh of the card, in minutes. The value must be a multiple of 30.
+   * The maximum refresh frequency of the card is once every 30 minutes. This parameter and the scheduled refresh
+   * parameter are mutually exclusive. If both are configured, the scheduled refresh takes precedence.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi

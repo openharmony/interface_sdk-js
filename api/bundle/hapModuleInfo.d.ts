@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file HapModuleInfo
  * @kit AbilityKit
  */
 
@@ -22,19 +22,17 @@ import { AbilityInfo } from './abilityInfo';
 
 /**
  * The HapModuleInfo module provides information about an HAP module. Unless otherwise specified, the information is
- * obtained through
- * [bundle.getBundleInfo]{@link ./../@ohos.bundle:bundle.getBundleInfo(bundleName: string, bundleFlags: number, options?: BundleOptions)}
- * .
+ * obtained through [bundle.getBundleInfo]{@link @ohos.bundle:bundle.getBundleInfo}.
  *
  * > **NOTE**
  * >
- * > The APIs of this module have been deprecated since API version 9. You are advised to use
- * > [bundleManager-HapModuleInfo]{@link hapModuleInfo:HapModuleInfo} instead.
+ * > This module is no longer maintained since API version 9. You are advised to use
+ * > [bundleManager-HapModuleInfo]{@link HapModuleInfo} instead.
  *
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @since 7 dynamiconly
  * @deprecated since 9
- * @useinstead hapModuleInfo:HapModuleInfo
+ * @useinstead HapModuleInfo
  */
 export interface HapModuleInfo {
   /**

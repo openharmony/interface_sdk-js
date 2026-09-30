@@ -25,10 +25,9 @@ import { Skill } from './Skill';
 
 /**
  * The module defines the ExtensionAbility information. An application can obtain its own ExtensionAbility information
- * through
- * [bundleManager.getBundleInfoForSelf]{@link ./../@ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)}
- * , with **GET_BUNDLE_INFO_WITH_HAP_MODULE** and **GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY** passed in to
- * [bundleFlags]{@link ./../@ohos.bundle.bundleManager:bundleManager.BundleFlag}.
+ * through [bundleManager.getBundleInfoForSelf]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf},
+ * with **GET_BUNDLE_INFO_WITH_HAP_MODULE** and **GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY** passed in to
+ * [bundleFlags]{@link @ohos.bundle.bundleManager:bundleManager.BundleFlag}.
  *
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @atomicservice [since 11]
@@ -118,8 +117,7 @@ export interface ExtensionAbilityInfo {
 
   /**
    * Type of the ExtensionAbility. For details about available values, see
-   * [the type field under the extensionabilities tag](docroot://quick-start/module-configuration-file.md#extensionabilities)
-   * .
+   * [the type field under the extensionabilities tag](docroot://quick-start/module-configuration-file.md#extensionabilities).
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
@@ -141,15 +139,14 @@ export interface ExtensionAbilityInfo {
   /**
    * Application configuration information <!--Del-->. The information can be obtained by passing in
    * **GET_EXTENSION_ABILITY_INFO_WITH_APPLICATION** to the **extensionAbilityFlags** parameter of
-   * [queryExtensionAbilityInfo]{@link ./../@ohos.bundle.bundleManager:bundleManager.queryExtensionAbilityInfo(want: Want, extensionAbilityType: ExtensionAbilityType, extensionAbilityFlags: int, userId: int, callback: AsyncCallback<Array<ExtensionAbilityInfo>>)}
-   * <!--DelEnd-->.
+   * [queryExtensionAbilityInfo]{@link @ohos.bundle.bundleManager:bundleManager.queryExtensionAbilityInfo} <!--DelEnd-->
+   * .
    *
    * This field is not returned when the
-   * [getBundleInfoForSelf]{@link ./../@ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)}
-   * or
-   * [getBundleInfo]{@link ./../@ohos.bundle.bundleManager:bundleManager.getBundleInfo(bundleName: string, bundleFlags: int, userId: int, callback: AsyncCallback<BundleInfo>)}
-   * is used to obtain ExtensionAbilityInfo information. You can obtain the related information by obtaining the
-   * [bundleInfo]{@link BundleInfo:BundleInfo}.appInfo object.
+   * [getBundleInfoForSelf]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf} or
+   * [getBundleInfo]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfo} is used to obtain
+   * ExtensionAbilityInfo information. You can obtain the related information by obtaining the
+   * [bundleInfo]{@link ./BundleInfo:BundleInfo}.appInfo object.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice [since 11]
@@ -166,10 +163,10 @@ export interface ExtensionAbilityInfo {
   readonly applicationInfo: ApplicationInfo | null;
 
   /**
-   * Metadata of the ExtensionAbility. The information can be obtained by passing in **GET_BUNDLE_INFO_WITH_HAP_MODULE**
-   * , **GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY**, and **GET_BUNDLE_INFO_WITH_METADATA** to the **bundleFlags**
-   * parameter of
-   * [getBundleInfoForSelf]{@link ./../@ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)}.
+   * Metadata of the ExtensionAbility. The information can be obtained by passing in
+   * **GET_BUNDLE_INFO_WITH_HAP_MODULE**, **GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY**, and
+   * **GET_BUNDLE_INFO_WITH_METADATA** to the **bundleFlags** parameter of
+   * [getBundleInfoForSelf]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf}.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice [since 11]

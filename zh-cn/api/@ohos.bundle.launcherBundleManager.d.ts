@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file launcherBundleManager模块
  * @kit AbilityKit
  */
 
@@ -24,8 +24,8 @@ import { ShortcutInfo as _ShortcutInfo, ShortcutWant as _ShortcutWant, Parameter
 import StartOptions from './@ohos.app.ability.StartOptions';
 
 /**
- * 本模块支持launcher应用（桌面有图标的应用）所需的查询能力，支持
- * [LauncherAbilityInfo]{@link ./bundleManager/LauncherAbilityInfo:LauncherAbilityInfo}信息的查询。
+ * 本模块支持launcher应用（桌面有图标的应用）所需的查询能力，支持[LauncherAbilityInfo]{@link ./bundleManager/launcherAbilityInfo:LauncherAbilityInfo}、
+ * [ShortcutInfo]{@link ./bundleManager/shortcutInfo}信息的查询。
  *
  * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
  * @since 9 dynamic
@@ -33,17 +33,16 @@ import StartOptions from './@ohos.app.ability.StartOptions';
  */
 declare namespace launcherBundleManager {
   /**
-   * 查询指定bundleName及用户的[LauncherAbilityInfo]{@link ./bundleManager/LauncherAbilityInfo:LauncherAbilityInfo}。使用callback异步
-   * 回调。
+   * 查询指定bundleName及用户的[LauncherAbilityInfo]{@link ./bundleManager/launcherAbilityInfo:LauncherAbilityInfo}。使用callback异步回调。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName - 应用Bundle名称。
    * @param { int } userId - 被查询的用户ID，可以通过
-   *     [getOsAccountLocalId接口]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
    *     获取。
-   * @param { AsyncCallback<Array<LauncherAbilityInfo>> } callback - [回调函数]{@link @ohos.base:AsyncCallback}。当函数调用成功，err为
-   *     undefined，data为bundle包含的[LauncherAbilityInfo]{@link ./bundleManager/LauncherAbilityInfo:LauncherAbilityInfo}信息。
-   *     否则为错误对象。
+   * @param { AsyncCallback<Array<LauncherAbilityInfo>> } callback - [AsyncCallback]{@link @ohos.base:AsyncCallback}。当函数
+   *     调用成功，err为undefined，data为bundle包含的[LauncherAbilityInfo]{@link ./bundleManager/launcherAbilityInfo:LauncherAbilityInfo}信
+   *     息。否则为错误对象。
    * @throws { BusinessError } 201 - Verify permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
@@ -59,13 +58,12 @@ declare namespace launcherBundleManager {
   function getLauncherAbilityInfo(bundleName: string, userId: int, callback: AsyncCallback<Array<LauncherAbilityInfo>>) : void;
 
   /**
-   * 查询指定bundleName及用户的[LauncherAbilityInfo]{@link ./bundleManager/LauncherAbilityInfo:LauncherAbilityInfo}。使用Promise异步回
-   * 调。
+   * 查询指定bundleName及用户的[LauncherAbilityInfo]{@link ./bundleManager/launcherAbilityInfo:LauncherAbilityInfo}。使用Promise异步回调。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName - 应用Bundle名称。
    * @param { int } userId - 被查询的用户ID，可以通过
-   *     [getOsAccountLocalId接口]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
    *     获取。
    * @returns { Promise<Array<LauncherAbilityInfo>> } Promise对象。返回bundle包含的
    *     [LauncherAbilityInfo]{@link ./bundleManager/LauncherAbilityInfo:LauncherAbilityInfo}信息。
@@ -89,8 +87,8 @@ declare namespace launcherBundleManager {
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName - 应用Bundle名称。
    * @param { int } userId - 被查询的用户ID，可以通过
-   *     [getOsAccountLocalId接口]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
-   *     获取。
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
+   *     接口获取。
    * @returns { Array<LauncherAbilityInfo> } Array形式返回bundle包含的
    *     [LauncherAbilityInfo]{@link ./bundleManager/LauncherAbilityInfo:LauncherAbilityInfo}信息。
    * @throws { BusinessError } 201 - Verify permission denied.
@@ -108,11 +106,11 @@ declare namespace launcherBundleManager {
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { int } userId - 被查询的用户ID，可以通过
-   *     [getOsAccountLocalId接口]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
    *     获取。
-   * @param { AsyncCallback<Array<LauncherAbilityInfo>> } callback - [回调函数]{@link @ohos.base:AsyncCallback}。当函数调用成功，err为
-   *     undefined，data为指定用户下所有应用的[LauncherAbilityInfo]{@link ./bundleManager/LauncherAbilityInfo:LauncherAbilityInfo}信息
-   *     。否则为错误对象。
+   * @param { AsyncCallback<Array<LauncherAbilityInfo>> } callback - [AsyncCallback]{@link @ohos.base:AsyncCallback}。当函数
+   *     调用成功，err为undefined，data为指定用户下所有应用的[LauncherAbilityInfo]{@link ./bundleManager/launcherAbilityInfo:LauncherAbilityInfo}
+   *     信息。否则为错误对象。
    * @throws { BusinessError } 201 - Verify permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
@@ -131,7 +129,7 @@ declare namespace launcherBundleManager {
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { int } userId - 被查询的用户ID，可以通过
-   *     [getOsAccountLocalId接口]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
    *     获取。
    * @returns { Promise<Array<LauncherAbilityInfo>> } Promise对象。返回指定用户下所有应用的
    *     [LauncherAbilityInfo]{@link ./bundleManager/LauncherAbilityInfo:LauncherAbilityInfo}。
@@ -156,8 +154,8 @@ declare namespace launcherBundleManager {
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - 应用Bundle名称。
-   * @param { AsyncCallback<Array<ShortcutInfo>> } callback - [回调函数]{@link @ohos.base:AsyncCallback}。当函数调用成功，err为
-   *     undefined，data为当前用户下指定应用的[ShortcutInfo]{@link ./bundleManager/ShortcutInfo}信息。否则为错误对象。
+   * @param { AsyncCallback<Array<ShortcutInfo>> } callback - [AsyncCallback]{@link @ohos.base:AsyncCallback}。当函数调用成功，
+   *     err为undefined，data为当前用户下指定应用的[ShortcutInfo]{@link ./bundleManager/shortcutInfo}信息。否则为错误对象。
    * @throws { BusinessError } 201 - Verify permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
@@ -227,7 +225,7 @@ declare namespace launcherBundleManager {
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - 应用Bundle名称。
    * @param { int } userId - 表示用户ID，可以通过
-   *     [getOsAccountLocalId接口]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
    *     获取。
    * @returns { Array<ShortcutInfo> } Array形式返回指定用户下指定应用的[ShortcutInfo]{@link ./bundleManager/ShortcutInfo}。
    * @throws { BusinessError } 201 - Verify permission denied.
@@ -294,9 +292,9 @@ declare namespace launcherBundleManager {
    *
    * @permission ohos.permission.START_SHORTCUT and ohos.permission.SET_LAUNCH_REASON_MESSAGE
    * @param { ShortcutInfo } shortcutInfo - 应用的快捷方式信息。
-   * @param { string } startReason - 快捷方式的启动原因，取值包括：
-   *     [AbilityConstant.REASON_MESSAGE_DESKTOP_SHORTCUT](docroot://reference/apis-ability-kit/js-apis-app-ability-abilityConstant.md#常量)
-   *     ，表示桌面快捷方式启动。
+   * @param { string } startReason - 快捷方式的启动原因，取值范围：
+   *     [AbilityConstant.REASON_MESSAGE_DESKTOP_SHORTCUT](docroot://reference/apis-ability-kit/js-apis-app-ability-abilityConstant.md#常量)，
+   *     表示桌面快捷方式启动。
    * @param { StartOptions } [options] - 启动Ability所携带的参数，用于指定目标Ability的窗口模式。
    * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Verify permission denied.
@@ -311,7 +309,8 @@ declare namespace launcherBundleManager {
   function startShortcutWithReason(shortcutInfo: ShortcutInfo, startReason: string, options?: StartOptions): Promise<void>;
 
   /**
-   * LauncherAbilityInfo信息。
+   * 桌面应用Ability的基础信息，包含应用标识、图标、名称等核心属性。详细信息请参见
+   * [LauncherAbilityInfo]{@link ./bundleManager/launcherAbilityInfo:LauncherAbilityInfo}。
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @since 18 dynamic

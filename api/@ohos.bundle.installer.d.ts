@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file installer Module
  * @kit AbilityKit
  */
 
@@ -25,7 +25,7 @@ import { AsyncCallback } from './@ohos.base';
  *
  * > **NOTE**
  * >
- * > The APIs provided by this module are system APIs.
+ * > The APIs of this module are system APIs.
  *
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @systemapi
@@ -36,9 +36,9 @@ declare namespace installer {
   /**
    * Obtains a BundleInstaller object. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<BundleInstaller> } callback - [Callback]{@link @ohos.base:AsyncCallback} used to return the
-   *     result. If the operation is successful, **err** is **null** and **data** is the BundleInstaller object obtained
-   *     ; otherwise, **err** is an error object.
+   * @param { AsyncCallback<BundleInstaller> } callback - [AsyncCallback]{@link @ohos.base:AsyncCallback}, used to
+   *     obtain the BundleInstaller object. If err is undefined, data is the obtained BundleInstaller object; otherwise,
+   *     err is an error object.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -61,7 +61,8 @@ declare namespace installer {
   function getBundleInstaller(): Promise<BundleInstaller>;
 
   /**
-   * Obtains a BundleInstaller object. This API is a synchronous API.
+   * Obtains and returns a BundleInstaller object. The API may return null when the call fails, so verify the return
+   * value before use.
    *
    * @returns { BundleInstaller } BundleInstaller object.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -82,12 +83,13 @@ declare namespace installer {
    */
   interface BundleInstaller {
     /**
-     * Installs an application. This API uses an asynchronous callback to return the result.
+     * Installs a specified app. This API uses an asynchronous callback to return the result. Since API version 26.0.0,
+     * installing an APP package is supported.
      *
      * > **NOTE**
      * >
-     * > To install applications of different distribution types, the appropriate permissions must be requested. For
-     * > details on distribution types, see the **appDistributionType** field in
+     * > To install apps of different distribution types, you need to apply for the corresponding permissions. For
+     * > details about the distribution types, see the description of the appDistributionType field in
      * > [ApplicationInfo]{@link ./bundleManager/ApplicationInfo:ApplicationInfo}.
      *
      * @permission ohos.permission.INSTALL_BUNDLE [since 9 - 9]
@@ -106,12 +108,14 @@ declare namespace installer {
      *     or ohos.permission.INSTALL_INTERNALTESTING_BUNDLE
      *     or (ohos.permission.INSTALL_BUNDLE and ohos.permission.INSTALL_ALLOW_DOWNGRADE) 
      *     or ohos.permission.INSTALL_DEVELOPER_ID_BUNDLE [since 26.0.1]
-     * @param { Array<string> } hapFilePaths - Paths where the HAP files of the bundle are stored, which are the data
-     *     directories. If only one directory is passed, the HAP files in the directory must belong to the same bundle
-     *     and have the same signature.
+     * @param { Array<string> } hapFilePaths - Path for storing the application package. The path should be the data
+     *     directory where the HAP or APP of the current app is stored. When the path is a directory, the directory can
+     *     contain only the HAPs of the same app or one APP. The signatures of the HAPs of the same app must be
+     *     consistent.
      * @param { InstallParam } installParam - Parameters required for the installation.
-     * @param { AsyncCallback<void> } callback - [Callback]{@link @ohos.base:AsyncCallback} used to return the result.
-     *     If the operation is successful, **err** is **null**; otherwise, **err** is an error object.
+     * @param { AsyncCallback<void> } callback - [AsyncCallback]{@link @ohos.base:AsyncCallback} used to return the
+     *     result. If the app is installed successfully, **err** is **undefined**; otherwise, **err** is an error
+     *     object.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or '
      *     ohos.permission.INSTALL_ENTERPRISE_BUNDLE' or
      *     'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'
@@ -168,12 +172,13 @@ declare namespace installer {
     install(hapFilePaths: Array<string>, installParam: InstallParam, callback: AsyncCallback<void>): void;
 
     /**
-     * Installs an application. This API uses an asynchronous callback to return the result.
+     * Installs a specified app. This API uses an asynchronous callback to return the result. Since API version 26.0.0,
+     * installing an APP package is supported.
      *
      * > **NOTE**
      * >
-     * > To install applications of different distribution types, the appropriate permissions must be requested. For
-     * > details on distribution types, see the **appDistributionType** field in
+     * > To install apps of different distribution types, you need to apply for the corresponding permissions. For
+     * > details about the distribution types, see the description of the appDistributionType field in
      * > [ApplicationInfo]{@link ./bundleManager/ApplicationInfo:ApplicationInfo}.
      *
      * @permission ohos.permission.INSTALL_BUNDLE [since 9 - 9]
@@ -192,11 +197,13 @@ declare namespace installer {
      *     or ohos.permission.INSTALL_INTERNALTESTING_BUNDLE
      *     or (ohos.permission.INSTALL_BUNDLE and ohos.permission.INSTALL_ALLOW_DOWNGRADE) 
      *     or ohos.permission.INSTALL_DEVELOPER_ID_BUNDLE [since 26.0.1]
-     * @param { Array<string> } hapFilePaths - Paths where the HAP files of the bundle are stored, which are the data
-     *     directories. If only one directory is passed, the HAP files in the directory must belong to the same bundle
-     *     and have the same signature.
-     * @param { AsyncCallback<void> } callback - [Callback]{@link @ohos.base:AsyncCallback} used to return the result.
-     *     If the operation is successful, **err** is **null**; otherwise, **err** is an error object.
+     * @param { Array<string> } hapFilePaths - Paths for storing the application packages. The path should be the data
+     *     directory where the HAP or APP is stored in the current app. When the path passed in is a directory, the
+     *     directory can contain only the HAPs of the same app or one APP. The signatures of the HAPs of the same app
+     *     must be consistent.
+     * @param { AsyncCallback<void> } callback - [AsyncCallback]{@link @ohos.base:AsyncCallback} used to return the
+     *     result. If the app is installed successfully, **err** is **undefined**; otherwise, **err** is an error
+     *     object.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or '
      *     ohos.permission.INSTALL_ENTERPRISE_BUNDLE' or
      *     'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'
@@ -251,12 +258,13 @@ declare namespace installer {
     install(hapFilePaths: Array<string>, callback: AsyncCallback<void>): void;
 
     /**
-     * Installs an application. This API uses a promise to return the result.
+     * Installs a specified app. This API uses a promise to return the result. Since API version 26.0.0, installing an
+     * APP package is supported.
      *
      * > **NOTE**
      * >
-     * > To install applications of different distribution types, the appropriate permissions must be requested. For
-     * > details on distribution types, see the **appDistributionType** field in
+     * > To install apps of different distribution types, you need to apply for the corresponding permissions. For
+     * > details about the distribution types, see the description of the appDistributionType field in
      * > [ApplicationInfo]{@link ./bundleManager/ApplicationInfo:ApplicationInfo}.
      *
      * @permission ohos.permission.INSTALL_BUNDLE [since 9 - 9]
@@ -275,10 +283,11 @@ declare namespace installer {
      *     or ohos.permission.INSTALL_INTERNALTESTING_BUNDLE
      *     or (ohos.permission.INSTALL_BUNDLE and ohos.permission.INSTALL_ALLOW_DOWNGRADE) 
      *     or ohos.permission.INSTALL_DEVELOPER_ID_BUNDLE [since 26.0.1]
-     * @param { Array<string> } hapFilePaths - Paths where the HAP files of the bundle are stored, which are the data
-     *     directories. If only one directory is passed, the HAP files in the directory must belong to the same bundle
-     *     and have the same signature.
-     * @param { InstallParam } [installParam] - Parameters required for the installation. For details about their default
+     * @param { Array<string> } hapFilePaths - Path for storing the application package. The path should be the data
+     *     directory where the HAP or APP is stored in the current app. When the path passed in is a directory, the
+     *     directory can contain only the HAPs of the same app or one APP. The signatures of the HAPs of the same app
+     *     must be consistent.
+     * @param { InstallParam } installParam - Parameters required for the installation. For details about their default
      *     values, see [InstallParam]{@link installer.InstallParam}. [since 9 - 11]
      * @param { InstallParam } [installParam] - Parameters required for the installation. For details about their
      *     default values, see [InstallParam]{@link installer.InstallParam}. [since 12]
@@ -343,9 +352,9 @@ declare namespace installer {
      *
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.UNINSTALL_BUNDLE
      * @param { string } bundleName - Name of the target bundle.
-     * @param { InstallParam } installParam - Parameters required for the installation.
-     * @param { AsyncCallback<void> } callback - [Callback]{@link @ohos.base:AsyncCallback} used to return the result.
-     *     If the operation is successful, **err** is **null**; otherwise, **err** is an error object.
+     * @param { InstallParam } installParam - Specifies other parameters required for uninstallation.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the app is uninstalled
+     *     successfully, **err** is undefined; otherwise, **err** is an error object.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
      *     required to call the API.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -373,8 +382,8 @@ declare namespace installer {
      *
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.UNINSTALL_BUNDLE
      * @param { string } bundleName - Name of the target bundle.
-     * @param { AsyncCallback<void> } callback - [Callback]{@link @ohos.base:AsyncCallback} used to return the result.
-     *     If the operation is successful, **err** is **null**; otherwise, **err** is an error object.
+     * @param { AsyncCallback<void> } callback - [AsyncCallback]{@link @ohos.base:AsyncCallback} used to return the
+     *     result. If the app is uninstalled successfully, **err** is undefined; otherwise, **err** is an error object.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
      *     required to call the API.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -400,10 +409,10 @@ declare namespace installer {
      *
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.UNINSTALL_BUNDLE
      * @param { string } bundleName - Name of the target bundle.
-     * @param { InstallParam } [installParam] - Parameters required for the installation. For details about their default
-     *     values, see [InstallParam]{@link installer.InstallParam}. [since 9 - 14]
-     * @param { InstallParam } [installParam] - Parameters required for the installation. For details about their
-     *     default values, see [InstallParam]{@link installer.InstallParam}. [since 15]
+     * @param { InstallParam } installParam - Specifies other parameters required for uninstallation. Default value:
+     *     refer to the default values of [InstallParam]{@link installer.InstallParam}. [since 9 - 14]
+     * @param { InstallParam } [installParam] - Specifies other parameters required for uninstallation. Default value:
+     *     refer to the default values of [InstallParam]{@link installer.InstallParam}. [since 15]
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
      *     required to call the API.
@@ -433,9 +442,9 @@ declare namespace installer {
      *
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.RECOVER_BUNDLE
      * @param { string } bundleName - Name of the target bundle.
-     * @param { InstallParam } installParam - Parameters required for the installation.
-     * @param { AsyncCallback<void> } callback - [Callback]{@link @ohos.base:AsyncCallback} used to return the result.
-     *     If the operation is successful, **err** is **null**; otherwise, **err** is an error object.
+     * @param { InstallParam } installParam - Other parameters required for recovery.
+     * @param { AsyncCallback<void> } callback - [AsyncCallback]{@link @ohos.base:AsyncCallback} invoked to return the
+     *     result. If the app rollback is successful, err is undefined; otherwise, err is an error object.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or '
      *     ohos.permission.RECOVER_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -460,8 +469,8 @@ declare namespace installer {
      *
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.RECOVER_BUNDLE
      * @param { string } bundleName - Name of the target bundle.
-     * @param { AsyncCallback<void> } callback - [Callback]{@link @ohos.base:AsyncCallback} used to return the result.
-     *     If the operation is successful, **err** is **null**; otherwise, **err** is an error object.
+     * @param { AsyncCallback<void> } callback - [AsyncCallback]{@link @ohos.base:AsyncCallback} used to return the
+     *     result. If the app is rolled back successfully, err is undefined; otherwise, err is an error object.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or '
      *     ohos.permission.RECOVER_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -483,9 +492,9 @@ declare namespace installer {
      * Rolls back an application to the initial installation state. This API uses a promise to return the result.
      *
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.RECOVER_BUNDLE
-     * @param { string } bundleName - Name of the target bundle.
-     * @param { InstallParam } [installParam] - Parameters required for the installation. For details about their default
-     *     values, see [InstallParam]{@link installer.InstallParam}.
+     * @param { string } bundleName - Bundle name of the application to be recovered.
+     * @param { InstallParam } installParam - Specifies other parameters required for recovery. Default value: refer to
+     *     the default value of [InstallParam]{@link installer.InstallParam}.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or '
      *     ohos.permission.RECOVER_BUNDLE'.
@@ -510,8 +519,9 @@ declare namespace installer {
      *
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.UNINSTALL_BUNDLE
      * @param { UninstallParam } uninstallParam - Parameters required for the uninstall.
-     * @param { AsyncCallback<void> } callback - [Callback]{@link @ohos.base:AsyncCallback} used to return the result.
-     *     If the operation is successful, **err** is **null**; otherwise, **err** is an error object.
+     * @param { AsyncCallback<void> } callback - [AsyncCallback]{@link @ohos.base:AsyncCallback}, which is used to
+     *     return the result. If the app is uninstalled successfully, **err** is **undefined**; otherwise, **err** is an
+     *     error object.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
      *     required to call the API.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -557,9 +567,9 @@ declare namespace installer {
      * @param { Array<string> } hapFilePaths - Paths where the HAP files of the bundle are stored, which are the data
      *     directories. If only one directory is passed, the HAP files in the directory must belong to the same bundle
      *     and have the same signature.
-     * @param { InstallParam } installParam - Parameters required for the installation.
-     * @param { AsyncCallback<void> } callback - [Callback]{@link @ohos.base:AsyncCallback} used to return the result.
-     *     If the operation is successful, **err** is **null**; otherwise, **err** is an error object.
+     * @param { InstallParam } installParam - Other parameters required for the update.
+     * @param { AsyncCallback<void> } callback - [AsyncCallback]{@link @ohos.base:AsyncCallback}, invoked when the
+     *     application is updated successfully, in which case err is undefined; otherwise, an error object is returned.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_SELF_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -609,8 +619,8 @@ declare namespace installer {
      * @param { Array<string> } hapFilePaths - Paths where the HAP files of the bundle are stored, which are the data
      *     directories. If only one directory is passed, the HAP files in the directory must belong to the same bundle
      *     and have the same signature.
-     * @param { AsyncCallback<void> } callback - [Callback]{@link @ohos.base:AsyncCallback} used to return the result.
-     *     If the operation is successful, **err** is **null**; otherwise, **err** is an error object.
+     * @param { AsyncCallback<void> } callback - [AsyncCallback]{@link @ohos.base:AsyncCallback}, invoked to return the
+     *     result. If the application is updated successfully, err is undefined; otherwise, err is an error object.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_SELF_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
@@ -657,8 +667,8 @@ declare namespace installer {
      * @param { Array<string> } hapFilePaths - Paths where the HAP files of the bundle are stored, which are the data
      *     directories. If only one directory is passed, the HAP files in the directory must belong to the same bundle
      *     and have the same signature.
-     * @param { InstallParam } [installParam] - Parameters required for the installation. For details about their default
-     *     values, see [InstallParam]{@link installer.InstallParam}.
+     * @param { InstallParam } installParam - Other parameters required for the update. Default value: refer to the
+     *     default values of [InstallParam]{@link installer.InstallParam}.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_SELF_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -706,7 +716,7 @@ declare namespace installer {
      *
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.UNINSTALL_BUNDLE
      * @param { string } bundleName - Name of the target bundle.
-     * @param { InstallParam } [installParam] - Parameters required for the uninstall and update. For details about their
+     * @param { InstallParam } installParam - Parameters required for the uninstall and update. For details about their
      *     default values, see [InstallParam]{@link installer.InstallParam}. The **userId** parameter cannot be
      *     specified. Calling this API will uninstall and update the application for all users.
      * @returns { Promise<void> } Promise that returns no value.
@@ -735,7 +745,7 @@ declare namespace installer {
      * the result.
      *
      * @permission ohos.permission.INSTALL_BUNDLE
-     * @param { string } bundleName - Bundle name of the application to which extended resources are to be added.
+     * @param { string } bundleName - Bundle name of the application to which extension resources are added.
      * @param { Array<string> } filePaths - Path of the extended resources to be added.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
@@ -756,7 +766,7 @@ declare namespace installer {
      * the result.
      *
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.UNINSTALL_BUNDLE
-     * @param { string } bundleName - Bundle name of the application for which extended resources are to be removed.
+     * @param { string } bundleName - Bundle name of the application whose extended resources are to be deleted.
      * @param { Array<string> } moduleNames - Names of the modules whose extended resources are to be removed.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
@@ -777,9 +787,9 @@ declare namespace installer {
      *
      * @permission ohos.permission.INSTALL_CLONE_BUNDLE
      * @param { string } bundleName - Bundle name of the application for which a clone is to be created.
-     * @param { CreateAppCloneParam } [createAppCloneParam] - Other parameters required for creating the clone. For
-     *     details about the default values of these parameters, see
-     *     [createAppCloneParam]{@link installer.CreateAppCloneParam}.
+     * @param { CreateAppCloneParam } [createAppCloneParam] - Specifies other parameters required for creating an app
+     *     clone. Default value: refer to the default value of
+     *     [CreateAppCloneParam]{@link installer.CreateAppCloneParam}.
      * @returns { Promise<int> } Promise used to return the index of the application clone.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_CLONE_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -798,15 +808,17 @@ declare namespace installer {
     createAppClone(bundleName: string, createAppCloneParam?: CreateAppCloneParam): Promise<int>;
 
     /**
-     * Destroys an application clone. This API uses a promise to return the result.
+     * Destroys an app clone or a CLI sandbox app. This API uses a promise to return the result.
      *
      * @permission ohos.permission.UNINSTALL_CLONE_BUNDLE
-     * @param { string } bundleName - Bundle name of the application for which a clone is to be destroyed.
-     * @param { number } appIndex - Index of the clone to destroy.
-     * @param { number } [userId] - ID of the user for whom the clone is to be destroyed. You can obtain the user ID by
-     *     calling
-     *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
-     *     . The default value is the user ID of the caller.
+     * @param { string } bundleName - Bundle name of the app clone or CLI sandbox app to be deleted.
+     * @param { number } appIndex - Index of the app clone or CLI sandbox app to be deleted. Value range: [1, 5] and
+     *     [2000, 3000]. 1 to 5 indicates an app clone, and 2000 to 3000 indicates a CLI sandbox app. Since API version
+     *     26.0.0, the value range [2000, 3000] is supported.
+     * @param { number } [userId] - User ID to which the app clone or CLI sandbox app to be deleted belongs. It can be
+     *     obtained by calling
+     *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}.
+     *     Default value: the caller's user.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.UNINSTALL_CLONE_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -823,13 +835,15 @@ declare namespace installer {
     destroyAppClone(bundleName: string, appIndex: number, userId?: number): Promise<void>;
 
     /**
-     * Destroys an application clone. This API uses a promise to return the result.
+     * Destroys an app clone or a CLI sandbox app. This API uses a promise to return the result.
      *
      * @permission ohos.permission.UNINSTALL_CLONE_BUNDLE
-     * @param { string } bundleName - Bundle name of the application for which a clone is to be destroyed.
-     * @param { number } appIndex - Index of the clone to destroy.
-     * @param { DestroyAppCloneParam } [destroyAppCloneParam] - Other parameters required for destroying the clone. For
-     *     details about the default values of these parameters, see
+     * @param { string } bundleName - Bundle name of the app clone or CLI sandbox app to be deleted.
+     * @param { number } appIndex - Index of the app clone or CLI sandbox app to be deleted. Value range: [1, 5] and
+     *     [2000, 3000]. 1 to 5 indicates an app clone, and 2000 to 3000 indicates a CLI sandbox app. Since API version
+     *     26.0.0, the value range [2000, 3000] is supported.
+     * @param { DestroyAppCloneParam } [destroyAppCloneParam] - Other parameters required for deleting the app clone or
+     *     CLI sandbox app. Default value: refer to the default value of
      *     [DestroyAppCloneParam]{@link installer.DestroyAppCloneParam}.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.UNINSTALL_CLONE_BUNDLE'.
@@ -869,20 +883,20 @@ declare namespace installer {
     destroyAppClone(bundleName: string, appIndex: int, options?: int | DestroyAppCloneParam): Promise<void>;
 
     /**
-     * Installs an application. This API uses a promise to return the result.
+     * Installs the app with the specified bundleName for the specified user. This API uses a promise to return the
+     * result.
      *
      * > **NOTE**
      * >
-     * > This API does not support the installation of applications whose
-     * > [distribution type of the application signing certificate]{@link ./bundleManager/ApplicationInfo:ApplicationInfo}
-     * > is set to **enterprise**, **enterprise_mdm**, or **enterprise_normal**.
+     * > This API does not support installing apps whose
+     * > [appDistributionType]{@link ./bundleManager/ApplicationInfo:ApplicationInfo} is enterprise, enterprise_mdm, or
+     * > enterprise_normal.
      *
      * @permission ohos.permission.INSTALL_BUNDLE
      * @param { string } bundleName - Bundle name of the application to install.
-     * @param { int } [userId] - ID of the user for whom the bundle is to be installed. You can obtain the user ID by
-     *     calling
-     *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
-     *     . The value must be greater than 0. The default value is the user ID of the caller.
+     * @param { int } [userId] - User ID of the app to be installed. It can be obtained by calling
+     *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}.
+     *     The value must be greater than 0. Default value: the user of the caller.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -970,14 +984,11 @@ declare namespace installer {
     uninstallPlugin(hostBundleName: string, pluginBundleName: string, pluginParam?: PluginParam): Promise<void>;
 
     /**
-     * Uninstall new preinstalled applications.
-     * Only supports uninstalling pre installed applications added during device OTA upgrade. Asynchronous execution of
-     * application uninstallation tasks, the interface return value only indicates successful interface invocation
-     * and does not return uninstallation results.
+     * Uninstalls newly added preinstalled apps in batches. This API uses a promise to return the result.
      *
      * @permission ohos.permission.UNINSTALL_BUNDLE
-     * @param { Array<string> } bundleNames - Indicates the bundle name list to be uninstalled.
-     * @returns { Promise<void> } the promise returned by the function.
+     * @param { Array<string> } bundleNames - List of bundle names of the apps to be uninstalled.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -1019,7 +1030,9 @@ declare namespace installer {
   }
 
   /**
-   * Defines the information about the code signature file.
+   * > Starting from API version 11, the code signature file of an application is integrated into the installation
+   * > package, rather than being specified by using this field.
+   * > Defines the information about the code signature file.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
@@ -1118,11 +1131,11 @@ declare namespace installer {
    */
   export interface InstallParam {
     /**
-     * User ID. The default value is the user ID of the caller. The value must be greater than or equal to 0. You can
-     * call
-     * [queryOsAccountLocalIdFromProcess]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
-     * to obtain the user ID of the current process. When a driver application is installed, uninstalled, or restored,
-     * this parameter is ignored and the operation is executed for all users.
+     * User ID. Default value: the user where the caller is located. Value range: greater than or equal to 0. You can
+     * use
+     * [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
+     * to obtain the user where the current process is located. When installing, uninstalling, or recovering a driver
+     * application, this parameter is ignored and the operation is executed for all users.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
@@ -1132,8 +1145,8 @@ declare namespace installer {
     userId?: int;
 
     /**
-     * Installation flag. The value **0x00** means initial installation, **0x01** means overwrite installation, and
-     * **0x10** means installation-free. The default value is **0x00**.
+     * Installation flag. Enumerated values: 0x00: initial installation of the app, 0x01: overwrite installation of the
+     * app, 0x10: free installation of the app. Default value: initial installation of the app.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
@@ -1143,8 +1156,9 @@ declare namespace installer {
     installFlag?: int;
 
     /**
-     * Whether to retain the data directory during bundle uninstall. The default value is **false**. **true** to retain,
-     * **false** otherwise.
+     * Whether to retain the data directory during uninstall. Default value: false. The value **true** indicates that
+     * the data directory is retained during uninstall, and **false** indicates that the data directory is not retained
+     * during uninstall.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
@@ -1154,7 +1168,7 @@ declare namespace installer {
     isKeepData?: boolean;
 
     /**
-     * Hash parameters. By default, no value is passed.
+     * Hash parameters. Default value: empty. The maximum length of the list is 1000.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
@@ -1164,7 +1178,7 @@ declare namespace installer {
     hashParams?: Array<HashParam>;
 
     /**
-     * End date of crowdtesting. The default value is **-1**, indicating that no end date is specified for crowdtesting.
+     * Deadline of the crowdtesting activity. Default value: -1, which indicates no deadline constraint. Unit: second.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
@@ -1174,7 +1188,9 @@ declare namespace installer {
     crowdtestDeadline?: long;
 
     /**
-     * Paths of the shared bundle files. By default, no value is passed.
+     * Path of the shared bundle file. Default value: empty. The maximum length of the list is 500. Since API version 2
+     * 4, when a directory is specified, multiple HSPs with the same bundle name but different module names can exist in
+     * the directory. In API version 23 and earlier, only one HSP can exist in the directory.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
@@ -1184,9 +1200,9 @@ declare namespace installer {
     sharedBundleDirPaths?: Array<string>;
 
     /**
-     * [Distribution type](docroot://security/app-provision-structure.md) specified during application installation. By
-     * default, no value is passed. The maximum length is 128 bytes. This field is usually specified by the application
-     * market of the operating system operator.
+     * [Distribution type](docroot://security/app-provision-structure.md) specified during app installation. Default
+     * value: empty. The maximum length is 128 bytes. This field is usually specified by the app market of the OS
+     * operator.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
@@ -1196,9 +1212,9 @@ declare namespace installer {
     specifiedDistributionType?: string;
 
     /**
-     * Additional information during application installation (usually an enterprise application). By default, no value
-     * is passed. The maximum length is 3,000 bytes. This field is usually specified by the application market of the
-     * operating system operator.
+     * Additional information during app installation. Default value: empty. The maximum length is 3000 bytes. This
+     * field is usually specified by the app market of the OS operator when installing an enterprise app, and is used to
+     * store additional information about the app.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
@@ -1208,12 +1224,13 @@ declare namespace installer {
     additionalInfo?: string;
 
     /**
-     * Information about the code signature file. The default value is null.
+     * Code signing file parameters. Default value: empty. The maximum length of the list is 500.
      *
      * **NOTE**
      *
-     * Starting from API version 10, the code signature file of an application is integrated into the installation
-     * package, rather than being specified by using this field. This field is deprecated since API version 11.
+     * Supported since API version 10 and deprecated since API version 11. The code signing file of an app will be
+     * integrated into the installation package, and it is no longer necessary to specify the code signing file of the
+     * installation package through this API.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
@@ -1223,7 +1240,7 @@ declare namespace installer {
     verifyCodeParams?: Array<VerifyCodeParam>;
 
     /**
-     * Parameters of the Profile-guided Optimization (PGO) configuration file. The default value is null.
+     * PGO profile parameters. Default value: empty. The maximum length of the list is 500.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
@@ -1325,9 +1342,9 @@ declare namespace installer {
    */
   export interface CreateAppCloneParam {
     /**
-     * ID of the user for whom the clone is to be created. You can obtain the user ID by calling
-     * [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
-     * . The default value is the user ID of the caller.
+     * Specifies the user ID for creating the app clone. You can obtain the user ID by calling
+     * [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}.
+     * Default value: the user of the caller.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
@@ -1347,6 +1364,7 @@ declare namespace installer {
     /**
      * Extended parameters, represented as an array of the Parameters type. The default value is empty.
      * The options of **Parameters.key** are as follows:
+     *
      * - **ohos.bms.param.disableInstallEventReport**: If the value is **true**, the installation event
      * is not sent after the clone is created. If this key is not present
      * or the value is not **true**, the installation event is sent as usual.
@@ -1372,9 +1390,10 @@ declare namespace installer {
    */
   export interface DestroyAppCloneParam {
     /**
-     * ID of the user for whom the clone is to be destroyed. You can obtain the user ID by calling
-     * [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
-     * . The default value is the user ID of the caller.
+     * User ID of the user for which the app clone or CLI sandbox app is to be deleted. You can obtain the user ID by
+     * calling
+     * [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}.
+     * Default value: the user that calls this API.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
@@ -1383,32 +1402,10 @@ declare namespace installer {
      */
     userId?: int;
     /**
-     * Extended parameters, represented as an array of the Parameters type. The default value is empty. The options of
-     * **Parameters.key** are as follows:
-     *
-     * - **ohos.bms.param.renameInstall**: If the value is **true**, the installation package is moved from the
-     * application sandbox to the installation directory using a shared directory. Otherwise, it is copied from the
-     * application sandbox to the installation directory using a regular directory.
-     * - **ohos.bms.param.enterpriseForAllUser**: If the value is **true**, the enterprise app is installed for all
-     * users. This parameter takes effect only for applications whose
-     * [distribution type of the application signing certificate]{@link ./bundleManager/ApplicationInfo:ApplicationInfo}
-     * is **enterprise_mdm** or **enterprise_normal**.
-     * - **ohos.bms.param.verifyUninstallRule**: If the value is **true**, an uninstallation handling rule is set to
-     * block application uninstallation.
-     * - **ohos.bms.param.enterpriseManifest**: The value is the sandbox path of the JSON file used to store the
-     * application's manifest, including the bundle name. It is used in the scenario of cloning enterprise applications.
-     * If this JSON file exists during cloning, the application package from the old device is copied to the new device
-     * for installation.
-     * - **ohos.bms.param.installBundleName**: The value is the bundle name of the application. It is used in
-     * application installation scenarios and supported since API version 23. If this field is passed during
-     * installation, the [getBundleInstallStatus]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInstallStatus}
-     * API can be called to obtain the installation status of the application.
-     * - **ohos.bms.param.installAllowDowngrade**: If the value is **true**, the application can be installed in
-     * downgrade mode (supported since API version 23). That is, if a higher version of the application is already
-     * installed on the device, a lower version can be installed over it. Only third-party applications with the signing
-     * certificate distribution type set to **app_gallery** or the signing certificate type set to **debug** support
-     * downgrade installation. To use downgrade installation, you must request the ohos.permission.INSTALL_BUNDLE and
-     * ohos.permission.INSTALL_ALLOW_DOWNGRADE permissions.
+     * Extended parameters for deleting the app clone. The default value is empty. This parameter is not supported for
+     * CLI sandbox apps. The supported values of Parameters.key are as follows:</br> - "ohos.bms.param.clone.isKeepData"
+     * : supported since API version 21. If the corresponding value is "true", the user data of the app clone is
+     * retained when the app clone is deleted; otherwise, the user data is not retained.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
@@ -1428,9 +1425,9 @@ declare namespace installer {
    */
   export interface PluginParam {
     /**
-     * ID of the user for whom the plugin is to be installed or uninstalled. You can obtain the user ID by calling
-     * [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
-     * . The default value is the user ID of the caller.
+     * User ID of the user for installing or uninstalling the plug-in program. It can be obtained by calling
+     * [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}.
+     * Default value: the user that invokes the API.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi

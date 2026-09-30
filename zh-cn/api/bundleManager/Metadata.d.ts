@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -14,16 +14,16 @@
  */
 
 /**
- * @file
+ * @file Metadata
  * @kit AbilityKit
  */
 
 /**
- * 元数据对象，可以通过
- * [bundleManager.getBundleInfoForSelf]{@link ./../@ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)}
- * 获取，其中参数bundleFlags至少包含GET_BUNDLE_INFO_WITH_METADATA。此对象在[ApplicationInfo]{@link ApplicationInfo}、
- * [HapModuleInfo]{@link HapModuleInfo}、[AbilityInfo]{@link AbilityInfo}、
- * [ExtensionAbilityInfo]{@link ExtensionAbilityInfo:ExtensionAbilityInfo}中均包含。
+ * 元数据对象，可以通过[bundleManager.getBundleInfoForSelf]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf}获
+ * 取，其中参数bundleFlags至少包含GET_BUNDLE_INFO_WITH_METADATA。此对象在
+ * [ApplicationInfo]{@link ../bundle/applicationInfo:ApplicationInfo}、
+ * [HapModuleInfo]{@link ../bundle/hapModuleInfo:HapModuleInfo}、[AbilityInfo]{@link ../bundle/abilityInfo:AbilityInfo}、
+ * [ExtensionAbilityInfo]{@link ./ExtensionAbilityInfo:ExtensionAbilityInfo}中均包含。
  *
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @crossplatform [since 10]
@@ -33,7 +33,7 @@
  */
 export interface Metadata {
   /**
-   * Indicates the metadata name
+   * 元数据名称。
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform [since 10]
@@ -44,7 +44,7 @@ export interface Metadata {
   name: string;
 
   /**
-   * Indicates the metadata value
+   * 元数据值。
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform [since 10]
@@ -55,7 +55,7 @@ export interface Metadata {
   value: string;
 
   /**
-   * Indicates the metadata resource
+   * 元数据资源描述符，参考示例$profile:config_file，表示profile目录下配置了config_file.json文件。
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform [since 10]
@@ -66,7 +66,7 @@ export interface Metadata {
   resource: string;
 
   /**
-   * Indicates the value id of the metadata
+   * 元数据值id。当valueId不为0时，表示当前元数据值为自定义配置，需要使用valueId去资源管理获取对应的值。 当valueId为0时，表示当前元数据值为固定字符串。
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice

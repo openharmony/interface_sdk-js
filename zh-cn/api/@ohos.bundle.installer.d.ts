@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file installer模块
  * @kit AbilityKit
  */
 
@@ -36,8 +36,8 @@ declare namespace installer {
   /**
    * 获取BundleInstaller对象。使用callback异步回调。
    *
-   * @param { AsyncCallback<BundleInstaller> } callback - [回调函数]{@link @ohos.base:AsyncCallback}，获取BundleInstaller对象，err
-   *     为undefined，data为获取到的BundleInstaller对象；否则为错误对象。
+   * @param { AsyncCallback<BundleInstaller> } callback - [AsyncCallback]{@link @ohos.base:AsyncCallback}，获取
+   *     BundleInstaller对象，err为undefined，data为获取到的BundleInstaller对象；否则为错误对象。
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -60,7 +60,7 @@ declare namespace installer {
   function getBundleInstaller(): Promise<BundleInstaller>;
 
   /**
-   * 获取并返回BundleInstaller对象。
+   * 获取并返回BundleInstaller对象。接口调用失败时可能返回null，需校验返回值后使用。
    *
    * @returns { BundleInstaller } BundleInstaller object.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -81,7 +81,7 @@ declare namespace installer {
    */
   interface BundleInstaller {
     /**
-     * 安装指定应用。使用callback异步回调。
+     * 安装指定应用。使用callback异步回调。从API版本26.0.0开始，支持安装APP包。
      * 
      * > **说明：**
      * >
@@ -104,10 +104,11 @@ declare namespace installer {
      *     or ohos.permission.INSTALL_INTERNALTESTING_BUNDLE
      *     or (ohos.permission.INSTALL_BUNDLE and ohos.permission.INSTALL_ALLOW_DOWNGRADE) 
      *     or ohos.permission.INSTALL_DEVELOPER_ID_BUNDLE [since 26.0.1]
-     * @param { Array<string> } hapFilePaths - 存储应用程序包的路径。路径应该是当前应用程序中存放HAP的数据目录。当传入的路径是一个目录时， 该目录下只能放同一个应用的HAP，且这些HAP的签
-     *     名需要保持一致。
+     * @param { Array<string> } hapFilePaths - 存储应用程序包的路径。路径应该是当前应用程序中存放HAP或APP的数据目录。当传入的路径是一个目录时，该目录下只能放同一个应用的HAP或一个
+     *     APP。同一个应用的HAP的签名需要保持一致。
      * @param { InstallParam } installParam - 指定安装所需的其他参数。
-     * @param { AsyncCallback<void> } callback - [回调函数]{@link @ohos.base:AsyncCallback}，安装应用成功，err为undefined，否则为错误对象。
+     * @param { AsyncCallback<void> } callback - [AsyncCallback]{@link @ohos.base:AsyncCallback}，安装应用成功，err为undefined，否则
+     *     为错误对象。
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or '
      *     ohos.permission.INSTALL_ENTERPRISE_BUNDLE' or
      *     'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'
@@ -164,7 +165,7 @@ declare namespace installer {
     install(hapFilePaths: Array<string>, installParam: InstallParam, callback: AsyncCallback<void>): void;
 
     /**
-     * 安装指定应用。使用callback异步回调。
+     * 安装指定应用。使用callback异步回调。从API版本26.0.0开始，支持安装APP包。
      * 
      * > **说明：**
      * >
@@ -187,9 +188,10 @@ declare namespace installer {
      *     or ohos.permission.INSTALL_INTERNALTESTING_BUNDLE
      *     or (ohos.permission.INSTALL_BUNDLE and ohos.permission.INSTALL_ALLOW_DOWNGRADE) 
      *     or ohos.permission.INSTALL_DEVELOPER_ID_BUNDLE [since 26.0.1]
-     * @param { Array<string> } hapFilePaths - 存储应用程序包的路径。路径应该是当前应用程序中存放HAP的数据目录。当传入的路径是一个目录时， 该目录下只能放同一个应用的HAP，且这些HAP的签
-     *     名需要保持一致。
-     * @param { AsyncCallback<void> } callback - [回调函数]{@link @ohos.base:AsyncCallback}，安装应用成功，err为undefined，否则为错误对象。
+     * @param { Array<string> } hapFilePaths - 存储应用程序包的路径。路径应该是当前应用程序中存放HAP或APP的数据目录。当传入的路径是一个目录时，该目录下只能放同一个应用的HAP或一个
+     *     APP。同一个应用的HAP的签名需要保持一致。
+     * @param { AsyncCallback<void> } callback - [AsyncCallback]{@link @ohos.base:AsyncCallback}，安装应用成功，err为undefined，否则
+     *     为错误对象。
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or '
      *     ohos.permission.INSTALL_ENTERPRISE_BUNDLE' or
      *     'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'
@@ -244,7 +246,7 @@ declare namespace installer {
     install(hapFilePaths: Array<string>, callback: AsyncCallback<void>): void;
 
     /**
-     * 安装指定应用。使用Promise异步回调。
+     * 安装指定应用。使用Promise异步回调。从API版本26.0.0开始，支持安装APP包。
      * 
      * > **说明：**
      * >
@@ -267,12 +269,12 @@ declare namespace installer {
      *     or ohos.permission.INSTALL_INTERNALTESTING_BUNDLE
      *     or (ohos.permission.INSTALL_BUNDLE and ohos.permission.INSTALL_ALLOW_DOWNGRADE) 
      *     or ohos.permission.INSTALL_DEVELOPER_ID_BUNDLE [since 26.0.1]
-     * @param { Array<string> } hapFilePaths - 存储应用程序包的路径。路径应该是当前应用程序中存放HAP的数据目录。当传入的路径是一个目录时， 该目录下只能放同一个应用的HAP，且这些HAP的签
-     *     名需要保持一致。
-     * @param { InstallParam } installParam - 指定安装所需的其他参数，默认值：参照[InstallParam]{@link installer.InstallParam}的默认值
-     *     。 [since 9 - 11]
-     * @param { InstallParam } [installParam] - 指定安装所需的其他参数，默认值：参照[InstallParam]{@link installer.InstallParam}的默认值
-     *     。 [since 12]
+     * @param { Array<string> } hapFilePaths - 存储应用程序包的路径。路径应该是当前应用程序中存放HAP或APP的数据目录。当传入的路径是一个目录时，该目录下只能放同一个应用的HAP或一个
+     *     APP。同一个应用的HAP的签名需要保持一致。
+     * @param { InstallParam } installParam - 指定安装所需的其他参数，默认值：参照[InstallParam]{@link installer.InstallParam}的默认
+     *     值。 [since 9 - 11]
+     * @param { InstallParam } [installParam] - 指定安装所需的其他参数，默认值：参照[InstallParam]{@link installer.InstallParam}的默认
+     *     值。 [since 12]
      * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or '
      *     ohos.permission.INSTALL_ENTERPRISE_BUNDLE' or
@@ -334,8 +336,9 @@ declare namespace installer {
      *
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.UNINSTALL_BUNDLE
      * @param { string } bundleName - 待卸载应用的包名。
-     * @param { InstallParam } installParam - 指定安装所需的其他参数。
-     * @param { AsyncCallback<void> } callback - [回调函数]{@link @ohos.base:AsyncCallback}，卸载应用成功，err为undefined，否则为错误对象。
+     * @param { InstallParam } installParam - 指定卸载所需的其他参数。
+     * @param { AsyncCallback<void> } callback - [AsyncCallback]{@link @ohos.base:AsyncCallback}，卸载应用成功，err为undefined，否则
+     *     为错误对象。
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
      *     required to call the API.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -363,7 +366,8 @@ declare namespace installer {
      *
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.UNINSTALL_BUNDLE
      * @param { string } bundleName - 待卸载应用的包名。
-     * @param { AsyncCallback<void> } callback - [回调函数]{@link @ohos.base:AsyncCallback}，卸载应用成功，err为undefined，否则为错误对象。
+     * @param { AsyncCallback<void> } callback - [AsyncCallback]{@link @ohos.base:AsyncCallback}，卸载应用成功，err为undefined，否则
+     *     为错误对象。
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
      *     required to call the API.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -389,10 +393,10 @@ declare namespace installer {
      *
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.UNINSTALL_BUNDLE
      * @param { string } bundleName - 待卸载应用的包名。
-     * @param { InstallParam } installParam - 指定安装所需的其他参数，默认值：参照[InstallParam]{@link installer.InstallParam}的默认值
-     *     。 [since 9 - 14]
-     * @param { InstallParam } [installParam] - 指定安装所需的其他参数，默认值：参照[InstallParam]{@link installer.InstallParam}的默认值
-     *     。 [since 15]
+     * @param { InstallParam } installParam - 指定卸载所需的其他参数，默认值：参照[InstallParam]{@link installer.InstallParam}的默认
+     *     值。 [since 9 - 14]
+     * @param { InstallParam } [installParam] - 指定卸载所需的其他参数，默认值：参照[InstallParam]{@link installer.InstallParam}的默认
+     *     值。 [since 15]
      * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
      *     required to call the API.
@@ -421,8 +425,9 @@ declare namespace installer {
      *
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.RECOVER_BUNDLE
      * @param { string } bundleName - 待恢复应用的包名。
-     * @param { InstallParam } installParam - 指定安装所需的其他参数。
-     * @param { AsyncCallback<void> } callback - [回调函数]{@link @ohos.base:AsyncCallback}，回滚应用成功，err为undefined，否则为错误对象。
+     * @param { InstallParam } installParam - 指定恢复所需的其他参数。
+     * @param { AsyncCallback<void> } callback - [AsyncCallback]{@link @ohos.base:AsyncCallback}，回滚应用成功，err为undefined，否则
+     *     为错误对象。
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or '
      *     ohos.permission.RECOVER_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -446,7 +451,8 @@ declare namespace installer {
      *
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.RECOVER_BUNDLE
      * @param { string } bundleName - 待恢复应用的包名。
-     * @param { AsyncCallback<void> } callback - [回调函数]{@link @ohos.base:AsyncCallback}，回滚应用成功，err为undefined，否则为错误对象。
+     * @param { AsyncCallback<void> } callback - [AsyncCallback]{@link @ohos.base:AsyncCallback}，回滚应用成功，err为undefined，否则
+     *     为错误对象。
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or '
      *     ohos.permission.RECOVER_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -468,8 +474,8 @@ declare namespace installer {
      * 回滚应用到初次安装时的状态。使用Promise异步回调。
      *
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.RECOVER_BUNDLE
-     * @param { string } bundleName - 待卸载应用的包名。
-     * @param { InstallParam } installParam - 指定安装所需的其他参数，默认值：参照[InstallParam]{@link installer.InstallParam}的默认值。
+     * @param { string } bundleName - 待恢复应用的包名。
+     * @param { InstallParam } installParam - 指定恢复所需的其他参数，默认值：参照[InstallParam]{@link installer.InstallParam}的默认值。
      * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or '
      *     ohos.permission.RECOVER_BUNDLE'.
@@ -494,7 +500,8 @@ declare namespace installer {
      *
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.UNINSTALL_BUNDLE
      * @param { UninstallParam } uninstallParam - 共享包卸载需指定的参数信息。
-     * @param { AsyncCallback<void> } callback - [回调函数]{@link @ohos.base:AsyncCallback}，卸载应用成功，err为undefined，否则为错误对象。
+     * @param { AsyncCallback<void> } callback - [AsyncCallback]{@link @ohos.base:AsyncCallback}，卸载应用成功，err为undefined，否则
+     *     为错误对象。
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
      *     required to call the API.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -537,8 +544,9 @@ declare namespace installer {
      * @permission ohos.permission.INSTALL_SELF_BUNDLE
      * @param { Array<string> } hapFilePaths - 存储应用程序包的路径。路径应该是当前应用程序中存放HAP的数据目录。当传入的路径是一个目录时， 该目录下只能放同一个应用的HAP，且这些HAP的签
      *     名需要保持一致。
-     * @param { InstallParam } installParam - 指定安装所需的其他参数。
-     * @param { AsyncCallback<void> } callback - [回调函数]{@link @ohos.base:AsyncCallback}，安装应用成功，err为undefined，否则为错误对象。
+     * @param { InstallParam } installParam - 指定更新所需的其他参数。
+     * @param { AsyncCallback<void> } callback - [AsyncCallback]{@link @ohos.base:AsyncCallback}，更新应用成功，err为undefined，否则
+     *     为错误对象。
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_SELF_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -585,7 +593,8 @@ declare namespace installer {
      * @permission ohos.permission.INSTALL_SELF_BUNDLE
      * @param { Array<string> } hapFilePaths - 存储应用程序包的路径。路径应该是当前应用程序中存放HAP的数据目录。当传入的路径是一个目录时， 该目录下只能放同一个应用的HAP，且这些HAP的签
      *     名需要保持一致。
-     * @param { AsyncCallback<void> } callback - [回调函数]{@link @ohos.base:AsyncCallback}，安装应用成功，err为undefined，否则为错误对象。
+     * @param { AsyncCallback<void> } callback - [AsyncCallback]{@link @ohos.base:AsyncCallback}，更新应用成功，err为undefined，否则
+     *     为错误对象。
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_SELF_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
@@ -629,7 +638,7 @@ declare namespace installer {
      * @permission ohos.permission.INSTALL_SELF_BUNDLE
      * @param { Array<string> } hapFilePaths - 存储应用程序包的路径。路径应该是当前应用程序中存放HAP的数据目录。当传入的路径是一个目录时， 该目录下只能放同一个应用的HAP，且这些HAP的签
      *     名需要保持一致。
-     * @param { InstallParam } installParam - 指定安装所需的其他参数，默认值：参照[InstallParam]{@link installer.InstallParam}的默认值。
+     * @param { InstallParam } installParam - 指定更新所需的其他参数，默认值：参照[InstallParam]{@link installer.InstallParam}的默认值。
      * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_SELF_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -703,7 +712,7 @@ declare namespace installer {
      * 根据给定的bundleName和hsp文件路径添加扩展资源。使用Promise异步回调。
      *
      * @permission ohos.permission.INSTALL_BUNDLE
-     * @param { string } bundleName - 要添加扩展资源的应用名称。
+     * @param { string } bundleName - 要添加扩展资源的应用包名。
      * @param { Array<string> } filePaths - 要添加扩展资源的资源路径。
      * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 201 - Permission denied.
@@ -723,7 +732,7 @@ declare namespace installer {
      * 根据给定的bundleName和moduleNames删除扩展资源。使用Promise异步回调。
      *
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.UNINSTALL_BUNDLE
-     * @param { string } bundleName - 要删除扩展资源的应用名称。
+     * @param { string } bundleName - 要删除扩展资源的应用包名。
      * @param { Array<string> } moduleNames - 要删除扩展资源的moduleNames。
      * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 201 - Permission denied.
@@ -764,13 +773,14 @@ declare namespace installer {
     createAppClone(bundleName: string, createAppCloneParam?: CreateAppCloneParam): Promise<int>;
 
     /**
-     * 删除应用分身。使用Promise异步回调。
+     * 删除应用分身或CLI沙箱应用。使用Promise异步回调。
      *
      * @permission ohos.permission.UNINSTALL_CLONE_BUNDLE
-     * @param { string } bundleName - 待删除应用分身的包名。
-     * @param { number } appIndex - 待删除应用分身的索引。
-     * @param { number } [userId] - 待删除应用分身所属用户ID，可以通过
-     *     [getOsAccountLocalId接口]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
+     * @param { string } bundleName - 待删除应用分身或CLI沙箱应用的包名。
+     * @param { number } appIndex - 待删除应用分身或CLI沙箱应用的索引。取值范围：[1, 5]，[2000, 3000]。1-5表示应用分身，2000-3000表示CLI沙箱应用。从API版本26.0.
+     *     0开始，支持取值范围[2000, 3000]。
+     * @param { number } [userId] - 待删除应用分身或CLI沙箱应用所属用户ID，可以通过
+     *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
      *     获取。默认值：调用方所在用户。
      * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.UNINSTALL_CLONE_BUNDLE'.
@@ -788,12 +798,13 @@ declare namespace installer {
     destroyAppClone(bundleName: string, appIndex: number, userId?: number): Promise<void>;
 
     /**
-     * 删除应用分身。使用Promise异步回调。
+     * 删除应用分身或CLI沙箱应用。使用Promise异步回调。
      *
      * @permission ohos.permission.UNINSTALL_CLONE_BUNDLE
-     * @param { string } bundleName - 待删除应用分身的包名。
-     * @param { number } appIndex - 待删除应用分身的索引。
-     * @param { DestroyAppCloneParam } [destroyAppCloneParam] - 指定删除应用分身所需的其他参数，默认值：参照
+     * @param { string } bundleName - 待删除应用分身或CLI沙箱应用的包名。
+     * @param { number } appIndex - 待删除应用分身或CLI沙箱应用的索引。取值范围：[1, 5]，[2000, 3000]。1-5表示应用分身，2000-3000表示CLI沙箱应用。从API版本26.0.
+     *     0开始，支持取值范围[2000, 3000]。
+     * @param { DestroyAppCloneParam } [destroyAppCloneParam] - 指定删除应用分身或CLI沙箱应用所需的其他参数，默认值：参照
      *     [DestroyAppCloneParam]{@link installer.DestroyAppCloneParam}的默认值。
      * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.UNINSTALL_CLONE_BUNDLE'.
@@ -819,7 +830,7 @@ declare namespace installer {
      * @param { int } appIndex - Indicates the clone application's index.
      * @param { int | DestroyAppCloneParam } [options] - Indicates other parameters required for the uninstallation.
      * @returns { Promise<void> }
-          * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.UNINSTALL_CLONE_BUNDLE'.
+     * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.UNINSTALL_CLONE_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 17700001 - The specified bundleName cannot be found or the bundle is not installed by
      *     the specified user.
@@ -837,13 +848,13 @@ declare namespace installer {
      * 
      * > **说明：**
      * >
-     * > 该接口不支持安装[签名证书的分发类型]{@link ./bundleManager/ApplicationInfo:ApplicationInfo}为enterprise，enterprise_mdm和
+     * > 该接口不支持安装[appDistributionType]{@link ./bundleManager/applicationInfo:ApplicationInfo}为enterprise，enterprise_mdm和
      * > enterprise_normal的应用。
      *
      * @permission ohos.permission.INSTALL_BUNDLE
      * @param { string } bundleName - 需要安装应用的包名。
      * @param { int } [userId] - 需要安装应用的用户ID，可以通过
-     *     [getOsAccountLocalId接口]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
+     *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
      *     获取，userId需要大于0。默认值：调用方所在用户。
      * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE'.
@@ -974,7 +985,8 @@ declare namespace installer {
   }
 
   /**
-   * 应用程序代码签名文件信息。
+   * > 从API version 11开始不再维护，应用的代码签名文件将集成到安装包中，不再需要该接口来指定安装包的代码签名文件。
+   * > 应用程序代码签名文件信息。
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
@@ -1073,7 +1085,7 @@ declare namespace installer {
    */
   export interface InstallParam {
     /**
-     * 指示用户id，默认值：调用方所在用户，取值范围：大于等于0，可使用
+     * 指示用户ID，默认值：调用方所在用户，取值范围：大于等于0，可使用
      * [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
      * 获取当前进程所在用户。当安装、卸载或恢复一个驱动应用时，该参数会被忽略，会在所有用户下执行。
      *
@@ -1105,7 +1117,7 @@ declare namespace installer {
     isKeepData?: boolean;
 
     /**
-     * 哈希值参数，默认值为空。
+     * 哈希值参数，默认值为空，列表长度上限为1000。
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
@@ -1125,7 +1137,7 @@ declare namespace installer {
     crowdtestDeadline?: long;
 
     /**
-     * 共享包文件所在路径，默认值为空。从API version 24开始，当指定目录时，路径目录下可以存在多个同包名、不同模块名的HSP。API version 23及之前版本，路径目录下只能存在一个HSP。
+     * 共享包文件所在路径，默认值为空，列表长度上限为500。从API version 24开始，当指定目录时，路径目录下可以存在多个同包名、不同模块名的HSP。API version 23及之前版本，路径目录下只能存在一个HSP。
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
@@ -1155,7 +1167,7 @@ declare namespace installer {
     additionalInfo?: string;
 
     /**
-     * 代码签名文件参数，默认值为空。
+     * 代码签名文件参数，默认值为空，列表长度上限为500。
      * 
      * **说明：**
      * 
@@ -1169,7 +1181,7 @@ declare namespace installer {
     verifyCodeParams?: Array<VerifyCodeParam>;
 
     /**
-     * PGO配置文件参数，默认值为空。
+     * PGO配置文件参数，默认值为空，列表长度上限为500。
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
@@ -1179,10 +1191,10 @@ declare namespace installer {
     pgoParams?: Array<PGOParam>;
 
     /**
-     * 扩展参数，Parameters类型的数组，默认值为空。Parameters.key取值支持：</br> - "ohos.bms.param.renameInstall"：若对应value值为“true”，表示安装时使用共享目录
-     * 将安装包从应用沙箱移动到安装目录，否则使用常规目录将安装包从应用沙箱拷贝到安装目录。</br> - "ohos.bms.param.enterpriseForAllUser"：若对应value值为“true”，表示在安装企业应
-     * 用时为所有用户安装，该参数只对[签名证书的分发类型]{@link ./bundleManager/ApplicationInfo:ApplicationInfo}为enterprise_mdm和
-     * enterprise_normal的应用生效。</br> - "ohos.bms.param.verifyUninstallRule"：若对应value值为“true”，表示设置卸载处置规则，用于拦截应用卸载。</br> - 
+     * 扩展参数，Parameters类型的数组，默认值为空，列表长度上限为1000。Parameters.key取值支持：</br> - "ohos.bms.param.renameInstall"：若对应value值为“true”
+     * ，表示安装时使用共享目录将安装包从应用沙箱移动到安装目录，否则使用常规目录将安装包从应用沙箱拷贝到安装目录。</br> - "ohos.bms.param.enterpriseForAllUser"：若对应value值为“
+     * true”，表示在安装企业应用时为所有用户安装，该参数只对[appDistributionType]{@link ./bundleManager/applicationInfo:ApplicationInfo}为enterprise_mdm
+     * 和enterprise_normal的应用生效。</br> - "ohos.bms.param.verifyUninstallRule"：若对应value值为“true”，表示设置卸载处置规则，用于拦截应用卸载。</br> -
      * "ohos.bms.param.enterpriseManifest"：value值为json文件的沙箱路径，json文件用于存储应用的描述文件，包括应用包名等，该字段用于企业应用克隆场景。克隆时，若该json文件存在，则将旧
      * 机的应用安装包拷贝到新机进行安装。</br> - "ohos.bms.param.installBundleName"：value值为应用的包名，该字段用于应用安装场景（从API version 23开始支持）。如果安装时传入
      * 了该字段，则在应用安装过程中调用接口[getBundleInstallStatus]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInstallStatus}
@@ -1190,7 +1202,7 @@ declare namespace installer {
      * ，即设备已安装较高版本的应用，也可以覆盖安装较低版本的应用。仅支持签名证书分发类型为app_gallery或者签名证书类型为debug的三方应用降级安装。使用降级安装能力需要同时申请
      * ohos.permission.INSTALL_BUNDLE和ohos.permission.INSTALL_ALLOW_DOWNGRADE权限。</br> - "
      * ohos.bms.param.originalInstallSource"：用于指定待安装应用的原始安装来源，对应value取值范围为
-     * [ApplicationInfo]{@link ./bundleManager/ApplicationInfo:ApplicationInfo}中的installSource字段取值。使用该参数安装的应用，其安装来源
+     * [ApplicationInfo]{@link ./bundleManager/applicationInfo:ApplicationInfo}中的installSource字段取值。使用该参数安装的应用，其安装来源
      * installSource会被设置为指定的value值。参数生效条件：待安装应用必须未在设备上安装；当value指定为应用包名时，要求指定的应用必须已安装且为系统应用。从API version 23开始支持。</br> - "
      * ohos.bms.param.deviceModeDistributionPolicy"：value值为
      * [DeviceModeDistributionPolicy]{@link @ohos.bundle.bundleManager:bundleManager.DeviceModeDistributionPolicy}
@@ -1252,7 +1264,7 @@ declare namespace installer {
   export interface CreateAppCloneParam {
     /**
      * 指定创建分身应用所在的用户ID，可以通过
-     * [getOsAccountLocalId接口]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
+     * [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
      * 获取。默认值：调用方所在用户。
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -1271,11 +1283,12 @@ declare namespace installer {
      */
     appIndex?: int;
     /**
-     * 扩展参数，Parameters类型的数组，默认值为空。Parameters.key取值支持：</br>
-     * - "ohos.bms.param.disableInstallEventReport"：若对应value值为"true"，表示分身创建完成后不发送安装广播事件。
-     * 若不传入该键或value值非"true"，则正常发送安装广播。</br>
-     * - "ohos.bms.param.bundleEnableState"：若对应value值为"false"，表示分身创建后处于禁用状态（enabled为false）。
-     * 若对应value值为"true"或不传入该键，表示分身创建后处于启用状态（enabled为true，默认行为）。
+     * 创建分身应用扩展参数，默认值为空。Parameters.key取值支持：</br>- "ohos.bms.param.disableInstallEventReport"：value值建议为string类型的"true"或"
+     * false"。若对应value值为"true"，表示分身创建完成后不发送安装广播事件；若对应value值为"false"或其他非"true"的值，则正常发送安装广播。不传入该键时，正常发送安装广播（默认行为）。</br>- "
+     * ohos.bms.param.bundleEnableState"：value值建议为string类型的"true"或"false"。若对应value值为"true"，表示分身创建后处于启用状态（enabled为true）；若
+     * 对应value值为"false"或其他非"true"的值，表示分身创建后处于禁用状态（enabled为false）。不传入该键时，表示分身创建后处于启用状态（enabled为true，默认行为）。</br>
+     * </br>
+     * 。
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
@@ -1295,8 +1308,8 @@ declare namespace installer {
    */
   export interface DestroyAppCloneParam {
     /**
-     * 指定删除分身应用所在的用户ID，可以通过
-     * [getOsAccountLocalId接口]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
+     * 指定删除分身应用或CLI沙箱应用所在的用户ID，可以通过
+     * [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
      * 获取。默认值：调用方所在用户。
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -1306,19 +1319,8 @@ declare namespace installer {
      */
     userId?: int;
     /**
-     * 扩展参数，Parameters类型的数组，默认值为空。Parameters.key取值支持：</br> - "ohos.bms.param.renameInstall"：若对应value值为“true”，表示安装时使用共享目录
-     * 将安装包从应用沙箱移动到安装目录，否则使用常规目录将安装包从应用沙箱拷贝到安装目录。</br> - "ohos.bms.param.enterpriseForAllUser"：若对应value值为“true”，表示在安装企业应
-     * 用时为所有用户安装，该参数只对[签名证书的分发类型]{@link ./bundleManager/ApplicationInfo:ApplicationInfo}为enterprise_mdm和
-     * enterprise_normal的应用生效。</br> - "ohos.bms.param.verifyUninstallRule"：若对应value值为“true”，表示设置卸载处置规则，用于拦截应用卸载。</br> - 
-     * "ohos.bms.param.enterpriseManifest"：value值为json文件的沙箱路径，json文件用于存储应用的描述文件，包括应用包名等，该字段用于企业应用克隆场景。克隆时，若该json文件存在，则将旧
-     * 机的应用安装包拷贝到新机进行安装。</br> - "ohos.bms.param.installBundleName"：value值为应用的包名，该字段用于应用安装场景（从API version 23开始支持）。如果安装时传入
-     * 了该字段，则在应用安装过程中调用接口[getBundleInstallStatus]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInstallStatus}
-     * 能够查询到应用正在安装的状态。</br> - "ohos.bms.param.installAllowDowngrade"：若对应value值为“true”，该字段表示支持应用降级安装（从API version 23开始支持）
-     * ，即设备已安装较高版本的应用，也可以覆盖安装较低版本的应用。仅支持签名证书分发类型为app_gallery或者签名证书类型为debug的三方应用降级安装。使用降级安装能力需要同时申请
-     * ohos.permission.INSTALL_BUNDLE和ohos.permission.INSTALL_ALLOW_DOWNGRADE权限。</br> - "
-     * ohos.bms.param.originalInstallSource"：用于指定待安装应用的原始安装来源，对应value取值范围为
-     * [ApplicationInfo]{@link ./bundleManager/ApplicationInfo:ApplicationInfo}中的installSource字段取值。使用该参数安装的应用，其安装来源
-     * installSource会被设置为指定的value值。参数生效条件：待安装应用必须未在设备上安装；当value指定为应用包名时，要求指定的应用必须已安装且为系统应用。从API version 23开始支持。
+     * 指定删除分身应用扩展参数，默认值为空，不支持CLI沙箱应用。Parameters.key取值支持：</br> - "ohos.bms.param.clone.isKeepData"：从API version 21开始支持，若对
+     * 应value值为"true"，表示删除分身时会保留分身的用户数据，否则不会保留分身的用户数据。
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
@@ -1339,7 +1341,7 @@ declare namespace installer {
   export interface PluginParam {
     /**
      * 指定安装、卸载插件程序所在的用户ID，可以通过
-     * [getOsAccountLocalId接口]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
+     * [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
      * 获取。默认值：调用方所在用户。
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core

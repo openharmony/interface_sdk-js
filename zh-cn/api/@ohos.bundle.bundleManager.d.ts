@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 应用程序包管理模块
  * @kit AbilityKit
  */
 
@@ -25,6 +25,19 @@ import { PluginBundleInfo as _PluginBundleInfo, PluginModuleInfo as _PluginModul
 import { ElementName as _ElementName } from './bundleManager/ElementName';
 import { SharedBundleInfo as _SharedBundleInfo } from './bundleManager/SharedBundleInfo';
 import Want from './@ohos.app.ability.Want';
+import image from './@ohos.multimedia.image';
+/*** if arkts dynamic */
+import type { ApplicationInfo as _ApplicationInfo, ModuleMetadata as _ModuleMetadata,
+  PreinstalledApplicationInfo as _PreinstalledApplicationInfo } from './bundleManager/ApplicationInfo';
+import type { RecoverableApplicationInfo as _RecoverableApplicationInfo } from './bundleManager/RecoverableApplicationInfo';
+import * as _AbilityInfo from './bundleManager/AbilityInfo';
+import * as _AppProvisionInfo from './bundleManager/AppProvisionInfo';
+import * as _BundleInfo from './bundleManager/BundleInfo';
+import * as _HapModuleInfo from './bundleManager/HapModuleInfo';
+import * as _ExtensionAbilityInfo from './bundleManager/ExtensionAbilityInfo';
+import * as _Skill from './bundleManager/Skill';
+/*** endif */
+/*** if arkts static */
 import { ApplicationInfo as _ApplicationInfo, ModuleMetadata as _ModuleMetadata,
   PreinstalledApplicationInfo as _PreinstalledApplicationInfo } from './bundleManager/ApplicationInfo';
 import { RecoverableApplicationInfo as _RecoverableApplicationInfo } from './bundleManager/RecoverableApplicationInfo';
@@ -33,17 +46,19 @@ import { AppProvisionInfo as _AppProvisionInfo, Validity as _Validity } from './
 import { BundleInfo as _BundleInfo, UsedScene as _UsedScene, ReqPermissionDetail as _ReqPermissionDetail,
   SignatureInfo as _SignatureInfo, AppCloneIdentity as _AppCloneIdentity, DynamicIconInfo as _DynamicIconInfo,
   BundleOptions as _BundleOptions, AlternateIconInfo as _AlternateIconInfo,
+  AppClonePreference as _AppClonePreference,
   BundleExtensionPolicyInfo as _BundleExtensionPolicyInfo } from './bundleManager/BundleInfo';
 import { HapModuleInfo as _HapModuleInfo, PreloadItem as _PreloadItem, Dependency as _Dependency,
-  RouterItem as _RouterItem, DataItem as _DataItem } from './bundleManager/HapModuleInfo';
+   RouterItem as _RouterItem, DataItem as _DataItem } from './bundleManager/HapModuleInfo';
 import { ExtensionAbilityInfo as _ExtensionAbilityInfo } from './bundleManager/ExtensionAbilityInfo';
 import { Skill as _Skill, SkillUri as _SkillUri } from './bundleManager/Skill';
 import type { RecordData } from './@ohos.base';
+/*** endif */
 /**
- * 本模块提供应用信息的查询能力，支持应用包信息[BundleInfo]{@link bundleManager/BundleInfo}、应用程序信息
- * [ApplicationInfo]{@link bundleManager/ApplicationInfo}、UIAbility组件信息
- * [AbilityInfo]{@link bundleManager/AbilityInfo}、ExtensionAbility组件信息
- * [ExtensionAbilityInfo]{@link bundleManager/ExtensionAbilityInfo:ExtensionAbilityInfo}等信息的查询。
+ * 本模块提供应用信息的查询能力，支持应用包信息[BundleInfo]{@link ./bundleManager/bundleInfo}、应用程序信息
+ * [ApplicationInfo]{@link ./bundleManager/applicationInfo:ApplicationInfo}、UIAbility组件信息
+ * [AbilityInfo]{@link ./bundleManager/abilityInfo:AbilityInfo}、ExtensionAbility组件信息
+ * [ExtensionAbilityInfo]{@link ./bundleManager/ExtensionAbilityInfo:ExtensionAbilityInfo}等信息的查询。
  *
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @crossplatform [since 12]
@@ -131,13 +146,13 @@ declare namespace bundleManager {
      * GET_BUNDLE_INFO_WITH_APPLICATION、GET_BUNDLE_INFO_WITH_HAP_MODULE、GET_BUNDLE_INFO_WITH_ABILITY、
      * GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY配合使用，其中：
      * 
-     * -?获取applicationInfo中包含的metadata，需要与GET_BUNDLE_INFO_WITH_APPLICATION一起使用。
+     * - 获取applicationInfo中包含的metadata，需要与GET_BUNDLE_INFO_WITH_APPLICATION一起使用。
      * 
-     * -?获取moduleInfo中包含的metadata，需要与GET_BUNDLE_INFO_WITH_HAP_MODULE一起使用。
+     * - 获取moduleInfo中包含的metadata，需要与GET_BUNDLE_INFO_WITH_HAP_MODULE一起使用。
      * 
-     * -?获取abilityInfo中包含的metadata，需要与GET_BUNDLE_INFO_WITH_HAP_MODULE、GET_BUNDLE_INFO_WITH_ABILITY一起使用。
+     * - 获取abilityInfo中包含的metadata，需要与GET_BUNDLE_INFO_WITH_HAP_MODULE、GET_BUNDLE_INFO_WITH_ABILITY一起使用。
      * 
-     * -?获取extensionAbilityInfo中包含的metadata，需要与GET_BUNDLE_INFO_WITH_HAP_MODULE、GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY一起使
+     * - 获取extensionAbilityInfo中包含的metadata，需要与GET_BUNDLE_INFO_WITH_HAP_MODULE、GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY一起使
      * 用。
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -198,7 +213,9 @@ declare namespace bundleManager {
      */
     GET_BUNDLE_INFO_WITH_SKILL = 0x00000800,
     /**
-     * 用于获取仅包含有桌面图标的应用的bundleInfo。
+     * 用于获取仅包含有桌面图标的应用的bundleInfo。它仅在[getAllBundleInfo]{@link bundleManager.getAllBundleInfo}接口中生效。 
+     *
+     * **系统API：** 该标记仅支持在系统API中使用。
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi [since 12 - 26.0.1]
@@ -209,11 +226,8 @@ declare namespace bundleManager {
     GET_BUNDLE_INFO_ONLY_WITH_LAUNCHER_ABILITY = 0x00001000,
     /**
      * 用于获取任意用户安装的bundleInfo。它不能单独使用，需要与GET_BUNDLE_INFO_WITH_APPLICATION一起使用。它仅在
-     * [getBundleInfo]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfo(bundleName: string, bundleFlags: int, userId: int, callback: AsyncCallback<BundleInfo>)}
-     * 、
-     * [getAllBundleInfo]{@link bundleManager.getAllBundleInfo(bundleFlags: int, userId: int, callback: AsyncCallback<Array<BundleInfo>>)}
-     * 接口生效。
-     * 
+     * [getBundleInfo]{@link bundleManager.getBundleInfo}、[getAllBundleInfo]{@link bundleManager.getAllBundleInfo}接口生效。
+     *
      * **系统API：** 该标记仅支持在系统API中使用。
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -223,10 +237,8 @@ declare namespace bundleManager {
      */
     GET_BUNDLE_INFO_OF_ANY_USER = 0x00002000,
     /**
-     * 用于获取去除分身应用而仅包含主应用的bundleInfo。它仅在
-     * [getAllBundleInfo]{@link bundleManager.getAllBundleInfo(bundleFlags: int, userId: int, callback: AsyncCallback<Array<BundleInfo>>)}
-     * 接口中生效。 
-     * 
+     * 用于获取去除分身应用而仅包含主应用的bundleInfo。它仅在[getAllBundleInfo]{@link bundleManager.getAllBundleInfo}接口中生效。 
+     *
      * **系统API：** 该标记仅支持在系统API中使用。
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -236,10 +248,8 @@ declare namespace bundleManager {
      */
     GET_BUNDLE_INFO_EXCLUDE_CLONE = 0x00004000,
     /**
-     * 用于获取启用端云文件同步能力或者端云结构化数据同步能力的应用的bundleInfo。它仅在
-     * [getAllBundleInfo]{@link bundleManager.getAllBundleInfo(bundleFlags: int, userId: int, callback: AsyncCallback<Array<BundleInfo>>)}
-     * 接口中生效。 
-     * 
+     * 用于获取启用端云文件同步能力或者端云结构化数据同步能力的应用的bundleInfo。它仅在[getAllBundleInfo]{@link bundleManager.getAllBundleInfo}接口中生效。 
+     *
      * **系统API：** 该标记仅支持在系统API中使用。
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -257,6 +267,40 @@ declare namespace bundleManager {
      * @since 23 dynamic&static
      */
     GET_BUNDLE_INFO_WITH_ENTRY_MODULE = 0x00010000,
+    /**
+     * 用于获取普通分身应用和主应用的bundleInfo。它仅在[getAllAppCloneBundleInfo]{@link bundleManager.getAllAppCloneBundleInfo}接口中生效。 
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    GET_BUNDLE_INFO_WITH_COMMON_CLONE = 0x00080000,
+    /**
+     * 用于获取沙箱分身应用和主应用的bundleInfo。它仅在[getAllAppCloneBundleInfo]{@link bundleManager.getAllAppCloneBundleInfo}接口中生效。 
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    GET_BUNDLE_INFO_WITH_SANDBOX_CLONE = 0x00100000,
+    /**
+     * 用于获取任意设备安装的应用的bundle信息。
+     * 它只在
+     * [getAllAppCloneBundleInfo]{@link bundleManager.getAllAppCloneBundleInfo}
+     * 和
+     * [getAllBundleInfo]{@link bundleManager.getAllBundleInfo}
+     * 和
+     * [getAllBundleInfoInstances]{@link bundleManager.getAllBundleInfoInstances}
+     * API。
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.1 dynamic&static
+     */
+    GET_BUNDLE_INFO_OF_ALL_DEVICE_MODE = 0x00200000
   }
 
   /**
@@ -318,12 +362,9 @@ declare namespace bundleManager {
    */
   enum AbilityFlag {
     /**
-     * 获取默认[AbilityInfo]{@link bundleManager/AbilityInfo}，获取的AbilityInfo不包含permissions、metadata、被禁用Ability对应的
-     * AbilityInfo。<!--Del-->通过
-     * [setAbilityEnabled接口]{@link @ohos.bundle.bundleManager:bundleManager.setAbilityEnabled(info: AbilityInfo, isEnabled: boolean, callback: AsyncCallback<void>)}
-     * 可设置Ability禁用状态、通过
-     * [isAbilityEnabled接口]{@link @ohos.bundle.bundleManager:bundleManager.isAbilityEnabled(info: AbilityInfo)}可获取
-     * Ability禁用状态。<!--DelEnd-->
+     * 获取默认[AbilityInfo]{@link ./bundleManager/abilityInfo:AbilityInfo}，获取的AbilityInfo不包含permissions、metadata、被禁用Ability对应的
+     * AbilityInfo。<!--Del-->通过[setAbilityEnabled接口]{@link bundleManager.setAbilityEnabled}可设置Ability禁用状态、通过
+     * [isAbilityEnabled接口]{@link bundleManager.isAbilityEnabled}可获取Ability禁用状态。<!--DelEnd-->
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi [since 9 - 19]
@@ -680,7 +721,7 @@ declare namespace bundleManager {
     EMBEDDED_UI = 21,
 
     /**
-     * InsightIntentUIExtensionAbility：为开发者提供能被小艺意图调用，以窗口形态呈现内容的扩展能力。
+     * InsightIntentUIExtensionAbility：为开发者提供能被系统入口调用，以窗口形态呈现内容的扩展能力。
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 12 dynamic
@@ -757,10 +798,8 @@ declare namespace bundleManager {
     LIVE_FORM = 30,
 
     /**
-     * SelectionExtensionAbility：为开发者提
+     * [SelectionExtensionAbility]{@link @ohos.selectionInput.SelectionExtensionAbility:SelectionExtensionAbility}：为开发者提
      * 供划词弹窗能力的ExtensionAbility。
-     *
-     * **模型约束**：此接口仅可在Stage模型下使用。
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @stagemodelonly
@@ -769,7 +808,7 @@ declare namespace bundleManager {
     SELECTION = 31,
 
     /**
-     * [WebNativeMessagingExtensionAbility]{@link @ohos.web.WebNativeMessagingExtensionAbility}：为开发者提供Web原生消息通信能力的
+     * [WebNativeMessagingExtensionAbility]{@link @ohos.web.WebNativeMessagingExtensionAbility}：为开发者提供Web消息通信能力的
      * ExtensionAbility。
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -809,8 +848,6 @@ declare namespace bundleManager {
     /**
      * [PartnerAgentExtensionAbility]{@link @ohos.FusionConnectivity.PartnerAgentExtensionAbility}：基于蓝牙通信技术，提供设备发现与设备下线的
      * 通知功能。
-     * 
-     * **模型约束**：此接口仅可在Stage模型下使用。
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @stagemodelonly
@@ -819,10 +856,8 @@ declare namespace bundleManager {
     PARTNER_AGENT = 36,
 
     /**
-     * [AgentExtensionAbility](docroot://reference/apis-ability-kit/js-apis-app-agent-agentExtensionAbility.md)：提供智能体扩展能
-     * 力，包括智能体服务的创建、销毁、连接、断开的生命周期回调接口，以及接收客户端所发送数据和安全认证的回调接口。
-     *
-     * **模型约束**：此接口仅可在Stage模型下使用。
+     * [AgentExtensionAbility]{@link @ohos.app.agent.AgentExtensionAbility:AgentExtensionAbility}：提供智能体扩展能力，包括智能体服务的创建、销
+     * 毁、连接、断开的生命周期回调接口，以及接收客户端所发送数据和安全认证的回调接口。
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @stagemodelonly
@@ -834,8 +869,6 @@ declare namespace bundleManager {
      * [AgentUIExtensionAbility](docroot://reference/apis-ability-kit/js-apis-agent-agentUIExtensionAbility.md)：为开发者提供接入
      * 端侧Agent UI界面显示能力。
      *
-     * **模型约束**：此接口仅可在Stage模型下使用。
-     *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @stagemodelonly
      * @since 24 dynamic&static
@@ -843,7 +876,9 @@ declare namespace bundleManager {
     AGENT_UI = 38,
 
     /**
-     * [ModularObjectExtensionAbility](docroot://application-models/modular-object-extension-overview.md)：提供应用自身能力开放功能。
+     * [modular_object_extension_ability](docroot://reference/apis-ability-kit/capi-modular-object-extension-ability-h.md)：
+     * 提供[模块化对象](docroot://application-models/modular-object-extension-overview.md)扩展能力，可以将应用自身功能封装为独立的功能模块，开放给其他应用使用。
+     *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -851,9 +886,8 @@ declare namespace bundleManager {
     MODULAR_OBJECT = 39,
 
     /**
-     * 不指定类型<!--Del-->，配合
-     * [queryExtensionAbilityInfo接口]{@link @ohos.bundle.bundleManager:bundleManager.queryExtensionAbilityInfo(want: Want, extensionAbilityType: ExtensionAbilityType, extensionAbilityFlags: int, userId: int, callback: AsyncCallback<Array<ExtensionAbilityInfo>>)}
-     * 可以查询所有类型的ExtensionAbility<!--DelEnd-->。
+     * 不指定类型<!--Del-->，配合[queryExtensionAbilityInfo接口]{@link bundleManager.queryExtensionAbilityInfo}可以查询所有类型的
+     * ExtensionAbility<!--DelEnd-->。
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9 dynamic
@@ -1306,7 +1340,6 @@ declare namespace bundleManager {
 
     /**
      * [端云同步]{@link @ohos.file.cloudSync:cloudSync}配置文件。
-     * 26.0.0
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
@@ -1357,7 +1390,7 @@ declare namespace bundleManager {
 
     /**
      * 企业MDM应用，只能安装在企业设备上。需要被激活
-     * [adminManager.enableAdmin]{@link @ohos.enterprise.adminManager:adminManager.enableAdmin(admin: Want, enterpriseInfo: EnterpriseInfo, type: AdminType, callback: AsyncCallback<void>)}
+     * [adminManager.enableAdmin](docroot://reference/apis-mdm-kit/js-apis-enterprise-adminManager-sys.md#adminmanagerenableadmin)
      * 后，才能安装普通企业应用。
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -1480,7 +1513,7 @@ declare namespace bundleManager {
   }
 
   /**
-   * 标识应用的安装状态。
+   * 应用安装状态枚举。
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
@@ -1516,7 +1549,7 @@ declare namespace bundleManager {
   }
 
   /**
-   * 该ApplicationReservedFlag值的每一位标识相关信息。
+   * 应用分身偏好设置的模式。
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
@@ -1545,14 +1578,54 @@ declare namespace bundleManager {
   }
 
   /**
-   * 定义设备模式分发策略枚举，用于指定应用程序如何分发到设备上。
+   * 应用分身偏好设置的模式。
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export enum AppClonePreferenceMode {
+    /**
+     * 每次启动应用时都询问用户选择主应用或分身应用。
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    ALWAYS_ASK = 0,
+
+    /**
+     * 默认使用主应用。
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    MAIN_APP = 1,
+
+    /**
+     * 默认使用分身应用。
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    CLONE_APP = 2
+  }
+
+  /**
+   * 设备模式分发策略枚举，用于指定应用程序如何分发到设备上。
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @stagemodelonly
    * @since 26.0.1 dynamic&static
    */
-  enum DeviceModeDistributionPolicy {
+  export enum DeviceModeDistributionPolicy {
     /**
      * 未指定设备模式分发策略。
      *
@@ -1563,7 +1636,7 @@ declare namespace bundleManager {
      */
     UNSPECIFIED = 0,
     /**
-     * 该应用程序仅在主模式下可用。
+     * 应用程序仅在主模式下可用。
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
@@ -1572,7 +1645,7 @@ declare namespace bundleManager {
      */
     MAIN_ONLY = 1,
     /**
-     * 该应用程序仅在副模式下可用。
+     * 应用程序仅在副模式下可用。
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
@@ -1599,7 +1672,7 @@ declare namespace bundleManager {
      */
     UNIVERSAL_DIFFERENT_PACKAGE = 4,
     /**
-     * 该应用程序在不同模式之间以相同包体方式部分兼容。
+     * 应用程序在不同模式之间部分兼容，具有相同的包体。
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
@@ -1608,7 +1681,7 @@ declare namespace bundleManager {
      */
     PARTIAL_COMPATIBLE_IDENTICAL_PACKAGE = 5,
     /**
-     * 应用程序在不同模式之间以不同包体部分兼容。
+     * 应用程序在不同模式之间部分兼容，具有不同的包体。
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
@@ -1617,7 +1690,7 @@ declare namespace bundleManager {
      */
     PARTIAL_COMPATIBLE_DIFFERENT_PACKAGE = 6,
     /**
-     * 应用程序在不同模式之间以相同包体完全兼容。
+     * 应用程序在不同模式之间完全兼容，具有相同的包体。
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
@@ -1626,14 +1699,14 @@ declare namespace bundleManager {
      */
     FULL_COMPATIBLE_IDENTICAL_PACKAGE = 7,
     /**
-     * 应用程序在不同模式之间以不同的包体方式完全兼容。
+     * 应用程序在不同模式之间完全兼容，具有不同的包体。
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @stagemodelonly
      * @since 26.0.1 dynamic&static
      */
-    FULL_COMPATIBLE_DIFFERENT_PACKAGE = 8,
+    FULL_COMPATIBLE_DIFFERENT_PACKAGE = 8
   }
 
   /**
@@ -1713,7 +1786,7 @@ declare namespace bundleManager {
 
   /**
    * 根据给定的bundleName和bundleFlags获取BundleInfo。使用callback异步回调。
-   * 
+   *
    * 获取调用方自身的信息时不需要权限。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
@@ -1733,8 +1806,8 @@ declare namespace bundleManager {
   function getBundleInfo(bundleName: string, bundleFlags: int, callback: AsyncCallback<BundleInfo>): void;
 
   /**
-   * 根据给定的bundleName、bundleFlags和userId获取[BundleInfo]{@link bundleManager/BundleInfo}。使用callback异步回调。
-   * 
+   * 根据给定的bundleName、bundleFlags和userId获取[BundleInfo]{@link ./bundleManager/BundleInfo}。使用callback异步回调。
+   *
    * 获取调用方自身信息时不需要权限。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
@@ -1744,7 +1817,7 @@ declare namespace bundleManager {
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
    *     获取。
    * @param { AsyncCallback<BundleInfo> } callback - [AsyncCallback]{@link @ohos.base:AsyncCallback}，当获取成功时，err为
-   *     undefined，data为获取到的bundleInfo；否则为错误对象。
+   *     undefined，data为获取到的BundleInfo；否则为错误对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types.
@@ -1759,7 +1832,7 @@ declare namespace bundleManager {
 
   /**
    * 根据给定的bundleName、bundleFlags和userId获取BundleInfo。使用Promise异步回调。
-   * 
+   *
    * 获取调用方自身的信息时不需要权限。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
@@ -1783,7 +1856,7 @@ declare namespace bundleManager {
 
   /**
    * 根据给定的bundleName和appFlags获取ApplicationInfo。使用callback异步回调。
-   * 
+   *
    * 获取调用方自身的信息时不需要权限。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
@@ -1807,7 +1880,7 @@ declare namespace bundleManager {
 
   /**
    * 根据给定的bundleName、appFlags和userId获取ApplicationInfo。使用callback异步回调。
-   * 
+   *
    * 获取调用方自身的信息时不需要权限。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
@@ -1835,7 +1908,7 @@ declare namespace bundleManager {
 
   /**
    * 根据给定的bundleName、appFlags和userId获取ApplicationInfo。使用Promise异步回调。
-   * 
+   *
    * 获取调用方自身的信息时不需要权限。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
@@ -1988,7 +2061,7 @@ declare namespace bundleManager {
 
   /**
    * 根据给定的want和abilityFlags获取一个或多个AbilityInfo。使用callback异步回调。
-   * 
+   *
    * 获取调用方自身的信息时不需要权限。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
@@ -2014,7 +2087,7 @@ declare namespace bundleManager {
 
   /**
    * 根据给定的want、abilityFlags和userId获取多个AbilityInfo。使用callback异步回调。
-   * 
+   *
    * 获取调用方自身的信息时不需要权限。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
@@ -2044,7 +2117,7 @@ declare namespace bundleManager {
 
   /**
    * 根据给定的want、abilityFlags和userId获取一个或多个AbilityInfo。使用Promise异步回调。
-   * 
+   *
    * 获取调用方自身的信息时不需要权限。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
@@ -2077,8 +2150,7 @@ declare namespace bundleManager {
    * @permission ohos.permission.GET_ABILITY_INFO
    * @param { string } uri - 表示统一资源标识符URI，取值与
    *     [module.json5配置文件中skills下的uris字段](docroot://quick-start/module-configuration-file.md#skills标签)相对应。
-   * @param { int } abilityFlags - 表示[Ability组件信息标志]{@link @ohos.bundle.bundleManager:bundleManager.AbilityFlag}，指示需要获取的
-   *     Ability组件信息的内容。
+   * @param { int } abilityFlags - 表示[Ability组件信息标志]{@link bundleManager.AbilityFlag}，指示需要获取的Ability组件信息的内容。
    * @returns { Promise<Array<AbilityInfo>> } Promise对象，返回获取到的Ability信息数组。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 17700003 - The ability is not found.
@@ -2116,7 +2188,7 @@ declare namespace bundleManager {
 
   /**
    * 根据给定的want列表、abilityFlags和userId获取一个或多个AbilityInfo。使用Promise异步回调。
-   * 
+   *
    * 获取调用方自身的信息时不需要权限。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
@@ -2125,7 +2197,8 @@ declare namespace bundleManager {
    * @param { int } [userId] - 表示用户ID，可以通过
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
    *     获取，默认值：调用方所在用户，取值范围：大于等于0。
-   * @returns { Promise<Array<AbilityInfo>> } Promise对象，返回Array<[AbilityInfo]{@link bundleManager/AbilityInfo}>信息。
+   * @returns { Promise<Array<AbilityInfo>> } Promise对象，返回Array<[AbilityInfo]{@link ./bundleManager/abilityInfo:AbilityInfo}>信
+   *     息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -2145,7 +2218,7 @@ declare namespace bundleManager {
 
   /**
    * 以同步方法根据给定的want、abilityFlags和userId获取一个或多个AbilityInfo。
-   * 
+   *
    * 获取调用方自身的信息时不需要权限。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
@@ -2154,7 +2227,7 @@ declare namespace bundleManager {
    * @param { int } userId - 表示用户ID，可以通过
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
    *     获取，默认值：调用方所在用户，取值范围：大于等于0。
-   * @returns { Array<AbilityInfo> } Array<AbilityInfo>信息。
+   * @returns { Array<AbilityInfo> } 返回查询到的Ability信息列表。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -2174,13 +2247,13 @@ declare namespace bundleManager {
 
   /**
    * 根据给定的want、extensionAbilityType和extensionAbilityFlags获取一个或多个ExtensionAbilityInfo。使用callback异步回调。
-   * 
+   *
    * 获取调用方自身的信息时不需要权限。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { Want } want - 表示包含要查询的应用Bundle名称的Want。
    * @param { ExtensionAbilityType } extensionAbilityType - 标识extensionAbility的类型。
-   * @param { int } extensionAbilityFlags - 表示用于指定将返回的ExtensionInfo对象中包含的信息的标志，具体取值及不同含义参考
+   * @param { int } extensionAbilityFlags - 表示用于指定将返回的ExtensionAbilityInfo对象中包含的信息的标志，具体取值及不同含义参考
    *     [ExtensionAbilityFlag]{@link bundleManager.ExtensionAbilityFlag}。
    * @param { AsyncCallback<Array<ExtensionAbilityInfo>> } callback - [AsyncCallback]{@link @ohos.base:AsyncCallback}，当获
    *     取成功时，err为undefined，data为获取到Array<ExtensionAbilityInfo>；否则为错误对象。
@@ -2202,13 +2275,13 @@ declare namespace bundleManager {
 
   /**
    * 根据给定的want、extensionAbilityType、extensionAbilityFlags和userId获取一个或多个ExtensionAbilityInfo。使用callback异步回调。
-   * 
+   *
    * 获取调用方自身的信息时不需要权限。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { Want } want - 表示包含要查询的应用Bundle名称的Want。
    * @param { ExtensionAbilityType } extensionAbilityType - 标识extensionAbility的类型。
-   * @param { int } extensionAbilityFlags - 表示用于指定将返回的ExtensionInfo对象中包含的信息的标志，具体取值及不同含义参考
+   * @param { int } extensionAbilityFlags - 表示用于指定将返回的ExtensionAbilityInfo对象中包含的信息的标志，具体取值及不同含义参考
    *     [ExtensionAbilityFlag]{@link bundleManager.ExtensionAbilityFlag}。
    * @param { int } userId - 表示用户ID，可以通过
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
@@ -2233,13 +2306,13 @@ declare namespace bundleManager {
 
   /**
    * 根据给定的want、extensionAbilityType、extensionAbilityFlags和userId获取ExtensionAbilityInfo。使用Promise异步回调。
-   * 
+   *
    * 获取调用方自身的信息时不需要权限。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { Want } want - 表示包含要查询的应用Bundle名称的Want。
    * @param { ExtensionAbilityType } extensionAbilityType - 标识extensionAbility的类型。
-   * @param { int } extensionAbilityFlags - 表示用于指定将返回的ExtensionInfo对象中包含的信息的标志，具体取值及不同含义参考
+   * @param { int } extensionAbilityFlags - 表示用于指定将返回的ExtensionAbilityInfo对象中包含的信息的标志，具体取值及不同含义参考
    *     [ExtensionAbilityFlag]{@link bundleManager.ExtensionAbilityFlag}。
    * @param { int } userId - 表示用户ID，可以通过
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
@@ -2263,18 +2336,18 @@ declare namespace bundleManager {
 
   /**
    * 以同步方法根据给定的want、extensionAbilityType、extensionAbilityFlags和userId获取ExtensionAbilityInfo。
-   * 
+   *
    * 获取调用方自身的信息时不需要权限。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { Want } want - 表示包含要查询的应用Bundle名称的Want。
    * @param { ExtensionAbilityType } extensionAbilityType - 标识extensionAbility的类型。
-   * @param { int } extensionAbilityFlags - 表示用于指定将返回的ExtensionInfo对象中包含的信息的标志，具体取值及不同含义参考
+   * @param { int } extensionAbilityFlags - 表示用于指定将返回的ExtensionAbilityInfo对象中包含的信息的标志，具体取值及不同含义参考
    *     [ExtensionAbilityFlag]{@link bundleManager.ExtensionAbilityFlag}。
    * @param { int } userId - 表示用户ID，可以通过
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
    *     获取，默认值：调用方所在用户，取值范围：大于等于0。
-   * @returns { Array<ExtensionAbilityInfo> } Array<ExtensionAbilityInfo>信息。
+   * @returns { Array<ExtensionAbilityInfo> } 返回查询到的ExtensionAbility信息列表。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -2294,13 +2367,13 @@ declare namespace bundleManager {
 
   /**
    * 根据给定的want、extensionAbilityType、extensionAbilityFlags和userId获取ExtensionAbilityInfo，使用同步方式返回结果。
-   * 
+   *
    * 获取调用方自身的信息时不需要权限。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { Want } want - 表示包含要查询的应用Bundle名称的Want。
    * @param { string } extensionAbilityType - 表示自定义extensionAbility的类型。
-   * @param { int } extensionAbilityFlags - 表示返回的ExtensionInfo对象中需要包含的信息标志，具体取值及不同含义参考
+   * @param { int } extensionAbilityFlags - 表示返回的ExtensionAbilityInfo对象中需要包含的信息标志，具体取值及不同含义参考
    *     [ExtensionAbilityFlag]{@link bundleManager.ExtensionAbilityFlag}。
    * @param { int } userId - 表示用户ID，可以通过
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
@@ -2325,12 +2398,12 @@ declare namespace bundleManager {
 
   /**
    * 根据给定的extensionAbilityType、extensionAbilityFlags和userId获取ExtensionAbilityInfo。
-   * 
+   *
    * 获取调用方自身的信息时不需要权限。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } extensionAbilityType - 表示自定义extensionAbility的类型。
-   * @param { int } extensionAbilityFlags - 表示返回的ExtensionInfo对象中需要包含的信息标志，具体取值及不同含义参考
+   * @param { int } extensionAbilityFlags - 表示返回的ExtensionAbilityInfo对象中需要包含的信息标志，具体取值及不同含义参考
    *     [ExtensionAbilityFlag]{@link bundleManager.ExtensionAbilityFlag}。
    * @param { int } userId - 表示用户ID，可以通过
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
@@ -2400,10 +2473,10 @@ declare namespace bundleManager {
   function getBundleNameByUidSync(uid: int): string;
 
   /**
-   * 根据给定的hapFilePath和bundleFlags获取BundleInfo。使用callback异步回调。
+   * 根据给定的hapFilePath和bundleFlags获取BundleInfo。使用callback异步回调。从API版本26.0.0开始,该接口支持处理APP包。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { string } hapFilePath - 表示存储HAP的路径，路径应该是当前应用程序数据目录的相对路径。
+   * @param { string } hapFilePath - 表示存储HAP或APP的路径，路径应该是当前应用程序数据目录的相对路径。
    * @param { int } bundleFlags - 表示用于指定要返回的BundleInfo对象中包含的信息的标志。
    * @param { AsyncCallback<BundleInfo> } callback - [AsyncCallback]{@link @ohos.base:AsyncCallback}，当获取成功时，err为
    *     undefined，data为获取到的BundleInfo；否则为错误对象。
@@ -2420,10 +2493,10 @@ declare namespace bundleManager {
   function getBundleArchiveInfo(hapFilePath: string, bundleFlags: int, callback: AsyncCallback<BundleInfo>): void;
 
   /**
-   * 根据给定的hapFilePath和bundleFlags获取BundleInfo。使用Promise异步回调。
+   * 根据给定的hapFilePath和bundleFlags获取BundleInfo。使用Promise异步回调。从API版本26.0.0开始,该接口支持处理APP包。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { string } hapFilePath - 表示存储HAP的路径，路径应该是当前应用程序数据目录的相对路径。
+   * @param { string } hapFilePath - 表示存储HAP或APP的路径，路径应该是当前应用程序数据目录的相对路径。
    * @param { int } bundleFlags - 表示用于指定要返回的BundleInfo对象中包含的信息的标志。
    * @returns { Promise<BundleInfo> } Promise对象，返回BundleInfo。
    * @throws { BusinessError } 201 - Permission denied.
@@ -2444,7 +2517,7 @@ declare namespace bundleManager {
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } hapFilePath - 表示存储HAP的路径，路径应该是当前应用程序数据目录的相对路径。
    * @param { int } bundleFlags - 表示用于指定要返回的BundleInfo对象中包含的信息的标志。
-   * @returns { BundleInfo } 返回BundleInfo对象。
+   * @returns { BundleInfo } 返回查询到的应用包信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
@@ -2459,7 +2532,7 @@ declare namespace bundleManager {
 
   /**
    * 根据给定的bundleName清理BundleCache。使用callback异步回调。
-   * 
+   *
    * 调用方清理自身缓存数据时不需要权限。
    *
    * @permission ohos.permission.REMOVE_CACHE_FILES
@@ -2481,7 +2554,7 @@ declare namespace bundleManager {
 
   /**
    * 根据给定的bundleName清理BundleCache。使用Promise异步回调。
-   * 
+   *
    * 调用方清理自身缓存数据时不需要权限。
    *
    * @permission ohos.permission.REMOVE_CACHE_FILES
@@ -2502,12 +2575,13 @@ declare namespace bundleManager {
 
   /**
    * 根据给定的bundleName和appIndex清理BundleCache。使用Promise异步回调。
-   * 
+   *
    * 调用方清理自身缓存数据时不需要权限。
    *
    * @permission ohos.permission.REMOVE_CACHE_FILES
    * @param { string } bundleName - 表示要清理其缓存数据的应用程序的bundleName。
-   * @param { int } appIndex - 表示要清理其缓存数据的应用程序的分身应用索引。<br>appIndex为0时，表示清理主应用缓存数据。appIndex大于0时，表示清理指定分身应用缓存数据。
+   * @param { int } appIndex - 表示要清理其缓存数据的应用程序的分身应用索引。
+   *     <br>appIndex为0时，表示清理主应用缓存数据。appIndex大于0时，表示清理指定分身应用缓存数据。
    * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -2536,7 +2610,7 @@ declare namespace bundleManager {
 
   /**
    * 获取全局缓存大小，单位：字节。使用Promise异步回调。
-   * 
+   *
    * 有程序运行时的应用的缓存、或者在[应用配置指南](docroot://../device-dev/subsystems/subsys-app-privilege-config-guide.md)中已配置“
    * AllowAppDataNotCleared”特权的应用的缓存，无法被获取。
    *
@@ -2570,7 +2644,8 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.CHANGE_ABILITY_ENABLED_STATE
    * @param { string } bundleName - 表示应用程序的bundleName。
-   * @param { int } appIndex - 表示分身应用的索引。<br> appIndex为0时，表示设置主应用的禁用或使能状态。appIndex大于0时，表示设置指定分身应用的禁用或使能状态。
+   * @param { int } appIndex - 表示分身应用的索引。
+   *     <br> appIndex为0时，表示设置主应用的禁用或使能状态。appIndex大于0时，表示设置指定分身应用的禁用或使能状态。
    * @param { boolean } isEnabled - 值为true表示使能，值为false表示禁用。
    * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission denied.
@@ -2587,15 +2662,14 @@ declare namespace bundleManager {
   function setApplicationEnabled(bundleName: string, appIndex: int, isEnabled: boolean): Promise<void>;
 
   /**
-   * 设置应用程序是启用还是禁用，并控制在禁用时是否杀死进程。
+   * 设置指定应用或分身应用的启用或禁用状态，并控制禁用时是否退出应用进程。使用Promise异步回调。
    *
    * @permission ohos.permission.CHANGE_ABILITY_ENABLED_STATE
-   * @param { string } bundleName - 应用包名
-   * @param { int } appIndex - 应用的分身索引
-   *     <br>取值范围为全体整数。
-   * @param { boolean } isEnabled - true表示启用应用程序，false表示禁用应用程序。
-   * @param { boolean } killProcess - true表示应用进程在禁用时会杀死应用进程，而值为false表示禁用时不会杀死应用程序进程
-   * @returns { Promise<void> } 无返回值
+   * @param { string } bundleName - 应用的包名。
+   * @param { int } appIndex - 应用索引。取值范围0~5的整数，取值为0表示主应用，取值1~5表示分身应用的索引。
+   * @param { boolean } isEnabled - 是否启用应用。值为true表示启用应用，值为false表示禁用应用。
+   * @param { boolean } killProcess - 禁用应用时是否退出应用进程。值为true表示禁用应用时将退出应用进程，值为false表示禁用应用时不退出应用进程。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied. Non-system APP calling system API.
    * @throws { BusinessError } 17700001 - The specified bundle is not found.
@@ -2665,14 +2739,13 @@ declare namespace bundleManager {
   function setApplicationEnabledSync(bundleName: string, isEnabled: boolean): void;
 
   /**
-   * 设置应用程序是启用还是禁用，并控制在禁用时是否杀死进程。
+   * 以同步方法设置指定应用或分身应用的启用或禁用状态，并控制禁用时是否退出应用进程。
    *
    * @permission ohos.permission.CHANGE_ABILITY_ENABLED_STATE
-   * @param { string } bundleName - 应用包名
-   * @param { int } appIndex - 应用的分身索引
-   *     <br>取值范围为全体整数。
-   * @param { boolean } isEnabled - true表示启用应用程序，false表示启用应用程序。
-   * @param { boolean } killProcess - true表示应用进程在禁用时杀死应用程序进程，而值为false表示禁用时不会杀死应用程序进程
+   * @param { string } bundleName - 应用的包名。
+   * @param { int } appIndex - 应用索引。取值范围0~5的整数，取值为0表示主应用，取值1~5表示分身应用的索引。
+   * @param { boolean } isEnabled - 是否启用应用。值为true表示启用应用，值为false表示禁用应用。
+   * @param { boolean } killProcess - 禁用应用时是否退出应用进程。值为true表示禁用应用时将退出应用进程，值为false表示禁用应用时不退出应用进程。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied. Non-system APP calling system API.
    * @throws { BusinessError } 17700001 - The specified bundle is not found.
@@ -2689,7 +2762,8 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.CHANGE_ABILITY_ENABLED_STATE
    * @param { AbilityInfo } info - 需要被设置的组件。
-   * @param { int } appIndex - 表示分身应用的索引。<br> appIndex为0时，表示设置主应用组件的禁用或使能状态。appIndex大于0时，表示设置指定分身应用组件的禁用或使能状态。
+   * @param { int } appIndex - 表示分身应用的索引。
+   *     <br> appIndex为0时，表示设置主应用组件的禁用或使能状态。appIndex大于0时，表示设置指定分身应用组件的禁用或使能状态。
    * @param { boolean } isEnabled - 值为true表示使能，值为false表示禁用。
    * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission denied.
@@ -2770,7 +2844,8 @@ declare namespace bundleManager {
    * 获取指定应用或分身应用的禁用或使能状态。使用Promise异步回调。
    *
    * @param { string } bundleName - 表示应用程序的bundleName。
-   * @param { int } appIndex - 表示分身应用的索引。<br> appIndex为0时，表示获取主应用的禁用或使能状态。appIndex大于0时，表示获取指定分身应用的禁用或使能状态。
+   * @param { int } appIndex - 表示分身应用的索引。
+   *     <br> appIndex为0时，表示获取主应用的禁用或使能状态。appIndex大于0时，表示获取指定分身应用的禁用或使能状态。
    * @returns { Promise<boolean> } Promise对象，返回true表示当前应用为使能状态，返回false表示当前应用为禁用状态。
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
@@ -2837,7 +2912,8 @@ declare namespace bundleManager {
    * 获取应用或指定分身应用组件的禁用或使能状态。使用Promise异步回调。
    *
    * @param { AbilityInfo } info - 表示关于检查ability的信息。
-   * @param { int } appIndex - 表示分身应用的索引。 <br> appIndex为0时，表示获取主应用组件的禁用或使能状态。appIndex大于0时，表示获取指定分身应用组件的禁用或使能状态。
+   * @param { int } appIndex - 表示分身应用的索引。 
+   *     <br> appIndex为0时，表示获取主应用组件的禁用或使能状态。appIndex大于0时，表示获取指定分身应用组件的禁用或使能状态。
    * @returns { Promise<boolean> } Promise对象，返回true表示当前应用组件为使能状态，返回false表示当前应用组件为禁用状态。
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
@@ -2998,7 +3074,7 @@ declare namespace bundleManager {
   function getLaunchWantForBundleSync(bundleName: string, userId?: int): Want;
 
   /**
-   * 获取本应用[入口UIAbility](docroot://application-models/ability-terminology.md#uiability)的Want参数。
+   * 获取本应用[入口UIAbility](docroot://quick-start/application-package-glossary.md#entry-uiability入口uiability)的Want参数。
    *
    * @returns { Want } 返回仅包含bundleName和abilityName的Want对象。
    * @throws { BusinessError } 17700072 - The launch want is not found.
@@ -3011,12 +3087,13 @@ declare namespace bundleManager {
 
   /**
    * 根据给定的moduleName、abilityName和metadataName（module.json5中
-   * [abilities标签](docroot://quick-start/module-configuration-file.md#abilities标签)下的metadata标签的name）获取自身相应配置文件的json格式字符串
-   * 。使用callback异步回调。
-   * 
+   * [abilities标签](docroot://quick-start/module-configuration-file.md#abilities标签)下的metadata标签的name）获取自身相应配置文件的json格式字符
+   * 串。使用callback异步回调。
+   *
    * > 说明：
-   * > > 如果配置文件信息采用了资源引用格式，则返回值将保持资源引用格式（例如 $string:res_id），开发者可以通过[资源管理]{@link @ohos.resourceManager:resourceManager}的相
-   * > 关接口，来获取引用的资源。
+   * >
+   * > 如果配置文件信息采用了资源引用格式，则返回值将保持资源引用格式（例如 $string:res_id），开发者可以通过[资源管理]{@link @ohos.resourceManager:resourceManager}的相关接
+   * > 口，来获取引用的资源。
    *
    * @param { string } moduleName - 表示Module名称。
    * @param { string } abilityName - 表示UIAbility组件的名称。
@@ -3040,12 +3117,13 @@ declare namespace bundleManager {
 
   /**
    * 根据给定的moduleName、abilityName和metadataName（module.json5中
-   * [abilities标签](docroot://quick-start/module-configuration-file.md#abilities标签)下的metadata标签的name）获取自身相应配置文件的json格式字符串
-   * 。使用Promise异步回调。
-   * 
+   * [abilities标签](docroot://quick-start/module-configuration-file.md#abilities标签)下的metadata标签的name）获取自身相应配置文件的json格式字符
+   * 串。使用Promise异步回调。
+   *
    * > 说明：
-   * > > 如果配置文件信息采用了资源引用格式，则返回值将保持资源引用格式（例如 $string:res_id），开发者可以通过[资源管理]{@link @ohos.resourceManager:resourceManager}的相
-   * > 关接口，来获取引用的资源。
+   * >
+   * > 如果配置文件信息采用了资源引用格式，则返回值将保持资源引用格式（例如 $string:res_id），开发者可以通过[资源管理]{@link @ohos.resourceManager:resourceManager}的相关接
+   * > 口，来获取引用的资源。
    *
    * @param { string } moduleName - 表示Module名称。
    * @param { string } abilityName - 表示UIAbility组件的名称。
@@ -3070,6 +3148,9 @@ declare namespace bundleManager {
    * [metadata标签](docroot://quick-start/module-configuration-file.md#metadata标签)下的name）获取自身相应配置文件的json格式字符串，返回对象为string数
    * 组。
    *
+   * > 如果配置文件信息采用了资源引用格式，则返回值将保持资源引用格式（例如 $string:res_id），开发者可以通过[资源管理]{@link @ohos.resourceManager:resourceManager}的相关接
+   * > 口，来获取引用的资源。
+   *
    * @param { string } moduleName - 表示Module名称。
    * @param { string } abilityName - 表示UIAbility组件的名称。
    * @param { string } metadataName - 表示UIAbility组件的元信息名称，即module.json5配置文件中
@@ -3092,6 +3173,9 @@ declare namespace bundleManager {
    * 根据给定的moduleName、extensionAbilityName和metadataName（module.json5中
    * [metadata标签](docroot://quick-start/module-configuration-file.md#metadata标签)下的name）获取自身相应配置文件的json格式字符串。使用callback异步
    * 回调。
+   *
+   * > 如果配置文件信息采用了资源引用格式，则返回值将保持资源引用格式（例如 $string:res_id），开发者可以通过[资源管理]{@link @ohos.resourceManager:resourceManager}的相关接
+   * > 口，来获取引用的资源。
    *
    * @param { string } moduleName - 表示Module名称。
    * @param { string } extensionAbilityName - 表示ExtensionAbility组件的名称。
@@ -3117,6 +3201,9 @@ declare namespace bundleManager {
    * [metadata标签](docroot://quick-start/module-configuration-file.md#metadata标签)下的name）获取自身相应配置文件的json格式字符串。使用Promise异步回
    * 调。
    *
+   * > 如果配置文件信息采用了资源引用格式，则返回值将保持资源引用格式（例如 $string:res_id），开发者可以通过[资源管理]{@link @ohos.resourceManager:resourceManager}的相关接
+   * > 口，来获取引用的资源。
+   *
    * @param { string } moduleName - 表示Module名称。
    * @param { string } extensionAbilityName - 表示ExtensionAbility组件的名称。
    * @param { string } metadataName - 表示ExtensionAbility组件的元信息名称，即module.json5配置文件中
@@ -3139,6 +3226,9 @@ declare namespace bundleManager {
    * 以同步方法根据给定的moduleName、extensionAbilityName和metadataName（module.json5中
    * [metadata标签](docroot://quick-start/module-configuration-file.md#metadata标签)下的name）获取自身相应配置文件的json格式字符串，返回对象为string数
    * 组。
+   *
+   * > 如果配置文件信息采用了资源引用格式，则返回值将保持资源引用格式（例如 $string:res_id），开发者可以通过[资源管理]{@link @ohos.resourceManager:resourceManager}的相关接
+   * > 口，来获取引用的资源。
    *
    * @param { string } moduleName - 表示Module名称。
    * @param { string } extensionAbilityName - 表示ExtensionAbility组件的名称。
@@ -3164,7 +3254,7 @@ declare namespace bundleManager {
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } permissionName - 表示权限名称。
    * @param { AsyncCallback<PermissionDef> } callback - [AsyncCallback]{@link @ohos.base:AsyncCallback}，当获取成功时，err为
-   *     undefined，data为获取到的Array<PermissionDef>；否则为错误对象。
+   *     undefined，data为获取到的PermissionDef；否则为错误对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
@@ -3182,7 +3272,7 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } permissionName - 表示权限参数名。
-   * @returns { Promise<PermissionDef> } Promise对象，返回Array<PermissionDef>对象。
+   * @returns { Promise<PermissionDef> } Promise对象，返回查询到的权限结构体PermissionDef信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
@@ -3200,7 +3290,7 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } permissionName - 表示权限参数名。
-   * @returns { PermissionDef } PermissionDef对象。
+   * @returns { PermissionDef } 返回查询到的权限定义结构体PermissionDef信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
@@ -3215,7 +3305,7 @@ declare namespace bundleManager {
 
   /**
    * 获取指定bundleName、moduleName和abilityName的label。使用callback异步回调。
-   * 
+   *
    * 获取调用方自身的信息时不需要权限。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
@@ -3223,7 +3313,7 @@ declare namespace bundleManager {
    * @param { string } moduleName - 表示Module名称。
    * @param { string } abilityName - 表示UIAbility组件的名称。
    * @param { AsyncCallback<string> } callback - [AsyncCallback]{@link @ohos.base:AsyncCallback}，当获取成功时，err为undefined，
-   *     data为获指定组件的Label值；否则为错误对象。
+   *     data为获取指定组件的Label值；否则为错误对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
@@ -3296,22 +3386,17 @@ declare namespace bundleManager {
   function getAbilityLabelSync(bundleName: string, moduleName: string, abilityName: string): string;
 
   /**
-   * 通过bundleName、moduleName和abilityName获取对应Icon的[PixelMap]{@link @ohos.multimedia.image:image}，使用callback异步回调。
+   * 通过bundleName、moduleName和abilityName获取对应Icon的
+   * [PixelMap](docroot://reference/apis-image-kit/arkts-apis-image-PixelMap.md)，使用callback异步回调。
    * 
    * 获取调用方信息时不需要权限。
-   * 
-   * > **说明：**
-   * >
-   * > 从API version 9开始支持，从API version 10开始废弃，建议使用
-   * > [getMediaContent]{@link @ohos.resourceManager:resourceManager.ResourceManager.getMediaContent(resId: long, callback: _AsyncCallback<Uint8Array>)}
-   * > 替代。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - 要查询的应用Bundle名称。
    * @param { string } moduleName - 要查询的应用Module名称。
    * @param { string } abilityName - 要查询的Ability组件名。
-   * @param { AsyncCallback<image.PixelMap> } callback - 回调函数，返回指定[PixelMap]{@link @ohos.multimedia.image:image}，作为程序启动
-   *     时的入参。
+   * @param { AsyncCallback<image.PixelMap> } callback - 回调函数，返回指定
+   *     [PixelMap](docroot://reference/apis-image-kit/arkts-apis-image-PixelMap.md)，作为程序启动时的入参。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -3329,21 +3414,16 @@ declare namespace bundleManager {
   function getAbilityIcon(bundleName: string, moduleName: string, abilityName: string, callback: AsyncCallback<image.PixelMap>): void;
 
   /**
-   * 通过bundleName、moduleName和abilityName获取对应Icon的[PixelMap]{@link @ohos.multimedia.image:image}，使用Promise异步回调。
+   * 通过bundleName、moduleName和abilityName获取对应Icon的
+   * [PixelMap](docroot://reference/apis-image-kit/arkts-apis-image-PixelMap.md)，使用Promise异步回调。
    * 
    * 获取调用方信息时不需要权限。
-   * 
-   * > **说明：**
-   * >
-   * > 从API version 9开始支持，从API version 10开始废弃，建议使用
-   * > [getMediaContent]{@link @ohos.resourceManager:resourceManager.ResourceManager.getMediaContent(resId: long, callback: _AsyncCallback<Uint8Array>)}
-   * > 替代。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - 要查询的应用Bundle名称。
    * @param { string } moduleName - 要查询的应用Module名称。
    * @param { string } abilityName - 要查询的Ability组件名。
-   * @returns { Promise<image.PixelMap> } Promise used to return PixelMap.
+   * @returns { Promise<image.PixelMap> } Promise对象，返回值为[PixelMap](docroot://reference/apis-image-kit/arkts-apis-image-PixelMap.md)。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -3362,7 +3442,7 @@ declare namespace bundleManager {
 
   /**
    * 以同步方法根据给定的bundleName、applicationFlags和userId获取ApplicationInfo。
-   * 
+   *
    * 获取调用方自身的信息时不需要权限。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
@@ -3389,7 +3469,7 @@ declare namespace bundleManager {
 
   /**
    * 以同步方法根据给定的bundleName、applicationFlags获取ApplicationInfo。
-   * 
+   *
    * 获取调用方自身的信息时不需要权限。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
@@ -3412,7 +3492,7 @@ declare namespace bundleManager {
 
   /**
    * 以同步方法根据给定的bundleName、bundleFlags和userId获取BundleInfo。
-   * 
+   *
    * 获取调用方自身的信息时不需要权限。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
@@ -3458,8 +3538,8 @@ declare namespace bundleManager {
    * 获取所有的共享包信息。使用callback异步回调。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { AsyncCallback<Array<SharedBundleInfo>> } callback - [AsyncCallback]{@link @ohos.base:AsyncCallback}，当获取成功时
-   *     ，err为undefined，data为获所有的共享包信息。
+   * @param { AsyncCallback<Array<SharedBundleInfo>> } callback - [AsyncCallback]{@link @ohos.base:AsyncCallback}，当获取成功
+   *     时，err为undefined，data为获取所有的共享包信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -3485,14 +3565,14 @@ declare namespace bundleManager {
 
   /**
    * 获取指定的共享包信息。使用callback异步回调。
-   * 
+   *
    * 获取调用方自身的信息时不需要权限。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName - 表示应用程序的bundleName。
    * @param { string } moduleName - 表示被查询的module的name。
-   * @param { AsyncCallback<Array<SharedBundleInfo>> } callback - [AsyncCallback]{@link @ohos.base:AsyncCallback}，当获取成功时
-   *     ，err为undefined，data为获取的指定共享包信息。
+   * @param { AsyncCallback<Array<SharedBundleInfo>> } callback - [AsyncCallback]{@link @ohos.base:AsyncCallback}，当获取成功
+   *     时，err为undefined，data为获取的指定共享包信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
@@ -3529,13 +3609,15 @@ declare namespace bundleManager {
   function getSharedBundleInfo(bundleName: string, moduleName: string): Promise<Array<SharedBundleInfo>>;
 
   /**
-   * 根据userId获取指定用户下所有应用的[Provision]{@link bundleManager/AppProvisionInfo}配置文件信息。使用Promise异步回调。
+   * 根据userId获取指定用户下所有应用的[Provision]{@link ./bundleManager/AppProvisionInfo}配置文件信息。使用Promise异步回调。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or
    *     (ohos.permission.GET_BUNDLE_INFO_PRIVILEGED and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS)
    * @param { int } [userId] - 表示用户ID，可以通过
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
-   *     获取。<br>默认值：调用方所在用户ID。<br>取值范围：大于等于0。
+   *     获取。
+   *     <br>默认值：调用方所在用户ID。
+   *     <br>取值范围：大于等于0。
    * @returns { Promise<Array<AppProvisionInfo>> } Promise对象，返回应用的provision配置文件信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
@@ -3548,7 +3630,7 @@ declare namespace bundleManager {
 
   /**
    * 获取指定bundleName的provision配置文件信息。使用callback异步回调。
-   * 
+   *
    * 获取调用方自身的信息时不需要权限。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
@@ -3569,7 +3651,7 @@ declare namespace bundleManager {
 
   /**
    * 获取指定bundleName和userId的provision配置文件信息。使用callback异步回调。
-   * 
+   *
    * 获取调用方自身的信息时不需要权限。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
@@ -3594,7 +3676,7 @@ declare namespace bundleManager {
 
   /**
    * 根据bundleName和userId获取应用的provision配置文件信息。使用Promise异步回调。
-   * 
+   *
    * 获取调用方自身的信息时不需要权限。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
@@ -3618,7 +3700,7 @@ declare namespace bundleManager {
 
   /**
    * 以同步方法根据bundleName和userId获取应用的provision配置文件信息并返回结果。
-   * 
+   *
    * 获取调用方自身的信息时不需要权限。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
@@ -3641,9 +3723,48 @@ declare namespace bundleManager {
   function getAppProvisionInfoSync(bundleName: string, userId?: int): AppProvisionInfo;
 
   /**
+   * 获取所有应用的[provision]{@link bundleManager/AppProvisionInfo}配置文件信息
+   * 基于设备中给定的用户ID。该接口使用promise返回结果。
+   *
+   * @permission ohos.permission.GET_INSTALLED_BUNDLE_LIST or
+   *     (ohos.permission.GET_INSTALLED_BUNDLE_LIST and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS)
+   * @param { int } userId - <br>取值限定为整数。
+   * @returns { Promise<Array<AppProvisionInfo>> } Promise用于返回获取到的provision profile。
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
+   * @throws { BusinessError } 17700004 - The specified user id is not found.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.1 dynamic&static
+   */
+  function getAllAppProvisionInfoInDevice(userId: int): Promise<Array<AppProvisionInfo>>;
+
+  /**
+   * 根据给定的bundle名称和用户ID获取呈现配置文件。该接口使用promise返回
+   * 结果。
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or
+   *     (ohos.permission.GET_BUNDLE_INFO_PRIVILEGED and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS)
+   * @param { string } bundleName - 包名。
+   * @param { int } userId - User ID on the device.
+   *     <br>取值限定为整数。
+   * @returns { Promise<Array<AppProvisionInfo>> } Promise用于返回获取到的provision profile。
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.1 dynamic&static
+   */
+  function getAppProvisionInfoInDevice(bundleName: string, userId: int): Promise<Array<AppProvisionInfo>>;
+
+  /**
    * 以同步的方法查询指定bundleName的[HarmonyAppProvision配置文件说明](docroot://security/app-provision-structure.md)，该返回值是在调用install接口时传
    * 入的[InstallParam]{@link @ohos.bundle.installer:installer.InstallParam}中的specifiedDistributionType字段。
-   * 
+   *
    * 获取调用方自身的信息时不需要权限。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
@@ -3665,7 +3786,7 @@ declare namespace bundleManager {
    * 获取系统内所有应用的扩展安装信息。使用Promise异步回调。
    *
    * @permission ohos.permission.GET_INSTALLED_BUNDLE_LIST
-   * @returns { Promise<Array<Record<string, Object>>> } The install information.
+   * @returns { Promise<Array<Record<string, Object>>> } Promise对象，返回所有应用的扩展安装信息集合列表。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -3679,7 +3800,7 @@ declare namespace bundleManager {
    * 获取系统内所有应用的扩展安装信息。使用Promise异步回调。
    *
    * @permission ohos.permission.GET_INSTALLED_BUNDLE_LIST
-   * @returns { Promise<Array<Record<string, RecordData>>> } The install information.
+   * @returns { Promise<Array<Record<string, RecordData>>> } Promise对象，返回所有应用的扩展安装信息集合列表。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -3710,7 +3831,7 @@ declare namespace bundleManager {
 
   /**
    * 以同步的方法根据给定的profileType、bundleName和moduleName查询相应配置文件的JSON字符串。
-   * 
+   *
    * 获取调用方自己的配置文件时不需要权限。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
@@ -3911,7 +4032,7 @@ declare namespace bundleManager {
    * 查询当前应用在app.json5中[alternateIcons标签](docroot://quick-start/app-configuration-file.md#alternateicons标签)配置的备用图标信息。使用
    * Promise异步回调。
    *
-   * @returns { Promise<Array<AlternateIconInfo>> } Promise对象，返回当前应用的备用图标信息。
+   * @returns { Promise<Array<AlternateIconInfo>> } Promise对象，返回当前应用的备用图标信息列表。
    * @throws { BusinessError } 17700311 - Failed to obtain the alternate icon.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @stagemodelonly
@@ -3925,7 +4046,7 @@ declare namespace bundleManager {
    * @param { string } alternateIconName - 要设置的备用图标名称。备用图标名称须在app.json5中
    *     [alternateIcons标签](docroot://quick-start/app-configuration-file.md#alternateicons标签)的name字段内。<br/>
    *     alternateIconName为空时表示取消备用图标。
-   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
+   * @returns { Promise<void> } Promise对象。无返回结果。
    * @throws { BusinessError } 17700308 - The alternateIconName must match the name field under alternateIcons
    *     in the app.json5 file.
    * @throws { BusinessError } 17700309 - No alternate icon is enabled.
@@ -3979,7 +4100,8 @@ declare namespace bundleManager {
    * 获取所有可恢复的预置应用信息。使用callback异步回调。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { AsyncCallback<Array<RecoverableApplicationInfo>> } callback -    *     [AsyncCallback]{@link @ohos.base:AsyncCallback}，当获取成功时，err为undefined，data为获取到的所有可恢复的预置应用信息。
+   * @param { AsyncCallback<Array<RecoverableApplicationInfo>> } callback -
+      *     [AsyncCallback]{@link @ohos.base:AsyncCallback}，当获取成功时，err为undefined，data为获取到的所有可恢复的预置应用信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -3990,7 +4112,7 @@ declare namespace bundleManager {
   function getRecoverableApplicationInfo(callback: AsyncCallback<Array<RecoverableApplicationInfo>>): void;
 
   /**
-   * 获取所有可恢复的预置应用信息。使用Promise异步回调。
+   * 获取所有可恢复的预置应用信息。使用Promise异步回调。接口调用失败时可能返回空数组，需校验返回值后使用。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @returns { Promise<Array<RecoverableApplicationInfo>> } Promise对象，返回所有可恢复的预置应用信息。
@@ -4021,6 +4143,26 @@ declare namespace bundleManager {
    * @since 23 static
    */
   function setAdditionalInfo(bundleName: string, additionalInfo: string): void;
+
+  /**
+   * 设置指定应用实例的附加信息。该接口仅支持应用市场调用。
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { string } bundleName - 包名。
+   * @param { string } additionalInfo - 要设置的其他信息。
+   * @param { int } appIndex - Index of the application mode.The value must be equal to 0 or 10000.
+   *     <br>取值限定为整数。
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700053 - The caller is not AppGallery.
+   * @throws { BusinessError } 17700061 - AppIndex not in valid range.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.1 dynamic&static
+   */
+  function setAdditionalInfoByIndex(bundleName: string, additionalInfo: string, appIndex: int): void;
 
   /**
    * 根据给定的abcPath删除.abc文件。使用Promise异步回调。
@@ -4058,7 +4200,7 @@ declare namespace bundleManager {
   function canOpenLink(link: string): boolean;
 
   /**
-   * 获取所有预置应用信息。使用Promise异步回调。
+   * 获取所有预置应用信息。使用Promise异步回调。接口调用失败时可能返回空数组，需校验返回值后使用。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @returns { Promise<Array<PreinstalledApplicationInfo>> } Promise对象，返回Array<PreinstalledApplicationInfo>。
@@ -4090,7 +4232,7 @@ declare namespace bundleManager {
   function getAllBundleInfoByDeveloperId(developerId: string): Array<BundleInfo>;
 
   /**
-   * 根据给定的应用[appDistributionType]{@link bundleManager.AppDistributionType}获取当前用户下的所有开发者ID列表。
+   * 根据给定的应用[appDistributionType]{@link bundleManager.AppDistributionType}获取当前用户下的所有开发者ID列表。接口调用失败时可能返回空数组，需校验返回值后使用。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { int } appDistributionType - 表示应用的分发类型，当该参数缺省时，会返回所有应用的开发者ID列表。
@@ -4126,7 +4268,7 @@ declare namespace bundleManager {
   function switchUninstallState(bundleName: string, state: boolean): void;
 
   /**
-   * 根据给定的uid获取对应应用的[签名信息]{@link bundleManager/BundleInfo:SignatureInfo}。
+   * 根据给定的uid获取对应应用的[签名信息](docroot://reference/apis-ability-kit/js-apis-bundleManager-bundleInfo.md#signatureinfo)。
    *
    * @permission ohos.permission.GET_SIGNATURE_INFO
    * @param { int } uid - 表示应用程序的UID。
@@ -4140,14 +4282,14 @@ declare namespace bundleManager {
   function getSignatureInfo(uid: int): SignatureInfo;
 
   /**
-   * 根据bundleName、分身索引、[bundleFlags]{@link @ohos.bundle.bundleManager:bundleManager.BundleFlag}以及用户ID查询主应用或分身应用的
-   * BundleInfo。使用Promise异步回调。
-   * 
+   * 根据bundleName、分身索引、[bundleFlags]{@link bundleManager.BundleFlag}以及用户ID查询主应用或分身应用或沙箱应用的BundleInfo。使用Promise异步回调。
+   *
    * 获取调用方自身的信息时不需要权限。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName - 表示要查询的应用Bundle名称。
-   * @param { int } appIndex - 表示要查询的分身应用索引。<br>appIndex为0时，表示查询主应用信息。appIndex大于0时，表示查询指定分身应用信息。
+   * @param { int } appIndex - 应用索引，用于标识不同的应用实例。取值为整数。<br/>取值范围：<br/>- 0：主应用
+   *     <br> - [1, 5]：分身应用<br/>- [2000, 3000]：沙箱应用（API版本26.0.0支持）
    * @param { int } bundleFlags - 表示用于指定要返回的BundleInfo对象中包含的信息的标志。
    * @param { int } [userId] - 表示用户ID，可以通过
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
@@ -4169,9 +4311,8 @@ declare namespace bundleManager {
   function getAppCloneBundleInfo(bundleName: string, appIndex: int, bundleFlags: int, userId?: int): Promise<BundleInfo>;
 
   /**
-   * 根据bundleName、[bundleFlags]{@link @ohos.bundle.bundleManager:bundleManager.BundleFlag}以及用户ID查询主应用和分身应用的BundleInfo列表。
-   * 使用Promise异步回调。
-   * 
+   * 根据bundleName、[bundleFlags]{@link bundleManager.BundleFlag}以及用户ID查询主应用和分身应用的BundleInfo列表。使用Promise异步回调。
+   *
    * 获取调用方自身的信息时不需要权限。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
@@ -4200,7 +4341,7 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { int } uid - 表示应用程序的UID。
-   * @returns { Promise<AppCloneIdentity> } Promise对象，返回<AppCloneIdentity>。
+   * @returns { Promise<AppCloneIdentity> } Promise对象，返回AppCloneIdentity信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types.
@@ -4212,7 +4353,44 @@ declare namespace bundleManager {
   function getAppCloneIdentity(uid: int): Promise<AppCloneIdentity>;
 
   /**
-   * 根据给定的hostBundleName和userId获取所有的PluginBundleInfo。使用Promise异步回调。
+   * 根据给定的bundleName查询应用分身偏好设置。使用Promise异步回调。
+   *
+   * @permission ohos.permission.MANAGE_CLONE_BUNDLE_PREFERENCES
+   * @param { string } bundleName - 表示目标应用的bundleName。
+   * @returns { Promise<AppClonePreference> } Promise对象，返回应用的分身偏好设置。
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700095 - The specified bundle not found app clone preference.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function getAppClonePreference(bundleName: string): Promise<AppClonePreference>;
+
+  /**
+   * 根据给定的bundleName设置应用分身偏好设置。使用Promise异步回调。
+   *
+   * @permission ohos.permission.MANAGE_CLONE_BUNDLE_PREFERENCES
+   * @param { string } bundleName - 表示目标应用的bundleName。
+   * @param { AppClonePreference } appClonePreference - 表示要设置的应用分身偏好设置。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
+   * @throws { BusinessError } 17700061 - The specified app index is invalid.
+   * @throws { BusinessError } 17700094 - The specified bundle did not create a clone.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function setAppClonePreference(bundleName: string, appClonePreference: AppClonePreference): Promise<void>;
+
+  /**
+   * 根据给定的hostBundleName和userId获取所有的PluginBundleInfo。使用Promise异步回调。接口调用失败时可能返回空数组，需校验返回值后使用。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } hostBundleName - 表示安装插件的应用包名。
@@ -4247,8 +4425,8 @@ declare namespace bundleManager {
    * 拷贝文件，将文件从源路径拷贝到目标路径。使用Promise异步回调。
    *
    * @permission ohos.permission.MIGRATE_DATA
-   * @param { Array<string> } sourcePaths - 需要迁移的源路径数组，支持传入如/example1/test.txt的单文件路径，或/example2/test的目录路径。
-   * @param { string } destinationPath - 目标路径，仅支持传入一个目录路径，例如：/example2/test。
+   * @param { Array<string> } sourcePaths - 需要迁移的源路径数组，支持传入如\/example1\/test.txt的单文件路径，或\/example2\/test的目录路径。
+   * @param { string } destinationPath - 目标路径，仅支持传入一个目录路径，例如：\/example2\/test。
    * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -4271,7 +4449,8 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName - 表示要查询的应用包名。当前用户下有此应用或者分身才可查询，否则返回错误码17700001。
-   * @param { int } appIndex - 表示应用索引。取值范围0~5，取值为0表示主应用，取值1~5表示分身应用的索引。
+   * @param { int } appIndex - 应用索引，用于标识不同的应用实例。取值为整数。<br/>取值范围：<br/>- 0：主应用
+   *     <br> - [1, 5]：分身应用<br/>- [2000, 3000]：沙箱应用（API版本26.0.0支持）
    * @returns { string } 返回应用的沙箱目录。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -4287,11 +4466,14 @@ declare namespace bundleManager {
   /**
    * 根据应用的沙箱目录名称获取应用的身份信息，包括应用包名和分身索引信息。
    *
-   * @param { string } sandboxDataDir - 表示[应用的沙箱目录](docroot://file-management/app-sandbox-directory.md)名称。 <br>**说明：**<
-   *     br> 参数不校验合法性，如果入参sandboxDataDir不符合分身应用或元服务的目录名称格式，则sandboxDataDir将作为返回信息中的AppCloneIdentity.bundleName返回，此时
-   *     AppCloneIdentity.appIndex为0。 <br> 1.分身应用目录名称格式要求：`+clone-{appIndex}+{bundleName}`，appIndex和bundleName是变量，对应分身索引
-   *     和应用包名，例如： `+clone-1+com.example.myapplication`。<br> 2.元服务目录名称格式格式要求：`+auid-{uid}+{bundleName}`，uid和bundleName是变
-   *     量，对应应用程序的UID和应用包名，例如： `+auid-20000000+com.example.myapplication`。
+   * @param { string } sandboxDataDir - 表示[应用的沙箱目录](docroot://file-management/app-sandbox-directory.md)名称。 
+   *     <br>**说明：**
+   *     <br> 参数不校验合法性，如果入参sandboxDataDir不符合分身应用或原子化服务的目录名称格式，则sandboxDataDir将作为返回信息中的AppCloneIdentity.bundleName返回，此时
+   *     AppCloneIdentity.appIndex为0。 
+   *     <br> 1.分身应用目录名称格式要求：`+clone-{appIndex}+{bundleName}`，appIndex和bundleName是变量，对应分身索引和应用包名，例如：
+   *     `+clone-1+com.example.myapplication`。
+   *     <br> 2.原子化服务目录名称格式要求：`+auid-{uid}+{bundleName}`，uid和bundleName是变量，对应应用程序的UID和应用包名，例如：
+   *     `+auid-20000000+com.example.myapplication`。
    * @returns { AppCloneIdentity } 返回应用包名和分身索引信息。
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
@@ -4345,11 +4527,11 @@ declare namespace bundleManager {
   function removeBackupBundleData(bundleName: string, userId: int, appIndex: int): Promise<void>;
 
   /**
-   * 查询当前用户下指定应用的安装状态。
+   * 获取指定应用的安装状态。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { string } bundleName - 指定应用的包名。
-   * @returns { BundleInstallStatus } 应用的安装状态。
+   * @param { string } bundleName - 表示应用包名。
+   * @returns { BundleInstallStatus } 返回指定应用的安装状态。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -4415,8 +4597,7 @@ declare namespace bundleManager {
    * 根据给定的bundleFlags获取系统中所有的BundleInfo。使用Promise异步回调。
    *
    * @permission ohos.permission.ENTERPRISE_GET_INSTALLED_BUNDLE_LIST
-   * @param { int } bundleFlags - 指定返回的BundleInfo所包含的信息，详情请参考
-   *     [BundleFlag]{@link @ohos.bundle.bundleManager:bundleManager.BundleFlag}。
+   * @param { int } bundleFlags - 指定返回的BundleInfo所包含的信息，详情请参考[BundleFlag]{@link bundleManager.BundleFlag}。
    * @returns { Promise<Array<BundleInfo>> } Promise对象，返回当前已安装应用的信息列表。
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -4426,16 +4607,13 @@ declare namespace bundleManager {
   function getInstalledBundleList(bundleFlags: int): Promise<Array<BundleInfo>>;
 
   /**
-   * 支持按设备模式分发策略过滤应用列表。该接口使用promise返回结果。
-   * 
-   * > **说明：**
-   * >
-   * > 入参不能为空。所有值必须在的枚举值范围内。
-   * > DeviceModeDistributePolicy，以及所有不同套餐的策略（通用差分包、部分兼容差分包和全兼容差分包）必须包含。
+   * 支持按设备模式分发策略过滤应用列表。使用Promise异步回调。
    *
-   * @permission ohos.permission.SWITCH_MULTI_MODE_BUNDLE
-   * @param { Array<DeviceModeDistributionPolicy> } policies - DeviceModeDistributionPolicy值的数组。
-   * @returns { Promise<void> } Promise 对象，无返回值。
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { Array<DeviceModeDistributionPolicy> } policies - DeviceModeDistributionPolicy值的数组。入参不能为空，所有值必须在
+   *     DeviceModeDistributionPolicy的枚举值范围内，且必须包含所有不同包体的策略（UNIVERSAL_DIFFERENT_PACKAGE、
+   *     PARTIAL_COMPATIBLE_DIFFERENT_PACKAGE和FULL_COMPATIBLE_DIFFERENT_PACKAGE）。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied. Non-system APP calling system API.
    * @throws { BusinessError } 17700097 - The device does not support the dual mode.
@@ -4452,8 +4630,45 @@ declare namespace bundleManager {
    * @since 26.0.1 dynamic&static
    */
   function filterBundleListByDeviceModeDistributionPolicies(
-    policies: Array<DeviceModeDistributionPolicy>
-  ): Promise<void>;
+    policies: Array<DeviceModeDistributionPolicy>): Promise<void>;
+
+  /**
+   * 启用或禁用备用模块。
+   *
+   * @permission ohos.permission.INSTALL_BUNDLE
+   * @param { string } bundleName - Bundle name.
+   * @param { string } moduleName - 模块名称。
+   * @param { boolean } isEnabled - 是否启用备份模块。**true**表示启用，**false**否则。
+   * @returns { Promise<void> } 不返回任何值的Promise。
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700002 - The specified moduleName is not existed.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.2.0 dynamic&static
+   */
+  function setAlternateModuleEnabled(bundleName: string, moduleName: string, isEnabled: boolean): Promise<void>;
+
+  /**
+   * 查询备用模块使能状态。
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { string } bundleName - Bundle name.
+   * @param { string } moduleName - 模块名称。
+   * @returns { Promise<boolean> } Promise用于返回结果。
+   *     **true**表示开启，**false**表示关闭。
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700002 - The specified moduleName is not existed.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.2.0 dynamic&static
+   */
+  function isAlternateModuleEnabled(bundleName: string, moduleName: string): Promise<boolean>;
 
   /**
    * 获取指定应用的包扩展策略信息。
@@ -4826,7 +5041,7 @@ declare namespace bundleManager {
   export type RecoverableApplicationInfo = _RecoverableApplicationInfo;
 
   /**
-   * skill信息。
+   * Skill信息。
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
@@ -4835,7 +5050,7 @@ declare namespace bundleManager {
   export type Skill = _Skill.Skill;
 
   /**
-   * skill信息。
+   * Skill信息。
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice
@@ -4860,6 +5075,26 @@ declare namespace bundleManager {
    * @since 23 static
    */
   export type SkillUrl = _SkillUri;
+
+  /**
+   * 应用分身偏好设置，用于配置应用启动时主应用和分身应用的选择策略。
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  export type AppClonePreference = _BundleInfo.AppClonePreference;
+
+  /**
+   * 应用分身偏好设置，用于配置应用启动时主应用和分身应用的选择策略。
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  export type AppClonePreference = _AppClonePreference;
 
   /**
    * 预置应用信息。
@@ -4946,7 +5181,7 @@ declare namespace bundleManager {
   export type AlternateIconInfo = _AlternateIconInfo;
 
   /**
-   * 描述包扩展策略信息。
+   * 描述套餐扩展策略信息。
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
@@ -4965,6 +5200,5 @@ declare namespace bundleManager {
    */
   export type BundleExtensionPolicyInfo = _BundleExtensionPolicyInfo;
 }
-import image from './@ohos.multimedia.image';
 
 export default bundleManager;

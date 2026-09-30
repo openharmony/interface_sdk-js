@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file appControl Module
  * @kit AbilityKit
  */
 
@@ -31,10 +31,6 @@ import Want from './@ohos.app.ability.Want';
  * The module provides APIs for setting, obtaining, and deleting the disposed status of an application. An application
  * in the disposed status is forbidden to run. When a user clicks the application icon on the home screen, the
  * corresponding page is displayed based on the disposal intent.
- *
- * > **NOTE**
- * >
- * > The APIs provided by this module are system APIs.
  *
  * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
  * @systemapi
@@ -67,44 +63,6 @@ declare namespace appControl {
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
      * @since 11 dynamic
-     * @since 23 static
-     */
-    UI_EXTENSION = 2
-  }
-
-  /**
-   * Enumerates the types of abilities during uninstallation.
-   *
-   * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
-   * @systemapi
-   * @since 15 dynamic
-   * @since 23 static
-   */
-  export enum UninstallComponentType {
-
-    /**
-     * ExtensionAbility component. Only
-     * [ExtensionAbility](docroot://quick-start/module-configuration-file.md#extensionabilities) components of the
-     * service type is supported.
-     *
-     * The ExtensionAbility component is determined by bundleName, moduleName, and abilityName in want.
-     *
-     * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
-     * @systemapi
-     * @since 15 dynamic
-     * @since 23 static
-     */
-    EXTENSION = 1,
-    /**
-     * UIExtensionAbility component.
-     *
-     * The UIExtensionAbility is determined by bundleName, moduleName, and abilityName in want, and the
-     * **ability.want.params.uiExtensionType** field in **want.parameters** is set to
-     * [UIExtensionAbility](docroot://application-models/uiextensionability-sys.md).
-     *
-     * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
-     * @systemapi
-     * @since 22 dynamic
      * @since 23 static
      */
     UI_EXTENSION = 2
@@ -178,7 +136,7 @@ declare namespace appControl {
   }
 
   /**
-   * Enumerates the page jump modes used when an application is blocked.
+   * Indicates whether to jump to a page when the target application is intercepted.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
    * @systemapi
@@ -187,7 +145,7 @@ declare namespace appControl {
    */
   export enum PageJumpMode {
     /**
-     * A page is displayed when the target application is blocked.
+     * Jumps to a page when the target application is intercepted.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
@@ -196,7 +154,7 @@ declare namespace appControl {
      */
     PAGE_JUMP_WINDOW_SHOW = 0,
     /**
-     * No page is displayed when the target application is blocked.
+     * Does not jump to a page when the target application is intercepted.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
@@ -236,7 +194,7 @@ declare namespace appControl {
     componentType: ComponentType;
 
     /**
-     * Type of application disposal.
+     * Disposed rule for the application.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
@@ -266,8 +224,8 @@ declare namespace appControl {
     elementList: Array<ElementName>;
 
     /**
-     * Priority of the disposed rule, which is used to sort the query results of the rule list. The value is an integer.
-     * A smaller value indicates a higher priority.
+     * Priority of the disposed rule, used for sorting the rule list query results. The value is an integer. A smaller
+     * value indicates a higher priority and an earlier position in the sorting.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
@@ -277,8 +235,10 @@ declare namespace appControl {
     priority: int;
 
     /**
-     * Specifies whether to jump to another page when the target application is blocked. The default value is
-     * {@link PageJumpMode.PAGE_JUMP_WINDOW_SHOW}.
+     * Whether to jump to a page when the target application is intercepted. The default value is
+     * PageJumpMode.PAGE_JUMP_WINDOW_SHOW.
+     *
+     * **Initial version:** 26.0.0
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
@@ -308,8 +268,8 @@ declare namespace appControl {
     want: Want;
 
     /**
-     * Priority of the disposed rule, which is used to sort the query results of the rule list. The value is an integer.
-     * A smaller value indicates a higher priority.
+     * Priority of the uninstall disposition rule, used to sort the query results of the rule list. The value is an
+     * integer. A smaller value indicates a higher priority and an earlier position in the sorting.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
@@ -319,7 +279,7 @@ declare namespace appControl {
     priority: int;
 
     /**
-     * Type of the ability to start during interception.
+     * Type of the ability to be started upon interception.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
@@ -339,17 +299,21 @@ declare namespace appControl {
    */
   export interface DisposedRuleConfiguration {
     /**
-     * appId or appIdentifier of the target application. Identical appId and appIdentifier values indicate the same
-     * application instance. If a rule is set using appId, it overwrites the one set with appIdentifier, and the reverse
-     * is also true.
+     * appId or appIdentifier of the application for which the disposed rule is to be set. appId and appIdentifier can
+     * identify the same application. Therefore, for the same application, if the disposed rule is set using
+     * appIdentifier, it can overwrite the rule previously set using appId, and vice versa.
      *
      * **NOTE**
      *
-     * **appId** is also the unique identifier of an app. For details, see
-     * [What is appIdentifier](docroot://quick-start/common_problem_of_application.md#what-is-appidentifier). For
-     * details about how to obtain **appIdentifier**, see
-     * [How do I obtain appIdentifier from application information](docroot://quick-start/common_problem_of_application.md#how-do-i-obtain-appidentifier-from-application-information)
-     * .
+     * appId is the unique identifier of the application, determined by the application bundle name and signature
+     * information. For details about how to obtain it, see
+     * [Obtaining the appId of an Application](docroot://quick-start/common-problem-of-application.md#how-do-i-obtain-appid-from-application-information).
+     *
+     * [appIdentifier](docroot://reference/apis-ability-kit/js-apis-bundleManager-bundleInfo.md#signatureinfo) is also
+     * the unique identifier of the application. For detailed information, see
+     * [What Is appIdentifier](docroot://quick-start/common-problem-of-application.md#what-is-appidentifier). For
+     * details about how to obtain it, see
+     * [Obtaining the appIdentifier of an Application](docroot://quick-start/common-problem-of-application.md#how-do-i-obtain-appidentifier-from-application-information).
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
@@ -387,14 +351,13 @@ declare namespace appControl {
    * operation is successful, **null** is returned. If the operation fails, an error message is returned.
    *
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
-   * @param { string } appId - ID of the target application.<br> **appId** is the unique identifier of an application
-   *     and is determined by the bundle name and signature information of the application. For details about how to
-   *     obtain **appId**, see
-   *     [How do I obtain appId from application information](docroot://quick-start/common_problem_of_application.md#how-do-i-obtain-appid-from-application-information)
-   *     .
+   * @param { string } appId - appId of the application for which the disposition status is to be set.
+   *     <br> appId is the unique identifier of the application, determined by the application Bundle name and signature
+   *     information. For details about how to obtain it, see
+   *     [Obtaining the appId of an Application](docroot://quick-start/common-problem-of-application.md#how-do-i-obtain-appid-from-application-information).
    * @param { Want } disposedWant - Disposal intent of the application.
-   * @param { AsyncCallback<void> } callback - [Callback]{@link @ohos.base:AsyncCallback} used to return the result. If
-   *     the operation is successful, **err** is **null**; otherwise, **err** is an error object.
+   * @param { AsyncCallback<void> } callback - Callback function. If the disposition status is set successfully, err is
+   *     null; otherwise, err is an error object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
@@ -413,11 +376,10 @@ declare namespace appControl {
    * successful, **null** is returned. If the operation fails, an error message is returned.
    *
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
-   * @param { string } appId - ID of the target application.<br> **appId** is the unique identifier of an application
-   *     and is determined by the bundle name and signature information of the application. For details about how to
-   *     obtain **appId**, see
-   *     [How do I obtain appId from application information](docroot://quick-start/common_problem_of_application.md#how-do-i-obtain-appid-from-application-information)
-   *     .
+   * @param { string } appId - appId of the application for which the disposition status is to be set.
+   *     <br> appId is the unique identifier of the application, determined by the application bundle name and signature
+   *     information. For details about how to obtain it, see
+   *     [obtaining the appId of an application](docroot://quick-start/common-problem-of-application.md#how-do-i-obtain-appid-from-application-information).
    * @param { Want } disposedWant - Disposal intent of the application.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied.
@@ -438,11 +400,10 @@ declare namespace appControl {
    * successful, **null** is returned. If the operation fails, an error message is returned.
    *
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
-   * @param { string } appId - ID of the target application.<br> **appId** is the unique identifier of an application
-   *     and is determined by the bundle name and signature information of the application. For details about how to
-   *     obtain **appId**, see
-   *     [How do I obtain appId from application information](docroot://quick-start/common_problem_of_application.md#how-do-i-obtain-appid-from-application-information)
-   *     .
+   * @param { string } appId - appId of the application for which the disposition status is to be set.
+   *     <br> appId is the unique identifier of the application, determined by the application Bundle name and signature
+   *     information. For details about how to obtain it, see
+   *     [obtaining the appId of an application](docroot://quick-start/common-problem-of-application.md#how-do-i-obtain-appid-from-application-information).
    * @param { Want } disposedWant - Disposal intent of the application.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -463,14 +424,13 @@ declare namespace appControl {
    * message is returned.
    *
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS or ohos.permission.GET_DISPOSED_APP_STATUS
-   * @param { string } appId - ID of the target application.<br> **appId** is the unique identifier of an application
-   *     and is determined by the bundle name and signature information of the application. For details about how to
-   *     obtain **appId**, see
-   *     [How do I obtain appId from application information](docroot://quick-start/common_problem_of_application.md#how-do-i-obtain-appid-from-application-information)
-   *     .
-   * @param { AsyncCallback<Want> } callback - [Callback]{@link @ohos.base:AsyncCallback} used to return the result. If
-   *     the operation is successful, **err** is **null** and **data** is the disposed status obtained; otherwise,
-   *     **err** is an error object.
+   * @param { string } appId - appId of the application to be queried.
+   *     <br> appId is the unique identifier of the application, determined by the application Bundle name and signature
+   *     information. For details about how to obtain it, see
+   *     [obtaining the appId of an application](docroot://quick-start/common-problem-of-application.md#how-do-i-obtain-appid-from-application-information).
+   * @param { AsyncCallback<Want> } callback - Callback function. When the disposition status of the application is
+   *     obtained successfully, err is null and data is the obtained disposition status; otherwise, err is an error
+   *     object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
@@ -490,11 +450,10 @@ declare namespace appControl {
    * returned.
    *
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS or ohos.permission.GET_DISPOSED_APP_STATUS
-   * @param { string } appId - ID of the target application.<br> **appId** is the unique identifier of an application
-   *     and is determined by the bundle name and signature information of the application. For details about how to
-   *     obtain **appId**, see
-   *     [How do I obtain appId from application information](docroot://quick-start/common_problem_of_application.md#how-do-i-obtain-appid-from-application-information)
-   *     .
+   * @param { string } appId - appId of the application to be queried.
+   *     <br> appId is the unique identifier of the application, determined by the application bundle name and signature
+   *     information. For details about how to obtain it, see
+   *     [obtain the appId of an application](docroot://quick-start/common-problem-of-application.md#how-do-i-obtain-appid-from-application-information).
    * @returns { Promise<Want> } Promise used to return the disposed status.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -515,11 +474,10 @@ declare namespace appControl {
    * returned.
    *
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS or ohos.permission.GET_DISPOSED_APP_STATUS
-   * @param { string } appId - ID of the target application.<br> **appId** is the unique identifier of an application
-   *     and is determined by the bundle name and signature information of the application. For details about how to
-   *     obtain **appId**, see
-   *     [How do I obtain appId from application information](docroot://quick-start/common_problem_of_application.md#how-do-i-obtain-appid-from-application-information)
-   *     .
+   * @param { string } appId - appId of the application to be queried.
+   *     <br> appId is the unique identifier of the application, determined by the application bundle name and signature
+   *     information. For details about how to obtain it, see
+   *     [obtain the appId of an application](docroot://quick-start/common-problem-of-application.md#how-do-i-obtain-appid-from-application-information).
    * @returns { Want } Disposed status.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -539,19 +497,18 @@ declare namespace appControl {
    * operation is successful, **null** is returned. If the operation fails, an error message is returned.
    *
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
-   * @param { string } appId - appId or appIdentifier of the target application. If a rule is set using appId, it must
-   *     be deleted using appId; the same principle applies to appIdentifier.<br>**NOTE**<br> **appId** is the unique
-   *     identifier of an application and is determined by the bundle name and signature information of the application.
-   *     For details about how to obtain **appId**, see
-   *     [How do I obtain appId from application information](docroot://quick-start/common_problem_of_application.md#how-do-i-obtain-appid-from-application-information)
-   *     .<br> [appIdentifier]{@link ./bundleManager/BundleInfo:SignatureInfo} is also the unique identifier of an app.
-   *     For details, see
-   *     [What is appIdentifier](docroot://quick-start/common_problem_of_application.md#what-is-appidentifier). For
-   *     details about how to obtain **appIdentifier**, see
-   *     [How do I obtain appIdentifier from application information](docroot://quick-start/common_problem_of_application.md#how-do-i-obtain-appidentifier-from-application-information)
-   *     .
-   * @param { AsyncCallback<void> } callback - [Callback]{@link @ohos.base:AsyncCallback} used to return the result. If
-   *     the operation is successful, **err** is **null**. otherwise, **err** is an error object.
+   * @param { string } appId - appId or appIdentifier of the application whose disposition status is to be deleted. A
+   *     disposition status set using appId can only be deleted using appId, and the same applies to one set using
+   *     appIdentifier.<br/>**Note:**<br/> appId is the unique identifier of the application, determined by the
+   *     application bundle name and signature information. For details about how to obtain it, see
+   *     [obtain the appId of the application](docroot://quick-start/common-problem-of-application.md#how-do-i-obtain-appid-from-application-information).
+   *     <br> [appIdentifier](docroot://reference/apis-ability-kit/js-apis-bundleManager-bundleInfo.md#signatureinfo) is
+   *     also the unique identifier of the application. For detailed information, see
+   *     [what is appIdentifier](docroot://quick-start/common-problem-of-application.md#what-is-appidentifier). For
+   *     details about how to obtain it, see
+   *     [obtain the appIdentifier of the application](docroot://quick-start/common-problem-of-application.md#how-do-i-obtain-appidentifier-from-application-information).
+   * @param { AsyncCallback<void> } callback - Callback function. If the disposition status is deleted successfully, err
+   *     returns null; otherwise, the callback function returns a specific error object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
@@ -566,21 +523,20 @@ declare namespace appControl {
   function deleteDisposedStatus(appId: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Deletes the disposed status for an application. This API uses a promise to return the result. If the operation is
-   * successful, **null** is returned. If the operation fails, an error message is returned.
+   * Deletes the disposition status of an application. This API uses a promise to return the result. null is returned on
+   * success, and the corresponding error message is returned on failure.
    *
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
-   * @param { string } appId - appId or appIdentifier of the target application. If a rule is set using appId, it must
-   *     be deleted using appId; the same principle applies to appIdentifier.<br>**NOTE**<br> **appId** is the unique
-   *     identifier of an application and is determined by the bundle name and signature information of the application.
-   *     For details about how to obtain **appId**, see
-   *     [How do I obtain appId from application information](docroot://quick-start/common_problem_of_application.md#how-do-i-obtain-appid-from-application-information)
-   *     .<br> [appIdentifier]{@link ./bundleManager/BundleInfo:SignatureInfo} is also the unique identifier of an app.
-   *     For details, see
-   *     [What is appIdentifier](docroot://quick-start/common_problem_of_application.md#what-is-appidentifier). For
-   *     details about how to obtain **appIdentifier**, see
-   *     [How do I obtain appIdentifier from application information](docroot://quick-start/common_problem_of_application.md#how-do-i-obtain-appidentifier-from-application-information)
-   *     .
+   * @param { string } appId - appId or appIdentifier of the application whose disposition status is to be deleted. The
+   *     disposition status set using appId can only be deleted using appId, and the same applies to the disposition
+   *     status set using appIdentifier.<br/>**NOTE**<br/> appId is the application's unique identifier, determined by
+   *     the application Bundle name and signature information. For how to obtain it, see
+   *     [obtain the appId of the application](docroot://quick-start/common-problem-of-application.md#how-do-i-obtain-appid-from-application-information).
+   *     <br> [appIdentifier](docroot://reference/apis-ability-kit/js-apis-bundleManager-bundleInfo.md#signatureinfo) is
+   *     also the application's unique identifier. For detailed information, refer to
+   *     [what is appIdentifier](docroot://quick-start/common-problem-of-application.md#what-is-appidentifier). For how
+   *     to obtain it, see
+   *     [obtain the appIdentifier of the application](docroot://quick-start/common-problem-of-application.md#how-do-i-obtain-appidentifier-from-application-information).
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -600,20 +556,19 @@ declare namespace appControl {
    * If the operation is successful, **null** is returned. If the operation fails, an error message is returned.
    *
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
-   * @param { string } appId - appId or appIdentifier of the target application. If a rule is set using appId, it must
-   *     be deleted using appId; the same principle applies to appIdentifier.<br>**NOTE**<br> **appId** is the unique
-   *     identifier of an application and is determined by the bundle name and signature information of the application.
-   *     For details about how to obtain **appId**, see
-   *     [How do I obtain appId from application information](docroot://quick-start/common_problem_of_application.md#how-do-i-obtain-appid-from-application-information)
-   *     .<br> [appIdentifier]{@link ./bundleManager/BundleInfo:SignatureInfo} is also the unique identifier of an app.
-   *     For details, see
-   *     [What is appIdentifier](docroot://quick-start/common_problem_of_application.md#what-is-appidentifier). For
-   *     details about how to obtain **appIdentifier**, see
-   *     [How do I obtain appIdentifier from application information](docroot://quick-start/common_problem_of_application.md#how-do-i-obtain-appidentifier-from-application-information)
-   *     .
-   * @param { int } [appIndex] - Index of the application clone. The default value is **0**.<br> The value **0** means
-   *     to delete the disposed status of the main application. A value greater than 0 means to delete the disposed
-   *     status of the application clone. [since 12]
+   * @param { string } appId - appId or appIdentifier of the application whose disposition status is to be deleted. The
+   *     disposition status set using appId can only be deleted using appId, and the same applies to the disposition
+   *     status set using appIdentifier.<br/>**NOTE**<br/> appId is the unique identifier of the application, determined
+   *     by the bundle name and signature information of the application. For details about how to obtain it, see
+   *     [Obtaining the appId of an application](docroot://quick-start/common-problem-of-application.md#how-do-i-obtain-appid-from-application-information).
+   *     <br> [appIdentifier](docroot://reference/apis-ability-kit/js-apis-bundleManager-bundleInfo.md#signatureinfo) is
+   *     also the unique identifier of the application. For details, see
+   *     [What is appIdentifier](docroot://quick-start/common-problem-of-application.md#what-is-appidentifier). For
+   *     details about how to obtain it, see
+   *     [Obtaining the appIdentifier of an application](docroot://quick-start/common-problem-of-application.md#how-do-i-obtain-appidentifier-from-application-information).
+   * @param { int } [appIndex] - Index of the application clone. The default value is **0**.
+   *     <br> The value **0** means to delete the disposed status of the main application. A value greater than 0 means
+   *     to delete the disposed status of the application clone. [since 12]
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
@@ -632,20 +587,19 @@ declare namespace appControl {
    * Obtains the disposed rule of an application or an application clone.
    *
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS or ohos.permission.GET_DISPOSED_APP_STATUS
-   * @param { string } appId - appId or appIdentifier of the target application. If a rule is set using appId, it must
-   *     be obtained using appId; the same principle applies to appIdentifier.<br>**NOTE**<br> **appId** is the unique
-   *     identifier of an application and is determined by the bundle name and signature information of the application.
-   *     For details about how to obtain **appId**, see
-   *     [How do I obtain appId from application information](docroot://quick-start/common_problem_of_application.md#how-do-i-obtain-appid-from-application-information)
-   *     .<br> [appIdentifier]{@link ./bundleManager/BundleInfo:SignatureInfo} is also the unique identifier of an app.
-   *     For details, see
-   *     [What is appIdentifier](docroot://quick-start/common_problem_of_application.md#what-is-appidentifier). For
-   *     details about how to obtain **appIdentifier**, see
-   *     [How do I obtain appIdentifier from application information](docroot://quick-start/common_problem_of_application.md#how-do-i-obtain-appidentifier-from-application-information)
-   *     .
-   * @param { int } [appIndex] - Index of the application clone. The default value is **0**.<br> The value **0** means
-   *     to obtain the disposed rule of the main application. A value greater than 0 means to obtain the disposed rule
-   *     of the application clone with the specified index. [since 12]
+   * @param { string } appId - appId or appIdentifier of the application whose disposed rule is to be obtained. A
+   *     disposed rule set using appId can be obtained only through appId, and the same applies to a disposed rule set
+   *     using appIdentifier.<br/>**Note:**<br/> appId is the unique identifier of the application, determined by the
+   *     application bundle name and signature information. For details about how to obtain it, see
+   *     [obtaining the appId of an application](docroot://quick-start/common-problem-of-application.md#how-do-i-obtain-appid-from-application-information).
+   *     <br> [appIdentifier](docroot://reference/apis-ability-kit/js-apis-bundleManager-bundleInfo.md#signatureinfo) is
+   *     also the unique identifier of the application. For details, see
+   *     [what is appIdentifier](docroot://quick-start/common-problem-of-application.md#what-is-appidentifier). For
+   *     details about how to obtain it, see
+   *     [obtaining the appIdentifier of an application](docroot://quick-start/common-problem-of-application.md#how-do-i-obtain-appidentifier-from-application-information).
+   * @param { int } [appIndex] - Index of the application clone. The default value is **0**.
+   *     <br> The value **0** means to obtain the disposed rule of the main application. A value greater than 0 means to
+   *     obtain the disposed rule of the application clone with the specified index. [since 12]
    * @returns { DisposedRule } Disposed rule of the application.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
@@ -665,21 +619,20 @@ declare namespace appControl {
    * Sets the disposed rule for an application or an application clone.
    *
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
-   * @param { string } appId - appId or appIdentifier of the target application. If a rule is set using appId, it
-   *     overwrites the one set with appIdentifier, and the reverse is also true.<br>**NOTE**<br> **appId** is the
-   *     unique identifier of an application and is determined by the bundle name and signature information of the
-   *     application. For details about how to obtain **appId**, see
-   *     [How do I obtain appId from application information](docroot://quick-start/common_problem_of_application.md#how-do-i-obtain-appid-from-application-information)
-   *     .<br> [appIdentifier]{@link ./bundleManager/BundleInfo:SignatureInfo} is also the unique identifier of an app.
-   *     For details, see
-   *     [What is appIdentifier](docroot://quick-start/common_problem_of_application.md#what-is-appidentifier). For
-   *     details about how to obtain **appIdentifier**, see
-   *     [How do I obtain appIdentifier from application information](docroot://quick-start/common_problem_of_application.md#how-do-i-obtain-appidentifier-from-application-information)
-   *     .
+   * @param { string } appId - appId or appIdentifier of the application for which the disposed rule is to be set. A
+   *     disposed rule set using appId overrides the disposed rule set using appIdentifier, and vice versa.<br/>**NOTE**
+   *     <br/> appId is the unique identifier of the application, determined by the application bundle name and
+   *     signature information. For details about how to obtain it, see
+   *     [obtain the appId of the application](docroot://quick-start/common-problem-of-application.md#how-do-i-obtain-appid-from-application-information).
+   *     <br> [appIdentifier](docroot://reference/apis-ability-kit/js-apis-bundleManager-bundleInfo.md#signatureinfo) is
+   *     also the unique identifier of the application. For detailed information, see
+   *     [what is appIdentifier](docroot://quick-start/common-problem-of-application.md#what-is-appidentifier). For
+   *     details about how to obtain it, see
+   *     [obtain the appIdentifier of the application](docroot://quick-start/common-problem-of-application.md#how-do-i-obtain-appidentifier-from-application-information).
    * @param { DisposedRule } rule - Disposed rule to set.
-   * @param { int } [appIndex] - Index of the application clone. The default value is **0**.<br> The value **0** means
-   *     to set the disposed rule for the main application. A value greater than 0 means to set the disposed rule for
-   *     the application clone with the specified index. [since 12]
+   * @param { int } [appIndex] - Index of the application clone. The default value is **0**.
+   *     <br> The value **0** means to set the disposed rule for the main application. A value greater than 0 means to
+   *     set the disposed rule for the application clone with the specified index. [since 12]
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
@@ -698,15 +651,16 @@ declare namespace appControl {
    * Sets an uninstallation disposed rule for an application or an application clone.
    *
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
-   * @param { string } appIdentifier - appIdentifier of the target application.<br> If the application does not have an
-   *     appIdentifier, use its appId instead. **appId** is the unique identifier of an application and is determined by
-   *     the bundle name and signature information of the application. For details about how to obtain **appId**, see
-   *     [How do I obtain appId from application information](docroot://quick-start/common_problem_of_application.md#how-do-i-obtain-appid-from-application-information)
-   *     .
+   * @param { string } appIdentifier - appIdentifier of the application for which the uninstall disposition rule is to
+   *     be set.
+   *     <br> If the application does not have an appIdentifier, appId can be used instead. appId is the unique
+   *     identifier of the application, determined by the application Bundle name and signature information. For details
+   *     about how to obtain it, see
+   *     [Obtaining the appId of an Application](docroot://quick-start/common-problem-of-application.md#how-do-i-obtain-appid-from-application-information).
    * @param { UninstallDisposedRule } rule - Uninstallation disposed rule.
-   * @param { int } [appIndex] - Index of the application clone. The default value is **0**.<br> The value **0** means
-   *     to set the uninstallation disposed rule for the main application. A value greater than 0 means to set the
-   *     uninstallation disposed rule for the application clone.
+   * @param { int } [appIndex] - Index of the application clone. The default value is **0**.
+   *     <br> The value **0** means to set the uninstallation disposed rule for the main application. A value greater
+   *     than 0 means to set the uninstallation disposed rule for the application clone.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
@@ -723,17 +677,19 @@ declare namespace appControl {
   function setUninstallDisposedRule(appIdentifier: string, rule: UninstallDisposedRule, appIndex?: int): void;
 
   /**
-   * Obtains the uninstallation disposed rule of an application or an application clone.
+   * Obtains the uninstall disposition rule with the highest priority that has been set for a specified application or
+   * application clone.
    *
    * @permission ohos.permission.GET_DISPOSED_APP_STATUS or ohos.permission.MANAGE_DISPOSED_APP_STATUS
-   * @param { string } appIdentifier - appIdentifier of the target application.<br> If the application does not have an
-   *     appIdentifier, use its appId instead. **appId** is the unique identifier of an application and is determined by
-   *     the bundle name and signature information of the application. For details about how to set **appId**, see
-   *     [How do I obtain appId from application information](docroot://quick-start/common_problem_of_application.md#how-do-i-obtain-appid-from-application-information)
-   *     .
-   * @param { int } [appIndex] - Index of the application clone. The default value is **0**.<br> The value **0** means
-   *     to obtain the uninstallation disposed rule of the main application. A value greater than 0 means to obtain the
-   *     uninstallation disposed rule of the application clone.
+   * @param { string } appIdentifier - appIdentifier of the application whose uninstall disposition rule is to be
+   *     obtained.
+   *     <br> If the application does not have an appIdentifier, appId can be used instead. appId is the unique
+   *     identifier of the application, determined by the application Bundle name and signature information. For details
+   *     about how to obtain it, see
+   *     [obtain the appId of the application](docroot://quick-start/common-problem-of-application.md#how-do-i-obtain-appid-from-application-information).
+   * @param { int } [appIndex] - Index of the application clone. The default value is **0**.
+   *     <br> The value **0** means to obtain the uninstallation disposed rule of the main application. A value greater
+   *     than 0 means to obtain the uninstallation disposed rule of the application clone.
    * @returns { UninstallDisposedRule } Uninstallation disposed rule.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
@@ -753,14 +709,15 @@ declare namespace appControl {
    * Deletes an uninstallation disposed rule for an application or an application clone.
    *
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
-   * @param { string } appIdentifier - appIdentifier of the target application.<br> If the application does not have an
-   *     appIdentifier, use its appId instead. **appId** is the unique identifier of an application and is determined by
-   *     the bundle name and signature information of the application. For details about how to delete **appId**, see
-   *     [How do I obtain appId from application information](docroot://quick-start/common_problem_of_application.md#how-do-i-obtain-appid-from-application-information)
-   *     .
-   * @param { int } [appIndex] - Index of the application clone. The default value is **0**.<br> The value **0** means
-   *     to delete the uninstallation disposed rule of the main application. A value greater than 0 means to delete the
-   *     uninstallation disposed rule of the application clone.
+   * @param { string } appIdentifier - appIdentifier of the application whose uninstall disposition rule is to be
+   *     deleted.
+   *     <br> If the application does not have an appIdentifier, appId can be used instead. appId is the unique
+   *     identifier of the application, determined by the application Bundle name and signature information. For how to
+   *     obtain it, see
+   *     [Obtaining the appId of an Application](docroot://quick-start/common-problem-of-application.md#how-do-i-obtain-appid-from-application-information).
+   * @param { int } [appIndex] - Index of the application clone. The default value is **0**.
+   *     <br> The value **0** means to delete the uninstallation disposed rule of the main application. A value greater
+   *     than 0 means to delete the uninstallation disposed rule of the application clone.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
@@ -781,10 +738,12 @@ declare namespace appControl {
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
    * @param { Array<DisposedRuleConfiguration> } disposedRuleConfigurations - Configuration for the disposed rules in
    *     batches, including the appId of the target application, the index of the application clone, and the rules
-   *     themselves. The maximum number of disposed rules in an array is 1000.<br>**NOTE**<br>1. If multiple
-   *     **DisposedRuleConfiguration** entries in the array have the same appId and appIndex, the later entry will
-   *     overwrite the earlier one.<br>2. If an application has already set disposed rules, re-setting the rules will
-   *     replace the existing ones. Identical appId and appIndex values indicate the same application instance.
+   *     themselves. The maximum number of disposed rules in an array is 1000.
+   *     <br>**NOTE**
+   *     <br>1. If multiple **DisposedRuleConfiguration** entries in the array have the same appId and appIndex, the
+   *     later entry will overwrite the earlier one.
+   *     <br>2. If an application has already set disposed rules, re-setting the rules will replace the existing ones.
+   *     Identical appId and appIndex values indicate the same application instance.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -812,11 +771,11 @@ declare namespace appControl {
   function getAllDisposedRules(): Array<DisposedRuleConfiguration>;
 
   /**
-   * Query all disposed rules under the current user for the specified bundle name.
+   * Obtains all disposed rules set for a specified application bundle.
    *
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS or ohos.permission.GET_DISPOSED_APP_STATUS
-   * @param { string } bundleName - Indicates the bundle name of the setter that sets the disposed rules.
-   * @returns { Array<DisposedRuleConfiguration> } Returns disposed rules.
+   * @param { string } bundleName - Bundle name of the application bundle for which the disposed rule is set.
+   * @returns { Array<DisposedRuleConfiguration> } Disposed rules set for the specified application bundle.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -827,6 +786,44 @@ declare namespace appControl {
    * @since 24 static
    */
   function getDisposedRulesByBundle(bundleName: string): Array<DisposedRuleConfiguration>;
+
+  /**
+   * Enumerates the types of abilities during uninstallation.
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
+   * @systemapi
+   * @since 15 dynamic
+   * @since 23 static
+   */
+  export enum UninstallComponentType {
+
+    /**
+     * ExtensionAbility component. Only
+     * [ExtensionAbility](docroot://quick-start/module-configuration-file.md#extensionabilities) components of the
+     * service type is supported.
+     *
+     * The ExtensionAbility component is determined by bundleName, moduleName, and abilityName in want.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
+     * @systemapi
+     * @since 15 dynamic
+     * @since 23 static
+     */
+    EXTENSION = 1,
+    /**
+     * UIExtensionAbility component.
+     *
+     * The UIExtensionAbility is determined by bundleName, moduleName, and abilityName in want, and the
+     * **ability.want.params.uiExtensionType** field in **want.parameters** is set to
+     * [UIExtensionAbility](docroot://application-models/uiextensionability-sys.md).
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
+     * @systemapi
+     * @since 22 dynamic
+     * @since 23 static
+     */
+    UI_EXTENSION = 2
+  }
 }
 
 export default appControl;

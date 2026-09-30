@@ -14,18 +14,15 @@
  */
 
 /**
- * @file
+ * @file shortcutManager Module
  * @kit AbilityKit
  */
 
 import { ShortcutInfo as _ShortcutInfo, ShortcutWant as _ShortcutWant, ParameterItem as _ParameterItem } from './bundleManager/ShortcutInfo';
 
 /**
-
-* This module provides the application's management capabilities for shortcuts, including setting whether a shortcut
- * is displayed. Through shortcuts, users can quickly launch specific features of an app from the home screen,
- * improving the app's ease of use and user retention. Typical usage scenarios include: providing users with quick
- * access to frequently used features, dynamically adjusting the display of shortcuts based on user habits, etc.
+ * This module provides system applications with the capabilities of adding, deleting, and querying shortcuts, including
+ * adding, deleting, and querying [ShortcutInfo]{@link ./bundleManager/ShortcutInfo:ShortcutInfo} information.
  *
  * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
  * @systemapi [since 12 - 19]
@@ -39,9 +36,8 @@ declare namespace shortcutManager {
    *
    * @permission ohos.permission.MANAGE_SHORTCUTS
    * @param { ShortcutInfo } shortcutInfo - Shortcut information.
-   * @param { int } userId - User ID, which can be obtained by calling
-   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
-   *     .
+   * @param { int } userId - User ID, which can be obtained by
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Verify permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -64,9 +60,8 @@ declare namespace shortcutManager {
    *
    * @permission ohos.permission.MANAGE_SHORTCUTS
    * @param { ShortcutInfo } shortcutInfo - Shortcut information.
-   * @param { int } userId - User ID, which can be obtained by calling
-   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
-   *     .
+   * @param { int } userId - User ID, which can be obtained by
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Verify permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -81,7 +76,7 @@ declare namespace shortcutManager {
   function deleteDesktopShortcutInfo(shortcutInfo: ShortcutInfo, userId: int): Promise<void>;
 
   /**
-   * Updates a shortcut for the given user. This API uses a promise to return the result.
+   * Updates the shortcut information of the specified user. This API uses a promise to return the result.
    *
    * @permission ohos.permission.MANAGE_SHORTCUTS or
    *     (ohos.permission.MANAGE_SHORTCUTS and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS)
@@ -107,11 +102,10 @@ declare namespace shortcutManager {
    * Obtains the information about all shortcuts of the given user.
    *
    * @permission ohos.permission.MANAGE_SHORTCUTS
-   * @param { int } userId - User ID, which can be obtained by calling
-   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
-   *     .
-   * @returns { Promise<Array<ShortcutInfo>> } Promise that returns the shortcut information defined in the application
-   *     configuration file.
+   * @param { int } userId - ID of the user to query, which can be obtained by calling
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}.
+   * @returns { Promise<Array<ShortcutInfo>> } Promise object, returning the shortcut information defined in the
+   *     application configuration file.
    * @throws { BusinessError } 201 - Verify permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
@@ -157,9 +151,11 @@ declare namespace shortcutManager {
    * Enables or disables the specified static shortcuts. This API uses a promise to return the result.
    *
    * @permission ohos.permission.MANAGE_SHORTCUTS
-   * @param { Array<ShortcutInfo> } shortcutsInfo - Array of static shortcuts.<br>**NOTE**<br>This API does not
-   *     distinguish between the main application and the cloned application, and only takes effect for static
-   *     shortcuts. Therefore, the **appIndex** and **sourceType** fields in **ShortcutInfo** do not take effect.
+   * @param { Array<ShortcutInfo> } shortcutsInfo - Array of static shortcuts.
+   *     <br>**NOTE**
+   *     <br>This API does not distinguish between the main application and the cloned application, and only takes
+   *     effect for static shortcuts. Therefore, the **appIndex** and **sourceType** fields in **ShortcutInfo** do not
+   *     take effect.
    * @param { boolean } isEnabled - Whether to enable the static shortcuts. **true** to enable, **false** otherwise.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied.
@@ -179,15 +175,15 @@ declare namespace shortcutManager {
    * @permission ohos.permission.MANAGE_SHORTCUTS or
    *     (ohos.permission.MANAGE_SHORTCUTS and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS)
    * @param { Array<ShortcutInfo> } shortcutInfo - Information about the dynamic shortcuts. When the shortcut
-   *     information is submitted through this API, the following validations are performed:<br> 1. The **sourceType**
-   *     field in **ShortcutInfo** is set to **2**.<br> 2. If the **moduleName** field in **ShortcutInfo** does not
-   *     exist in the corresponding application, error code 17700002 is thrown.<br> 3. If the **hostAbility** field in
-   *     **ShortcutInfo** is set to a non-empty string, the system checks whether the corresponding ability exists. If
-   *     it does not exist, error code 17700003 is thrown.
-   * @param { int } userId - ID of the user to which the dynamic shortcuts belong. The user ID can be obtained by
-   *     calling
-   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
-   *     . The default value is the user ID of the caller. The value must be greater than or equal to 0.
+   *     information is submitted through this API, the following validations are performed:
+   *     <br> 1. The **sourceType** field in **ShortcutInfo** is set to **2**.
+   *     <br> 2. If the **moduleName** field in **ShortcutInfo** does not exist in the corresponding application, error
+   *     code 17700002 is thrown.
+   *     <br> 3. If the **hostAbility** field in **ShortcutInfo** is set to a non-empty string, the system checks
+   *     whether the corresponding ability exists. If it does not exist, error code 17700003 is thrown.
+   * @param { int } userId - User ID of the dynamic shortcut, which can be obtained by
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}.
+   *     Default value: the user where the caller is located. Value range: greater than or equal to 0.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
@@ -215,10 +211,10 @@ declare namespace shortcutManager {
    * @param { string } bundleName - Bundle name of the application to which the dynamic shortcuts belong.
    * @param { int } appIndex - Clone index of the application to which the dynamic shortcuts belong. The value can be 1,
    *     2, 3, 4, or 5.
-   * @param { int } userId - ID of the user to which the dynamic shortcuts belong. The user ID can be obtained by
-   *     calling
+   * @param { int } userId - User ID of the user to which the dynamic shortcut to be deleted belongs. It can be obtained
+   *     through the
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
-   *     . The default value is the user ID of the caller. The value must be greater than or equal to 0.
+   *     API. Default value: the user where the caller is located. Value range: greater than or equal to 0.
    * @param { Array<string> } [ids] - Array of IDs of the dynamic shortcuts to be deleted. If the default value is used
    *     or an empty array is passed, all dynamic shortcuts that meet the conditions are deleted.
    * @returns { Promise<void> } Promise that returns no value.
@@ -237,20 +233,21 @@ declare namespace shortcutManager {
   function deleteDynamicShortcutInfos(bundleName: string, appIndex: int, userId: int, ids?: Array<string>): Promise<void>;
 
   /**
-   * Obtains shortcut info by bundleName, moduleName, abilityName, userId and appIndex.
-   * If you need to obtains shortcut info under the current user, ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * needs to be applied for.
-   * If you need to obtains shortcut info under other users, ohos.permission.GET_BUNDLE_INFO_PRIVILEGED and
-   * ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS need to be applied for.
+   * Queries the shortcut information of a specified UIAbility under a specified user.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or
    *     (ohos.permission.GET_BUNDLE_INFO_PRIVILEGED and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS)
-   * @param { string } bundleName - Indicates the bundle name.
-   * @param { string } moduleName - Indicates the module name.
-   * @param { string } abilityName - Indicates the ability name.
-   * @param { int } [userId] - Indicates the user ID.
-   * @param { int } [appIndex] - Indicates the index of clone app.
-   * @returns { Array<ShortcutInfo> } An array of ShortcutInfo objects.
+   * @param { string } bundleName - Bundle name of the application.
+   * @param { string } moduleName - Name of the module.
+   * @param { string } abilityName - Name of the UIAbility component.
+   * @param { int } [userId] - User ID, which can be obtained through
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}.
+   *     <br/>Default value: the user where the caller is located.<br/>Value range: greater than or equal to 0.
+   * @param { int } [appIndex] - Application index. The value is an integer ranging from 0 to 5. The value 0 indicates
+   *     the main application, and the values 1 to 5 indicate the indexes of clone applications.<br/>Default value: 0
+   * @returns { Array<ShortcutInfo> } Returns an array of
+   *     [ShortcutInfo]{@link ./bundleManager/ShortcutInfo:ShortcutInfo} of the specified UIAbility under the specified
+   *     user.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -270,9 +267,9 @@ declare namespace shortcutManager {
   /**
    * Checks whether the current device supports shortcuts.
    *
-   * @returns { boolean } Indicates whether the current device supports shortcuts.
-   *     The return value true indicates that the current device supports shortcuts;
-   *     the return value false indicates that the current device does not support shortcuts.
+   * @returns { boolean } Indicates whether the current device supports shortcuts.<br/>The return value **true**
+   *     indicates that the current device supports shortcuts; the return value **false** indicates that the current
+   *     device does not support shortcuts.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
@@ -311,6 +308,6 @@ declare namespace shortcutManager {
    * @since 23 static
    */
   export type ParameterItem = _ParameterItem;
-  }
+}
 
 export default shortcutManager;

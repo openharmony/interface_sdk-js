@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file overlay模块
  * @kit AbilityKit
  */
 
@@ -28,14 +28,12 @@ import { OverlayModuleInfo as _OverlayModuleInfo } from './bundleManager/Overlay
 /*** endif */
 
 /**
- * 本模块提供overlay特征应用的[OverlayModuleInfo]{@link ./bundleManager/OverlayModuleInfo:OverlayModuleInfo}信息查询以及禁用使能的能力。
- * 
- * overlay特征应用指应用中包含有overlay资源包，overlay资源包详见
- * [overlay机制](docroot://quick-start/resource-categories-and-access.md#overlay机制)。
+ * 本模块提供overlay特征应用的安装，overlay特征应用的[OverlayModuleInfo]{@link ./bundleManager/OverlayModuleInfo:OverlayModuleInfo}信息的查询以及
+ * overlay特征应用的禁用使能的能力。
  * 
  * > **说明：**
  * >
- * > 本模块接口仅适用于stage模型，且仅适用于[静态overlay](docroot://quick-start/resource-categories-and-access.md#静态overlay配置方式)。
+ * > 当前页面仅包含本模块的系统接口，其他公开接口参见[@ohos.bundle.overlay]{@link overlay}。
  *
  * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
  * @since 10 dynamic
@@ -43,12 +41,12 @@ import { OverlayModuleInfo as _OverlayModuleInfo } from './bundleManager/Overlay
  */
 declare namespace overlay {
   /**
-   * 设置当前应用中overlay module的禁用使能状态。使用callback异步回调。
+   * 设置当前应用中overlay特征模块的禁用启用状态。使用callback异步回调。
    *
-   * @param { string } moduleName - overlay特征module的名称。
-   * @param { boolean } isEnabled - 值为true表示使能，值为false表示禁用。
-   * @param { AsyncCallback<void> } callback - [回调函数]{@link @ohos.base:AsyncCallback}，当设置指定module的overlay禁用使能状态成功时，err为
-   *     undefined，否则为错误对象。
+   * @param { string } moduleName - 当前应用中具有overlay特征模块名称。
+   * @param { boolean } isEnabled - 值为true表示启用，值为false表示禁用。
+   * @param { AsyncCallback<void> } callback - [AsyncCallback]{@link @ohos.base:AsyncCallback}，当设置指定module的overlay禁用启用状态
+   *     成功时，err为undefined，否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types.
    * @throws { BusinessError } 17700002 - The specified module name is not found.
@@ -60,10 +58,10 @@ declare namespace overlay {
   function setOverlayEnabled(moduleName:string, isEnabled: boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * 设置当前应用中overlay特征module的禁用使能状态。使用Promise异步回调。
+   * 设置当前应用中overlay特征模块的禁用启用状态。使用Promise异步回调。接口调用失败时可能返回null，需校验返回值后使用。
    *
-   * @param { string } moduleName - overlay特征module的名称。
-   * @param { boolean } isEnabled - 值为true表示使能，值为false表示禁用。
+   * @param { string } moduleName - 当前应用中具有overlay特征模块名称。
+   * @param { boolean } isEnabled - 值为true表示启用，值为false表示禁用。
    * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types.
@@ -84,8 +82,8 @@ declare namespace overlay {
    * @param { string } bundleName - 指定应用的bundle名称。
    * @param { string } moduleName - 指定应用的overlay特征module的名称。
    * @param { boolean } isEnabled - 值为true表示使能，值为false表示禁用。
-   * @param { AsyncCallback<void> } callback - [回调函数]{@link @ohos.base:AsyncCallback}。当设置指定应用的overlay module的禁用使能状态成功时，
-   *     err为undefined，否则为错误对象。
+   * @param { AsyncCallback<void> } callback - [AsyncCallback]{@link @ohos.base:AsyncCallback}。当设置指定应用的overlay module的禁用
+   *     使能状态成功时，err为undefined，否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types.
    * @throws { BusinessError } 201 - Permission denied.
@@ -104,7 +102,7 @@ declare namespace overlay {
   /**
    * 设置指定应用的overlay module的禁用使能状态。使用Promise异步回调。
    * 
-   * 指定应用是调用方自身时不需要权限。
+   * 指定应用是调用方自身时不需要权限。接口调用失败时可能返回null，需校验返回值后使用。
    *
    * @permission ohos.permission.CHANGE_OVERLAY_ENABLED_STATE
    * @param { string } bundleName - 指定应用的bundle名称。
@@ -127,12 +125,12 @@ declare namespace overlay {
   function setOverlayEnabledByBundleName(bundleName:string, moduleName:string, isEnabled: boolean): Promise<void>;
 
   /**
-   * 获取当前应用中overlay特征module的OverlayModuleInfo信息。使用callback异步回调。
+   * 获取当前应用中overlay特征模块的OverlayModuleInfo信息。使用callback异步回调。
    *
-   * @param { string } moduleName - 指定当前应用中的overlay特征module的名称。
-   * @param { AsyncCallback<OverlayModuleInfo> } callback - [回调函数]{@link @ohos.base:AsyncCallback}，当获取当前应用中指定的module的
-   *     [OverlayModuleInfo]{@link ./bundleManager/OverlayModuleInfo:OverlayModuleInfo}信息成功时，err返回undefined。否则回调函数返回具体错误
-   *     对象。
+   * @param { string } moduleName - 指定当前应用中的overlay特征模块的名称。
+   * @param { AsyncCallback<OverlayModuleInfo> } callback - [AsyncCallback]{@link @ohos.base:AsyncCallback}，当获取当前应用中指定的
+   *     module的[OverlayModuleInfo]{@link ./bundleManager/OverlayModuleInfo:OverlayModuleInfo}信息成功时，err返回undefined。否则回调函
+   *     数返回具体错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types.
    * @throws { BusinessError } 17700002 - The specified module name is not found.
@@ -145,9 +143,9 @@ declare namespace overlay {
   function getOverlayModuleInfo(moduleName: string, callback: AsyncCallback<OverlayModuleInfo>): void;
 
   /**
-   * 获取当前应用中overlay特征module的OverlayModuleInfo信息。使用Promise异步回调。
+   * 获取当前应用中overlay特征模块的OverlayModuleInfo信息。使用Promise异步回调。接口调用失败时可能返回null，需校验返回值后使用。
    *
-   * @param { string } moduleName - 指定当前应用中的overlay module的名称。
+   * @param { string } moduleName - 指定当前应用中的overlay特征模块的名称。
    * @returns { Promise<OverlayModuleInfo> } Promise对象，返回
    *     [OverlayModuleInfo]{@link ./bundleManager/OverlayModuleInfo:OverlayModuleInfo}。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
@@ -166,9 +164,9 @@ declare namespace overlay {
    * module。使用callback异步回调。
    *
    * @param { string } targetModuleName - 指定当前应用中的目标module的名称。
-   * @param { AsyncCallback<Array<OverlayModuleInfo>> } callback - [回调函数]{@link @ohos.base:AsyncCallback}，当获取指定的目标module
-   *     的[OverlayModuleInfo]{@link ./bundleManager/OverlayModuleInfo:OverlayModuleInfo}成功时，err返回undefined。否则回调函数返回具体错误对
-   *     象。
+   * @param { AsyncCallback<Array<OverlayModuleInfo>> } callback - [AsyncCallback]{@link @ohos.base:AsyncCallback}，当获取指定
+   *     的目标module的[OverlayModuleInfo]{@link ./bundleManager/OverlayModuleInfo:OverlayModuleInfo}成功时，err返回undefined。否则回调
+   *     函数返回具体错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types.
    * @throws { BusinessError } 17700002 - The specified module name is not found.
@@ -181,7 +179,7 @@ declare namespace overlay {
 
   /**
    * 获取指定的目标module所关联的OverlayModuleInfo。overlay特征的module一般是为设备上存在的非overlay特征的module提供覆盖的资源文件，其中非overlay特征的module被称作目标
-   * module。使用Promise异步回调。
+   * module。使用Promise异步回调。接口调用失败时可能返回null，需校验返回值后使用。
    *
    * @param { string } targetModuleName - 指定当前应用中的目标module的名称。
    * @returns { Promise<Array<OverlayModuleInfo>> } Promise对象，返回<Array<
@@ -203,9 +201,9 @@ declare namespace overlay {
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName - 指定应用的bundle名称。
-   * @param { AsyncCallback<Array<OverlayModuleInfo>> } callback - [回调函数]{@link @ohos.base:AsyncCallback}，当获取指定应用中所有
-   *     module的[OverlayModuleInfo]{@link ./bundleManager/OverlayModuleInfo:OverlayModuleInfo}信息成功时，err返回undefined。否则回调函
-   *     数返回具体错误对象。
+   * @param { AsyncCallback<Array<OverlayModuleInfo>> } callback - [AsyncCallback]{@link @ohos.base:AsyncCallback}，当获取指定
+   *     应用中所有module的[OverlayModuleInfo]{@link ./bundleManager/OverlayModuleInfo:OverlayModuleInfo}信息成功时，err返回undefined。
+   *     否则回调函数返回具体错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types.
    * @throws { BusinessError } 201 - Permission denied.
@@ -227,10 +225,10 @@ declare namespace overlay {
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName - 指定应用的bundle名称。
-   * @param { string } moduleName - 指定应用中的overlay module的名称。缺省该字段时，查询接口将查询指定应用中所有module的OverlayModuleInfo信息。
-   * @param { AsyncCallback<Array<OverlayModuleInfo>> } callback - [回调函数]{@link @ohos.base:AsyncCallback}，当获取指定应用中指定
-   *     module的[OverlayModuleInfo]{@link ./bundleManager/OverlayModuleInfo:OverlayModuleInfo}信息成功时，err返回undefined。否则回调函
-   *     数返回具体错误对象。
+   * @param { string } moduleName - 指定应用中的overlay特征module的名称。缺省该字段时，查询接口将查询指定应用中所有module的OverlayModuleInfo信息。
+   * @param { AsyncCallback<Array<OverlayModuleInfo>> } callback - [AsyncCallback]{@link @ohos.base:AsyncCallback}，当获取指定
+   *     应用中指定module的[OverlayModuleInfo]{@link ./bundleManager/OverlayModuleInfo:OverlayModuleInfo}信息成功时，err返回undefined。
+   *     否则回调函数返回具体错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types.
    * @throws { BusinessError } 201 - Permission denied.
@@ -247,13 +245,13 @@ declare namespace overlay {
   function getOverlayModuleInfoByBundleName(bundleName: string, moduleName: string, callback: AsyncCallback<Array<OverlayModuleInfo>>): void;
 
   /**
-   * 获取指定应用中指定module的OverlayModuleInfo信息。使用promise异步回调。
+   * 获取指定应用中指定module的OverlayModuleInfo信息。使用Promise异步回调。
    * 
    * 指定应用是调用方自身时不需要权限。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName - 指定应用的bundle名称。
-   * @param { string } moduleName - 指定应用中的overlay module的名称。默认值：缺省该字段时，查询接口将查询指定应用中所有module的OverlayModuleInfo信息。
+   * @param { string } [moduleName] - 指定应用中的overlay特征module的名称。缺省该字段时，查询接口将查询指定应用中所有module的OverlayModuleInfo信息。
    * @returns { Promise<Array<OverlayModuleInfo>> } Promise对象，返回<Array<
    *     [OverlayModuleInfo]{@link ./bundleManager/OverlayModuleInfo:OverlayModuleInfo}>>。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
@@ -278,9 +276,9 @@ declare namespace overlay {
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } targetBundleName - 指定目标应用的bundle名称。
-   * @param { AsyncCallback<Array<OverlayModuleInfo>> } callback - [回调函数]{@link @ohos.base:AsyncCallback}，当获取指定应用中所有
-   *     module关联的所有[OverlayModuleInfo]{@link ./bundleManager/OverlayModuleInfo:OverlayModuleInfo}信息成功时，err返回undefined。否
-   *     则回调函数返回具体错误对象。
+   * @param { AsyncCallback<Array<OverlayModuleInfo>> } callback - [AsyncCallback]{@link @ohos.base:AsyncCallback}，当获取指定
+   *     应用中所有module关联的所有[OverlayModuleInfo]{@link ./bundleManager/OverlayModuleInfo:OverlayModuleInfo}信息成功时，err返回
+   *     undefined。否则回调函数返回具体错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types.
    * @throws { BusinessError } 201 - Permission denied.
@@ -302,10 +300,10 @@ declare namespace overlay {
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } targetBundleName - 指定目标应用的bundle名称。
-   * @param { string } moduleName - 指定应用中的目标module的名称。缺省该字段时，查询接口将查询指定应用中所有module所关联的OverlayModuleInfo信息。
-   * @param { AsyncCallback<Array<OverlayModuleInfo>> } callback - [回调函数]{@link @ohos.base:AsyncCallback}，当获取指定应用中指定
-   *     module关联的所有[OverlayModuleInfo]{@link ./bundleManager/OverlayModuleInfo:OverlayModuleInfo}信息成功时，err返回undefined。否
-   *     则回调函数返回具体错误对象。
+   * @param { string } moduleName - 指定应用中的目标module的名称。
+   * @param { AsyncCallback<Array<OverlayModuleInfo>> } callback - [AsyncCallback]{@link @ohos.base:AsyncCallback}，当获取指定
+   *     应用中指定module关联的所有[OverlayModuleInfo]{@link ./bundleManager/OverlayModuleInfo:OverlayModuleInfo}信息成功时，err返回
+   *     undefined。否则回调函数返回具体错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types.
    * @throws { BusinessError } 201 - Permission denied.
@@ -322,13 +320,13 @@ declare namespace overlay {
   function getTargetOverlayModuleInfosByBundleName(targetBundleName: string, moduleName: string, callback: AsyncCallback<Array<OverlayModuleInfo>>): void;
 
   /**
-   * 获取指定应用中指定module关联的所有OverlayModuleInfo信息。使用promise异步回调。
+   * 获取指定应用中指定module关联的所有OverlayModuleInfo信息。使用Promise异步回调。
    * 
-   * 指定应用是调用方自身时不需要权限。
+   * 指定应用是调用方自身时不需要权限。接口调用失败时可能返回null，需校验返回值后使用。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } targetBundleName - 指定目标应用的bundle名称。
-   * @param { string } moduleName - 指定应用中的目标module的名称。默认值：缺省该字段时，查询接口将查询指定应用中所有module所关联的OverlayModuleInfo信息。
+   * @param { string } [moduleName] - 指定应用中的目标module的名称。默认值：缺省该字段时，查询接口将查询指定应用中所有module所关联的OverlayModuleInfo信息。
    * @returns { Promise<Array<OverlayModuleInfo>> } Promise对象，返回<Array<
    *     [OverlayModuleInfo]{@link ./bundleManager/OverlayModuleInfo:OverlayModuleInfo}>>。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
@@ -347,7 +345,7 @@ declare namespace overlay {
   function getTargetOverlayModuleInfosByBundleName(targetBundleName: string, moduleName?: string): Promise<Array<OverlayModuleInfo>>;
 
   /**
-   * OverlayModuleInfo信息。
+   * OverlayModuleInfo信息，包含overlay特征模块的名称、状态、目标模块等配置信息，用于描述和管理应用的资源覆盖配置。
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Overlay
    * @since 10 dynamic

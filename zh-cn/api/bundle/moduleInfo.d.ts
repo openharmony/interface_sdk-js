@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file ModuleInfo
  * @kit AbilityKit
  */
 
@@ -23,12 +23,12 @@
  * 
  * > **说明：**
  * >
- * > 从API version 9开始，该模块不再维护，建议使用[bundleManager-HapModuleInfo]{@link hapModuleInfo:HapModuleInfo}替代。
+ * > 从API version 9开始，该模块不再维护，
  *
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @since 7 dynamiconly
  * @deprecated since 9
- * @useinstead hapModuleInfo:HapModuleInfo
+ * @useinstead ./hapModuleInfo:HapModuleInfo
  */
 export interface ModuleInfo {
   /**
@@ -43,7 +43,7 @@ export interface ModuleInfo {
   readonly moduleName: string;
 
   /**
-   * 安装目录。不能拼接路径访问资源文件，请使用[资源管理接口]{@link ./../@ohos.resourceManager:resourceManager}访问资源。
+   * 安装目录。不能拼接路径访问资源文件，请使用[resourceManager]{@link @ohos.resourceManager:resourceManager}访问资源。
    *
    * @default Indicates the module source dir of this module
    * @syscap SystemCapability.BundleManager.BundleFramework

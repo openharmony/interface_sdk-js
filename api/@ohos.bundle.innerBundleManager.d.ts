@@ -18,13 +18,13 @@
  * 
  * > **NOTE**
  * >
- * > This module is deprecated since API version 9. You are advised to use 
+ * > This module is deprecated since API version 9. You are recommended to use 
  * > [launcherBundleManager]{@link @ohos.bundle.launcherBundleManager:launcherBundleManager} and 
- * > [bundleMonitor]{@link @ohos.bundle.bundleMonitor:bundleMonitor} instead.
+ * > [bundleMonitor]{@link @ohos.bundle.bundleMonitor:bundleMonitor} as the replacement.
  * >
  * > The APIs provided by this module are system APIs.
  *
- * @file
+ * @file innerBundleManager Module
  * @kit AbilityKit
  */
 
@@ -58,7 +58,7 @@ declare namespace innerBundleManager {
    * > **NOTE**
    * >
    * > This API has been supported since API version 8 and deprecated since API version 9. You are advised to use
-   * > [getLauncherAbilityInfo]{@link @ohos.bundle.launcherBundleManager:launcherBundleManager.getLauncherAbilityInfo(bundleName: string, userId: int, callback: AsyncCallback<Array<LauncherAbilityInfo>>)}
+   * > [getLauncherAbilityInfo]{@link @ohos.bundle.launcherBundleManager:launcherBundleManager.getLauncherAbilityInfo}
    * > instead.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
@@ -70,7 +70,7 @@ declare namespace innerBundleManager {
    * @systemapi Hide this for inner system use
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead @ohos.bundle.launcherBundleManager:launcherBundleManager.getLauncherAbilityInfo(bundleName: string, userId: int, callback: AsyncCallback<Array<LauncherAbilityInfo>>)
+   * @useinstead @ohos.bundle.launcherBundleManager:launcherBundleManager.getLauncherAbilityInfo
    */
   function getLauncherAbilityInfos(bundleName: string,
     userId: number, callback: AsyncCallback<Array<LauncherAbilityInfo>>): void;
@@ -82,7 +82,7 @@ declare namespace innerBundleManager {
    * > **NOTE**
    * >
    * > This API has been supported since API version 8 and deprecated since API version 9. You are advised to use
-   * > [getLauncherAbilityInfo]{@link @ohos.bundle.launcherBundleManager:launcherBundleManager.getLauncherAbilityInfo(bundleName: string, userId: int, callback: AsyncCallback<Array<LauncherAbilityInfo>>)}
+   * > [getLauncherAbilityInfo]{@link @ohos.bundle.launcherBundleManager:launcherBundleManager.getLauncherAbilityInfo}
    * > instead.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
@@ -94,7 +94,7 @@ declare namespace innerBundleManager {
    * @systemapi Hide this for inner system use
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead @ohos.bundle.launcherBundleManager:launcherBundleManager.getLauncherAbilityInfo(bundleName: string, userId: int, callback: AsyncCallback<Array<LauncherAbilityInfo>>)
+   * @useinstead @ohos.bundle.launcherBundleManager:launcherBundleManager.getLauncherAbilityInfo
    */
   function getLauncherAbilityInfos(bundleName: string, userId: number): Promise<Array<LauncherAbilityInfo>>;
 
@@ -110,7 +110,8 @@ declare namespace innerBundleManager {
    * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
    * @param { 'BundleStatusChange' } type - Event type. Only **BundleStatusChange** is supported.
    * @param { BundleStatusCallback } bundleStatusCallback - Callback to register.
-   * @param { AsyncCallback<string> } callback - Callback used to return a successful result or error Callback to register.
+   * @param { AsyncCallback<string> } callback - Callback used to return a successful result or error Callback to
+   *     register.
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @systemapi Hide this for inner system use
    * @since 8 dynamiconly
@@ -189,7 +190,7 @@ declare namespace innerBundleManager {
    * > **NOTE**
    * >
    * > This API has been supported since API version 8 and deprecated since API version 9. You are advised to use
-   * > [getAllLauncherAbilityInfo]{@link @ohos.bundle.launcherBundleManager:launcherBundleManager.getAllLauncherAbilityInfo(userId: int, callback: AsyncCallback<Array<LauncherAbilityInfo>>)}
+   * > [getAllLauncherAbilityInfo]{@link @ohos.bundle.launcherBundleManager:launcherBundleManager.getAllLauncherAbilityInfo}
    * > instead.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
@@ -200,7 +201,7 @@ declare namespace innerBundleManager {
    * @systemapi Hide this for inner system use
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead @ohos.bundle.launcherBundleManager:launcherBundleManager.getAllLauncherAbilityInfo(userId: int, callback: AsyncCallback<Array<LauncherAbilityInfo>>)
+   * @useinstead @ohos.bundle.launcherBundleManager:launcherBundleManager.getAllLauncherAbilityInfo
    */
   function getAllLauncherAbilityInfos(userId: number, callback: AsyncCallback<Array<LauncherAbilityInfo>>): void;
 
@@ -210,7 +211,7 @@ declare namespace innerBundleManager {
    * > **NOTE**
    * >
    * > This API has been supported since API version 8 and deprecated since API version 9. You are advised to use
-   * > [getAllLauncherAbilityInfo]{@link @ohos.bundle.launcherBundleManager:launcherBundleManager.getAllLauncherAbilityInfo(userId: int, callback: AsyncCallback<Array<LauncherAbilityInfo>>)}
+   * > [getAllLauncherAbilityInfo]{@link @ohos.bundle.launcherBundleManager:launcherBundleManager.getAllLauncherAbilityInfo}
    * > instead.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
@@ -221,7 +222,7 @@ declare namespace innerBundleManager {
    * @systemapi Hide this for inner system use
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead @ohos.bundle.launcherBundleManager:launcherBundleManager.getAllLauncherAbilityInfo(userId: int, callback: AsyncCallback<Array<LauncherAbilityInfo>>)
+   * @useinstead @ohos.bundle.launcherBundleManager:launcherBundleManager.getAllLauncherAbilityInfo
    */
   function getAllLauncherAbilityInfos(userId: number): Promise<Array<LauncherAbilityInfo>>;
 
@@ -232,8 +233,7 @@ declare namespace innerBundleManager {
    * > **NOTE**
    * >
    * > This API has been supported since API version 8 and deprecated since API version 9. You are advised to use
-   * > [getShortcutInfo]{@link @ohos.bundle.launcherBundleManager:launcherBundleManager.getShortcutInfo(bundleName :string, callback: AsyncCallback<Array<ShortcutInfo>>)}
-   * > instead.
+   * > [getShortcutInfo]{@link @ohos.bundle.launcherBundleManager:launcherBundleManager.getShortcutInfo} instead.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName - Bundle name.
@@ -243,7 +243,7 @@ declare namespace innerBundleManager {
    * @systemapi Hide this for inner system use
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead @ohos.bundle.launcherBundleManager:launcherBundleManager.getShortcutInfo(bundleName :string, callback: AsyncCallback<Array<ShortcutInfo>>)
+   * @useinstead @ohos.bundle.launcherBundleManager:launcherBundleManager.getShortcutInfo
    */
   function getShortcutInfos(bundleName: string, callback: AsyncCallback<Array<ShortcutInfo>>): void;
 
@@ -254,8 +254,7 @@ declare namespace innerBundleManager {
    * > **NOTE**
    * >
    * > This API has been supported since API version 8 and deprecated since API version 9. You are advised to use
-   * > [getShortcutInfo]{@link @ohos.bundle.launcherBundleManager:launcherBundleManager.getShortcutInfo(bundleName :string, callback: AsyncCallback<Array<ShortcutInfo>>)}
-   * > instead.
+   * > [getShortcutInfo]{@link @ohos.bundle.launcherBundleManager:launcherBundleManager.getShortcutInfo} instead.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName - Bundle name.
@@ -264,7 +263,7 @@ declare namespace innerBundleManager {
    * @systemapi Hide this for inner system use
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead @ohos.bundle.launcherBundleManager:launcherBundleManager.getShortcutInfo(bundleName :string, callback: AsyncCallback<Array<ShortcutInfo>>)
+   * @useinstead @ohos.bundle.launcherBundleManager:launcherBundleManager.getShortcutInfo
    */
   function getShortcutInfos(bundleName: string): Promise<Array<ShortcutInfo>>;
 }

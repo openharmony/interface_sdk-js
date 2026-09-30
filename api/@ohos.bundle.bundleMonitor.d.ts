@@ -14,14 +14,14 @@
  */
 
 /**
- * @file
+ * @file bundleMonitor Module
  * @kit AbilityKit
  */
 
 import { Callback } from './@ohos.base';
 
 /**
- * Bundle monitor
+ * The module provides APIs for listening for bundle installation, uninstall, and updates.
  *
  * @namespace bundleMonitor
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -31,9 +31,8 @@ import { Callback } from './@ohos.base';
  */
 declare namespace bundleMonitor {
   /**
-   * This module defines the result information of monitoring install, update and uninstall.
+   * Application Change Information.
    *
-   * @typedef BundleChangedInfo
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
@@ -41,10 +40,8 @@ declare namespace bundleMonitor {
    */
   interface BundleChangedInfo {
     /**
-     * The bundle name
+     * Name of the bundle whose status changes.
      *
-     * @type { string }
-     * @readonly
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9 dynamic
@@ -52,10 +49,9 @@ declare namespace bundleMonitor {
      */
     readonly bundleName: string;
     /**
-     * The user id
+     * ID of the user for whom the bundle status changes. You can obtain the ID by calling
+     * [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}.
      *
-     * @type { int }
-     * @readonly
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9 dynamic
@@ -63,10 +59,8 @@ declare namespace bundleMonitor {
      */
     readonly userId: int;
     /**
-     * The app index of clone app
+     * Index of the application clone whose status changes.
      *
-     * @type { int }
-     * @readonly
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12 dynamic
@@ -76,9 +70,10 @@ declare namespace bundleMonitor {
   }
 
   /**
-   * Indicates the event type of bundle change
+   * Enumerates the types of events to listen for.
    *
-   * @typedef { 'add' | 'update' | 'remove' }
+   * The value type is one of the types listed in the table below.
+   *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
@@ -86,14 +81,18 @@ declare namespace bundleMonitor {
   type BundleChangedEvent = 'add' | 'update' | 'remove';
 
   /**
-   * Register to monitor the installation status
+   * Subscribes to bundle installation, uninstall, and update events. This API uses an asynchronous callback to return
+   * the result.
    *
    * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
-   * @param { BundleChangedEvent } type - Indicates the command should be implement.
-   * @param { Callback<BundleChangedInfo> } callback - Indicates the callback to be register.
+   * @param { BundleChangedEvent } type - Type of the event to subscribe to.
+   * @param { Callback<BundleChangedInfo> } callback - [Callback]{@link @ohos.base:Callback} used to return the result.
+   *     If the operation is successful, err is undefined and data is the app change information obtained. Otherwise,
+   *     err is an error object.
    * @throws { BusinessError } 201 - Verify permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
@@ -104,7 +103,7 @@ declare namespace bundleMonitor {
    * Register installation listener.
    *
    * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
-   * @param { Callback<BundleChangedInfo> } callback - Indicates the callback to be registered.
+   * @param { Callback<BundleChangedInfo> } callback - Indicates the [Callback]{@link @ohos.base:Callback} to be registered.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -117,7 +116,7 @@ declare namespace bundleMonitor {
    * Register update listener.
    *
    * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
-   * @param { Callback<BundleChangedInfo> } callback - Indicates the callback to be registered.
+   * @param { Callback<BundleChangedInfo> } callback - Indicates the [Callback]{@link @ohos.base:Callback} to be registered.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -130,7 +129,7 @@ declare namespace bundleMonitor {
    * Register uninstallation listener.
    *
    * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
-   * @param { Callback<BundleChangedInfo> } callback - Indicates the callback to be registered.
+   * @param { Callback<BundleChangedInfo> } callback - Indicates the [Callback]{@link @ohos.base:Callback} to be registered.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -140,14 +139,18 @@ declare namespace bundleMonitor {
   function onRemove(callback: Callback<BundleChangedInfo>): void;
 
   /**
-   * Unregister to monitor the installation status
+   * Unsubscribes from bundle installation, uninstall, and update events. This API uses an asynchronous callback to return
+   * the result.
    *
    * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
-   * @param { BundleChangedEvent } type -type Indicates the command should be implement.
-   * @param { Callback<BundleChangedInfo> } callback - Indicates the callback to be unregister.
+   * @param { BundleChangedEvent } type - Type of the event to unsubscribe from.
+   * @param { Callback<BundleChangedInfo> } callback - [Callback]{@link @ohos.base:Callback} used to return the result. If
+   *     the operation is successful, err is undefined and data is the app change information obtained. Otherwise, err is
+   *     an error object.
    * @throws { BusinessError } 201 - Verify permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
+   *     Incorrect parameter types.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
@@ -158,7 +161,7 @@ declare namespace bundleMonitor {
    * Unregister installation listener.
    *
    * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
-   * @param { Callback<BundleChangedInfo> } [callback] - Indicates the callback to be unregistered.
+   * @param { Callback<BundleChangedInfo> } [callback] - Indicates the [Callback]{@link @ohos.base:Callback} to be unregistered.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -171,7 +174,7 @@ declare namespace bundleMonitor {
    * Unregister update listener.
    *
    * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
-   * @param { Callback<BundleChangedInfo> } [callback] - Indicates the callback to be unregistered.
+   * @param { Callback<BundleChangedInfo> } [callback] - Indicates the [Callback]{@link @ohos.base:Callback} to be unregistered.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -184,7 +187,7 @@ declare namespace bundleMonitor {
    * Unregister uninstallation listener.
    *
    * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
-   * @param { Callback<BundleChangedInfo> } [callback] - Indicates the callback to be unregistered.
+   * @param { Callback<BundleChangedInfo> } [callback] - Indicates the [Callback]{@link @ohos.base:Callback} to be unregistered.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core

@@ -14,12 +14,7 @@
  */
 
 /**
- * The module defines the ability information. An application can obtain its own ability information through 
- * [bundleManager.getBundleInfoForSelf]{@link ./../@ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)}
- * , with **GET_BUNDLE_INFO_WITH_HAP_MODULE** and **GET_BUNDLE_INFO_WITH_ABILITY** passed in to 
- * [bundleFlags]{@link ./../@ohos.bundle.bundleManager:bundleManager.BundleFlag}.
- *
- * @file
+ * @file AbilityInfo
  * @kit AbilityKit
  */
 
@@ -29,7 +24,10 @@ import bundleManager from './../@ohos.bundle.bundleManager';
 import { Skill } from './Skill';
 
 /**
- * The module defines the ability information.
+ * The module defines the ability information. An application can obtain its own ability information through
+ * [bundleManager.getBundleInfoForSelf]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf}, with
+ * **GET_BUNDLE_INFO_WITH_HAP_MODULE** and **GET_BUNDLE_INFO_WITH_ABILITY** passed in to
+ * [bundleFlags]{@link @ohos.bundle.bundleManager:bundleManager.BundleFlag}.
  *
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @crossplatform [since 10]
@@ -61,7 +59,10 @@ export interface AbilityInfo {
   readonly moduleName: string;
 
   /**
-   * Ability name.
+   * Ability name, corresponding to the name field configured under abilities in
+   * [module.json5](docroot://quick-start/module-configuration-file.md).
+   *
+   * **Atomic service API:** This API supports use in atomic services since API version 11.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform [since 10]
@@ -76,8 +77,8 @@ export interface AbilityInfo {
    * in the [module.json5](docroot://quick-start/module-configuration-file.md) file.
    *
    * Note: Starting from API version 20, if
-   * [bundleManager.getAbilityInfo]{@link ./../@ohos.bundle.bundleManager:bundleManager.getAbilityInfo} is used to
-   * obtain ability information, this field is the ability name visible to users.
+   * [bundleManager.getAbilityInfo]{@link @ohos.bundle.bundleManager:bundleManager.getAbilityInfo} is used to obtain
+   * ability information, this field is the ability name visible to users.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform [since 10]
@@ -113,8 +114,10 @@ export interface AbilityInfo {
   readonly description: string;
 
   /**
-   * Resource ID of the ability description. It is automatically generated during compilation and build based on the
-   * description configured in **abilities** of the application.
+   * Description resource ID of the ability, automatically generated during compilation based on the description
+   * configured under abilities in the application configuration.
+   *
+   * **Atomic service API:** This API supports use in atomic services since API version 11.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform [since 10]
@@ -182,11 +185,13 @@ export interface AbilityInfo {
   readonly type: bundleManager.AbilityType;
 
   /**
-   * Ability display orientation. It is derived from the **orientation** field under **abilities** in the
-   * [module.json5](docroot://quick-start/module-configuration-file.md) file. If **orientation** in the file is set to
-   * an enumerated value, this property is a non-zero value. For details about the available values, see
-   * [displayOrientation]{@link ./../@ohos.bundle.bundleManager:bundleManager.DisplayOrientation}. If **orientation** in
-   * the file is set to a resource index, the value of this property is **0**.
+   * Display mode of the ability. Derived from the orientation field configured under the abilities tag in
+   * [module.json5](docroot://quick-start/module-configuration-file.md). If the orientation configured in the
+   * module.json5 configuration file is an enum, the orientation attribute has a non-zero value. For details about the
+   * value, see [DisplayOrientation]{@link @ohos.bundle.bundleManager:bundleManager.DisplayOrientation}. If a resource
+   * index is configured in the configuration file, the orientation attribute value is 0.
+   *
+   * **Atomic service API:** This API supports use in atomic services since API version 11.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform [since 20]
@@ -197,8 +202,10 @@ export interface AbilityInfo {
   readonly orientation: bundleManager.DisplayOrientation;
 
   /**
-   * Ability launch mode, that is, whether it can be started in multiton mode. For details, see
-   * [LaunchType]{@link ./../@ohos.bundle.bundleManager:bundleManager.LaunchType}.
+   * Launch mode of the ability, indicating whether to start with multiple instances at startup. For details, see
+   * [LaunchType]{@link @ohos.bundle.bundleManager:bundleManager.LaunchType}.
+   *
+   * **Atomic service API:** This API supports use in atomic services since API version 11.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform [since 10]
@@ -269,15 +276,13 @@ export interface AbilityInfo {
   /**
    * Application configuration information <!--Del-->. The information can be obtained by passing in
    * **GET_ABILITY_INFO_WITH_APPLICATION** to the **abilityFlags** parameter of
-   * [queryAbilityInfo]{@link ./../@ohos.bundle.bundleManager:bundleManager.queryAbilityInfo(want: Want, abilityFlags: int, userId: int, callback: AsyncCallback<Array<AbilityInfo>>)}
-   * <!--DelEnd-->.
+   * [queryAbilityInfo]{@link @ohos.bundle.bundleManager:bundleManager.queryAbilityInfo} <!--DelEnd-->.
    *
    * This field is not returned when the
-   * [getBundleInfoForSelf]{@link ./../@ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)}
-   * or
-   * [getBundleInfo]{@link ./../@ohos.bundle.bundleManager:bundleManager.getBundleInfo(bundleName: string, bundleFlags: int, userId: int, callback: AsyncCallback<BundleInfo>)}
-   * is used to obtain ability information. You can obtain the related information by obtaining the
-   * [bundleInfo]{@link BundleInfo:BundleInfo}.appInfo object.
+   * [getBundleInfoForSelf]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf} or
+   * [getBundleInfo]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfo} is used to obtain ability
+   * information. You can obtain the related information by obtaining the [bundleInfo]{@link ./BundleInfo:BundleInfo}.
+   * appInfo object.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform [since 10]
@@ -289,15 +294,13 @@ export interface AbilityInfo {
   /**
    * Application configuration information <!--Del-->. The information can be obtained by passing in
    * **GET_ABILITY_INFO_WITH_APPLICATION** to the **abilityFlags** parameter of
-   * [queryAbilityInfo]{@link ./../@ohos.bundle.bundleManager:bundleManager.queryAbilityInfo(want: Want, abilityFlags: int, userId: int, callback: AsyncCallback<Array<AbilityInfo>>)}
-   * <!--DelEnd-->.
+   * [queryAbilityInfo]{@link @ohos.bundle.bundleManager:bundleManager.queryAbilityInfo} <!--DelEnd-->.
    *
    * This field is not returned when the
-   * [getBundleInfoForSelf]{@link ./../@ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)}
-   * or
-   * [getBundleInfo]{@link ./../@ohos.bundle.bundleManager:bundleManager.getBundleInfo(bundleName: string, bundleFlags: int, userId: int, callback: AsyncCallback<BundleInfo>)}
-   * is used to obtain ability information. You can obtain the related information by obtaining the
-   * [bundleInfo]{@link BundleInfo:BundleInfo}.appInfo object.
+   * [getBundleInfoForSelf]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf} or
+   * [getBundleInfo]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfo} is used to obtain ability
+   * information. You can obtain the related information by obtaining the [bundleInfo]{@link ./BundleInfo:BundleInfo}.
+   * appInfo object.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform
@@ -309,9 +312,8 @@ export interface AbilityInfo {
    * Metadata of the ability. You can configure the system-defined parameters to use the capabilities provided by the
    * system, for example, [shortcuts](docroot://quick-start/module-configuration-file.md#shortcuts) and
    * [window metadata configuration](docroot://windowmanager/window-config-m.md). You can also customize the parameters
-   * and call
-   * [getBundleInfoForSelf]{@link ./../@ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)}
-   * to obtain the parameters by passing **GET_BUNDLE_INFO_WITH_HAP_MODULE**, **GET_BUNDLE_INFO_WITH_ABILITY**, and
+   * and call [getBundleInfoForSelf]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf} to obtain the
+   * parameters by passing **GET_BUNDLE_INFO_WITH_HAP_MODULE**, **GET_BUNDLE_INFO_WITH_ABILITY**, and
    * **GET_BUNDLE_INFO_WITH_METADATA** to **bundleFlags**.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -325,7 +327,7 @@ export interface AbilityInfo {
   /**
    * Whether the ability is available, that is, whether it can be started or queried. **true** if available, **false**
    * otherwise. If the ability is unavailable, you must call
-   * [getAbilityInfo]{@link ./../@ohos.bundle.bundleManager:bundleManager.getAbilityInfo} with **AbilityFlag** set to
+   * [getAbilityInfo]{@link @ohos.bundle.bundleManager:bundleManager.getAbilityInfo} with **AbilityFlag** set to
    * **GET_ABILITY_INFO_WITH_DISABLE** to query the ability.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -383,7 +385,9 @@ export interface AbilityInfo {
   readonly skills: Array<Skill>;
 
   /**
-   * Index of an application clone. It takes effect only for [application clones](docroot://quick-start/app-clone.md).
+   * Clone index identifier of the application package. The value is a natural number, where 0 indicates the primary
+   * application and a value greater than 0 indicates a clone application. This field takes effect only in
+   * [app clone](docroot://quick-start/app-clone.md).
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 12 dynamic
@@ -411,8 +415,6 @@ export interface AbilityInfo {
 /**
  * Describes the window size.
  *
- * **Atomic service API**: This API can be used in atomic services since API version 11.
- *
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @crossplatform [since 20]
  * @atomicservice [since 11]
@@ -421,7 +423,10 @@ export interface AbilityInfo {
  */
 export interface WindowSize {
   /**
-   * Maximum aspect ratio of the window in free window mode. The value ranges from 0 to 1. An example value is 0.12.
+   * Indicates the maximum aspect ratio (width/height) of the window in free-form window state.
+   *
+   * Value range: [0, 1]. For example, 0.62 indicates that the maximum window width is 0.62 times the height. This
+   * attribute is used to limit the display ratio of the window.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform [since 20]
@@ -432,7 +437,10 @@ export interface WindowSize {
   readonly maxWindowRatio: double;
 
   /**
-   * Minimum aspect ratio of the window in free window mode. The value ranges from 0 to 1. An example value is 0.5.
+   * Indicates the minimum aspect ratio (width/height) of the window in free-form window state.
+   *
+   * Value range: [0, 1]. For example, 0.12 indicates that the minimum window width is 0.12 times the height. This
+   * attribute is used to limit the display ratio of the window.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform [since 20]

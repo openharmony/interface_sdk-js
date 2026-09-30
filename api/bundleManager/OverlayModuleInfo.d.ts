@@ -19,9 +19,9 @@
  */
 
 /**
- * The module provides information about a module with the overlay feature. An application can obtain such information
- * through
- * [overlay.getOverlayModuleInfo]{@link ./../@ohos.bundle.overlay:overlay.getOverlayModuleInfo(moduleName: string)}.
+ * The OverlayModuleInfo information can be obtained through
+ * [overlay.getOverlayModuleInfo]{@link @ohos.bundle.overlay:overlay.getOverlayModuleInfo} to get the OverlayModuleInfo
+ * information of the module with the overlay feature in the current application.
  *
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @since 10 dynamic
@@ -29,7 +29,7 @@
  */
 export interface OverlayModuleInfo {
   /**
-   * Bundle name of the application to which the module with the overlay feature belongs.
+   * Bundle name of the application to which the overlay feature module belongs.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 10 dynamic
@@ -38,7 +38,7 @@ export interface OverlayModuleInfo {
   readonly bundleName: string;
 
   /**
-   * Name of the module with the overlay feature.
+   * Name of the overlay feature module.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 10 dynamic
@@ -47,8 +47,8 @@ export interface OverlayModuleInfo {
   readonly moduleName: string;
 
   /**
-   * Name of the target module specified by the overlay feature, that is, the name of the module whose resources are to
-   * be replaced by the overlay package.
+   * Name of the target module on which the overlay feature module takes effect, indicating the module whose resources
+   * are to be replaced by the current overlay package.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 10 dynamic
@@ -57,8 +57,8 @@ export interface OverlayModuleInfo {
   readonly targetModuleName: string;
 
   /**
-   * Priority of the module with the overlay feature. The value is an integer ranging from 1 to 100. A larger value
-   * indicates a higher priority.
+   * Priority of the overlay feature module. The value is an integer ranging from 1 to 100. A larger value indicates a
+   * higher priority.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 10 dynamic
@@ -67,9 +67,8 @@ export interface OverlayModuleInfo {
   readonly priority: int;
 
   /**
-   * Whether the module with the overlay feature is
-   * [disabled]{@link ./../@ohos.bundle.overlay:overlay.setOverlayEnabled(moduleName:string, isEnabled: boolean)}. The
-   * value **0** means that the module with the overlay feature is disabled, and **1** means the opposite.
+   * Enabled or disabled state of the overlay feature module. The value is an integer ranging from 0 to 2, where 0
+   * indicates the disabled state, 1 indicates the enabled state, and 2 indicates the invalid state.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 10 dynamic

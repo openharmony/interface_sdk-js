@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file RemoteAbilityInfo
  * @kit AbilityKit
  */
 
@@ -22,12 +22,7 @@ import { ElementName } from './ElementName';
 
 /**
  * The module provides information about a remote ability, which can be obtained through
- * [distributedBundle.getRemoteAbilityInfo]{@link ./../@ohos.bundle.distributedBundleManager:distributedBundleManager.getRemoteAbilityInfo(elementName: ElementName, callback: AsyncCallback<RemoteAbilityInfo>)}
- * .
- *
- * > **NOTE**
- * >
- * > The APIs provided by this module are system APIs.
+ * [distributedBundle.getRemoteAbilityInfo]{@link @ohos.bundle.distributedBundleManager:distributedBundleManager.getRemoteAbilityInfo}.
  *
  * @syscap SystemCapability.BundleManager.DistributedBundleFramework
  * @systemapi
@@ -56,7 +51,7 @@ export interface RemoteAbilityInfo {
   readonly label: string;
 
   /**
-   * Icon of the remote ability.
+   * Icon information of the remote ability.
    *
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi

@@ -14,11 +14,25 @@
  */
 
 /**
- * @file
+ * @file bundleResourceManager模块
  * @kit AbilityKit
  */
 
 import bundleManager from './@ohos.bundle.bundleManager';
+/*** if arkts dynamic */
+import type { AsyncCallback } from './@ohos.base';
+import { BundleOptions } from './bundleManager/BundleInfo';
+import type { BundleResourceInfo as _BundleResourceInfo } from './bundleManager/BundleResourceInfo';
+import type { LauncherAbilityResourceInfo as _LauncherAbilityResourceInfo } from './bundleManager/LauncherAbilityResourceInfo';
+import { ElementName } from './bundleManager/ElementName';
+/*** endif */
+/*** if arkts static */
+import { AsyncCallback } from './@ohos.base';
+import { BundleOptions } from './bundleManager/BundleInfo';
+import { BundleResourceInfo as _BundleResourceInfo } from './bundleManager/BundleResourceInfo';
+import { LauncherAbilityResourceInfo as _LauncherAbilityResourceInfo } from './bundleManager/LauncherAbilityResourceInfo';
+import { ElementName } from './bundleManager/ElementName';
+/*** endif */
 
 /**
  * 本模块提供应用资源数据查询能力，支持[BundleResourceInfo]{@link ./bundleManager/BundleResourceInfo:BundleResourceInfo}和
@@ -26,9 +40,7 @@ import bundleManager from './@ohos.bundle.bundleManager';
  * 
  * > **说明：**
  * >
- * > 本模块从API version 12 开始支持查询被禁用应用和设备上已安装应用(不区用户)的图标和名称资源。
- * >
- * > 本模块为系统接口。
+ * > 本模块从API version 12开始支持查询被禁用应用和设备上已安装应用（不区分用户）的图标和名称资源。
  *
  * @syscap SystemCapability.BundleManager.BundleFramework.Resource
  * @systemapi
@@ -76,7 +88,7 @@ declare namespace bundleResourceManager {
     GET_RESOURCE_INFO_WITH_ICON = 0x00000004,
 
     /**
-     * 用于获取根据label排序后的信息。它不能单独使用需要与GET_RESOURCE_INFO_ALL 或 GET_RESOURCE_INFO_WITH_LABEL一起使用。
+     * 用于获取根据label排序后的信息。它不能单独使用，需要与GET_RESOURCE_INFO_ALL 或 GET_RESOURCE_INFO_WITH_LABEL一起使用。
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Resource
      * @systemapi
@@ -86,7 +98,7 @@ declare namespace bundleResourceManager {
     GET_RESOURCE_INFO_WITH_SORTED_BY_LABEL = 0x00000008,
 
     /**
-     * 用于获取应用图标的[drawableDescriptor]{@link @ohos.arkui.drawableDescriptor}对象。
+     * 用于获取应用图标的[drawableDescriptor](docroot://reference/apis-arkui/js-apis-arkui-drawableDescriptor-sys.md)对象。
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Resource
      * @systemapi
@@ -97,21 +109,19 @@ declare namespace bundleResourceManager {
 
     /**
      * 用于获取仅在桌面上展示图标的Ability资源，它仅在
-     * [getLauncherAbilityResourceInfo]{@link bundleResourceManager.getLauncherAbilityResourceInfo(bundleName: string, resourceFlags?: int)}
-     * 和
-     * [getAllLauncherAbilityResourceInfo]{@link bundleResourceManager.getAllLauncherAbilityResourceInfo(resourceFlags: int, callback: AsyncCallback<Array<LauncherAbilityResourceInfo>>)}
-     * 接口中生效。
+     * [getLauncherAbilityResourceInfo]{@link bundleResourceManager.getLauncherAbilityResourceInfo}和
+     * [getAllLauncherAbilityResourceInfo]{@link bundleResourceManager.getAllLauncherAbilityResourceInfo}接口中生效。
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Resource
      * @systemapi
      * @since 20 dynamic
      * @since 23 static
      */
-    GET_RESOURCE_INFO_ONLY_WITH_MAIN_ABILITY = 0x00000020,
+    GET_RESOURCE_INFO_ONLY_WITH_MAIN_ABILITY = 0x00000020
   }
 
   /**
-   * 以同步方法根据给定的bundleName和resourceFlags获取当前应用的BundleResourceInfo。
+   * 以同步方法根据给定的bundleName和resourceFlags获取应用的BundleResourceInfo。
    *
    * @permission ohos.permission.GET_BUNDLE_RESOURCES
    * @param { string } bundleName - 指定查询应用的包名。
@@ -129,7 +139,7 @@ declare namespace bundleResourceManager {
   function getBundleResourceInfo(bundleName: string, resourceFlags?: int): BundleResourceInfo;
 
   /**
-   * 以同步方法根据给定的bundleName、resourceFlags和appIndex获取当前应用或分身应用的BundleResourceInfo。
+   * 以同步方法根据给定的bundleName、resourceFlags和appIndex获取应用或分身应用的BundleResourceInfo。
    *
    * @permission ohos.permission.GET_BUNDLE_RESOURCES
    * @param { string } bundleName - 指定查询应用的包名。
@@ -150,7 +160,7 @@ declare namespace bundleResourceManager {
   function getBundleResourceInfo(bundleName: string, resourceFlags?: int, appIndex?: int): BundleResourceInfo;
 
   /**
-   * 以同步方法根据给定的bundleName和resourceFlags获取当前应用的LauncherAbilityResourceInfo。
+   * 以同步方法根据给定的bundleName和resourceFlags获取应用的LauncherAbilityResourceInfo。
    *
    * @permission ohos.permission.GET_BUNDLE_RESOURCES
    * @param { string } bundleName - 指定查询应用的包名。
@@ -169,7 +179,7 @@ declare namespace bundleResourceManager {
   function getLauncherAbilityResourceInfo(bundleName: string, resourceFlags?: int): Array<LauncherAbilityResourceInfo>;
 
   /**
-   * 以同步方法根据给定的bundleName、resourceFlags和appIndex获取当前应用或分身应用的LauncherAbilityResourceInfo。
+   * 以同步方法根据给定的bundleName、resourceFlags和appIndex获取应用或分身应用的LauncherAbilityResourceInfo。
    *
    * @permission ohos.permission.GET_BUNDLE_RESOURCES
    * @param { string } bundleName - 指定查询应用的包名。
@@ -195,8 +205,8 @@ declare namespace bundleResourceManager {
    *
    * @permission ohos.permission.GET_INSTALLED_BUNDLE_LIST and ohos.permission.GET_BUNDLE_RESOURCES
    * @param { int } resourceFlags - 指定返回的BundleResourceInfo所包含的信息。
-   * @param { AsyncCallback<Array<BundleResourceInfo>> } callback - [回调函数]{@link @ohos.base:AsyncCallback}，当获取成功时，err为
-   *     undefined，data为获取到的BundleResourceInfo数组；否则为错误对象。
+   * @param { AsyncCallback<Array<BundleResourceInfo>> } callback - [AsyncCallback]{@link @ohos.base:AsyncCallback}，当获取成
+   *     功时，err为undefined，data为获取到的BundleResourceInfo数组；否则为错误对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
@@ -230,8 +240,9 @@ declare namespace bundleResourceManager {
    *
    * @permission ohos.permission.GET_INSTALLED_BUNDLE_LIST and ohos.permission.GET_BUNDLE_RESOURCES
    * @param { int } resourceFlags - 指定返回的LauncherAbilityResourceInfo所包含的信息。
-   * @param { AsyncCallback<Array<LauncherAbilityResourceInfo>> } callback - [回调函数]{@link @ohos.base:AsyncCallback}，当获取成
-   *     功时，err为undefined，data为获取到的LauncherAbilityResourceInfo数组；否则为错误对象。
+   * @param { AsyncCallback<Array<LauncherAbilityResourceInfo>> } callback -
+      *     [AsyncCallback]{@link @ohos.base:AsyncCallback}，当获取成功时，err为undefined，data为获取到的LauncherAbilityResourceInfo数组；否则为
+   *     错误对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
@@ -312,8 +323,8 @@ declare namespace bundleResourceManager {
    * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700001 - The specified bundle is not found.
-   * @throws { BusinessError } 17700002 - The specified module is not existed.
-   * @throws { BusinessError } 17700003 - The specified ability is not existed.
+   * @throws { BusinessError } 17700002 - The specified module is not found.
+   * @throws { BusinessError } 17700003 - The specified ability is not found.
    * @throws { BusinessError } 17700061 - The specified app index is invalid.
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi
@@ -343,35 +354,4 @@ declare namespace bundleResourceManager {
   export type LauncherAbilityResourceInfo = _LauncherAbilityResourceInfo;
 }
 
-/*** if arkts dynamic */
-import bundleManager from './@ohos.bundle.bundleManager';
-import type { AsyncCallback } from './@ohos.base';
-import { BundleOptions } from './bundleManager/BundleInfo';
-import type { BundleResourceInfo as _BundleResourceInfo } from './bundleManager/BundleResourceInfo';
-import type { LauncherAbilityResourceInfo as _LauncherAbilityResourceInfo } from './bundleManager/LauncherAbilityResourceInfo';
-/*** endif */
-
-/*** if arkts static */
-import bundleManager from './@ohos.bundle.bundleManager';
-import { AsyncCallback } from './@ohos.base';
-import { BundleOptions } from './bundleManager/BundleInfo';
-import { BundleResourceInfo as _BundleResourceInfo } from './bundleManager/BundleResourceInfo';
-import { LauncherAbilityResourceInfo as _LauncherAbilityResourceInfo } from './bundleManager/LauncherAbilityResourceInfo';
-import bundleManager from './@ohos.bundle.bundleManager';
-/*** endif */
-
 export default bundleResourceManager;
-/*** if arkts dynamic */
-import type { AsyncCallback } from './@ohos.base';
-import { BundleOptions } from './bundleManager/BundleInfo';
-import type { BundleResourceInfo as _BundleResourceInfo } from './bundleManager/BundleResourceInfo';
-import type { LauncherAbilityResourceInfo as _LauncherAbilityResourceInfo } from './bundleManager/LauncherAbilityResourceInfo';
-import { ElementName } from './bundleManager/ElementName';
-/*** endif */
-/*** if arkts static */
-import { AsyncCallback } from './@ohos.base';
-import { BundleOptions } from './bundleManager/BundleInfo';
-import { BundleResourceInfo as _BundleResourceInfo } from './bundleManager/BundleResourceInfo';
-import { LauncherAbilityResourceInfo as _LauncherAbilityResourceInfo } from './bundleManager/LauncherAbilityResourceInfo';
-import { ElementName } from './bundleManager/ElementName';
-/*** endif */

@@ -14,7 +14,8 @@
  */
 
 /**
- * @file
+ *
+ * @file distributedBundleManager模块
  * @kit AbilityKit
  */
 
@@ -22,17 +23,14 @@ import { AsyncCallback } from './@ohos.base';
 import { ElementName } from './bundleManager/ElementName';
 import { RemoteAbilityInfo as _RemoteAbilityInfo } from './bundleManager/RemoteAbilityInfo';
 import { ModuleMetadata } from './bundleManager/ApplicationInfo';
+
 /**
- * # 系统能力
+ * # System Capabilities
  * 
  * SystemCapability.BundleManager.DistributedBundleFramework
  */
 /**
  * 本模块提供分布式应用的管理能力。
- * 
- * > **说明：**
- * >
- * > 本模块为系统接口。
  *
  * @syscap SystemCapability.BundleManager.DistributedBundleFramework
  * @systemapi
@@ -45,8 +43,8 @@ declare namespace distributedBundleManager {
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { ElementName } elementName - ElementName信息。
-   * @param { AsyncCallback<RemoteAbilityInfo> } callback - [回调函数]{@link @ohos.base:AsyncCallback}，调用成功返回err为null，data为
-   *     RemoteAbilityInfo对象；调用失败err为错误对象, data为undefined。
+   * @param { AsyncCallback<RemoteAbilityInfo> } callback - [AsyncCallback]{@link @ohos.base:AsyncCallback}，调用成功返回err为
+   *     null，data为RemoteAbilityInfo对象；调用失败err为错误对象，data为undefined。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
@@ -86,12 +84,12 @@ declare namespace distributedBundleManager {
   function getRemoteAbilityInfo(elementName: ElementName): Promise<RemoteAbilityInfo>;
 
   /**
-   * 获取由elementName指定的远程设备上的应用的AbilityInfo数组信息。使用callback异步回调。
+   * 获取由elementNames指定的远程设备上的应用的AbilityInfo数组信息。使用callback异步回调。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { Array<ElementName> } elementNames - ElementName信息,最大数组长度为10。
-   * @param { AsyncCallback<Array<RemoteAbilityInfo>> } callback - [回调函数]{@link @ohos.base:AsyncCallback}，调用成功返回err为null
-   *     ，data为RemoteAbilityInfo数组对象；调用失败err为错误对象, data为undefined。
+   * @param { Array<ElementName> } elementNames - ElementName信息，最大数组长度为10。
+   * @param { AsyncCallback<Array<RemoteAbilityInfo>> } callback - [AsyncCallback]{@link @ohos.base:AsyncCallback}，调用成功返
+   *     回err为null，data为RemoteAbilityInfo数组对象；调用失败err为错误对象，data为undefined。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
@@ -109,11 +107,11 @@ declare namespace distributedBundleManager {
   function getRemoteAbilityInfo(elementNames: Array<ElementName>, callback: AsyncCallback<Array<RemoteAbilityInfo>>): void;
 
   /**
-   * 获取由elementName指定的远程设备上的应用的AbilityInfo数组信息。使用Promise异步回调。
+   * 获取由elementNames指定的远程设备上的应用的AbilityInfo数组信息。使用Promise异步回调。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { Array<ElementName> } elementNames - ElementName信息，最大数组长度为10。
-   * @returns { Promise<Array<RemoteAbilityInfo>> } Promise对象，调用成功返回RemoteAbilityInfo对象；调用失败返回错误对象。
+   * @returns { Promise<Array<RemoteAbilityInfo>> } Promise对象，调用成功返回RemoteAbilityInfo对象列表；调用失败返回错误对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
@@ -136,8 +134,8 @@ declare namespace distributedBundleManager {
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { ElementName } elementName - ElementName信息。
    * @param { string } locale - 语言地区。
-   * @param { AsyncCallback<RemoteAbilityInfo> } callback - [回调函数]{@link @ohos.base:AsyncCallback}，调用成功返回err为null，data为
-   *     RemoteAbilityInfo对象；调用失败err为错误对象, data为undefined。
+   * @param { AsyncCallback<RemoteAbilityInfo> } callback - [AsyncCallback]{@link @ohos.base:AsyncCallback}，调用成功返回err为
+   *     null，data为RemoteAbilityInfo对象；调用失败err为错误对象，data为undefined。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
@@ -178,13 +176,13 @@ declare namespace distributedBundleManager {
   function getRemoteAbilityInfo(elementName: ElementName, locale: string): Promise<RemoteAbilityInfo>;
 
   /**
-   * 获取由elementName和locale指定的远程设备上的应用的AbilityInfo数组信息。使用callback异步回调。
+   * 获取由elementNames和locale指定的远程设备上的应用的AbilityInfo数组信息。使用callback异步回调。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { Array<ElementName> } elementNames - ElementName信息,最大数组长度为10。
+   * @param { Array<ElementName> } elementNames - ElementName信息，最大数组长度为10。
    * @param { string } locale - 语言地区。
-   * @param { AsyncCallback<Array<RemoteAbilityInfo>> } callback - [回调函数]{@link @ohos.base:AsyncCallback}，调用成功返回err为null
-   *     ，data为RemoteAbilityInfo数组对象；调用失败err为错误对象, data为undefined。
+   * @param { AsyncCallback<Array<RemoteAbilityInfo>> } callback - [AsyncCallback]{@link @ohos.base:AsyncCallback}，调用成功返
+   *     回err为null，data为RemoteAbilityInfo数组对象；调用失败err为错误对象，data为undefined。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
@@ -202,12 +200,12 @@ declare namespace distributedBundleManager {
   function getRemoteAbilityInfo(elementNames: Array<ElementName>, locale: string, callback: AsyncCallback<Array<RemoteAbilityInfo>>): void;
 
   /**
-   * 获取由elementName和locale指定的远程设备上的应用的AbilityInfo数组信息。使用Promise异步回调。
+   * 获取由elementNames和locale指定的远程设备上的应用的AbilityInfo数组信息。使用Promise异步回调。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { Array<ElementName> } elementNames - ElementName信息,最大数组长度为10。
+   * @param { Array<ElementName> } elementNames - ElementName信息，最大数组长度为10。
    * @param { string } locale - 语言地区。
-   * @returns { Promise<Array<RemoteAbilityInfo>> } Promise对象，调用成功返回RemoteAbilityInfo对象；调用失败返回错误对象。
+   * @returns { Promise<Array<RemoteAbilityInfo>> } Promise对象，调用成功返回RemoteAbilityInfo对象列表；调用失败返回错误对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
@@ -225,14 +223,14 @@ declare namespace distributedBundleManager {
   function getRemoteAbilityInfo(elementNames: Array<ElementName>, locale: string): Promise<Array<RemoteAbilityInfo>>;
 
   /**
-   * 获取指定远程设备上指定包名的应用版本信息。使用Promise异步回调。
+   * 获取指定远程设备上指定包名的应用版本号。使用Promise异步回调。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } deviceId - 远程设备ID。可以通过
-   *     [getAvailableDeviceList]{@link @ohos.distributedDeviceManager:distributedDeviceManager.DeviceManager.getAvailableDeviceListSync}
+   *     [getAvailableDeviceList]{@link @ohos.distributedDeviceManager:distributedDeviceManager.DeviceManager.getAvailableDeviceList()}
    *     获取所有可信设备列表，取值为可信设备信息下networkId字段。
    * @param { string } bundleName - 应用的包名。
-   * @returns { Promise<long> } Promise对象，调用成功返回版本信息；调用失败返回错误对象。
+   * @returns { Promise<long> } Promise对象，调用成功返回版本号；调用失败返回错误对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -250,11 +248,10 @@ declare namespace distributedBundleManager {
    * 获取指定远程设备上指定包名的应用元数据信息。使用Promise异步回调。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { string } deviceId - 远程设备ID（实为 networkId，分布式网络标识）。可以通过
-   *     [getAvailableDeviceList]{@link @ohos.distributedDeviceManager:distributedDeviceManager.DeviceManager.getAvailableDeviceListSync}
-   *     获取所有可信设备列表，取值为可信设备信息下networkId字段。
-   * @param { string } bundleName - 应用的包名。
-   * @returns { Promise<Array<ModuleMetadata>> } Promise对象，调用成功返回ModuleMetadata数组（每个元素携带一个模块的metadata）；调用失败返回错误对象。
+   * @param { string } deviceId - 远端设备ID。您可以通过getAvailableDeviceList获取。
+   *     所有受信任的设备列表。取值为信任设备信息中的networkId字段。
+   * @param { string } bundleName - 包名。
+   * @returns { Promise<Array<ModuleMetadata>> } Promise用于返回ModuleMetadata的数组。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 801 - Capability not supported.

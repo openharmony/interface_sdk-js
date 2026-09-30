@@ -14,25 +14,13 @@
  */
 
 /**
- * The module defines shortcut information configured in the configuration file. For the 
- * [FA model](docroot://application-models/ability-terminology.md#fa-model), the information is configured in the 
- * [config.json](docroot://quick-start/application-configuration-file-overview-fa.md) file. For the 
- * [stage model](docroot://application-models/ability-terminology.md#stage-model), the information is configured in the 
- * configuration file under **resources/base/profile** in the development view.
- * 
- * > **NOTE**
- * >
- * > The APIs of this module have been deprecated since API version 9. You are advised to use 
- * > [bundleManager-ShortcutInfo]{@link shortcutInfo} instead.
  *
- * @file
+ * @file ShortcutInfo
  * @kit AbilityKit
  */
 
 /**
- * > **说明：**
- * >
- * > 从API version 7开始支持，从API version 9开始废弃，建议使用[bundleManager-ShortcutWant]{@link shortcutInfo:ShortcutWant}替代。
+ * 快捷方式意图
  *
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @systemapi Hide this for inner system use
@@ -64,9 +52,13 @@ export interface ShortcutWant {
 }
 
 /**
+ * 应用配置文件中定义的快捷方式信息，[FA模型](docroot://application-models/ability-terminology.md#fa模型)配置在
+ * [config.json](docroot://quick-start/application-configuration-file-overview-fa.md)文件中进行配置，
+ * [Stage模型](docroot://application-models/ability-terminology.md#stage模型)配置在开发视图的resources/base/profile下面定义配置文件即可。
+ * 
  * > **说明：**
  * >
- * > 从API version 7开始支持，从API version 9开始废弃，建议使用[bundleManager-ShortcutInfo]{@link shortcutInfo:ShortcutInfo}替代。
+ * > 从API version 9开始，该模块不再维护。
  *
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @since 7 dynamiconly
@@ -165,7 +157,7 @@ export interface ShortcutInfo {
    */
   readonly isStatic?: boolean;
   /**
-   * 快捷方式是否为静态，取值为true表示是静态的快捷方式，取值为false表示不是静态的快捷方式。
+   * 快捷方式是否为主页面快捷方式，取值为true表示是主页面快捷方式，取值为false表示不是主页面快捷方式。
    *
    * @default false
    * @syscap SystemCapability.BundleManager.BundleFramework

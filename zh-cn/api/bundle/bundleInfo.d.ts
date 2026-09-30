@@ -14,16 +14,7 @@
  */
 
 /**
- * The module defines the bundle information, which can be obtained through 
- * [bundle.getBundleInfo]{@link ./../@ohos.bundle:bundle.getBundleInfo(bundleName: string, bundleFlags: number, options?: BundleOptions)}
- * .
- * 
- * > **NOTE**
- * >
- * > The APIs of this module have been deprecated since API version 9. You are advised to use 
- * > [bundleManager-BundleInfo]{@link bundleInfo} instead.
- *
- * @file
+ * @file BundleInfo
  * @kit AbilityKit
  */
 
@@ -32,16 +23,12 @@ import { ApplicationInfo } from './applicationInfo';
 import { HapModuleInfo } from './hapModuleInfo';
 
 /**
- * > **说明：**
- * >
- * > 从API version 7开始支持，从API version 9开始废弃，建议使用[UsedScene]{@link bundleInfo:UsedScene}替代。
- * 
  * 描述权限使用的场景和时机。
  *
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @since 7 dynamiconly
  * @deprecated since 9
- * @useinstead bundleInfo:UsedScene
+ * @useinstead UsedScene
  */
 export interface UsedScene {
   /**
@@ -68,16 +55,12 @@ export interface UsedScene {
 }
 
 /**
- * > **说明：**
- * >
- * > 从API version 7开始支持，从API version 9开始废弃，建议使用[ReqPermissionDetail]{@link bundleInfo:ReqPermissionDetail}替代。
- * 
  * 应用运行时需向系统申请的权限集合的详细信息。
  *
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @since 7 dynamiconly
  * @deprecated since 9
- * @useinstead bundleInfo
+ * @useinstead ReqPermissionDetail
  */
 export interface ReqPermissionDetail {
   /**
@@ -115,9 +98,11 @@ export interface ReqPermissionDetail {
 }
 
 /**
+ * 应用包的信息，通过[bundle.getBundleInfo]{@link @ohos.bundle:bundle.getBundleInfo}获取。
+ * 
  * > **说明：**
  * >
- * > 从API version 7开始支持，从API version 9开始废弃，建议使用[bundleManager-BundleInfo]{@link bundleInfo:BundleInfo}替代。
+ * > 从API version 9开始，该模块不再维护，
  *
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @since 7 dynamiconly
@@ -208,9 +193,7 @@ export interface BundleInfo {
   /**
    * Ability的配置信息
    * 
-   * 通过调用
-   * [bundle.getBundleInfo]{@link ./../@ohos.bundle:bundle.getBundleInfo(bundleName: string, bundleFlags: number, options?: BundleOptions)}
-   * 接口时，传入GET_BUNDLE_WITH_ABILITIES获取。
+   * 通过调用[bundle.getBundleInfo]{@link @ohos.bundle:bundle.getBundleInfo}接口时，传入GET_BUNDLE_WITH_ABILITIES获取。
    *
    * @default Obtains configuration information about an ability
    * @syscap SystemCapability.BundleManager.BundleFramework
@@ -223,9 +206,7 @@ export interface BundleInfo {
   /**
    * 应用运行时需向系统申请的权限集合
    * 
-   * 通过调用
-   * [bundle.getBundleInfo]{@link ./../@ohos.bundle:bundle.getBundleInfo(bundleName: string, bundleFlags: number, options?: BundleOptions)}
-   * 接口时，传入GET_BUNDLE_WITH_REQUESTED_PERMISSION获取。
+   * 通过调用[bundle.getBundleInfo]{@link @ohos.bundle:bundle.getBundleInfo}接口时，传入GET_BUNDLE_WITH_REQUESTED_PERMISSION获取。
    *
    * @default Indicates the required permissions name defined in file config.json
    * @syscap SystemCapability.BundleManager.BundleFramework
@@ -238,9 +219,7 @@ export interface BundleInfo {
   /**
    * 应用运行时需向系统申请的权限集合的详细信息
    * 
-   * 通过调用
-   * [bundle.getBundleInfo]{@link ./../@ohos.bundle:bundle.getBundleInfo(bundleName: string, bundleFlags: number, options?: BundleOptions)}
-   * 接口时，传入GET_BUNDLE_WITH_REQUESTED_PERMISSION获取。
+   * 通过调用[bundle.getBundleInfo]{@link @ohos.bundle:bundle.getBundleInfo}接口时，传入GET_BUNDLE_WITH_REQUESTED_PERMISSION获取。
    *
    * @default Indicates the required permissions details defined in file config.json
    * @syscap SystemCapability.BundleManager.BundleFramework

@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file RemoteAbilityInfo
  * @kit AbilityKit
  */
 
@@ -25,15 +25,13 @@ import { ElementName } from './elementName';
  * 
  * > **说明：**
  * >
- * > 从API version 9开始，该模块不再维护，建议使用[bundleManager-RemoteAbilityInfo]{@link remoteAbilityInfo:RemoteAbilityInfo}替代。
- * >
- * > 本模块为系统接口。
+ * > 从API version 9开始，该模块不再维护，
  *
  * @syscap SystemCapability.BundleManager.DistributedBundleFramework
  * @systemapi
  * @since 8 dynamiconly
  * @deprecated since 9
- * @useinstead remoteAbilityInfo:RemoteAbilityInfo
+ * @useinstead RemoteAbilityInfo
  */
 export interface RemoteAbilityInfo {
   /**
@@ -61,7 +59,7 @@ export interface RemoteAbilityInfo {
   readonly label: string;
 
   /**
-   * 指明的ability的图标信息。
+   * 指明ability的图标信息。
    *
    * @default Indicates the icon of the ability
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework

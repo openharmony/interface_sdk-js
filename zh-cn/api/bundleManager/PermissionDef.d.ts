@@ -14,18 +14,13 @@
  */
 
 /**
- * @file
+ * @file PermissionDef
  * @kit AbilityKit
  */
 
 /**
  * [module.json5配置文件](docroot://quick-start/module-configuration-file.md)中定义的权限详细信息，通过接口
- * [bundleManager.getPermissionDef]{@link ./../@ohos.bundle.bundleManager:bundleManager.getPermissionDef(permissionName: string, callback: AsyncCallback<PermissionDef>)}
- * 获取。
- * 
- * > **说明：**
- * >
- * > 本模块为系统接口。
+ * [bundleManager.getPermissionDef]{@link @ohos.bundle.bundleManager:bundleManager.getPermissionDef}获取。
  *
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @systemapi
@@ -34,7 +29,7 @@
  */
 export interface PermissionDef {
   /**
-   * 用户权限名称。
+   * 权限名称。
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
@@ -54,7 +49,7 @@ export interface PermissionDef {
   readonly grantMode: int;
 
   /**
-   * 权限的标签ID。
+   * 权限标签的资源ID，用于显示权限名称。
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
@@ -64,7 +59,7 @@ export interface PermissionDef {
   readonly labelId: long;
 
   /**
-   * 描述权限的ID。
+   * 权限描述信息的资源ID。
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
