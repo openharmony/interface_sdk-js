@@ -347,14 +347,16 @@ declare class ApplicationContext extends Context {
   getRunningProcessInformation(callback: AsyncCallback<Array<ProcessInformation>>): void;
 
   /**
-   * 获取当前应用的UIAbility子进程信息。该接口使用了一个promise。
-   * 来返回结果。
-   * 返回的子进程是通过ProcessMode.NEW_PROCESS_ATTACH_TO_PARENT通过startAbility创建的。
+   * 获取当前应用的UIAbility子进程信息。使用Promise异步回调。
+   * 返回通过[startSelfUIAbilityInChildProcess]{@link ./UIAbilityContext:UIAbilityContext.startSelfUIAbilityInChildProcess}
+   * 接口启动的进程，以及通过[startAbility]{@link ./UIAbilityContext:UIAbilityContext#startAbility(want: Want, options?: StartOptions)}接口启动且
+   * [StartOptions]{@link ./../@ohos.app.ability.StartOptions:StartOptions}
+   * 参数中[processMode]{@link ./../@ohos.app.ability.contextConstant:contextConstant.ProcessMode}设置为NEW_PROCESS_ATTACH_TO_PARENT模式启动的子进程。无子进程时返回空数组。
    *
    * @returns { Promise<Array<ChildProcessInformation>> } Promise用于返回UIA的相关信息
    *     当前应用程序的子进程。如果不存在子进程，则返回空数组。
    * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000050 - Connect to system service failed.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: Fail to connect system service.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 26.0.1 dynamic&static
@@ -518,8 +520,7 @@ declare class ApplicationContext extends Context {
    * > 在应用调用本接口成功后的3秒内，若再次调用本接口或[UIAbilityContext.restartApp()]{@link ./UIAbilityContext:UIAbilityContext.restartApp}接口中的任
    * > 一接口，系统将返回错误码16000064。
    *
-   * @param { Want } want - Want information about the UIAbility to start. No verification is performed on the bundle
-   *     name passed in.
+   * @param { Want } want - Want类型参数，传入需要启动的UIAbility信息。系统仅校验abilityName字段的有效性，不校验bundleName字段。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    *     2.Incorrect parameter types.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -540,7 +541,7 @@ declare class ApplicationContext extends Context {
    * 
    * 被预加载的UIExtensionAbility实例会执行到UIExtensionAbility的onCreate生命周期，然后等待被当前应用正式加载。
    * 
-   * 被预加载的UIExtensionAbility实例会执行到UIExtensionAbility的onCreate生命周期，然后等待被当前应用正式加载。
+   * 支持多次预加载UIExtensionAbility实例，每次正式加载时，会使一个预加载的UIExtensionAbility实例从onCreate继续完成UIExtensionAbility的生命周期。
    *
    * @permission ohos.permission.PRELOAD_UI_EXTENSION_ABILITY
    * @param { Want } want - 预加载UIExtensionAbility的want信息。
@@ -576,8 +577,7 @@ declare class ApplicationContext extends Context {
    * >
    * > - 在同一进程多次调用该接口时，会以最后一次调用的结果为准。当存在多个AbilityStage时，为了确保结果符合预期，需要在各个AbilityStage中分别调用该接口并配置相同的取值。
    *
-   * @param { boolean } isSupported - Whether process cache is supported. The value <code>true</code> means that
-   *     process cache is supported, and <code>false</code> means the opposite.
+   * @param { boolean } isSupported - 表示应用是否支持进程资源的缓存。true表示支持，false表示不支持。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    *     2.Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -610,6 +610,58 @@ declare class ApplicationContext extends Context {
    * @since 23 static
    */
   setFont(font: string): void;
+
+  /**
+  * 启用当前进程延迟退出功能，使用Promise异步回调。仅支持主线程调用。
+  * 在正常情况下，应用进程中最后一个UIAbility退出后，进程将退出。调用此接口，在最后一个UIAbility退出后，进程将延迟10秒退出。
+  * 如果在当前进程的10秒内启动该进程的新UIAbility，进程将不再退出。
+  * 
+  * @returns { Promise<void> } Promise对象，无返回结果。
+  * @throws { BusinessError } 801 - Capability not supported.
+  * @throws { BusinessError } 16000050 - Internal error. Possible causes: Fail to connect system service.
+  * @throws { BusinessError } 16000150 - The current process has no UIAbility, and this API cannot be called.
+  * @syscap SystemCapability.Ability.AbilityRuntime.Core
+  * @stagemodelonly
+  * @since 26.0.0 dynamic&static
+  */
+  enableDelayedProcessExit(): Promise<void>;
+
+  /**
+   * 禁用当前进程延迟退出功能，使用Promise异步回调。仅支持主线程调用。
+   * 调用此API将会取消[ApplicationContext.enableDelayedProcessExit]{@link enableDelayedProcessExit}的作用。
+   *
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: Fail to connect system service.
+   * @throws { BusinessError } 16000150 - The current process has no UIAbility, and this API cannot be called.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  disableDelayedProcessExit(): Promise<void>;
+
+  /**
+   * 当前进程延迟退出期间，在当前进程启动一个自身UIAbility，启动成功后，当前进程不再退出。仅支持主线程调用。
+   *
+   * @param { Want } want - Want类型参数，传入需要启动的UIAbility信息。
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 16000001 - The specified ability does not exist.
+   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
+   * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: Fail to connect system service.
+   * @throws { BusinessError } 16000122 - The target component is blocked by the system module and does not support startup.
+   * @throws { BusinessError } 16000123 - Implicit startup is not supported.
+   * @throws { BusinessError } 16000124 - Starting a remote UIAbility is not supported.
+   * @throws { BusinessError } 16000125 - Starting a plugin UIAbility is not supported.
+   * @throws { BusinessError } 16000130 - The UIAbility does not belong to the caller.
+   * @throws { BusinessError } 16000161 - Delayed process exit is not pending in the current process, and this API cannot be called.
+   * @throws { BusinessError } 16000162 - The current process still has another UIAbility, and this API cannot be called.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  startSelfUIAbility(want: Want): Promise<void>;
 
   /**
    * 获取当前应用的分身索引。
@@ -700,12 +752,8 @@ declare class ApplicationContext extends Context {
   /**
    * 取消监听系统环境[Configuration]{@link ./../@ohos.app.ability.Configuration:Configuration}的变化。仅支持主线程调用。
    *
-   * <p>**NOTE**:
-   * <br>It can be called only by the main thread.
-   * </p>
-   *
    * @param { systemConfiguration.UpdatedCallback } [callback] - 回调函数。取值可以为使用
-   *     [ApplicationContext.onSystemConfigurationUpdated](docroot://reference/apis-ability-kit/js-apis-inner-application-applicationContext.md#applicationcontextonsystemconfigurationupdated24)
+   *     [ApplicationContext.onSystemConfigurationUpdated]{@link ApplicationContext.onSystemConfigurationUpdated}
    *     方法注册的callback回调，也可以为空。<br/>-&nbsp;如果传入已定义的回调，则取消该监听。 <br/>-&nbsp;如果未传入参数，则取消所有已注册的监听。
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
@@ -863,6 +911,21 @@ declare class ApplicationContext extends Context {
    * @useinstead ApplicationContext#getRunningProcessInformation
    */
   getProcessRunningInformation(callback: AsyncCallback<Array<ProcessInformation>>): void;
+
+  /**
+   * 在多实例场景中，根据实例ID获取特定的UIAbility实例。仅支持主线程调用。
+   *
+   * @param { string } instanceId - UIAbility的实例ID。
+   * @returns { UIAbility } 返回与instanceId对应的UIAbility实例。
+   * @throws { BusinessError } 16000003 - The id does not exist.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Internal error.
+   *     System service failed to communicate with dependency module.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  getUIAbilityByInstanceId(instanceId: string): UIAbility;
 }
 
 export default ApplicationContext;

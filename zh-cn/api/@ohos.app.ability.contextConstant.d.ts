@@ -99,7 +99,7 @@ declare namespace contextConstant {
      * 
      * 已打开文件：锁屏时，可读写；解锁后，可读写。
      * 
-     * 未打开文件：锁屏时，调用[Access](js-apis-screenLockFileManager.md#screenlockfilemanageracquireaccess)接口获取保留密钥后，可打开、可读写，否则不可打开
+     * 未打开文件：锁屏时，调用[acquireAccess]{@link @ohos.ability.screenLockFileManager:screenLockFileManager.acquireAccess}接口获取保留密钥后，可打开、可读写，否则不可打开
      * 、不可读写；解锁后，可打开、可读写。
      * 
      * 创建新文件：锁屏时，可创建、可打开、可读写；解锁后，可创建、可打开、可读写。

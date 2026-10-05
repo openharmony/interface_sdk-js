@@ -38,7 +38,8 @@ import Context from './Context';
  */
 declare class AbilityStageContext extends Context {
   /**
-   * ModuleInfo object corresponding to the ability stage.
+   * HapModuleInfo object corresponding to the AbilityStage, which can be used to obtain information such as the name
+   * and path of the current module.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
@@ -50,7 +51,7 @@ declare class AbilityStageContext extends Context {
   currentHapModuleInfo: HapModuleInfo;
 
   /**
-   * Environment variables.
+   * Configuration object.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
@@ -62,7 +63,7 @@ declare class AbilityStageContext extends Context {
   config: Configuration;
 
   /**
-   * Indicates launch ElementName object of the abilityStage.
+   * Element name information when the AbilityStage is created.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly

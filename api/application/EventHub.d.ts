@@ -43,7 +43,7 @@ import { BusinessError } from '../@ohos.base';
  */
 declare class EventHub {
   /**
-   * Subscribes to an event.
+   * Subscribes to the specified event. Before using this API, obtain an EventHub instance through the Context object.
    *
    * > **NOTE**
    * >
@@ -51,7 +51,8 @@ declare class EventHub {
    * > **this** in **callback**, use an arrow function.
    *
    * @param { string } event - Event name.
-   * @param { Function } callback - Callback invoked when the event is triggered.
+   * @param { Function } callback - Callback invoked when the event is triggered. The callback has no return value
+   *     and can receive the parameters passed by the emit method.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -84,10 +85,10 @@ declare class EventHub {
   off(event: string, callback?: Function): void;
 
   /**
-   * Trigger the event callbacks.
+   * Triggers the specified event. Before using this API, obtain an EventHub instance through the Context object.
    *
    * @param { string } event - Indicates the event.
-   * @param { Object[] } args - Indicates the callback arguments.
+   * @param { Object[] } [args] - Indicates the callback arguments.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -102,7 +103,7 @@ declare class EventHub {
    * Trigger the event callbacks.
    *
    * @param { string } event - Indicates the event.
-   * @param { (Object|null|undefined)[] } args - Indicates the callback arguments.
+   * @param { (Object|null|undefined)[] } [args] - Indicates the callback arguments.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @crossplatform

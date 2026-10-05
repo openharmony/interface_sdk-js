@@ -32,7 +32,7 @@ import { RecordData } from './@ohos.base';
  * > **说明：**
  * >
  * > 本模块从API version 20开始支持通过
- * > [@InsightIntentLink](docroot://reference/apis-ability-kit/js-apis-app-ability-InsightIntentDecorator.md#insightintentlink)
+ * > [@InsightIntentLink]{@link @ohos.app.ability.InsightIntentDecorator:InsightIntentLink}
  * > 装饰器定义的意图来实现应用跳转。
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -76,7 +76,7 @@ declare namespace insightIntentDriver {
 
     /**
      * 意图调用Ability名称。 如果通过
-     * [@InsightIntentLink](docroot://reference/apis-ability-kit/js-apis-app-ability-InsightIntentDecorator.md#insightintentlink)
+     * [@InsightIntentLink]{@link @ohos.app.ability.InsightIntentDecorator:InsightIntentLink}
      * 装饰器定义的意图来实现应用跳转，此字段传空字符串即可。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -120,7 +120,7 @@ declare namespace insightIntentDriver {
 
     /**
      * 意图调用执行模式。 如果通过
-     * [@InsightIntentLink](docroot://reference/apis-ability-kit/js-apis-app-ability-InsightIntentDecorator.md#insightintentlink)
+     * [@InsightIntentLink]{@link @ohos.app.ability.InsightIntentDecorator:InsightIntentLink}
      * 装饰器定义的意图来实现应用跳转，此字段需填写（可填任意符合定义的值），但实际不会生效。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -144,7 +144,7 @@ declare namespace insightIntentDriver {
 
     /**
      * 意图调用时，意图调用方给意图执行方授权的URI列表。 如果通过
-     * [@InsightIntentLink](docroot://reference/apis-ability-kit/js-apis-app-ability-InsightIntentDecorator.md#insightintentlink)
+     * [@InsightIntentLink]{@link @ohos.app.ability.InsightIntentDecorator:InsightIntentLink}
      * 装饰器定义的意图来实现应用跳转，此字段必选，仅读取数组第一个元素作为[openLink]{@link ./application/UIAbilityContext:UIAbilityContext.openLink}的URI。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -158,10 +158,10 @@ declare namespace insightIntentDriver {
     /**
      * 意图调用时，意图调用方给意图执行方授权的uris的[flags]{@link @ohos.app.ability.wantConstant:wantConstant.Flags}。 
      * 
-     * **说明：**
-     * 
-     * 该参数仅支持FLAG_AUTH_READ_URI_PERMISSION、FLAG_AUTH_WRITE_URI_PERMISSION、FLAG_AUTH_READ_URI_PERMISSION|
-     * FLAG_AUTH_WRITE_URI_PERMISSION。
+     * > **说明：**
+     * >
+     * > 该参数仅支持FLAG_AUTH_READ_URI_PERMISSION、FLAG_AUTH_WRITE_URI_PERMISSION、FLAG_AUTH_READ_URI_PERMISSION|
+     * > FLAG_AUTH_WRITE_URI_PERMISSION。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
@@ -174,9 +174,9 @@ declare namespace insightIntentDriver {
     /**
      * 目标意图所属的用户ID。
      * 
-     * **说明：**
-     * 
-     * 如果调用方应用的用户ID与目标意图所属的用户ID不同，则需要申请权限`ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS`。
+     * > **说明：**
+     * >
+     * > 如果调用方应用的用户ID与目标意图所属的用户ID不同，则需要申请权限`ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS`。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
@@ -186,8 +186,11 @@ declare namespace insightIntentDriver {
     userId?: int;
 
     /**
-     * 设备标识。获取路径：
-     * {@link @ohos.distributedDeviceManager:distributedDeviceManager.DeviceManager#getAvailableDeviceListSync}
+     * 连接的目标设备ID。
+     * 
+     * > **说明：**
+     * >
+     * > 如果调用方应用的设备ID与目标意图所属的设备ID不同，则需要申请权限`ohos.permission.EXECUTE_DISTRIBUTED_INTENT`。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
@@ -250,9 +253,9 @@ declare namespace insightIntentDriver {
     /**
      * 目标意图所属的用户ID。
      * 
-     * **说明：**
-     * 
-     * 如果调用方应用的用户ID与目标意图所属的用户ID不同，则需要申请权限`ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS`。
+     * > **说明：**
+     * >
+     * > 如果调用方应用的用户ID与目标意图所属的用户ID不同，则需要申请权限`ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS`。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
@@ -273,7 +276,7 @@ declare namespace insightIntentDriver {
    */
   interface QueryParam {
     /**
-     * 套餐名称。
+     * 目标意图实体所属的应用包名称。
      *
      * @type { string }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -284,7 +287,7 @@ declare namespace insightIntentDriver {
     bundleName: string;
 
     /**
-     * 模块名称。
+     * 目标意图实体所属的模块名称。
      *
      * @type { string }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -295,7 +298,7 @@ declare namespace insightIntentDriver {
     moduleName: string;
 
     /**
-     * 意图名称。
+     * 目标意图实体所属的意图名称。
      *
      * @type { string }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -306,7 +309,9 @@ declare namespace insightIntentDriver {
     intentName: string;
 
     /**
-     * 实体类名称。
+     * 表示
+     * [@InsightIntentEntity]{@link @ohos.app.ability.InsightIntentDecorator:InsightIntentEntity}
+     * 修饰的目标意图实体的类名。
      *
      * @type { string }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -317,7 +322,7 @@ declare namespace insightIntentDriver {
     className: string;
 
     /**
-     * 查询实体的param。
+     * 意图实体查询参数，包含查询模式及查询条件，用于指定意图实体查询方式。
      *
      * @type { insightIntent.QueryEntityParam }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -328,10 +333,11 @@ declare namespace insightIntentDriver {
     queryEntityParam: insightIntent.QueryEntityParam;
 
     /**
-     * 目标用户ID。
-     * 如果调用方应用的用户ID与目标用户ID不一致，则需要申请权限：
-     * oos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS。
-     * 取值范围为全体整数。
+     * 目标意图实体所属的用户ID。
+     * 
+     * > **说明：**
+     * >
+     * > 如果调用方应用的用户ID与目标意图实体所属的用户ID不同，则需要申请权限ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS。
      *
      * @type { ?int }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -428,7 +434,7 @@ declare namespace insightIntentDriver {
    */
   enum InsightIntentType {
     /**
-     * [@InsightIntentLink](docroot://reference/apis-ability-kit/js-apis-app-ability-InsightIntentDecorator.md#insightintentlink)
+     * [@InsightIntentLink]{@link @ohos.app.ability.InsightIntentDecorator:InsightIntentLink}
      * 类型装饰器。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -440,7 +446,7 @@ declare namespace insightIntentDriver {
     LINK = '@InsightIntentLink',
 
     /**
-     * [@InsightIntentPage](docroot://reference/apis-ability-kit/js-apis-app-ability-InsightIntentDecorator.md#insightintentpage)
+     * [@InsightIntentPage]{@link @ohos.app.ability.InsightIntentDecorator:InsightIntentPage}
      * 类型装饰器。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -452,7 +458,7 @@ declare namespace insightIntentDriver {
     PAGE = '@InsightIntentPage',
 
     /**
-     * [@InsightIntentEntry](docroot://reference/apis-ability-kit/js-apis-app-ability-InsightIntentDecorator.md#insightintententry)
+     * [@InsightIntentEntry]{@link @ohos.app.ability.InsightIntentDecorator:InsightIntentEntry}
      * 类型装饰器。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -464,7 +470,7 @@ declare namespace insightIntentDriver {
     ENTRY = '@InsightIntentEntry',
 
     /**
-     * [@InsightIntentFunctionMethod](docroot://reference/apis-ability-kit/js-apis-app-ability-InsightIntentDecorator.md#insightintentfunctionmethod)
+     * [@InsightIntentFunctionMethod]{@link @ohos.app.ability.InsightIntentDecorator:InsightIntentFunctionMethod}
      * 类型装饰器。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -476,7 +482,7 @@ declare namespace insightIntentDriver {
     FUNCTION = '@InsightIntentFunctionMethod',
 
     /**
-     * [@InsightIntentForm](docroot://reference/apis-ability-kit/js-apis-app-ability-InsightIntentDecorator.md#insightintentform)
+     * [@InsightIntentForm]{@link @ohos.app.ability.InsightIntentDecorator:InsightIntentForm}
      * 类型装饰器。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -874,10 +880,10 @@ declare namespace insightIntentDriver {
     /**
      * 表示通过意图装饰器定义的意图类型。
      * 
-     * **说明：**
-     * 
-     * 对于使用配置文件开发的意图，该字段返回值默认为[@InsightIntentEntry](./js-apis-app-ability-InsightIntentDecorator.md#insightintententry)类
-     * 型装饰器。
+     * > **说明：**
+     * >
+     * > 对于使用配置文件开发的意图，该字段返回值默认为[@InsightIntentEntry](./js-apis-app-ability-InsightIntentDecorator.md#insightintententry)类
+     * > 型装饰器。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
@@ -890,9 +896,9 @@ declare namespace insightIntentDriver {
     /**
      * 表示特定意图装饰器的意图信息。 
      * 
-     * **说明：**
-     * 
-     * 对于使用配置文件开发的意图，该字段返回值默认为[EntryIntentInfo](#entryintentinfo20)。
+     * > **说明：**
+     * >
+     * > 对于使用配置文件开发的意图，该字段返回值默认为[EntryIntentInfo](#entryintentinfo20)。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
@@ -976,7 +982,7 @@ declare namespace insightIntentDriver {
 
   /**
    * LinkIntentInfo用于描述
-   * [@InsightIntentLink](docroot://reference/apis-ability-kit/js-apis-app-ability-InsightIntentDecorator.md#insightintentlink)
+   * [@InsightIntentLink]{@link @ohos.app.ability.InsightIntentDecorator:InsightIntentLink}
    * 装饰器支持的参数，例如应用间跳转需要的uri信息。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -1000,9 +1006,9 @@ declare namespace insightIntentDriver {
 
   /**
    * PageIntentInfo用于描述
-   * [@InsightIntentPage](docroot://reference/apis-ability-kit/js-apis-app-ability-InsightIntentDecorator.md#insightintentpage)
+   * [@InsightIntentPage]{@link @ohos.app.ability.InsightIntentDecorator:InsightIntentPage}
    * 装饰器支持的参数，例如目标页面的
-   * [NavDestination](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-navigation.md#navdestination10)名称。
+   * [NavDestination]{@link ./@internal/component/ets/nav_destination}名称。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -1012,7 +1018,7 @@ declare namespace insightIntentDriver {
    */
   interface PageIntentInfo {
     /**
-     * Ability名称。
+     * UIAbility组件名称。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
@@ -1046,7 +1052,7 @@ declare namespace insightIntentDriver {
 
     /**
      * 表示与意图绑定
-     * [NavDestination组件](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-navigation.md#navdestination10)的名称
+     * [NavDestination组件]{@link ./@internal/component/ets/nav_destination}的名称
      * 。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -1059,7 +1065,7 @@ declare namespace insightIntentDriver {
   }
 
   /**
-   * [@InsightIntentFunctionMethod](docroot://reference/apis-ability-kit/js-apis-app-ability-InsightIntentDecorator.md#insightintentfunctionmethod)
+   * [@InsightIntentFunctionMethod]{@link @ohos.app.ability.InsightIntentDecorator:InsightIntentFunctionMethod}
    * 装饰器的参数类型，当前全部属性均继承自[IntentDecoratorInfo]{@link @ohos.app.ability.InsightIntentDecorator:IntentDecoratorInfo}。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -1072,7 +1078,7 @@ declare namespace insightIntentDriver {
 
   /**
    * FormIntentInfo用于描述
-   * [@InsightIntentForm](docroot://reference/apis-ability-kit/js-apis-app-ability-InsightIntentDecorator.md#insightintentform)
+   * [@InsightIntentForm]{@link @ohos.app.ability.InsightIntentDecorator:InsightIntentForm}
    * 装饰器支持的参数，例如卡片名称。同时，该接口也可用于描述[使用配置文件开发的意图](docroot://application-models/insight-intent-config-development.md)所绑定的卡片信
    * 息。
    *
@@ -1107,10 +1113,9 @@ declare namespace insightIntentDriver {
   }
 
   /**
-   * FormIntentInfo用于描述
-   * [@InsightIntentForm](docroot://reference/apis-ability-kit/js-apis-app-ability-InsightIntentDecorator.md#insightintentform)
-   * 装饰器支持的参数，例如卡片名称。同时，该接口也可用于描述[使用配置文件开发的意图](docroot://application-models/insight-intent-config-development.md)所绑定的卡片信
-   * 息。
+   * EntryIntentInfo用于描述
+   * [@InsightIntentEntry]{@link @ohos.app.ability.InsightIntentDecorator:InsightIntentEntry}
+   * 装饰器支持的参数，例如意图调用执行模式。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -1222,7 +1227,7 @@ declare namespace insightIntentDriver {
   /**
    * EntityInfo继承自[IntentEntityDecoratorInfo]{@link @ohos.app.ability.InsightIntentDecorator:IntentEntityDecoratorInfo}，
    * 用于描述
-   * [@InsightIntentEntity](docroot://reference/apis-ability-kit/js-apis-app-ability-InsightIntentDecorator.md#insightintententity)
+   * [@InsightIntentEntity]{@link @ohos.app.ability.InsightIntentDecorator:InsightIntentEntity}
    * 装饰器定义的意图实体的信息。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -1234,7 +1239,7 @@ declare namespace insightIntentDriver {
   interface EntityInfo {
     /**
      * 表示
-     * [@InsightIntentEntity](docroot://reference/apis-ability-kit/js-apis-app-ability-InsightIntentDecorator.md#insightintententity)
+     * [@InsightIntentEntity]{@link @ohos.app.ability.InsightIntentDecorator:InsightIntentEntity}
      * 装饰器修饰的类名。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -1278,7 +1283,7 @@ declare namespace insightIntentDriver {
     readonly parameters: Record<string, Object>;
 
     /**
-     * The parameters of intent entity.
+     * 表示意图实体参数的数据格式声明，用于意图调用时定义实体参数的数据格式。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
@@ -1289,7 +1294,7 @@ declare namespace insightIntentDriver {
 
     /**
      * 表示
-     * [@InsightIntentEntity](docroot://reference/apis-ability-kit/js-apis-app-ability-InsightIntentDecorator.md#insightintententity)
+     * [@InsightIntentEntity]{@link @ohos.app.ability.InsightIntentDecorator:InsightIntentEntity}
      * 装饰器修饰的类的父类名。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -1301,7 +1306,13 @@ declare namespace insightIntentDriver {
     readonly parentClassName: string;
 
     /**
-     * 实体是可查询的。
+     * 表示
+     * [@InsightIntentEntity]{@link @ohos.app.ability.InsightIntentDecorator:InsightIntentEntity}
+     * 装饰器修饰的意图实体类是否支持查询，只有继承自
+     * [insightIntent.AppIntentEntity]{@link @ohos.app.ability.insightIntent:insightIntent.AppIntentEntity}
+     * 类的意图实体支持查询。
+     * - true：支持查询。
+     * - false：不支持查询。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
@@ -1311,7 +1322,11 @@ declare namespace insightIntentDriver {
     readonly isQueryable?: boolean;
 
     /**
-     * 支持查询属性。
+     * 表示
+     * [@InsightIntentEntity]{@link @ohos.app.ability.InsightIntentDecorator:InsightIntentEntity}
+     * 装饰器修饰的意图实体支持通过哪些属性进行查询。意图实体查询参数
+     * [parameters]{@link @ohos.app.ability.insightIntent:insightIntent.QueryEntityParam}
+     * 的key值必须在该属性列表中。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
@@ -1403,7 +1418,9 @@ declare namespace insightIntentDriver {
   function getInsightIntentInfoByFilter(filter: InsightIntentInfoFilter): Promise<Array<InsightIntentInfo>>;
 
   /**
-   * 查询意图实体信息。
+   * 根据[QueryParam]{@link insightIntentDriver.QueryParam}
+   * 查询应用的动态意图实体信息。使用Promise异步回调。如果调用方应用的用户ID与目标用户ID不同，则需要申请权限
+   * ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS。
    *
    * @permission ohos.permission.EXECUTE_INSIGHT_INTENT
    * @param { QueryParam } param - 查询参数。

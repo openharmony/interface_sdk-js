@@ -61,8 +61,7 @@ declare class ApplicationContext extends Context {
    *     **'abilityLifecycle'**.
    * @param { AbilityLifecycleCallback } callback - Callback triggered when the UIAbility lifecycle changes.
    * @returns { number } ID of the callback registered. This ID is used to unregister the corresponding callback in
-   *     [ApplicationContext.off('abilityLifecycle')]{@link ApplicationContext#off(type: 'abilityLifecycle', callbackId: number, callback: AsyncCallback<void>)}
-   *     .
+   *     [ApplicationContext.off('abilityLifecycle')]{@link ApplicationContext#off(type: 'abilityLifecycle', callbackId: number, callback: AsyncCallback<void>)}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    *     2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -211,8 +210,7 @@ declare class ApplicationContext extends Context {
    *     value is fixed at **'environment'**.
    * @param { EnvironmentCallback } callback - Callback triggered when the system environment changes.
    * @returns { number } ID of the callback registered. This ID is used to unregister the corresponding callback in
-   *     [ApplicationContext.off('environment')]{@link ApplicationContext#off(type: 'environment', callbackId: number, callback: AsyncCallback<void>)}
-   *     .
+   *     [ApplicationContext.off('environment')]{@link ApplicationContext#off(type: 'environment', callbackId: number, callback: AsyncCallback<void>)}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2
    *     .Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -303,8 +301,8 @@ declare class ApplicationContext extends Context {
    *
    * @param { 'applicationStateChange' } type - Application process state change. The value is fixed at
    *     **'applicationStateChange'**.
-   * @param { ApplicationStateChangeCallback } callback - Callback triggered when the application process state is
-   *     changed.
+   * @param { ApplicationStateChangeCallback } callback - Callback invoked when the current application
+   *     process state changes.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    *     2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -393,14 +391,21 @@ declare class ApplicationContext extends Context {
   getRunningProcessInformation(callback: AsyncCallback<Array<ProcessInformation>>): void;
 
   /**
-   * Obtains the information about the UIAbility child processes of the current application. This API uses a promise
-   * to return the result.
-   * The returned child processes are created via startAbility with ProcessMode.NEW_PROCESS_ATTACH_TO_PARENT.
+   * Obtains the UIAbility child process information of the current application. This API uses a promise to return
+   * the result asynchronously.
+   * 
+   * Returns the processes started through the
+   * [startSelfUIAbilityInChildProcess]{@link ./UIAbilityContext:UIAbilityContext.startSelfUIAbilityInChildProcess} API,
+   * as well as the child processes started through the
+   * [startAbility]{@link ./UIAbilityContext:UIAbilityContext#startAbility(want: Want, options?: StartOptions)} API with
+   * [processMode]{@link ./../@ohos.app.ability.contextConstant:contextConstant.ProcessMode} in the
+   * [StartOptions]{@link ./../@ohos.app.ability.StartOptions:StartOptions} parameter set to NEW_PROCESS_ATTACH_TO_PARENT.
+   * An empty array is returned when there is no child process.
    *
    * @returns { Promise<Array<ChildProcessInformation>> } Promise used to return the information about the UIAbility
    *     child processes of the current application. If no child processes exist, an empty array is returned.
    * @throws { BusinessError } 16000011 - The context does not exist.
-   * @throws { BusinessError } 16000050 - Connect to system service failed.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: Fail to connect system service.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 26.0.1 dynamic&static
@@ -481,8 +486,8 @@ declare class ApplicationContext extends Context {
    * > [loadContent()]{@link ./../@ohos.window:WindowStage.loadContent} API in the
    * > [onWindowStageCreate()]{@link ./../@ohos.app.ability.UIAbility:UIAbility.onWindowStageCreate} lifecycle).
    *
-   * @param { ConfigurationConstant.ColorMode } colorMode - Dark/light color mode, which can be dark mode, light mode,
-   *     or follow-system mode (default).
+   * @param { ConfigurationConstant.ColorMode } colorMode - Dark or light color mode, including dark mode, light
+   *     mode, and unset color mode (default).
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    *     2.Incorrect parameter types.
    * @throws { BusinessError } 16000011 - The context does not exist.
@@ -587,8 +592,8 @@ declare class ApplicationContext extends Context {
    * > [UIAbilityContext.restartApp()]{@link UIAbilityContext:UIAbilityContext.restartApp} within 3 seconds after a
    * > successful call to this API, the system returns error code 16000064.
    *
-   * @param { Want } want - Want information about the UIAbility to start. No verification is performed on the bundle
-   *     name passed in.
+   * @param { Want } want - Want parameter, which carries the information about the UIAbility to start. The system
+   *     only verifies the validity of the abilityName field, and does not verify the bundleName field.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    *     2.Incorrect parameter types.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -605,18 +610,13 @@ declare class ApplicationContext extends Context {
   restartApp(want: Want): void;
 
   /**
-   * Preloads a UIExtensionAbility instance. This API uses a promise to return the result.
+   * Preloads a specified UIExtensionAbility instance. This API uses a promise to return the result.
    *
-   * The preloaded UIExtensionAbility instance is sent to the **onCreate** lifecycle of the UIExtensionAbility and waits
-   * to be loaded by the current application.
+   * The preloaded UIExtensionAbility instance runs to the onCreate lifecycle of UIExtensionAbility
+   * and then waits to be formally loaded by the current application.
    *
-   * A UIExtensionAbility instance can be preloaded for multiple times. Each time a preloaded UIExtensionAbility
-   * instance is loaded, the next preloaded UIExtensionAbility instance is sent to the **onCreate** lifecycle of the
-   * UIExtensionAbility.
-   *
-   * | Name| Type| Mandatory| Description|
-   * | -------- | -------- | -------- | -------- |
-   * | want | [Want]{@link ./../@ohos.app.ability.Want:Want}  | Yes| Want information of the UIExtensionAbility.|
+   * Multiple UIExtensionAbility instances can be preloaded. Each time a formal load is performed, a preloaded
+   * UIExtensionAbility instance continues from onCreate to complete the UIExtensionAbility lifecycle.
    *
    * @permission ohos.permission.PRELOAD_UI_EXTENSION_ABILITY
    * @param { Want } want - Want information of the UIExtensionAbility.
@@ -661,8 +661,8 @@ declare class ApplicationContext extends Context {
    * > where there are multiple AbilityStage instances, to achieve the desired result, this API must be called and
    * > configured with the same value in each AbilityStage.
    *
-   * @param { boolean } isSupported - Whether process cache is supported. The value <code>true</code> means that
-   *     process cache is supported, and <code>false</code> means the opposite.
+   * @param { boolean } isSupported - Whether the application's process supports resource caching. true if supported,
+   *     false otherwise.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    *     2.Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -686,7 +686,7 @@ declare class ApplicationContext extends Context {
    * > [onWindowStageCreate()]{@link ./../@ohos.app.ability.UIAbility:UIAbility.onWindowStageCreate} lifecycle).
    *
    * @param { string } font - Font, which can be registered by calling
-   *     [UIContext.registerFont](docroot://reference/apis-arkui/arkts-apis-uicontext-font.md#registerfont).
+   *     [UIContext.registerFont]{@link ./../@ohos.arkui.UIContext:Font.registerfont}.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -698,14 +698,13 @@ declare class ApplicationContext extends Context {
   setFont(font: string): void;
   
   /**
-  * Enable delayed exit for the current process.
-  * <p>**NOTE**:
-  * <br>It can be called only by the main thread.
-  * <br>Under normal circumstances, the process exits after the last UIAbility within the application process
-  * has exited. After calling this interface, the process will delay its exit for 10 seconds after the last
-  * UIAbility exits. If a new Ability is started within the 10 seconds in the current process, the process
-  * no longer exits.</p>
-  * @returns { Promise<void> } The promise returned by the function.
+  * Enables delayed exit of the current process. This API uses a Promise asynchronous callback. It can be
+  * called only on the main thread.
+  * Normally, after the last UIAbility in an application process exits, the process exits. After this API
+  * is called, the process exits 10 seconds after the last UIAbility exits. If a new UIAbility of the process
+  * is started within the 10 seconds, the process will not exit.
+  * 
+  * @returns { Promise<void> } Promise object. No return result.
   * @throws { BusinessError } 801 - Capability not supported.
   * @throws { BusinessError } 16000050 - Internal error. Possible causes: Fail to connect system service.
   * @throws { BusinessError } 16000150 - The current process has no UIAbility, and this API cannot be called.
@@ -716,13 +715,12 @@ declare class ApplicationContext extends Context {
   enableDelayedProcessExit(): Promise<void>;
 
   /**
-   * Disables delayed process exit for the current process.
+   * Disables the delayed process exit feature for the current process. This API uses an asynchronous callback
+   * to return the result. It can be called only from the main thread.
+   * Calling this API cancels the effect of
+   * [ApplicationContext.enableDelayedProcessExit]{@link enableDelayedProcessExit}.
    *
-   * <p><b>NOTE</b>:
-   * <br>This API can be called only by the main thread.
-   * <br>Calling this API cancels the effect of {@link enableDelayedProcessExit}.</p>
-   *
-   * @returns { Promise<void> } The promise returned by the function.
+   * @returns { Promise<void> } Promise object. No return result.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 16000050 - Internal error. Possible causes: Fail to connect system service.
    * @throws { BusinessError } 16000150 - The current process has no UIAbility, and this API cannot be called.
@@ -733,10 +731,11 @@ declare class ApplicationContext extends Context {
   disableDelayedProcessExit(): Promise<void>;
 
   /**
-   * Starts a UIAbility of the current application during the delayed-exit window.
+   * During the delayed exit of the current process, starts a UIAbility of the current process. After the UIAbility is
+   * started successfully, the current process no longer exits. This API can be called only on the main thread.
    *
-   * @param { Want } want - Indicates the UIAbility to start.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { Want } want - Want parameter, which carries the information about the UIAbility to start.
+   * @returns { Promise<void> } Promise object that returns no value.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
@@ -836,13 +835,17 @@ declare class ApplicationContext extends Context {
   getAllWindowStages(): Promise<Array<window.WindowStage>>;
 
   /**
-   * Registers a listener for system configuration updated.
+   * Registers a listener for changes in the system environment
+   * [Configuration]{@link ./../@ohos.app.ability.Configuration:Configuration}. This API uses an asynchronous
+   * callback to return the result. This API can be called only on the main thread.
    *
-   * <p>**NOTE**:
-   * <br>It can be called only by the main thread.
-   * </p>
+   * > **NOTE**
+   * >
+   * > Custom settings of the application do not affect the triggering of the callback function. For example,
+   * > if the application has customized the dark/light color mode, the registered callback function is still
+   * > triggered when the system dark/light color mode changes.
    *
-   * @param { systemConfiguration.UpdatedCallback } callback - The system configuration updated callback.
+   * @param { systemConfiguration.UpdatedCallback } callback - Callback invoked when the system environment changes.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
@@ -851,15 +854,15 @@ declare class ApplicationContext extends Context {
   onSystemConfigurationUpdated(callback: systemConfiguration.UpdatedCallback): void;
 
   /**
-   * unregisters a listener for system configuration updated.
+   * Unregisters the listener for changes to the system environment
+   * [Configuration]{@link ./../@ohos.app.ability.Configuration:Configuration}. This API can be called only
+   * on the main thread.
    *
-   * <p>**NOTE**:
-   * <br>It can be called only by the main thread.
-   * </p>
-   *
-   * @param { systemConfiguration.UpdatedCallback } [callback] - The system configuration updated callback.
-   *     If a defined callback is passed in, the listener for that callback is unregistered.
-   *     If no value is passed in, all the listeners for the corresponding event are unregistered.
+   * @param { systemConfiguration.UpdatedCallback } [callback] - Callback for the system environment change event.
+   *     The value can be the callback registered by
+   *     [ApplicationContext.onSystemConfigurationUpdated]{@link ApplicationContext.onSystemConfigurationUpdated}
+   *     or it can be empty.<br/>-&nbsp;If a defined callback is passed in, the listener corresponding to this
+   *     callback is unregistered. <br/>-&nbsp;If no parameter is passed in, all registered listeners are unregistered.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice
@@ -877,7 +880,7 @@ declare class ApplicationContext extends Context {
    *
    * @param { AbilityLifecycleCallback } abilityLifecycleCallback - Callback used to return the ID of the registered listener.
    * @returns { number } ID of the callback registered. This ID is used to unregister the corresponding callback in
-   *     [ApplicationContext.unregisterAbilityLifecycleCallback]{@link ApplicationContext#unregisterAbilityLifecycleCallback}
+   *     [ApplicationContext.unregisterAbilityLifecycleCallback]{@link ApplicationContext#unregisterAbilityLifecycleCallback}.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
@@ -930,11 +933,12 @@ declare class ApplicationContext extends Context {
   unregisterAbilityLifecycleCallback(callbackId: number): Promise<void>;
 
   /**
-   * Register environment callback.
+   * Registers a listener for system environment changes. This API uses an asynchronous callback. Main Thread Only.
    *
    * @param { EnvironmentCallback } environmentCallback - Callback used to return the ID of the registered listener.
-   * @returns { number } ID of the callback registered. This ID is used to unregister the corresponding callback in
-   *     [ApplicationContext.unregisterEnvironmentCallback]{@link ApplicationContext#unregisterEnvironmentCallback}
+   * @returns { number } ID of the callback registered this time. This ID is used to unregister the corresponding
+   *     callback in
+   *     [ApplicationContext.unregisterEnvironmentCallback]{@link ApplicationContext#unregisterEnvironmentCallback}.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
@@ -1012,24 +1016,21 @@ declare class ApplicationContext extends Context {
    */
   getProcessRunningInformation(callback: AsyncCallback<Array<ProcessInformation>>): void;
 
-   /**
-    * Get the UIAbility instance by the instance Id.
-    *
-    * <p>**NOTE**:
-    * <br>It can be called only by the main thread.
-    * </p>
-    *
-    * @param { string } instanceId - The instanceId of the UIAbility.
-    * @returns { UIAbility } The UIAbility instance.
-    * @throws { BusinessError } 16000003 - The id does not exist.
-    * @throws { BusinessError } 16000011 - The context does not exist.
-    * @throws { BusinessError } 16000050 - Internal error.
-    *     System service failed to communicate with dependency module.
-    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-    * @stagemodelonly
-    * @since 26.0.0 dynamic&static
-    */
-   getUIAbilityByInstanceId(instanceId: string): UIAbility;
+  /**
+   * Obtains a specific UIAbility instance by instance ID in a multi-instance scenario.
+   * This API can be called only from the main thread.
+   *
+   * @param { string } instanceId - Instance ID of the UIAbility.
+   * @returns { UIAbility } UIAbility instance corresponding to instanceId.
+   * @throws { BusinessError } 16000003 - The id does not exist.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Internal error.
+   *     System service failed to communicate with dependency module.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  getUIAbilityByInstanceId(instanceId: string): UIAbility;
 }
 
 export default ApplicationContext;

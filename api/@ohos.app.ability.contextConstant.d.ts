@@ -65,13 +65,12 @@ declare namespace contextConstant {
     EL2 = 1,
 
     /**
-     * User-level encryption. The file permissions vary according to their scenarios.
-     *
-     * - An open file is always readable and writable regardless of whether the screen is locked.
-     * - When the screen is locked, a closed file cannot be opened, read, or written. When the screen is unlocked, such
-     * a file can be opened, read, and written.
-     * - When the screen is locked, a file can be created and then opened and written but not read. When the screen is
-     * unlocked, a file can be created and then opened, read, and written.
+     * User-level encryption area. The file permissions in different scenarios are as follows:
+     * Opened file: when locked, readable and writable; after unlocking, readable and writable.
+     * Unopened file: when locked, cannot be opened, not readable or writable; after unlocking, 
+     * can be opened, readable and writable.
+     * Create a new file: when locked, can be created, can be opened, writable but not readable;
+     * after unlocking, can be created, can be opened, readable and writable.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -82,14 +81,12 @@ declare namespace contextConstant {
     EL3 = 2,
 
     /**
-     * User-level encryption. The file permissions vary according to their scenarios.
-     *
-     * - When the screen is locked, an open file is not readable or writable. When the screen is unlocked, such a file
-     * is readable and writable.
-     * - When the screen is locked, a closed file cannot be opened, read, or written. When the screen is unlocked, such
-     * a file can be opened, read, and written.
-     * - When the screen is locked, a file cannot be created. When the screen is unlocked, a file can be created and
-     * then opened, read, and written.
+     * User-level encryption area. The file permissions in different scenarios are as follows:
+     * Opened file: when locked, not readable or writable; after unlocking, readable and writable.
+     * Unopened file: when locked, cannot be opened, not readable or writable; after unlocking,
+     * can be opened, readable and writable.
+     * Create a new file: when locked, cannot be created; after unlocking, can be created, can be
+     * opened, readable and writable.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -100,15 +97,14 @@ declare namespace contextConstant {
     EL4 = 3,
 
     /**
-     * Application-level encryption. The file permissions vary according to their scenarios.
-     *
-     * - An open file is always readable and writable regardless of whether the screen is locked.
-     *
-     * When the screen is locked, a closed file can be opened, read, and written only if the reserved key is obtained by
-     *  calling [Access](js-apis-screenLockFileManager.md#screenlockfilemanageracquireaccess). When the screen is
-     * unlocked, such a file can be opened, read, and written.
-     *
-     * A file can be created and then opened, read, and written regardless of whether the screen is locked.
+     * Application-level encryption area. The file permissions in different scenarios are as follows:
+     * Opened file: when locked, readable and writable; after unlocking, readable and writable.
+     * Unopened file: when locked, after calling the
+     * [Access]{@link @ohos.ability.screenLockFileManager:screenLockFileManager.acquireAccess}
+     * API to obtain the retained key, can be opened, readable and writable; otherwise, cannot be
+     * opened, not readable or writable; after unlocking, can be opened, readable and writable.
+     * Create a new file: when locked, can be created, can be opened, readable and writable; after
+     * unlocking, can be created, can be opened, readable and writable.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -279,7 +275,8 @@ declare namespace contextConstant {
    */
   export enum ContextType {
     /**
-     * Application context type.
+     * Type of [ApplicationContext]{@link ./application/ApplicationContext:ApplicationContext},
+     * which provides application-level resources and capabilities.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -289,7 +286,8 @@ declare namespace contextConstant {
     APPLICATION_CONTEXT = 0,
 
     /**
-     * Ability stage context type.
+     * Type of [AbilityStageContext]{@link ./application/AbilityStageContext:AbilityStageContext},
+     * which provides module-level resources and capabilities.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -299,7 +297,8 @@ declare namespace contextConstant {
     ABILITY_STAGE_CONTEXT = 1,
 
     /**
-     * UI ability context type.
+     * Type of [UIAbilityContext]{@link ./application/UIAbilityContext:UIAbilityContext}, which
+     * provides capabilities such as UI interaction and component startup.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -309,7 +308,8 @@ declare namespace contextConstant {
     UIABILITY_CONTEXT = 2,
 
     /**
-     * Form extension context type.
+     * Type of [FormExtensionContext]{@link ./application/FormExtensionContext:FormExtensionContext},
+     * which provides card service capabilities.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -319,7 +319,9 @@ declare namespace contextConstant {
     FORM_EXTENSION_CONTEXT = 3,
 
     /**
-     * App service extension context type.
+     * Type of
+     * [AppServiceExtensionContext]{@link ./application/AppServiceExtensionContext:AppServiceExtensionContext},
+     * which provides background service capabilities.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -329,7 +331,7 @@ declare namespace contextConstant {
     APP_SERVICE_EXTENSION_CONTEXT = 4,
 
     /**
-     * Service extension context type.
+     * [ServiceExtensionContext]{@link ./application/ServiceExtensionContext:ServiceExtensionContext} type.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
@@ -340,7 +342,7 @@ declare namespace contextConstant {
     SERVICE_EXTENSION_CONTEXT = 5,
 
     /**
-     * UI service extension context type.
+     * [UIServiceExtensionContext]{@link ./application/UIServiceExtensionContext:UIServiceExtensionContext} type.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
@@ -351,7 +353,7 @@ declare namespace contextConstant {
     UI_SERVICE_EXTENSION_CONTEXT = 6,
 
     /**
-     * Auto fill extension context type.
+     * [AutoFillExtensionContext]{@link ./application/AutoFillExtensionContext:AutoFillExtensionContext} type.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi

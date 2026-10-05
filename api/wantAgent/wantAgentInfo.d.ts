@@ -41,8 +41,8 @@ import { RecordData } from '../@ohos.base';
  */
 export interface WantAgentInfo {
   /**
-   * Array of all Want objects. Currently, only one Want is supported. The array is reserved for future capability
-   * expansion. If multiple values are passed in, only the first member in the array is used.
+   * The wants array is a reserved capability. Currently, only one want is supported. If multiple wants are passed in,
+   * only the first member of the wants array is used.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice [since 12]
@@ -52,7 +52,7 @@ export interface WantAgentInfo {
   wants: Array<Want>;
 
   /**
-   * Operation type.
+   * Operation type. If this parameter is not set, no default operation type is used.
    *
    * This attribute is supported since API version 7 and deprecated since API version 11. You are advised to use
    * actionType<sup>11+</sup> instead.
@@ -66,7 +66,7 @@ export interface WantAgentInfo {
   operationType?: wantAgent.OperationType;
 
   /**
-   * Operation type.
+   * Action execution attribute. If this parameter is not set, no execution attribute is used.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice [since 12]
@@ -76,7 +76,7 @@ export interface WantAgentInfo {
   actionType?: abilityWantAgent.OperationType;
 
   /**
-   * Custom request code, which is used to identify the operation to execute.
+   * Request code defined by the developer, used to identify the action to be executed.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice [since 12]
@@ -86,7 +86,7 @@ export interface WantAgentInfo {
   requestCode: int;
 
   /**
-   * Array of flags for using the WantAgent object.
+   * Action execution attribute. If this parameter is not set, no execution attribute is used.
    *
    * This attribute is supported since API version 7 and deprecated since API version 11. You are advised to use
    * actionFlags<sup>11+</sup> instead.
@@ -110,7 +110,10 @@ export interface WantAgentInfo {
   actionFlags?: Array<abilityWantAgent.WantAgentFlags>;
 
   /**
-   * Extra information.
+   * Extra data used to pass custom extended information. This parameter is a key-value pair object,
+   * where key is a string key name and value is a value of any type. You are advised to use the
+   * type-safe extraInfos attribute instead. If both extraInfo and extraInfos are set, extraInfos
+   * takes effect and extraInfo is ignored.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice [since 12]
@@ -128,8 +131,10 @@ export interface WantAgentInfo {
   extraInfo?: Record<string, RecordData>;
 
   /**
-   * Extra information. You are advised to use this property to replace **extraInfo**. When this property is set,
-   * **extraInfo** does not take effect.
+   * Extra data used to pass custom key-value pair information in a type-safe manner. You are advised
+   * to use this attribute instead of extraInfo. When both are set, this attribute takes precedence.
+   * Pass this parameter when you need to carry additional custom data when triggering the WantAgent.
+   * If this parameter is not passed, it defaults to null and no extra data is carried.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice [since 12]
@@ -149,12 +154,10 @@ export interface WantAgentInfo {
 
   /**
    * User ID.
-   *
-   * The value must be greater than or equal to 0.
-   *
-   * The default value is the user ID of the caller.
-   *
-   * This API can be used only in the stage model.
+   * Value range: greater than or equal to 0.
+   * Pass this parameter when a specific user needs to be specified. It applies to cross-user operation
+   * scenarios (for example, a system application manages applications of other users). If not passed,
+   * the default is the user ID of the caller.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -178,8 +181,8 @@ export interface WantAgentInfo {
  */
 export interface LocalWantAgentInfo {
   /**
-   * Array of all Want objects. Currently, only one Want object is supported. If multiple values are passed in, only the
-   * first member in the array is used.
+   * List of actions that will be executed. Currently, only one Want is supported. When multiple Wants are passed in,
+   * the system uses only the first member of the wants array and ignores the others.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -190,7 +193,8 @@ export interface LocalWantAgentInfo {
   wants: Array<Want>;
 
   /**
-   * Type of the operation to execute.
+   * Type of the action that will be executed, used to specify the trigger mode of the WantAgent (for example,
+   * starting an ability or sending an event). For details about the values, see the OperationType enum description.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -201,7 +205,9 @@ export interface LocalWantAgentInfo {
   operationType?: abilityWantAgent.OperationType;
 
   /**
-   * Custom request code, which is used to identify the operation to execute.
+   * Request code defined by the developer, used to identify the action that will be executed, so that the
+   * corresponding action can be identified and matched by this request code later. A unique value is recommended
+   * to avoid confusion.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi

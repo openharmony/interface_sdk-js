@@ -30,7 +30,9 @@
  */
 export default abstract class BaseContext {
   /**
-   * Indicates the context is FA Mode or Stage Mode.
+   * Whether the child class Context is used for the stage model.
+   * true: [Stage model](docroot://application-models/ability-terminology.md#stage-model).
+   * false：[FA model](docroot://application-models/ability-terminology.md#fa-model).
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform [since 10]

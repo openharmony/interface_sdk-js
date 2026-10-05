@@ -22,6 +22,13 @@ import Context from './application/Context';
 
 /**
  * 本模块提供管理和组织脚本信息的能力，支持应用的ArkTS脚本执行结果上报。
+ * 
+ * > **说明：**
+ * > 应用的ArkTS脚本开发参考[基于ArkTS脚本的应用Skill开发指导](docroot://application-models/arkts-skill-development-guide.md)。
+ * > 应用的ArkTS脚本需要绑定一个Ability，在[module.json5](docroot://quick-start/module-configuration-file.md)的
+ * > [skillProfiles标签](docroot://quick-start/module-configuration-file.md#skillprofiles标签)中配置对应的Ability。
+ * > 脚本通过export default class导出，其入口函数的第一个参数固定为[ArkTSScriptInfo]{@link ArkTSScriptInfo}，用于接收系统传递的脚本
+ * > 上下文信息，开发者可在第一个参数后添加自定义参数。
  *
  * @syscap SystemCapability.Ability.AgentRuntime.Core
  * @stagemodelonly
@@ -99,10 +106,12 @@ declare namespace scriptManager {
   uris?: Array<string>;
   
   /**
-   * 表示URI的读写权限，与{@link Want#flags}的flags字段含义一致。取值范围如下：
-   * {@link wantConstant#Flags#FLAG_AUTH_READ_URI_PERMISSION}：读权限。
-   * {@link wantConstant#Flags#FLAG_AUTH_WRITE_URI_PERMISSION}：写权限。
-   * 以上两个标志的组合：同时授权读写权限。
+   * 表示URI的读写权限，与[Want]{@link @ohos.app.ability.Want:Want}的flags字段含义一致。取值范围如下：
+   * - [wantConstant.Flags.FLAG_AUTH_READ_URI_PERMISSION]{@link @ohos.app.ability.wantConstant:wantConstant.Flags#FLAG_AUTH_READ_URI_PERMISSION}：
+   * 读权限。
+   * - [wantConstant.Flags.FLAG_AUTH_WRITE_URI_PERMISSION]{@link @ohos.app.ability.wantConstant:wantConstant.Flags#FLAG_AUTH_WRITE_URI_PERMISSION}：
+   * 写权限。
+   * - 以上两个标志的组合：同时授权读写权限。
    *
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @stagemodelonly

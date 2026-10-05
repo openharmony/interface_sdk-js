@@ -33,7 +33,7 @@ import { RecordData } from './@ohos.base';
  * > **NOTE**
  * >
  * > Starting from API version 20, this module supports application navigation using intents defined by the
- * > [@InsightIntentLink](docroot://reference/apis-ability-kit/js-apis-app-ability-InsightIntentDecorator.md#insightintentlink)
+ * > [@InsightIntentLink]{@link @ohos.app.ability.InsightIntentDecorator:InsightIntentLink}
  * > decorator.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -77,7 +77,7 @@ declare namespace insightIntentDriver {
 
     /**
      * Name of the ability to be called. If an intent defined by the
-     * [@InsightIntentLink](docroot://reference/apis-ability-kit/js-apis-app-ability-InsightIntentDecorator.md#insightintentlink)
+     * [@InsightIntentLink]{@link @ohos.app.ability.InsightIntentDecorator:InsightIntentLink}
      *  decorator is used to implement application redirection, this parameter can be left empty.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -121,7 +121,7 @@ declare namespace insightIntentDriver {
 
     /**
      * Intent execution mode. If an intent defined by the
-     * [@InsightIntentLink](docroot://reference/apis-ability-kit/js-apis-app-ability-InsightIntentDecorator.md#insightintentlink)
+     * [@InsightIntentLink]{@link @ohos.app.ability.InsightIntentDecorator:InsightIntentLink}
      *  decorator is used to implement application redirection, this parameter must be filled (with any value that
      * conforms to the definition), although it will not actually take effect.
      *
@@ -147,7 +147,7 @@ declare namespace insightIntentDriver {
 
     /**
      * List of URIs authorized by the intent caller to the intent executor during the call. If an intent defined by the
-     * [@InsightIntentLink](docroot://reference/apis-ability-kit/js-apis-app-ability-InsightIntentDecorator.md#insightintentlink)
+     * [@InsightIntentLink]{@link @ohos.app.ability.InsightIntentDecorator:InsightIntentLink}
      *  decorator is used to implement application redirection, this field is mandatory. Only the first element in the
      * array is read as the URI of [openLink]{@link ./application/UIAbilityContext:UIAbilityContext.openLink}.
      *
@@ -163,10 +163,10 @@ declare namespace insightIntentDriver {
      * [Flags]{@link @ohos.app.ability.wantConstant:wantConstant.Flags} of the URIs authorized by the intent caller to
      * the intent executor during the call.
      *
-     * **NOTE**
-     *
-     * This parameter supports only **FLAG_AUTH_READ_URI_PERMISSION**, **FLAG_AUTH_WRITE_URI_PERMISSION**, and
-     * FLAG_AUTH_READ_URI_PERMISSION|
+     * > **NOTE**
+     * >
+     * > This parameter supports only FLAG_AUTH_READ_URI_PERMISSION, FLAG_AUTH_WRITE_URI_PERMISSION, and
+     * > FLAG_AUTH_READ_URI_PERMISSION|FLAG_AUTH_WRITE_URI_PERMISSION.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
@@ -179,10 +179,10 @@ declare namespace insightIntentDriver {
     /**
      * ID of the user to which the intent belongs.
      *
-     * **NOTE**
-     *
-     * If the user ID of the calling application is different from the user ID of the intent, the calling application
-     * must request the ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS permission.
+     * > **NOTE**
+     * >
+     * > If the user ID of the calling application is different from the user ID of the intent, the calling application
+     * > must request the ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS permission.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
@@ -192,8 +192,12 @@ declare namespace insightIntentDriver {
     userId?: int;
 
     /**
-     * Indicates the device identifier. Obtained from
-     *     {@link @ohos.distributedDeviceManager:distributedDeviceManager.DeviceManager#getAvailableDeviceListSync}
+     * ID of the target device to connect to.
+     * 
+     * > **NOTE**
+     * >
+     * > If the device ID of the calling application differs from the device ID to which the target intent belongs,
+     * > the permission ohos.permission.EXECUTE_DISTRIBUTED_INTENT must be requested.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
@@ -268,10 +272,10 @@ declare namespace insightIntentDriver {
     /**
      * ID of the user to which the intent belongs.
      *
-     * **NOTE**
-     *
-     * If the user ID of the calling application is different from the user ID of the intent, the calling application
-     * must request the ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS permission.
+     * > **NOTE**
+     * >
+     * > If the user ID of the calling application is different from the user ID of the intent, the calling application
+     * > must request the ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS permission.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
@@ -292,7 +296,7 @@ declare namespace insightIntentDriver {
    */
   interface QueryParam {
     /**
-     * Indicates the bundle name.
+     * Bundle name of the application to which the target intent entity belongs.
      *
      * @type { string }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -303,7 +307,7 @@ declare namespace insightIntentDriver {
     bundleName: string;
 
     /**
-     * Indicates the module name.
+     * Module name to which the target intent entity belongs.
      *
      * @type { string }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -314,7 +318,7 @@ declare namespace insightIntentDriver {
     moduleName: string;
 
     /**
-     * Indicates the intent name.
+     * Intent name to which the target intent entity belongs.
      *
      * @type { string }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -325,7 +329,8 @@ declare namespace insightIntentDriver {
     intentName: string;
 
     /**
-     * Indicates the entity class name.
+     * Class name of the target intent entity decorated by
+     * [@InsightIntentEntity]{@link @ohos.app.ability.InsightIntentDecorator:InsightIntentEntity}.
      *
      * @type { string }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -336,7 +341,8 @@ declare namespace insightIntentDriver {
     className: string;
 
     /**
-     * Indicates the param for query entity.
+     * Intent entity query parameters, including the query mode and query conditions, used to specify
+     * how intent entities are queried.
      *
      * @type { insightIntent.QueryEntityParam }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -347,10 +353,12 @@ declare namespace insightIntentDriver {
     queryEntityParam: insightIntent.QueryEntityParam;
 
     /**
-     * Indicates the target user ID.
+     * User ID to which the target intent entity belongs.
      *
-     * If the user ID of the caller application is different from the target user ID, you need to apply for permission:
-     *     ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS.
+     * > **NOTE**
+     * >
+     * > If the user ID of the caller application differs from the user ID to which the target intent
+     * > entity belongs, the ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS permission is required.
      *
      * @type { ?int }
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -402,13 +410,10 @@ declare namespace insightIntentDriver {
   function execute(param: ExecuteParam, callback: AsyncCallback<insightIntent.ExecuteResult>): void;
 
   /**
-   * Executes a call to an intent. This API uses a promise to return the result.
+   * Executes a call to an intent. This API uses an asynchronous callback to return the result.
    * When the caller is in the background, the ohos.permission.START_ABILITIES_FROM_BACKGROUND permission is required.
-   * When [ExecuteMode]{@link @ohos.app.ability.insightIntent:insightIntent.ExecuteMode} of the intent call is set to
-   * **UI_ABILITY_BACKGROUND**, the ohos.permission.ABILITY_BACKGROUND_COMMUNICATION permission is required.
-   * When the intent call is cross-device, the ohos.permission.EXECUTE_DISTRIBUTED_INTENT permission is required.
-   * On API 26.0.0 and above, intent can be executed across devices. When the intent call is cross-device,
-   * the ohos.permission.EXECUTE_DISTRIBUTED_INTENT permission is required.
+   * When [ExecuteMode]{@link @ohos.app.ability.insightIntent:insightIntent.ExecuteMode}of the intent call is set to
+   * UI_ABILITY_BACKGROUND, the ohos.permission.ABILITY_BACKGROUND_COMMUNICATION permission is required.
    *
    * @permission ohos.permission.EXECUTE_INSIGHT_INTENT
    * @param { ExecuteParam } param - Parameter used to execute the intent call.
@@ -455,7 +460,7 @@ declare namespace insightIntentDriver {
   enum InsightIntentType {
     /**
      * A decorator of the
-     * [@InsightIntentLink](docroot://reference/apis-ability-kit/js-apis-app-ability-InsightIntentDecorator.md#insightintentlink)
+     * [@InsightIntentLink]{@link @ohos.app.ability.InsightIntentDecorator:InsightIntentLink}
      *  type.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -468,7 +473,7 @@ declare namespace insightIntentDriver {
 
     /**
      * A decorator of the
-     * [@InsightIntentPage](docroot://reference/apis-ability-kit/js-apis-app-ability-InsightIntentDecorator.md#insightintentpage)
+     * [@InsightIntentPage]{@link @ohos.app.ability.InsightIntentDecorator:InsightIntentPage}
      *  type.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -481,7 +486,7 @@ declare namespace insightIntentDriver {
 
     /**
      * A decorator of the
-     * [@InsightIntentEntry](docroot://reference/apis-ability-kit/js-apis-app-ability-InsightIntentDecorator.md#insightintententry)
+     * [@InsightIntentEntry]{@link @ohos.app.ability.InsightIntentDecorator:InsightIntentEntry}
      *  type.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -494,7 +499,7 @@ declare namespace insightIntentDriver {
 
     /**
      * A decorator of the
-     * [@InsightIntentFunctionMethod](docroot://reference/apis-ability-kit/js-apis-app-ability-InsightIntentDecorator.md#insightintentfunctionmethod)
+     * [@InsightIntentFunctionMethod]{@link @ohos.app.ability.InsightIntentDecorator:InsightIntentFunctionMethod}
      *  type.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -507,7 +512,7 @@ declare namespace insightIntentDriver {
 
     /**
      * A decorator of the
-     * [@InsightIntentForm](docroot://reference/apis-ability-kit/js-apis-app-ability-InsightIntentDecorator.md#insightintentform)
+     * [@InsightIntentForm]{@link @ohos.app.ability.InsightIntentDecorator:InsightIntentForm}
      *  type.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -706,7 +711,7 @@ declare namespace insightIntentDriver {
     readonly serviceExtension?: ServiceExtensionIntentInfo;
 
     /**
-     * Information about the widget bound to the intent.
+     * Indicates the card information bound to the intent.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
@@ -913,10 +918,10 @@ declare namespace insightIntentDriver {
     /**
      * Type of intent defined by the intent decorator.
      *
-     * **NOTE**
-     *
-     * For intents developed using a configuration file, the return value of this field is
-     * [@InsightIntentEntry](./js-apis-app-ability-InsightIntentDecorator.md#insightintententry) by default.
+     * > **NOTE**
+     * >
+     * > For intents developed using a configuration file, the return value of this field is
+     * > [@InsightIntentEntry](./js-apis-app-ability-InsightIntentDecorator.md#insightintententry) by default.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
@@ -929,10 +934,10 @@ declare namespace insightIntentDriver {
     /**
      * Intent information for specific intent decorators.
      *
-     * **NOTE**
-     *
-     * For intents developed using a configuration file, the return value of this field is
-     * [EntryIntentInfo](#entryintentinfo20) by default.
+     * > **NOTE**
+     * >
+     * > For intents developed using a configuration file, the return value of this field is
+     * > [EntryIntentInfo](#entryintentinfo20) by default.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
@@ -1016,7 +1021,7 @@ declare namespace insightIntentDriver {
 
   /**
    * Describes the parameters supported by the
-   * [@InsightIntentLink](docroot://reference/apis-ability-kit/js-apis-app-ability-InsightIntentDecorator.md#insightintentlink)
+   * [@InsightIntentLink]{@link @ohos.app.ability.InsightIntentDecorator:InsightIntentLink}
    *  decorator, such as the URI required for application redirection.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -1040,9 +1045,9 @@ declare namespace insightIntentDriver {
 
   /**
    * Describes the parameters supported by the
-   * [@InsightIntentPage](docroot://reference/apis-ability-kit/js-apis-app-ability-InsightIntentDecorator.md#insightintentpage)
+   * [@InsightIntentPage]{@link @ohos.app.ability.InsightIntentDecorator:InsightIntentPage}
    *  decorator, such as the
-   * [NavDestination](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-navigation.md#navdestination10) name
+   * [NavDestination]{@link ./@internal/component/ets/nav_destination} name
    * of the target page.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -1053,7 +1058,7 @@ declare namespace insightIntentDriver {
    */
   interface PageIntentInfo {
     /**
-     * Ability name.
+     * Name of the UIAbility component.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
@@ -1087,7 +1092,7 @@ declare namespace insightIntentDriver {
 
     /**
      * Name of the
-     * [NavDestination](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-navigation.md#navdestination10)
+     * [NavDestination]{@link ./@internal/component/ets/nav_destination}
      * component bound to the intent.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -1101,7 +1106,7 @@ declare namespace insightIntentDriver {
 
   /**
    * Defines the parameter type of the
-   * [@InsightIntentFunctionMethod](docroot://reference/apis-ability-kit/js-apis-app-ability-InsightIntentDecorator.md#insightintentfunctionmethod)
+   * [@InsightIntentFunctionMethod]{@link @ohos.app.ability.InsightIntentDecorator:InsightIntentFunctionMethod}
    *  decorator. All parameters inherit from
    * [IntentDecoratorInfo]{@link @ohos.app.ability.InsightIntentDecorator:IntentDecoratorInfo}.
    *
@@ -1115,7 +1120,7 @@ declare namespace insightIntentDriver {
 
   /**
    * Describes the parameters supported by the
-   * [@InsightIntentForm](docroot://reference/apis-ability-kit/js-apis-app-ability-InsightIntentDecorator.md#insightintentform)
+   * [@InsightIntentForm]{@link @ohos.app.ability.InsightIntentDecorator:InsightIntentForm}
    *  decorator, such as the widget name. It also describes the widget information bound to the
    * [intent developed using a configuration file](docroot://application-models/insight-intent-config-development.md).
    *
@@ -1151,9 +1156,8 @@ declare namespace insightIntentDriver {
 
   /**
    * Describes the parameters supported by the
-   * [@InsightIntentForm](docroot://reference/apis-ability-kit/js-apis-app-ability-InsightIntentDecorator.md#insightintentform)
-   *  decorator, such as the widget name. It also describes the widget information bound to the
-   * [intent developed using a configuration file](docroot://application-models/insight-intent-config-development.md).
+   * [@InsightIntentEntry]{@link @ohos.app.ability.InsightIntentDecorator:InsightIntentEntry}
+   * decorator, such as the intent execution mode.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -1270,7 +1274,7 @@ declare namespace insightIntentDriver {
    * EntityInfo inherits from
    * [IntentEntityDecoratorInfo]{@link @ohos.app.ability.InsightIntentDecorator:IntentEntityDecoratorInfo} and is used
    * to describe the information about the intent entity defined by the
-   * [@InsightIntentEntity](docroot://reference/apis-ability-kit/js-apis-app-ability-InsightIntentDecorator.md#insightintententity)
+   * [@InsightIntentEntity]{@link @ohos.app.ability.InsightIntentDecorator:InsightIntentEntity}
    *  decorator.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -1282,7 +1286,7 @@ declare namespace insightIntentDriver {
   interface EntityInfo {
     /**
      * Class name decorated by
-     * [@InsightIntentEntity](docroot://reference/apis-ability-kit/js-apis-app-ability-InsightIntentDecorator.md#insightintententity)
+     * [@InsightIntentEntity]{@link @ohos.app.ability.InsightIntentDecorator:InsightIntentEntity}
      * .
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -1337,7 +1341,7 @@ declare namespace insightIntentDriver {
 
     /**
      * Parent class name decorated by
-     * [@InsightIntentEntity](docroot://reference/apis-ability-kit/js-apis-app-ability-InsightIntentDecorator.md#insightintententity)
+     * [@InsightIntentEntity]{@link @ohos.app.ability.InsightIntentDecorator:InsightIntentEntity}
      * .
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -1349,7 +1353,13 @@ declare namespace insightIntentDriver {
     readonly parentClassName: string;
 
     /**
-     * The entity is queryable.
+     * Whether the intent entity class decorated by
+     * [@InsightIntentEntity]{@link @ohos.app.ability.InsightIntentDecorator:InsightIntentEntity}
+     * supports query. Only intent entities inherited from the
+     * [insightIntent.AppIntentEntity]{@link @ohos.app.ability.insightIntent:insightIntent.AppIntentEntity}
+     * class support query.
+     * - true: query is supported.
+     * - false: query is not supported.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
@@ -1359,7 +1369,11 @@ declare namespace insightIntentDriver {
     readonly isQueryable?: boolean;
 
     /**
-     * Support query properties.
+     * Properties through which the intent entity decorated by
+     * [@InsightIntentEntity]{@link @ohos.app.ability.InsightIntentDecorator:InsightIntentEntity}
+     * supports query. The key value of the intent entity query parameter
+     * [parameters]{@link @ohos.app.ability.insightIntent:insightIntent.QueryEntityParam}
+     * must be in this property list.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
@@ -1461,7 +1475,10 @@ declare namespace insightIntentDriver {
   function getInsightIntentInfoByFilter(filter: InsightIntentInfoFilter): Promise<Array<InsightIntentInfo>>;
 
   /**
-   *  Query insight intent entity information.
+   * Queries the dynamic intent entity information of an application based on
+   * [QueryParam]{@link insightIntentDriver.QueryParam}. This API uses a promise to return the result asynchronously.
+   * If the user ID of the calling application is different from the target user ID, the permission
+   * ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS is required.
    *
    * @permission ohos.permission.EXECUTE_INSIGHT_INTENT
    * @param { QueryParam } param - Query parameter.

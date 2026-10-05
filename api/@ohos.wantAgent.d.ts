@@ -54,7 +54,7 @@ declare namespace wantAgent {
    * Obtains the bundle name of a WantAgent.
    *
    * @param { WantAgent } agent - whose bundle name to obtain.
-   * @returns { Promise<string> } Returns the bundle name of the {@link WantAgent} if any.
+   * @returns { Promise<string> } Promise used to return the bundle name.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice [since 12]
    * @since 7
@@ -64,7 +64,7 @@ declare namespace wantAgent {
   function getBundleName(agent: WantAgent): Promise<string>;
 
   /**
-   * Obtains the UID of a WantAgent.
+   * Obtains the user ID of a WantAgent object. This API uses an asynchronous callback to return the result.
    *
    * @param { WantAgent } agent - whose UID to obtain.
    * @param { AsyncCallback<number> } callback - Create a callback method for WantAgent.
@@ -77,10 +77,10 @@ declare namespace wantAgent {
   function getUid(agent: WantAgent, callback: AsyncCallback<number>): void;
 
   /**
-   * Obtains the UID of a WantAgent.
+   * Obtains the user ID of a WantAgent object. This API uses a promise to return the result.
    *
    * @param { WantAgent } agent - whose UID to obtain.
-   * @returns { Promise<number> } Returns the UID of the {@link WantAgent} if any; returns {@code -1} otherwise.
+   * @returns { Promise<number> } Promise used to return the user ID.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice [since 12]
    * @since 7
@@ -90,10 +90,10 @@ declare namespace wantAgent {
   function getUid(agent: WantAgent): Promise<number>;
 
   /**
-   * Obtains the {@link Want} of an {@link WantAgent}.
+   * Obtains the Want in a WantAgent object. This API uses an asynchronous callback to return the result.
    *
-   * @param { WantAgent } agent - Indicates the {@link WantAgent} whose UID is to be obtained.
-   * @param { AsyncCallback<Want> } callback - Obtain the callback method for Want in WantAgent.
+   * @param { WantAgent } agent - WantAgent object.
+   * @param { AsyncCallback<Want> } callback - Callback used to return the Want.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 7
@@ -103,10 +103,10 @@ declare namespace wantAgent {
   function getWant(agent: WantAgent, callback: AsyncCallback<Want>): void;
 
   /**
-   * Obtains the {@link Want} of an {@link WantAgent}.
+   * Obtains the Want in a WantAgent object. This API uses a promise to return the result.
    *
-   * @param { WantAgent } agent - Indicates the {@link WantAgent} whose UID is to be obtained.
-   * @returns { Promise<Want> } Returns the {@link Want} of the {@link WantAgent}.
+   * @param { WantAgent } agent - WantAgent object.
+   * @returns { Promise<Want> } Promise used to return the Want.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @since 7
@@ -116,7 +116,7 @@ declare namespace wantAgent {
   function getWant(agent: WantAgent): Promise<Want>;
 
   /**
-   * Cancel a WantAgent. Only the application that creates the WantAgent can cancel it.
+   * Cancels a WantAgent object. This API uses an asynchronous callback to return the result.
    *
    * @param { WantAgent } agent - to cancel.
    * @param { AsyncCallback<void> } callback - Cancel the callback method for Want in WantAgent.
@@ -129,7 +129,7 @@ declare namespace wantAgent {
   function cancel(agent: WantAgent, callback: AsyncCallback<void>): void;
 
   /**
-   * Cancel a WantAgent. Only the application that creates the WantAgent can cancel it.
+   * Cancels a WantAgent object. This API uses a promise to return the result.
    *
    * @param { WantAgent } agent - to cancel.
    * @returns { Promise<void> } The promise returned by the function.
@@ -142,12 +142,11 @@ declare namespace wantAgent {
   function cancel(agent: WantAgent): Promise<void>;
 
   /**
-   * Triggers a WantAgent.
+   * Triggers a WantAgent object. This API uses an asynchronous callback to return the result.
    *
-   * @param { WantAgent } agent - to trigger.
-   * @param { TriggerInfo } triggerInfo - parameters.
-   * @param { Callback<CompleteData> } [callback] - Indicates the callback method to be called after
-   *     the {@link WantAgent} is triggered.
+   * @param { WantAgent } agent - WantAgent object.
+   * @param { TriggerInfo } triggerInfo - TriggerInfo object.
+   * @param { Callback<CompleteData> } [callback] - Callback used to return the result.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice [since 12]
    * @since 7
@@ -157,12 +156,13 @@ declare namespace wantAgent {
   function trigger(agent: WantAgent, triggerInfo: TriggerInfo, callback?: Callback<CompleteData>): void;
 
   /**
-   * Checks whether two WantAgent objects are equal.
+   * Checks whether two WantAgent objects are equal to determine whether the same operation is from the same
+   * application. This API uses an asynchronous callback to return the result.
    *
-   * @param { WantAgent } agent - to compare.
+   * @param { WantAgent } agent - The first WantAgent object.
    * @param { WantAgent } otherAgent - WantAgent Object.
-   * @param { AsyncCallback<boolean> } callback - Callback method for determining whether two WantAgent instances are
-   *     equal.
+   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. true if the two WantAgent
+   *     objects are equal, false otherwise.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice [since 12]
    * @since 7
@@ -172,11 +172,13 @@ declare namespace wantAgent {
   function equal(agent: WantAgent, otherAgent: WantAgent, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether two WantAgent objects are equal.
+   * Checks whether two WantAgent objects are equal to determine whether the same operation is from the same
+   * application. This API uses a promise to return the result.
    *
-   * @param { WantAgent } agent - to compare.
+   * @param { WantAgent } agent - The first WantAgent object.
    * @param { WantAgent } otherAgent - WantAgent Object.
-   * @returns { Promise<boolean> } Returns {@code true} If the two objects are the same; returns {@code false} otherwise.
+   * @returns { Promise<boolean> } Promise used to return the result. true if the two WantAgent objects are
+   *     equal, false otherwise.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice [since 12]
    * @since 7
@@ -186,7 +188,8 @@ declare namespace wantAgent {
   function equal(agent: WantAgent, otherAgent: WantAgent): Promise<boolean>;
 
   /**
-   * Obtains a WantAgent object.
+   * Creates a WantAgent object. If the creation fails, a null WantAgent object is returned. This API uses an
+   * asynchronous callback to return the result.
    *
    * @param { WantAgentInfo } info - about the WantAgent object to obtain.
    * @param { AsyncCallback<WantAgent> } callback - Callback method for obtaining the user ID of WantAgent instance.
@@ -199,10 +202,12 @@ declare namespace wantAgent {
   function getWantAgent(info: WantAgentInfo, callback: AsyncCallback<WantAgent>): void;
 
   /**
-   * Obtains a WantAgent object.
+   * Creates a WantAgent object. If the creation fails, a null WantAgent object is returned. This API uses a
+   * promise to return the result.
    *
    * @param { WantAgentInfo } info - about the WantAgent object to obtain.
-   * @returns { Promise<WantAgent> } Returns the created {@link WantAgent} object.
+   * @returns { Promise<WantAgent> } Promise object used to return the WantAgent instance
+   *     for triggering the specified operation.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice [since 12]
    * @since 7
@@ -222,8 +227,7 @@ declare namespace wantAgent {
    */
   export enum WantAgentFlags {
     /**
-     * Indicates that the WantAgent can be used only once.
-     * This flag is valid only when OperationType is set to START_ABILITY, START_SERVICE, or SEND_COMMON_EVENT.
+     * The WantAgent object can be used only once.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 12]
@@ -234,8 +238,7 @@ declare namespace wantAgent {
     ONE_TIME_FLAG = 0,
 
     /**
-     * Indicates that null is returned if the WantAgent does not exist.
-     * This flag is valid only when OperationType is set to START_ABILITY, START_SERVICE, or SEND_COMMON_EVENT.
+     * The WantAgent object does not exist and hence it is not created. In this case, null is returned.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 12]
@@ -246,8 +249,7 @@ declare namespace wantAgent {
     NO_BUILD_FLAG,
 
     /**
-     * Indicates that the existing WantAgent should be canceled before a new object is generated.
-     * This flag is valid only when OperationType is set to START_ABILITY, START_SERVICE, or SEND_COMMON_EVENT.
+     * The existing WantAgent object should be canceled before a new object is generated.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 12]
@@ -258,8 +260,7 @@ declare namespace wantAgent {
     CANCEL_PRESENT_FLAG,
 
     /**
-     * Indicates that the system only replaces the extra data of the existing WantAgent with that of the new object.
-     * This flag is valid only when OperationType is set to START_ABILITY, START_SERVICE, or SEND_COMMON_EVENT.
+     * Extra information of the existing WantAgent object is replaced with that of the new object.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 12]
@@ -270,7 +271,7 @@ declare namespace wantAgent {
     UPDATE_PRESENT_FLAG,
 
     /**
-     * Indicates that the created WantAgent should be immutable.
+     * The WantAgent object is immutable.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 12]
@@ -281,7 +282,8 @@ declare namespace wantAgent {
     CONSTANT_FLAG,
 
     /**
-     * Indicates that the current value of element can be replaced when the WantAgent is triggered.
+     * The element property in the current Want can be replaced by the element property in
+     * the Want passed in WantAgent.trigger().
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 12]
@@ -292,7 +294,8 @@ declare namespace wantAgent {
     REPLACE_ELEMENT,
 
     /**
-     * Indicates that the current value of action can be replaced when the WantAgent is triggered.
+     * The action property in the current Want can be replaced by the action property in
+     * the Want passed in WantAgent.trigger().
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 12]
@@ -303,7 +306,8 @@ declare namespace wantAgent {
     REPLACE_ACTION,
 
     /**
-     * Indicates that the current value of uri can be replaced when the WantAgent is triggered.
+     * The uri property in the current Want can be replaced by the uri property in the Want
+     * passed in WantAgent.trigger().
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 12]
@@ -314,7 +318,8 @@ declare namespace wantAgent {
     REPLACE_URI,
 
     /**
-     * Indicates that the current value of entities can be replaced when the WantAgent is triggered.
+     * The entities property in the current Want can be replaced by the entities property
+     * in the Want passed in WantAgent.trigger().
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 12]
@@ -325,7 +330,8 @@ declare namespace wantAgent {
     REPLACE_ENTITIES,
 
     /**
-     * Indicates that the current value of packageName can be replaced when the WantAgent is triggered.
+     * The bundleName property in the current Want can be replaced by the bundleName
+     * property in the Want passed in WantAgent.trigger().
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 12]
@@ -347,7 +353,7 @@ declare namespace wantAgent {
    */
   export enum OperationType {
     /**
-     * Unknown operation.
+     * Unknown operation type.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 12]
@@ -380,7 +386,7 @@ declare namespace wantAgent {
     START_ABILITIES,
 
     /**
-     * Starts an ability without a UI.
+     * Starts an Ability without a page.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 12]
@@ -413,7 +419,7 @@ declare namespace wantAgent {
    */
   export interface CompleteData {
     /**
-     * Triggered WantAgent.
+     * WantAgent to trigger.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 12]
@@ -424,7 +430,7 @@ declare namespace wantAgent {
     info: WantAgent;
 
     /**
-     * Existing Want that is triggered.
+     * Want that exists and is triggered.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 12]
@@ -435,7 +441,7 @@ declare namespace wantAgent {
     want: Want;
 
     /**
-     * Request code used to trigger the WantAgent.
+     * Request code for triggering the WantAgent.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 12]
@@ -457,7 +463,7 @@ declare namespace wantAgent {
     finalData: string;
 
     /**
-     * Extra data collected by the common event.
+     * Extra information.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 12]

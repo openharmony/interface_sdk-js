@@ -36,14 +36,14 @@ import { BusinessError } from '../@ohos.base';
  */
 declare class EventHub {
   /**
-   * 订阅指定事件。
+   * 订阅指定事件。使用前需先通过Context对象获取EventHub实例。
    * 
    * > **说明：**
    * >
    * > callback被emit触发时，调用方是EventHub对象，如果要修改callback中this的指向，可以使用箭头函数。
    *
    * @param { string } event - 事件名称。
-   * @param { Function } callback - 事件回调，事件触发后调用。
+   * @param { Function } callback - 事件触发后的回调函数。回调函数无返回值，可接收由emit方法传递的参数。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -75,10 +75,10 @@ declare class EventHub {
   off(event: string, callback?: Function): void;
 
   /**
-   * 触发指定事件。
+   * 触发指定事件。使用前需先通过Context对象获取EventHub实例。
    *
    * @param { string } event - 事件名称。
-   * @param { Object[] } args - 可变参数，事件触发时，传递给回调函数的参数。
+   * @param { Object[] } [args] - 可变参数，事件触发时，传递给回调函数的参数。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -93,7 +93,7 @@ declare class EventHub {
    * 触发指定事件。
    *
    * @param { string } event - 事件名称。
-   * @param { (Object|null|undefined)[] } args - 可变参数，事件触发时，传递给回调函数的参数。
+   * @param { (Object|null|undefined)[] } [args] - 可变参数，事件触发时，传递给回调函数的参数。
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @crossplatform

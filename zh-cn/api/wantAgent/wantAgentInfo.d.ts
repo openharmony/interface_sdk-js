@@ -41,7 +41,7 @@ import { RecordData } from '../@ohos.base';
  */
 export interface WantAgentInfo {
   /**
-   * 将被执行的动作列表。wants数组为预留能力，当前只支持一个want。传入多个时只取wants数组的第一个成员。
+   * wants数组为预留能力，当前只支持一个want。传入多个时只取wants数组的第一个成员。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice [since 12]

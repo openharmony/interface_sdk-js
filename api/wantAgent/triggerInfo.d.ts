@@ -35,14 +35,13 @@ import { RecordData } from '../@ohos.base';
  */
 export interface TriggerInfo {
   /**
-   * Common event code. This field is valid only when
-   * [OperationType](docroot://reference/apis-ability-kit/js-apis-app-ability-wantAgent.md#operationtype) of the
-   * WantAgent instance is **'SEND_COMMON_EVENT'**. The meaning of this field is the same as that of the **code** field
-   * set in
-   * [CommonEventPublishData](docroot://reference/apis-basic-services-kit/js-apis-inner-commonEvent-commonEventPublishData.md#properties)
-   *  when the publisher uses
-   * [commonEventManager.publish]{@link @ohos.commonEventManager:commonEventManager.publish(event: string, options: CommonEventPublishData, callback: AsyncCallback<void>)}
-   *  to publish common events.
+   * Common event code to pass. This field takes effect only when the
+   * [OperationType]{@link @ohos.app.ability.wantAgent:wantAgent.OperationType} of the WantAgent instance is
+   * 'SEND_COMMON_EVENT'. It has the same meaning as the code field in the
+   * [CommonEventPublishData]{@link ../commonEvent/commonEventPublishData:CommonEventPublishData}
+   * passed by the publisher when publishing a common event through
+   * [commonEventManager.publish]{@link @ohos.commonEventManager:commonEventManager.publish(event: string, options: CommonEventPublishData, callback: AsyncCallback<void>)}.
+   * The value is determined by the common event type.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice [since 12]
@@ -62,9 +61,9 @@ export interface TriggerInfo {
   want?: Want;
 
   /**
-   * Permission required for a subscriber to receive the common event. This field is valid only when
-   * [OperationType](docroot://reference/apis-ability-kit/js-apis-app-ability-wantAgent.md#operationtype) of the
-   * WantAgent instance is **'SEND_COMMON_EVENT'**.
+   * Permission of the common event subscriber. This field takes effect only when the
+   * [OperationType]{@link @ohos.app.ability.wantAgent:wantAgent.OperationType} of the WantAgent instance is
+   * 'SEND_COMMON_EVENT'. If the permission is null, the receiver does not need any permission.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice [since 12]
@@ -74,7 +73,9 @@ export interface TriggerInfo {
   permission?: string;
 
   /**
-   * Extra information.
+   * Extra data used to pass custom extension information. The parameter is a key-value pair object, where the key
+   * is a string and the value can be of any type. You are advised to use the type-safe extraInfos attribute
+   * instead. If both extraInfo and extraInfos are set, extraInfos takes effect and extraInfo is ignored.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice [since 12]
@@ -91,8 +92,10 @@ export interface TriggerInfo {
   extraInfo?: Record<string, RecordData>;
 
   /**
-   * Extra information. You are advised to use this property to replace **extraInfo**. When this property is set,
-   * **extraInfo** does not take effect.
+   * Extra data used to pass custom key-value pair information in a type-safe manner. You are advised to use this
+   * attribute instead of extraInfo. When both are set, this attribute takes precedence. Pass this parameter when
+   * you need to carry additional custom data when triggering the WantAgent. If it is not passed, the default
+   * value is null and no extra data is carried.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice [since 12]
@@ -110,7 +113,7 @@ export interface TriggerInfo {
   extraInfos?: Record<string, RecordData>;
 
   /**
-   * Start options in wantAgent used to start an ability.
+   * Specifies the startup parameters when the wantAgent is triggered to start an Ability.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
