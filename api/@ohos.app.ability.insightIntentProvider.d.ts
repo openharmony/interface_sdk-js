@@ -30,11 +30,27 @@ import type insightIntent from './@ohos.app.ability.insightIntent';
  */
 declare namespace insightIntentProvider {
   /**
-   * Send execute result.
-   * @param { int } instanceId - The insight intent instance ID.
-   *     It is from InsightIntentExecutor.context.instanceId.
-   * @param { insightIntent.ExecuteResult } result - The result of insight intent execution.
-   * @returns { Promise<void> } - The promise returned by the function.
+   * If an intent provider needs to proactively send the execution result of an intent at a specific point in the
+   * service process, it can first set the
+   * [return mode]{@link ./@ohos.app.ability.insightIntent:insightIntent.ReturnMode} of the intent execution result to
+   * FUNCTION through
+   * [setReturnModeForUIAbilityForeground]{@link ./@ohos.app.ability.InsightIntentContext:InsightIntentContext.setReturnModeForUIAbilityForeground}
+   * or
+   * [setReturnModeForUIExtensionAbility]{@link ./@ohos.app.ability.InsightIntentContext:InsightIntentContext.setReturnModeForUIExtensionAbility},
+   * and then call this API to send the intent execution result. This API applies to 
+   * [configuration-type intents](docroot://application-models/insight-intent-config-development.md). This API uses a
+   * promise to return the result asynchronously.
+   * 
+   * After the [return mode]{@link ./@ohos.app.ability.insightIntent:insightIntent.ReturnMode} of the intent execution
+   * result is set to FUNCTION, the application no longer needs to return the intent execution result through the
+   * return value of the
+   * [onExecuteInUIAbilityForegroundMode API]{@link ./@ohos.app.ability.InsightIntentExecutor:InsightIntentExecutor#onExecuteInUIAbilityForegroundMode(name: string, param: Record<string, Object>, pageLoader: window.WindowStage)}
+   * or
+   * [onExecuteInUIExtensionAbility]{@link ./@ohos.app.ability.InsightIntentExecutor:InsightIntentExecutor#onExecuteInUIExtensionAbility(name: string, param: Record<string, Object>, pageLoader: UIExtensionContentSession)}.
+   * @param { int } instanceId - Unique ID of an intent instance.
+   * @param { insightIntent.ExecuteResult } result - Intent execution result, representing the data returned to the
+   *     system entry for this intent execution.
+   * @returns { Promise<void> } - Promise that returns no value.
    * @throws { BusinessError } 16000003 - The specified ID does not exist.
    * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1. Connect to system service failed;
    *     2.Send restart message to system service failed; 3.System service failed to communicate with dependency module.
@@ -46,11 +62,27 @@ declare namespace insightIntentProvider {
   function sendExecuteResult(instanceId: int, result: insightIntent.ExecuteResult): Promise<void>;
 
   /**
-   * Send intent result.
-   * @param { int } instanceId - The insight intent instance ID.
-   *     It is from InsightIntentEntryExecutor.context.instanceId.
-   * @param { insightIntent.IntentResult<T> } result - The result of insight intent execution.
-   * @returns { Promise<void> } - The promise returned by the function.
+   * If an intent provider needs to proactively send the execution result of an intent at a specific point in the
+   * service process, it can first set the
+   * [return mode]{@link ./@ohos.app.ability.insightIntent:insightIntent.ReturnMode} of the intent execution result to
+   * FUNCTION through
+   * [setReturnModeForUIAbilityForeground]{@link ./@ohos.app.ability.InsightIntentContext:InsightIntentContext.setReturnModeForUIAbilityForeground}
+   * or
+   * [setReturnModeForUIExtensionAbility]{@link ./@ohos.app.ability.InsightIntentContext:InsightIntentContext.setReturnModeForUIExtensionAbility},
+   * and then call this API to send the intent execution result. This API applies to
+   * [decorator-type intents](docroot://application-models/insight-intent-decorator-development.md) decorated by
+   * [@InsightIntentEntry]{@link @ohos.app.ability.InsightIntentDecorator:InsightIntentEntry}. This API uses a promise
+   * to return the result asynchronously.
+   * 
+   * After the [return mode]{@link ./@ohos.app.ability.insightIntent:insightIntent.ReturnMode} of the intent execution
+   * result is set to FUNCTION, the application no longer needs to return the intent execution result through the
+   * return value of the
+   * [onExecute API]{@link ./@ohos.app.ability.InsightIntentEntryExecutor:InsightIntentEntryExecutor.InsightIntentEntryExecutor.onExecute}.
+   * 
+   * @param { int } instanceId - Unique ID of an intent instance.
+   * @param { insightIntent.IntentResult<T> } result - Execution result of the return intent, indicating the data
+   *     returned to the system entry by this intent execution.
+   * @returns { Promise<void> } - Promise that returns no value.
    * @throws { BusinessError } 16000003 - The specified ID does not exist.
    * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1. Connect to system service failed;
    *     2.Send restart message to system service failed; 3.System service failed to communicate with dependency module.
@@ -62,12 +94,27 @@ declare namespace insightIntentProvider {
   function sendIntentResult(instanceId: int, result: insightIntent.IntentResult<T>): Promise<void>;
 
   /**
-   * Send intent result.
+   * If an intent provider needs to proactively send the execution result of an intent at a specific point in the
+   * service process, it can first set the
+   * [return mode]{@link ./@ohos.app.ability.insightIntent:insightIntent.ReturnMode} of the intent execution result to
+   * FUNCTION through
+   * [setReturnModeForUIAbilityForeground]{@link ./@ohos.app.ability.InsightIntentContext:InsightIntentContext.setReturnModeForUIAbilityForeground}
+   * or
+   * [setReturnModeForUIExtensionAbility]{@link ./@ohos.app.ability.InsightIntentContext:InsightIntentContext.setReturnModeForUIExtensionAbility},
+   * and then call this API to send the intent execution result. This API applies to
+   * [decorator-type intents](docroot://application-models/insight-intent-decorator-development.md) decorated by
+   * [@InsightIntentEntry]{@link @ohos.app.ability.InsightIntentDecorator:InsightIntentEntry}. This API uses a promise
+   * to return the result asynchronously.
    * 
-   * @param { int } instanceId - The insight intent instance ID.
-   *     It is from InsightIntentEntryExecutor.context.instanceId.
-   * @param { insightIntent.IntentResult<T> } result - The result of insight intent execution.
-   * @returns { Promise<void> } - The promise returned by the function.
+   * After the [return mode]{@link ./@ohos.app.ability.insightIntent:insightIntent.ReturnMode} of the intent execution
+   * result is set to FUNCTION, the application no longer needs to return the intent execution result through the
+   * return value of the
+   * [onExecute API]{@link ./@ohos.app.ability.InsightIntentEntryExecutor:InsightIntentEntryExecutor.InsightIntentEntryExecutor.onExecute}.
+   * 
+   * @param { int } instanceId - Unique ID of an intent instance.
+   * @param { insightIntent.IntentResult<T> } result - Execution result of the return intent, indicating the data
+   *     returned to the system entry by this intent execution.
+   * @returns { Promise<void> } - Promise that returns no value.
    * @throws { BusinessError } 16000003 - The specified ID does not exist.
    * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1. Connect to system service failed;
    *     2.Send restart message to system service failed; 3.System service failed to communicate with dependency module.

@@ -20,38 +20,38 @@
  * intelligent search, and intelligent recommendation systems.
  * 
  * - 
- * [@InsightIntentLink](docroot://reference/apis-ability-kit/js-apis-app-ability-InsightIntentDecorator.md#insightintentlink)
+ * [@InsightIntentLink]{@link InsightIntentLink}
  * : decorates a URI in your application as an intent, enabling AI systems to quickly jump to your application via this 
  * intent. For details on the parameters supported by this decorator, see 
  * [LinkIntentDecoratorInfo]{@link LinkIntentDecoratorInfo}.
  * - 
- * [@InsightIntentPage](docroot://reference/apis-ability-kit/js-apis-app-ability-InsightIntentDecorator.md#insightintentpage)
+ * [@InsightIntentPage]{@link InsightIntentPage}
  * : decorates a page in your application as an intent, enabling AI systems to swiftly navigate to that page. For 
  * details on the parameters supported by this decorator, see [PageIntentDecoratorInfo]{@link PageIntentDecoratorInfo}.
  * - 
- * [@InsightIntentFunction](docroot://reference/apis-ability-kit/js-apis-app-ability-InsightIntentDecorator.md#insightintentfunction)
+ * [@InsightIntentFunction]{@link InsightIntentFunction}
  *  and 
- * [@InsightIntentFunctionMethod](docroot://reference/apis-ability-kit/js-apis-app-ability-InsightIntentDecorator.md#insightintentfunctionmethod)
+ * [@InsightIntentFunctionMethod]{@link InsightIntentFunctionMethod}
  * : The two decorators must be used together. 
- * [@InsightIntentFunction](docroot://reference/apis-ability-kit/js-apis-app-ability-InsightIntentDecorator.md#insightintentfunction)
+ * [@InsightIntentFunction]{@link InsightIntentFunction}
  *  is used to decorate a class, and 
- * [@InsightIntentFunctionMethod](docroot://reference/apis-ability-kit/js-apis-app-ability-InsightIntentDecorator.md#insightintentfunctionmethod)
+ * [@InsightIntentFunctionMethod]{@link InsightIntentFunctionMethod}
  *  is used to decorate a static function in that class. This setup defines the static function as an intent, enabling 
  * AI systems to execute it rapidly.
  * - 
- * [@InsightIntentEntry](docroot://reference/apis-ability-kit/js-apis-app-ability-InsightIntentDecorator.md#insightintententry)
+ * [@InsightIntentEntry]{@link InsightIntentEntry}
  * : decorates a class that inherits from 
  * [InsightIntentEntryExecutor]{@link @ohos.app.ability.InsightIntentEntryExecutor:InsightIntentEntryExecutor} to 
  * implement intent operations and configure the ability on which the intent depends. This helps the AI entry point to 
  * easily invoke the associated ability and perform the intended action. For details on the parameters supported by this
  *  decorator, see [EntryIntentDecoratorInfo]{@link EntryIntentDecoratorInfo}.
  * - 
- * [@InsightIntentForm](docroot://reference/apis-ability-kit/js-apis-app-ability-InsightIntentDecorator.md#insightintentform)
+ * [@InsightIntentForm]{@link InsightIntentForm}
  * : decorates a [FormExtensionAbility]{@link @ohos.app.form.FormExtensionAbility} to specify the name of the widget 
  * bound to the FormExtensionAbility. This enables the AI entry point to add the widget via intent calls. For details on
  *  the parameters supported by this decorator, see [FormIntentDecoratorInfo]{@link FormIntentDecoratorInfo}.
  * - 
- * [@InsightIntentEntity](docroot://reference/apis-ability-kit/js-apis-app-ability-InsightIntentDecorator.md#insightintententity)
+ * [@InsightIntentEntity]{@link InsightIntentEntity}
  * : decorates a class that inherits from 
  * [IntentEntity]{@link @ohos.app.ability.insightIntent:insightIntent.IntentEntity} to define the class as an intent 
  * entity, which can pass parameters required for intent calls. For details on the parameters supported by this 
@@ -206,7 +206,7 @@ declare interface IntentDecoratorInfo {
 /**
  * LinkIntentDecoratorInfo inherits from [IntentDecoratorInfo]{@link IntentDecoratorInfo} and describes the parameters
  * supported by the
- * [@InsightIntentLink](docroot://reference/apis-ability-kit/js-apis-app-ability-InsightIntentDecorator.md#insightintentlink)
+ * [@InsightIntentLink]{@link InsightIntentLink}
  *  decorator, such as the URI information required for application redirection.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -238,7 +238,7 @@ declare interface LinkIntentDecoratorInfo extends IntentDecoratorInfo {
 
 /**
  * Enumerates the intent parameter categories available for the
- * [@InsightIntentLink](docroot://reference/apis-ability-kit/js-apis-app-ability-InsightIntentDecorator.md#insightintentlink)
+ * [@InsightIntentLink]{@link InsightIntentLink}
  *  decorator. The enum is used to define how intent parameters should be passed.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -272,7 +272,7 @@ declare enum LinkParamCategory {
 
 /**
  * LinkIntentParamMapping defines the mapping between intent parameters and URI information for the
- * [@InsightIntentLink](docroot://reference/apis-ability-kit/js-apis-app-ability-InsightIntentDecorator.md#insightintentlink)
+ * [@InsightIntentLink]{@link InsightIntentLink}
  *  decorator.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -321,8 +321,14 @@ declare interface LinkIntentParamMapping {
 }
 
 /**
- * Define InsightIntentLink.
- *
+ * Decorates a URI link in the current application as an intent, enabling AI entries to quickly jump to the
+ * current application via the defined intent. For details on the parameters supported by this decorator, see
+ * [LinkIntentDecoratorInfo]{@link LinkIntentDecoratorInfo}.
+ * 
+ * > **NOTE**
+ * > The URI format must comply with the requirements described in
+ * > [Application Link Description](docroot://application-models/app-uri-config.md).
+ * 
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
@@ -333,7 +339,7 @@ export declare const InsightIntentLink: ((intentInfo: LinkIntentDecoratorInfo) =
 /**
  * PageIntentDecoratorInfo inherits from [IntentDecoratorInfo]{@link IntentDecoratorInfo} and describes the parameters
  * supported by the
- * [@InsightIntentPage](docroot://reference/apis-ability-kit/js-apis-app-ability-InsightIntentDecorator.md#insightintentpage)
+ * [@InsightIntentPage]{@link InsightIntentPage}
  *  decorator, such as the name of
  * [NavDestination]{@link ./@internal/component/ets/navigation:NavigationAttribute.navDestination} of the
  * target page.
@@ -405,7 +411,7 @@ export declare const InsightIntentPage: ((intentInfo: PageIntentDecoratorInfo) =
 
 /**
  * Parameter type of the
- * [@InsightIntentFunctionMethod](docroot://reference/apis-ability-kit/js-apis-app-ability-InsightIntentDecorator.md#insightintentfunctionmethod)
+ * [@InsightIntentFunctionMethod]{@link InsightIntentFunctionMethod}
  *  decorator. All properties inherit from [IntentDecoratorInfo]{@link IntentDecoratorInfo}.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -451,7 +457,7 @@ export declare const InsightIntentFunction: (() => ClassDecorator);
 /**
  * Inherits from [IntentDecoratorInfo]{@link IntentDecoratorInfo} and is used to describe the parameters supported by
  * the
- * [@InsightIntentEntry](docroot://reference/apis-ability-kit/js-apis-app-ability-InsightIntentDecorator.md#insightintententry)
+ * [@InsightIntentEntry]{@link InsightIntentEntry}
  *  decorator.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -490,12 +496,12 @@ declare interface EntryIntentDecoratorInfo extends IntentDecoratorInfo {
  *
  * > **NOTE: **
  * >
- * > If this decorator is used to access a standard intent, all mandatory parameters defined in the standard intent
- * > JSON schema must be implemented and their parameter types must match.
- * > If this decorator is used to access a custom intent, all mandatory parameters defined in parameters must be
- * > implemented and their parameter types must match.
- * > Classes decorated by this decorator must be exported using export default. Class properties are limited to basic
- * > types or intent entities, and the return value must be intent entities.
+ * > If this decorator is used to integrate a standard intent, all mandatory parameters defined in the standard intent
+ * > JSON Schema must be implemented and their types must match.
+ * > If a custom intent is created, all mandatory parameters defined in the parameters field must be implemented and
+ * > their types must match.
+ * > The decorated class must be exported using export default. The attributes of the class support only basic types
+ * > or intent entities, and the return value supports only intent entities.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
@@ -507,7 +513,7 @@ export declare const InsightIntentEntry: ((intentInfo: EntryIntentDecoratorInfo)
 /**
  * Inherits from [IntentDecoratorInfo]{@link IntentDecoratorInfo} and is used to describe the parameters supported by
  * the
- * [@InsightIntentForm](docroot://reference/apis-ability-kit/js-apis-app-ability-InsightIntentDecorator.md#insightintentform)
+ * [@InsightIntentForm]{@link InsightIntentForm}
  *  decorator.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -534,7 +540,8 @@ declare interface FormIntentDecoratorInfo extends IntentDecoratorInfo {
  * [FormIntentDecoratorInfo]{@link FormIntentDecoratorInfo}.
  *
  * > **NOTE: **
- * > For details about the requirements for defining widget names, see Widget Configuration.
+ * > For details about the requirements for defining widget names, see
+ * > [Widget Configuration](docroot://form/arkts-ui-widget-configuration.md#widget-configuration).
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
@@ -545,7 +552,7 @@ export declare const InsightIntentForm: ((intentInfo: FormIntentDecoratorInfo) =
 
 /**
  * Describes the parameters supported by the
- * [@InsightIntentEntity](docroot://reference/apis-ability-kit/js-apis-app-ability-InsightIntentDecorator.md#insightintententity)
+ * [@InsightIntentEntity]{@link InsightIntentEntity}
  *  decorator.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -575,7 +582,8 @@ declare interface IntentEntityDecoratorInfo {
   parameters?: Record<string, Object>;
 
   /**
-   * Supported query properties.
+   * List of attributes supported for querying the intent entity. The attribute names in the list must be defined
+   * in parameters.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly

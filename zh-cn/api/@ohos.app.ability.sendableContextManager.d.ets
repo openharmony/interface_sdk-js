@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file sendable上下文管理
  * @kit AbilityKit
  */
 

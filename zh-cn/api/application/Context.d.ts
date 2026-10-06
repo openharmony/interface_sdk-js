@@ -322,7 +322,8 @@ declare class Context extends BaseContext {
   createSystemHspModuleResourceManager(bundleName: string, moduleName: string): resmgr.ResourceManager;
 
   /**
-   * 获取当前应用上下文。
+   * 获取当前应用上下文。提供应用级事件订阅等能力，与应用内所有UIAbility共享。详情请参见
+   * [ApplicationContext (应用上下文)]{@link ./ApplicationContext:ApplicationContext}。
    *
    * @returns { ApplicationContext } 应用上下文，提供应用级别的上下文能力，包括应用生命周期管理、环境变量配置等。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2
@@ -421,7 +422,7 @@ declare class Context extends BaseContext {
    * 判断当前Context是否为指定的ContextType类型。
    *
    * @param { contextConstant.ContextType } contextType - 上下文类型。
-   * @returns { boolean } 是否为指定类型的上下文。返回true表示Context类型为指定类型，返回false表示Context类型匹配失败。
+   * @returns { boolean } 是否为指定类型的上下文。返回true表示Context类型为指定类型，返回false表示当前Context不是指定类型。
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice

@@ -34,7 +34,8 @@ export default class AbilityStartCallback {
    * Called when the UIExtensionAbility fails to start.
    *
    * @param { int } code - Result code returned when the UIExtensionAbility fails to start.
-   * @param { string } name - Name returned when the UIExtensionAbility fails to start.
+   * @param { string } name - Error name returned when the UIExtensionAbility fails to be started, used to identify
+   *     the error type.
    * @param { string } message - Error information returned when the UIExtensionAbility fails to start.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly

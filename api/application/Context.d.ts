@@ -29,7 +29,7 @@ import contextConstant from '../@ohos.app.ability.contextConstant';
 /**
  * Context is the context base class of the stage model. It is used to access application-specific resources and perform
  * callbacks for application-level operations.
- *docroot://
+ *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @crossplatform [since 10]
@@ -352,9 +352,12 @@ declare class Context extends BaseContext {
   createSystemHspModuleResourceManager(bundleName: string, moduleName: string): resmgr.ResourceManager;
 
   /**
-   * Obtains the application context.
+   * Obtains the current application context. It provides capabilities such as application-level event subscription
+   * and is shared by all UIAbilities in the application. For details, see
+   * [ApplicationContext]{@link ./ApplicationContext:ApplicationContext}.
    *
-   * @returns { ApplicationContext } Application context.
+   * @returns { ApplicationContext } Application context, which provides application-level context capabilities,
+   *     including application lifecycle management and environment variable configuration.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2
    *     .Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -423,8 +426,8 @@ declare class Context extends BaseContext {
   createModuleResourceManager(bundleName: string, moduleName: string): resmgr.ResourceManager;
 
   /**
-   * Creates an application context with a specific data encryption level. You can call this API to create contexts with
-   * different encryption levels, thereby obtaining the corresponding sandbox paths.
+   * Creates the application context with a specific data encryption level. Developers can call this API to create
+   * contexts of different encryption levels to obtain the corresponding sandbox paths.
    *
    * @param { contextConstant.AreaMode } areaMode - Data encryption level.
    * @returns { Context } Context created based on the data encryption level.
@@ -454,10 +457,11 @@ declare class Context extends BaseContext {
   createDisplayContext(displayId: long): Context;
 
   /**
-   * Checks if the current instance is associated with the specified context type.
+   * Checks whether the current context is of the specified ContextType.
    *
-   * @param { contextConstant.ContextType } contextType - Indicates the context type.
-   * @returns { boolean } Returns {@code true} if the contextType is matched; returns {@code false} otherwise.
+   * @param { contextConstant.ContextType } contextType - Context type.
+   * @returns { boolean } Whether the context is of the specified type. The value true indicates that the context
+   *     is of the specified type, and false indicates the opposite.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @atomicservice

@@ -23,7 +23,7 @@
  * [AbilityStage]{@link ./../@ohos.app.ability.AbilityStage:AbilityStage} object. You can use AbilityStageMonitor as an
  * input parameter of
  * [abilityDelegator.waitAbilityStageMonitor]{@link AbilityDelegator:AbilityDelegator.waitAbilityStageMonitor(monitor: AbilityStageMonitor, callback: AsyncCallback<AbilityStage>)}
- * to register a listener.
+ * to register the listener.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @crossplatform [since 10]

@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Sendable Context Management
  * @kit AbilityKit
  */
 
