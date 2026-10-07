@@ -45,6 +45,10 @@ import { Callback } from '@ohos.base';
  * > - 该组件从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
  * >
  * > - 示例效果请以真机运行为准，当前DevEco Studio预览器不支持。
+ * >
+ * > - 如果AtomicServiceWeb设置[通用属性]{@link ./@internal/component/ets/common}和
+ * > [通用事件]{@link ./@internal/component/ets/common}，编译工具链会额外生成节点__Common__，并将通用属性或通用事件挂载在__Common__上，而不是直接应用到
+ * > AtomicServiceWeb本身。这可能导致开发者设置的通用属性或通用事件不生效或不符合预期，因此，不建议AtomicServiceWeb设置通用属性和通用事件。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice

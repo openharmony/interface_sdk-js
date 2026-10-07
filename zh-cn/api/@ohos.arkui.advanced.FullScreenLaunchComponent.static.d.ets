@@ -47,10 +47,14 @@ type ContentBuilder = () => void;
  * 
  * > **说明：**
  * >
- * > 该组件从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+ * > - 该组件从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
  * >
- * > 当需要在该组件中实现可嵌入式运行的原子化服务，必须继承自[EmbeddableUIAbility]{@link @ohos.app.ability.EmbeddableUIAbility:EmbeddableUIAbility}。
- * > 否则，系统无法保证原子化服务功能正常。
+ * > - 当需要在该组件中实现可嵌入式运行的原子化服务，
+ * > 必须继承自[EmbeddableUIAbility]{@link @ohos.app.ability.EmbeddableUIAbility:EmbeddableUIAbility}。否则，系统无法保证原子化服务功能正常。
+ * >
+ * > - 如果FullScreenLaunchComponent设置[通用属性]{@link ./@internal/component/ets/common}和
+ * > [通用事件]{@link ./@internal/component/ets/common}，编译工具链会额外生成节点__Common__，并将通用属性或通用事件挂载在__Common__上，而不是直接应用到
+ * > FullScreenLaunchComponent本身。这可能导致开发者设置的通用属性或通用事件不生效或不符合预期，因此，不建议FullScreenLaunchComponent设置通用属性和通用事件。
  *
  * @struct { FullScreenLaunchComponent }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
