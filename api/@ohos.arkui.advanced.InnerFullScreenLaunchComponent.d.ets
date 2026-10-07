@@ -48,9 +48,9 @@ import { Callback, ErrorCallback } from '@ohos.base';
  * > - If the **InnerFullScreenLaunchComponent** component has [universal attributes]{@link ./@internal/component/ets/common}
  * > and [universal events]{@link ./@internal/component/ets/common} configured, the compiler toolchain automatically
  * > generates an additional \_\_Common\_\_ node and mounts the universal attributes and universal events on this node
- * > rather than the **InnerFullScreenLaunchComponent** component itself. As a result, the configured universal attributes and
- * > universal events may fail to take effect or behave as intended. For this reason, avoid using universal attributes
- * > and events with the **InnerFullScreenLaunchComponent** component.
+ * > rather than the **InnerFullScreenLaunchComponent** component itself. As a result, the configured universal
+ * > attributes and universal events may fail to take effect or behave as intended. For this reason, avoid using universal
+ * > attributes and events with the **InnerFullScreenLaunchComponent** component.
  * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
