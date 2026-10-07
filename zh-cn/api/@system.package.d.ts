@@ -14,12 +14,11 @@
  */
 
 /**
- * > **NOTE**
+ * > **说明：**
  * >
- * > - The APIs of this module have been deprecated since API version 9. You are advised to use 
- * > [@ohos.bundle.bundleManager]{@link @ohos.bundle.bundleManager:bundleManager} instead.
+ * > - 从API version 9开始不再维护，推荐使用该模块[@ohos.bundle.bundleManager]{@link @ohos.bundle.bundleManager:bundleManager}。
  *
- * @file
+ * @file 应用管理
  * @kit AbilityKit
  */
 
@@ -107,7 +106,7 @@ export interface CheckPackageHasInstalledOptions {
  */
 export default class Package {
   /**
-   * 查询指定应用是否存在，或者原生应用是否安装。
+   * 查询指定应用是否存在，或者应用是否安装。
    *
    * @param { CheckPackageHasInstalledOptions } options Options
    * @syscap SystemCapability.BundleManager.BundleFramework

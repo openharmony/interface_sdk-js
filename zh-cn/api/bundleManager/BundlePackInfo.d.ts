@@ -14,20 +14,12 @@
  */
 
 /**
- * The module provides information in the **pack.info** file. The information can be obtained using 
- * [freeInstall.getBundlePackInfo]{@link ./../@ohos.bundle.freeInstall:freeInstall.getBundlePackInfo(bundleName: string,  bundlePackFlag : BundlePackFlag, callback: AsyncCallback<BundlePackInfo>)}
- * .
- * 
- * > **NOTE**
- * >
- * > The APIs provided by this module are system APIs.
- *
- * @file
+ * @file BundlePackInfo
  * @kit AbilityKit
  */
 
 /**
- * 应用包信息
+ * 应用包信息，通过接口[freeInstall.getBundlePackInfo]{@link @ohos.bundle.freeInstall:freeInstall.getBundlePackInfo}获取。
  *
  * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
  * @systemapi
@@ -186,7 +178,7 @@ export interface ExtensionAbility {
   readonly name: string;
 
   /**
-   * 卡片信息。
+   * 表示form卡片的规格，form卡片是可以嵌入桌面上并接收定时更新的应用简要视图。
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
@@ -355,7 +347,7 @@ export interface ModuleAbilityInfo {
   readonly exported: boolean;
 
   /**
-   * 卡片信息。
+   * 表示form卡片的规格，form卡片是可以嵌入桌面上并接收定时更新的应用简要视图。
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi
@@ -405,7 +397,7 @@ export interface AbilityFormInfo {
   readonly updateEnabled: boolean;
 
   /**
-   * 表示卡片定点刷新的时间，采用24小时计数，精确到分钟。
+   * 表示卡片定点刷新的时间，采用24小时计数，精确到分钟，和定时刷新二选一，二者都配置的情况下，定时优先。
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi

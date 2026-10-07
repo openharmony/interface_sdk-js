@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file ApplicationInfo
  * @kit AbilityKit
  */
 
@@ -22,18 +22,16 @@ import { ModuleInfo } from './moduleInfo';
 import { CustomizeData } from './customizeData';
 
 /**
- * 应用程序信息，未做特殊说明的属性，均通过
- * [bundle.getApplicationInfo]{@link ./../@ohos.bundle:bundle.getApplicationInfo(bundleName: string, bundleFlags: number, userId?: number)}
- * 获取。
+ * 应用程序信息，未做特殊说明的属性，均通过[bundle.getApplicationInfo]{@link @ohos.bundle:bundle.getApplicationInfo}获取。
  * 
  * > **说明：**
  * >
- * > 从API version 9开始，该模块不再维护，建议使用[bundleManager-ApplicationInfo]{@link applicationInfo:ApplicationInfo}替代。
+ * > 从API version 9开始，该模块不再维护。
  *
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @since 7 dynamiconly
  * @deprecated since 9
- * @useinstead applicationInfo:ApplicationInfo
+ * @useinstead ApplicationInfo
  */
 export interface ApplicationInfo {
   /**
@@ -157,7 +155,7 @@ export interface ApplicationInfo {
   readonly supportedModes: number;
 
   /**
-   * 应用程序的资源存放的相对路径。不能拼接路径访问资源文件，请使用[资源管理接口]{@link ./../@ohos.resourceManager:resourceManager}访问资源。
+   * 应用程序的资源存放的相对路径。不能拼接路径访问资源文件，请使用[@ohos.resourceManager (资源管理)]{@link @ohos.resourceManager:resourceManager}访问资源。
    *
    * @default Indicates the path storing the module resources of the application
    * @syscap SystemCapability.BundleManager.BundleFramework
@@ -169,9 +167,8 @@ export interface ApplicationInfo {
   /**
    * 访问应用程序所需的权限。
    * 
-   * 通过调用
-   * [bundle.getApplicationInfo]{@link ./../@ohos.bundle:bundle.getApplicationInfo(bundleName: string, bundleFlags: number, userId?: number)}
-   * 接口时，传入GET_APPLICATION_INFO_WITH_PERMISSION获取。
+   * 通过调用[bundle.getApplicationInfo]{@link @ohos.bundle:bundle.getApplicationInfo}接口时，传入
+   * GET_APPLICATION_INFO_WITH_PERMISSION获取。
    *
    * @default Indicates the permissions required for accessing the application.
    * @syscap SystemCapability.BundleManager.BundleFramework
@@ -193,7 +190,7 @@ export interface ApplicationInfo {
   readonly moduleInfos: Array<ModuleInfo>;
 
   /**
-   * 应用程序的文件保存路径。不能拼接路径访问资源文件，请使用[资源管理接口]{@link ./../@ohos.resourceManager:resourceManager}访问资源。
+   * 应用程序的文件保存路径。不能拼接路径访问资源文件，请使用[@ohos.resourceManager (资源管理)]{@link @ohos.resourceManager:resourceManager}访问资源。
    *
    * @default Indicates the path where the {@code Entry.hap} file of the application is saved
    * @syscap SystemCapability.BundleManager.BundleFramework
@@ -203,7 +200,7 @@ export interface ApplicationInfo {
   readonly entryDir: string;
 
   /**
-   * 应用程序的安装目录。不能拼接路径访问资源文件，请使用[资源管理接口]{@link ./../@ohos.resourceManager:resourceManager}访问资源。
+   * 应用程序的安装目录。不能拼接路径访问资源文件，请使用[@ohos.resourceManager (资源管理)]{@link @ohos.resourceManager:resourceManager}访问资源。
    *
    * @default Indicates the application source code path
    * @syscap SystemCapability.BundleManager.BundleFramework
@@ -216,9 +213,8 @@ export interface ApplicationInfo {
   /**
    * 应用程序的自定义元信息。
    * 
-   * 通过调用
-   * [bundle.getApplicationInfo]{@link ./../@ohos.bundle:bundle.getApplicationInfo(bundleName: string, bundleFlags: number, userId?: number)}
-   * 接口时，传入GET_APPLICATION_INFO_WITH_METADATA获取。
+   * 通过调用[bundle.getApplicationInfo]{@link @ohos.bundle:bundle.getApplicationInfo}接口时，传入
+   * GET_APPLICATION_INFO_WITH_METADATA获取。
    *
    * @default Indicates the metadata of module
    * @syscap SystemCapability.BundleManager.BundleFramework

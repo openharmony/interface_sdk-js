@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file LauncherAbilityInfo
  * @kit AbilityKit
  */
 
@@ -23,21 +23,20 @@ import { ElementName } from './elementName';
 
 /**
  * The LauncherAbilityInfo module provides information about the launcher ability, which is obtained through
- * [innerBundleManager.getLauncherAbilityInfos](docroot://reference/apis-ability-kit/js-apis-Bundle-InnerBundleManager-sys.md#innerbundlemanagergetlauncherabilityinfosdeprecated)
- * .
+ * [innerBundleManager.getLauncherAbilityInfos]{@link @ohos.bundle.innerBundleManager:innerBundleManager.getLauncherAbilityInfos}.
  *
  * > **NOTE**
  * >
- * > The APIs of this module have been deprecated since API version 9. You are advised to use
- * > [bundleManager-LauncherAbilityInfo]{@link launcherAbilityInfo:LauncherAbilityInfo} instead.
+ * > This module is no longer maintained since API version 9. You are advised to use
+ * > [bundleManager-LauncherAbilityInfo]{@link LauncherAbilityInfo} instead.
  * >
- * > The APIs provided by this module are system APIs.
+ * > This module is a system API.
  *
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @systemapi Hide this for inner system use
  * @since 8 dynamiconly
  * @deprecated since 9
- * @useinstead launcherAbilityInfo:LauncherAbilityInfo
+ * @useinstead LauncherAbilityInfo
  */
 export interface LauncherAbilityInfo {
   /**

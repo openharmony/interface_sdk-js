@@ -14,19 +14,14 @@
  */
 
 /**
- * @file
+ * @file PermissionDef
  * @kit AbilityKit
  */
 
 /**
  * The module provides permission details defined in the
  * [module.json5](docroot://quick-start/module-configuration-file.md) file. The information can be obtained using
- * [bundleManager.getPermissionDef]{@link ./../@ohos.bundle.bundleManager:bundleManager.getPermissionDef(permissionName: string, callback: AsyncCallback<PermissionDef>)}
- * .
- *
- * > **NOTE**
- * >
- * > The APIs provided by this module are system APIs.
+ * [bundleManager.getPermissionDef]{@link @ohos.bundle.bundleManager:bundleManager.getPermissionDef}.
  *
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @systemapi
@@ -35,7 +30,7 @@
  */
 export interface PermissionDef {
   /**
-   * Name of the permission.
+   * Permission name.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
@@ -56,7 +51,7 @@ export interface PermissionDef {
   readonly grantMode: int;
 
   /**
-   * ID of the permission label.
+   * Resource ID of the permission label, used to display the permission name.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
@@ -66,7 +61,7 @@ export interface PermissionDef {
   readonly labelId: long;
 
   /**
-   * ID of the permission description.
+   * Resource ID of the permission description.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi

@@ -14,21 +14,14 @@
  */
 
 /**
- * The module provides information about the shared bundle. The information can be obtained by calling 
- * [bundleManager.getSharedBundleInfo]{@link ./../@ohos.bundle.bundleManager:bundleManager.getSharedBundleInfo(bundleName: string,  moduleName: string, callback: AsyncCallback<Array<SharedBundleInfo>>)}
- * .
- * 
- * > **NOTE**
- * >
- * > The APIs provided by this module are system APIs.
- *
- * @file
+ * @file SharedBundleInfo
  * @kit AbilityKit
  */
 import bundleManager from '../@ohos.bundle.bundleManager';
 
 /**
- * Defines the shared bundle information.
+ * The module provides information about the shared bundle. The information can be obtained by calling
+ * [bundleManager.getSharedBundleInfo]{@link @ohos.bundle.bundleManager:bundleManager.getSharedBundleInfo}.
  *
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @systemapi

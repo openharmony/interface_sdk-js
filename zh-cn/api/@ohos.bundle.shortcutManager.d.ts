@@ -14,14 +14,15 @@
  */
 
 /**
- * @file
+ * @file shortcutManager模块
  * @kit AbilityKit
  */
 
 import { ShortcutInfo as _ShortcutInfo, ShortcutWant as _ShortcutWant, ParameterItem as _ParameterItem } from './bundleManager/ShortcutInfo';
 
 /**
- * 本模块提供应用对于[快捷方式](docroot://quick-start/typical-scenario-configuration.md)的管理能力，包括设置快捷方式是否显示等。
+ * 本模块提供应用对于[快捷方式](docroot://quick-start/typical-scenario-configuration.md)的管理能力，包括设置快捷方式是否显示等。通过快捷方式，用户可以从桌面快速启动应用的特定功
+ * 能，提升应用的使用便捷性和用户粘性。典型使用场景包括：应用向用户提供常用功能的快速入口、根据用户使用习惯动态调整快捷方式的显示等。
  *
  * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
  * @systemapi [since 12 - 19]
@@ -35,9 +36,9 @@ declare namespace shortcutManager {
    *
    * @permission ohos.permission.MANAGE_SHORTCUTS
    * @param { ShortcutInfo } shortcutInfo - 快捷方式信息。
-   * @param { int } userId - 用户id。可以通过
-   *     [getOsAccountLocalId接口]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
-   *     获取。
+   * @param { int } userId - 用户ID。可以通过
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
+   *     接口获取。
    * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Verify permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -60,9 +61,9 @@ declare namespace shortcutManager {
    *
    * @permission ohos.permission.MANAGE_SHORTCUTS
    * @param { ShortcutInfo } shortcutInfo - 快捷方式信息。
-   * @param { int } userId - 用户id。可以通过
-   *     [getOsAccountLocalId接口]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
-   *     获取。
+   * @param { int } userId - 用户ID。可以通过
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
+   *     接口获取。
    * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Verify permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -77,12 +78,36 @@ declare namespace shortcutManager {
   function deleteDesktopShortcutInfo(shortcutInfo: ShortcutInfo, userId: int): Promise<void>;
 
   /**
+   * 更新指定用户的快捷方式信息。使用Promise异步回调。
+   *
+   * @permission ohos.permission.MANAGE_SHORTCUTS or
+   *     (ohos.permission.MANAGE_SHORTCUTS and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS)
+   * @param { ShortcutInfo } shortcutInfo - 快捷方式信息。
+   * @param { int } userId - 用户ID。可以通过
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
+   *     接口获取。
+   * @returns { Promise<void> } Promise对象，无返回结果。
+   * @throws { BusinessError } 201 - Verify permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 17700001 - The specified bundle name is not found.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
+   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
+   * @throws { BusinessError } 17700061 - The specified app index is invalid.
+   * @throws { BusinessError } 18100002 - The specified shortcut to be updated is not found.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.1 dynamic&static
+   */
+  function updateDesktopShortcutInfo(shortcutInfo: ShortcutInfo, userId: int): Promise<void>;
+
+  /**
    * 查询指定用户的所有快捷方式信息。
    *
    * @permission ohos.permission.MANAGE_SHORTCUTS
-   * @param { int } userId - 被查询的用户id。可以通过
-   *     [getOsAccountLocalId接口]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
-   *     获取。
+   * @param { int } userId - 被查询的用户ID。可以通过
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
+   *     接口获取。
    * @returns { Promise<Array<ShortcutInfo>> } Promise对象，返回应用配置文件中定义的快捷方式信息。
    * @throws { BusinessError } 201 - Verify permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -124,8 +149,9 @@ declare namespace shortcutManager {
    * 设置启用或禁用传入的静态快捷方式。使用Promise异步回调。
    *
    * @permission ohos.permission.MANAGE_SHORTCUTS
-   * @param { Array<ShortcutInfo> } shortcutsInfo - 待启用或禁用的静态快捷方式。<br>**说明：**<br>本接口不区分主应用和分身应用，且仅对静态快捷方式生效，所以
-   *     ShortcutInfo中的appIndex和sourceType设置不生效。
+   * @param { Array<ShortcutInfo> } shortcutsInfo - 待启用或禁用的静态快捷方式。
+   *     <br>**说明：**
+   *     <br>本接口不区分主应用和分身应用，且仅对静态快捷方式生效，所以ShortcutInfo中的appIndex和sourceType设置不生效。
    * @param { boolean } isEnabled - 快捷方式是否启用。true：快捷方式启用；false：快捷方式禁用。
    * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission denied.
@@ -144,12 +170,12 @@ declare namespace shortcutManager {
    *
    * @permission ohos.permission.MANAGE_SHORTCUTS or
    *     (ohos.permission.MANAGE_SHORTCUTS and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS)
-   * @param { Array<ShortcutInfo> } shortcutInfo - 待添加的动态快捷方式信息。通过本接口提交时，会做如下校验：</br> 1.ShortcutInfo中的sourceType字段会被设置为2
-   *     。</br> 2.ShortcutInfo中的moduleName字段在对应的应用中不存在时，会抛出17700002错误码。</br> 3.ShortcutInfo中的hostAbility字段被设置为非空的字符串时，会校
-   *     验对应的ability是否存在，不存在时，会抛出17700003错误码。
-   * @param { int } userId - 动态快捷方式所属的用户id。可以通过
-   *     [getOsAccountLocalId接口]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
-   *     获取。默认值：调用方所在用户，取值范围：大于等于0。
+   * @param { Array<ShortcutInfo> } shortcutInfo - 待添加的动态快捷方式信息。通过本接口提交时，会做如下校验：</br> 1.ShortcutInfo中的sourceType字段会被设置为
+   *     2。</br> 2.ShortcutInfo中的moduleName字段在对应的应用中不存在时，会抛出17700002错误码。</br> 3.ShortcutInfo中的hostAbility字段被设置为非空的字符串时，会
+   *     校验对应的ability是否存在，不存在时，会抛出17700003错误码。
+   * @param { int } userId - 动态快捷方式所属的用户ID。可以通过
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
+   *     接口获取。默认值：调用方所在用户，取值范围：大于等于0。
    * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
@@ -176,9 +202,9 @@ declare namespace shortcutManager {
    *     (ohos.permission.MANAGE_SHORTCUTS and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS)
    * @param { string } bundleName - 要删除的动态快捷方式所属的包名。
    * @param { int } appIndex - 要删除的动态快捷方式所属的分身索引。支持取值为：1、2、3、4、5。
-   * @param { int } userId - 要删除的动态快捷方式所属的用户id。可以通过
-   *     [getOsAccountLocalId接口]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
-   *     获取。默认值：调用方所在用户，取值范围：大于等于0。
+   * @param { int } userId - 要删除的动态快捷方式所属的用户ID。可以通过
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
+   *     接口获取。默认值：调用方所在用户，取值范围：大于等于0。
    * @param { Array<string> } [ids] - 要删除的动态快捷方式id列表。缺省或传入列表为空时，表示删除所有符合条件的动态快捷方式。
    * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission denied.
@@ -232,7 +258,6 @@ declare namespace shortcutManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
-   *
    */
   function isShortcutSupported(): boolean;
 
@@ -266,6 +291,6 @@ declare namespace shortcutManager {
    * @since 23 static
    */
   export type ParameterItem = _ParameterItem;
-  }
+}
 
 export default shortcutManager;

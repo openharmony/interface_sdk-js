@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file AbilityInfo
  * @kit AbilityKit
  */
 
@@ -24,17 +24,17 @@ import bundle from './../@ohos.bundle';
 
 /**
  * The module provides information about an ability. Unless otherwise specified, the information is obtained through
- * [bundle.getAbilityInfo]{@link ./../@ohos.bundle:bundle.getAbilityInfo(bundleName: string, abilityName: string)}.
+ * [bundle.getAbilityInfo]{@link @ohos.bundle:bundle.getAbilityInfo}.
  *
  * > **NOTE**
  * >
- * > The APIs of this module have been deprecated since API version 9. You are advised to use
- * > [bundleManager-AbilityInfo]{@link abilityInfo:AbilityInfo} instead.
+ * > Since API version 9, this module is no longer maintained. You are advised to use
+ * > [bundleManager-AbilityInfo]{@link AbilityInfo} instead.
  *
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @since 7 dynamiconly
  * @deprecated since 9
- * @useinstead abilityInfo:AbilityInfo
+ * @useinstead AbilityInfo
  */
 export interface AbilityInfo {
   /**
@@ -251,7 +251,7 @@ export interface AbilityInfo {
    * Permissions required for other applications to call the ability.
    *
    * The value is obtained by passing in GET_ABILITY_INFO_WITH_PERMISSION to
-   * [bundle.getAbilityInfo]{@link ./../@ohos.bundle:bundle.getAbilityInfo(bundleName: string, abilityName: string)}.
+   * [bundle.getAbilityInfo]{@link @ohos.bundle:bundle.getAbilityInfo}.
    *
    * @default The permissions that others need to launch this ability
    * @syscap SystemCapability.BundleManager.BundleFramework
@@ -312,7 +312,7 @@ export interface AbilityInfo {
    * Application configuration information.
    *
    * The value is obtained by passing in GET_ABILITY_INFO_WITH_APPLICATION to
-   * [bundle.getAbilityInfo]{@link ./../@ohos.bundle:bundle.getAbilityInfo(bundleName: string, abilityName: string)}.
+   * [bundle.getAbilityInfo]{@link @ohos.bundle:bundle.getAbilityInfo}.
    *
    * @default Obtains configuration information about an application
    * @syscap SystemCapability.BundleManager.BundleFramework
@@ -338,8 +338,8 @@ export interface AbilityInfo {
   /**
    * Metadata of the ability.
    *
-   * The value is obtained by passing in GET_ABILITY_INFO_WITH_METADATA to
-   * [bundle.getAbilityInfo]{@link ./../@ohos.bundle:bundle.getAbilityInfo(bundleName: string, abilityName: string)}.
+   * Obtained by calling the [bundle.getAbilityInfo]{@link @ohos.bundle:bundle.getAbilityInfo} API and passing in
+   * GET_ABILITY_INFO_WITH_METADATA.
    *
    * @default Indicates the metadata of ability
    * @syscap SystemCapability.BundleManager.BundleFramework
@@ -350,7 +350,8 @@ export interface AbilityInfo {
   readonly metaData: Array<CustomizeData>;
 
   /**
-   * Whether the ability is enabled. **true** if enabled, **false** otherwise.
+   * Whether the ability is available. The value true indicates that the ability is available, and the value false
+   * indicates that the ability is unavailable.
    *
    * @default Indicates whether the ability is enabled
    * @syscap SystemCapability.BundleManager.BundleFramework

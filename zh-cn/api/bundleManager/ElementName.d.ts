@@ -14,14 +14,15 @@
  */
 
 /**
- * @file
+ 
+ * @file ElementName
  * @kit AbilityKit
  */
 
 /**
  * 应用组件结构体，包含bundleName、moduleName和abilityName等。通常用于组件启动信息
- * [AbilityRunningInfo.ability]{@link ./../application/AbilityRunningInfo:AbilityRunningInfo}和组件启动回调函数
- * [connectOptions.onConnect]{@link ./../ability/connectOptions:ConnectOptions.onConnect(elementName: ElementName, remote: rpc.IRemoteObject)}
+ * [AbilityRunningInfo.ability]{@link ../application/AbilityRunningInfo:AbilityRunningInfo}和组件启动回调函数
+ * [connectOptions.onConnect]{@link ../ability/connectOptions:ConnectOptions.onConnect(elementName: ElementName, remote: rpc.IRemoteObject)}
  * 中。
  *
  * @syscap SystemCapability.BundleManager.BundleFramework.Core

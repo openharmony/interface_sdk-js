@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file RecoverableApplicationInfo
  * @kit AbilityKit
  */
 
@@ -23,12 +23,7 @@ import bundleManager from './../@ohos.bundle.bundleManager';
 /**
  * The module defines the information about a preinstalled application that can be restored after being uninstalled. The
  * information can be obtained through
- * [bundleManager.getRecoverableApplicationInfo]{@link ./../@ohos.bundle.bundleManager:bundleManager.getRecoverableApplicationInfo(callback: AsyncCallback<Array<RecoverableApplicationInfo>>)}
- * .
- *
- * > **NOTE**
- * >
- * > The APIs provided by this module are system APIs.
+ * [bundleManager.getRecoverableApplicationInfo]{@link @ohos.bundle.bundleManager:bundleManager.getRecoverableApplicationInfo}.
  *
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @systemapi

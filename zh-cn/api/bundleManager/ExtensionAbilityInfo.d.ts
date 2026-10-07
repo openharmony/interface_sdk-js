@@ -14,8 +14,8 @@
  */
 
 /**
- * @file
- * @kit AbilityKit
+  * @file ExtensionAbilityInfo
+  * @kit AbilityKit
  */
 
 import { ApplicationInfo } from './ApplicationInfo';
@@ -25,8 +25,8 @@ import { Skill } from './Skill';
 
 /**
  * ExtensionAbility信息，可以通过
- * [bundleManager.getBundleInfoForSelf]{@link ./../@ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)}
- * 获取自身的ExtensionAbility信息，其中参数[bundleFlags]{@link ./../@ohos.bundle.bundleManager:bundleManager.BundleFlag}至少包含
+ * [bundleManager.getBundleInfoForSelf]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf}获取自身的
+ * ExtensionAbility信息，其中参数[bundleFlags]{@link @ohos.bundle.bundleManager:bundleManager.BundleFlag}至少包含
  * GET_BUNDLE_INFO_WITH_HAP_MODULE和GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY。
  *
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -137,13 +137,12 @@ export interface ExtensionAbilityInfo {
 
   /**
    * 应用程序的配置信息<!--Del-->，可以通过调用
-   * [queryExtensionAbilityInfo]{@link ./../@ohos.bundle.bundleManager:bundleManager.queryExtensionAbilityInfo(want: Want, extensionAbilityType: ExtensionAbilityType, extensionAbilityFlags: int, userId: int, callback: AsyncCallback<Array<ExtensionAbilityInfo>>)}
-   * 接口，extensionAbilityFlags参数传入GET_EXTENSION_ABILITY_INFO_WITH_APPLICATION获取<!--DelEnd-->。
+   * [queryExtensionAbilityInfo]{@link @ohos.bundle.bundleManager:bundleManager.queryExtensionAbilityInfo}接口，
+   * extensionAbilityFlags参数传入GET_EXTENSION_ABILITY_INFO_WITH_APPLICATION获取<!--DelEnd-->。
    * 
-   * [getBundleInfoForSelf]{@link ./../@ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)}或
-   * 者
-   * [getBundleInfo]{@link ./../@ohos.bundle.bundleManager:bundleManager.getBundleInfo(bundleName: string, bundleFlags: int, userId: int, callback: AsyncCallback<BundleInfo>)}
-   * 接口获取ExtensionAbilityInfo信息时不会返回该字段内容，可以通过获取[bundleInfo]{@link BundleInfo:BundleInfo}.appInfo对象来获取相关信息。
+   * [getBundleInfoForSelf]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf}或者
+   * [getBundleInfo]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfo}接口获取ExtensionAbilityInfo信息时不会返回该字段内容，可
+   * 以通过获取[bundleInfo]{@link ../bundle/bundleInfo:BundleInfo}.appInfo对象来获取相关信息。
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice [since 11]
@@ -161,9 +160,8 @@ export interface ExtensionAbilityInfo {
 
   /**
    * ExtensionAbility的元信息。通过调用
-   * [getBundleInfoForSelf]{@link ./../@ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)}接
-   * 口，bundleFlags参数传入GET_BUNDLE_INFO_WITH_HAP_MODULE、GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY和
-   * GET_BUNDLE_INFO_WITH_METADATA获取。
+   * [getBundleInfoForSelf]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf}接口，bundleFlags参数传入
+   * GET_BUNDLE_INFO_WITH_HAP_MODULE、GET_BUNDLE_INFO_WITH_EXTENSION_ABILITY和GET_BUNDLE_INFO_WITH_METADATA获取。
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice [since 11]

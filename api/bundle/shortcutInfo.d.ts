@@ -14,26 +14,13 @@
  */
 
 /**
- * The module defines shortcut information configured in the configuration file. For the 
- * [FA model](docroot://application-models/ability-terminology.md#fa-model), the information is configured in the 
- * [config.json](docroot://quick-start/application-configuration-file-overview-fa.md) file. For the 
- * [stage model](docroot://application-models/ability-terminology.md#stage-model), the information is configured in the 
- * configuration file under **resources/base/profile** in the development view.
- * 
- * > **NOTE**
- * >
- * > The APIs of this module have been deprecated since API version 9. You are advised to use 
- * > [bundleManager-ShortcutInfo]{@link shortcutInfo} instead.
  *
- * @file
+ * @file ShortcutInfo
  * @kit AbilityKit
  */
 
 /**
- * > **NOTE**
- * >
- * > This API has been supported since API version 7 and deprecated since API version 9. You are advised to use
- * > [bundleManager-ShortcutWant]{@link shortcutInfo:ShortcutWant} instead.
+ * Want for the shortcut.
  *
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @systemapi Hide this for inner system use
@@ -65,10 +52,16 @@ export interface ShortcutWant {
 }
 
 /**
+ * The module defines shortcut information configured in the configuration file. For the
+ * [FA model](docroot://application-models/ability-terminology.md#fa-model), the information is configured in the
+ * [config.json](docroot://quick-start/application-configuration-file-overview-fa.md) file. For the
+ * [stage model](docroot://application-models/ability-terminology.md#stage-model), the information is configured in the
+ * configuration file under **resources/base/profile** in the development view.
+ *
  * > **NOTE**
  * >
- * > This API has been supported since API version 7 and deprecated since API version 9. You are advised to use
- * > [bundleManager-ShortcutInfo]{@link shortcutInfo:ShortcutInfo} instead.
+ * > This module is no longer maintained since API version 9. You are advised to use
+ * > [bundleManager-ShortcutInfo]{@link ./shortcutInfo} instead.
  *
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @since 7 dynamiconly
@@ -167,7 +160,7 @@ export interface ShortcutInfo {
    */
   readonly isStatic?: boolean;
   /**
-   * Whether the shortcut is static. **true** if static, **false** otherwise.
+   * Whether the shortcut is a home shortcut. **true** if the shortcut is a home shortcut, **false** otherwise.
    *
    * @default false
    * @syscap SystemCapability.BundleManager.BundleFramework

@@ -14,11 +14,12 @@
  */
 
 /**
- * @file
+ * @file pluginBundleManager模块
  * @kit AbilityKit
  */
 
-import { PluginBundleInfo as _PluginBundleInfo, PluginModuleInfo as _PluginModuleInfo} from './bundleManager/PluginBundleInfo';
+import { PluginBundleInfo as _PluginBundleInfo, PluginModuleInfo as _PluginModuleInfo} 
+    from './bundleManager/PluginBundleInfo';
 
 /**
  * 本模块提供应用对自分发插件的管理能力，包括安装、卸载本地插件。
@@ -35,18 +36,28 @@ declare namespace pluginBundleManager {
    * @param { Array<string> } pluginFilePaths - 插件文件路径数组，表示要安装的插件文件的路径列表。
    * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.kernel.SUPPORT_LOCAL_PLUGIN'.
-   * @throws { BusinessError } 17700010 - Failed to install the plugin because the plugin fails to be parsed.
-   * @throws { BusinessError } 17700011 - Failed to install the plugin because the plugin signature fails to be verified.
-   * @throws { BusinessError } 17700012 - Failed to install the plugin because the HSP path is invalid or the HSP is too large.
-   * @throws { BusinessError } 17700015 - Failed to install the plugin because they have different configuration information.
-   * @throws { BusinessError } 17700016 - Failed to install the plugin because of insufficient system disk space.
-   * @throws { BusinessError } 17700017 - Failed to install the plugin since the version of the plugin to install is too early.
-   * @throws { BusinessError } 17700048 - Failed to install the plugin because the code signature verification failed.
-   * @throws { BusinessError } 17700052 - Failed to install the plugin because debug bundle cannot be installed under non-developer mode.
+   * @throws { BusinessError } 17700010 -
+   *     Failed to install the plugin because the plugin fails to be parsed.
+   * @throws { BusinessError } 17700011 -
+   *     Failed to install the plugin because the plugin signature fails to be verified.
+   * @throws { BusinessError } 17700012 -
+   *     Failed to install the plugin because the HSP path is invalid or the HSP is too large.
+   * @throws { BusinessError } 17700015 -
+   *     Failed to install the plugin because they have different configuration information.
+   * @throws { BusinessError } 17700016 -
+   *     Failed to install the plugin because of insufficient system disk space.
+   * @throws { BusinessError } 17700017 -
+   *     Failed to install the plugin because the version of the plugin to install is too early.
+   * @throws { BusinessError } 17700048 -
+   *     Failed to install the plugin because the code signature verification failed.
+   * @throws { BusinessError } 17700052 -
+   *     Failed to install the plugin because debug bundle cannot be installed under non-developer mode.
    * @throws { BusinessError } 17700073 - Failed to install the plugin because a plugin with the same
-   * <br>bundle name but different signature information exists on the device.
-   * @throws { BusinessError } 17700087 - Failed to install the plugin because the current device does not support plugins.
-   * @throws { BusinessError } 17700091 - Failed to install the plugin because the plugin name is the same as the host bundle name.
+   *     bundle name but different signature information exists on the device.
+   * @throws { BusinessError } 17700087 -
+   *     Failed to install the plugin because the current device does not support plugins.
+   * @throws { BusinessError } 17700091 -
+   *     Failed to install the plugin because the plugin name is the same as the host bundle name.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
@@ -66,7 +77,7 @@ declare namespace pluginBundleManager {
    * @since 26.0.0 dynamic&static
    */
   function uninstallLocalPlugin(pluginBundleName: string): Promise<void>;
-  
+
   /**
    * 查询当前应用中所有自分发插件的信息。使用Promise异步回调。
    *

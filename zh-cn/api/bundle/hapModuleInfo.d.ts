@@ -14,27 +14,25 @@
  */
 
 /**
- * @file
+ * @file HapModuleInfo
  * @kit AbilityKit
  */
 
 import { AbilityInfo } from './abilityInfo';
 
 /**
- * Hap模块信息，未做特殊说明的属性，均通过
- * [bundle.getBundleInfo]{@link ./../@ohos.bundle:bundle.getBundleInfo(bundleName: string, bundleFlags: number, options?: BundleOptions)}
- * 获取。
+ * Hap模块信息，未做特殊说明的属性，均通过[bundle.getBundleInfo]{@link @ohos.bundle:bundle.getBundleInfo}获取。
  * 
  * > **说明：**
  * >
- * > 从API version 9开始，该模块不再维护，建议使用[bundleManager-HapModuleInfo]{@link hapModuleInfo:HapModuleInfo}替代。
+ * > 从API version 9开始，该模块不再维护，
  *
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @since 7 dynamiconly
  * @deprecated since 9
- * @useinstead hapModuleInfo:HapModuleInfo
+ * @useinstead HapModuleInfo
  */
-export interface HapModuleInfo {
+export interface  {
   /**
    * 模块名称。
    *

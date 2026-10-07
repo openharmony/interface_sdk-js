@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -14,12 +14,7 @@
  */
 
 /**
- * The module defines the application information. An application can obtain its own application information through 
- * [bundleManager.getBundleInfoForSelf]{@link ./../@ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)}
- * , with **GET_BUNDLE_INFO_WITH_APPLICATION** passed in to 
- * [bundleFlags]{@link ./../@ohos.bundle.bundleManager:bundleManager.BundleFlag}.
- *
- * @file
+ * @file ApplicationInfo
  * @kit AbilityKit
  */
 
@@ -28,7 +23,10 @@ import { Resource } from '../global/resource';
 import bundleManager from './../@ohos.bundle.bundleManager';
 
 /**
- * The module defines the application information.
+ * The module defines the application information. An application can obtain its own application information through
+ * [bundleManager.getBundleInfoForSelf]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf}, with
+ * **GET_BUNDLE_INFO_WITH_APPLICATION** passed in to
+ * [bundleFlags]{@link @ohos.bundle.bundleManager:bundleManager.BundleFlag}.
  *
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @crossplatform [since 10]
@@ -89,9 +87,8 @@ export interface ApplicationInfo {
    * Application label. It corresponds to the **label** field in the
    * [app.json5](docroot://quick-start/app-configuration-file.md) file. For details about **label**, see the
    * **labelResource** field in this table. Starting from API version 20, if
-   * [bundleManager.getAbilityInfo]{@link ./../@ohos.bundle.bundleManager:bundleManager.getAbilityInfo} is used to
-   * obtain application information, this field is the application name visible to users, instead of the resource
-   * descriptor.
+   * [bundleManager.getAbilityInfo]{@link @ohos.bundle.bundleManager:bundleManager.getAbilityInfo} is used to obtain
+   * application information, this field is the application name visible to users, instead of the resource descriptor.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform [since 10]
@@ -150,10 +147,16 @@ export interface ApplicationInfo {
   readonly process: string;
 
   /**
-   * Permissions required for accessing the application. The permissions can be obtained by passing in
-   * **GET_BUNDLE_INFO_WITH_APPLICATION** and **GET_BUNDLE_INFO_WITH_REQUESTED_PERMISSION** to the **bundleFlags**
-   * parameter of
-   * [getBundleInfoForSelf]{@link ./../@ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)}.
+   * List of permissions required to access the application<!--Del-->, which can be obtained by calling
+   * [getApplicationInfo]{@link @ohos.bundle.bundleManager:bundleManager.getApplicationInfo} with the appFlags parameter
+   * set to GET_APPLICATION_INFO_WITH_PERMISSION<!--DelEnd-->.
+   *
+   * When [getBundleInfoForSelf]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf} or
+   * [getBundleInfo]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfo} is called to obtain ApplicationInfo
+   * information, this field is not returned. You can obtain the permission list from
+   * [bundleInfo]{@link ./BundleInfo:BundleInfo}.reqPermissionDetails.
+   *
+   * **Atomic service API:** Since API version 11, this API is supported in atomic services.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform [since 20]
@@ -175,11 +178,11 @@ export interface ApplicationInfo {
   readonly codePath: string;
 
   /**
-   * Metadata of the application. The information can be obtained by passing in **GET_BUNDLE_INFO_WITH_APPLICATION** and
-   * **GET_BUNDLE_INFO_WITH_METADATA** to the **bundleFlags** parameter of
-   * [getBundleInfoForSelf]{@link ./../@ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)}.
+   * Metadata of the application, which can be obtained by calling
+   * [getBundleInfoForSelf]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf} with the bundleFlags
+   * parameter set to GET_BUNDLE_INFO_WITH_APPLICATION and GET_BUNDLE_INFO_WITH_METADATA.
    *
-   * Note: Supported since API version 9 and deprecated since API version 10. You are advised to use **metadataArray**
+   * **Note:** Supported since API version 9 and deprecated since API version 10. You are advised to use metadataArray
    * instead.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -192,7 +195,7 @@ export interface ApplicationInfo {
   /**
    * Metadata of the application. The information can be obtained by passing in **GET_BUNDLE_INFO_WITH_APPLICATION** and
    * **GET_BUNDLE_INFO_WITH_METADATA** to the **bundleFlags** parameter of
-   * [getBundleInfoForSelf]{@link ./../@ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)}.
+   * [getBundleInfoForSelf]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf}.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform [since 20]
@@ -214,9 +217,10 @@ export interface ApplicationInfo {
   readonly removable: boolean;
 
   /**
-   * Access token ID of the application, which is used in the
-   * [application access control verification API](docroot://reference/apis-ability-kit/js-apis-abilityAccessCtrl.md#checkaccesstoken9)
-   * .
+   * accessTokenId of the application, which is the identity identifier of the application and is used in
+   * [checkAccessToken]{@link @ohos.abilityAccessCtrl:abilityAccessCtrl.AtManager.checkAccessToken}.
+   *
+   * **Atomic service API:** Since API version 11, this API is supported in atomic services.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform [since 20]
@@ -238,10 +242,12 @@ export interface ApplicationInfo {
   readonly uid: int;
 
   /**
-   * Resource information of the application icon. The resource information obtained contains the bundle name, module
-   * name, and ID of the resource. You can call
-   * [getMediaContent]{@link ./../@ohos.resourceManager:resourceManager.ResourceManager.getMediaContent(resId: long, callback: _AsyncCallback<Uint8Array>)}
-   * to obtain the resource details.
+   * Icon resource information of the application, which contains the bundleName, moduleName, and id of the resource.
+   * You can call the globalization API
+   * [getMediaContentBase64]{@link @ohos.resourceManager:resourceManager.ResourceManager.getMediaContentBase64(resId: long, callback: _AsyncCallback<string>)}
+   * and pass in iconResource.id to obtain the detailed resource data information.
+   *
+   * **Atomic service API:** Since API version 11, this API is supported in atomic services.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform [since 20]
@@ -252,10 +258,12 @@ export interface ApplicationInfo {
   readonly iconResource: Resource;
 
   /**
-   * Resource information of the application label. The resource information obtained contains the bundle name, module
-   * name, and ID of the resource. You can call
-   * [getMediaContent]{@link ./../@ohos.resourceManager:resourceManager.ResourceManager.getMediaContent(resId: long, callback: _AsyncCallback<Uint8Array>)}
-   * to obtain the resource details.
+   * Name resource information of the application, which contains the bundleName, moduleName, and id of the resource.
+   * You can call the globalization API
+   * [getStringValue]{@link @ohos.resourceManager:resourceManager.ResourceManager.getStringValue(resId: long, callback: _AsyncCallback<string>)}
+   * and pass in labelResource.id to obtain the detailed resource data information.
+   *
+   * **Atomic service API:** Since API version 11, this API is supported in atomic services.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform [since 20]
@@ -266,10 +274,12 @@ export interface ApplicationInfo {
   readonly labelResource: Resource;
 
   /**
-   * Resource information of the application description. The resource information obtained contains the bundle name,
-   * module name, and ID of the resource. You can call
-   * [getMediaContent]{@link ./../@ohos.resourceManager:resourceManager.ResourceManager.getMediaContent(resId: long, callback: _AsyncCallback<Uint8Array>)}
-   * to obtain the resource details.
+   * Description resource information of the application, which contains the bundleName, moduleName, and id of the
+   * resource. You can call the globalization API
+   * [getStringValue]{@link @ohos.resourceManager:resourceManager.ResourceManager.getStringValue(resId: long, callback: _AsyncCallback<string>)}
+   * and pass in descriptionResource.id to obtain the detailed resource data information.
+   *
+   * **Atomic service API:** Since API version 11, this API is supported in atomic services.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform [since 20]
@@ -280,23 +290,24 @@ export interface ApplicationInfo {
   readonly descriptionResource: Resource;
 
   /**
-   * Distribution type of the application signing certificate. The options are as follows:<li>**app_gallery**:
-   * application installed from AppGallery. <!--RP1--><!--RP1End--><li>**enterprise**: enterprise internal application.
-   * These are applications developed by an enterprise for its internal use by employees only. They are not distributed
-   * through public channels like AppGallery but are distributed internally via the enterprise's own channels. <!--RP2--
-   * ><!--RP2End--><li>**enterprise_mdm**: enterprise
-   * [Mobile Device Management (MDM) application](docroot://mdm/mdm-kit-term.md#mdm-app)
-   * . <!--Del-->To install a common enterprise application, you must have
-   * [administrator privileges]{@link ./../@ohos.enterprise.adminManager:adminManager.enableAdmin(admin: Want, enterpriseInfo: EnterpriseInfo, type: AdminType, callback: AsyncCallback<void>)}
-   * . <!--DelEnd--><!--RP3--><!--RP3End--><li>**enterprise_normal**: standard enterprise application. These
-   * applications do not need to be released to AppGallery. Instead, they can be distributed and installed through an
-   * enterprise [MDM application](docroot://mdm/mdm-kit-term.md#mdm-app) and
-   * offline installer. <!--RP4--><!--RP4End--><li>**os_integration**: pre-installed application. They are not available
-   * for third-party applications. <li>crowdtesting: application under crowdtesting, which is distributed by AppGallery
-   * to a limited number of users and come with a set expiration date. When the system detects that the validity period
-   * of the application expires, it prompts the user to update to the release version available on AppGallery. This API
-   * is deprecated since API version 11. <li>**internaltesting**: application under internal testing of AppGallery. <!--
-   * RP5--><!--RP5End--><li>none: others.
+   * Distribution type of the application signing certificate, which is divided into: <li>app_gallery: application
+   * installed from the application market. <!--RP1--><!--RP1End--> <li> enterprise: enterprise internal application,
+   * which is developed by the enterprise itself and used only by its internal employees. It is not released through
+   * public channels such as the application market, but distributed internally through the enterprise's own channels.
+   * <!--RP2--><!--RP2End--><li> enterprise_mdm: enterprise [MDM app](docroot://mdm/mdm-kit-term.md#mdm-app). <!--Del-->
+   * It can be installed only after the administrator privilege is activated by calling
+   * [enableAdmin](docroot://reference/apis-mdm-kit/js-apis-enterprise-adminManager-sys.md#adminmanagerenableadmin). 
+   * <!--DelEnd--><!--RP3--><!--RP3End--> <li>enterprise_normal: normal enterprise application, which does not need
+   * to be listed on the Huawei application market and can be distributed and installed through the enterprise
+   * [MDM app](docroot://mdm/mdm-kit-term.md#mdm-app) and offline installer. <!--RP4--><!--RP4End--><li>os_integration:
+   * preset application, which cannot be applied for or configured by third-party applications.<li>crowdtesting:
+   * crowdtesting application, which is a specific application distributed by the application market to some users with
+   * a certain validity period. When the system detects that the validity period of the application has expired, it
+   * notifies the user to update to the release version of the application in the application market. Deprecated since
+   * API version 11.<li>internaltesting: application under internal testing in the application market. <!--RP5-->
+   * <!--RP5End--><li>none: others.
+   *
+   * **Atomic service API:** Since API version 11, this API is supported in atomic services.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform [since 20]
@@ -307,7 +318,11 @@ export interface ApplicationInfo {
   readonly appDistributionType: string;
 
   /**
-   * Type of the application signing certificate file. The options are **debug** and **release**.
+   * Type of the application signing certificate file, which is divided into 'debug' and 'release'. The 'debug' type is
+   * used in the development and testing phase for debugging and verifying functions; the 'release' type is used for
+   * applications officially released in the production environment.
+   *
+   * **Atomic service API:** Since API version 11, this API is supported in atomic services.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform [since 20]
@@ -329,7 +344,12 @@ export interface ApplicationInfo {
   readonly systemApp: boolean;
 
   /**
-   * Bundle type, which can be **APP** (application) or **ATOMIC_SERVICE** (atomic service).
+   * Type of the bundle, whose value is APP (application) or ATOMIC_SERVICE (atomic service). APP is the traditional
+   * application form and requires the user to install it proactively; ATOMIC_SERVICE is the atomic service form, which
+   * is ready to use without installation. Developers can determine the type of the current application based on this
+   * field and perform differentiated processing.
+   *
+   * **Atomic service API:** Since API version 11, this API is supported in atomic services.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @atomicservice [since 11]
@@ -371,7 +391,10 @@ export interface ApplicationInfo {
   readonly nativeLibraryPath: string;
 
   /**
-   * Multi-app mode.
+   * Application multi-instance mode. It is applicable to scenarios where multiple application instances need to run
+   * simultaneously, such as managing multiple enterprise accounts (for example, work account and personal account
+   * logged in at the same time), running multiple environments in parallel (for example, test environment and
+   * production environment), and multiple social identities (for example, personal account and work account).
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 12 dynamic
@@ -380,7 +403,8 @@ export interface ApplicationInfo {
   readonly multiAppMode: MultiAppMode;
 
   /**
-   * Index of an application clone. It takes effect only for cloned applications.
+   * Clone index identifier of the application bundle, which takes effect only in clone applications. The value is an
+   * integer in the range [0-5], where 0 indicates the main application and 1-5 indicate clone applications.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 12 dynamic
@@ -406,11 +430,12 @@ export interface ApplicationInfo {
   readonly installSource: string;
 
   /**
-   * Release type of the SDK used for application packing. Currently, the SDK release types include Canary, Beta, and
-   * Release. Each of the Canary and Beta releases can be distinguished by a sequential number, such as Canary1, Canary2
-   * , Beta1, and Beta2. You can compare the SDK release type on which application packaging depends and the OS release
-   * type (specified by [deviceInfo.distributionOSReleaseType]{@link ./../@ohos.deviceInfo:deviceInfo}) to determine the
-   * compatibility.
+   * Release type of the SDK used when the application is packaged. The current SDK release types are Canary, Beta, and
+   * Release, where Canary and Beta are further subdivided by sequence number, for example, Canary1, Canary2, Beta1, and
+   * Beta2. Developers can determine compatibility by comparing the SDK release type that the application packaging
+   * depends on with the OS release type ([deviceInfo.distributionOSReleaseType]{@link @ohos.deviceInfo:deviceInfo}).
+   *
+   * **Atomic service API:** Since API version 12, this API is supported in atomic services.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @crossplatform [since 20]
@@ -442,7 +467,8 @@ export interface ApplicationInfo {
   readonly cloudStructuredDataSyncEnabled?: boolean;
 
   /**
-   * Indicates the flags of the application.
+   * Status set between the current application and the current user. Each bit indicates a specific Boolean status. For
+   * details about the values, see [ApplicationInfoFlag]{@link @ohos.bundle.bundleManager:bundleManager.ApplicationInfoFlag}.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
@@ -504,7 +530,7 @@ export interface ModuleMetadata {
  */
 export interface MultiAppMode {
   /**
-   * Indicates the multiAppModeType of the bundle
+   * Type of the multi-app mode.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 12 dynamic
@@ -513,7 +539,7 @@ export interface MultiAppMode {
   readonly multiAppModeType: bundleManager.MultiAppModeType;
 
   /**
-   * Indicates the max count of the bundle,the unit is quantity.
+   * Maximum number of accounts that can log in to the application at the same time.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @since 12 dynamic
@@ -533,7 +559,7 @@ export interface MultiAppMode {
 export interface PreinstalledApplicationInfo {
 
   /**
-   * Bundle name of the application.
+   * Name of the application package.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
@@ -543,8 +569,8 @@ export interface PreinstalledApplicationInfo {
   readonly bundleName: string;
 
   /**
-   * Module name of the application. The value is **moduleName** configured for the entry module. If the entry module
-   * does not exist, the value is **moduleName** configured for the feature module.
+   * Module name of the application package. Returns the moduleName of the entry module. If no entry module exists,
+   * returns the moduleName of the feature module.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
@@ -554,7 +580,7 @@ export interface PreinstalledApplicationInfo {
   readonly moduleName: string;
 
   /**
-   * Icon ID of the application.
+   * Application icon ID.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
@@ -564,7 +590,7 @@ export interface PreinstalledApplicationInfo {
   readonly iconId: long;
 
   /**
-   * Label ID of the application.
+   * Application label ID.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi

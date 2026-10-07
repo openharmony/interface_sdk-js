@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file ModuleInfo
  * @kit AbilityKit
  */
 
@@ -23,17 +23,17 @@
  *
  * > **NOTE**
  * >
- * > The APIs of this module have been deprecated since API version 9. You are advised to use
- * > [bundleManager-HapModuleInfo]{@link hapModuleInfo:HapModuleInfo} instead.
+ * > This module is no longer maintained since API version 9. You are advised to use
+ * > [bundleManager-HapModuleInfo]{@link ./hapModuleInfo:HapModuleInfo} instead.
  *
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @since 7 dynamiconly
  * @deprecated since 9
- * @useinstead hapModuleInfo:HapModuleInfo
+ * @useinstead ./hapModuleInfo:HapModuleInfo
  */
 export interface ModuleInfo {
   /**
-   * The module name.
+   * Module name.
    *
    * @default Indicates the name of the .hap package to which the capability belongs
    * @syscap SystemCapability.BundleManager.BundleFramework
@@ -44,7 +44,8 @@ export interface ModuleInfo {
   readonly moduleName: string;
 
   /**
-   * The module source path.
+   * Installation directory. Do not concatenate paths to access resource files.
+   * Use [resourceManager]{@link @ohos.resourceManager:resourceManager} to access resources.
    *
    * @default Indicates the module source dir of this module
    * @syscap SystemCapability.BundleManager.BundleFramework

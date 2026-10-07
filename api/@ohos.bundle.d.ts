@@ -297,7 +297,7 @@ declare namespace bundle {
      * @deprecated since 10
      */
     FLAG_MODULE_USED_BY_SHORTCUT = 3
- 	}
+  }
 
   /**
    * Signature verification result.
@@ -335,7 +335,7 @@ declare namespace bundle {
      * @deprecated since 10
      */
     SIGNATURE_UNKNOWN_BUNDLE = 2
- 	}
+  }
 
   /**
    * Result returned when querying whether a shortcut exists.
@@ -373,7 +373,7 @@ declare namespace bundle {
      * @deprecated since 10
      */
     SHORTCUT_EXISTENCE_UNKNOW = 2
- 	}
+  }
 
   /**
    * Flag used to specify the query scope for shortcuts.
@@ -393,7 +393,7 @@ declare namespace bundle {
      * @deprecated since 10
      */
     QUERY_SHORTCUT_HOME = 0
- 	}
+  }
 
   /**
    * > **NOTE**

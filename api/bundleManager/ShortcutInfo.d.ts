@@ -14,20 +14,16 @@
  */
 
 /**
- * The module describes the shortcut information defined in the 
- * [module.json5](docroot://quick-start/module-configuration-file.md#shortcuts) file of an application. The information 
- * can be obtained by running 
- * [getAllShortcutInfoForSelf]{@link ./../@ohos.bundle.shortcutManager:shortcutManager.getAllShortcutInfoForSelf}<!--Del
- * --> or 
- * [getShortcutInfo]{@link ./../@ohos.bundle.launcherBundleManager:launcherBundleManager.getShortcutInfo(bundleName :string, callback: AsyncCallback<Array<ShortcutInfo>>)}
- * <!--DelEnd-->.
- *
- * @file
+ * @file ShortcutInfo
  * @kit AbilityKit
  */
 
 /**
- * Describes the configuration information for a shortcut.
+ * The module describes the shortcut information defined in the
+ * [module.json5](docroot://quick-start/module-configuration-file.md#shortcuts) file of an application. The information
+ * can be obtained by running
+ * [getAllShortcutInfoForSelf]{@link @ohos.bundle.shortcutManager:shortcutManager.getAllShortcutInfoForSelf}<!--Del-->
+ * or [getShortcutInfo]{@link @ohos.bundle.launcherBundleManager:launcherBundleManager.getShortcutInfo}<!--DelEnd-->.
  *
  * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
  * @systemapi [since 9 - 19]
@@ -72,7 +68,7 @@ export interface ShortcutInfo {
   moduleName?: string;
 
   /**
-   * Name of the ability that hosts the shortcut.
+   * Name of the host ability of the shortcut, that is, the name of the ability that carries this shortcut.
    *
    * @type { string } [since 9 - 11]
    * @type { ?string } [since 12]
@@ -244,8 +240,7 @@ export interface ShortcutWant {
 
   /**
    * Action to take when starting the shortcut, consistent with the **action** field of
-   * [Want]{@link ./../@ohos.app.ability.Want:Want#action}. It is used with **uri** or **parameters** to specify the
-   * operation to be performed in implicit Want mode.
+   * [Want]{@link ./../@ohos.app.ability.Want:Want#action}.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi

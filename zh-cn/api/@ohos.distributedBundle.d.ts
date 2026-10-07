@@ -14,13 +14,15 @@
  */
 
 /**
- * @file
+ *
+ * @file 分布式包管理
  * @kit AbilityKit
  */
 
 import { AsyncCallback } from './@ohos.base';
 import { ElementName } from './bundle/elementName';
 import { RemoteAbilityInfo } from './bundle/remoteAbilityInfo';
+
 /**
  * # 系统能力
  * 
@@ -100,5 +102,4 @@ declare namespace distributedBundle {
    */
   function getRemoteAbilityInfos(elementNames: Array<ElementName>): Promise<Array<RemoteAbilityInfo>>;
 }
-
 export default distributedBundle;

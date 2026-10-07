@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file CustomizeData
  * @kit AbilityKit
  */
 
@@ -23,12 +23,12 @@
  * 
  * > **说明：**
  * >
- * > 从API version 9开始，该模块不再维护，建议使用[Metadata]{@link ./../bundleManager/Metadata:Metadata}替代。
+ * > 从API version 9开始，该模块不再维护，
  *
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @since 7 dynamiconly
  * @deprecated since 9
- * @useinstead ./../bundleManager/Metadata:Metadata
+ * @useinstead ../bundleManager/Metadata:Metadata
  */
 export interface CustomizeData {
   /**

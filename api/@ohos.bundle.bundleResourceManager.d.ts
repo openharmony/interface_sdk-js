@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file bundleResourceManager Module
  * @kit AbilityKit
  */
 
@@ -36,7 +36,6 @@ import { ElementName } from './bundleManager/ElementName';
 /*** endif */
 
 
-/*** endif */
 /**
  * The module provides APIs for obtaining resource information, including
  * [BundleResourceInfo]{@link ./bundleManager/BundleResourceInfo:BundleResourceInfo} and
@@ -46,8 +45,6 @@ import { ElementName } from './bundleManager/ElementName';
  * >
  * > Starting from API version 12, this module supports query of icons and names of disabled applications and
  * > applications installed by all users.
- * >
- * > The APIs provided by this module are system APIs.
  *
  * @syscap SystemCapability.BundleManager.BundleFramework.Resource
  * @systemapi
@@ -106,7 +103,8 @@ declare namespace bundleResourceManager {
     GET_RESOURCE_INFO_WITH_SORTED_BY_LABEL = 0x00000008,
 
     /**
-     * The [drawableDescriptor]{@link @ohos.arkui.drawableDescriptor} object of the application icon is obtained.
+     * The [drawableDescriptor](docroot://reference/apis-arkui/js-apis-arkui-drawableDescriptor-sys.md) object of the
+     * application icon is obtained.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Resource
      * @systemapi
@@ -117,18 +115,15 @@ declare namespace bundleResourceManager {
 
     /**
      * The resource information about abilities that show icons only on the home screen is obtained. It is valid only in
-     * the
-     * [getLauncherAbilityResourceInfo]{@link bundleResourceManager.getLauncherAbilityResourceInfo(bundleName: string, resourceFlags?: int)}
-     * and
-     * [getAllLauncherAbilityResourceInfo]{@link bundleResourceManager.getAllLauncherAbilityResourceInfo(resourceFlags: int, callback: AsyncCallback<Array<LauncherAbilityResourceInfo>>)}
-     * APIs.
+     * the [getLauncherAbilityResourceInfo]{@link bundleResourceManager.getLauncherAbilityResourceInfo} and
+     * [getAllLauncherAbilityResourceInfo]{@link bundleResourceManager.getAllLauncherAbilityResourceInfo} APIs.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Resource
      * @systemapi
      * @since 20 dynamic
      * @since 23 static
      */
-    GET_RESOURCE_INFO_ONLY_WITH_MAIN_ABILITY = 0x00000020,
+    GET_RESOURCE_INFO_ONLY_WITH_MAIN_ABILITY = 0x00000020
   }
 
   /**
@@ -137,7 +132,7 @@ declare namespace bundleResourceManager {
    *
    * @permission ohos.permission.GET_BUNDLE_RESOURCES
    * @param { string } bundleName - Bundle name of the application.
-   * @param { int } [resourceFlags] - Type of the resource information to obtain.
+   * @param { int } resourceFlags - Type of the resource information to obtain.
    * @returns { BundleResourceInfo } Resource information of the application obtained.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -178,7 +173,7 @@ declare namespace bundleResourceManager {
    *
    * @permission ohos.permission.GET_BUNDLE_RESOURCES
    * @param { string } bundleName - Bundle name of the application.
-   * @param { int } [resourceFlags] - Type of the resource information to obtain. The default value is
+   * @param { int } resourceFlags - Type of the resource information to obtain. The default value is
    *     **[ResourceFlag]{@link bundleResourceManager.ResourceFlag}.GET_RESOURCE_INFO_ALL**.
    * @returns { Array<LauncherAbilityResourceInfo> } Resource information of the entry ability obtained.
    * @throws { BusinessError } 201 - Permission denied.
@@ -221,8 +216,8 @@ declare namespace bundleResourceManager {
    *
    * @permission ohos.permission.GET_INSTALLED_BUNDLE_LIST and ohos.permission.GET_BUNDLE_RESOURCES
    * @param { int } resourceFlags - Type of the resource information to obtain.
-   * @param { AsyncCallback<Array<BundleResourceInfo>> } callback - [Callback]{@link @ohos.base:AsyncCallback} used to
-   *     return the result. If the information is successfully obtained, **err** is **null** and **data** is a
+   * @param { AsyncCallback<Array<BundleResourceInfo>> } callback - [AsyncCallback]{@link @ohos.base:AsyncCallback} used
+   *     to return the result. If the operation is successful, **err** is **undefined** and **data** is a
    *     BundleResourceInfo array. Otherwise, **err** is an error object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -259,9 +254,10 @@ declare namespace bundleResourceManager {
    *
    * @permission ohos.permission.GET_INSTALLED_BUNDLE_LIST and ohos.permission.GET_BUNDLE_RESOURCES
    * @param { int } resourceFlags - Type of the resource information to obtain.
-   * @param { AsyncCallback<Array<LauncherAbilityResourceInfo>> } callback - [Callback]{@link @ohos.base:AsyncCallback}
-   *     used to return the result. If the information is successfully obtained, **err** is **null** and **data** is a
-   *     LauncherAbilityResourceInfo array. Otherwise, **err** is an error object.
+   * @param { AsyncCallback<Array<LauncherAbilityResourceInfo>> } callback -
+   *     [AsyncCallback]{@link @ohos.base:AsyncCallback} used to return the result. If the operation is successful,
+   *     **err** is **undefined** and **data** is a LauncherAbilityResourceInfo array. Otherwise, **err** is an error
+   *     object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
@@ -293,8 +289,8 @@ declare namespace bundleResourceManager {
   function getAllLauncherAbilityResourceInfo(resourceFlags: int): Promise<Array<LauncherAbilityResourceInfo>>;
 
   /**
-   * Obtains the ExtensionAbility resource information of an application based on the bundle name, ExtensionAbility type
-   * , resource flags, and clone ID. This API returns the result synchronously.
+   * Obtains the ExtensionAbility resource information of an application based on the bundle name, ExtensionAbility
+   * type, resource flags, and clone ID. This API returns the result synchronously.
    *
    * @permission ohos.permission.GET_BUNDLE_RESOURCES
    * @param { string } bundleName - Bundle name of the application.
@@ -340,10 +336,10 @@ declare namespace bundleResourceManager {
    * element in **optionsList**. This API uses a promise to return the result.
    *
    * @permission ohos.permission.GET_INSTALLED_BUNDLE_LIST and ohos.permission.GET_BUNDLE_RESOURCES
-   * @param { Array<BundleOptions> } optionsList - Parameters of the applications to query.<br>**bundleName**,
-   *     **moduleName**, and **abilityName** are mandatory parameters.<br>Value range of **appIndex**: [0, 5]. The
-   *     default value is **0** if not specified.<br>**userId** is an invalid parameter. It does not need to be passed,
-   *     and will not take effect if passed.
+   * @param { Array<BundleOptions> } optionsList - Parameters of the applications to query.
+   *     <br>**bundleName**, **moduleName**, and **abilityName** are mandatory parameters.
+   *     <br>Value range of **appIndex**: [0, 5]. The default value is **0** if not specified.
+   *     <br>**userId** is an invalid parameter. It does not need to be passed, and will not take effect if passed.
    * @param { int } resourceFlags - Resource information flags, which indicate the type of resource information to
    *     obtain. The value is an enumerated value of [ResourceFlag]{@link bundleResourceManager.ResourceFlag}, excluding
    *     [ResourceFlag]{@link bundleResourceManager.ResourceFlag}.GET_RESOURCE_INFO_WITH_SORTED_BY_LABEL and
@@ -376,8 +372,6 @@ declare namespace bundleResourceManager {
 
   /**
    * Defines the entry icon and name of an application.
-   *
-   * <!--no_check-->
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi

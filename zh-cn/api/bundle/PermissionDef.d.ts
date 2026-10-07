@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file PermissionDef
  * @kit AbilityKit
  */
 
@@ -23,15 +23,13 @@
  * 
  * > **说明：**
  * >
- * > 从API version 9开始，该模块不再维护，建议使用[bundleManager-PermissionDef]{@link PermissionDef:PermissionDef}替代。
- * >
- * > 本模块为系统接口。
+ * > 从API version 9开始，该模块不再维护，
  *
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @systemapi
  * @since 8 dynamiconly
  * @deprecated since 9
- * @useinstead PermissionDef:PermissionDef
+ * @useinstead PermissionDef
  */
 export interface PermissionDef {
   /**

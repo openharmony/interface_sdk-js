@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file CustomizeData
  * @kit AbilityKit
  */
 
@@ -23,13 +23,13 @@
  *
  * > **NOTE**
  * >
- * > The APIs of this module have been deprecated since API version 9. You are advised to use
- * > [Metadata]{@link ./../bundleManager/Metadata:Metadata} instead.
+ * > This module is no longer maintained since API version 9. You are advised to use
+ * > [Metadata]{@link ../bundleManager/Metadata:Metadata} instead.
  *
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @since 7 dynamiconly
  * @deprecated since 9
- * @useinstead ./../bundleManager/Metadata:Metadata
+ * @useinstead ../bundleManager/Metadata:Metadata
  */
 export interface CustomizeData {
   /**

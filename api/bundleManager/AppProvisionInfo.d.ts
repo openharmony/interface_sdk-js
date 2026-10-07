@@ -14,23 +14,14 @@
  */
 
 /**
- * The module provides information in the 
- * [HarmonyAppProvision configuration file](docroot://security/app-provision-structure.md). The information can be 
- * obtained through 
- * [getAppProvisionInfo]{@link ./../@ohos.bundle.bundleManager:bundleManager.getAppProvisionInfo(bundleName: string, callback: AsyncCallback<AppProvisionInfo>)}
- * .
- * 
- * > **NOTE**
- * >
- * > The APIs provided by this module are system APIs.
- *
- * @file
+ * @file AppProvisionInfo
  * @kit AbilityKit
  */
 
 /**
  * The module provides information in the
- * [HarmonyAppProvision configuration file](docroot://security/app-provision-structure.md).
+ * [HarmonyAppProvision configuration file](docroot://security/app-provision-structure.md). The information can be
+ * obtained through [getAppProvisionInfo]{@link @ohos.bundle.bundleManager:bundleManager.getAppProvisionInfo}.
  *
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @systemapi
@@ -139,8 +130,8 @@ export interface AppProvisionInfo {
   readonly issuer: string;
 
   /**
-   * Unique ID of the application. For details, see
-   * [What Is appIdentifier](docroot://quick-start/common_problem_of_application.md#what-is-appidentifier).
+   * Unique identifier of the application. For details, see
+   * [What Is appIdentifier](docroot://quick-start/common-problem-of-application.md#what-is-appidentifier).
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
@@ -180,6 +171,7 @@ export interface AppProvisionInfo {
 
   /**
    * Index of the application.
+   * The value should be an integer.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
@@ -219,7 +211,7 @@ export interface AppProvisionInfo {
  */
 export interface Validity {
   /**
-   * Start time of the validity period of the configuration file.
+   * Indicates the start time of the validity period of the configuration file, in seconds.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
@@ -229,7 +221,7 @@ export interface Validity {
   readonly notBefore: long;
 
   /**
-   * End time of the validity period of the configuration file.
+   * Indicates the end time of the validity period of the configuration file, in seconds.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi

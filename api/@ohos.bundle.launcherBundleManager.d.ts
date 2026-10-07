@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file launcherBundleManager Module
  * @kit AbilityKit
  */
 
@@ -25,7 +25,8 @@ import StartOptions from './@ohos.app.ability.StartOptions';
 
 /**
  * The module providers APIs for launcher applications (applications with icons on the home screen) to obtain the
- * [launcher ability information]{@link ./bundleManager/LauncherAbilityInfo:LauncherAbilityInfo}.
+ * [launcher ability information]{@link ./bundleManager/LauncherAbilityInfo:LauncherAbilityInfo} and
+ * [shortcut information]{@link ./bundleManager/ShortcutInfo}.
  *
  * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
  * @since 9 dynamic
@@ -38,13 +39,12 @@ declare namespace launcherBundleManager {
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName - Bundle name.
-   * @param { int } userId - User ID, which can be obtained by calling
-   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
-   *     .
-   * @param { AsyncCallback<Array<LauncherAbilityInfo>> } callback - [Callback]{@link @ohos.base:AsyncCallback} used to
-   *     return the result. If the operation is successful, **err** is **null**, and **data** is the array of
-   *     [LauncherAbilityInfo]{@link ./bundleManager/LauncherAbilityInfo:LauncherAbilityInfo} objects obtained.
-   *     Otherwise, **err** is an error object.
+   * @param { int } userId - ID of the user to query, which can be obtained by calling
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}.
+   * @param { AsyncCallback<Array<LauncherAbilityInfo>> } callback - [AsyncCallback]{@link @ohos.base:AsyncCallback}. If
+   *     the operation is successful, **err** is **undefined** and **data** is the
+   *     [LauncherAbilityInfo]{@link ./bundleManager/LauncherAbilityInfo:LauncherAbilityInfo} information contained in
+   *     the bundle. Otherwise, **err** is an error object.
    * @throws { BusinessError } 201 - Verify permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
@@ -65,9 +65,8 @@ declare namespace launcherBundleManager {
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName - Bundle name.
-   * @param { int } userId - User ID, which can be obtained by calling
-   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
-   *     .
+   * @param { int } userId - ID of the user to query, which can be obtained by
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}.
    * @returns { Promise<Array<LauncherAbilityInfo>> } Promise used to return the array of
    *     [LauncherAbilityInfo]{@link ./bundleManager/LauncherAbilityInfo:LauncherAbilityInfo} objects obtained.
    * @throws { BusinessError } 201 - Verify permission denied.
@@ -90,9 +89,8 @@ declare namespace launcherBundleManager {
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName - Bundle name.
-   * @param { int } userId - User ID, which can be obtained by calling
-   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
-   *     .
+   * @param { int } userId - ID of the user to query, which can be obtained by calling
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}.
    * @returns { Array<LauncherAbilityInfo> } Array of the
    *     [LauncherAbilityInfo]{@link ./bundleManager/LauncherAbilityInfo:LauncherAbilityInfo} objects obtained.
    * @throws { BusinessError } 201 - Verify permission denied.
@@ -110,13 +108,12 @@ declare namespace launcherBundleManager {
    * applications based on the given user ID. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { int } userId - User ID, which can be obtained by calling
-   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
-   *     .
-   * @param { AsyncCallback<Array<LauncherAbilityInfo>> } callback - [Callback]{@link @ohos.base:AsyncCallback} used to
-   *     return the result. If the operation is successful, **err** is **null**, and **data** is the array of
-   *     [LauncherAbilityInfo]{@link ./bundleManager/LauncherAbilityInfo:LauncherAbilityInfo} objects obtained.
-   *     Otherwise, **err** is an error object.
+   * @param { int } userId - ID of the user to query, which can be obtained by
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}.
+   * @param { AsyncCallback<Array<LauncherAbilityInfo>> } callback - Callback used to return the result. If the function
+   *     call is successful, **err** is **undefined** and **data** is the
+   *     [LauncherAbilityInfo]{@link ./bundleManager/LauncherAbilityInfo:LauncherAbilityInfo} information of all
+   *     applications under the specified user. Otherwise, **err** is an error object.
    * @throws { BusinessError } 201 - Verify permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
@@ -135,9 +132,8 @@ declare namespace launcherBundleManager {
    * applications based on the given user ID. This API uses a promise to return the result.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { int } userId - User ID, which can be obtained by calling
-   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
-   *     .
+   * @param { int } userId - ID of the user to query, which can be obtained by
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}.
    * @returns { Promise<Array<LauncherAbilityInfo>> } Promise used to return the array of
    *     [LauncherAbilityInfo]{@link ./bundleManager/LauncherAbilityInfo:LauncherAbilityInfo} objects obtained.
    * @throws { BusinessError } 201 - Verify permission denied.
@@ -163,9 +159,10 @@ declare namespace launcherBundleManager {
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Bundle name.
-   * @param { AsyncCallback<Array<ShortcutInfo>> } callback - [Callback]{@link @ohos.base:AsyncCallback} used to return
-   *     the result. If the operation is successful, **err** is **null**, and **data** is the array of
-   *     [ShortcutInfo]{@link ./bundleManager/ShortcutInfo} objects obtained. Otherwise, **err** is an error object.
+   * @param { AsyncCallback<Array<ShortcutInfo>> } callback - [AsyncCallback]{@link @ohos.base:AsyncCallback}. If the
+   *     function call is successful, **err** is **undefined** and **data** is the
+   *     [ShortcutInfo]{@link ./bundleManager/ShortcutInfo} information of the specified applications under the current
+   *     user. Otherwise, it is an error object.
    * @throws { BusinessError } 201 - Verify permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
@@ -239,9 +236,8 @@ declare namespace launcherBundleManager {
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Bundle name.
-   * @param { int } userId - User ID, which can be obtained by calling
-   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
-   *     .
+   * @param { int } userId - User ID, which can be obtained by
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}.
    * @returns { Array<ShortcutInfo> } Array of the [ShortcutInfo]{@link ./bundleManager/ShortcutInfo} objects obtained.
    * @throws { BusinessError } 201 - Verify permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -311,10 +307,10 @@ declare namespace launcherBundleManager {
    * accordingly.
    *
    * @permission ohos.permission.START_SHORTCUT and ohos.permission.SET_LAUNCH_REASON_MESSAGE
-   * @param { ShortcutInfo } shortcutInfo - Shortcut information of the application.
-   * @param { string } startReason - Reason for launching the shortcut. The value can be
-   *     [AbilityConstant.REASON_MESSAGE_DESKTOP_SHORTCUT](docroot://reference/apis-ability-kit/js-apis-app-ability-abilityConstant.md#constants)
-   *     , indicating a home screen shortcut launch.
+   * @param { ShortcutInfo } shortcutInfo - Shortcut information of the app.
+   * @param { string } startReason - Reason for starting the shortcut. The value range is
+   *     [AbilityConstant.REASON_MESSAGE_DESKTOP_SHORTCUT](docroot://reference/apis-ability-kit/js-apis-app-ability-abilityConstant.md#constants),
+   *     which indicates that the shortcut is started from the home screen.
    * @param { StartOptions } [options] - Parameters used to specify the window mode of the target ability.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Verify permission denied.
@@ -329,7 +325,9 @@ declare namespace launcherBundleManager {
   function startShortcutWithReason(shortcutInfo: ShortcutInfo, startReason: string, options?: StartOptions): Promise<void>;
 
   /**
-   * Defines the information about the launcher ability.
+   * Basic information about the home screen application ability, including core attributes such as the application
+   * identifier, icon, and name. For details, see
+   * [LauncherAbilityInfo]{@link ./bundleManager/LauncherAbilityInfo:LauncherAbilityInfo}.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @since 18 dynamic

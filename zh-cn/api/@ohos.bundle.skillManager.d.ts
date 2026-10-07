@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file skillManager模块
  * @kit AbilityKit
  */
 
@@ -85,7 +85,7 @@ declare namespace skillManager {
      * @atomicservice
      * @since 26.0.0 dynamic
      */
-    GET_SKILL_INFO_WITH_REQUEST_PERMISSIONS = 0x00000008,
+    GET_SKILL_INFO_WITH_REQUEST_PERMISSIONS = 0x00000008
   }
 
   /**
@@ -93,8 +93,7 @@ declare namespace skillManager {
    *
    * @param { string } moduleName - 指定查询技能所属模块的名称。
    * @param { string } skillName - 指定查询技能的名称。
-   * @param { int } flags {@link SkillInfoFlag} - 指定返回的SkillInfo所包含的信息。详情请参考SkillInfoFlag。
-   *     contained in the SkillInfo object that will be returned.
+   * @param { int } flags - 指定返回的SkillInfo所包含的信息。详情请参考[SkillInfoFlag]{@link skillManager.SkillInfoFlag}。
    * @returns { Promise<SkillInfo> } Promise对象，返回指定技能的SkillInfo。
    * @throws { BusinessError } 17700002 - The specified module is not found.
    * @throws { BusinessError } 17700093 - The specified skillName is not found.
@@ -108,7 +107,7 @@ declare namespace skillManager {
   /**
    * 获取本应用的所有技能信息。使用Promise异步回调。
    *
-   * @param { int } flags {@link SkillInfoFlag} - 指定返回的SkillInfo所包含的信息。详情请参考SkillInfoFlag。
+   * @param { int } flags - 指定返回的SkillInfo所包含的信息。详情请参考[SkillInfoFlag]{@link skillManager.SkillInfoFlag}。
    * @returns { Promise<Array<SkillInfo>> } Promise对象，返回调用方所在应用的所有技能信息数组。
    * @throws { BusinessError } 17700101 - Bundle manager service is exception. Possible causes:
    *     1. Failed to connect to the system service.
@@ -123,13 +122,19 @@ declare namespace skillManager {
 
   /**
    * 获取指定应用中指定模块下指定名称的技能信息。使用Promise异步回调。
+   * 
+   * > **说明：**
+   * >
+   * > 跨用户查询时还需要 ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS。
    *
    * @permission ohos.permission.MANAGE_SKILL_PRIVILEGE or ohos.permission.MANAGE_SKILL
    * @param { string } bundleName - 指定查询应用的包名。
    * @param { string } moduleName - 指定查询技能所属模块的名称。
    * @param { string } skillName - 指定查询技能的名称。
-   * @param { int } flags {@link SkillInfoFlag} - 指定返回的SkillInfo所包含的信息。详情请参考SkillInfoFlag。
-   * @param { int } [userId] - 指定查询的用户ID，可以通过getOsAccountLocalId获取。默认值：调用方所在用户。取值范围：大于等于0。
+   * @param { int } flags - 指定返回的SkillInfo所包含的信息。详情请参考[SkillInfoFlag]{@link skillManager.SkillInfoFlag}。
+   * @param { int } [userId] - 指定查询的用户ID，可以通过
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
+   *     获取。<br/>默认值：调用方所在用户。<br/>取值范围：大于等于0。
    * @returns { Promise<SkillInfo> } Promise对象，返回指定技能的SkillInfo。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
@@ -146,11 +151,17 @@ declare namespace skillManager {
 
   /**
    * 获取指定应用的所有技能信息。使用Promise异步回调。
+   * 
+   * > **说明：**
+   * >
+   * > 跨用户查询时还需要 ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS。
    *
    * @permission ohos.permission.MANAGE_SKILL_PRIVILEGE or ohos.permission.MANAGE_SKILL
    * @param { string } bundleName - 指定查询应用的包名。
-   * @param { int } flags {@link SkillInfoFlag} - 指定返回的SkillInfo所包含的信息。详情请参考SkillInfoFlag。
-   * @param { int } [userId] - 指定查询的用户ID，可以通过getOsAccountLocalId获取。默认值：调用方所在用户。取值范围：大于等于0。
+   * @param { int } flags - 指定返回的SkillInfo所包含的信息。详情请参考[SkillInfoFlag]{@link skillManager.SkillInfoFlag}。
+   * @param { int } [userId] - 指定查询的用户ID，可以通过
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
+   *     获取。<br/>默认值：调用方所在用户。<br/>取值范围：大于等于0。
    * @returns { Promise<Array<SkillInfo>> } Promise对象，返回指定应用的所有技能信息数组。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
@@ -164,10 +175,16 @@ declare namespace skillManager {
 
   /**
    * 获取设备上安装应用的所有技能信息。使用Promise异步回调。
+   * 
+   * > **说明：**
+   * >
+   * > 跨用户查询时还需要 ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS。
    *
    * @permission ohos.permission.MANAGE_SKILL_PRIVILEGE or ohos.permission.MANAGE_SKILL
-   * @param { int } flags {@link SkillInfoFlag} - 指定返回的SkillInfo所包含的信息。详情请参考SkillInfoFlag。
-   * @param { int } [userId] - 指定查询的用户ID，可以通过getOsAccountLocalId获取。默认值：调用方所在用户。取值范围：大于等于0。
+   * @param { int } flags - 指定返回的SkillInfo所包含的信息。详情请参考[SkillInfoFlag]{@link skillManager.SkillInfoFlag}。
+   * @param { int } [userId] - 指定查询的用户ID，可以通过
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
+   *     获取。<br/>默认值：调用方所在用户。<br/>取值范围：大于等于0。
    * @returns { Promise<Array<SkillInfo>> } Promise对象，返回所有应用的技能信息数组。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
@@ -181,7 +198,6 @@ declare namespace skillManager {
   /**
    * 技能配置信息，用于定义AI代理的技能能力。
    *
-   * @typedef { _SkillInfo }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @stagemodelonly
    * @atomicservice
@@ -192,7 +208,6 @@ declare namespace skillManager {
   /**
    * 技能类型的枚举。
    *
-   * @typedef { _SkillType }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @stagemodelonly
    * @atomicservice

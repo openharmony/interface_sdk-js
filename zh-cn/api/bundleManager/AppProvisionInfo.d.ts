@@ -14,22 +14,13 @@
  */
 
 /**
- * The module provides information in the 
- * [HarmonyAppProvision configuration file](docroot://security/app-provision-structure.md). The information can be 
- * obtained through 
- * [getAppProvisionInfo]{@link ./../@ohos.bundle.bundleManager:bundleManager.getAppProvisionInfo(bundleName: string, callback: AsyncCallback<AppProvisionInfo>)}
- * .
- * 
- * > **NOTE**
- * >
- * > The APIs provided by this module are system APIs.
- *
- * @file
+ * @file AppProvisionInfo
  * @kit AbilityKit
  */
 
 /**
- * 应用[HarmonyAppProvision配置文件](docroot://security/app-provision-structure.md)中的信息。
+ * 应用[HarmonyAppProvision配置文件](docroot://security/app-provision-structure.md)中的信息，可以通过
+ * [getAppProvisionInfo]{@link @ohos.bundle.bundleManager:bundleManager.getAppProvisionInfo}获取。
  *
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @systemapi
@@ -165,6 +156,47 @@ export interface AppProvisionInfo {
    * @since 23 dynamic&static
    */
   readonly bundleName?: string;
+
+  /**
+   * 应用的ServiceCapabilities。
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.1 dynamic&static
+   */
+  readonly appServiceCapabilities?: string;
+
+  /**
+   * 应用的索引。
+   * 取值限定为整数。
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.1 dynamic&static
+   */
+  readonly appIndex?: int;
+
+  /**
+   * 应用指定的分发类型。
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.1 dynamic&static
+   */
+  readonly specifiedDistributionType?: string;
+
+  /**
+   * 应用程序的Additional信息。
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.1 dynamic&static
+   */
+  readonly additionalInfo?: string;
 }
 
 /**

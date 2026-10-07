@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file PermissionDef
  * @kit AbilityKit
  */
 
@@ -23,16 +23,16 @@
  *
  * > **NOTE**
  * >
- * > The APIs of this module have been deprecated since API version 9. You are advised to use
- * > [bundleManager-PermissionDef]{@link PermissionDef:PermissionDef} instead.
+ * > Since API version 9, this module is no longer maintained. You are advised to use
+ * > [PermissionDef]{@link PermissionDef} instead.
  * >
- * > The APIs provided by this module are system APIs.
+ * > This module is a system API.
  *
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @systemapi
  * @since 8 dynamiconly
  * @deprecated since 9
- * @useinstead PermissionDef:PermissionDef
+ * @useinstead PermissionDef
  */
 export interface PermissionDef {
   /**

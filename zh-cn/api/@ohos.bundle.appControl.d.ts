@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file appControl模块
  * @kit AbilityKit
  */
 
@@ -29,10 +29,6 @@ import Want from './@ohos.app.ability.Want';
 
 /**
  * 本模块提供应用拦截能力。对应用设置处置状态后，应用会被禁止运行；用户点击桌面图标时，会根据应用的处置状态，跳转到对应的页面。本模块支持对应用的处置状态进行设置、获取、删除。
- * 
- * > **说明：**
- * >
- * > 本模块为系统接口。
  *
  * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
  * @systemapi
@@ -138,6 +134,35 @@ declare namespace appControl {
   }
 
   /**
+   * 标识目标应用被拦截时是否跳转到页面。
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export enum PageJumpMode {
+    /**
+     * 目标应用被拦截时跳转到页面。
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    PAGE_JUMP_WINDOW_SHOW = 0,
+    /**
+     * 目标应用被拦截时不跳转到页面。
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    PAGE_JUMP_WINDOW_NOT_SHOW = 1
+  }
+
+  /**
    * 标识拦截规则。
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
@@ -205,6 +230,16 @@ declare namespace appControl {
      * @since 23 static
      */
     priority: int;
+
+    /**
+     * 指定目标应用被拦截时是否跳转到页面。默认值为PageJumpMode.PAGE_JUMP_WINDOW_SHOW。
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    pageJump?: PageJumpMode;
   }
 
   /**
@@ -227,7 +262,7 @@ declare namespace appControl {
     want: Want;
 
     /**
-     * 拦截规则的优先级，用于规则列表查询结果排序。取值为整数，数值越小，优先级越高，排序越靠前。
+     * 卸载处置规则的优先级，用于规则列表查询结果排序。取值为整数，数值越小，优先级越高，排序越靠前。
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
      * @systemapi
@@ -264,8 +299,8 @@ declare namespace appControl {
      * appId是应用的唯一标识，由应用Bundle名称和签名信息决定，获取方法参见
      * [获取应用的appId](docroot://quick-start/common-problem-of-application.md#如何获取应用信息中的appid)。
      * 
-     * [appIdentifier]{@link ./bundleManager/BundleInfo:SignatureInfo}也是应用的唯一标识，详情信息可参考
-     * [什么是appIdentifier](docroot://quick-start/common-problem-of-application.md#什么是appidentifier)，获取方法参见
+     * [appIdentifier](docroot://reference/apis-ability-kit/js-apis-bundleManager-bundleInfo.md#signatureinfo)也是应用的唯一标识，
+     * 详情信息可参考[什么是appIdentifier](docroot://quick-start/common-problem-of-application.md#什么是appidentifier)，获取方法参见
      * [获取应用的appIdentifier](docroot://quick-start/common-problem-of-application.md#如何获取应用信息中的appidentifier)。
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
@@ -299,10 +334,84 @@ declare namespace appControl {
   }
 
   /**
+   * 描述应用程序恢复已处理的规则。
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.2.0 dynamic&static
+   */
+  export interface RecoverDisposedRule {
+    /**
+     * 当应用程序被释放时显示的组件。
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.2.0 dynamic&static
+     */
+    want: Want;
+
+    /**
+     * 下发规则的优先级，用于对规则列表的查询结果进行排序。整数形式。
+     * 数值越小优先级越高。
+     * 取值限定为整数。
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.2.0 dynamic&static
+     */
+    priority: int;
+
+    /**
+     * 监听时启动的能力类型。
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.2.0 dynamic&static
+     */
+    recoverComponentType: RecoverComponentType;
+  }
+
+  /**
+   * 枚举恢复期间的能力类型。
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.2.0 dynamic&static
+   */
+  export enum RecoverComponentType {
+    /**
+     * ExtensionAbility组件。仅
+     * [扩展能力]（docroot://quick-start/module-configuration-file.md#扩展能力）
+     * 支持的业务类型。
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.2.0 dynamic&static
+     */
+    EXTENSION = 1,
+    /**
+     * UIExtensionAbility组件。
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.AppControl
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.2.0 dynamic&static
+     */
+    UI_EXTENSION = 2
+  }
+
+  /**
    * 设置应用的处置状态。使用callback异步回调。成功返回null，失败返回对应错误信息。
    *
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
-   * @param { string } appId - 需要设置处置的应用的appId。<br> appId是应用的唯一标识，由应用Bundle名称和签名信息决定，获取方法参见
+   * @param { string } appId - 需要设置处置状态的应用的appId。
+   *     <br> appId是应用的唯一标识，由应用Bundle名称和签名信息决定，获取方法参见
    *     [获取应用的appId](docroot://quick-start/common-problem-of-application.md#如何获取应用信息中的appid)。
    * @param { Want } disposedWant - 对应用的处置意图。
    * @param { AsyncCallback<void> } callback - 回调函数。当设置处置状态成功，err为null；否则为错误对象。
@@ -323,7 +432,8 @@ declare namespace appControl {
    * 设置应用的处置状态。使用Promise异步回调。成功返回null，失败返回对应错误信息。
    *
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
-   * @param { string } appId - 需要设置处置状态的应用的appId。<br> appId是应用的唯一标识，由应用Bundle名称和签名信息决定，获取方法参见
+   * @param { string } appId - 需要设置处置状态的应用的appId。
+   *     <br> appId是应用的唯一标识，由应用Bundle名称和签名信息决定，获取方法参见
    *     [获取应用的appId](docroot://quick-start/common-problem-of-application.md#如何获取应用信息中的appid)。
    * @param { Want } disposedWant - 对应用的处置意图。
    * @returns { Promise<void> } Promise对象，无返回结果。
@@ -344,7 +454,8 @@ declare namespace appControl {
    * 以同步方法设置应用的处置状态。成功返回null，失败抛出对应异常。
    *
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
-   * @param { string } appId - 需要设置处置的应用的appId。<br> appId是应用的唯一标识，由应用Bundle名称和签名信息决定，获取方法参见
+   * @param { string } appId - 需要设置处置状态的应用的appId。
+   *     <br> appId是应用的唯一标识，由应用Bundle名称和签名信息决定，获取方法参见
    *     [获取应用的appId](docroot://quick-start/common-problem-of-application.md#如何获取应用信息中的appid)。
    * @param { Want } disposedWant - 对应用的处置意图。
    * @throws { BusinessError } 201 - Permission denied.
@@ -364,7 +475,8 @@ declare namespace appControl {
    * 获取指定应用的处置状态。使用callback异步回调，成功返回应用的处置状态，失败返回对应错误信息。
    *
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS or ohos.permission.GET_DISPOSED_APP_STATUS
-   * @param { string } appId - 要查询的应用的appId。<br> appId是应用的唯一标识，由应用Bundle名称和签名信息决定，获取方法参见
+   * @param { string } appId - 要查询的应用的appId。
+   *     <br> appId是应用的唯一标识，由应用Bundle名称和签名信息决定，获取方法参见
    *     [获取应用的appId](docroot://quick-start/common-problem-of-application.md#如何获取应用信息中的appid)。
    * @param { AsyncCallback<Want> } callback - 回调函数。当获取应用的处置状态成功时，err为null，data为获取到的处置状态；否则为错误对象。
    * @throws { BusinessError } 201 - Permission denied.
@@ -384,7 +496,8 @@ declare namespace appControl {
    * 获取指定应用已设置的处置状态。使用Promise异步回调，成功返回应用的处置状态，失败返回对应错误信息。
    *
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS or ohos.permission.GET_DISPOSED_APP_STATUS
-   * @param { string } appId - 要查询的应用的appId。<br> appId是应用的唯一标识，由应用Bundle名称和签名信息决定，获取方法参见
+   * @param { string } appId - 要查询的应用的appId。
+   *     <br> appId是应用的唯一标识，由应用Bundle名称和签名信息决定，获取方法参见
    *     [获取应用的appId](docroot://quick-start/common-problem-of-application.md#如何获取应用信息中的appid)。
    * @returns { Promise<Want> } Promise对象，返回应用的处置状态。
    * @throws { BusinessError } 201 - Permission denied.
@@ -404,7 +517,8 @@ declare namespace appControl {
    * 以同步方法获取指定应用已设置的处置状态。成功返回应用的处置状态，失败抛出对应异常。
    *
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS or ohos.permission.GET_DISPOSED_APP_STATUS
-   * @param { string } appId - 要查询的应用的appId。<br> appId是应用的唯一标识，由应用Bundle名称和签名信息决定，获取方法参见
+   * @param { string } appId - 要查询的应用的appId。
+   *     <br> appId是应用的唯一标识，由应用Bundle名称和签名信息决定，获取方法参见
    *     [获取应用的appId](docroot://quick-start/common-problem-of-application.md#如何获取应用信息中的appid)。
    * @returns { Want } 返回应用的处置状态。
    * @throws { BusinessError } 201 - Permission denied.
@@ -424,13 +538,13 @@ declare namespace appControl {
    * 删除应用的处置状态。使用callback异步回调，成功返回null，失败返回对应错误信息。
    *
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
-   * @param { string } appId - 要删除拦截规则的应用的appId或appIdentifier。使用appId设置的拦截规则只能通过appId删除，使用appIdentifier设置的同理。<br/>
+   * @param { string } appId - 要删除处置状态的应用的appId或appIdentifier。使用appId设置的处置状态只能通过appId删除，使用appIdentifier设置的同理。<br/>
    *     **说明：**<br/> appId是应用的唯一标识，由应用Bundle名称和签名信息决定，获取方法参见
-   *     [获取应用的appId](docroot://quick-start/common-problem-of-application.md#如何获取应用信息中的appid)。<br>
-   *     [appIdentifier]{@link ./bundleManager/BundleInfo:SignatureInfo}也是应用的唯一标识，详情信息可参考
-   *     [什么是appIdentifier](docroot://quick-start/common-problem-of-application.md#什么是appidentifier)，获取方法参见
-   *     [获取应用的appIdentifier](docroot://quick-start/common-problem-of-application.md#如何获取应用信息中的appidentifier)。
-   * @param { AsyncCallback<void> } callback - 回调函数。当设置处置状态成功时，err返回null；否则回调函数返回具体错误对象。
+   *     [获取应用的appId](docroot://quick-start/common-problem-of-application.md#如何获取应用信息中的appid)。
+   *     <br> [appIdentifier](docroot://reference/apis-ability-kit/js-apis-bundleManager-bundleInfo.md#signatureinfo)也是应
+   *     用的唯一标识，详情信息可参考[什么是appIdentifier](docroot://quick-start/common-problem-of-application.md#什么是appidentifier)，获取方法参
+   *     见[获取应用的appIdentifier](docroot://quick-start/common-problem-of-application.md#如何获取应用信息中的appidentifier)。
+   * @param { AsyncCallback<void> } callback - 回调函数。当删除处置状态成功时，err返回null；否则回调函数返回具体错误对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
@@ -445,15 +559,15 @@ declare namespace appControl {
   function deleteDisposedStatus(appId: string, callback: AsyncCallback<void>): void;
 
   /**
-   * 删除应用的处置状态。使用promise异步回调，成功返回null，失败返回对应错误信息。
+   * 删除应用的处置状态。使用Promise异步回调，成功返回null，失败返回对应错误信息。
    *
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
-   * @param { string } appId - 要删除拦截规则的应用的appId或appIdentifier。使用appId设置的拦截规则只能通过appId删除，使用appIdentifier设置的同理。<br/>
+   * @param { string } appId - 要删除处置状态的应用的appId或appIdentifier。使用appId设置的处置状态只能通过appId删除，使用appIdentifier设置的同理。<br/>
    *     **说明：**<br/> appId是应用的唯一标识，由应用Bundle名称和签名信息决定，获取方法参见
-   *     [获取应用的appId](docroot://quick-start/common-problem-of-application.md#如何获取应用信息中的appid)。<br>
-   *     [appIdentifier]{@link ./bundleManager/BundleInfo:SignatureInfo}也是应用的唯一标识，详情信息可参考
-   *     [什么是appIdentifier](docroot://quick-start/common-problem-of-application.md#什么是appidentifier)，获取方法参见
-   *     [获取应用的appIdentifier](docroot://quick-start/common-problem-of-application.md#如何获取应用信息中的appidentifier)。
+   *     [获取应用的appId](docroot://quick-start/common-problem-of-application.md#如何获取应用信息中的appid)。
+   *     <br> [appIdentifier](docroot://reference/apis-ability-kit/js-apis-bundleManager-bundleInfo.md#signatureinfo)也是应
+   *     用的唯一标识，详情信息可参考[什么是appIdentifier](docroot://quick-start/common-problem-of-application.md#什么是appidentifier)，获取方法参
+   *     见[获取应用的appIdentifier](docroot://quick-start/common-problem-of-application.md#如何获取应用信息中的appidentifier)。
    * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -472,13 +586,14 @@ declare namespace appControl {
    * 以同步方法删除指定应用或分身应用的处置状态。成功返回null，失败抛出对应异常。
    *
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
-   * @param { string } appId - 要删除拦截规则的应用的appId或appIdentifier。使用appId设置的拦截规则只能通过appId删除，使用appIdentifier设置的同理。<br/>
+   * @param { string } appId - 要删除处置状态的应用的appId或appIdentifier。使用appId设置的处置状态只能通过appId删除，使用appIdentifier设置的同理。<br/>
    *     **说明：**<br/> appId是应用的唯一标识，由应用Bundle名称和签名信息决定，获取方法参见
-   *     [获取应用的appId](docroot://quick-start/common-problem-of-application.md#如何获取应用信息中的appid)。<br>
-   *     [appIdentifier]{@link ./bundleManager/BundleInfo:SignatureInfo}也是应用的唯一标识，详情信息可参考
-   *     [什么是appIdentifier](docroot://quick-start/common-problem-of-application.md#什么是appidentifier)，获取方法参见
-   *     [获取应用的appIdentifier](docroot://quick-start/common-problem-of-application.md#如何获取应用信息中的appidentifier)。
-   * @param { int } [appIndex] - 表示分身应用的索引，默认值为0。<br> appIndex为0时，表示删除主应用的处置状态。appIndex大于0时，表示删除指定分身应用的处置状态。 [since 12]
+   *     [获取应用的appId](docroot://quick-start/common-problem-of-application.md#如何获取应用信息中的appid)。
+   *     <br> [appIdentifier](docroot://reference/apis-ability-kit/js-apis-bundleManager-bundleInfo.md#signatureinfo)也是应
+   *     用的唯一标识，详情信息可参考[什么是appIdentifier](docroot://quick-start/common-problem-of-application.md#什么是appidentifier)，获取方法参
+   *     见[获取应用的appIdentifier](docroot://quick-start/common-problem-of-application.md#如何获取应用信息中的appidentifier)。
+   * @param { int } [appIndex] - 表示分身应用的索引，默认值为0。
+   *     <br> appIndex为0时，表示删除主应用的处置状态。appIndex大于0时，表示删除指定分身应用的处置状态。 [since 12]
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
@@ -499,11 +614,12 @@ declare namespace appControl {
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS or ohos.permission.GET_DISPOSED_APP_STATUS
    * @param { string } appId - 要获取拦截规则的应用的appId或appIdentifier。使用appId设置的拦截规则只能通过appId获取，使用appIdentifier设置的同理。<br/>
    *     **说明：**<br/> appId是应用的唯一标识，由应用Bundle名称和签名信息决定，获取方法参见
-   *     [获取应用的appId](docroot://quick-start/common-problem-of-application.md#如何获取应用信息中的appid)。<br>
-   *     [appIdentifier]{@link ./bundleManager/BundleInfo:SignatureInfo}也是应用的唯一标识，详情信息可参考
-   *     [什么是appIdentifier](docroot://quick-start/common-problem-of-application.md#什么是appidentifier)，获取方法参见
-   *     [获取应用的appIdentifier](docroot://quick-start/common-problem-of-application.md#如何获取应用信息中的appidentifier)。
-   * @param { int } [appIndex] - 表示分身应用的索引，默认值为0。<br> appIndex为0时，表示获取主应用的拦截规则。appIndex大于0时，表示获取指定分身应用的拦截规则。 [since 12]
+   *     [获取应用的appId](docroot://quick-start/common-problem-of-application.md#如何获取应用信息中的appid)。
+   *     <br> [appIdentifier](docroot://reference/apis-ability-kit/js-apis-bundleManager-bundleInfo.md#signatureinfo)也是应
+   *     用的唯一标识，详情信息可参考[什么是appIdentifier](docroot://quick-start/common-problem-of-application.md#什么是appidentifier)，获取方法参
+   *     见[获取应用的appIdentifier](docroot://quick-start/common-problem-of-application.md#如何获取应用信息中的appidentifier)。
+   * @param { int } [appIndex] - 表示分身应用的索引，默认值为0。
+   *     <br> appIndex为0时，表示获取主应用的拦截规则。appIndex大于0时，表示获取指定分身应用的拦截规则。 [since 12]
    * @returns { DisposedRule } 对应用的拦截规则。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
@@ -525,12 +641,13 @@ declare namespace appControl {
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
    * @param { string } appId - 要被设置拦截规则应用的appId或appIdentifier。使用appId设置的拦截规则会覆盖使用appIdentifier设置的拦截规则，反之同理。<br/>**说明：**<
    *     br/> appId是应用的唯一标识，由应用Bundle名称和签名信息决定，获取方法参见
-   *     [获取应用的appId](docroot://quick-start/common-problem-of-application.md#如何获取应用信息中的appid)。<br>
-   *     [appIdentifier]{@link ./bundleManager/BundleInfo:SignatureInfo}也是应用的唯一标识，详情信息可参考
-   *     [什么是appIdentifier](docroot://quick-start/common-problem-of-application.md#什么是appidentifier)，获取方法参见
-   *     [获取应用的appIdentifier](docroot://quick-start/common-problem-of-application.md#如何获取应用信息中的appidentifier)。
+   *     [获取应用的appId](docroot://quick-start/common-problem-of-application.md#如何获取应用信息中的appid)。
+   *     <br> [appIdentifier](docroot://reference/apis-ability-kit/js-apis-bundleManager-bundleInfo.md#signatureinfo)也是应
+   *     用的唯一标识，详情信息可参考[什么是appIdentifier](docroot://quick-start/common-problem-of-application.md#什么是appidentifier)，获取方法参
+   *     见[获取应用的appIdentifier](docroot://quick-start/common-problem-of-application.md#如何获取应用信息中的appidentifier)。
    * @param { DisposedRule } rule - 指示对应用的拦截规则。
-   * @param { int } [appIndex] - 表示分身应用的索引，默认值为0。<br> appIndex为0时，表示设置主应用的拦截规则。appIndex大于0时，表示设置指定分身应用的拦截规则。 [since 12]
+   * @param { int } [appIndex] - 表示分身应用的索引，默认值为0。
+   *     <br> appIndex为0时，表示设置主应用的拦截规则。appIndex大于0时，表示设置指定分身应用的拦截规则。 [since 12]
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
@@ -549,10 +666,12 @@ declare namespace appControl {
    * 设置指定应用或分身应用的卸载处置规则。
    *
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
-   * @param { string } appIdentifier - 要设置卸载处置规则的应用的appIdentifier。<br> 如果应用没有appIdentifier可使用appId代替。appId是应用的唯一标识，由应用
-   *     Bundle名称和签名信息决定，获取方法参见[获取应用的appId](docroot://quick-start/common-problem-of-application.md#如何获取应用信息中的appid)。
+   * @param { string } appIdentifier - 要设置卸载处置规则的应用的appIdentifier。
+   *     <br> 如果应用没有appIdentifier可使用appId代替。appId是应用的唯一标识，由应用Bundle名称和签名信息决定，获取方法参见
+   *     [获取应用的appId](docroot://quick-start/common-problem-of-application.md#如何获取应用信息中的appid)。
    * @param { UninstallDisposedRule } rule - 表示要设置的卸载处置规则。
-   * @param { int } [appIndex] - 表示分身应用的索引，默认值为0。<br> appIndex为0时，表示设置主应用的卸载处置规则。appIndex大于0时，表示设置指定分身应用的卸载处置规则。
+   * @param { int } [appIndex] - 表示分身应用的索引，默认值为0。
+   *     <br> appIndex为0时，表示设置主应用的卸载处置规则。appIndex大于0时，表示设置指定分身应用的卸载处置规则。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
@@ -572,9 +691,11 @@ declare namespace appControl {
    * 获取指定应用或分身应用已设置的优先级最高的卸载处置规则。
    *
    * @permission ohos.permission.GET_DISPOSED_APP_STATUS or ohos.permission.MANAGE_DISPOSED_APP_STATUS
-   * @param { string } appIdentifier - 要获取卸载处置规则的应用的appIdentifier。<br> 如果应用没有appIdentifier可使用appId代替。appId是应用的唯一标识，由应用
-   *     Bundle名称和签名信息决定，获取方法参见[获取应用的appId](docroot://quick-start/common-problem-of-application.md#如何获取应用信息中的appid)。
-   * @param { int } [appIndex] - 表示分身应用的索引，默认值为0。<br> appIndex为0时，表示获取主应用的卸载处置规则。appIndex大于0时，表示获取指定分身应用的卸载处置规则。
+   * @param { string } appIdentifier - 要获取卸载处置规则的应用的appIdentifier。
+   *     <br> 如果应用没有appIdentifier可使用appId代替。appId是应用的唯一标识，由应用Bundle名称和签名信息决定，获取方法参见
+   *     [获取应用的appId](docroot://quick-start/common-problem-of-application.md#如何获取应用信息中的appid)。
+   * @param { int } [appIndex] - 表示分身应用的索引，默认值为0。
+   *     <br> appIndex为0时，表示获取主应用的卸载处置规则。appIndex大于0时，表示获取指定分身应用的卸载处置规则。
    * @returns { UninstallDisposedRule } 表示应用的卸载处置规则。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
@@ -594,9 +715,11 @@ declare namespace appControl {
    * 删除指定应用或分身应用的卸载处置规则。
    *
    * @permission ohos.permission.MANAGE_DISPOSED_APP_STATUS
-   * @param { string } appIdentifier - 要删除卸载处置规则的应用的appIdentifier。<br> 如果应用没有appIdentifier可使用appId代替。appId是应用的唯一标识，由应用
-   *     Bundle名称和签名信息决定，获取方法参见[获取应用的appId](docroot://quick-start/common-problem-of-application.md#如何获取应用信息中的appid)。
-   * @param { int } [appIndex] - 表示分身应用的索引，默认值为0。<br> appIndex为0时，表示删除主应用的卸载处置规则。appIndex大于0时，表示删除指定分身应用的卸载处置规则。
+   * @param { string } appIdentifier - 要删除卸载处置规则的应用的appIdentifier。
+   *     <br> 如果应用没有appIdentifier可使用appId代替。appId是应用的唯一标识，由应用Bundle名称和签名信息决定，获取方法参见
+   *     [获取应用的appId](docroot://quick-start/common-problem-of-application.md#如何获取应用信息中的appid)。
+   * @param { int } [appIndex] - 表示分身应用的索引，默认值为0。
+   *     <br> appIndex为0时，表示删除主应用的卸载处置规则。appIndex大于0时，表示删除指定分身应用的卸载处置规则。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
@@ -672,8 +795,8 @@ declare namespace appControl {
   export enum UninstallComponentType {
 
     /**
-     * 服务扩展能力类型。仅支持service类型的[ExtensionAbility](docroot://quick-start/module-configuration-file.md#extensionabilities标签)
-     * 。
+     * 服务扩展能力类型。仅支持service类型的
+     * [ExtensionAbility](docroot://quick-start/module-configuration-file.md#extensionabilities标签)。
      * 
      * 被拉起的ExtensionAbility通过want中bundleName、moduleName、abilityName字段共同确定。
      *

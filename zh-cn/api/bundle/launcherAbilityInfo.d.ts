@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file LauncherAbilityInfo
  * @kit AbilityKit
  */
 
@@ -23,20 +23,18 @@ import { ElementName } from './elementName';
 
 /**
  * LauncherAbilityInfo信息，通过接口
- * [innerBundleManager.getLauncherAbilityInfos](docroot://reference/apis-ability-kit/js-apis-Bundle-InnerBundleManager-sys.md#innerbundlemanagergetlauncherabilityinfosdeprecated)
+ * [innerBundleManager.getLauncherAbilityInfos]{@link @ohos.bundle.innerBundleManager:innerBundleManager.getLauncherAbilityInfos}
  * 获取。
  * 
  * > **说明：**
  * >
- * > 从API version 9开始，该模块不再维护，建议使用[bundleManager-LauncherAbilityInfo]{@link launcherAbilityInfo:LauncherAbilityInfo}替代。
- * >
- * > 本模块为系统接口。
+ * > 从API version 9开始，该模块不再维护，
  *
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @systemapi Hide this for inner system use
  * @since 8 dynamiconly
  * @deprecated since 9
- * @useinstead launcherAbilityInfo:LauncherAbilityInfo
+ * @useinstead LauncherAbilityInfo
  */
 export interface LauncherAbilityInfo {
   /**

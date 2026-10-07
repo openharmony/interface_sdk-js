@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file RemoteAbilityInfo
  * @kit AbilityKit
  */
 
@@ -25,20 +25,18 @@ import { ElementName } from './elementName';
  *
  * > **NOTE**
  * >
- * > The APIs of this module have been deprecated since API version 9. You are advised to use
- * > [bundleManager-RemoteAbilityInfo]{@link remoteAbilityInfo:RemoteAbilityInfo} instead.
- * >
- * > The APIs provided by this module are system APIs.
+ * > This module is no longer maintained since API version 9. You are advised to use
+ * > [RemoteAbilityInfo]{@link RemoteAbilityInfo} instead.
  *
  * @syscap SystemCapability.BundleManager.DistributedBundleFramework
  * @systemapi
  * @since 8 dynamiconly
  * @deprecated since 9
- * @useinstead remoteAbilityInfo:RemoteAbilityInfo
+ * @useinstead RemoteAbilityInfo
  */
 export interface RemoteAbilityInfo {
   /**
-   * Element name information of the ability.
+   * Element resource information of the ability.
    *
    * @default Indicates the ability information
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
@@ -50,7 +48,7 @@ export interface RemoteAbilityInfo {
   readonly elementName: ElementName;
 
   /**
-   * Ability name.
+   * Name of the ability.
    *
    * @default Indicates the label of the ability
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
@@ -62,7 +60,7 @@ export interface RemoteAbilityInfo {
   readonly label: string;
 
   /**
-   * Icon of the ability.
+   * Icon information of the ability.
    *
    * @default Indicates the icon of the ability
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework

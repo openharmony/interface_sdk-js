@@ -14,19 +14,13 @@
  */
 
 /**
- * @file
+ * @file DispatchInfo
  * @kit AbilityKit
  */
 
 /**
  * The module provides version information about the dispatchInfo struct and dispatch API. The information can be
- * obtained through
- * [freeInstall.getDispatchInfo]{@link ./../@ohos.bundle.freeInstall:freeInstall.getDispatchInfo(callback: AsyncCallback<DispatchInfo>)}
- * .
- *
- * > **NOTE**
- * >
- * > The APIs provided by this module are system APIs.
+ * obtained through [freeInstall.getDispatchInfo]{@link @ohos.bundle.freeInstall:freeInstall.getDispatchInfo}.
  *
  * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
  * @systemapi
@@ -35,7 +29,7 @@
  */
 export interface DispatchInfo {
   /**
-   * Version of the dispatchInfo struct.
+   * Version information of the DispatchInfo struct.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.FreeInstall
    * @systemapi

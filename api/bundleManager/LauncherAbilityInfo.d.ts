@@ -23,9 +23,9 @@ import { ElementName } from './ElementName';
 
 /**
  * The module describes the ability information of the launcher application. The information can be obtained by calling
- * [getLauncherAbilityInfoSync]{@link ./../@ohos.bundle.launcherBundleManager:launcherBundleManager.getLauncherAbilityInfoSync}
+ * [getLauncherAbilityInfoSync]{@link @ohos.bundle.launcherBundleManager:launcherBundleManager.getLauncherAbilityInfoSync}
  * <!--Del--> or
- * [getLauncherAbilityInfo]{@link ./../@ohos.bundle.launcherBundleManager:launcherBundleManager.getLauncherAbilityInfo(bundleName: string, userId: int, callback: AsyncCallback<Array<LauncherAbilityInfo>>)}
+ * [getLauncherAbilityInfo]{@link @ohos.bundle.launcherBundleManager:launcherBundleManager.getLauncherAbilityInfo}
  * <!--DelEnd-->.
  *
  * @syscap SystemCapability.BundleManager.BundleFramework.Launcher

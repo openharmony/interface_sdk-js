@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file LauncherAbilityInfo
  * @kit AbilityKit
  */
 
@@ -23,9 +23,9 @@ import { ElementName } from './ElementName';
 
 /**
  * 桌面应用的Ability信息，可以通过
- * [getLauncherAbilityInfoSync]{@link ./../@ohos.bundle.launcherBundleManager:launcherBundleManager.getLauncherAbilityInfoSync}
+ * [getLauncherAbilityInfoSync]{@link @ohos.bundle.launcherBundleManager:launcherBundleManager.getLauncherAbilityInfoSync}
  * <!--Del-->或者
- * [getLauncherAbilityInfo]{@link ./../@ohos.bundle.launcherBundleManager:launcherBundleManager.getLauncherAbilityInfo(bundleName: string, userId: int, callback: AsyncCallback<Array<LauncherAbilityInfo>>)}
+ * [getLauncherAbilityInfo]{@link @ohos.bundle.launcherBundleManager:launcherBundleManager.getLauncherAbilityInfo}
  * <!--DelEnd-->获取。
  *
  * @syscap SystemCapability.BundleManager.BundleFramework.Launcher

@@ -243,6 +243,151 @@ declare namespace bundle {
   }
 
   /**
+   * 模块移除时与卡片、快捷方式是否有关联的标志。
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi
+   * @since 9 dynamiconly
+   * @deprecated since 10
+   */
+  export enum ModuleRemoveFlag {
+    /**
+     * 未被卡片使用。
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @systemapi
+     * @since 9 dynamiconly
+     * @deprecated since 10
+     */
+    FLAG_MODULE_NOT_USED_BY_FORM = 0,
+    /**
+     * 已被卡片使用。
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @systemapi
+     * @since 9 dynamiconly
+     * @deprecated since 10
+     */
+    FLAG_MODULE_USED_BY_FORM = 1,
+    /**
+     * 未被快捷方式使用。
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @systemapi
+     * @since 9 dynamiconly
+     * @deprecated since 10
+     */
+    FLAG_MODULE_NOT_USED_BY_SHORTCUT = 2,
+    /**
+     * 已被快捷方式使用。
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @systemapi
+     * @since 9 dynamiconly
+     * @deprecated since 10
+     */
+    FLAG_MODULE_USED_BY_SHORTCUT = 3
+  }
+
+  /**
+   * 签名校验结果。
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi
+   * @since 9 dynamiconly
+   * @deprecated since 10
+   */
+  export enum SignatureCompareResult {
+    /**
+     * 签名一致。
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @systemapi
+     * @since 9 dynamiconly
+     * @deprecated since 10
+     */
+    SIGNATURE_MATCHED = 0,
+    /**
+     * 签名不一致。
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @systemapi
+     * @since 9 dynamiconly
+     * @deprecated since 10
+     */
+    SIGNATURE_NOT_MATCHED = 1,
+    /**
+     * 签名对应的包未知。
+     *
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @systemapi
+     * @since 9 dynamiconly
+     * @deprecated since 10
+     */
+    SIGNATURE_UNKNOWN_BUNDLE = 2
+  }
+
+  /**
+   * 查询快捷方式是否存在时返回的结果。
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi
+   * @since 9 dynamiconly
+   * @deprecated since 10
+   */
+  export enum ShortcutExistence {
+    /**
+     * 存在。
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @systemapi
+     * @since 9 dynamiconly
+     * @deprecated since 10
+     */
+    SHORTCUT_EXISTENCE_EXISTS = 0,
+    /**
+     * 不存在。
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @systemapi
+     * @since 9 dynamiconly
+     * @deprecated since 10
+     */
+    SHORTCUT_EXISTENCE_NOT_EXISTS = 1,
+    /**
+     * 未知。
+     *
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @systemapi
+     * @since 9 dynamiconly
+     * @deprecated since 10
+     */
+    SHORTCUT_EXISTENCE_UNKNOW = 2
+  }
+
+  /**
+   * 用于指定快捷方式查询范围的标志。
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi
+   * @since 9 dynamiconly
+   * @deprecated since 10
+   */
+  export enum QueryShortCutFlag {
+    /**
+     * 查询桌面快捷方式。
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework
+     * @systemapi
+     * @since 9 dynamiconly
+     * @deprecated since 10
+     */
+    QUERY_SHORTCUT_HOME = 0
+  }
+
+  /**
    * > **说明：**
    * >
    * > 从API version 7开始支持，从API version 9开始废弃，建议使用
@@ -815,6 +960,57 @@ declare namespace bundle {
   function queryAbilityByWant(want: Want, bundleFlags: number, userId?: number): Promise<Array<AbilityInfo>>;
 
   /**
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { BundleFlag } bundleFlag - Flag used to specify the information contained in the returned bundle
+   *     information object. Value range: see the bundle information related flags
+   *     in [BundleFlag]{@link bundle.BundleFlag}.
+   * @param { number } userId - User ID. Value range: greater than or equal to 0.
+   * @param { AsyncCallback<Array<BundleInfo>> } callback - Callback used to return the result. If ${具体的操作} is successful,
+   *     **err** is **undefined**, and ${XX} is ${XX} obtained. Otherwise, **err** is an error object.
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi
+   * @since 7 dynamiconly
+   * @deprecated since 8
+   * @useinstead ohos.bundle.bundleManager#getAllBundleInfo
+   */
+  function getBundleInfos(bundleFlag: BundleFlag, userId: number, callback: AsyncCallback<Array<BundleInfo>>): void;
+
+  /**
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { BundleFlag } bundleFlag - Flag used to specify the information contained in the returned bundle
+   *     information object. Value range: see the bundle information related flags
+   *     in [BundleFlag]{@link bundle.BundleFlag}.
+   * @param { AsyncCallback<Array<BundleInfo>> } callback - Callback used to return the result. If getBundleInfos
+   *     is successful, **err** is **undefined**, and all available BundleInfo as the input parameter at
+   *     program startup. Otherwise, **err** is an error object.
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi
+   * @since 7 dynamiconly
+   * @deprecated since 8
+   * @useinstead ohos.bundle.bundleManager#getAllBundleInfo
+   */
+  function getBundleInfos(bundleFlag: BundleFlag, callback: AsyncCallback<Array<BundleInfo>>): void;
+
+  /**
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { BundleFlag } bundleFlag - Flag used to specify the information contained in the
+   *     returned bundle information object. Value range: see the bundle information related flags
+   *     in [BundleFlag]{@link bundle.BundleFlag}.
+   * @param { number } [userId] - User ID.Default value: the user to which the caller belongs.
+   *     Value range: greater than or equal to 0.
+   * @returns { Promise<Array<BundleInfo>> } Promise used to return all available BundleInfo.
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi
+   * @since 7 dynamiconly
+   * @deprecated since 8
+   * @useinstead ohos.bundle.bundleManager#getAllBundleInfo
+   */
+  function getBundleInfos(bundleFlag: BundleFlag, userId?: number): Promise<Array<BundleInfo>>;
+
+  /**
    * 获取系统中指定用户下所有的BundleInfo，使用callback异步回调。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
@@ -851,6 +1047,58 @@ declare namespace bundle {
    * @deprecated since 9
    */
   function getAllBundleInfo(bundleFlag: BundleFlag, userId?: number): Promise<Array<BundleInfo>>;
+
+  /**
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { number } bundleFlags - Flag used to specify the information contained in the returned
+   *     application information object. Value range: see the application information related flags
+   *     in BundleFlag.
+   * @param { number } userId - User ID. Value range: greater than or equal to 0.
+   * @param { AsyncCallback<Array<ApplicationInfo>> } callback - Callback used to return the result. If
+   *     getApplicationInfos is successful, **err** is **undefined**, and the list of app information as
+   *     the input parameter at program startup. Otherwise, **err** is an error object.
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi
+   * @since 7 dynamiconly
+   * @deprecated since 8
+   * @useinstead ohos.bundle.bundleManager#getAllApplicationInfo
+   */
+  function getApplicationInfos(bundleFlags: number, userId: number, callback: AsyncCallback<Array<ApplicationInfo>>): void;
+
+  /**
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { number } bundleFlags - Flag used to specify the information contained in the returned
+   *     application information object. Value range: see the application information related flags
+   *     in BundleFlag.
+   * @param { AsyncCallback<Array<ApplicationInfo>> } callback - Callback used to return the result. If
+   *     getApplicationInfos is successful, **err** is **undefined**, and the list of
+   *     app information as the input parameter at program startup. Otherwise, **err** is an error object.
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi
+   * @since 7 dynamiconly
+   * @deprecated since 8
+   * @useinstead ohos.bundle.bundleManager#getAllApplicationInfo
+   */
+  function getApplicationInfos(bundleFlags: number, callback: AsyncCallback<Array<ApplicationInfo>>): void;
+
+  /**
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { number } bundleFlags - Flag used to specify the information contained in the returned application
+   *     information object. Value range: see the application information related flags in BundleFlag.
+   * @param { number } [userId] - User ID. Default value: the user to which the caller belongs.
+   *     Value range: greater than or equal to 0.
+   * @returns { Promise<Array<ApplicationInfo>> } Promise used to return the list of app information
+   *     when obtained successfully.
+   * @syscap SystemCapability.BundleManager.BundleFramework
+   * @systemapi
+   * @since 7 dynamiconly
+   * @deprecated since 8
+   * @useinstead ohos.bundle.bundleManager#getAllApplicationInfo
+   */
+  function getApplicationInfos(bundleFlags: number, userId?: number): Promise<Array<ApplicationInfo>>;
 
   /**
    * 获取指定用户下所有已安装的应用信息，使用callback异步回调。
@@ -894,7 +1142,7 @@ declare namespace bundle {
   /**
    *
    *
-   * @param { number } uid - 
+   * @param { number } uid - Indicates the UID of an application.
    * @param { AsyncCallback<string> } callback
    * @syscap SystemCapability.BundleManager.BundleFramework
    * @since 8 dynamiconly

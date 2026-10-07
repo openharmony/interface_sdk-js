@@ -14,23 +14,23 @@
  */
 
 /**
- * @file
+ * @file ElementName
  * @kit AbilityKit
  */
 
 /**
- * The module provides element name information, which can be obtained through
- * [Context.getElementName]{@link ./../app/context}.
+ * ElementName information, which can be obtained through
+ * [Context.getElementName]{@link ../app/context:Context.getElementName}.
  *
  * > **NOTE**
  * >
- * > The APIs of this module have been deprecated since API version 9. You are advised to use
- * > [bundleManager-ElementName]{@link elementName:ElementName} instead.
+ * > Since API version 9, this module is no longer maintained. You are advised to use
+ * > [bundleManager-ElementName]{@link ElementName} instead.
  *
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @since 7 dynamiconly
  * @deprecated since 9
- * @useinstead elementName:ElementName
+ * @useinstead ElementName
  */
 export interface ElementName {
   /**

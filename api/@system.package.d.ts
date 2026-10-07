@@ -19,7 +19,7 @@
  * > - The APIs of this module have been deprecated since API version 9. You are advised to use 
  * > [@ohos.bundle.bundleManager]{@link @ohos.bundle.bundleManager:bundleManager} instead.
  *
- * @file
+ * @file Bundle Management
  * @kit AbilityKit
  */
 
@@ -27,8 +27,7 @@
  * > **NOTE**
  * >
  * > This API has been supported since API version 3 and deprecated since API version 9.
- *
- * Checks whether a bundle has been installed.
+ * > Checks whether a bundle has been installed.
  *
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @since 3 dynamiconly
@@ -49,8 +48,7 @@ export interface CheckPackageHasInstalledResponse {
  * > **NOTE**
  * >
  * > This API has been supported since API version 3 and deprecated since API version 9.
- *
- * Checks whether a bundle has been installed.
+ * > Defines the options used for checking whether a bundle has been installed.
  *
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @since 3 dynamiconly

@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file ApplicationInfo
  * @kit AbilityKit
  */
 
@@ -23,18 +23,17 @@ import { CustomizeData } from './customizeData';
 
 /**
  * The module provides application information. Unless otherwise specified, the information is obtained through
- * [bundle.getApplicationInfo]{@link ./../@ohos.bundle:bundle.getApplicationInfo(bundleName: string, bundleFlags: number, userId?: number)}
- * .
+ * [bundle.getApplicationInfo]{@link @ohos.bundle:bundle.getApplicationInfo}.
  *
  * > **NOTE**
  * >
  * > The APIs of this module have been deprecated since API version 9. You are advised to use
- * > [bundleManager-ApplicationInfo]{@link applicationInfo:ApplicationInfo} instead.
+ * > [bundleManager-ApplicationInfo]{@link ApplicationInfo} instead.
  *
  * @syscap SystemCapability.BundleManager.BundleFramework
  * @since 7 dynamiconly
  * @deprecated since 9
- * @useinstead applicationInfo:ApplicationInfo
+ * @useinstead ApplicationInfo
  */
 export interface ApplicationInfo {
   /**
@@ -60,7 +59,7 @@ export interface ApplicationInfo {
   readonly description: string;
 
   /**
-   * ID of the application description.
+   * Resource ID of the application description.
    *
    * @default Indicates the description id of the application
    * @syscap SystemCapability.BundleManager.BundleFramework
@@ -104,7 +103,7 @@ export interface ApplicationInfo {
   readonly label: string;
 
   /**
-   * ID of the application label.
+   * Resource ID value of the application label.
    *
    * @default Indicates the label id of the application
    * @syscap SystemCapability.BundleManager.BundleFramework
@@ -126,7 +125,7 @@ export interface ApplicationInfo {
   readonly icon: string;
 
   /**
-   * ID of the application icon.
+   * Resource ID value of the application icon.
    *
    * @default Indicates the icon id of the application
    * @syscap SystemCapability.BundleManager.BundleFramework
@@ -159,8 +158,8 @@ export interface ApplicationInfo {
   readonly supportedModes: number;
 
   /**
-   * Relative paths for storing application resources. Do not access resource files using concatenated paths. Use
-   * [@ohos.resourceManager]{@link ./../@ohos.resourceManager:resourceManager} instead.
+   * Relative path for storing application resources. The path cannot be concatenated to access resource files. Please
+   * use [@ohos.resourceManager (resource management)]{@link @ohos.resourceManager:resourceManager} to access resources.
    *
    * @default Indicates the path storing the module resources of the application
    * @syscap SystemCapability.BundleManager.BundleFramework
@@ -173,8 +172,7 @@ export interface ApplicationInfo {
    * Permissions required for accessing the application.
    *
    * The value is obtained by passing in GET_APPLICATION_INFO_WITH_PERMISSION to
-   * [bundle.getApplicationInfo]{@link ./../@ohos.bundle:bundle.getApplicationInfo(bundleName: string, bundleFlags: number, userId?: number)}
-   * .
+   * [bundle.getApplicationInfo]{@link @ohos.bundle:bundle.getApplicationInfo}.
    *
    * @default Indicates the permissions required for accessing the application.
    * @syscap SystemCapability.BundleManager.BundleFramework
@@ -196,8 +194,8 @@ export interface ApplicationInfo {
   readonly moduleInfos: Array<ModuleInfo>;
 
   /**
-   * Path for storing application files. Do not access resource files using concatenated paths. Use
-   * [@ohos.resourceManager]{@link ./../@ohos.resourceManager:resourceManager} instead.
+   * File storage path of the application. The path cannot be concatenated to access resource files. Please use
+   * [@ohos.resourceManager (resource management)]{@link @ohos.resourceManager:resourceManager} to access resources.
    *
    * @default Indicates the path where the {@code Entry.hap} file of the application is saved
    * @syscap SystemCapability.BundleManager.BundleFramework
@@ -207,8 +205,8 @@ export interface ApplicationInfo {
   readonly entryDir: string;
 
   /**
-   * Installation directory of the application. Do not access resource files using concatenated paths. Use
-   * [@ohos.resourceManager]{@link ./../@ohos.resourceManager:resourceManager} instead.
+   * Installation directory of the application. The path cannot be concatenated to access resource files. Please use
+   * [@ohos.resourceManager (resource management)]{@link @ohos.resourceManager:resourceManager} to access resources.
    *
    * @default Indicates the application source code path
    * @syscap SystemCapability.BundleManager.BundleFramework
@@ -222,8 +220,7 @@ export interface ApplicationInfo {
    * Custom metadata of the application.
    *
    * The value is obtained by passing in GET_APPLICATION_INFO_WITH_METADATA to
-   * [bundle.getApplicationInfo]{@link ./../@ohos.bundle:bundle.getApplicationInfo(bundleName: string, bundleFlags: number, userId?: number)}
-   * .
+   * [bundle.getApplicationInfo]{@link @ohos.bundle:bundle.getApplicationInfo}.
    *
    * @default Indicates the metadata of module
    * @syscap SystemCapability.BundleManager.BundleFramework
